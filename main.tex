@@ -11,6 +11,13 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 
 \begin{document}
 
@@ -28,12 +35,16 @@ There is another theory which states that this has already happened.
 \end{figure}
 
 \newpage
+\tableofcontents
+\setcounter{secnumdepth}{1}
+
+\newpage
 
 \section{Quantum Gravity}
 \subsection{{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}
 The authors use $d-1$ spacial dimension and the sign convention $\eta_{\mu\nu}=diag(-1,1,...,1)$ which implies $\square=\partial^\mu\partial_\mu=-\partial_t^2+\triangle$ and results in a minus sign in the KG equation.
 
-\subsubsection*{Problem 1.1.1 - Fourier representation of free scalar field}
+\subsubsection{Problem 1.1.1 - Fourier representation of free scalar field}
 Ansatz (because KG equation looks quite similar to wave equation) $\phi(x)=a\cdot e^{ikx}$ with $x^\mu=(t,\vec{x})$, $k^\mu=(\omega,\vec{k})$ and $a\in\mathbb{C}$ meaning 
 \begin{align}
     e^{ikx}\equiv e^{ik^{\mu}x_{\mu}}=e^{i\eta_{\mu\nu}k^{\mu}x^{\nu}}=e^{i(-k^0x^0+\vec{k}\vec{x})}
@@ -54,7 +65,7 @@ to ensure a real valued $\phi{x}$ we add the conjugate complex solution
 \end{align}
 The factor $(2\pi)^{1-d}/2\omega_k$ can be absorbed into $a(k)$.
 
-\subsubsection*{Problem 1.1.2 - Lagrangian of self-interacting scalar field}
+\subsubsection{Problem 1.1.2 - Lagrangian of self-interacting scalar field}
 The Lagrangian is then
 \begin{align}
     \mathcal{L}&=\mathcal{L}_\text{free}+\mathcal{L}_\text{int}\\
@@ -83,7 +94,7 @@ The relevant term in the Euler-Lagrange equations is $\partial\mathcal{L}_\text{
     (\square - m^2)\phi(x)-\frac{g}{3!}\phi(x)^3=0
 \end{align}
 
-\subsubsection*{Problem 1.1.3 - Complex scalar field }
+\subsubsection{Problem 1.1.3 - Complex scalar field }
 \begin{align}
     \mathcal{L}_\text{free}&=-\partial_\mu\phi^*\partial^\mu\phi-m^2\phi^*\phi\\
     &=-\eta^{\mu\nu}\partial_\mu\phi^*\partial_\nu\phi-m^2\phi^*\phi\\
@@ -115,7 +126,7 @@ and
     (\square-m^2)\phi^*=0
 \end{align}
 
-\subsubsection*{Problem 1.2.1 - Time-independence of Noether charge}
+\subsubsection{Problem 1.2.1 - Time-independence of Noether charge}
 The conserved current is
 \begin{align}
     \partial_\mu\mathcal{J}^\mu\equiv-\partial_0\mathcal{J}^0+\partial_i\mathcal{J}^i=0.
@@ -129,7 +140,7 @@ Spacial integration using Gauss law on the right hand side gives
 \end{align}
 where we used that $\mathcal{J}^i$ is vanishing at infinity.
 
-\subsubsection*{Problem 1.2.2 - Hamiltonian of scalar field}
+\subsubsection{Problem 1.2.2 - Hamiltonian of scalar field}
 The Lagrangian of the real free scalar field is given by 
 \begin{align}
     \mathcal{L}=-\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi(x)\partial_\nu\phi(x)-\frac{1}{2}m^2\phi(x)^2.
@@ -154,7 +165,7 @@ and therefore
     &=\frac{1}{2}\Pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi(x)^2
 \end{align}
 
-\subsubsection*{Problem 1.2.3 - Symmetric energy-momentum tensor}
+\subsubsection{Problem 1.2.3 - Symmetric energy-momentum tensor}
 The Lorentz transformation
 \begin{align}
     \Lambda^\mu_{\;\nu}=\delta^\mu_{\;\nu}+\omega^\mu_{\;\nu}
@@ -201,7 +212,7 @@ With $\partial_\mu\Theta^\mu_{\;\nu}=0$ and $\partial_\mu N^{\mu\nu\rho}=0$ we s
 which means that the (canonical) energy-momentum tensor for Poincare invariant field theories is symmetric $\Theta^{\nu\rho} = \Theta^{\rho\nu}$.
 
 
-\subsubsection*{Problem 1.2.4 - Properties of Callan-Coleman-Jackiw energy-momentum tensor}
+\subsubsection{Problem 1.2.4 - Callan-Coleman-Jackiw energy-momentum tensor}
 For the scalar field we have with $\mathcal{L}=-\frac{1}{2}\eta^{\alpha\beta}\partial_\alpha\phi\partial_\beta\phi-\frac{1}{2}m^2\phi^2$
 \begin{align}
     \Theta^\mu_{\;\nu}&=-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi+(\delta^\mu_{\;\nu}\mathcal{L})\\
@@ -263,7 +274,7 @@ we obtain the the two fields
     &=i\alpha\left[\phi^*(\partial^\sigma\phi)-\phi(\partial^\sigma\phi^*)\right]
 \end{align}
 
-\subsubsection*{Problem 1.2.6 - O(N) invariance of action of $n$ free scalar fields}
+\subsubsection{Problem 1.2.6 - \texorpdfstring{$O(n)$}{Lg} invariance of action of \texorpdfstring{$n$}{Lg} free scalar fields}
 For the $n$ real scalar fields with equal mass $m$ we have
 \begin{align}
     \mathcal{L}=-\frac{1}{2}\sum_{j=1}^n\left[\eta^{\alpha\beta}(\partial_\alpha\phi_j)(\partial_\beta\phi^j)+m^2(\phi^j)^2\right]
@@ -289,28 +300,31 @@ we require $R_{ib}R^i_{\;a}=\delta_{ba}$. Then we can recalculate the action
 \end{align}
 \textcolor{red}{Analog for the complex case.}
 
-\subsubsection*{Problem 1.3.1 - Field commutators of scalar field}
+\subsubsection{Problem 1.3.1 - Field commutators of scalar field}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.2 - Lorentz invariant integration measure}
+\subsubsection{Problem 1.3.2 - Lorentz invariant integration measure}
+\begin{align}
+    \int\frac{d^{d-1}\vec{k}}{2\omega_k}
+\end{align}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.3 - Retarded Green function}
+\subsubsection{Problem 1.3.3 - Retarded Green function}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.4 - Feynman rules of $\phi^4$ theory}
+\subsubsection{Problem 1.3.4 - Feynman rules of \texorpdfstring{$\phi^4$}{Lg} theory}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.5 - Convergence of perturbative expansion}
+\subsubsection{Problem 1.3.5 - Convergence of perturbative expansion}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.6}
+\subsubsection{Problem 1.3.6}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.7}
+\subsubsection{Problem 1.3.7}
 \textcolor{red}{Not done yet}
 
-\subsubsection*{Problem 1.3.8}
+\subsubsection{Problem 1.3.8}
 \textcolor{red}{Not done yet}
 
 \end{document}
