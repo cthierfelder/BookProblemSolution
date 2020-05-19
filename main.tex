@@ -304,10 +304,20 @@ we require $R_{ib}R^i_{\;a}=\delta_{ba}$. Then we can recalculate the action
 \textcolor{red}{Not done yet}
 
 \subsubsection{Problem 1.3.2 - Lorentz invariant integration measure}
+We use the property of the $\delta$-function $\delta(f(x))=\sum_i\frac{\delta(x-a_i)}{]f'(a_i)|}$ where ${a_i}$ are the zeros of $f(x)$ and $\omega_k=\sqrt{\vec{k}^2+m^2}$. With $\int d^dk$ being manifestly Lorentz invariant 
 \begin{align}
-    \int\frac{d^{d-1}\vec{k}}{2\omega_k}
+    dk'^\mu = \Lambda^\mu_\nu dk^\nu\quad\rightarrow\quad \frac{dk'^\mu}{dk^\nu}=\Lambda^\mu_\nu\quad\rightarrow\quad\int d^d k'=|\text{det}(\Lambda^\mu_\nu)|\int d^dk=\int d^dk
 \end{align}
-\textcolor{red}{Not done yet}
+$\delta^d[k^2+m^2]$ being invariant and with $k^0=\sqrt{\vec{k}^2+m^2}$ we see that $k$ is inside the forward light cone and remains there under orthochrone transformation ($\Theta(k^0)$ is invariant for relevant $k$) we are convinced that the starting expression is Lorentz invariant
+\begin{align}
+    \int d^{d}\vec{k} \delta^d[k^2+m^2]\Theta(k^0) &=\int d^{d-1}\vec{k}\int dk^0\delta^d[k^2+m^2]\Theta(k^0)\\
+    &=\int d^{d-1}\vec{k}\int dk^0\delta^d[-(k^0)^2+\vec{k}^2+m^2]\Theta(k^0)\\
+    &=\int d^{d-1}\vec{k}\int dk^0\delta^d[\omega_k^2-(k^0)^2]\Theta(k^0)\\
+    &=\int d^{d-1}\vec{k}\int dk^0\left( \frac{\delta(k^0-\omega_k)}{2\omega_k}+\frac{\delta(k^0+\omega_k)}{2\omega_k} \right)\Theta(k^0)\\
+    &=\int \frac{d^{d-1}\vec{k}}{2\omega_k}\int dk^0\delta(k^0-\omega_k)\\
+    &=\int\frac{d^{d-1}\vec{k}}{2\omega_k}.
+\end{align}
+As we started with a Lorentz invariant expression the derived measure is also invariant.
 
 \subsubsection{Problem 1.3.3 - Retarded Green function}
 \textcolor{red}{Not done yet}
