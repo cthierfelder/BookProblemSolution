@@ -1,0 +1,289 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Book of Solutions}
+\author{C Thierfelder}
+\date{May 2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+There is a theory which states that if ever anyone discovers exactly what the Universe is for and why it is here, it will instantly disappear and be replaced by something even more bizarre and inexplicable.
+There is another theory which states that this has already happened.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1.7]{universe}
+\caption{The Universe}
+\label{fig:universe}
+\end{figure}
+
+\newpage
+
+\section{Quantum Gravity}
+\subsection{{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}
+The authors use $d-1$ spacial dimension and the sign convention $\eta_{\mu\nu}=diag(-1,1,...,1)$ which implies $\square=\partial^\mu\partial_\mu=-\partial_t^2+\triangle$ and results in a minus sign in the KG equation.
+\subsubsection*{Problem 1.1.1 }
+Ansatz (because KG equation looks quite similar to wave equation) $\phi(x)=a\cdot e^{ikx}$ with $x^\mu=(t,\vec{x})$, $k^\mu=(\omega,\vec{k})$ and $a\in\mathbb{C}$ meaning 
+\begin{align}
+    e^{ikx}\equiv e^{ik^{\mu}x_{\mu}}=e^{i\eta_{\mu\nu}k^{\mu}x^{\nu}}=e^{i(-k^0x^0+\vec{k}\vec{x})}
+\end{align}
+Inserting into the equation of motion
+\begin{align}
+    (\square - m^2)\phi(x)&=(\partial^t\partial_t + \triangle - m^2)\phi(x)\\
+    &=a(-\partial_t^2 + \triangle - m^2)e^{i(-\omega t+\vec{k}\vec{x})}\\
+    &=a\left(\omega^2 + i^2\vec{k}^2 - m^2\right)e^{i(-\omega t+\vec{k}\vec{x})}=0 
+\end{align}
+This implies $\omega^2-\vec{k}^2-m^2=0$ and therefore $\omega_k\equiv\omega=\sqrt{\vec{k}^2+m^2}$. One particular solution is therefore $\phi(x)=a\cdot e^{ikx}|_{k^0=\omega_k}$. The general solution is then given by a superposition
+\begin{align}
+    \phi(x)=\int d^{d-1}\vec{k}\left[a(\vec{k})e^{ikx}\right]
+\end{align}
+to ensure a real valued $\phi{x}$ we add the conjugate complex solution
+\begin{align}
+    \phi(x)=\int d^{d-1}\vec{k}\left[a(\vec{k})e^{ikx} + a^*(\vec{k})e^{-ikx}\right].
+\end{align}
+The factor $(2\pi)^{1-d}/2\omega_k$ can be absorbed into $a(k)$.
+
+\subsubsection*{Problem 1.1.2 }
+The Lagrangian is then
+\begin{align}
+    \mathcal{L}&=\mathcal{L}_\text{free}+\mathcal{L}_\text{int}\\
+                &=-\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi(x)\partial_\nu\phi(x)-\frac{1}{2}m^2\phi(x)^2-\frac{g}{4!}\phi(x)^4.
+\end{align}
+with the Euler-Lagrange equations
+\begin{align}
+    \partial_\alpha\left(\frac{\partial\mathcal{L}}{\partial(\partial_\alpha\phi)}\right)-\frac{\partial\mathcal{L}}{\partial\phi}=0.
+\end{align}
+Therefore
+\begin{align}
+    \partial_\alpha\left(\frac{\partial\mathcal{L}}{\partial(\partial_\alpha\phi)}\right)
+    &=\partial_\alpha\left(-\frac{1}{2}\eta^{\mu\nu}[\delta_{\mu\alpha}\partial_\nu\phi+\partial_\mu\phi\delta_{\nu\alpha}]\right)\\
+    &=\partial_\alpha\left(-\frac{1}{2}\eta^{\alpha\nu}\partial_\nu\phi-\frac{1}{2}\eta^{\mu\alpha}\partial_\mu\phi\right)\\
+    &=-\partial_\alpha\left(\eta^{\alpha\beta}\partial_\beta\phi\right)\\
+    &=-\partial^\beta\partial_\beta\phi\\
+    &=-\square\phi
+\end{align}
+and
+\begin{align}
+    \frac{\partial\mathcal{L}}{\partial\phi} = -m^2\phi-\frac{g}{3!}\phi^3.
+\end{align}
+
+The relevant term in the Euler-Lagrange equations is $\partial\mathcal{L}_\text{int}/\partial\phi=-g\phi^3/3!$. The modified equation of motion is therefore
+\begin{align}
+    (\square - m^2)\phi(x)-\frac{g}{3!}\phi(x)^3=0
+\end{align}
+
+\subsubsection*{Problem 1.1.3 }
+\begin{align}
+    \mathcal{L}_\text{free}&=-\partial_\mu\phi^*\partial^\mu\phi-m^2\phi^*\phi\\
+    &=-\eta^{\mu\nu}\partial_\mu\phi^*\partial_\nu\phi-m^2\phi^*\phi\\
+    &=-\frac{1}{2}\eta^{\mu\nu}\partial_\mu(\phi_1-i\phi_2)\partial_\nu(\phi_1+i\phi_2)-\frac{1}{2}m^2(\phi_1^2+\phi_2^2)\\
+    &=-\frac{1}{2}\eta^{\mu\nu}\left(
+    \partial_\mu\phi_1\partial_\nu\phi_1
+    +i\partial_\mu\phi_1\partial_\nu\phi_2
+    -i\partial_\mu\phi_2\partial_\nu\phi_1
+    +\partial_\mu\phi_2\partial_\nu\phi_2
+    \right)-\frac{1}{2}m^2(\phi_1^2+\phi_2^2)\\
+    &=-\frac{1}{2}\eta^{\mu\nu}\left(\partial_\mu\phi_1\partial_\nu\phi_1+\partial_\mu\phi_2\partial_\nu\phi_2\right)-\frac{1}{2}m^2(\phi_1^2+\phi_2^2)\\
+    &=-\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi_1\partial_\nu\phi_1-\frac{1}{2}m^2\phi_1^2
+    -\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi_2\partial_\nu\phi_2-\frac{1}{2}m^2\phi_2^2\\
+    &=\mathcal{L}_\text{free1}+\mathcal{L}_\text{free2}
+\end{align}
+
+Equations of motion for $\phi$ and $\phi^*$ are given by
+\begin{align}
+    \partial_\alpha\left(\frac{\partial\mathcal{L}}{\partial(\partial_\alpha\phi^*)}\right)-\frac{\partial\mathcal{L}}{\partial\phi^*}=0\\
+    %
+    -\partial_\mu\partial^\mu\phi+m^2\phi=0\\
+    (\square-m^2)\phi=0
+\end{align}
+and
+\begin{align}
+    \partial_\alpha\left(\frac{\partial\mathcal{L}}{\partial(\partial_\alpha\phi^*)}\right)-\frac{\partial\mathcal{L}}{\partial\phi}=0\\
+    %
+    -\partial_\mu\partial^\mu\phi+m^2\phi^*=0\\
+    (\square-m^2)\phi^*=0
+\end{align}
+
+\subsubsection*{Problem 1.2.1}
+The conserved current is
+\begin{align}
+    \partial_\mu\mathcal{J}^\mu\equiv-\partial_0\mathcal{J}^0+\partial_i\mathcal{J}^i=0.
+\end{align}
+Spacial integration using Gauss law on the right hand side gives
+\begin{align}
+    \int_{\mathbb{R}^{d-1}} d^{d-1}\vec{x}\;\partial_0\mathcal{J}^0&=\int_{\mathbb{R}^{d-1}} d^{d-1}\vec{x}\;\partial_i\mathcal{J}^i\\
+    %
+    \partial_0\int_{\mathbb{R}^{d-1}} d^{d-1}\vec{x}\;\mathcal{J}^0&=\int_{\partial\mathbb{R}^{d-1}} dS\;\mathcal{J}^i\\
+    \partial_0\mathcal{Q}&=0
+\end{align}
+where we used that $\mathcal{J}^i$ is vanishing at infinity.
+
+\subsubsection*{Problem 1.2.2}
+The Lagrangian of the real free scalar field is given by 
+\begin{align}
+    \mathcal{L}=-\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi(x)\partial_\nu\phi(x)-\frac{1}{2}m^2\phi(x)^2.
+\end{align}
+The canonical momentum is therefore
+\begin{align}
+    \Pi &= \frac{\partial\mathcal{L}}{\partial(\partial_t\phi)}\\
+    &=-\frac{1}{2}2\eta^{ti}\partial_i\phi -\frac{1}{2}2\eta^{tt}\partial_t\phi\\
+    &=\partial_t\phi.
+\end{align}
+Using $\eta_{\mu\nu}=diag(-1,1,...,1)$ the Hamiltonian $\mathcal{H}=\Theta^{tt}=\eta^{t\nu}\Theta^t_{\;\nu}=-\Theta^t_{\;t}$ is 
+\begin{align}
+    \Theta^t_{\;t}
+    &=-\frac{\partial\mathcal{L}}{\partial(\partial_t\phi)}\partial_t\phi+\mathcal{L}\\
+    &=-\Pi\cdot\partial_t\phi+\mathcal{L}
+\end{align}
+and therefore
+\begin{align}
+    \mathcal{H}&=\Pi\partial_t\phi-\mathcal{L}\\
+    &=\Pi^2-\left(-\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi(x)\partial_\nu\phi(x)-\frac{1}{2}m^2\phi(x)^2\right)\\
+    &=\Pi^2-\left(\frac{1}{2}(\partial_t\phi)^2-\frac{1}{2}(\nabla\phi)^2-\frac{1}{2}m^2\phi(x)^2\right)\\
+    &=\frac{1}{2}\Pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi(x)^2
+\end{align}
+
+\subsubsection*{Problem 1.2.3}
+The Lorenz transformation
+\begin{align}
+    \Lambda^\mu_{\;\nu}=\delta^\mu_{\;\nu}+\omega^\mu_{\;\nu}
+\end{align}
+implies the field transformation
+\begin{align}
+    \phi(x^\mu)\rightarrow\tilde\phi(x^\mu)&=\phi(x^\mu-\omega^\mu_{\;\rho}x^\rho)\\
+    &=\phi(x^\mu)-\omega^\mu_{\;\rho}x^\rho\partial_\mu\phi
+\end{align}
+under which the Lagrangian transforms as
+\begin{align}
+    \mathcal{L}\rightarrow\tilde{\mathcal{L}}&=\mathcal{L}+\frac{\partial\mathcal{L}}{\partial x^\mu}dx^\mu\\
+    &=\mathcal{L}-\omega^\nu_{\;\rho}x^\rho\partial_\mu(\delta^\mu_{\;\nu}\mathcal{L})\\
+    &=\mathcal{L}+\partial_\mu(\omega^\nu_{\;\rho}x^\rho)\cdot(\delta^\mu_{\;\nu}\mathcal{L})-\partial_\mu(\omega^\nu_{\;\rho}x^\rho\delta^\mu_{\;\nu}\mathcal{L})\\
+    &=\mathcal{L}+\omega^\nu_{\;\rho}\delta^\rho_\mu\cdot(\delta^\mu_{\;\nu}\mathcal{L})-\partial_\mu(\omega^\nu_{\;\rho}x^\rho\delta^\mu_{\;\nu}\mathcal{L})\\
+    &=\mathcal{L}+\omega^\rho_{\;\rho}\mathcal{L}-\partial_\mu(\omega^\nu_{\;\rho}x^\rho\delta^\mu_{\;\nu}\mathcal{L})\\
+    &=\mathcal{L}-\partial_\mu(\omega^\nu_{\;\rho}x^\rho\delta^\mu_{\;\nu}\mathcal{L})
+\end{align}
+where we used $\omega_{\mu\nu}=-\omega_{\nu\mu}$ meaning
+\begin{align}
+    \omega^\rho_{\;\rho}&=\eta^{\alpha\rho}\omega_{\alpha\rho}\\
+    &=\sum_\rho\eta^{0\rho}\omega_{0\rho}+\eta^{1\rho}\omega_{1\rho}+\eta^{2\rho}\omega_{2\rho}+\eta^{3\rho}\omega_{3\rho}\\
+    &=0
+\end{align}    
+in the last step (as $\eta$ has only diagonal elements and the diagonal elements of $\omega$ are zero). With $\delta\phi=-\omega^\mu_{\;\rho}x^\rho\partial_\mu\phi$ and $X^\mu=-\omega^\nu_{\;\rho}x^\rho\delta^\mu_{\;\nu}\mathcal{L}$ we obtain for the conserved current  
+\begin{align}
+    \mathcal{J}^\mu&=-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi+X^\mu\\
+    &=-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}(-\omega^\nu_{\;\rho}x^\rho\partial_\nu\phi)+(-\omega^\nu_{\;\rho}x^\rho\delta^\mu_{\;\nu}\mathcal{L})\\
+    &=(-\omega^\nu_{\;\rho}x^\rho)\left(-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi+(\delta^\mu_{\;\nu}\mathcal{L})\right)\\
+    &=(-\omega^\nu_{\;\rho}x^\rho)\Theta^\mu_{\;\nu}\\
+    &=(-\eta^{\nu\alpha}\omega_{\alpha\rho}x^\rho)\Theta^\mu_{\;\nu}\\
+    &=-\omega_{\alpha\rho}x^\rho\Theta^{\mu\alpha}\\
+    &=-\frac{1}{2}\omega_{\alpha\rho}(x^\rho\Theta^{\mu\alpha}-x^\alpha\Theta^{\mu\rho})\\
+    &=-\frac{1}{2}\omega_{\alpha\rho}N^{\mu\rho\alpha}
+\end{align}
+With $\partial_\mu\Theta^\mu_{\;\nu}=0$ and $\partial_\mu N^{\mu\nu\rho}=0$ we see
+\begin{align}
+    0&=\partial_\mu N^{\mu\nu\rho}\\
+    &= \partial_\mu\left( x^\nu\Theta^{\mu\rho}-x^\rho\Theta^{\mu\nu}\right)\\
+    &= (\partial_\mu x^\nu) \Theta^{\mu\rho}+  x^\nu (\partial_\mu \Theta^{\mu\rho}) -(\partial_\mu x^\rho)\Theta^{\mu\nu} - x^\rho (\partial_\mu\Theta^{\mu\nu})\\
+    &= \delta_\mu^\nu \Theta^{\mu\rho}+  x^\nu (\partial_\mu \Theta^{\mu\rho}) -\delta_\mu^\rho\Theta^{\mu\nu} - x^\rho (\partial_\mu\Theta^{\mu\nu})\\
+    &= \Theta^{\nu\rho} - \Theta^{\rho\nu}.
+\end{align}
+which means that the (canonical) energy-momentum tensor for Poincare invariant field theories is symmetric $\Theta^{\nu\rho} = \Theta^{\rho\nu}$.
+
+
+\subsubsection*{Problem 1.2.4}
+For the scalar field we have with $\mathcal{L}=-\frac{1}{2}\eta^{\alpha\beta}\partial_\alpha\phi\partial_\beta\phi-\frac{1}{2}m^2\phi^2$
+\begin{align}
+    \Theta^\mu_{\;\nu}&=-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\nu\phi+(\delta^\mu_{\;\nu}\mathcal{L})\\
+    &=-\left(-\frac{1}{2}\eta^{\alpha\beta}\delta^\mu_{\alpha}\partial_\beta\phi-\frac{1}{2}\eta^{\alpha\beta}\partial_\alpha\phi\delta^\mu_{\beta}\right)\partial_\nu\phi +\delta^\mu_{\;\nu}\left(-\frac{1}{2}\eta^{\alpha\beta}\partial_\alpha\phi\partial_\beta\phi-\frac{1}{2}m^2\phi^2\right)\\
+    &=\partial^\mu\phi\partial_\nu\phi -\frac{1}{2}\delta^\mu_{\;\nu}(\partial^\beta\phi\partial_\beta\phi+m^2\phi^2)
+\end{align}
+which gives in the massless case
+\begin{align}
+    \Theta^\mu_{\;\nu\text{, massless}}&=\partial^\mu\phi\partial_\nu\phi -\frac{1}{2}\delta^\mu_{\;\nu}\partial^\beta\phi\partial_\beta\phi\\
+    \Theta_{\mu\nu\text{, massless}}&=\partial_\mu\phi\partial_\nu\phi -\frac{1}{2}\eta_{\mu\nu}\partial^\beta\phi\partial_\beta\phi
+\end{align}
+
+The new improved or Callan–Coleman–Jackiw energy-momentum tensor for a single, real, massless scalar field in $d$-dimensional Minkowski space is obtained by adding a term proportional to $(\partial_\mu\partial_\nu-\eta_{\mu\nu}\square)\phi^2$ where the proportionality constant is chosen to make the tensor traceless
+\begin{align}
+    T_{\mu\nu}=\partial_\mu\phi\partial_\nu\phi-\frac{1}{2}\eta_{\mu\nu}\partial_\rho\phi\partial^\rho\phi-\frac{d-2}{4(d-1)}\left(\partial_\mu\partial_\nu-\eta_{\mu\nu}\square\right)\phi^2
+\end{align}
+Let us now check the properties
+\begin{enumerate}
+    \item symmetric: obvious
+    \item conserved: we use the equation of motion $\partial^\mu\partial_\mu\phi=\square\phi=0$
+    \begin{align}
+        \partial_\mu T^{\mu\nu}&=(\partial_\mu\partial^\mu\phi)\partial^\nu\phi+\partial^\mu\phi(\partial_\mu\partial^\nu\phi)\\
+        &\quad-\frac{1}{2}\eta^{\mu\nu}\left[(\partial_\mu\partial_\rho\phi)\partial^\rho\phi + \partial_\rho\phi(\partial_\mu\partial^\rho\phi)\right]\\
+        &\quad-\frac{d-2}{4(d-1)}\square\partial^\nu\phi^2+\frac{d-2}{4(d-1)}\eta^{\mu\nu}\partial_\mu\square\phi^2\\
+        &=\partial^\mu\phi(\partial_\mu\partial^\nu\phi)-\frac{1}{2}\left[(\partial^\nu\partial_\rho\phi)\partial^\rho\phi + \partial_\rho\phi(\partial^\nu\partial^\rho\phi)\right]\\
+        &=0
+    \end{align}
+    \item traceless: 
+    \begin{align}
+    T^\mu_{\;\mu}&=\partial^\mu\phi\partial_\mu\phi-\frac{1}{2}\eta^\mu_{\;\mu}\partial_\rho\phi\partial^\rho\phi-\frac{d-2}{4(d-1)}\left(\partial^\mu\partial_\mu-\eta^\mu_{\;\mu}\square\right)\phi^2\\
+    &=\partial^\mu\phi\partial_\mu\phi-\frac{d}{2}\partial_\rho\phi\partial^\rho\phi-\frac{d-2}{4(d-1)}\left(\partial^\mu\partial_\mu-d\cdot\partial^\mu\partial_\mu\right)\phi^2\\
+    &=\frac{2-d}{2}\partial_\rho\phi\partial^\rho\phi-\frac{d-2}{4(d-1)}(1-d)\partial^\mu\partial_\mu\phi^2\\
+    &=\frac{2-d}{2}\partial_\rho\phi\partial^\rho\phi+\frac{d-2}{4}\partial^\mu\partial_\mu\phi^2\\
+    &=\frac{2-d}{2}\partial_\rho\phi\partial^\rho\phi+\frac{d-2}{4}\partial^\mu(2\phi\partial_\mu\phi)\\
+    &=\frac{2-d}{2}[\partial_\rho\phi\partial^\rho\phi-\partial^\mu\phi\partial_\mu\phi]+\frac{d-2}{2}\phi\cdot\square\phi\\
+    &=0.
+\end{align}
+\end{enumerate}
+
+\subsubsection*{Problem 1.2.5}
+\begin{align}
+    \mathcal{L}_\text{free}&=-\partial^\mu\phi^*\partial_\mu\phi-m^2\phi^*\phi\\
+    &=-\eta^{\mu\nu}\partial_\nu\phi^*\partial_\nu\phi-m^2\phi^*\phi
+\end{align}
+with the field transformations
+\begin{align}
+    \phi\rightarrow\phi'&=e^{i\alpha}\phi=\phi+i\alpha\phi\\
+    \phi^*\rightarrow\phi^{*'}&=e^{-i\alpha}\phi^*=\phi^*-i\alpha\phi^*\\
+    \mathcal{L}\rightarrow\mathcal{L}'&=\mathcal{L}
+\end{align}
+we have $\delta\phi=i\alpha\phi$ and $\delta\phi^*=-i\alpha\phi^*$ and $X^\mu=0$. With 
+\begin{align}
+    \mathcal{J}^\sigma&=-\frac{\partial\mathcal{L}}{\partial(\partial_\sigma\phi)}\delta\phi+X^\sigma
+\end{align}
+we obtain the the two fields
+\begin{align}    
+    \mathcal{J}^\sigma&=-\frac{\partial\mathcal{L}}{\partial(\partial_\sigma\phi)}\delta\phi-\frac{\partial\mathcal{L}}{\partial(\partial_\sigma\phi^*)}\delta\phi^*\\
+    &=-(\eta^{\sigma\nu}\partial_\nu\phi^*)i\alpha\phi+(\eta^{\sigma\nu}\partial_\nu\phi)i\alpha\phi^*\\
+    &=i\alpha\left[\phi^*(\partial^\sigma\phi)-\phi(\partial^\sigma\phi^*)\right]
+\end{align}
+
+\subsubsection*{Problem 1.2.6}
+For the $n$ real scalar fields with equal mass $m$ we have
+\begin{align}
+    \mathcal{L}=-\frac{1}{2}\sum_{j=1}^n\left[\eta^{\alpha\beta}\partial_\alpha\phi^j\partial_\beta\phi^j+m^2(\phi^j)^2\right]
+\end{align}
+the action functional is then
+\begin{align}
+    S&=\int d^dx\mathcal{L}\\
+    &=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}\partial_\alpha\phi^j\partial_\beta\phi^j+m^2(\phi^j)^2\right]
+\end{align}
+and with $\phi'^{j}=R^j_{\;k}\phi^k$
+\begin{align}
+    S'&=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}\partial_\alpha R^j_{\;a}\phi^a\partial_\beta R^j_{\;b}\phi^b+m^2(R^j_{\;a}\phi^a\cdot R^j_{\;b}\phi^b)\right]
+\end{align}
+\textcolor{red}{Not done yet}
+
+\subsubsection*{Problem 1.3.1}
+\subsubsection*{Problem 1.3.2}
+\subsubsection*{Problem 1.3.3}
+\subsubsection*{Problem 1.3.4}
+\subsubsection*{Problem 1.3.5}
+\subsubsection*{Problem 1.3.6}
+\subsubsection*{Problem 1.3.7}
+\subsubsection*{Problem 1.3.8}
+
+\end{document}
