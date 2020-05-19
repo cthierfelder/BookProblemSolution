@@ -11,6 +11,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+
 \begin{document}
 
 \maketitle
@@ -264,20 +265,31 @@ we obtain the the two fields
 \subsubsection*{Problem 1.2.6}
 For the $n$ real scalar fields with equal mass $m$ we have
 \begin{align}
-    \mathcal{L}=-\frac{1}{2}\sum_{j=1}^n\left[\eta^{\alpha\beta}\partial_\alpha\phi^j\partial_\beta\phi^j+m^2(\phi^j)^2\right]
+    \mathcal{L}=-\frac{1}{2}\sum_{j=1}^n\left[\eta^{\alpha\beta}(\partial_\alpha\phi_j)(\partial_\beta\phi^j)+m^2(\phi^j)^2\right]
 \end{align}
 the action functional is then
 \begin{align}
     S&=\int d^dx\mathcal{L}\\
-    &=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}\partial_\alpha\phi^j\partial_\beta\phi^j+m^2(\phi^j)^2\right]
+    &=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}(\partial_\alpha\phi_j)(\partial_\beta\phi^j)+m^2(\phi_j\phi^j)\right]
 \end{align}
-and with $\phi'^{j}=R^j_{\;k}\phi^k$
+With $\phi'^{j}=R^j_{\;k}\phi^k$ and the definition of an orthogonal matrix $R$ (inner product is invariant under rotation)
 \begin{align}
-    S'&=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}\partial_\alpha R^j_{\;a}\phi^a\partial_\beta R^j_{\;b}\phi^b+m^2(R^j_{\;a}\phi^a\cdot R^j_{\;b}\phi^b)\right]
+    x^ix_i&=x^i\delta_{ij}x^j\\
+    &\stackrel{!}{=}R^i_{\;a}x^a\delta_{ij}R^j_{\;b}x^b\\
+    &=\delta_{ij}R^j_{\;b}R^i_{\;a}x^ax^b\\
+    &=R_{ib}R^i_{\;a}x^ax^b
 \end{align}
-\textcolor{red}{Not done yet}
+we require $R_{ib}R^i_{\;a}=\delta_{ba}$. Then we can recalculate the action
+\begin{align}
+    S'&=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}(\partial_\alpha R_{ja}\phi^a)(\partial_\beta R^j_{\;b}\phi^b)+m^2(R_{ja}\phi^a\cdot R^j_{\;b}\phi^b)\right]\\
+    &=-\frac{1}{2}\sum_{j=1}^n\int d^dx\left[\eta^{\alpha\beta}R_{ja}R^j_{\;b}(\partial_\alpha \phi^a)(\partial_\beta \phi^b)+m^2R_{ja}R^j_{\;b}(\phi^a\cdot \phi^b)\right]\\
+    &=-\frac{1}{2}\sum_{b=1}^n\int d^dx\left[\eta^{\alpha\beta}\delta_{ab}(\partial_\alpha \phi^a)(\partial_\beta \phi^b)+m^2\delta_{ab}(\phi^a\cdot \phi^b)\right]\\
+    &=-\frac{1}{2}\sum_{b=1}^n\int d^dx\left[\eta^{\alpha\beta}(\partial_\alpha \phi_b)(\partial_\beta \phi^b)+m^2(\phi_b\cdot \phi^b)\right]   
+\end{align}
+\textcolor{red}{Analog for the complex case.}
 
 \subsubsection*{Problem 1.3.1}
+\textcolor{red}{Not done yet}
 \subsubsection*{Problem 1.3.2}
 \subsubsection*{Problem 1.3.3}
 \subsubsection*{Problem 1.3.4}
