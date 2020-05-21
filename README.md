@@ -6,14 +6,21 @@ Books in scope
 
 + Srednicki - Quantum Field Theory
 + Schwartz - Quantum Field Theory and the Standard Model
++ Kachelriess - Quantum Fields - From the Hubble to the Planck Scale
++ Banks - Modern Quantum Field Theory - A Concise Introduction
 + Woit - Quantum Theory, Groups and Representations
 + Ammon, Erdmenger - Gauge/Gravity Duality - Foundations and Applications
 + Stephani - Relativity - An introduction to Special and General Relativity
 + Wald - General Relativity
 + Weinberg - Cosmology
++ Weinberg - Lectures on Astrophysics
 + Baez - Muniain - Gauge, Fields, Knots and Gravity
 + Zwiebach - A Frist course in string theory
++ Freedman, Van Poeyen - Supergravity (very limited number of problems solved yet)
++ Dine - Sypersymmetry and String Theory
 + Becker, Becker, Schwarz - String theory and M-theory
++ Nastase - Classical Field Theory (look interesting but not started to really look at the book yet)
 + Schwinger - Classical Electridynamics
 + Schwinger - Quantum Mechanics - Symbolism of Atomic Measurements
++ Weinberg - Lectures on Quantum Mechanics (only solutions for last chapters)
 + Thorne, Blandford - Modern Classical Physics (larger number of problems still not done)
