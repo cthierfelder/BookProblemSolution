@@ -1,4 +1,4 @@
-# BookProblemSolution
+# The joy of solving little problems
 
 a small project to TeX my old (... from another life) solution to some theoretical physics textbook problems.
 
