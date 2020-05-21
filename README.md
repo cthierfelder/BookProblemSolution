@@ -6,6 +6,7 @@ Books in scope
 
 + Srednicki - Quantum Field Theory
 + Schwartz - Quantum Field Theory and the Standard Model
++ Woit - Quantum Theory, Groups and Representations
 + Ammon, Erdmenger - Gauge/Gravity Duality - Foundations and Applications
 + Stephani - Relativity - An introduction to Special and General Relativity
 + Wald - General Relativity
@@ -15,4 +16,4 @@ Books in scope
 + Becker, Becker, Schwarz - String theory and M-theory
 + Schwinger - Classical Electridynamics
 + Schwinger - Quantum Mechanics - Symbolism of Atomic Measurements
-+ Thorne, Blandford - Modern classical physics (larger number of problems still not done)
++ Thorne, Blandford - Modern Classical Physics (larger number of problems still not done)
