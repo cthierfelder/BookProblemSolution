@@ -22,7 +22,7 @@ Books in scope
 + Becker, Becker, Schwarz - String theory and M-theory
 + Hamilton - Mathematical Gauge Theory With Applications to the Standard Model of Particle Physics
 + Nastase - Classical Field Theory (look interesting but not started to really look at the book yet)
-+ Schwinger - Classical Electridynamics
++ Schwinger - Classical Electridynamics (should be with FSU stuff)
 + Schwinger - Quantum Mechanics - Symbolism of Atomic Measurements
 + Weinberg - Lectures on Quantum Mechanics (only solutions for last chapters)
 + Nielsen, Chuang - Quantum Computation and Quantum Information (look in PB boxes)
