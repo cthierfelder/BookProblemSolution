@@ -20,6 +20,7 @@ Books in scope
 + Freedman, Van Poeyen - Supergravity (very limited number of problems solved yet)
 + Dine - Sypersymmetry and String Theory
 + Becker, Becker, Schwarz - String theory and M-theory
++ Polchinski - String Theory (maybe 20% of the potentially easier problems done)
 + Hamilton - Mathematical Gauge Theory With Applications to the Standard Model of Particle Physics
 + Nastase - Classical Field Theory (look interesting but not started to really look at the book yet)
 + Le Bellac - Equilibrium and Non-Equilibrium Statistical Thermodynamics
