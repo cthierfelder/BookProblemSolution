@@ -9,13 +9,22 @@
 \date{May 2020}
 
 \usepackage{natbib}
-\usepackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
+
+%MATH
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+%PAGELAYOUT
 \usepackage{a4wide}
 
+%GRAPHICS
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{plotmarks}
+
+%HYPERLINKS
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -23,6 +32,8 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
+
+
 
 \begin{document}
 
@@ -41,9 +52,15 @@ There is another theory which states that this has already happened.
 
 \newpage
 \tableofcontents
-\setcounter{secnumdepth}{1}
+
+%SECTION_NUMBERING
+\setcounter{secnumdepth}{2}
 
 \newpage
+
+\section{Quantum Gravity}
+\subsection{{\sc Srednicki} - Quantum Field Theory}
+\subsubsection{Problem 6.1 - Path integral in quantum mechanics}
 
 \section{Quantum Gravity}
 \subsection{{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}
@@ -371,7 +388,7 @@ We use the property of the $\delta$-function $\delta(f(x))=\sum_i\frac{\delta(x-
 \begin{align}
     dk'^\mu = \Lambda^\mu_\nu dk^\nu\quad\rightarrow\quad \frac{dk'^\mu}{dk^\nu}=\Lambda^\mu_\nu\quad\rightarrow\quad\int d^d k'=|\text{det}(\Lambda^\mu_\nu)|\int d^dk=\int d^dk
 \end{align}
-$\delta^d[k^2+m^2]$ being invariant and with $k^0=\sqrt{\vec{k}^2+m^2}$ we see that $k$ is inside the forward light cone and remains there under orthochrone transformation ($\Theta(k^0)$ is invariant for relevant $k$) we are convinced that the starting expression is Lorentz invariant
+$\delta^d[k^2+m^2]$ being invariant and with $k^0=\sqrt{\vec{k}^2+m^2}$ we see that $k$ is inside the forward light cone and remains there under orthochrone transformation ($\Theta(k^0)$ is invariant for relevant $k$) we are convinced that the starting expression is Lorentz invariant (integration over the upper mass shell)
 \begin{align}
     \int d^{d}\vec{k} \delta^d[k^2+m^2]\Theta(k^0) &=\int d^{d-1}\vec{k}\int dk^0\delta^d[k^2+m^2]\Theta(k^0)\\
     &=\int d^{d-1}\vec{k}\int dk^0\delta^d[-(k^0)^2+\vec{k}^2+m^2]\Theta(k^0)\\
@@ -383,6 +400,68 @@ $\delta^d[k^2+m^2]$ being invariant and with $k^0=\sqrt{\vec{k}^2+m^2}$ we see t
 As we started with a Lorentz invariant expression the derived measure is also invariant.
 
 \subsubsection{Problem 1.3.3 - Retarded Green function}
+\begin{align}
+    \Delta_\text{F}&=\int\frac{d^dk}{(2\pi)^d}\frac{e^{ik(x-y)}}{k^2+m^2-i\epsilon}\\
+    G_\text{R}&=\int\frac{d^dk}{(2\pi)^d}\frac{e^{ik(x-y)}}{-(k^0+i\epsilon)^2+\vec{k}^2+m^2}
+\end{align}
+For the poles of $G_\text{R}$ we have
+\begin{align}
+    -(k^0+i&\epsilon)^2+\vec{k}^2+m^2 = 0\\
+    k^0&=-i\epsilon\pm\sqrt{\vec{k}^2+m^2}\\
+    &=-i\epsilon\pm\omega_k
+\end{align}
+while we the poles of $\Delta_\text{F}$ are given by
+\begin{align}
+    -(k^0)^2+&\vec{k^2}+m^2-i\epsilon=0\\
+    k^0&=\pm\sqrt{\vec{k^2}+m^2-i\epsilon}\\
+    &=\pm\sqrt{\omega_k^2-i\epsilon}
+\end{align}
+\begin{figure}[h]
+\centering
+\resizebox{5cm}{!}{%
+    \begin{tikzpicture}
+        \draw (-4,0) -- (4,0);
+        \node[mark size=5pt,color=blue] at (+2,-0.5) {\pgfuseplotmark{triangle}};
+        \node[mark size=5pt,color=blue] at (-2,+0.5) {\pgfuseplotmark{triangle}};
+        \draw[red,thick] (-2,-0.5) circle (0.1cm);
+        \draw[red,thick] (+2,-0.5) circle (0.1cm);
+        \draw[black,thick] (-2,0) circle (0.05cm);
+        \draw[black,thick] (+2,0) circle (0.05cm);
+        \node[label=left:{$-\omega_k$}] () at (-1.4,0.25) {};
+        \node[label=left:{$+\omega_k$}] () at (2.6,0.25) {};
+        \node[label=left:{$\text{Re} k^0$}] () at (5.4,0.05) {};
+    \end{tikzpicture}%
+}
+\caption{Poles of $G_\text{R}$ (circle) and $\Delta_\text{F}$ (triangle)}
+\end{figure}
+
+With $|\vec{k}\rangle=a^\dagger(\vec{k})|0\rangle$ and
+\begin{align}
+    \hat\phi(x)&=\frac{1}{(2\pi)^{d-1}}\int \frac{d^{d-1}\vec{k}}{2\omega_k}\left[\hat a(\vec{k})e^{ikx} + \hat a^\dagger(\vec{k})e^{-ikx}\right]_{k^0=\omega_k}
+\end{align}
+we obtain
+\begin{align}
+    \hat\phi(x)\hat\phi(y) &\sim \left(\hat a(\vec{k})e^{ikx} + \hat a^\dagger(\vec{k})e^{-ikx}\right)\left(\hat a(\vec{q})e^{iqy} + \hat a^\dagger(\vec{q})e^{-iqy}\right)\\
+    &=\hat a(\vec{k})\hat a(\vec{q})e^{i(kx+qy)} 
+    + \hat a(\vec{k})\hat a^\dagger(\vec{q})e^{-i(-kx+qy)} 
+    +\hat a^\dagger(\vec{k})\hat a(\vec{q})e^{i(-kx+qy)} 
+    + \hat a^\dagger(\vec{k})\hat a^\dagger(\vec{q})e^{-i(kx+qy)}\\
+    &=\hat a(\vec{k})\hat a(\vec{q})e^{i(kx+qy)} 
+    + \hat a(\vec{k})\hat a^\dagger(\vec{q})e^{-i(-kx+qy)} 
+    + \hat a^\dagger(\vec{k})\hat a^\dagger(\vec{q})e^{-i(kx+qy)}\\
+    &\quad+\left(\hat a(\vec{q})\hat a^\dagger(\vec{k})-2\omega_k(2\pi)^{d-1}\delta^{d-1}(\vec{q}-\vec{k})\right)e^{i(-kx+qy)}
+\end{align}
+and therefore
+\begin{align}
+    \langle0|\hat\phi(x)\hat\phi(y)|0\rangle
+    &=\frac{1}{(2\pi)^{2(d-1)}}\int \frac{d^{d-1}\vec{k}}{2\omega_k}\frac{d^{d-1}\vec{q}}{2\omega_q} \langle0|\hat a(\vec{k})\hat a(\vec{q})|0\rangle e^{i(kx+qy)} 
+    + \langle0|\hat a(\vec{k})\hat a^\dagger(\vec{q})|0\rangle e^{-i(-kx+qy)}\\
+    &\quad 
+    + \langle0|\hat a^\dagger(\vec{k})\hat a^\dagger(\vec{q})|0\rangle e^{-i(kx+qy)}+\left(\langle0|\hat a(\vec{q})\hat a^\dagger(\vec{k})|0\rangle-2\omega_k(2\pi)^{d-1}\delta^{d-1}(\vec{q}-\vec{k})\right)e^{i(-kx+qy)}\\
+    &=\frac{1}{(2\pi)^{2(d-1)}}\int \frac{d^{d-1}\vec{k}}{2\omega_k}\frac{d^{d-1}\vec{q}}{2\omega_q}
+    \langle\vec{k}|\vec{q}\rangle e^{-i(-kx+qy)}+\left(\langle\vec{q}|\vec{k}\rangle-2\omega_k(2\pi)^{d-1}\delta^{d-1}(\vec{q}-\vec{k})\right)e^{i(-kx+qy)}\\
+\end{align}
+
 \textcolor{red}{Not done yet}
 
 \subsubsection{Problem 1.3.4 - Feynman rules of \texorpdfstring{$\phi^4$}{Lg} theory}
