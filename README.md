@@ -16,7 +16,7 @@ Books in scope
 + Weinberg - Cosmology
 + Weinberg - Lectures on Astrophysics
 + Baez - Muniain - Gauge Fields, Knots and Gravity
-+ Zwiebach - A Frist course in string theory
++ Zwiebach - A First Course in String Theory
 + Freedman, Van Poeyen - Supergravity (very limited number of problems solved yet)
 + Dine - Sypersymmetry and String Theory
 + Becker, Becker, Schwarz - String theory and M-theory
