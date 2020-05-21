@@ -10,7 +10,7 @@ Books in scope
 + Banks - Modern Quantum Field Theory - A Concise Introduction
 + Woit - Quantum Theory, Groups and Representations
 + Ammon, Erdmenger - Gauge/Gravity Duality - Foundations and Applications
-+ Stephani - Relativity - An introduction to Special and General Relativity
++ Stephani - Relativity - An Introduction to Special and General Relativity
 + Wald - General Relativity
 + Weinberg - Cosmology
 + Weinberg - Lectures on Astrophysics
