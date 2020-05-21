@@ -22,6 +22,8 @@ Books in scope
 + Becker, Becker, Schwarz - String theory and M-theory
 + Hamilton - Mathematical Gauge Theory With Applications to the Standard Model of Particle Physics
 + Nastase - Classical Field Theory (look interesting but not started to really look at the book yet)
++ Le Bellac - Equilibrium and Non-Equilibrium Statistical Thermodynamics
++ Le Bellac - Thermal Field Theory (might be in Albany box)
 + Schwinger - Classical Electridynamics (should be with FSU stuff)
 + Schwinger - Quantum Mechanics - Symbolism of Atomic Measurements
 + Weinberg - Lectures on Quantum Mechanics (only solutions for last chapters)
