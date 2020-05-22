@@ -15,6 +15,7 @@ Books in scope
 + Wald - General Relativity (solutions only for selected problems)
 + Weinberg - Cosmology
 + Weinberg - Lectures on Astrophysics
++ Carroll, Ostlie - An Introduction to Modern Astrophysics 
 + Baez - Muniain - Gauge Fields, Knots and Gravity
 + Zwiebach - A First Course in String Theory
 + Freedman, Van Poeyen - Supergravity (very limited number of problems solved yet)
