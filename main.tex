@@ -33,7 +33,7 @@
     urlcolor=cyan,
 }
 
-
+\usepackage[shortlabels]{enumitem}
 
 \begin{document}
 
@@ -58,7 +58,52 @@ There is another theory which states that this has already happened.
 
 \newpage
 
-\section{Quantum Gravity}
+\section{Primer special relativity}
+Definition of line element
+\begin{align}
+    ds^2 &= dx^\mu dx_\nu = \eta_{\mu\nu}dx^\mu dx^\nu\\
+        &= dx^T\eta dx
+\end{align}
+Definition of Lorentz transformation
+\begin{align}
+    dx^\mu = \Lambda^\mu_{\;\nu}dx^\nu
+\end{align}
+By postulate the line element $ds$ is invariant under Lorentz transformation
+\begin{align}
+    ds^2 &= \eta_{\mu\nu}dx^\mu dx^\nu\\
+    &\stackrel{!}{=} \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu}dx^\mu \Lambda^\beta_{\;\nu}dx^\nu\quad\rightarrow\quad \eta_{\mu\nu} = \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}
+\end{align}
+or analog
+\begin{align}
+    ds^2 &= dx^T\eta dx\\
+    &\stackrel{!}{=} (\Lambda dx)^T\eta (\Lambda dx)\\
+    &= dx^T\Lambda^T\eta \Lambda dx\quad\rightarrow\quad \eta = \Lambda^T\eta\Lambda
+\end{align}
+Observation with the eigentime $d\tau=ds/c$ and 3-velocity $dx^i = v^i dt$
+\begin{align}
+    \frac{ds^2}{d\tau^2}=c^2&=c^2\frac{dt^2}{d\tau^2}-\frac{dx^i}{dt}\frac{dx_i}{dt}\left(\frac{dt}{d\tau}\right)^2\\
+    1&=\frac{dt^2}{d\tau^2}\left(1-\frac{v^iv_i}{c^2}\right)\quad\rightarrow\quad\frac{dt}{d\tau}\equiv\gamma=\left(\sqrt{1-\frac{v^2}{c^2}}\right)^{-1}
+\end{align}
+Definition of 4-velocity with 3-velocity $d\vec{x} = \vec{v} dt$
+\begin{align}
+    u^\mu\equiv\frac{dx^\mu}{d\tau}&=\frac{dx^\mu}{dt}\frac{dt}{d\tau}=\quad\rightarrow\quad u^\mu u_\mu=\eta_{\mu\nu}\frac{dx^\mu}{\tau} \frac{dx^\nu}{\tau}=\frac{1}{\tau^2}ds^2=c^2\\
+    &=(c,\vec{v})\gamma
+\end{align}
+Object moving in $x$ direction with $v$ meaning $dx=v\cdot dt$ compared to
+rest frame $dx'=0$
+\begin{align}
+    c^2dt'^2=ds^2 &= c^2dt^2- v^2 dt^2\\
+    &=c^2dt^2\left(1-\frac{v^2}{c^2}\right)\\
+    dt'=\frac{ds}{c}\equiv d\tau&=dt\sqrt{1-\frac{v^2}{c^2}}=\frac{dt}{\gamma}
+\end{align}
+Definition 4-momentum
+\begin{align}
+    p^\mu \equiv mu^\mu=(\gamma mc,\gamma m\vec{v})\quad&\rightarrow\quad p^\mu p _\mu=m^2u^\mu u_\mu=m^2c^2\\
+    &\rightarrow\quad (p^0)^2-p^ip_i=m^2c^2\\
+    &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}
+\end{align}
+
+\section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
 
@@ -478,5 +523,36 @@ and therefore
 
 \subsubsection{Problem 1.3.8}
 \textcolor{red}{Not done yet}
+
+
+
+\section{String Theory}
+\subsection{{\sc Zwiebach} - A First Course in String Theory }
+
+\subsection{{\sc Becker, Becker, Schwarz} - String Theory and M-Theroy }
+
+\subsection{{\sc Polchinski} - String Theory Volumes 1 and 2 }
+\subsubsection{Problem 1.1 - Non-relativistic action limits}
+\begin{enumerate}[(a)]
+    \item We start with (1.2.2) and use $dt=\gamma d\tau$ and $u^\mu=\gamma(c,\vec{v})$ as well as $v\ll c$
+    \begin{align}
+        S_\text{pp}&=-mc\int d\tau\sqrt{-\dot X^\mu\dot X_\mu}\\
+        &=-mc\int d\tau\sqrt{(c^2-v^2)\gamma^2}\\
+        &=-\int mc^2\cdot dt\sqrt{1-\frac{v^2}{c^2}}\\
+        &\approx-\int dt\cdot mc^2\left(1-\frac{1}{2}\frac{v^2}{c^2}\right)\\
+        &=-\int dt\left(mc^2-\frac{1}{2}mv^2\right)
+    \end{align}
+    
+    \item
+    
+\end{enumerate}
+
+\textcolor{red}{Not done yet}
+
+\section{Astrophysics}
+\subsection{{\sc Carroll, Ostlie} - An Introduction to Modern Astrophysics}
+\subsection{{\sc Weinberg} - Lecture on Astrophysics}
+
+
 
 \end{document}
