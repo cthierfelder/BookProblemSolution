@@ -552,7 +552,38 @@ and therefore
 \section{Astrophysics}
 \subsection{{\sc Carroll, Ostlie} - An Introduction to Modern Astrophysics}
 \subsection{{\sc Weinberg} - Lecture on Astrophysics}
-
+\subsubsection{Problem 1 - Hydrostatics of spherical star}
+Gravitational force on a mass element must be balanced by the top and bottom pressure (buoyancy)
+\begin{align}
+    F_p^\text{top}-F_p^\text{bottom}&=F_g\\
+    dA\cdot p\left(r+\frac{dr}{2}\right)-dA\cdot p\left(r-\frac{dr}{2}\right)&=-g(r)\rho(r)\cdot dA\cdot dr\\
+    \frac{dp}{dr} &=-g(r)\rho(r)\\
+    &=-G\frac{\mathcal{M}(r)}{r^2}\rho(r)
+\end{align}
+and therefore
+\begin{align}
+   \rho(r)\mathcal{M}(r)=-\frac{dp}{dr}\frac{r^2}{G}
+\end{align}
+where
+\begin{align}
+    g(r)=G\frac{\mathcal{M}(r)}{r^2}=\frac{G}{r^2}\int_0^r4\pi\rho(r')r'^2dr'.
+\end{align}
+The gravitational binding energy $\Omega$ is given by
+\begin{align}
+    d\Omega&=-G\frac{m_\text{shell}\mathcal{M}}{r}\\
+    \Omega&=-G\int_0^R\frac{4\pi\rho(r)\mathcal{M}(r)}{r}r^2dr\\
+    &=-4\pi G\int_0^Rr\rho(r)\mathcal{M}(r)dr\\
+    &=4\pi\int_0^R\frac{dp}{dr}r^3dr\\
+    &=4\pi p r^3|_0^R - 3\cdot4\pi\int_0^Rp(r)r^2dr\\
+    &=4\pi p_0 R^3 - 3\left(4\pi\int_0^Rp(r)r^2dr\right)\\
+    &=4\pi p_0 R^3 - 3\int_{K_R}p(\vec{r})d^3r.
+\end{align}
+\subsubsection{Problem 2 - CNO cycle}
+We have obviously
+\begin{align}
+    \Gamma(ii)=\Gamma(iii)=\Gamma(iv)=\Gamma(v)=\Gamma(i)
+\end{align}
+\textcolor{red}{Not done yet}
 
 
 \end{document}
