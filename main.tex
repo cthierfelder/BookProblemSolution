@@ -57,7 +57,6 @@ There is another theory which states that this has already happened.
 \setcounter{secnumdepth}{2}
 
 \newpage
-
 \section{Primer special relativity}
 Definition of line element
 \begin{align}
@@ -103,12 +102,21 @@ Definition 4-momentum
     &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}
 \end{align}
 
+
+\newpage
 \section{Useful formulas}
+Starting from the Fourier integral theorem we have some freedom to distribute the $2\pi$ between back and forth transformation ($a,b\in\mathbb{R}$)
 \begin{align}
-    \int\delta(x)e^{-ikx}dx=1\quad\leftrightarrow\quad\frac{1}{2\pi}\int e^{ikx}dk=\delta(x)
+    F(k)=\sqrt{\frac{|b|}{(2\pi)^{1-a}}}\int_{-\infty}^\infty f(x)e^{ibkx}dx\quad\leftrightarrow\quad f(x)=\sqrt{\frac{|b|}{(2\pi)^{1+a}}}\int_{-\infty}^\infty F(t)e^{-ibkx}dk
+\end{align}
+
+\begin{align}
+    \int\delta(x)e^{-ikx}dx&=1\\
+    \int e^{ik(x-y)}dk&=2\pi\delta(x-y)
 \end{align}
 
 
+\newpage
 \section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
@@ -676,11 +684,18 @@ and the field equations are given by
 \begin{align}
     \left[k^2+\mathcal{R}^{-2}\right]G(\vec{k})&=-1\\
     G(\vec{k})&=\frac{1}{k^2+\mathcal{R}^{-2}}\\
-    G(\vec{x})&=\frac{1}{(2\pi)^3}\int d^3\vec{k} \frac{e^{i\vec{k}\vec{x}}}{k^2+\mathcal{R}^{-2}}\\
-    &=\frac{1}{(2\pi)^3}2\pi\int_0^\infty \int_{-\pi/2}^{-\pi/2} \frac{e^{ik_r\cdot x\cos(\theta)}}{k_r^2+\mathcal{R}^{-2}}k_r^2\sin(\theta) d\theta dk_r\\
-    &=\frac{1}{(2\pi)^3}2\pi\int_0^\infty \int_{-\pi/2}^{-\pi/2} \frac{e^{ik_r\cdot x\cos(\theta)}}{k_r^2+\mathcal{R}^{-2}}k_r^2\sin(\theta) d\theta dk_r\\
+    G(\vec{x})&=\frac{1}{(2\pi)^3}\int d^3\vec{k} \frac{e^{i\vec{k}\vec{r}}}{k^2+\mathcal{R}^{-2}}\\
+    &=\frac{1}{(2\pi)^3}2\pi\int_0^\infty \int_{0}^{\pi} \frac{e^{ik_r\cdot r\cos\theta}}{k_r^2+\mathcal{R}^{-2}}k_r^2\sin\theta\;d\theta dk_r\\
+    &=\frac{1}{(2\pi)^3}2\pi\int_0^\infty \left[-\frac{e^{ik_r r \cos\theta}}{ik_r r}\right]_0^\pi \frac{1}{k_r^2+\mathcal{R}^{-2}}k_r^2 dk_r\\
+    &=\frac{1}{2\pi^2r}\int_0^\infty  \frac{k_r \sin(k_r r)}{k_r^2+\mathcal{R}^{-2}} dk_r\\
 \end{align}
-
+The integral can be can be calculated using the residual theorem
+\begin{align}
+        \int_0^\infty \frac{k_r \sin(k_r r)}{k_r^2+\mathcal{R}^{-2}} dk_r&=\frac{1}{2}\int_{-\infty}^\infty \frac{k_r \sin(k_r r)}{k_r^2+\mathcal{R}^{-2}} dk_r\\
+        &=\frac{1}{2}\int_{-\infty}^\infty \frac{k_r \sin(k_r r)}{(k_r+i\mathcal{R}^{-1})(k_r-i\mathcal{R}^{-1})} dk_r\\
+        &=\frac{1}{2}\int_{-\infty}^\infty \frac{k_r \sin(k_r r)}{2k_r}\left(\frac{1}{k_r+i\mathcal{R}^{-1}}+\frac{1}{k_r-i\mathcal{R}^{-1}}\right) dk_r\\
+        &=\frac{1}{4}\int_{-\infty}^\infty \frac{\sin(k_r r)}{k_r+i\mathcal{R}^{-1}}dk_r + \frac{1}{4}\int_{-\infty}^\infty \frac{\sin(k_r r)}{k_r-i\mathcal{R}^{-1}}dk_r
+\end{align}
 
 
 \textcolor{red}{Not done yet}
