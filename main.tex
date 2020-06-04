@@ -120,6 +120,12 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
 \section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
+\begin{align}
+    \langle q'',t''|q',t'\rangle&=\int\mathcal{D}q\mathcal{D}p\exp\left[i\int_{t'}^{t''}dt\left(p(t)\dot{q}(t)-H(p(t),q(t))\right)\right]\\
+    &=\int\prod_{j=0}^{N}dq_j\prod_{k=1}^N\frac{dp_k}{2\pi}e^{ip_k(q_{j+1}-q_j)}e^{-iH(p_k,\bar{q}_j)\delta t}\
+\end{align}
+
+
 
 \section{Quantum Gravity}
 \subsection{{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}
@@ -667,7 +673,7 @@ which results in
 \textcolor{red}{Not done yet}
 \subsubsection{Problem 10}
 \textcolor{red}{Not done yet}
-\subsubsection{Problem 11}
+\subsubsection{Problem 11 - Modified Newtonian gravity}
 The modified Poisson equation is given by
 \begin{align}
     \left(\triangle+\mathcal{R}^{-2}\right)\phi=4\pi G\rho
@@ -701,4 +707,95 @@ The integral can be can be calculated using the residual theorem
 \textcolor{red}{Not done yet}
 \subsubsection{Problem 12}
 \textcolor{red}{Not done yet}
+
+
+\section{General Physics}
+\subsection{{\sc Walter} - Astronautics}
+\subsubsection{Problem 1.1 - Balloon Propulsion}
+For the mass flow rate we have
+\begin{align}
+    \dot{m}&=\rho\dot{V}\approx\rho A_t v_t \stackrel{!}{=} \frac{\rho V}{T}\quad\rightarrow\quad v_t=\frac{V}{A_tT}=20\text{m/s}
+\end{align}
+and the speed of sound in a diatomic gas ($f=5$, $\rho_0=1.225\text{kg/m}^3$, $P_0=101.3\cdot10^3Pa$) is
+\begin{align}
+    c=\sqrt{\kappa\frac{p}{\rho}}=\sqrt{\frac{f+2}{f}\frac{P}{\rho}}=340\text{m/s}
+\end{align}
+which justifies $v_t\ll c$. Newtons second law gives for the momentum thrust
+\begin{align}
+    F_e=\frac{dp}{dt}&=\dot{m}v_t=\frac{\rho V}{T}\frac{V}{A_t T}=\frac{\rho}{A_t}\left(\frac{V}{T}\right)^2=0.0258\text{N}
+\end{align}
+From the Bernoulli equation we can obtain the pressure difference
+\begin{align}
+    P = P_0+\frac{\rho}{2}v_t^2\quad\rightarrow\quad P - P_0=\frac{\rho}{2}v_t^2
+\end{align}
+and can then calculate the pressure thrust
+\begin{align}
+    F_p=A_t(P-P_0)=\frac{A_t\rho}{2}v_t^2=\frac{\rho V^2}{2A_tT^2}=0.0129\text{N}
+\end{align}
+and see $F_e=2F_p$.
+
+
+\subsubsection{Problem 1.2 - Nozzle Exit Area of an SSME}
+For the total thrust we have in vacuum and at sea level we have
+\begin{align}
+    F_\text{SL}&=A_t(P-P_0) + \dot{m}v_t\\
+    F_\text{V}&=A_t(P-0) + \dot{m}v_t
+\end{align}
+which implies with $P_0=101.3\text{Pa}$
+\begin{align}
+    A_t=\frac{F_\text{V}-F_\text{SL}}{P_0}=4.55\text{m}^2
+\end{align}
+
+
+\subsubsection{Problem 1.3 - Proof of \texorpdfstring{$\eta_\text{VDF}\le1$}{Lg} }
+\begin{align}
+    \langle \nu_e\rangle_\mu=\frac{\int_0^{\pi/2}\nu_e(\theta)\cdot\mu(\theta)\sin\theta\;d\theta}{\int_0^{\pi/2}\mu(\theta)\sin\theta\;d\theta}
+\end{align}
+
+\begin{align}
+    \langle \nu_e\rangle_\mu^2\le\langle \nu_e^2\rangle_\mu    
+\end{align}
+
+\textcolor{red}{Not done yet}
+
+\subsubsection{Problem 4.1 - Gas Velocity-Pressure Relation in a Nozzle}
+Using the ideal gas equation $pV=NkT$ we have for a adiabatic process
+\begin{align}
+    pV^\kappa&=p\left(\frac{NkT}{p}\right)^\kappa\\
+    &=p^{1-\kappa}T^\kappa\\
+    &=\text{const}\\
+    &\rightarrow\quad p^\frac{1-\kappa}{\kappa}T=p_0^\frac{1-\kappa}{\kappa}T_0
+\end{align}
+and with $pV=nRT$
+\begin{align}
+    \rho=\frac{m}{V}=\frac{nM_p}{V}=\frac{M_pp}{RT}\quad\rightarrow\quad p=\frac{R}{M_p}\rho T\\
+    (\rho T)^\frac{1-\kappa}{\kappa}T=\text{const}\\
+    \rho^{1-\kappa}T=\text{const}
+\end{align}
+we obtain with $\kappa=\frac{2+n}{n}$ for the energy conversion efficiency 
+\begin{align}
+    \eta=1-\frac{T}{T_0}&=1-\left(\frac{p}{p_0}\right)^\frac{\kappa-1}{\kappa}=1-\left(\frac{\rho}{\rho_0}\right)^{\kappa-1}\\
+    &=1-\left(\frac{p}{p_0}\right)^\frac{2}{n+2}=1-\left(\frac{\rho}{\rho_0}\right)^\frac{2}{n}\\
+\end{align}
+
+\newpage
+\section{Doodling}
+Fundamental ingredients for a quantum theory are a set of states $\{|\psi\rangle\}$ and operators $\{\mathcal{O}\}$. The time development is governed by a Hamilton operator
+\begin{align}
+    i\hbar\partial_t|\psi\rangle=H|\psi\rangle
+\end{align}
+\begin{align}
+    H|\vec{p}\rangle&= E_{\vec{p}}|\vec{p}\rangle\\
+    E_{\vec{p}}&=+\sqrt{\vec{p}^2c^2+m^2c^4}
+\end{align}
+
+\begin{align}
+    \psi(\vec{p},t) &= e^{-iE_{\vec{p}} t} \psi(\vec{p},0)\\
+    \psi(\vec{x},t) &= \int d^3\vec{p}\;e^{i\vec{p}\vec{x}}\psi(\vec{p},t)\\
+    &=\int d^3\vec{p}\;e^{-i(E_{\vec{p}} t-\vec{p}\vec{x})}\psi(\vec{p},0)\\
+    &=\frac{1}{(2\pi)^3}\int d^3\vec{p}\;e^{-i(E_{\vec{p}} t-\vec{p}\vec{x})}\int d^3\vec{y}e^{-i\vec{p}\vec{y}}\psi(\vec{y},0)\\
+    &=\int d^3\vec{y}\left[\frac{1}{(2\pi)^3}\int d^3\vec{p}\;e^{-i(E_{\vec{p}} t-\vec{p}(\vec{x}-\vec{y}))}\right]\psi(\vec{y},0)\\
+    \psi(\vec{x},t) &= \int d^3\vec{y}\;G(\vec{x}-\vec{y},t) \psi(\vec{y},0)\\
+\end{align}
+
 \end{document}
