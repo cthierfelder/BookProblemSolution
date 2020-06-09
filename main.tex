@@ -823,18 +823,37 @@ Fundamental ingredients for a quantum theory are a set of states $\{|\psi\rangle
 \begin{align}
     i\hbar\partial_t|\psi\rangle=H|\psi\rangle
 \end{align}
+Lets assume that momentum eigenstates are simultaneously eigenstates of $H$ then a simple relativistic theory looks like
 \begin{align}
     H|\vec{p}\rangle&= E_{\vec{p}}|\vec{p}\rangle\\
     E_{\vec{p}}&=+\sqrt{\vec{p}^2c^2+m^2c^4}
 \end{align}
-
+The time evolution of the wave function is given by
 \begin{align}
     \psi(\vec{p},t) &= e^{-iE_{\vec{p}} t} \psi(\vec{p},0)\\
     \psi(\vec{x},t) &= \int d^3\vec{p}\;e^{i\vec{p}\vec{x}}\psi(\vec{p},t)\\
     &=\int d^3\vec{p}\;e^{-i(E_{\vec{p}} t-\vec{p}\vec{x})}\psi(\vec{p},0)\\
     &=\frac{1}{(2\pi)^3}\int d^3\vec{p}\;e^{-i(E_{\vec{p}} t-\vec{p}\vec{x})}\int d^3\vec{y}e^{-i\vec{p}\vec{y}}\psi(\vec{y},0)\\
     &=\int d^3\vec{y}\left[\frac{1}{(2\pi)^3}\int d^3\vec{p}\;e^{-i(E_{\vec{p}} t-\vec{p}(\vec{x}-\vec{y}))}\right]\psi(\vec{y},0)\\
-    \psi(\vec{x},t) &= \int d^3\vec{y}\;G(\vec{x}-\vec{y},t) \psi(\vec{y},0)\\
+    \psi(\vec{x},t) &= \int d^3\vec{y}\;G(\vec{x}-\vec{y},t) \psi(\vec{y},0)
 \end{align}
+Causality of the theory is guaranteed if the commutator of two operators/observables (associated with points $x$ and $y$ in space time) commute if the points are space-like separated
+\begin{align}
+    |x-y|<0\quad\rightarrow\quad [\mathcal{O}_i,\mathcal{O}_j]=0.
+\end{align}
+Localizing a particle in a small region $L$ means
+\begin{align}
+    p&\sim\frac{\hbar}{L}\\
+    E&=\sqrt{m^2c^4+p^2c^2}= pc\sqrt{1+\frac{m^2c^2}{p^2}}
+\end{align}
+The $L$ at which the momentum contribution becomes comparable to the rest energy of the particle
+\begin{align}
+    mc^2=pc = \frac{\hbar c}{L}\quad\rightarrow\quad L_c=\frac{\hbar}{mc}
+\end{align}
+is called Compton wavelength at which a relativistic theory is required and creation of particles and antiparticles appears.
 
+This is therefore the method of choice to produce particles. A collision of two particles localizes a large amount of energy in a small region - creating particles
+\begin{align}
+    p\bar{p}\rightarrow X\bar{X}+ ...
+\end{align}
 \end{document}
