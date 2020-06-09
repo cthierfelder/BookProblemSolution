@@ -85,7 +85,7 @@ Observation with the eigentime $d\tau=ds/c$ and 3-velocity $dx^i = v^i dt$
 \end{align}
 Definition of 4-velocity with 3-velocity $d\vec{x} = \vec{v} dt$
 \begin{align}
-    u^\mu\equiv\frac{dx^\mu}{d\tau}&=\frac{dx^\mu}{dt}\frac{dt}{d\tau}=\quad\rightarrow\quad u^\mu u_\mu=\eta_{\mu\nu}\frac{dx^\mu}{\tau} \frac{dx^\nu}{\tau}=\frac{1}{\tau^2}ds^2=c^2\\
+    u^\mu\equiv\frac{dx^\mu}{d\tau}&=\frac{dx^\mu}{dt}\frac{dt}{d\tau}=\quad\rightarrow\quad u^\mu u_\mu=\eta_{\mu\nu}\frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau}=\frac{ds^2}{d\tau^2}=c^2\\
     &=(c,\vec{v})\gamma
 \end{align}
 Object moving in $x$ direction with $v$ meaning $dx=v\cdot dt$ compared to
@@ -95,11 +95,13 @@ rest frame $dx'=0$
     &=c^2dt^2\left(1-\frac{v^2}{c^2}\right)\\
     dt'=\frac{ds}{c}\equiv d\tau&=dt\sqrt{1-\frac{v^2}{c^2}}=\frac{dt}{\gamma}
 \end{align}
-Definition 4-momentum
+Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
 \begin{align}
-    p^\mu \equiv mu^\mu=(\gamma mc,\gamma m\vec{v})\quad&\rightarrow\quad p^\mu p _\mu=m^2u^\mu u_\mu=m^2c^2\\
+    p^\mu \equiv mu^\mu=(\gamma mc,\gamma m\vec{v})=\left(\frac{E_p}{c},\vec{p}\right)\quad&\rightarrow\quad p^\mu p _\mu=m^2u^\mu u_\mu=m^2c^2\\
     &\rightarrow\quad (p^0)^2-p^ip_i=m^2c^2\\
-    &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}
+    &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}\\
+    &\rightarrow\quad E_p=\sqrt{m^2c^4+\vec{p}^2c^2}\\
+    &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
 \end{align}
 
 \section{Lorentz group}
@@ -108,12 +110,32 @@ Finite dimensional irreps of the Lorentz group are labeled by $(\mu,\nu)$ with
     \mu,\nu &\in \{0,\frac{1}{2},1,\frac{3}{2},2,...\}.
 \end{align}
 and have dimension $(2\mu+1)(2\nu+1)$
-
 \begin{align*}
     M^2&=\mu(\mu+1)\\
     N^2&=\nu(\nu+1)\\
     j  &\in |\mu-\nu|, ..., (\mu+\nu)
 \end{align*}
+
+
+\begin{center}
+ \begin{tabular}{c c c l} 
+ \hline
+ irrep & dim & j & example \\ [0.5ex] 
+ \hline\hline
+ $(0,0)$                        & 1 & 0 & Scalar \\  [0.5ex]
+ $(\frac{1}{2},0)$              & 2 & $\frac{1}{2}$ & left-handed Weyl spinor \\  [0.5ex]
+ $(0,\frac{1}{2})$              & 2 & $\frac{1}{2}$ & right-handed Weyl spinor \\  [0.5ex]
+ $(\frac{1}{2},\frac{1}{2})$    & 4 & 0,1 & 4-Vector $A^\mu$ \\  [0.5ex]
+ $(1,0)$                        & 3 & 1 & self-dual 2-form \\  [0.5ex]
+ $(0,1)$                        & 3 & 1 & anti-self-dual 2-form \\  [0.5ex]
+ $(1,1)$                        & 9 & 0,1,2 & traceless symmetric $2^\text{nd}$ rank tensor \\  [0.5ex]
+ $(\frac{1}{2},0)\oplus(0,\frac{1}{2})$& - & - & Dirac bispinor $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
+ $(1,\frac{1}{2})\oplus(\frac{1}{2},1)$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
+  $(0,1)\oplus(0,1)$& - & - & parity invariant field of 2-forms\\  [0.5ex]
+\end{tabular}
+\end{center}
+
+
 
 \newpage
 \section{Useful formulas}
@@ -129,6 +151,11 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
 
 
 \newpage
+
+\section{Mathematical}
+\subsection{{\sc Woit} - Quantum Theory, Groups and Representations}
+\subsection{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
+
 \section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
