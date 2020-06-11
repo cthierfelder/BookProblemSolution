@@ -154,6 +154,67 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
 
 \section{Mathematical}
 \subsection{{\sc Woit} - Quantum Theory, Groups and Representations}
+\subsubsection{Problem B.1-4}
+The time evolution is given by
+\begin{align}
+    |\Psi(t)\rangle&=e^{-iHt}|\Psi(0)\rangle\\
+    &=\left(\sum_{k=0}^\infty\frac{(-iHt)^k}{k!}\right)|\Psi(0)\rangle
+\end{align}
+We see
+\begin{align}
+H=\left(
+\begin{array}{ccc}
+ 0 & 1 & 0 \\
+ 1 & 0 & 0 \\
+ 0 & 0 & 2 \\
+\end{array}
+\right)\qquad
+H^2=\left(
+\begin{array}{ccc}
+ 1 & 0 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 4 \\
+\end{array}
+\right)
+\qquad
+H^3=\left(
+\begin{array}{ccc}
+ 0 & 1 & 0 \\
+ 1 & 0 & 0 \\
+ 0 & 0 & 8 \\
+\end{array}
+\right)
+\end{align}
+and calculate
+\begin{align}
+    =\sum_{k=0}^\infty\frac{(-it)^{2k}}{(2k)!}&=\sum_{k=0}^\infty(-1)^k \frac{t^{2k}}{(2k)!}=\cos(t)\\
+    \sum_{k=0}^\infty\frac{(-it)^{2k+1}}{(2k+1)!}&=(-i)\sum_{k=0}^\infty(-1)^{k}\frac{t^{2k+1}}{(2k+1)!}=-i\sin(t)\\
+    \sum_{k=0}^\infty\frac{(-i2t)^k}{k!}&=\cos(2t)-i\sin(2t)=e^{-i2t}
+\end{align}
+which gives
+\begin{align}
+    e^{-iHt}=\left(
+\begin{array}{ccc}
+ \cos (t) & -i \sin (t) & 0 \\
+ -i \sin (t) & \cos (t) & 0 \\
+ 0 & 0 & e^{-2 i t} \\
+\end{array}
+\right)
+\end{align}
+and therefore
+\begin{align}
+|\Psi(t)\rangle=\left(
+\begin{array}{ccc}
+ \psi_1\cos (t)  -\psi_2i \sin (t) \\
+ -\psi_1i \sin (t) + \psi_2\cos (t) \\
+ \psi_3e^{-2 i t} \\
+\end{array}
+\right)
+\end{align}.
+To check the result one can calculate both sides of $i\partial_t|\Psi(t)\rangle=H|\Psi(t)\rangle$.
+
+
+
 \subsection{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
 
 \section{Quantum Field Theory}
@@ -856,4 +917,16 @@ This is therefore the method of choice to produce particles. A collision of two 
 \begin{align}
     p\bar{p}\rightarrow X\bar{X}+ ...
 \end{align}
+
+Important general principles
+\begin{itemize}
+    \item $CPT$ invariance
+    \item Spin-statistic theorem
+    \item Interactions of particles with higher spin rather quite constrainted
+    \begin{enumerate}
+        \item for lower spins $s=0, 1/2$ the only restrictions are locality and Lorentz invariance
+        \item the constrains are so restrictive that there are no relativistic quantum particle with $s>2$
+    \end{enumerate}
+    
+\end{itemize}
 \end{document}
