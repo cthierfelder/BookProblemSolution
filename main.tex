@@ -104,10 +104,29 @@ Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
     &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
 \end{align}
 
-\section{Lorentz group}
-Finite dimensional irreps of the Lorentz group are labeled by $(\mu,\nu)$ with
+\section{Groups}
+\subsection{SO(3)}
+
+\subsection{SU(2)}
+Finite dimensional irreps of the Lorentz group are labeled by $l$ with
 \begin{align}
-    \mu,\nu &\in \{0,\frac{1}{2},1,\frac{3}{2},2,...\}.
+    l &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
+\end{align}
+and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as
+\begin{align}
+    V_l \otimes V_m &\cong V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
+    \text{dim}(V_l \otimes V_m)&=(2l+1)(2m+1)\\
+    \text{dim}(V_{l+m} \oplus ...\oplus V_{l-m})&=\sum_{k=0}^{2m}2[(l-m)+k]+1\\
+    &=(2m+1)[2(l-m)+1]+2\frac{2m(2m+1)}{2}\\
+    &=(2m+1)(2l+1)
+\end{align}
+
+\subsection{SU(3)}
+
+\subsection{Lorentz group O(1,3)}
+Finite dimensional irreps of the Lorentz group are labeled by two parameters $(\mu,\nu)$ with
+\begin{align}
+    \mu,\nu &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
 \end{align}
 and have dimension $(2\mu+1)(2\nu+1)$
 \begin{align*}
@@ -123,15 +142,18 @@ and have dimension $(2\mu+1)(2\nu+1)$
  irrep & dim & j & example \\ [0.5ex] 
  \hline\hline
  $(0,0)$                        & 1 & 0 & Scalar \\  [0.5ex]
- $(\frac{1}{2},0)$              & 2 & $\frac{1}{2}$ & left-handed Weyl spinor \\  [0.5ex]
- $(0,\frac{1}{2})$              & 2 & $\frac{1}{2}$ & right-handed Weyl spinor \\  [0.5ex]
+ $(\frac{1}{2},0)$              & 2 & $\frac{1}{2}$ & Left-handed Weyl spinor \\  [0.5ex]
+ $(0,\frac{1}{2})$              & 2 & $\frac{1}{2}$ & Right-handed Weyl spinor \\  [0.5ex]
  $(\frac{1}{2},\frac{1}{2})$    & 4 & 0,1 & 4-Vector $A^\mu$ \\  [0.5ex]
- $(1,0)$                        & 3 & 1 & self-dual 2-form \\  [0.5ex]
- $(0,1)$                        & 3 & 1 & anti-self-dual 2-form \\  [0.5ex]
- $(1,1)$                        & 9 & 0,1,2 & traceless symmetric $2^\text{nd}$ rank tensor \\  [0.5ex]
+ $(1,0)$                        & 3 & 1 & Self-dual 2-form \\  [0.5ex]
+ $(0,1)$                        & 3 & 1 & Anti-self-dual 2-form \\  [0.5ex]
+ $(1,1)$                        & 9 & 0,1,2 & Traceless symmetric $2^\text{nd}$ rank tensor \\ \hline  \\ [0.5ex]
+  \hline
+ rep & dim & j & example \\ [0.5ex] 
+ \hline\hline
  $(\frac{1}{2},0)\oplus(0,\frac{1}{2})$& - & - & Dirac bispinor $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
- $(1,\frac{1}{2})\oplus(\frac{1}{2},1)$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
-  $(0,1)\oplus(0,1)$& - & - & parity invariant field of 2-forms\\  [0.5ex]
+ $(\frac{1}{2},\frac{1}{2})\otimes\left[(\frac{1}{2},0)\oplus(0,\frac{1}{2})\right]$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
+  $(0,1)\oplus(0,1)$& - & - & Parity invariant field of 2-forms\\ \hline \\ [0.5ex]
 \end{tabular}
 \end{center}
 
@@ -213,9 +235,30 @@ and therefore
 \end{align}.
 To check the result one can calculate both sides of $i\partial_t|\Psi(t)\rangle=H|\Psi(t)\rangle$.
 
-
-
 \subsection{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
+\subsubsection{Problem I.1}
+With
+\begin{align}
+    \vec{\mathcal{E}}=\vec{E}e^{-i(\omega t -\vec{k}\vec{x})}
+\end{align}
+we calculate in cartesian coordinates 
+\begin{enumerate}
+    \item $\nabla\cdot\vec{\mathcal{E}}=0$
+\begin{align}
+    \nabla\cdot\vec{\mathcal{E}}&=\partial_a(E_a\vec{e}^a)e^{-i(\omega t -\vec{k}\vec{x})}+\partial_a(e^{-i(\omega t -\vec{k}\vec{x})})E_a\vec{e}^a\\
+    &=\left[\partial_aE_a+\delta_{ab}ik_bE_a\right]e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
+    &=\left[\partial_aE_a+ik_bE_b\right]e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
+    &=0
+\end{align}
+where we assumed $E_a=\text{const}$ and used
+\begin{align}
+    0&=\vec{k}\cdot\vec{E}\\
+    &=k_a\vec{e}^aE_a\vec{e}^a\\
+    &=k_aE_a
+\end{align}
+
+\item $\nabla\times\vec{E}=i\frac{\partial\mathcal{E}}{\partial t}$
+\end{enumerate}
 
 \section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
