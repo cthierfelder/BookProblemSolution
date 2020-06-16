@@ -236,7 +236,7 @@ and therefore
 To check the result one can calculate both sides of $i\partial_t|\Psi(t)\rangle=H|\Psi(t)\rangle$.
 
 \subsection{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
-\subsubsection{Problem I.1}
+\subsubsection{Problem I.1 - Plane waves in vacuum}
 With
 \begin{align}
     \vec{\mathcal{E}}=\vec{E}e^{-i(\omega t -\vec{k}\vec{x})}
@@ -245,9 +245,10 @@ we calculate in cartesian coordinates
 \begin{enumerate}
     \item $\nabla\cdot\vec{\mathcal{E}}=0$
 \begin{align}
-    \nabla\cdot\vec{\mathcal{E}}&=\partial_a(E_a\vec{e}^a)e^{-i(\omega t -\vec{k}\vec{x})}+\partial_a(e^{-i(\omega t -\vec{k}\vec{x})})E_a\vec{e}^a\\
-    &=\left[\partial_aE_a+\delta_{ab}ik_bE_a\right]e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
-    &=\left[\partial_aE_a+ik_bE_b\right]e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
+    \nabla\cdot\vec{\mathcal{E}}&=\partial_a\mathcal{E}_a\\
+    &=\partial_a(e^{-i(\omega t -\vec{k}\vec{x})})E_a\vec{e}^a\\
+    &=\delta_{ab}ik_bE_a e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
+    &=ik_bE_b e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
     &=0
 \end{align}
 where we assumed $E_a=\text{const}$ and used
@@ -257,7 +258,23 @@ where we assumed $E_a=\text{const}$ and used
     &=k_aE_a
 \end{align}
 
-\item $\nabla\times\vec{E}=i\frac{\partial\mathcal{E}}{\partial t}$
+\item $\nabla\times\vec{\mathcal{E}}=i\frac{\partial\vec{\mathcal{E}}}{\partial t}$
+\begin{align}
+    \nabla\times\vec{\mathcal{E}}&=\epsilon_{abc}\partial_b\mathcal{E}_c\vec{e}_a \\
+    &=\epsilon_{abc}E_c\vec{e}_a\partial_b(e^{-i(\omega t -\vec{k}\vec{x})}) \\
+    &=\epsilon_{abc}E_c\vec{e}_a\delta_{bd}ik_de^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i(\epsilon_{abc}k_bE_c\vec{e}_a)e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i(-i\omega E_a\vec{e}^a)e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i(E_a\vec{e}^a)(-i\omega) e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i\vec{E}\frac{\partial}{\partial t} e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i\frac{\partial\vec{\mathcal{E}}}{\partial t}
+\end{align}
+where we used (typo in the book!)
+\begin{align}
+    -i\omega\vec{E}&=\vec{k}\times\vec{E}\\
+    &=\epsilon_{abc}k_bE_c\vec{e}_a
+\end{align}
+
 \end{enumerate}
 
 \section{Quantum Field Theory}
