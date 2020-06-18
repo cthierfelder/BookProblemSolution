@@ -114,7 +114,8 @@ Finite dimensional irreps of the Lorentz group are labeled by $l$ with
 \end{align}
 and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as
 \begin{align}
-    V_l \otimes V_m &\cong V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
+    V_l \otimes V_m &\cong \bigoplus_{j=l-m}^{l+m} V_j\\
+    &=V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
     \text{dim}(V_l \otimes V_m)&=(2l+1)(2m+1)\\
     \text{dim}(V_{l+m} \oplus ...\oplus V_{l-m})&=\sum_{k=0}^{2m}2[(l-m)+k]+1\\
     &=(2m+1)[2(l-m)+1]+2\frac{2m(2m+1)}{2}\\
@@ -234,6 +235,14 @@ and therefore
 \right)
 \end{align}.
 To check the result one can calculate both sides of $i\partial_t|\Psi(t)\rangle=H|\Psi(t)\rangle$.
+
+\subsubsection{Problem B.2-1}
+With $M=PDP^{-1}$ we have $M^2=PDP^{-1}PDP^{-1}=PDDP^{-1}$ and see
+\begin{align}
+    e^{tM}&=\sum_{k=0}^\infty \frac{(tM)^k}{k!}=\sum_{k=0}^\infty \frac{(tPDP^{-1})^k}{k!}=\sum_{k=0}^\infty \frac{P(tD)^kP^{-1}}{k!}\\
+    &=P\left(\sum_{k=0}^\infty \frac{(tD)^k}{k!}\right)P^{-1}=Pe^{tD}P^{-1}
+\end{align}
+
 
 \subsection{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
 \subsubsection{Problem I.1 - Plane waves in vacuum}
