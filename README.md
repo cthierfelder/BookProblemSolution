@@ -16,7 +16,7 @@ Books in scope
 + Weinberg - Cosmology
 + Weinberg - Lectures on Astrophysics
 + Carroll, Ostlie - An Introduction to Modern Astrophysics 
-+ Baez - Muniain - Gauge Fields, Knots and Gravity
++ Baez - Muniain - Gauge Fields, Knots and Gravity (part III mostly missing)
 + Zwiebach - A First Course in String Theory
 + Freedman, Van Poeyen - Supergravity (very limited number of problems solved yet)
 + Dine - Sypersymmetry and String Theory
@@ -27,7 +27,7 @@ Books in scope
 + Le Bellac - Equilibrium and Non-Equilibrium Statistical Thermodynamics
 + Le Bellac - Thermal Field Theory (might be in Albany box)
 + Schwinger - Classical Electridynamics (should be with FSU stuff)
-+ Schwinger - Quantum Mechanics - Symbolism of Atomic Measurements
++ Schwinger - Quantum Mechanics - Symbolism of Atomic Measurements (should be with FSU stuff)
 + Weinberg - Lectures on Quantum Mechanics (only solutions for last chapters)
 + Nielsen, Chuang - Quantum Computation and Quantum Information (look in PB boxes)
 + Thorne, Blandford - Modern Classical Physics (larger number of problems still not done but they are big fun)
