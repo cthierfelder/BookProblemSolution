@@ -157,7 +157,7 @@ Finite dimensional irreps of the Lorentz group are labeled by $l$ with
 \begin{align}
     l &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
 \end{align}
-and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as
+and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as ({\sc Clebsch-Gordan} decomposition)
 \begin{align}
     V_l \otimes V_m &\cong \bigoplus_{j=l-m}^{l+m} V_j\\
     &=V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
@@ -222,6 +222,38 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
 
 \section{Mathematical}
 \subsection{{\sc Woit} - Quantum Theory, Groups and Representations}
+
+\subsubsection{Problem B.1-3}
+Rotations of the 2D-plane
+\begin{align}
+M_\phi&=\left(
+\begin{array}{cc}
+\cos\phi& -\sin\phi  \\
+\sin\phi & \cos\phi  \\
+\end{array}
+\right)\\
+M_\phi M_\theta&= \left(
+\begin{array}{cc}
+ \cos\theta \cos\phi-\sin\theta \sin\phi  & -\cos\phi \sin\theta-\cos\theta\sin\phi \\
+ \cos\phi\sin\theta+\cos\theta \sin\phi & \cos\theta \cos\phi
+   -\sin\theta \sin\phi \\
+\end{array}
+\right)\\
+&=\left(
+\begin{array}{cc}
+\cos(\phi+\theta)& -\sin(\phi+\theta)  \\
+\sin(\phi+\theta) & \cos(\phi+\theta)  \\
+\end{array}
+\right)\\
+&=M_{\phi+\theta}
+\end{align}
+can also be represented by
+\begin{align}
+M'_\phi&=e^{i\phi}\\
+M'_\phi M'_\theta&=e^{i\phi}e^{i\theta}=e^{i(\phi+\theta)}\\
+&=M'_{\phi+\theta}
+\end{align}
+
 \subsubsection{Problem B.1-4}
 The time evolution is given by
 \begin{align}
@@ -417,6 +449,68 @@ e^{tM}&=\left(
 \end{array}
 \right)
 \end{align}
+
+\subsubsection{Problem B.2-2}
+For the Hamiltonian
+\begin{align}
+H = -B_x\sigma_1=\left(
+\begin{array}{cc}
+ 0 & -B_x  \\
+ -B_x & 0  \\
+\end{array}
+\right)
+\end{align}
+we find the eigensystem
+\begin{align}
+E_1 &= -B_x\quad |\psi_1\rangle=\left(
+\begin{array}{c}
+ 1 \\
+ 1 \\
+\end{array}
+\right)\\
+E_2 &= +B_x\quad |\psi_2\rangle=\left(
+\begin{array}{c}
+-1 \\
+ 1 \\
+\end{array}
+\right).
+\end{align}
+The Hamiltonian (with full units) is given by
+\begin{align}
+H = -g\frac{q\hbar}{2m}\frac{\sigma_1}{2}B_x
+\end{align}
+which translates into energies of
+\begin{align}
+E_1 &= -g\frac{q\hbar}{4m}B_x\\
+E_2 &= g\frac{q\hbar}{4m}B_x.
+\end{align}
+The time evolution is them given by
+\begin{align}
+|\psi(t)\rangle&=e^{-\frac{i}{\hbar}Ht}|\psi(0)\rangle\\
+&=e^{-i\frac{gq}{4m}\sigma_1t}|\psi(0)\rangle\\
+&=\left[\cos\left(\frac{gq}{4m}\sigma_1t\right)-i\sin\left(\frac{gq}{4m}\sigma_1t\right)\right]|\psi(0)\rangle\\
+&=\left[\cos\left(\frac{gq}{4m}t\right)\mathbb{I}_2-i\sin\left(\frac{gq}{4m}t\right)\sigma_1\right]|\psi(0)\rangle\\
+&=\left(
+\begin{array}{cc}
+ \cos \left(\frac{g q t}{4 m}\right) & -i \sin \left(\frac{g q t}{4 m}\right) \\
+ -i \sin \left(\frac{g q t}{4 m}\right) & \cos \left(\frac{g q t}{4 m}\right) \\
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+ 1 \\
+ 0 \\
+\end{array}
+\right)\\
+&=\left(
+\begin{array}{c}
+ \cos \left(\frac{g q t}{4 m}\right) \\
+ -i\sin \left(\frac{g q t}{4 m}\right) \\
+\end{array}
+\right)
+\end{align}
+where we used $\sigma_1^{2n}=\mathbb{I}^n=\mathbb{I}$.
+
 
 \subsection{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
 \subsubsection{Problem I.1 - Plane waves in vacuum}
@@ -1170,6 +1264,30 @@ Important general principles
         \item for lower spins $s=0, 1/2$ the only restrictions are locality and Lorentz invariance
         \item the constrains are so restrictive that there are no relativistic quantum particle with $s>2$
     \end{enumerate}
-    
+\end{itemize}
+
+\newpage
+\section{Misc}
+\begin{itemize}
+\item Gordon vs Gordan
+    \begin{itemize}
+    \item {\sc Paul Gordan} (1837-1912) - Clebsch-Gordan decomposition
+    \item {\sc Walter Gordon} (1893-1939) - Klein-Gordon equation
+    \end{itemize}
+\item Lorentz vs Lorenz
+    \begin{itemize}
+    \item {\sc Hendrik Lorentz} (1853-1928) - Lorentz transformation, Lorentz force
+    \item {\sc Ludvig Lorenz} (1829-1891) - Lorenz gauge
+    \end{itemize}
+\item Klein vs Klein
+    \begin{itemize}
+    \item {\sc Oskar Klein} (1894-1977) - Klein-Gordon equation, Kaluza-Klein theory
+    \item {\sc Felix Klein} (1849-1925) - Klein bottle
+    \end{itemize}
+\item Euler vs Euler
+    \begin{itemize}
+    \item {\sc Hans Heinrich Euler} (1909-1941) - Euler–Heisenberg Lagrangian
+    \item {\sc Leonhard Euler} (1707-1783) - Euler's formula
+    \end{itemize}
 \end{itemize}
 \end{document}
