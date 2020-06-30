@@ -207,15 +207,26 @@ and have dimension $(2\mu+1)(2\nu+1)$
 
 \newpage
 \section{Useful formulas}
+\subsubsection{Fourier transformation}
 Starting from the Fourier integral theorem we have some freedom to distribute the $2\pi$ between back and forth transformation ($a,b\in\mathbb{R}$)
 \begin{align}
     F(k)=\sqrt{\frac{|b|}{(2\pi)^{1-a}}}\int_{-\infty}^\infty f(x)e^{ibkx}dx\quad\leftrightarrow\quad f(x)=\sqrt{\frac{|b|}{(2\pi)^{1+a}}}\int_{-\infty}^\infty F(t)e^{-ibkx}dk
 \end{align}
 
+\subsubsection{Delta distribution}
 \begin{align}
     \int\delta(x)e^{-ikx}dx&=1\\
     \int e^{ik(x-y)}dk&=2\pi\delta(x-y)
 \end{align}
+
+\subsubsection{Diagonalization}
+Any  matrix $A$ is called diagonalizable if there exists an invertible matrix $S$ such that
+\begin{align}
+    D_A=S^{-1}AS
+\end{align}
+is a diagonal matrix. The diagonalizability of $A$ is equivalent to the fact that the $\{\vec{v}_i\}$ are all linearly independent.
+
+To find $S$ and $D_A$ one has to find the eigensystem $\{\lambda_i,\vec{v}_i\}$ with $A\vec{v}_i=\lambda_i\vec{v}_i$. Then $D_AS$ and $S$ can be written as $S=(\vec{v}_1,...,\vec{v}_n)$ and $D_A=\text{diag}(\lambda_1,...,\lambda_n)$ because $AS=(A\vec{v}_1,...,A\vec{v}_n)=(\lambda_1\vec{v}_1,...,\lambda_n\vec{v}_n)=SD_A$.
 
 
 \newpage
