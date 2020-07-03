@@ -13,6 +13,14 @@
 %MATH
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\GL}{GL}
 
 %PAGELAYOUT
 \usepackage{a4wide}
@@ -219,6 +227,21 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
     \int e^{ik(x-y)}dk&=2\pi\delta(x-y)
 \end{align}
 
+\subsubsection{Matrices}
+\begin{enumerate}
+    \item inverse $A^{-1}A=\mathbb{I}$
+    \begin{itemize}
+        \item therefore $\mathbb{I}=(AB)(B^{-1}A^{-1})\quad\rightarrow\quad (AB)^{-1}=B^{-1}A^{-1}$
+    \end{itemize}
+    \item Hermitian transpose $A^\dagger = (\overline{A})^T = \overline{A^T}$
+        \begin{itemize}
+        \item $(AB)^\dagger=B^\dagger A^\dagger$ therefore $\mathbb{I}=(AA^{-1})^\dagger=(A^{-1})^\dagger A^\dagger\quad\rightarrow\quad (A^\dagger)^{-1}=(A^{-1})^\dagger$
+    \end{itemize}
+    \item Orthorgonal $A^T = A^{-1}$
+    \item Unitary $A^\dagger = A^{-1}$
+    \item Hermitian $A^\dagger = A$
+\end{enumerate}
+
 \subsubsection{Diagonalization}
 Any  matrix $A$ is called diagonalizable if there exists an invertible matrix $S$ such that
 \begin{align}
@@ -230,7 +253,6 @@ To find $S$ and $D_A$ one has to find the eigensystem $\{\lambda_i,\vec{v}_i\}$ 
 
 
 \newpage
-
 \section{Mathematical}
 \subsection{{\sc Woit} - Quantum Theory, Groups and Representations}
 
@@ -1283,6 +1305,140 @@ Important general principles
         \item the constrains are so restrictive that there are no relativistic quantum particle with $s>2$
     \end{enumerate}
 \end{itemize}
+
+\newpage
+\section{Representations CheatSheet}
+
+\theoremstyle{definition}
+\begin{definition}{}
+A {\bf representation} of a group $G=\left(\{g_i\},\circ\right)$ is a mapping $D$ of the elements of $G$ onto a set of linear operators with
+\begin{enumerate}
+    \item $D(e)=\mathbb{I}$
+    \item $D(g_1)D(g_1) = D(g_1\circ g_2)$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}{}
+A bit more formal - let $G$ a group and $V$ be a $\mathbb{K}$-vector space then a linear representation is a group homomorphism with
+$D:G\rightarrow \GL(V)\overset{!}{=}\Aut(V)$. $V$ is then called representation space with $\dim V$ being the dimension of the representation and $D(g)\in\GL(V)$
+\end{remark}
+
+\begin{definition}{}
+An {\bf equivalent representation} $D'$ of a representation $D$ is defined by 
+\begin{align}
+D(g)\rightarrow D'(g)=S^{-1}D(g)S   \qquad \forall g\in G
+\end{align}
+\end{definition}
+
+\begin{definition}{}
+A representation $D$ is called {\bf unitary representation} if 
+\begin{align}
+D(g)^\dagger=D(g)^{-1}    \qquad \forall g\in G
+\end{align}
+\end{definition}
+
+\begin{remark}{}
+For a unitary representation $D(g)^\dagger D(g)=\mathbb{I}$ an equivalent representation $D'(g)=S^{-1}D(g)S$ is only unitary
+\begin{align}
+    D'(g)^\dagger D'(g)&=\left(S^{-1}D(g)S\right)^\dagger S^{-1}D(g)S\\
+    &=S^\dagger D(g)^\dagger (S^{-1})^\dagger S^{-1}D(g)S\\
+    &=S^\dagger D(g)^\dagger (S^\dagger)^{-1} S^{-1}D(g)S\\
+    &=S^\dagger D(g)^\dagger (SS^\dagger)^{-1} D(g)S
+\end{align}
+iff $S$ is unitary itself $SS^\dagger = \mathbb{I}$
+\begin{align}
+    D'(g)^\dagger D'(g)=S^{-1} D(g)^\dagger D(g)S = S^{-1} S = \mathbb{I}.
+\end{align}
+\end{remark}
+
+\begin{definition}{}
+A representation is called a {\bf reducible representation} if $V$ has an invariant subspace meaning that the action of any $D(g)$ on any vector of the subspace $V_P$ is still in the subspace. If the projection operator $P:V\rightarrow V_P$ projects to this subspace then
+\begin{align}
+PD(g)P=D(g)P   \qquad \forall g\in G
+\end{align}
+\end{definition}
+
+\begin{remark}{}
+$\forall |v\rangle\in V$ we have $P|v\rangle\in V_P$. If the subspace is invariant then any group action can not move it outside $D(g)P|v\rangle\in V_P$. But this means projecting it again would not change anything $PD(g)P|v\rangle = D(g)P|v\rangle$
+\end{remark}
+
+\begin{definition}{}
+A representation is called an {\bf irreducible representation} if it is not reducible.
+\end{definition}
+
+\begin{definition}{}
+A representation is called a {\bf completely reducible representation} if it is equivalent to a representation whose matrix elements have the form
+\begin{align}
+D(g)&=\left(
+\begin{array}{ccc}
+D_1(g) & 0      & \dots \\
+0      & D_2(g) & \dots \\
+\vdots & \vdots & \ddots
+\end{array}
+\right)
+\end{align}
+where all $D_j(g)$ are irreducible. Representation $D$ is is said to be the direct sum of subrepresentation $D_j$
+\begin{align}
+D&=D_1(g)\oplus D_2(g)\oplus\dotsi
+\end{align}
+\end{definition}
+
+\begin{definition}{}
+For a group of order $n$ the $n$-dimensional representation $D$ defined by 
+\begin{align}
+g_k&\rightarrow|e_k\rangle\\
+D(g_j)|e_k\rangle&\overset{!}{=}|e_m\rangle\qquad\text{with } g_j\circ g_k=g_m\rightarrow|e_m\rangle
+\end{align}
+(where $\{|e_i\rangle\}$ is the ordinary $n$-dimensional cartesian basis) is called the {\bf regular representation}. The matrices are then constructed by
+\begin{align}
+[D(g_j)]_{ik}&=\langle e_i|D(g_j)|e_k\rangle=\langle e_i|e_m\rangle.
+\end{align}
+\end{definition}
+
+\newpage
+\subsection{Group $Z_3$}
+\begin{align}
+\begin{array}{c||ccc}
+Z_3 & e & a & b \\ \hline\hline
+e & e & a & b \\
+a & a & b & e \\
+b & b & e & a
+\end{array}
+\end{align}
+\subsubsection{1d}
+\begin{align}
+D(e)=1,\quad D(a)=1,\quad D(b)=1
+\end{align}
+\begin{align}
+D'(e)=1,\quad D'(a)=e^{i\frac{2\pi}{3}},\quad D'(b)=e^{i\frac{4\pi}{3}}
+\end{align}
+
+
+\subsubsection{3d - regular representation}
+\begin{align}
+|e\rangle=(1,0,0)^T,\quad |a\rangle=(0,1,0)^T,\quad |b\rangle=(0,0,1)^T
+\end{align}
+\begin{align}
+D(e)=\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 
+\end{array}
+\right),\quad
+D(a)=\left(\begin{array}{ccc}
+0 & 0 & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0 
+\end{array}
+\right),\quad
+D(b)=\left(\begin{array}{ccc}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+1 & 0 & 0 
+\end{array}
+\right),\quad
+\end{align}
+
 
 \newpage
 \section{Misc}
