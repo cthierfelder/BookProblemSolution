@@ -1422,9 +1422,19 @@ The {\bf conjugates}  are defined by
 
 \subsection{Groups theory}
 \begin{definition}{}
+For a subgroup $H$ of a group $G$ {\bf a left-coset} of the subgroup $H$ in $G$ is defined as the set formed by a distinct $g\in G$
+\begin{align}
+    gH=\{gh: \forall h\in H\}
+\end{align}
+$G/H$ denotes the set of left cosets $\{gH: g \in G\}$ of $H$ in $G$ (called coset-space).
+\end{definition}
+
+\begin{definition}{}
 A subgroup $N$ of a group $G$ is called {\bf normal subgroup (Normalteiler)} $N\vartriangleleft G$ if it is invariant under conjugation by members of $G$. Meaning
 \begin{align}
-    gng^{-1}\in N\quad \forall g\in G
+    gng^{-1}\in N\quad \forall g\in G\\
+    gN=Ng  \quad \forall g\in G\\
+    gNg^{-1}=N  \quad \forall g\in G
 \end{align}
 \end{definition}
 
@@ -1624,6 +1634,15 @@ Every representation of a finite group is equivalent to a unitary representation
 \begin{theorem}
 Every representation of a finite group is complete reducible.
 \end{theorem}
+
+\begin{definition}{}
+Given two representations $D_1$ and $D_2$ acting on $V_1$ and $V_2$, an intertwiner between $D_1$ and $D_2$ is a linear operator $F:D_1\rightarrow D_2$ which ''commutes with $G$'' in the sense that
+\begin{align}
+F D_1(g) = D_2(g)F\quad \forall g \in G. 
+\end{align}
+\end{definition}
+
+
 
 \section{Lie algebras}
 
