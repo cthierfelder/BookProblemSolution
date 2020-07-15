@@ -258,6 +258,9 @@ To find $S$ and $D_A$ one has to find the eigensystem $\{\lambda_i,\vec{v}_i\}$ 
 
 \newpage
 \section{Mathematical}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% WOIT %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{{\sc Woit} - Quantum Theory, Groups and Representations}
 
 \subsubsection{Problem B.1-3}
@@ -598,17 +601,39 @@ where we used (typo in the book!)
 
 \end{enumerate}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Srednicki %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
+The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
 \begin{align}
-    \langle q'',t''|q',t'\rangle&=\int\mathcal{D}q\mathcal{D}p\exp\left[i\int_{t'}^{t''}dt\left(p(t)\dot{q}(t)-H(p(t),q(t))\right)\right]\\
-    &=\int\prod_{j=0}^{N}dq_j\prod_{k=1}^N\frac{dp_k}{2\pi}e^{ip_k(q_{j+1}-q_j)}e^{-iH(p_k,\bar{q}_j)\delta t}\
+    \langle q''|e^{-iH(t''-t')}|q'\rangle
+    &=\langle q''|e^{-iHt''}e^{iHt''}e^{-iH(t''-t')}e^{-iHt'}e^{iHt'}|q'\rangle\\
+    &=\langle q'',t''|e^{iHt''}e^{iH(t''-t')}e^{-iHt'}|q',t'\rangle\\
+    &=\langle q'',t''|q',t'\rangle.
+\end{align}
+Now we can do the standard path integral derivation
+\begin{align}
+    \langle q'',t''|q',t'\rangle
+    &=\int\left(\prod_{j=1}^N dq_j\right) \langle q''|e^{-iH\delta t}|q_N\rangle \langle q_N|e^{-iH\delta t}|q_{N-1}\rangle \dots \langle q_1|e^{-iH\delta t}|q'\rangle\\
+    &=\int\left(\prod_{j=1}^N dq_j\right) \int\frac{dp_N}{2\pi}e^{-iH(p_N,q_N)\delta t}e^{ip_N(q'-q_N)} \dots  \int\frac{dp'}{2\pi}e^{-iH(p',q')\delta t}e^{ip'(q_1-q')}\\
+    &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi} e^{ip_k(q_{k+1}-q_k)}e^{-iH(p_k,\textcolor{red}{q_k})\delta t}\right)\quad(q_0=q',q_{N+1}=q'')
+\end{align}
+which under Weyl ordering (see Greiner, Reinhard - field quantization) has to be replaced by
+\begin{align}
+    \langle q'',t''|q',t'\rangle
+    &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi} e^{ip_k(q_{k+1}-q_k)}e^{-iH(p_k,\textcolor{red}{\bar{q}_k})\delta t}\right)\quad \bar{q}_k=(q_{k+1}+q_k)/2\\
+    &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi} e^{i[p_k\dot{q}_k-H(p_k,\textcolor{red}{\bar{q}_k})]\delta t}\right)\quad \dot{q}_k=(q_{k+1}-q_k)/{\delta t}\\
+    &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi}\right) \left(e^{i[p_k\dot{q}_k-H(p_k,\textcolor{red}{\bar{q}_k})]\delta t}\right)\\
+    &=\int\mathcal{D}q\mathcal{D}p\exp\left[i\int_{t'}^{t''}dt\left(p(t)\dot{q}(t)-H(p(t),q(t))\right)\right]\\
 \end{align}
 
-
-
 \section{Quantum Gravity}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Ammon, Erdmenger %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}
 The authors use $d-1$ spacial dimension and the sign convention 
 \begin{align}
@@ -1766,7 +1791,7 @@ D(a_5)=\left(\begin{array}{cc}
 
 
 \newpage
-\section{Misc}
+\section{Fun with names}
 \begin{itemize}
 \item Gordon vs Gordan
     \begin{itemize}
@@ -1787,6 +1812,21 @@ D(a_5)=\left(\begin{array}{cc}
     \begin{itemize}
     \item {\sc Hans Heinrich Euler} (1909-1941) - Euler–Heisenberg Lagrangian
     \item {\sc Leonhard Euler} (1707-1783) - Euler's formula
+    \end{itemize}
+\item Weyl vs Weil
+    \begin{itemize}
+    \item {\sc Hermann Weyl} (1885-1955) - Weyl spinor, Weyl group
+    \item {\sc Andre Weil} (1906-1998) - Weil group, Chern–Weil homomorphism
+    \end{itemize}
+\item Bragg vs Bragg
+    \begin{itemize}
+    \item {\sc William Henry Bragg} (1862-1942) - Bragg equation
+    \item {\sc William Lawrence Bragg} (1890-1971) - Bragg equation
+    \end{itemize}   
+\item Kac vs Kac
+    \begin{itemize}
+    \item {\sc Victor Kac} (1943-...) - Kac–Moody algebra
+    \item {\sc Mark Kac} (1904-1984) - Feynman–Kac formula
     \end{itemize}
 \end{itemize}
 \end{document}
