@@ -607,7 +607,7 @@ where we used (typo in the book!)
 \section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
-The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
+(a) The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
 \begin{align}
     \langle q''|e^{-iH(t''-t')}|q'\rangle
     &=\langle q''|e^{-iHt''}e^{iHt''}e^{-iH(t''-t')}e^{-iHt'}e^{iHt'}|q'\rangle\\
@@ -626,14 +626,54 @@ which under Weyl ordering (see Greiner, Reinhard - field quantization) has to be
     \langle q'',t''|q',t'\rangle
     &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi} e^{ip_k(q_{k+1}-q_k)}e^{-iH(p_k,\textcolor{red}{\bar{q}_k})\delta t}\right)\quad \bar{q}_k=(q_{k+1}+q_k)/2\\
     &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi} e^{i[p_k\dot{q}_k-H(p_k,\textcolor{red}{\bar{q}_k})]\delta t}\right)\quad \dot{q}_k=(q_{k+1}-q_k)/{\delta t}\\
-    &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi}\right) \left(e^{i[p_k\dot{q}_k-H(p_k,\textcolor{red}{\bar{q}_k})]\delta t}\right)\\
-    &=\int\mathcal{D}q\mathcal{D}p\exp\left[i\int_{t'}^{t''}dt\left(p(t)\dot{q}(t)-H(p(t),q(t))\right)\right]\\
+    &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi}\right) \left(e^{i\sum_{n=0}^N[p_n\dot{q}_n-H(p_n,\textcolor{red}{\bar{q}_n})]\delta t}\right)\\
+    &=\int\mathcal{D}q\mathcal{D}p\exp\left[i\int_{t'}^{t''}dt\left(p(t)\dot{q}(t)-H(p(t),q(t))\right)\right]
+\end{align}
+Let's now assume $H(p,q)$ has only a quadratic term in $p$ which is independent of $q$ meaning
+\begin{align}
+    H(p,q)=\frac{p^2}{2m}+V(q)
+\end{align}
+then
+\begin{align}
+\langle q''|e^{-iH(t''-t')}|q'\rangle
+        &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi}\right) \left(e^{i\sum_{n=0}^N[p_n\dot{q}_n-\frac{1}{2m}p_n^2-V(\textcolor{red}{\bar{q}_n})]\delta t}\right)
+\end{align}
+We can evaluate a single integral using
+\begin{align}
+    \int_{-\infty}^\infty dx e^{-ax^2+bx+c}=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c}
+\end{align}
+and obtain
+\begin{align}
+        \frac{1}{2\pi}\int_{-\infty}^\infty dp_k \left(e^{i[p_k\dot{q}_k-\frac{1}{2m}p_k^2-V(\textcolor{red}{\bar{q}_k})]\delta t}\right)
+        &=\frac{1}{2\pi}e^{-iV(\textcolor{red}{\bar{q}_k})\delta t}\int dp_k \left(e^{i[p_k\dot{q}_k-\frac{1}{2m}p_k^2]\delta t}\right)\\
+        &=\frac{1}{2\pi}e^{-iV(\textcolor{red}{\bar{q}_k})\delta t}\sqrt{\frac{\pi}{i\frac{\delta t}{2m}}} e^{\frac{-\dot{q}_k^2\delta t^2}{4\frac{i\delta t}{2m}}}\\
+        &=\frac{1}{2\pi}\sqrt{\frac{2\pi m}{i\delta t}} e^{i\left(\frac{m\dot{q}_k^2}{2}-V(\textcolor{red}{\bar{q}_k})\right)\delta t}\\
+        &=\sqrt{\frac{m}{2\pi i\delta t}} e^{iL(\bar{q}_k,\dot{q}_k)\delta t}.
+\end{align}
+As there are $N+1$ $p$-integrals we have
+\begin{align}
+    \mathcal{D}q=\left(\frac{m}{2\pi i\delta t}\right)^{(N+1)/2}\prod_{j=1}^N dq_j
+\end{align}
+(b) We now assume $V(q)=0$
+\begin{align}
+    \langle q'',t''|q',t'\rangle
+    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\left(\prod_{j=1}^N \int_{-\infty}^{\infty}dq_j\, e^{i\frac{m\dot{q}_j^2}{2}\delta t}\right)e^{i\frac{m\dot{q}_0^2}{2}\delta t}\\
+    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\, e^{i\frac{m(q_{j+1}-q_j)^2}{2\delta t}}\right)e^{i\frac{m(q_1-q_0)^2}{2\delta t}}\\
+    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}\\
+    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}e^{\frac{im}{2\delta t}(q_N^2+q_0^2)}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\left(-2q_1q_0+\sum_{k=1}^N2q_k^2-2q_{k+1}q_{k}\right)}\\
+    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}e^{\frac{im}{2\delta t}(q_N^2+q_0^2)}\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\left(\sum_{k=2}^N2q_k^2-2q_{k+1}q_{k}\right)}\\
+    &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\times\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}\left(2q_1^2-2[q_{2}-q_0]q_1\right)}
+\end{align}
+Using again
+\begin{align}
+    \int_{-\infty}^\infty dx e^{-ax^2+bx+c}=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c}
 \end{align}
 
+\newpage
 \section{Quantum Gravity}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Ammon, Erdmenger %%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}
 The authors use $d-1$ spacial dimension and the sign convention 
 \begin{align}
