@@ -219,6 +219,12 @@ and have dimension $(2\mu+1)(2\nu+1)$
 
 \newpage
 \section{Useful formulas}
+\subsubsection{Common integrals}
+\begin{align}
+    \int_{-\infty}^\infty dx e^{iax^2}&=\sqrt{\frac{\pi}{a}}e^{\frac{i\pi}{4}} \qquad a>0, a\in\mathbb{R}\\
+    \int_{-\infty}^\infty dy e^{iay^2-iby}&=\sqrt{\frac{\pi}{a}}e^{\frac{i}{4}\left(\pi-\frac{b^2}{a}\right)} \qquad a>0, a,b\in\mathbb{R}
+\end{align}
+
 \subsubsection{Fourier transformation}
 Starting from the Fourier integral theorem we have some freedom to distribute the $2\pi$ between back and forth transformation ($a,b\in\mathbb{R}$)
 \begin{align}
@@ -659,14 +665,23 @@ As there are $N+1$ $p$-integrals we have
     \langle q'',t''|q',t'\rangle
     &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\left(\prod_{j=1}^N \int_{-\infty}^{\infty}dq_j\, e^{i\frac{m\dot{q}_j^2}{2}\delta t}\right)e^{i\frac{m\dot{q}_0^2}{2}\delta t}\\
     &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\, e^{i\frac{m(q_{j+1}-q_j)^2}{2\delta t}}\right)e^{i\frac{m(q_1-q_0)^2}{2\delta t}}\\
-    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}\\
-    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}e^{\frac{im}{2\delta t}(q_N^2+q_0^2)}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\left(-2q_1q_0+\sum_{k=1}^N2q_k^2-2q_{k+1}q_{k}\right)}\\
-    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}e^{\frac{im}{2\delta t}(q_N^2+q_0^2)}\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\left(\sum_{k=2}^N2q_k^2-2q_{k+1}q_{k}\right)}\\
-    &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\times\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}\left(2q_1^2-2[q_{2}-q_0]q_1\right)}
+    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}
+\end{align}
+Integrating one by one using $(q_{j+1}-q_j)^2+(q_j-q_{j-1})^2=2q_j^2-2q_j(q_{j+1}+q_{j-1})+q_{j+1}^2+q_{j-1}^2$ 
+\begin{align}
+    \int_{-\infty}^{\infty}&\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}\\
+    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}
+    \times\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}\left[(q_2-q_1)^2+(q_1-q_0)^2\right]}\\
+    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}
+    e^{\frac{im}{2\delta t}(q_2^2+q_0^2)}\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}[2q_1^2-2q_1(q_2+q_0)]}\\
+    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}
+    e^{\frac{im}{2\delta t}(q_2^2+q_0^2)}\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i}{4}\left(\pi-\frac{m(q_2+q_0)^2}{\delta t}\right)}\\
+    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}
+    e^{\frac{im}{2\delta t}(q_2^2+q_0^2)}\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}e^{-\frac{m(q_2+q_0)^2}{\delta t}}
 \end{align}
 Using again
 \begin{align}
-    \int_{-\infty}^\infty dx e^{-ax^2+bx+c}=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c}
+    \int_{-\infty}^\infty dy e^{iay^2-iby}&=\sqrt{\frac{\pi}{a}}e^{\frac{i}{4}\left(\pi-\frac{b^2}{a}\right)} \qquad a>0, a,b\in\mathbb{R}\\
 \end{align}
 
 \newpage
