@@ -162,6 +162,25 @@ Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
 \end{align}
 
 \section{Groups}
+\subsection{Overview}
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{c | c c c c c c}
+        $\mathbb{F}$    & GL($n,\mathbb{F}$)    & SL($n,\mathbb{F}$) & U($n$) & SU($n$) & O($n$)     & SO($n$)     \\ \hline\hline
+        $\mathbb{R}$    & $n^2$                 & $n^2-1$            & -      & -       & $n(n-1)/2$ & $n(n-1)/2$  \\
+        $\mathbb{C}$    & $2n^2$                & $2(n^2-1)$         & $n^2$  & $n^2-1$ & $n(n-1)$   & $n(n-1)$    \\
+    \end{tabular}
+    \caption{Dimensions of common Lie groups (number of independent real parameters)}
+    \label{tab:my_label}
+\end{table}
+Observation: $\text{dim}(\text{SO}(n,\mathbb{F}))=\text{dim}(\text{O}(n,\mathbb{F}))$  - sign that SO($n$) is not connected
+
+\subsection{SO(2)}
+There are infinitely many (non-equivalent) 1-dimensional standard irreps
+\begin{align}
+    D^{k}(\alpha)=e^{-ik\alpha},\,k=0,\pm1,\pm2,...
+\end{align}
+
 \subsection{SO(3)}
 
 \subsection{SU(2)}
@@ -197,7 +216,7 @@ and have dimension $(2\mu+1)(2\nu+1)$
 \begin{center}
  \begin{tabular}{c c c l} 
  \hline
- irrep & dim & j & example \\ [0.5ex] 
+ irrep & dim & $j$ & example \\ [0.5ex] 
  \hline\hline
  $(0,0)$                        & 1 & 0 & Scalar \\  [0.5ex]
  $(\frac{1}{2},0)$              & 2 & $\frac{1}{2}$ & Left-handed Weyl spinor \\  [0.5ex]
@@ -214,7 +233,6 @@ and have dimension $(2\mu+1)(2\nu+1)$
   $(0,1)\oplus(0,1)$& - & - & Parity invariant field of 2-forms\\ \hline \\ [0.5ex]
 \end{tabular}
 \end{center}
-
 
 
 \newpage
@@ -351,11 +369,6 @@ Some examples
         &=\nabla_x\delta(x-y)
     \end{align}
 \end{enumerate}
-
-
-
-
-
 
 
 
@@ -1384,6 +1397,57 @@ The integral can be can be calculated using the residual theorem
 
 
 \section{General Physics}
+
+\subsection{{\sc Feynman} - Feynman Lectures on Physics}
+\subsubsection{Section G1 - 1 - 1961 Sep 28 (1.16)}
+\subsubsection{Section G1 - 2 - 1961 Sep 28 (1.15) }
+\begin{enumerate}[label=(\alph*)]
+\item  We use the Penman equation to estimate the specific evaporation rate
+\begin{align}
+    \frac{dm}{dA dt}
+    &=\frac{m R_n + \rho_\text{air}c_p (\delta e)g_a}{\lambda_v(m+\gamma)}\\
+    &=\frac{m R_n + \rho_\text{air}c_p (\delta e)g_a}{\lambda_v(m+\frac{c_p p}{\lambda_v MW_\text{ratio}})}\\
+    &\approx\frac{m R_n}{\lambda_v(m+\frac{c_p p}{\lambda_v MW_\text{ratio}})}.
+\end{align}
+The total time is then given by
+\begin{align}
+    t&=\frac{M}{\frac{dm}{dA dt}A}\\
+    &=\frac{M}{\frac{dm}{dA dt}\pi r^2}\\
+    &=\frac{M\lambda_v(m+\frac{c_p p}{\lambda_v MW_\text{ratio}})}{\pi r^2 m R_n }
+\end{align}
+with vapor the water vapor pressure
+\begin{align}
+    p_\text{vap}=\frac{101325\text{Pa}}{760} \exp\left[20.386 - \frac{5132K}{T}\right]
+\end{align}
+the slope of the saturation vapor pressure
+\begin{align}
+    m=\frac{\partial p_\text{vap}}{\partial T}=...
+\end{align}
+the air heat capacity $c_p=1.012\text{J}\text{kg}^{-1}\text{K}^{-1}$, the latent heat of vaporization $\lambda_v=2.26\cdot10^6 \text{J}\text{kg}^{-1}$, the net irradiance $R_n=150\text{Wm}^{-2}$ (average day/night partly shade), the ratio molecular weight of water vapor/dry air $MW_\text{ratio}=0.622$, the pressure $p=10^5\text{Pa}$, the temperature $T= 298\text{K}$, the water weight $M=0.5\text{kg}$ and the radius of the glass $r=0.04\text{m}$. This results in $t=26$ days.
+
+\item With the molar mass of water $m_{H2O}=18\,\text{g}\cdot\text{mol}^{-1}$
+
+\begin{align}
+    N&=\frac{dm}{dA dt} \frac{N_A}{m_{H20}}\\
+    &=\frac{m R_n}{\lambda_v(m+\frac{c_p p}{\lambda_v MW_\text{ratio}})}\frac{N_A}{m_{H20}}\\
+    &=1.47\cdot10^{17}\text{cm}^{-1}\text{s}^{-1}
+\end{align}
+
+\item The total mass of water vaporizing on earth in one year is
+\begin{align}
+    M_\text{1y prec}=\varepsilon_\text{ocean} 4\pi R_E^2  \frac{dm}{dA dt} t_{1y}.
+\end{align}
+In equilibrium this must be equal to the total amount of precipitation. So the average rainfall height is 
+\begin{align}
+    h&=\frac{M_\text{1y prec}}{4\pi R_E^2\rho_\text{H2O}}\\
+    &=\frac{\varepsilon_\text{ocean}t_{1y}}{\rho_\text{H2O}} \frac{dm}{dA dt}\\
+    &=947\text{mm}.
+\end{align}
+which seems reasonable.
+\end{enumerate}
+
+\subsection{{\sc Thorne, Blandford} - Modern Classical Physics}
+
 \subsection{{\sc Walter} - Astronautics}
 \subsubsection{Problem 1.1 - Balloon Propulsion}
 For the mass flow rate we have
