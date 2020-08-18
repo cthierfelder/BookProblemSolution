@@ -113,134 +113,30 @@ There is another theory which states that this has already happened.
 %SECTION_NUMBERING
 \setcounter{secnumdepth}{2}
 
-\newpage
-\section{Primer special relativity}
-Definition of line element
-\begin{align}
-    ds^2 &= dx^\mu dx_\nu = \eta_{\mu\nu}dx^\mu dx^\nu\\
-        &= dx^T\eta dx
-\end{align}
-Definition of Lorentz transformation
-\begin{align}
-    dx^\mu = \Lambda^\mu_{\;\nu}dx^\nu
-\end{align}
-By postulate the line element $ds$ is invariant under Lorentz transformation
-\begin{align}
-    ds^2 &= \eta_{\mu\nu}dx^\mu dx^\nu\\
-    &\stackrel{!}{=} \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu}dx^\mu \Lambda^\beta_{\;\nu}dx^\nu\quad\rightarrow\quad \eta_{\mu\nu} = \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}
-\end{align}
-or analog
-\begin{align}
-    ds^2 &= dx^T\eta dx\\
-    &\stackrel{!}{=} (\Lambda dx)^T\eta (\Lambda dx)\\
-    &= dx^T\Lambda^T\eta \Lambda dx\quad\rightarrow\quad \eta = \Lambda^T\eta\Lambda
-\end{align}
-Observation with the eigentime $d\tau=ds/c$ and 3-velocity $dx^i = v^i dt$
-\begin{align}
-    \frac{ds^2}{d\tau^2}=c^2&=c^2\frac{dt^2}{d\tau^2}-\frac{dx^i}{dt}\frac{dx_i}{dt}\left(\frac{dt}{d\tau}\right)^2\\
-    1&=\frac{dt^2}{d\tau^2}\left(1-\frac{v^iv_i}{c^2}\right)\quad\rightarrow\quad\frac{dt}{d\tau}\equiv\gamma=\left(\sqrt{1-\frac{v^2}{c^2}}\right)^{-1}
-\end{align}
-Definition of 4-velocity with 3-velocity $d\vec{x} = \vec{v} dt$
-\begin{align}
-    u^\mu\equiv\frac{dx^\mu}{d\tau}&=\frac{dx^\mu}{dt}\frac{dt}{d\tau}=\quad\rightarrow\quad u^\mu u_\mu=\eta_{\mu\nu}\frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau}=\frac{ds^2}{d\tau^2}=c^2\\
-    &=(c,\vec{v})\gamma
-\end{align}
-Object moving in $x$ direction with $v$ meaning $dx=v\cdot dt$ compared to
-rest frame $dx'=0$
-\begin{align}
-    c^2dt'^2=ds^2 &= c^2dt^2- v^2 dt^2\\
-    &=c^2dt^2\left(1-\frac{v^2}{c^2}\right)\\
-    dt'=\frac{ds}{c}\equiv d\tau&=dt\sqrt{1-\frac{v^2}{c^2}}=\frac{dt}{\gamma}
-\end{align}
-Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
-\begin{align}
-    p^\mu \equiv mu^\mu=(\gamma mc,\gamma m\vec{v})=\left(\frac{E_p}{c},\vec{p}\right)\quad&\rightarrow\quad p^\mu p _\mu=m^2u^\mu u_\mu=m^2c^2\\
-    &\rightarrow\quad (p^0)^2-p^ip_i=m^2c^2\\
-    &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}\\
-    &\rightarrow\quad E_p=\sqrt{m^2c^4+\vec{p}^2c^2}\\
-    &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
-\end{align}
-
-\section{Groups}
-\subsection{Overview}
-\begin{table}[!h]
-    \centering
-    \begin{tabular}{c | c c c c c c}
-        $\mathbb{F}$    & GL($n,\mathbb{F}$)    & SL($n,\mathbb{F}$) & U($n$) & SU($n$) & O($n$)     & SO($n$)     \\ \hline\hline
-        $\mathbb{R}$    & $n^2$                 & $n^2-1$            & -      & -       & $n(n-1)/2$ & $n(n-1)/2$  \\
-        $\mathbb{C}$    & $2n^2$                & $2(n^2-1)$         & $n^2$  & $n^2-1$ & $n(n-1)$   & $n(n-1)$    \\
-    \end{tabular}
-    \caption{Dimensions of common Lie groups (number of independent real parameters)}
-    \label{tab:my_label}
-\end{table}
-Observation: $\text{dim}(\text{SO}(n,\mathbb{F}))=\text{dim}(\text{O}(n,\mathbb{F}))$  - sign that SO($n$) is not connected
-
-\subsection{SO(2)}
-There are infinitely many (non-equivalent) 1-dimensional standard irreps
-\begin{align}
-    D^{k}(\alpha)=e^{-ik\alpha},\,k=0,\pm1,\pm2,...
-\end{align}
-
-\subsection{SO(3)}
-
-\subsection{SU(2)}
-Finite dimensional irreps of the Lorentz group are labeled by $l$ with
-\begin{align}
-    l &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
-\end{align}
-and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as ({\sc Clebsch-Gordan} decomposition)
-\begin{align}
-    V_l \otimes V_m &\cong \bigoplus_{j=l-m}^{l+m} V_j\\
-    &=V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
-    \text{dim}(V_l \otimes V_m)&=(2l+1)(2m+1)\\
-    \text{dim}(V_{l+m} \oplus ...\oplus V_{l-m})&=\sum_{k=0}^{2m}2[(l-m)+k]+1\\
-    &=(2m+1)[2(l-m)+1]+2\frac{2m(2m+1)}{2}\\
-    &=(2m+1)(2l+1)
-\end{align}
-
-\subsection{SU(3)}
-
-\subsection{Lorentz group O(1,3)}
-Finite dimensional irreps of the Lorentz group are labeled by two parameters $(\mu,\nu)$ with
-\begin{align}
-    \mu,\nu &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
-\end{align}
-and have dimension $(2\mu+1)(2\nu+1)$
-\begin{align*}
-    M^2&=\mu(\mu+1)\\
-    N^2&=\nu(\nu+1)\\
-    j  &\in |\mu-\nu|, ..., (\mu+\nu)
-\end{align*}
-
-
-\begin{center}
- \begin{tabular}{c c c l} 
- \hline
- irrep & dim & $j$ & example \\ [0.5ex] 
- \hline\hline
- $(0,0)$                        & 1 & 0 & Scalar \\  [0.5ex]
- $(\frac{1}{2},0)$              & 2 & $\frac{1}{2}$ & Left-handed Weyl spinor \\  [0.5ex]
- $(0,\frac{1}{2})$              & 2 & $\frac{1}{2}$ & Right-handed Weyl spinor \\  [0.5ex]
- $(\frac{1}{2},\frac{1}{2})$    & 4 & 0,1 & 4-Vector $A^\mu$ \\  [0.5ex]
- $(1,0)$                        & 3 & 1 & Self-dual 2-form \\  [0.5ex]
- $(0,1)$                        & 3 & 1 & Anti-self-dual 2-form \\  [0.5ex]
- $(1,1)$                        & 9 & 0,1,2 & Traceless symmetric $2^\text{nd}$ rank tensor \\ \hline  \\ [0.5ex]
-  \hline
- rep & dim & j & example \\ [0.5ex] 
- \hline\hline
- $(\frac{1}{2},0)\oplus(0,\frac{1}{2})$& - & - & Dirac bispinor $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
- $(\frac{1}{2},\frac{1}{2})\otimes\left[(\frac{1}{2},0)\oplus(0,\frac{1}{2})\right]$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
-  $(0,1)\oplus(0,1)$& - & - & Parity invariant field of 2-forms\\ \hline \\ [0.5ex]
-\end{tabular}
-\end{center}
-
 
 \newpage
 \section{Useful formulas}
+
+\begin{align}
+    \left(\int_{-\infty}^\infty dx e^{-x^2}\right)^2
+    &=\int_{-\infty}^\infty dx e^{-x^2} \cdot \int_{-\infty}^\infty dy e^{-y^2}\\
+    &=\int_{\mathbb{R}^2}e^{-(x^2+y^2)}dx\,dy\\
+    &=\int_0^{2\pi}\int_0^{2\pi}e^{-r^2}r dr \\
+    &=-2\pi\left.\frac{e^{-r^2}}{2}\right|^\infty_0=\pi
+\end{align}
+
 \subsubsection{Common integrals}
 \begin{align}
-    \int_{-\infty}^\infty dx e^{iax^2}&=\sqrt{\frac{\pi}{a}}e^{\frac{i\pi}{4}} \qquad a>0, a\in\mathbb{R}\\
-    \int_{-\infty}^\infty dy e^{iay^2-iby}&=\sqrt{\frac{\pi}{a}}e^{\frac{i}{4}\left(\pi-\frac{b^2}{a}\right)} \qquad a>0, a,b\in\mathbb{R}
+    \int_{-\infty}^\infty dx e^{-ax^2}&=\sqrt{\frac{\pi}{a}} \qquad a>0, a\in\mathbb{R}\\
+    \int_{-\infty}^\infty dx e^{-ax^2+bx+c}&=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c} \qquad a>0, a,b,c\in\mathbb{R}\\
+    \int_{-\infty}^\infty dx e^{iax^2}&=\sqrt{\frac{\pi}{a}}e^{\frac{i\pi}{4}} \qquad a>0, a\in\mathbb{R}
+\end{align}
+\subsubsection{Common Fourier integrals}
+\begin{align}
+    \int_{-\infty}^\infty dy e^{-ay^2}e^{-iby}&=\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}} \qquad a>0, a,b\in\mathbb{R}\\
+    \int_{-\infty}^\infty dy e^{iay^2}e^{-iby}&=\sqrt{\frac{\pi}{a}}e^{\frac{i}{4}\left(\pi-\frac{b^2}{a}\right)} \qquad a>0, a,b\in\mathbb{R}\\
+    \int_{-\infty}^\infty dy e^{-(a+ic)y^2}e^{-iby}&=\sqrt{\frac{\pi}{a+ic}}e^{-\frac{b^2}{4(a+ic)}} \qquad a>0, a,b,c\in\mathbb{R}\\
+    &=\sqrt{\frac{\pi}{a^2+c^2}}\sqrt{a-ic}\,e^{-\frac{b^2}{4(a^2+c^2)}(a-ic)}
 \end{align}
 
 \subsubsection{Fourier transformation}
@@ -371,6 +267,129 @@ Some examples
 \end{enumerate}
 
 
+
+
+
+\newpage
+\section{Primer special relativity}
+Definition of line element
+\begin{align}
+    ds^2 &= dx^\mu dx_\nu = \eta_{\mu\nu}dx^\mu dx^\nu\\
+        &= dx^T\eta dx
+\end{align}
+Definition of Lorentz transformation
+\begin{align}
+    dx^\mu = \Lambda^\mu_{\;\nu}dx^\nu
+\end{align}
+By postulate the line element $ds$ is invariant under Lorentz transformation
+\begin{align}
+    ds^2 &= \eta_{\mu\nu}dx^\mu dx^\nu\\
+    &\stackrel{!}{=} \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu}dx^\mu \Lambda^\beta_{\;\nu}dx^\nu\quad\rightarrow\quad \eta_{\mu\nu} = \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}
+\end{align}
+or analog
+\begin{align}
+    ds^2 &= dx^T\eta dx\\
+    &\stackrel{!}{=} (\Lambda dx)^T\eta (\Lambda dx)\\
+    &= dx^T\Lambda^T\eta \Lambda dx\quad\rightarrow\quad \eta = \Lambda^T\eta\Lambda
+\end{align}
+Observation with the eigentime $d\tau=ds/c$ and 3-velocity $dx^i = v^i dt$
+\begin{align}
+    \frac{ds^2}{d\tau^2}=c^2&=c^2\frac{dt^2}{d\tau^2}-\frac{dx^i}{dt}\frac{dx_i}{dt}\left(\frac{dt}{d\tau}\right)^2\\
+    1&=\frac{dt^2}{d\tau^2}\left(1-\frac{v^iv_i}{c^2}\right)\quad\rightarrow\quad\frac{dt}{d\tau}\equiv\gamma=\left(\sqrt{1-\frac{v^2}{c^2}}\right)^{-1}
+\end{align}
+Definition of 4-velocity with 3-velocity $d\vec{x} = \vec{v} dt$
+\begin{align}
+    u^\mu\equiv\frac{dx^\mu}{d\tau}&=\frac{dx^\mu}{dt}\frac{dt}{d\tau}=\quad\rightarrow\quad u^\mu u_\mu=\eta_{\mu\nu}\frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau}=\frac{ds^2}{d\tau^2}=c^2\\
+    &=(c,\vec{v})\gamma
+\end{align}
+Object moving in $x$ direction with $v$ meaning $dx=v\cdot dt$ compared to
+rest frame $dx'=0$
+\begin{align}
+    c^2dt'^2=ds^2 &= c^2dt^2- v^2 dt^2\\
+    &=c^2dt^2\left(1-\frac{v^2}{c^2}\right)\\
+    dt'=\frac{ds}{c}\equiv d\tau&=dt\sqrt{1-\frac{v^2}{c^2}}=\frac{dt}{\gamma}
+\end{align}
+Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
+\begin{align}
+    p^\mu \equiv mu^\mu=(\gamma mc,\gamma m\vec{v})=\left(\frac{E_p}{c},\vec{p}\right)\quad&\rightarrow\quad p^\mu p _\mu=m^2u^\mu u_\mu=m^2c^2\\
+    &\rightarrow\quad (p^0)^2-p^ip_i=m^2c^2\\
+    &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}\\
+    &\rightarrow\quad E_p=\sqrt{m^2c^4+\vec{p}^2c^2}\\
+    &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
+\end{align}
+
+\section{Groups}
+\subsection{Overview}
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{c | c c c c c c}
+        $\mathbb{F}$    & GL($n,\mathbb{F}$)    & SL($n,\mathbb{F}$) & U($n$) & SU($n$) & O($n$)     & SO($n$)     \\ \hline\hline
+        $\mathbb{R}$    & $n^2$                 & $n^2-1$            & -      & -       & $n(n-1)/2$ & $n(n-1)/2$  \\
+        $\mathbb{C}$    & $2n^2$                & $2(n^2-1)$         & $n^2$  & $n^2-1$ & $n(n-1)$   & $n(n-1)$    \\
+    \end{tabular}
+    \caption{Dimensions of common Lie groups (number of independent real parameters)}
+    \label{tab:my_label}
+\end{table}
+Observation: $\text{dim}(\text{SO}(n,\mathbb{F}))=\text{dim}(\text{O}(n,\mathbb{F}))$  - sign that SO($n$) is not connected
+
+\subsection{SO(2)}
+There are infinitely many (non-equivalent) 1-dimensional standard irreps
+\begin{align}
+    D^{k}(\alpha)=e^{-ik\alpha},\,k=0,\pm1,\pm2,...
+\end{align}
+
+\subsection{SO(3)}
+
+\subsection{SU(2)}
+Finite dimensional irreps of the Lorentz group are labeled by $l$ with
+\begin{align}
+    l &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
+\end{align}
+and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as ({\sc Clebsch-Gordan} decomposition)
+\begin{align}
+    V_l \otimes V_m &\cong \bigoplus_{j=l-m}^{l+m} V_j\\
+    &=V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
+    \text{dim}(V_l \otimes V_m)&=(2l+1)(2m+1)\\
+    \text{dim}(V_{l+m} \oplus ...\oplus V_{l-m})&=\sum_{k=0}^{2m}2[(l-m)+k]+1\\
+    &=(2m+1)[2(l-m)+1]+2\frac{2m(2m+1)}{2}\\
+    &=(2m+1)(2l+1)
+\end{align}
+
+\subsection{SU(3)}
+
+\subsection{Lorentz group O(1,3)}
+Finite dimensional irreps of the Lorentz group are labeled by two parameters $(\mu,\nu)$ with
+\begin{align}
+    \mu,\nu &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
+\end{align}
+and have dimension $(2\mu+1)(2\nu+1)$
+\begin{align*}
+    M^2&=\mu(\mu+1)\\
+    N^2&=\nu(\nu+1)\\
+    j  &\in |\mu-\nu|, ..., (\mu+\nu)
+\end{align*}
+
+
+\begin{center}
+ \begin{tabular}{c c c l} 
+ \hline
+ irrep & dim & $j$ & example \\ [0.5ex] 
+ \hline\hline
+ $(0,0)$                        & 1 & 0 & Scalar \\  [0.5ex]
+ $(\frac{1}{2},0)$              & 2 & $\frac{1}{2}$ & Left-handed Weyl spinor \\  [0.5ex]
+ $(0,\frac{1}{2})$              & 2 & $\frac{1}{2}$ & Right-handed Weyl spinor \\  [0.5ex]
+ $(\frac{1}{2},\frac{1}{2})$    & 4 & 0,1 & 4-Vector $A^\mu$ \\  [0.5ex]
+ $(1,0)$                        & 3 & 1 & Self-dual 2-form \\  [0.5ex]
+ $(0,1)$                        & 3 & 1 & Anti-self-dual 2-form \\  [0.5ex]
+ $(1,1)$                        & 9 & 0,1,2 & Traceless symmetric $2^\text{nd}$ rank tensor \\ \hline  \\ [0.5ex]
+  \hline
+ rep & dim & j & example \\ [0.5ex] 
+ \hline\hline
+ $(\frac{1}{2},0)\oplus(0,\frac{1}{2})$& - & - & Dirac bispinor $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
+ $(\frac{1}{2},\frac{1}{2})\otimes\left[(\frac{1}{2},0)\oplus(0,\frac{1}{2})\right]$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
+  $(0,1)\oplus(0,1)$& - & - & Parity invariant field of 2-forms\\ \hline \\ [0.5ex]
+\end{tabular}
+\end{center}
 
 
 
@@ -1399,8 +1418,8 @@ The integral can be can be calculated using the residual theorem
 \section{General Physics}
 
 \subsection{{\sc Feynman} - Feynman Lectures on Physics}
-\subsubsection{Section G1 - 1 - 1961 Sep 28 (1.16)}
-\subsubsection{Section G1 - 2 - 1961 Sep 28 (1.15) }
+\subsubsection{Section G1/1 - 1961 Sep 28 (1.16)}
+\subsubsection{Section G1/2 - 1961 Sep 28 (1.15)}
 \begin{enumerate}[label=(\alph*)]
 \item  We use the Penman equation to estimate the specific evaporation rate
 \begin{align}
@@ -1437,16 +1456,212 @@ the air heat capacity $c_p=1.012\text{J}\text{kg}^{-1}\text{K}^{-1}$, the latent
 \begin{align}
     M_\text{1y prec}=\varepsilon_\text{ocean} 4\pi R_E^2  \frac{dm}{dA dt} t_{1y}.
 \end{align}
-In equilibrium this must be equal to the total amount of precipitation. So the average rainfall height is 
+with $\varepsilon_\text{ocean}=0.7$. In equilibrium this must be equal to the total amount of precipitation. So the average rainfall height is 
 \begin{align}
     h&=\frac{M_\text{1y prec}}{4\pi R_E^2\rho_\text{H2O}}\\
     &=\frac{\varepsilon_\text{ocean}t_{1y}}{\rho_\text{H2O}} \frac{dm}{dA dt}\\
     &=947\text{mm}.
 \end{align}
-which seems reasonable.
+which seems reasonable (given that the solar constant is $1,361\text{Wm}^{-2}$ the estimate of $R_n=150\text{Wm}^{-2}$ seems ok).
 \end{enumerate}
 
+\subsubsection{Problem Set 3/1 - Nov 03 (3.16)}
+Direct measurement can be done for the
+\begin{itemize}
+    \item radius of the earth $R_e=6371\text{km}$
+    \item orbital period of the moon $T_M=28\text{d}$
+    \item angular diameter of the moon $\delta=30'=0.5^\circ$
+    \item earths gravitational acceleration $g=9.81\text{ms}^2$
+    \item also Sputnik I orbital data can be looked up $a_\text{satellite}=R_E+584\text{km}$ and $T_\text{satellite}=96.2\text{min}$
+\end{itemize}
+
+\begin{enumerate}
+\item We use Keplers 3rd law
+\begin{align}
+    \frac{a_M^3}{T_M^2}&=\frac{a_\text{satellite}^3}{T_\text{satellite}^2}\\
+    a_M&=a_\text{sat}\left(\frac{T_M}{T_\text{sat}}\right)^{2/3}
+\end{align}
+then the radius of the moon is given by
+\begin{align}
+R_M=\frac{a_M}{2}\tan\delta=\frac{a_\text{sat}}{2}\left(\frac{T_M}{T_\text{sat}}\right)^{2/3}\tan\delta
+\end{align}
+and the mass by
+\begin{align}
+    m_M&=\rho_M V_M=\frac{4}{3}\pi\rho_M R_M^3\\
+    &=\frac{4}{3}\pi\rho_M \left(\frac{a_\text{sat}}{2}\left(\frac{T_M}{T_\text{sat}}\right)^{2/3}\tan\delta \right)^3\\
+    &=\frac{1}{6}\pi\rho_M a_\text{sat}^3\left(\frac{T_M}{T_\text{sat}}\right)^2\tan^3\delta \\
+    &\approx\frac{1}{6}\pi\rho_E a_\text{sat}^3\left(\frac{T_M}{T_\text{sat}}\right)^2\tan^3\delta 
+\end{align}
+where we approximated the moon by the earth mass density. From the gravitational law we can obtain the earth density by
+\begin{align}
+    g&=\frac{F_g}{m}=\frac{Gm_E}{R_E^2}\quad\rightarrow\quad m_E=\frac{gR_E^2}{G}\\
+    \rho_E&=\frac{m_E}{V_E}=\frac{m_E}{\frac{4}{3}\pi R_E^3}=\frac{3g}{4\pi G R_E}.
+\end{align}
+Therefore the mass of the moon is given by
+\begin{align}
+    m_M&\approx\frac{g}{ 8G R_E} a_\text{sat}^3\left(\frac{T_M}{T_\text{sat}}\right)^2\tan^3\delta \\
+    &=1.16\cdot10^{23}\text{kg}.
+\end{align}
+
+\item Using tidal heights ...
+
+\item  We use Keplers 3rd law (for the earth-moon system) and the gravitational law for the earth 
+\begin{align}
+    \frac{a_M^3}{T_M^2}&=\frac{G(m_E+m_M)}{4\pi^2}\approx\frac{Gm_E}{4\pi^2}=\frac{a_\text{satellite}^3}{T_\text{satellite}^2}\\
+    g&=\frac{F_g}{m}=\frac{Gm_E}{R_E^2}
+\end{align}
+and obtain
+\begin{align}
+    \frac{a_\text{satellite}^3}{T_\text{satellite}^2}&=\frac{gR_E^2+Gm_M}{4\pi^2}\\
+    m_M&=\frac{4\pi^2}{G}\left(\frac{a_\text{satellite}^3}{T_\text{satellite}^2}-\frac{gR_E^2}{4\pi^2}\right)\\
+    &=7.07\cdot10^{21}\text{kg}.
+\end{align}
+This result is quite sensitive to the satellite orbital data.
+\end{enumerate}
+
+
+
+
 \subsection{{\sc Thorne, Blandford} - Modern Classical Physics}
+
+\subsubsection{Exercise 3.3 Practice and Example: Regimes of Particulate and Wave - Like Behavior}
+\begin{enumerate}[label=(\alph*)]
+\item The Schwarzschild radius of the BH is
+\begin{align}
+    R_S=\frac{2GM}{c^2}=44,466\text{m}
+\end{align}
+which gives a disk radius of $R=7R_S=311\text{km}$.
+With
+\begin{align}
+    F_\text{Earth}&=\frac{dP}{dA}=\frac{dW}{dA\,dt}=\frac{dN\cdot E_{ph} c}{dA\cdot
+    dl}=\left(\frac{dN}{d\mathcal{V}_x}\right)_\text{Earth}\cdot E_\text{ph} c\\
+    \left(\frac{dN}{d\mathcal{V}_x}\right)_\text{Earth}&=\frac{F_\text{Earth}}{cE_\text{ph}}=0.00104\text{m}^{-3}\\
+    F_\text{CX1}&=\frac{r^2}{R^2}F_\text{Earth}\\
+    \left(\frac{dN}{d\mathcal{V}_x}\right)_\text{CX1}&=\frac{F_\text{CX1}}{cE_\text{ph}}=\frac{r^2}{R^2}\frac{F_\text{Earth}}{cE_\text{ph}}=3.72\cdot10^{25}\text{m}^{-3}
+\end{align}
+The momentum of the photons is $p=E/c$.
+
+The mean occupation number is then
+\begin{align}
+    \eta=\frac{h^3}{g_s}\mathcal{N}=\frac{h^3}{g_s}\frac{dN}{d\mathcal{V}_xd\mathcal{V}_p}=
+\end{align}
+\end{enumerate}
+
+
+\subsubsection{Exercise 7.1 Practice: Group and Phase Velocities}
+With the definition of phase and group velocities
+\begin{align}
+    \vec{v}_{ph}&=\frac{\omega}{k}\frac{\vec{k}}{k}\\
+    \vec{v}_{g}&=\nabla_k{\omega}
+\end{align}
+
+\begin{align}
+    \omega_1(\vec{k})&=C|\vec{k}|\\
+    &\rightarrow\vec{v}_{ph}=\frac{C|\vec{k}|}{k}\frac{\vec{k}}{k}=C\frac{\vec{k}}{k}\\
+    &\rightarrow\vec{v}_{g}=C\frac{2\vec{k}}{2\sqrt{k^2}}=C\frac{\vec{k}}{k}\\\
+    \omega_2(\vec{k})&=\sqrt{g|\vec{k}|}\\
+    &\rightarrow\vec{v}_{ph}=\frac{\sqrt{g|\vec{k}|}}{k}\frac{\vec{k}}{k}=\sqrt{\frac{g}{k}}\frac{\vec{k}}{k}\\
+    &\rightarrow\vec{v}_{g}=\sqrt{g}\frac{1}{2\sqrt{|\vec{k}|}}\frac{\vec{k}}{k}=\frac{1}{2}\sqrt{\frac{g}{k}}\frac{\vec{k}}{k}\\
+    \omega_3(\vec{k})&=\sqrt{\frac{D}{\Lambda}}\vec{k}^2\\
+    &\rightarrow\vec{v}_{ph}=\sqrt{\frac{D}{\Lambda}}\frac{\vec{k}^2}{k}\frac{\vec{k}}{k}=\sqrt{\frac{D}{\Lambda}}k\frac{\vec{k}}{k}\\
+    &\rightarrow\vec{v}_{g}=\sqrt{\frac{D}{\Lambda}}2\vec{k}=2\sqrt{\frac{D}{\Lambda}}k\frac{\vec{k}}{k}\\
+    \omega_4(\vec{k})&=\vec{a}\cdot\vec{k}\\
+    &\rightarrow\vec{v}_{ph}=\frac{\vec{a}\cdot\vec{k}}{k}\frac{\vec{k}}{k}=\left(\vec{a}\cdot\frac{\vec{k}}{k}\right)\frac{\vec{k}}{k}\\
+    &\rightarrow\vec{v}_{g}=\vec{a}
+\end{align}
+
+\subsubsection{Exercise 7.2 Example: Gaussian Wave Packet and Its Dispersion}
+\begin{enumerate}[label=(\alph*)]
+\item Taylor expansion of the dispersion relation gives
+\begin{align}
+    \omega=\Omega(k)&=\omega(k_0)+\left.\frac{\partial \omega(k)}{\partial k}\right|_{k=k_0}(k-k_0)+\frac{1}{2}\left.\frac{\partial^2\omega(k)}{\partial k^2}\right|_{k=k_0}(k-k_0)^2\\
+    &=\omega(k_0)+V_g|_{k=k_0}(k-k_0)+\frac{1}{2}\left.\frac{\partial V_g(k)}{\partial k}\right|_{k=k_0}(k-k_0)^2.
+\end{align}
+The wave packet can then be written as
+\begin{align}
+   \psi(x,t)
+   &=\frac{1}{2\pi}\int_{-\infty}^\infty dk A(k)e^{i\alpha(k)}e^{i(kx-\omega t)}\\
+   &=\frac{C}{2\pi}\int_{-\infty}^\infty dk e^{-\frac{(k-k_0)^2}{2\Delta k^2}}e^{i[\alpha_0-x_0(k-k0)]}e^{i(kx-[\omega_0+V_g(k-k_0)+\frac{1}{2}V_g'(k-k_0)^2] t)}\\
+   &=\frac{C}{2\pi}\int_{-\infty}^\infty dk e^{-\frac{(k-k_0)^2}{2\Delta k^2}}e^{i(\alpha_0+k_0x-\omega_0t-(V_gt-x+x_0)(k-k_0)-\frac{1}{2}V_g't (k-k_0)^2)}\\
+   &=\frac{C}{2\pi}e^{i(\alpha_0+k_0x-\omega_0t)}\int_{-\infty}^\infty dk e^{-i(V_gt-x+x_0)(k-k_0)} e^{-\frac{1}{2}(k-k_0)^2\left(\frac{1}{\Delta k^2}+iV_g't\right)}\\
+   &=\frac{C}{2\pi}e^{i(\alpha_0+k_0x-\omega_0t)}\int_{-\infty}^\infty d\kappa e^{i(x-x_0-V_gt)\kappa} e^{-\frac{1}{2}\kappa^2\left(\frac{1}{\Delta k^2}+iV_g't\right)}\\
+\end{align}
+
+\item With
+\begin{align}
+    \int_{-\infty}^\infty dy e^{-(a+ic)y^2}e^{-iby}
+    &=\sqrt{\frac{\pi}{a^2+c^2}}\sqrt{a-ic}\,e^{-\frac{b^2}{4(a^2+c^2)}(a-ic)}\qquad a>0, a,b,c\in\mathbb{R}
+\end{align}
+and the substitutions $a=\frac{1}{2\,\Delta k^2}, c=\frac{V'_gt}{2}$ and 
+\begin{align}
+    a^2+c^2&=\frac{1}{4\,\Delta k^2}\frac{1}{\Delta k^2}\left(1+[V'_g(\Delta k)^2t]^2\right)\\
+    &=\frac{1}{4\,\Delta k^2}L^2\\
+    &=\frac{a}{2}L^2
+\end{align}
+we obtain
+\begin{align}
+   \psi(x,t)
+   &=\frac{C}{2\pi}e^{i(\alpha_0+k_0x-\omega_0t)}\sqrt{\frac{\pi }{aL^2}}\sqrt{a-ic}\,e^{-\frac{ab^2}{4(a^2+c^2)}}e^{-\frac{(-ic)b^2}{4(a^2+c^2)}}\\
+   &=\frac{C}{2\pi}e^{i(\alpha_0+k_0x-\omega_0t)}e^{\frac{2icb^2}{4aL^2}}\sqrt{\frac{\pi }{aL^2}}\sqrt{a-ic}\,e^{-\frac{(x-x_0-V_gt)^2}{2L^2}}
+\end{align}
+and therefore (with $|\sqrt{a-ic}|=\sqrt{|a-ic|}=\sqrt{\sqrt{aL^2}}=a^{1/4}\sqrt{L}$)
+\begin{align}
+   |\psi(x,t)|
+    &=\frac{C}{2\pi}\sqrt{\frac{\pi }{aL^2}}a^{1/4}\sqrt{L}\,e^{-\frac{(x-x_0-V_gt)^2}{2L^2}}\\
+    &=\frac{C}{2\pi}\sqrt{\frac{\pi }{\sqrt{a}L}}\,e^{-\frac{(x-x_0-V_gt)^2}{2L^2}}\\
+    &=\frac{C}{2}\sqrt{\frac{1 }{\pi\sqrt{a}}}\frac{1}{\sqrt{L}}\,e^{-\frac{(x-x_0-V_gt)^2}{2L^2}}.
+\end{align}
+\item At $t=0$ the packets width in position space is $L=1/\Delta k$ while the width in momentum space is $\Delta k$ which means the product is $\Delta x \cdot \Delta k = 1$.
+\item With the group velocity
+\begin{align}
+    V_g&=\frac{1}{2}\sqrt{\frac{g}{k_0}}\\
+    V_g'&=\frac{\partial V_g}{\partial k}|_{k=k_0}=-\frac{1}{4}\sqrt{\frac{g}{k_0^3}}
+\end{align}
+the width of the package is proportional to
+\begin{align}
+    L&=\frac{1}{\Delta k}\sqrt{1+\left(V_g'(\Delta k)^2t\right)^2}\\
+    &=\frac{1}{\Delta k}\sqrt{1+\frac{1}{16}\frac{g}{k_0^3}(\Delta k)^4t^2}\\
+    &\rightarrow 3 = \frac{g(\Delta k)^4T_D^2}{16k_0^3}\\
+    &\rightarrow T_D=\frac{4}{\Delta k^2}\sqrt{\frac{3k_0^3}{g}}.
+\end{align}
+The condition for the spread limitation is
+\begin{align}
+    S_\text{HI-CA}&\le V_g\cdot T_D\\
+    &=\frac{1}{2}\sqrt{\frac{g}{k_0}}\frac{4}{\Delta k^2}\sqrt{\frac{3k_0^3}{g}}\\
+    &=2\sqrt{3}\frac{k_0}{\Delta k^2}
+\end{align}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.1 Practice: Convolutions and Fourier Transforms}
+\begin{enumerate}[label=(\alph*)]
+\item With $f_1(x)=e^{-\frac{x^2}{2\sigma^2}}$ and $f_2(x)=e^{-\frac{x}{h}}\theta(x)$ we obtain
+\begin{align}
+    F_1(k)&=\int_{-\infty}^\infty f_1(x)e^{-ikx}dx\\
+    &=\int_{-\infty}^\infty e^{-\frac{x^2}{2\sigma^2}}e^{-ikx}dx\\
+    &=e^{-\frac{k^2\sigma^2}{2}}\int_{-\infty}^\infty e^{-\left(\frac{x}{\sqrt{2}\sigma}+\frac{ik\sigma}{\sqrt{2}}\right)^2}dx\\
+    &=e^{-\frac{k^2\sigma^2}{2}} \sqrt{2\sigma^2} \int_{-\infty}^\infty e^{-y^2}dy\\
+    &=\sqrt{2\pi\sigma^2}e^{-\frac{\sigma^2k^2}{2}}\\
+    F_2(k)&=\int_{-\infty}^\infty f_2(x)e^{-ikx}dx\\
+    &=\int_{0}^\infty e^{-\frac{x}{h}}e^{-ikx}dx\\
+    &=-\frac{1}{h}\left.e^{-\frac{x}{h}}e^{-ikx}\right|_0^\infty -\int_{0}^\infty \left(-\frac{1}{h}\right)e^{-\frac{x}{h}}\frac{1}{(-ik)}e^{-ikx}dx\\
+    &=\frac{1}{h} -\frac{1}{ihk}\int_{0}^\infty e^{-\frac{x}{h}}e^{-ikx}dx\\
+    &= ...\\
+    &=\frac{1}{\frac{1}{h}+ik}
+\end{align}
+\item
+\item
+\begin{align}
+    f_1\otimes f_2
+    &=\int_{-\infty}^\infty f_2(y-x)f_1(x)dx\\
+    &=\int_{-\infty}^\infty e^{-\frac{y-x}{h}}\theta(y-x)e^{-\frac{x^2}{2\sigma^2}}dx\\
+    &=\int_{-\infty}^y e^{-\frac{y-x}{h}}e^{-\frac{x^2}{2\sigma^2}}dx\\
+    &=...
+\end{align}
+\end{enumerate}
+
+
+
 
 \subsection{{\sc Walter} - Astronautics}
 \subsubsection{Problem 1.1 - Balloon Propulsion}
@@ -1579,7 +1794,7 @@ Important general principles
     \item 
     \begin{itemize}
         \item Baez review octonions {\sc https://arxiv.org/abs/math/0105155v4}
-        \item Complex quaternion, octonions {\sc https://arxiv.org/abs/1611.09182}
+        \item Complex quaternions, octonions {\sc https://arxiv.org/abs/1611.09182}
         \item Conway, Smith - On quaternions and octonions
     \end{itemize}
 \end{enumerate}
