@@ -1473,6 +1473,7 @@ Direct measurement can be done for the
     \item angular diameter of the moon $\delta=30'=0.5^\circ$
     \item earths gravitational acceleration $g=9.81\text{ms}^2$
     \item also Sputnik I orbital data can be looked up $a_\text{satellite}=R_E+584\text{km}$ and $T_\text{satellite}=96.2\text{min}$
+    \item height difference between low and high tide $\Delta h=1\text{m}$
 \end{itemize}
 
 \begin{enumerate}
@@ -1503,9 +1504,7 @@ Therefore the mass of the moon is given by
     &=1.16\cdot10^{23}\text{kg}.
 \end{align}
 
-\item Using tidal heights ...
-
-\item  We use Keplers 3rd law (for the earth-moon system) and the gravitational law for the earth 
+\item  We use Keplers 3rd law (for the earth-moon system) and the gravitational law for the earth
 \begin{align}
     \frac{a_M^3}{T_M^2}&=\frac{G(m_E+m_M)}{4\pi^2}\approx\frac{Gm_E}{4\pi^2}=\frac{a_\text{satellite}^3}{T_\text{satellite}^2}\\
     g&=\frac{F_g}{m}=\frac{Gm_E}{R_E^2}
@@ -1517,10 +1516,78 @@ and obtain
     &=7.07\cdot10^{21}\text{kg}.
 \end{align}
 This result is quite sensitive to the satellite orbital data.
+
+
+\item We will use the earth tidal data. Lets assume circular orbits with $a_E+a_M=D$ which we can justify by observation (as the moon appears to have constant angular diameter). As reference system we use the center of mass of the system
+
+\begin{center}
+\begin{tikzpicture}
+\draw (-1,0) -- (2,0);
+\filldraw [gray] (-1,0) circle (2pt) node[below right]{$a_E$};
+\filldraw [gray] (2,0) circle (2pt) node[below left]{$a_M$};
+\filldraw [gray] (0,0) circle (1pt);
+\draw (0,0) circle (2);
+\draw (0,0) circle (1);
+\end{tikzpicture}
+\end{center}
+\begin{align}
+    M_E\omega^2a_E&=\frac{Gm_Em_M}{D^2}=m_M\omega^2a_M\\
+    &\rightarrow a_E=\frac{m_MD}{M_E+M_M}\\
+    &\rightarrow \omega^2=\frac{G(m_E+m_M)}{D^3}
+\end{align}
+
+\begin{center}
+\begin{tikzpicture}
+\draw (-2,0) -- (2,0);
+\draw (-2,0) circle (1) node[below right]{$a_E$} node[above right]{$\phi$};
+\draw (2,0) circle (0.25) node[below left]{$a_M$};
+\draw (2,0) -- (-1.5,0.866);
+\draw (-2,0) -- (-1.5,0.866) node[left]{$R_E$};
+\draw (-0.5,0) -- (-1.5,0.866);
+\end{tikzpicture}
+\end{center}
+The potential is then given by (gravity of moo and earth as well as the centripetal potential around the center of gravity)
+\begin{align}
+    V&=-\frac{G m_M}{\sqrt{R_E^2+D^2-2DR_E\cos\phi}}-\frac{Gm_E}{R_E}-\frac{1}{2}\omega^2(R_E^2+a_E^2-2a_ER_E\cos\phi)\\
+    &\approx -\frac{G m_E}{R_E} +\frac{1}{2} G R_E^2 \left(-\frac{3 m_M \cos^2\phi }{D^3}-\frac{m_E}{D^3}\right)+\frac{1}{2} G
+   \left(-\frac{m_M^2}{D \left(m_E+m_M\right)}-\frac{2 m_M}{D}\right).
+\end{align}
+with the angular dependent tidal part
+\begin{align}
+    V_\text{tidal}&=
+    -\frac{3 G R_E^2m_M }{2D^3}\cos ^2\phi.
+\end{align}
+The tidal water surface would be formed by the the surface $r_\text{surf}(\phi)=R_E+h$ of constant potential. The height difference between low and high tide can then be estimated by 
+\begin{align}
+   -\frac{3 G R_E^2m_M }{2D^3} 
+   &= Gm_E\left(\frac{1}{R_E+h}-\frac{1}{R_E}\right)\\
+   &\approx Gm_E\left(\frac{1}{R_E\left(1+\frac{h}{R_E}\right)}-\frac{1}{R_E}\right)\\
+   &\approx \frac{Gm_E}{R_E}\left(\left(1-\frac{h}{R_E}\right)-1\right)
+\end{align}
+which gives
+\begin{align}
+    h=\frac{3R_E^4}{2D^3}\frac{m_M}{m_E}.
+\end{align}
+Using the results from above
+\begin{align}
+    m_E&=\frac{gR_E^2}{G}\\
+    \omega^2&=\frac{G(m_E+m_M)}{D^3}\\
+    &\quad\rightarrow\quad D^3=\frac{G(m_E+m_M)}{\omega^2}=G(m_E+m_M)\frac{T_M^2}{4\pi^2}
+\end{align}
+we obtain
+\begin{align}
+    h=\frac{6\pi^2R_E^4T_M^2}{G(m_E+m_M)T_M^2}\frac{m_M}{m_E}.
+\end{align}
+and can subsequently solve for $m_M$
+\begin{align}
+    m_M&=\frac{G h m_E^2 T^2}{6 \pi ^2 R_E^4-G h m_E T^2}\\
+    &=\frac{m_E}{\frac{6\pi^2 R_E^4}{G h m_E T^2}-1}\\
+    &=\frac{g^2 h T_M^2 R_E^2}{G(6\pi^2R_E^2 -ghT_M^2)}\\
+    &=\frac{g R_E^2}{G\left(\frac{6\pi^2R_E^2}{ghT_M^2} -1\right)}\\
+    &=1.38\cdot10^{23}\text{kg}
+\end{align}
+
 \end{enumerate}
-
-
-
 
 \subsection{{\sc Thorne, Blandford} - Modern Classical Physics}
 
