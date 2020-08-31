@@ -15,6 +15,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{units}
+\usepackage{mathrsfs}
 
 \newtheorem{remark}{Remark}[section]
 \theoremstyle{definition}
@@ -217,7 +218,7 @@ which means
     \begin{align}
         \frac{\delta F[g[\phi]]}{\delta\phi(y)}
         &=...\\
-        &=\int dz \frac{\delta F[G]}{\delta G(z)} \frac{\delta G[\phi]}{\delta\phi(y)}
+        &=\frac{\delta F}{\delta g(\phi(y))} \frac{d g(\phi)}{d\phi(y)}
     \end{align}
 \end{itemize}
 Some examples
@@ -827,6 +828,33 @@ we obtain
     &=\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}\int_{-\infty}^{\infty}\left(\prod_{j=3}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=3}^N(q_{k+1}-q_k)^2}e^{\frac{im}{2\delta t}(q_3^2+\frac{1}{4}q_0^2)}\int_{-\infty}^\infty dq_2\,e^{\frac{im}{2\delta t}[\frac{3}{2}q_2^2-2(q_3+\frac{1}{2}q_0)q_2]}\\
     &=\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}\int_{-\infty}^{\infty}\left(\prod_{j=3}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=3}^N(q_{k+1}-q_k)^2}e^{\frac{im}{2\delta t}(q_3^2+\frac{1}{4}q_0^2)}\sqrt{\frac{\pi4\delta t}{3m}}e^{\frac{i}{4}\left(\pi-\frac{4m(q_3+q_0/2)^2}{3\delta t}\right)}\\
 \end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Kachelriess %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{{\sc Kachelriess} - Quantum Fields - From the Hubble to the Planck scale}
+\subsubsection{Problem 4.1 - \texorpdfstring{$Z[J]$}{Lg} at order \texorpdfstring{$\lambda$}{Lg} in \texorpdfstring{$\phi^4$}{Lg} theory}
+Lets start at (4.6a) with $\mathscr{L}_I=-\lambda/4!\phi^4$
+\begin{align}
+    Z[J]&=\exp\left[i\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]\int\mathcal{D}\phi\exp\left[\text{i}\int d^4x(\mathscr{L}_0+J\phi)\right]\\
+    &=\exp\left[i\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]Z_0[J]\\
+    &=\exp\left[-\frac{i\lambda}{4!}\int d^4x\left(\frac{\delta^4 }{\delta J(x)^4}\right)\right]Z_0[J]\\
+    &=Z_0[J]-\frac{i\lambda}{4!}\int d^4x\left(\frac{\delta^4 Z_0[J]}{\delta J(x)^4}\right)+\dots.
+\end{align}
+With (4.7)
+\begin{align}
+    Z_0[J]&=Z_0[0]\exp\left[-\frac{i}{2}\int d^4yd^4zJ(y)\Delta_F(y-z)J(z)\right]=Z_0[0]e^{iW_0[J]}\\
+    W_0[J]&=-\frac{1}{2}\int d^4yd^4zJ(y)\Delta_F(y-z)J(z)
+\end{align}
+we have
+\begin{align}
+    \frac{\delta W_0[J]}{\delta J(x)}&=-\frac{1}{2}\lim_{\epsilon\rightarrow0}\int d^4yd^4z\frac{\left(J(y)+\epsilon\delta^{(4)}(y-x)\right)\Delta_F(y-z)\left(J(z)+\epsilon\delta^{(4)}(z-x)\right)-W_0[J]}{\epsilon}\\
+    &=-\frac{1}{2}\int d^4yd^4z \left[\delta^{(4)}(y-x)\Delta_F(y-z)J(z)+J(y)\Delta_F(y-z)\delta^{(4)}(z-x)\right]\\
+    &=-\frac{1}{2}\int d^4z\Delta_F(x-z)J(z)-\frac{1}{2}\int d^4yJ(y)\Delta_F(y-x)\\
+    &=-\int d^4y\Delta_F(y-x)J(y)
+\end{align}
+where we used $\Delta_F(x)=\Delta_F(-x)$.
+
 
 
 \newpage
@@ -1471,10 +1499,36 @@ which seems reasonable (given that the solar constant is $1,361\text{Wm}^{-2}$ t
     \item $mL/T^2$
     \item $\rho g h$
     \item $\sqrt{p/\rho}$
-    \item $gT$ (not a material constant due to strong dispersion)
+    \item $gT$ (need to use the period $T$ as $c$ is not a material constant due to strong dispersion)
     \item $\rho g H^2$
     \item $\sqrt{R/g}$ here we assume the hemisphere rests on the table upside down - so it acts like a pendulum 
     \item $\sqrt{FL/m}$
+\end{enumerate}
+
+\subsubsection{Section G-2 - 1961 Oct 5 (?.??)}
+\begin{enumerate}
+    \item Equilibrium is given by condition
+    \begin{align}
+        m_1g&=m_2g\sin\alpha\\
+        &=m_2g\frac{x}{\sqrt{x^2+a^2}}\\
+        \rightarrow\quad& m_1^2(x^2+a^2)=m_2^2 x^2\\
+        \rightarrow\quad& x=\frac{m_1 a}{\sqrt{m_2^2-m_1^2}}\\
+    \end{align}
+    \item General consideration
+    \begin{center}
+    \begin{tikzpicture}
+    \draw (-2,1) -- (2,0);
+    \node[mark size=3pt,color=blue] at (-2,0.9) {\pgfuseplotmark{triangle*}};
+    \node[mark size=3pt,color=blue] at (2,-0.1) {\pgfuseplotmark{triangle*}};
+    \draw [->, thick,red] (-1,0.75) -- (-1,-0.5) node[below ]{$mg$};
+    \draw [->, thick,red] (-1,0.75) -- (-1+0.28,0.75-0.07);
+    \draw [->, thick,red] (-1,0.75) -- (-1-0.25*1.15,0.75-1*1.15);
+    \end{tikzpicture}
+    \end{center}
+    
+    \item
+    \item
+    \item
 \end{enumerate}
 
 \subsubsection{Problem Set 3-1 - 1961 Nov 03 (3.16)}
@@ -2323,6 +2377,12 @@ D(a_5)=\left(\begin{array}{cc}
     \begin{itemize}
     \item {\sc Paul Gordan} (1837-1912) - Clebsch-Gordan decomposition
     \item {\sc Walter Gordon} (1893-1939) - Klein-Gordon equation
+    \end{itemize}
+\item Jordan vs Jordan vs Jordan
+    \begin{itemize}
+    \item {\sc Camille Jordan} (1838-1922) - Jordan normal, Jordan-Hoelder theorem
+    \item {\sc Wilhelm Jordan} (1842-1899) - Gauss-Jordan elimination
+    \item {\sc Pascual Gordon} (1902-1980) - Jordan algebra, Jordan Wigner transformation
     \end{itemize}
 \item Lorentz vs Lorenz
     \begin{itemize}
