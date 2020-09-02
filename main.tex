@@ -265,6 +265,15 @@ Some examples
         &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}\left( \nabla_x(\phi(x)+\epsilon\delta(x-y)) - \nabla_x\phi(x)\right)\\
         &=\nabla_x\delta(x-y)
     \end{align}
+    \item $F[\phi]=g\left(G[\phi(x)]\right)$
+    \begin{align}
+        \frac{\delta F[\phi]}{\delta\phi(y)}
+        &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}g(G[\phi(x)+\epsilon\delta(x-y)])-g(G[\phi(x)])\\
+        &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}g(G[\phi(x)]+\epsilon\frac{\delta G}{\delta \phi})-g(G[\phi(x)])\\
+        &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}g(G[\phi(x)])+g' \epsilon\frac{\delta G}{\delta \phi}-g(G[\phi(x)])\\
+        &=\frac{\delta G}{\delta \phi}g'(G[\phi(x)])
+    \end{align}
+    
 \end{enumerate}
 
 
@@ -739,10 +748,32 @@ where we used (typo in the book!)
 
 \end{enumerate}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%% Srednicki %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% QFT %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quantum Field Theory}
+\subsection{{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}
+\subsubsection{Problem 1.1 - Snell's law via Fermat's principle}
+The light travels from point $A$ in medium 1 to point $B$ in medium 2. We assume a vertical medium boundary at $x_0$ and that the light travels within a medium in the straight line. This makes $y_0$ the free parameter and the the travel time is given by
+\begin{align}
+    t&=\frac{s_{A0}}{c/n_1}+\frac{s_{0B}}{c/n_2}\\
+    &=\sqrt{\frac{(x_A-x_0)^2+(y_A-y_0)^2}{c/n_1}}+\sqrt{\frac{(x_0-x_B)^2+(y_0-y_B)^2}{c/n_2}}
+\end{align}
+The local extrema of the travel time is given by
+\begin{align}
+    0&=\frac{dt}{dy_0}\\
+    &=\frac{y_A-y_0}{s_{A0}c/n_1}+\frac{y_0-y_B}{s_{0B}c/n_2}\\
+    &=\frac{\sin\alpha}{c/n_1}-\frac{\sin\beta}{c/n_2}
+\end{align}
+and therefore
+\begin{align}
+n_1\sin\alpha=n_2\sin\beta.
+\end{align}
+
+
+
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
 (a) The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
@@ -833,20 +864,82 @@ we obtain
 %%%%%%%%%%% Kachelriess %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{{\sc Kachelriess} - Quantum Fields - From the Hubble to the Planck scale}
+\subsubsection{Problem 1.1 - Units}
+\begin{enumerate}
+\item The fundamental constants are given by
+\begin{align}
+    k    &=1.381\cdot10^{-23} \text{m}^2\text{s}^{-2}\text{kg}^{ 1}\text{K}^{-1}\\
+    G    &=6.674\cdot10^{-11} \text{m}^3\text{s}^{-2}\text{kg}^{-1}\\
+    \hbar&=1.054\cdot10^{-34} \text{m}^2\text{s}^{-1}\text{kg}^{ 1}\\
+    c    &=2.998\cdot10^{-8}  \text{m}^1\text{s}^{-1}
+\end{align}
+A newly constructed Planck constant has the general form
+\begin{align}
+    X_P=c^{\alpha_c}\cdot G^{\alpha_G}\cdot \hbar^{\alpha_\hbar}\cdot k^{\alpha_k}
+\end{align}
+and the dimension of $X_P$ is given by $\text{m}^{\beta_m}\text{s}^{\beta_s}\text{kg}^{\beta_{kg}}\text{K}^{\beta_K}$ are determined by
+\begin{align}
+    \text{Meter}\quad    &\beta_m=2\alpha_k+3\alpha_G+2\alpha_h+\alpha_c\\
+    \text{Second}\quad   &\beta_s=-2\alpha_k-2\alpha_G-\alpha_c-\alpha_h\\
+    \text{Kilogram}\quad &\beta_{kg}=\alpha_k-\alpha_G+\alpha_h\\
+    \text{Kelvin}\quad   &\beta_K=-\alpha_k
+\end{align}
+Solving the linear system gives
+\begin{align}
+    l_P&=\sqrt{\frac{\hbar G}{c^3}}=1.616\cdot 10^{-35}\text{m}\\
+    m_P&=\sqrt{\frac{\hbar c}{G}}=2.176\cdot 10^{-8}\text{kg}\\
+    t_P&=\sqrt{\frac{\hbar G}{c^5}}=5.391\cdot 10^{-44}\text{s}\\
+    T_P&=\sqrt{\frac{\hbar c^5}{Gk^2}}=1.417\cdot 10^{-32}\text{K}\\
+\end{align}
+As the constants are made up from QM, SR and GR constants they indicate magnitudes at which a quantum theory of gravity is needed to make a sensible predictions.
+
+\item We use the definition $1\text{barn}=10^{-28}\text{m}^2$
+\begin{align}
+    1\text{cm}^2  &= 10^{-4}\text{m}^2\\
+    1\text{mbarn} &= 10^{-31}\text{m}^2\\
+                  &= 10^{-27}\text{cm}^2
+\end{align}
+We also have $1\text{eV} =1.602\cdot10^{-19}\text{As}\cdot1\text{V}=1.602\cdot10^{-19}\text{J}$
+\begin{align}
+    E=mc^2\quad
+    &\rightarrow\quad 1\text{kg}\cdot c^2 = 8.987\cdot10^{16}\text{J}=5.609\cdot10^{35}\text{eV}\\
+    &\rightarrow\quad 1\text{GeV} = 1.782\cdot10^{-27}\text{kg}\\
+    E=\hbar\omega\quad
+    &\rightarrow\quad \frac{1}{1\text{s}}\cdot \hbar = 1.054\cdot10^{-34}\text{J}=6.582\cdot10^{-16}\text{eV}\\
+    &\rightarrow\quad 1\text{GeV}^{-1} = 6.582\cdot10^{-25}\text{s}\\
+    E= \frac{\hbar c}{\lambda}\quad
+    &\rightarrow\quad \frac{1}{1\text{m}}\cdot \hbar c = 3.161\cdot10^{-26}\text{J}=1.973\cdot10^{-7}\text{eV}\\
+    &\rightarrow\quad 1\text{GeV}^{-1} = 1.973\cdot10^{-16}\text{m}\\
+    E\sim pc\quad
+    &\rightarrow\quad 1\text{kg}\text{m}\text{s}^{-1}\cdot c= 2.998\cdot10^{8}\text{J}=1.871\cdot10^{27}\text{eV}\\
+    &\rightarrow\quad 1\text{GeV} = 5.344\cdot10^{-19}\text{kg}\text{m}\text{s}^{-1}
+\end{align}
+therefore
+\begin{align}
+    1\text{GeV}^{-2} &= (1.973\cdot10^{-16}\text{m})^2\\
+    &=3.893\cdot10^{-32}\text{m}^2\\
+    &=0.389\text{mbarn}
+\end{align}
+
+\end{enumerate}
+
+
 \subsubsection{Problem 4.1 - \texorpdfstring{$Z[J]$}{Lg} at order \texorpdfstring{$\lambda$}{Lg} in \texorpdfstring{$\phi^4$}{Lg} theory}
 Lets start at (4.6a) with $\mathscr{L}_I=-\lambda/4!\phi^4$
 \begin{align}
-    Z[J]&=\exp\left[i\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]\int\mathcal{D}\phi\exp\left[\text{i}\int d^4x(\mathscr{L}_0+J\phi)\right]\\
-    &=\exp\left[i\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]Z_0[J]\\
-    &=\exp\left[-\frac{i\lambda}{4!}\int d^4x\left(\frac{\delta^4 }{\delta J(x)^4}\right)\right]Z_0[J]\\
-    &=Z_0[J]-\frac{i\lambda}{4!}\int d^4x\left(\frac{\delta^4 Z_0[J]}{\delta J(x)^4}\right)+\dots.
+    Z[J]&=\exp\left[\text{i}\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]\int\mathcal{D}\phi\exp\left[\text{i}\int d^4x(\mathscr{L}_0+J\phi)\right]\\
+    &=\exp\left[\text{i}\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]Z_0[J]\\
+    &=\exp\left[-\frac{\text{i}\lambda}{4!}\int d^4x\left(\frac{\delta^4 }{\delta J(x)^4}\right)\right]Z_0[J]\\
+    &=Z_0[J]-\frac{\text{i}\lambda}{4!}\int d^4x\left(\frac{\delta^4 Z_0[J]}{\delta J(x)^4}\right)+\dots.
 \end{align}
-With (4.7)
+Using (4.7)
 \begin{align}
-    Z_0[J]&=Z_0[0]\exp\left[-\frac{i}{2}\int d^4yd^4zJ(y)\Delta_F(y-z)J(z)\right]=Z_0[0]e^{iW_0[J]}\\
+    Z_0[J]&=Z_0[0]\exp\left[-\frac{\text{i}}{2}\int d^4yd^4zJ(y)\Delta_F(y-z)J(z)\right]=Z_0[0]e^{iW_0[J]}\\
     W_0[J]&=-\frac{1}{2}\int d^4yd^4zJ(y)\Delta_F(y-z)J(z)
 \end{align}
-we have
+we derive (4.10) in various steps 
+\begin{enumerate}
+\item Calculating $\frac{\delta W_0[J]}{\delta J(x)}$
 \begin{align}
     \frac{\delta W_0[J]}{\delta J(x)}&=-\frac{1}{2}\lim_{\epsilon\rightarrow0}\int d^4yd^4z\frac{\left(J(y)+\epsilon\delta^{(4)}(y-x)\right)\Delta_F(y-z)\left(J(z)+\epsilon\delta^{(4)}(z-x)\right)-W_0[J]}{\epsilon}\\
     &=-\frac{1}{2}\int d^4yd^4z \left[\delta^{(4)}(y-x)\Delta_F(y-z)J(z)+J(y)\Delta_F(y-z)\delta^{(4)}(z-x)\right]\\
@@ -854,8 +947,51 @@ we have
     &=-\int d^4y\Delta_F(y-x)J(y)
 \end{align}
 where we used $\Delta_F(x)=\Delta_F(-x)$.
+\item Calculating $\frac{\delta^2 W_0[J]}{\delta J(x)^2}$
+\begin{align}
+    \frac{\delta^2 W_0[J]}{\delta J(x)^2}
+    &=-\int d^4y\Delta_F(y-x)\frac{\delta J(y)}{\delta J(x)}\\
+    &=-\int d^4y\Delta_F(y-x)\delta(y-x)\\
+    &=-\Delta_F(0)
+\end{align}
 
-
+\item Calculating $\delta F[J]/\delta J(x)$ for $F[J]=f\left(W_0[J]\right)$
+    \begin{align}
+        \frac{\delta F[J]}{\delta J(x)}
+        &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}f(W_0[\phi(x)+\epsilon\delta(x-y)])-f(W_0[\phi(x)])\\
+        &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}f(W_0[\phi(x)]+\epsilon\frac{\delta W_0}{\delta \phi})-f(W_0[\phi(x)])\\
+        &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}f(W_0[\phi(x)])+g' \epsilon\frac{\delta W_0}{\delta \phi}-f(W_0[\phi(x)])\\
+        &=f'(W_0[J])\frac{\delta W_0}{\delta J}
+    \end{align}
+\item Calculating first derivative
+\begin{align}
+    \frac{\delta}{\text{i}\delta J(x)}\exp\left(\text{i}W_0[J]\right)
+    &=\frac{\delta W_0[J]}{\delta J(x)}\exp\left(\text{i}W_0[J]\right)
+\end{align}
+\item Calculating second derivative (using the functional derivative product rule)
+\begin{align}
+    \left(\frac{\delta}{\text{i}\delta J(x)}\right)^2\exp\left(\text{i}W_0[J]\right)
+    &=\left(\left(\frac{\delta W_0[J]}{\delta J(x)}\right)^2+\frac{1}{i}\frac{\delta^2 W_0[J]}{\delta J(x)^2}\right)\exp\left(\text{i}W_0[J]\right)
+\end{align}
+\item Calculating third derivative
+\begin{align}
+    \left(\frac{\delta}{\text{i}\delta J(x)}\right)^3\exp\left(\text{i}W_0[J]\right)
+    &=\left(\left(\frac{\delta W_0[J]}{\delta J(x)}\right)^3+\frac{3}{i}\frac{\delta^2 W_0[J]}{\delta J(x)^2}\frac{\delta W_0[J]}{\delta J(x)}+\frac{1}{i^2}\frac{\delta^3 W_0[J]}{\delta J(x)^3}\right)\exp\left(\text{i}W_0[J]\right)
+\end{align}
+\item Calculating fourth derivative
+\begin{align*}
+    \left(\frac{\delta}{\text{i}\delta J(x)}\right)^4\exp\left(\text{i}W_0[J]\right)
+    &=\left(\left(\frac{\delta W_0[J]}{\delta J(x)}\right)^4+\frac{6}{i}\frac{\delta^2 W_0[J]}{\delta J(x)^2}\left(\frac{\delta W_0[J]}{\delta J(x)}\right)^2+\frac{3}{i^2}\left(\frac{\delta^2 W_0[J]}{\delta J(x)^2}\right)^2+\right.\\
+    &\qquad\left.+\frac{4}{i^2}\frac{\delta W_0[J]}{\delta J(x)}\frac{\delta^3 W_0[J]}{\delta J(x)^3} +\frac{1}{i^3}\frac{\delta^4 W_0[J]}{\delta J(x)^4}\right)\exp\left(\text{i}W_0[J]\right)\\
+    &=\left(\left(\frac{\delta W_0[J]}{\delta J(x)}\right)^4+\frac{6}{i}\frac{\delta^2 W_0[J]}{\delta J(x)^2}\left(\frac{\delta W_0[J]}{\delta J(x)}\right)^2+\frac{3}{i^2}\left(\frac{\delta^2 W_0[J]}{\delta J(x)^2}\right)^2\right)\exp\left(\text{i}W_0[J]\right)
+    %=\left(\left(-\int d^4y\Delta_F(y-x)J(y)\right)^4+\frac{6}{i}(-\Delta_F(0))\left(-\int d^4y\Delta_F(y-x)J(y)\right)^2+\frac{3}{i^2}\left(-\Delta_F(0)\right)^2\right)\exp\left(\text{i}W_0[J]\right)
+\end{align*}
+\item Substituting the functional derivatives
+\begin{align*}    
+     \left(\frac{\delta}{\text{i}\delta J(x)}\right)^4\exp\left(\text{i}W_0[J]\right)&=\left[\left(\int d^4y\Delta_F(y-x)J(y)\right)^4+6i\Delta_F(0)\left(\int d^4y\Delta_F(y-x)J(y)\right)^2\right.\\
+     &\left.+3\left(i\Delta_F(0)\right)^2\right]\exp\left(\text{i}W_0[J]\right)\\
+\end{align*}
+\end{enumerate}
 
 \newpage
 \section{Quantum Gravity}
