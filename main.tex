@@ -920,7 +920,37 @@ therefore
     &=3.893\cdot10^{-32}\text{m}^2\\
     &=0.389\text{mbarn}
 \end{align}
+\end{enumerate}
 
+\subsubsection{Problem 3.2 - Maxwell Lagrangian}
+\begin{enumerate}
+    \item First we observe that
+    \begin{align}
+        F_{\mu\nu}F^{\mu\nu}
+        &=(\partial_\mu A_\nu-\partial_\nu A_\mu)(\partial^\mu A^\nu-\partial^\nu A^\mu)\\
+        &=(\partial_\mu A_\nu)(\partial^\mu A^\nu)-(\partial_\mu A_\nu)(\partial^\nu A^\mu)-\underbrace{(\partial_\nu A_\mu)(\partial^\mu A^\nu)}_{=(\partial_\mu A_\nu)(\partial^\nu A^\mu)}+\underbrace{(\partial_\nu A_\mu)(\partial^\nu A^\mu)}_{=(\partial_\mu A_\nu)(\partial^\mu A^\nu)}\\
+        &=2\left((\partial_\mu A_\nu)(\partial^\mu A^\nu)-(\partial_\mu A_\nu)(\partial^\nu A^\mu)\right)\\
+        &=2(\partial_\mu A_\nu)F^{\mu\nu}
+    \end{align}
+    we also find
+    \begin{align}
+        \delta\left(F_{\mu\nu}F^{\mu\nu}\right)
+        &=2\delta\left((\partial_\mu A_\nu)F^{\mu\nu}\right)\\
+        &=2\left[\delta\left(\partial_\mu A_\nu\right)F^{\mu\nu}+(\partial_\mu A_\nu)\delta F^{\mu\nu}\right]\\
+    \end{align}
+    
+    
+    We start with the source free Maxwell equations $\partial_\mu F^{\mu\nu}=0$
+    \begin{align}
+        0
+        &=C\int_\Omega d^4x\;(\delta A_\nu) \partial_\mu F^{\mu\nu}\\
+        &=C(\delta A_\nu)F^{\mu\nu}|_{\partial\Omega}-C\int_\Omega d^4x\;\partial_\mu(\delta A_\nu)F^{\mu\nu}\\
+        &=-C\int_\Omega d^4x\;\delta(\partial_\mu A_\nu)F^{\mu\nu}\\
+        &=-C\int_\Omega d^4x\;\left[\delta(\partial_\mu A_\nu F^{\mu\nu})-(\partial_\mu A_\nu)\delta F^{\mu\nu}\right]\\
+    \end{align}
+    
+    \item 
+    \item 
 \end{enumerate}
 
 
@@ -992,6 +1022,91 @@ where we used $\Delta_F(x)=\Delta_F(-x)$.
      &\left.+3\left(i\Delta_F(0)\right)^2\right]\exp\left(\text{i}W_0[J]\right)\\
 \end{align*}
 \end{enumerate}
+
+\subsubsection{Problem 26.4 - Fixed points of (26.18)}
+We start with
+\begin{align}
+    \text{(F1)}\qquad H^2&=\frac{8\pi G}{3}\left(\frac{1}{2}\dot{\phi}^2+V+\rho\right)\\
+    \text{(F2)}\qquad \dot{H}&=-4\pi G\left[\dot{\phi}^2+(1+w_m)\rho\right]\\
+    \text{(KG)}\qquad \ddot{\phi}&=-3H\dot{\phi}-V_{,\phi}.
+\end{align}
+Using $H=\dot{a}/a$, $N=\ln(a)$ and $\lambda=-\sqrt{8\pi G} V_{,\phi}/V$ we obtain for the time derivatives of $x$ and $y$
+\begin{align}
+    \dot{V}&=\frac{dV}{d\phi}\frac{d\phi}{dt}=V_{,\phi}\dot{\phi}\\
+    x&=\frac{\dot{\phi}}{\sqrt{48\pi G}H}\quad\rightarrow\quad\frac{dx}{dt}=\frac{dx}{dN}\frac{d\ln(a)}{dt}
+    =\frac{dx}{dN}H
+    =\frac{1}{\sqrt{48\pi G}}\frac{\ddot{\phi}H-\dot{\phi}\dot{H}}{H^2}\\
+     y&=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\quad\rightarrow\quad\frac{dy}{dt}=\frac{dy}{dN}\frac{d\ln(a)}{dt}
+    =\frac{dy}{dN}H
+    =\frac{1}{\sqrt{24\pi G}}\frac{\frac{V_{,\phi}\dot{\phi}}{2\sqrt{V}}-\sqrt{V}\dot{H}}{H^2}.
+\end{align}
+
+\begin{align}
+    x&=\frac{\dot{\phi}}{\sqrt{48\pi G}H}\quad\rightarrow\quad x=\sqrt{\frac{4}{3}\pi G}\frac{\dot{\phi}}{H}\\
+    y&=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\quad\rightarrow\quad y=\sqrt{\frac{8}{3}\pi G}\frac{\sqrt{V}}{H}\\
+    \lambda&=-\sqrt{8\pi G} \frac{V_{,\phi}}{V}\quad\rightarrow\quad \lambda=-\frac{1}{\sqrt{8\pi G}} \frac{V_{,\phi}}{V}
+\end{align}
+
+Now we can calculate the $N$ derivatives
+\begin{align}
+    \frac{dx}{dN}
+    &=\frac{1}{\sqrt{48\pi G}}\left(\frac{\ddot{\phi}}{H^2}-\frac{\dot{\phi}\dot{H}}{H^3}\right)\\
+    &\overset{\text{(KG)}}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}-\frac{V_{,\phi}}{H^2}-\frac{\dot{\phi}\dot{H}}{H^3}\right)\\
+    &\overset{\text{(F2)}}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}-\frac{V_{,\phi}}{H^2}+4\pi G \frac{\dot{\phi}^3}{H^3}+4\pi G \frac{\dot{\phi}(1+w_m)\rho}{H^3}\right)\\
+    &\overset{\text{(F1)}}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}-\frac{V_{,\phi}}{H^2}+4\pi G \frac{\dot{\phi}^3}{H^3}+4\pi G \frac{\dot{\phi}(1+w_m)}{H^3}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\right]\right)\\
+    &\overset{\lambda}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}+\frac{\lambda V}{\sqrt{8\pi G}H^2}+4\pi G \frac{\dot{\phi}^3}{H^3}+4\pi G \frac{\dot{\phi}(1+w_m)}{H^3}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\right]\right)\\
+    &\overset{\dot{\phi},V}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\sqrt{48\pi G}Hx}{H}+\frac{\lambda (24\pi GH^2y^2)}{\sqrt{8\pi G}H^2}+4\pi G \frac{(\sqrt{48\pi G}Hx)^3}{H^3}\right.\\
+    &\left.\qquad+4\pi G \frac{\sqrt{48\pi G}Hx(1+w_m)}{H^3}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}(\sqrt{48\pi G}Hx)^2-(24\pi GH^2y^2)\right]\right)\\
+    &=-3x+\frac{\sqrt{6}}{2}\lambda y^2+192\pi^2 G^2x^3+4\pi Gx(1+w_m)\frac{1}{H^2}\left[\frac{3H^2}{8\pi G}-24\pi GH^2x^2-24\pi GH^2y^2\right]\\
+    &=-3x+\frac{\sqrt{6}}{2}\lambda y^2+192\pi^2 G^2x^3+x(1+w_m)\left[\frac{3}{2}-96\pi^2 G^2x^2-96\pi^2 G^2y^2\right]\\
+\end{align}
+and with 
+\begin{align}
+    \frac{dy}{dN}
+    &=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\left(\frac{\dot{\phi}}{2H^2}\frac{V_{,\phi}}{V}-\frac{\dot{H}}{H^2}\right)\\
+    &\overset{\lambda,\text{(F2)}}{=}\frac{\sqrt{V}}{\sqrt{24\pi G}H}\left(-\frac{\lambda}{\sqrt{8\pi G}}\frac{\dot{\phi}}{2H^2}+\sqrt{4\pi G}\frac{\dot{\phi}^2}{H^2}+\sqrt{4\pi G}\frac{(1+w_m)\rho}{H^2}\right)\\
+    &\overset{\text{(F1)}}{=}\frac{\sqrt{V}}{\sqrt{24\pi G}H}\left(-\frac{\lambda}{\sqrt{8\pi G}}\frac{\dot{\phi}}{2H^2}+\sqrt{4\pi G}\frac{\dot{\phi}^2}{H^2}+\sqrt{4\pi G}\frac{(1+w_m)}{H^2}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\right]\right)\\
+    &\overset{\dot{\phi},V}{=}y\left(-\frac{\lambda}{\sqrt{8\pi G}}\frac{\sqrt{48\pi G}Hx}{2H^2}+\sqrt{4\pi G}\frac{(\sqrt{48\pi G}Hx)^2}{H^2}\right.\\
+    &\qquad\left.+\sqrt{4\pi G}\frac{(1+w_m)}{H^2}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}(\sqrt{48\pi G}Hx)^2-(24\pi GH^2y^2)\right]\right)\\
+    &=y\left(-\frac{\lambda}{\sqrt{32}}\frac{\sqrt{48}x}{H}+96\pi G\sqrt{\pi G}x^2\right.\\
+    &\qquad\left.+\sqrt{4\pi G}(1+w_m)\left[\frac{3}{8\pi G}-(24\pi Gx^2)-(24\pi Gy^2)\right]\right)\\
+\end{align}
+
+To find the fix points of (26.17) we need to solve
+\begin{align}
+    -3x+\frac{\sqrt{6}}{2}\lambda y^2+\frac{3}{2}x[(1-w_m)x^2+(1+w_m)(1-y^2)]=0\\
+    \quad\,\,-\frac{\sqrt{6}}{2}\lambda xy+\frac{3}{2}y[(1-w_m)x^2+(1+w_m)(1-y^2)]=0
+\end{align}
+\begin{itemize}
+\item An obvious solution is 
+\begin{align}
+    x_0=0, y_0=0.
+\end{align}
+\item Two semi-obvious solutions can be found for $y=0$ which solves the second equation and transforms the first to the quadratic equation $x^2-1=0$ which gives
+\begin{align}
+    x_1&=+1, y_1=0\\
+    x_2&=-1, y_2=0.
+\end{align}
+\item Substituting the square bracket of the second equation into the first and simplifying the second gives
+\begin{align}
+    -3x+\frac{\sqrt{6}}{2}\lambda (x^2+y^2)=0\\
+    -\frac{\sqrt{6}}{2}\lambda x+\frac{3}{2}[1+2x^2-(x^2+y^2)-w_m((x^2+x^2)-1)]=0.
+\end{align}
+Now we can eliminate $x^2+y^2$ and obtain a single quadratic equation in $x$
+\begin{align}
+    -\frac{\sqrt{6}}{2}\lambda x+\frac{3}{2}\left[1+2x^2-\frac{\sqrt{6}}{\lambda}x-w_m\left(\frac{\sqrt{6}}{\lambda}x-1\right)\right]=0
+\end{align}
+which can be simplified to
+\begin{align}
+    6x^2-\frac{\sqrt{6}(3+3w_m+\lambda^2)}{\lambda}x+3(1+w_m)=0
+\end{align}
+
+\end{itemize} 
+
+
+
+
+
 
 \newpage
 \section{Quantum Gravity}
@@ -2514,16 +2629,20 @@ D(a_5)=\left(\begin{array}{cc}
     \item {\sc Paul Gordan} (1837-1912) - Clebsch-Gordan decomposition
     \item {\sc Walter Gordon} (1893-1939) - Klein-Gordon equation
     \end{itemize}
-\item Jordan vs Jordan vs Jordan
-    \begin{itemize}
-    \item {\sc Camille Jordan} (1838-1922) - Jordan normal, Jordan-Hoelder theorem
-    \item {\sc Wilhelm Jordan} (1842-1899) - Gauss-Jordan elimination
-    \item {\sc Pascual Gordon} (1902-1980) - Jordan algebra, Jordan Wigner transformation
-    \end{itemize}
 \item Lorentz vs Lorenz
     \begin{itemize}
     \item {\sc Hendrik Lorentz} (1853-1928) - Lorentz transformation, Lorentz force
     \item {\sc Ludvig Lorenz} (1829-1891) - Lorenz gauge
+    \end{itemize}
+\item Hertz vs Hertz
+    \begin{itemize}
+    \item {\sc Heinrich Hertz} (1857-1894) - Hertzian dipole antenna
+    \item {\sc Gustav Hertz} (1887-1975) - Franck-Hertz experiment
+    \end{itemize}
+\item Bragg vs Bragg
+    \begin{itemize}
+    \item {\sc William Henry Bragg} (1862-1942) - Bragg equation
+    \item {\sc William Lawrence Bragg} (1890-1971) - Bragg equation
     \end{itemize}
 \item Klein vs Klein
     \begin{itemize}
@@ -2540,11 +2659,12 @@ D(a_5)=\left(\begin{array}{cc}
     \item {\sc Hermann Weyl} (1885-1955) - Weyl spinor, Weyl group
     \item {\sc Andre Weil} (1906-1998) - Weil group, Chern–Weil homomorphism
     \end{itemize}
-\item Bragg vs Bragg
+\item Jordan vs Jordan vs Jordan
     \begin{itemize}
-    \item {\sc William Henry Bragg} (1862-1942) - Bragg equation
-    \item {\sc William Lawrence Bragg} (1890-1971) - Bragg equation
-    \end{itemize}   
+    \item {\sc Camille Jordan} (1838-1922) - Jordan normal, Jordan-Hoelder theorem
+    \item {\sc Wilhelm Jordan} (1842-1899) - Gauss-Jordan elimination
+    \item {\sc Pascual Gordon} (1902-1980) - Jordan algebra, Jordan Wigner transformation
+    \end{itemize}
 \item Kac vs Kac
     \begin{itemize}
     \item {\sc Victor Kac} (1943-...) - Kac–Moody algebra
