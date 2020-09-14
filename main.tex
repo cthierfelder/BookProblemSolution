@@ -1,6 +1,8 @@
 %\documentclass{article}
 \documentclass[10pt,a4paper]{article}
-\usepackage[top=30pt,bottom=30pt,left=48pt,right=46pt]{geometry}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=1in,right=1in,top=1in,bottom=1in,%
+            footskip=.25in]{geometry}
 
 \usepackage[utf8]{inputenc}
 
@@ -1046,32 +1048,22 @@ Using $H=\dot{a}/a$, $N=\ln(a)$ and $\lambda=-\sqrt{8\pi G} V_{,\phi}/V$ we obta
     y&=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\quad\rightarrow\quad y=\sqrt{\frac{8}{3}\pi G}\frac{\sqrt{V}}{H}\\
     \lambda&=-\sqrt{8\pi G} \frac{V_{,\phi}}{V}\quad\rightarrow\quad \lambda=-\frac{1}{\sqrt{8\pi G}} \frac{V_{,\phi}}{V}
 \end{align}
-
-Now we can calculate the $N$ derivatives
+With the substitutions
+\begin{align}
+    \dot{H}&=-4\pi G\left[\dot{\phi}^2+(1+w_m)\rho\right]\\
+    \ddot{\phi}&=-3H\dot{\phi}-V_{,\phi}\\
+    V_{,\phi}&=-\sqrt{8\pi G}\lambda V\\
+    \rho&=\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\\
+    \dot{\phi}&=...x\\
+    V&=...y^2
+\end{align}
+we obtian
 \begin{align}
     \frac{dx}{dN}
-    &=\frac{1}{\sqrt{48\pi G}}\left(\frac{\ddot{\phi}}{H^2}-\frac{\dot{\phi}\dot{H}}{H^3}\right)\\
-    &\overset{\text{(KG)}}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}-\frac{V_{,\phi}}{H^2}-\frac{\dot{\phi}\dot{H}}{H^3}\right)\\
-    &\overset{\text{(F2)}}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}-\frac{V_{,\phi}}{H^2}+4\pi G \frac{\dot{\phi}^3}{H^3}+4\pi G \frac{\dot{\phi}(1+w_m)\rho}{H^3}\right)\\
-    &\overset{\text{(F1)}}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}-\frac{V_{,\phi}}{H^2}+4\pi G \frac{\dot{\phi}^3}{H^3}+4\pi G \frac{\dot{\phi}(1+w_m)}{H^3}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\right]\right)\\
-    &\overset{\lambda}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\dot{\phi}}{H}+\frac{\lambda V}{\sqrt{8\pi G}H^2}+4\pi G \frac{\dot{\phi}^3}{H^3}+4\pi G \frac{\dot{\phi}(1+w_m)}{H^3}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\right]\right)\\
-    &\overset{\dot{\phi},V}{=}\frac{1}{\sqrt{48\pi G}}\left(-\frac{3\sqrt{48\pi G}Hx}{H}+\frac{\lambda (24\pi GH^2y^2)}{\sqrt{8\pi G}H^2}+4\pi G \frac{(\sqrt{48\pi G}Hx)^3}{H^3}\right.\\
-    &\left.\qquad+4\pi G \frac{\sqrt{48\pi G}Hx(1+w_m)}{H^3}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}(\sqrt{48\pi G}Hx)^2-(24\pi GH^2y^2)\right]\right)\\
-    &=-3x+\frac{\sqrt{6}}{2}\lambda y^2+192\pi^2 G^2x^3+4\pi Gx(1+w_m)\frac{1}{H^2}\left[\frac{3H^2}{8\pi G}-24\pi GH^2x^2-24\pi GH^2y^2\right]\\
-    &=-3x+\frac{\sqrt{6}}{2}\lambda y^2+192\pi^2 G^2x^3+x(1+w_m)\left[\frac{3}{2}-96\pi^2 G^2x^2-96\pi^2 G^2y^2\right]\\
-\end{align}
-and with 
-\begin{align}
+    &=-3x+\frac{\sqrt{6}}{2}\lambda y^2+\frac{3}{2}x[(1-w_m)x^2+(1+w_m)(1-y^2)]\\
     \frac{dy}{dN}
-    &=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\left(\frac{\dot{\phi}}{2H^2}\frac{V_{,\phi}}{V}-\frac{\dot{H}}{H^2}\right)\\
-    &\overset{\lambda,\text{(F2)}}{=}\frac{\sqrt{V}}{\sqrt{24\pi G}H}\left(-\frac{\lambda}{\sqrt{8\pi G}}\frac{\dot{\phi}}{2H^2}+\sqrt{4\pi G}\frac{\dot{\phi}^2}{H^2}+\sqrt{4\pi G}\frac{(1+w_m)\rho}{H^2}\right)\\
-    &\overset{\text{(F1)}}{=}\frac{\sqrt{V}}{\sqrt{24\pi G}H}\left(-\frac{\lambda}{\sqrt{8\pi G}}\frac{\dot{\phi}}{2H^2}+\sqrt{4\pi G}\frac{\dot{\phi}^2}{H^2}+\sqrt{4\pi G}\frac{(1+w_m)}{H^2}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\right]\right)\\
-    &\overset{\dot{\phi},V}{=}y\left(-\frac{\lambda}{\sqrt{8\pi G}}\frac{\sqrt{48\pi G}Hx}{2H^2}+\sqrt{4\pi G}\frac{(\sqrt{48\pi G}Hx)^2}{H^2}\right.\\
-    &\qquad\left.+\sqrt{4\pi G}\frac{(1+w_m)}{H^2}\left[\frac{3H^2}{8\pi G}-\frac{1}{2}(\sqrt{48\pi G}Hx)^2-(24\pi GH^2y^2)\right]\right)\\
-    &=y\left(-\frac{\lambda}{\sqrt{32}}\frac{\sqrt{48}x}{H}+96\pi G\sqrt{\pi G}x^2\right.\\
-    &\qquad\left.+\sqrt{4\pi G}(1+w_m)\left[\frac{3}{8\pi G}-(24\pi Gx^2)-(24\pi Gy^2)\right]\right)\\
+    &=-\frac{\sqrt{6}}{2}\lambda xy+\frac{3}{2}y[(1-w_m)x^2+(1+w_m)(1-y^2)]
 \end{align}
-
 To find the fix points of (26.17) we need to solve
 \begin{align}
     -3x+\frac{\sqrt{6}}{2}\lambda y^2+\frac{3}{2}x[(1-w_m)x^2+(1+w_m)(1-y^2)]=0\\
@@ -1098,8 +1090,45 @@ Now we can eliminate $x^2+y^2$ and obtain a single quadratic equation in $x$
 \end{align}
 which can be simplified to
 \begin{align}
-    6x^2-\frac{\sqrt{6}(3+3w_m+\lambda^2)}{\lambda}x+3(1+w_m)=0
+    x^2-\frac{3(1+w_m)+\lambda^2}{\sqrt{6}\lambda}x+\frac{1+w_m}{2}=0.
 \end{align}
+This gives us two more solutions
+\begin{align}
+    x_3&=\frac{\lambda}{\sqrt{6}}, y_3=\sqrt{1-\frac{\lambda^2}{6}}\qquad\qquad\qquad\quad(\lambda^2<6)\\
+    x_4&=\sqrt{\frac{3}{2}}\frac{1+w_m}{\lambda}, y_4=\sqrt{\frac{3}{2}}\frac{\sqrt{1-w_m^2}}{\lambda}\qquad(w_m^2<1).
+\end{align}
+Let quickly check the stability of the fix points. The characteristic equation for the fix points of a 2d system is given by
+\begin{align}
+    \alpha^2+a_1(x_i,y_i)\alpha+a_2(x_i,y_i)=0\\
+    a_1(x_i,y_i)=-\left(\frac{df_x}{dx}+\frac{df_y}{dy}\right)_{x=x_i,y=y_i}\\
+    a_2(x_i,y_i)=\left.\frac{df_x}{dx}\frac{df_y}{dy}-\frac{df_x}{dy}\frac{df_y}{dx}\right|_{x=x_i,y=y_i}
+\end{align}
+with the stability classification (assuming for EoS parameter $w_m^2<1$)
+\begin{center}
+\begin{tabular}{ c c c c c}
+\hline\hline
+ type            & condition            & fix point 0 & fix point 1 & fix point 2   \\ \hline
+ saddle node     & $a_2<0$              & $-1<w_m<1$ & $\lambda>\sqrt{6}$ & $\lambda<-\sqrt{6}$\\  
+ unstable node   & $0<a_2<a_1^2/4$      & - & $\lambda<\sqrt{6}$ & $\lambda>-\sqrt{6}$\\  
+ unstable spiral & $a_1^2/4<a_2, a_1<0$ & - & - & -\\
+ center          & $0<a_2, a_1=0$       & - & - & -\\
+ stable spiral   & $a_1^2/4<a_2, a_1>0$ & - & - & -\\
+ stable node     & $0<a_2<a_1^2/4$      & - & - & -\\ \hline\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ c c c }
+\hline\hline
+ type            & fix point 3 & fix point 4  \\ \hline
+ saddle node     & $3(1+w_m)<\lambda^2<6$ & -\\  
+ unstable node   & - & -\\
+ unstable spiral & - & -\\
+ center          & - & -\\
+ stable spiral   & - & $\lambda^2>\frac{24(1+w_m)^2}{7+9w_m}$\\
+ stable node     & $\lambda^2<3(1+w_m)$ & $\lambda^2<\frac{24(1+w_m)^2}{7+9w_m}$ \\ \hline\hline
+\end{tabular}
+\end{center}
 
 \end{itemize} 
 
