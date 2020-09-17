@@ -1025,6 +1025,48 @@ where we used $\Delta_F(x)=\Delta_F(-x)$.
 \end{align*}
 \end{enumerate}
 
+\subsubsection{Problem 23.6 - Reflection formula}
+\begin{align}
+    \Gamma(z)=\int_0^\infty x^{z-1}e^{-x}dx
+\end{align}
+
+
+\subsubsection{Problem 23.7 - Unruh temperature}
+
+\subsubsection{Problem 24.14 - Jeans length and the \textcolor{red}{speed of sound}}
+We start with the Euler equations
+\begin{align}
+    \frac{D\rho}{Dt}=-\rho\nabla\cdot\vec{u}\quad&\rightarrow\quad\frac{\partial\rho}{\partial t}+\vec{u}\cdot(\nabla\rho)+\rho(\nabla\cdot\vec{u})=0\\
+    \frac{D\vec{u}}{Dt}=-\nabla\left(\frac{P}{\rho}\right)+\vec{g}\quad&\rightarrow\quad\frac{\partial\vec{u}}{\partial t}+\vec{u}\cdot(\nabla\vec{u})+\frac{\nabla P}{\rho}=\vec{g}.
+\end{align}
+With the perturbation ansatz (small perturbation in a resting fluid)
+\begin{align}
+    \rho&=\rho_0+\varepsilon \rho_1(x,t)\\
+    P&=P_0+\varepsilon P_1(x,t)\\
+    \vec{u}&=\varepsilon \vec{u}_1(x,t)
+\end{align}
+and the Newton equation
+\begin{align}
+    \triangle\phi=4\pi G\rho\quad&\rightarrow\quad\nabla\cdot\vec{g}_1=-4\pi G\rho_1
+\end{align}
+we obtain (with the EoS $P=w\rho$) in order $\varepsilon$
+\begin{align}
+    \frac{\partial\rho_1}{\partial t}+\rho_0(\nabla\cdot\vec{u}_1)&=0\\
+    \frac{\partial\vec{u}_1}{\partial t}+\underbrace{\frac{1}{\rho_0}\nabla P_1}_{=\frac{w}{\rho_0}\nabla\rho_1}=\vec{g}_1.
+\end{align}
+Differentiating both (with respect to space and time) we obtain a wave equation
+\begin{align}
+    \frac{\partial^2\rho_1}{\partial t^2}-w\triangle\rho_1=4\pi G\rho_0\rho_1
+\end{align}
+with the speed of sound $c_s^2=w$. Inserting the wave ansatz $\rho_1\sim\exp[i(\vec{k}\cdot\vec{x}-\omega t)]$ yields the dispersion relation
+\begin{align}
+    \omega^2=c_s^2k^2-4\pi G\rho_0.
+\end{align}
+For wave numbers $k_J<\sqrt{4\pi G/c_s^2}$ the $\omega$ becomes complex which gives rise to exponentially growing modes. Therefore the Jeans length is given by
+\begin{align}
+    \lambda_J=\frac{2\pi}{k_J}=c_s\sqrt{\frac{\pi}{G\rho_0}}=\sqrt{\frac{\pi w}{G\rho_0}}.
+\end{align}
+
 \subsubsection{Problem 26.4 - Fixed points of (26.18)}
 We start with
 \begin{align}
@@ -1032,21 +1074,15 @@ We start with
     \text{(F2)}\qquad \dot{H}&=-4\pi G\left[\dot{\phi}^2+(1+w_m)\rho\right]\\
     \text{(KG)}\qquad \ddot{\phi}&=-3H\dot{\phi}-V_{,\phi}.
 \end{align}
-Using $H=\dot{a}/a$, $N=\ln(a)$ and $\lambda=-\sqrt{8\pi G} V_{,\phi}/V$ we obtain for the time derivatives of $x$ and $y$
+Using $H=\dot{a}/a$, $N=\ln(a)$ and $\lambda=-V_{,\phi}/(\sqrt{8\pi G}V)$ we obtain for the time derivatives of $x$ and $y$
 \begin{align}
     \dot{V}&=\frac{dV}{d\phi}\frac{d\phi}{dt}=V_{,\phi}\dot{\phi}\\
-    x&=\frac{\dot{\phi}}{\sqrt{48\pi G}H}\quad\rightarrow\quad\frac{dx}{dt}=\frac{dx}{dN}\frac{d\ln(a)}{dt}
+    x&=\sqrt{\frac{4}{3}\pi G}\frac{\dot{\phi}}{H}\quad\rightarrow\quad\frac{dx}{dt}=\frac{dx}{dN}\frac{d\ln(a)}{dt}
     =\frac{dx}{dN}H
-    =\frac{1}{\sqrt{48\pi G}}\frac{\ddot{\phi}H-\dot{\phi}\dot{H}}{H^2}\\
-     y&=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\quad\rightarrow\quad\frac{dy}{dt}=\frac{dy}{dN}\frac{d\ln(a)}{dt}
+    =\sqrt{\frac{4}{3}\pi G}\frac{\ddot{\phi}H-\dot{\phi}\dot{H}}{H^2}\\
+    y&=\sqrt{\frac{8}{3}\pi G}\frac{\sqrt{V}}{H}\quad\rightarrow\quad\frac{dy}{dt}=\frac{dy}{dN}\frac{d\ln(a)}{dt}
     =\frac{dy}{dN}H
-    =\frac{1}{\sqrt{24\pi G}}\frac{\frac{V_{,\phi}\dot{\phi}}{2\sqrt{V}}-\sqrt{V}\dot{H}}{H^2}.
-\end{align}
-
-\begin{align}
-    x&=\frac{\dot{\phi}}{\sqrt{48\pi G}H}\quad\rightarrow\quad x=\sqrt{\frac{4}{3}\pi G}\frac{\dot{\phi}}{H}\\
-    y&=\frac{\sqrt{V}}{\sqrt{24\pi G}H}\quad\rightarrow\quad y=\sqrt{\frac{8}{3}\pi G}\frac{\sqrt{V}}{H}\\
-    \lambda&=-\sqrt{8\pi G} \frac{V_{,\phi}}{V}\quad\rightarrow\quad \lambda=-\frac{1}{\sqrt{8\pi G}} \frac{V_{,\phi}}{V}
+    =\sqrt{\frac{8}{3}\pi G}\frac{\frac{V_{,\phi}\dot{\phi}}{2\sqrt{V}}-\sqrt{V}\dot{H}}{H^2}.
 \end{align}
 With the substitutions
 \begin{align}
@@ -1054,20 +1090,20 @@ With the substitutions
     \ddot{\phi}&=-3H\dot{\phi}-V_{,\phi}\\
     V_{,\phi}&=-\sqrt{8\pi G}\lambda V\\
     \rho&=\frac{3H^2}{8\pi G}-\frac{1}{2}\dot{\phi}^2-V\\
-    \dot{\phi}&=...x\\
-    V&=...y^2
+    \dot{\phi}&=xH/\sqrt{\frac{4}{3}\pi G}\\
+    \sqrt{V}&=yH/\sqrt{\frac{8}{3}\pi G}
 \end{align}
 we obtain
 \begin{align}
     \frac{dx}{dN}
     &=-3x+\frac{\sqrt{6}}{2}\lambda y^2+\frac{3}{2}x[(1-w_m)x^2+(1+w_m)(1-y^2)]\\
     \frac{dy}{dN}
-    &=-\frac{\sqrt{6}}{2}\lambda xy+\frac{3}{2}y[(1-w_m)x^2+(1+w_m)(1-y^2)]
+    &=-\frac{\sqrt{6}}{2}\lambda xy+\frac{3}{2}y[(1-w_m)x^2+(1+w_m)(1-y^2)].
 \end{align}
 To find the fix points of (26.17) we need to solve
 \begin{align}
     -3x+\frac{\sqrt{6}}{2}\lambda y^2+\frac{3}{2}x[(1-w_m)x^2+(1+w_m)(1-y^2)]=0\\
-    \quad\,\,-\frac{\sqrt{6}}{2}\lambda xy+\frac{3}{2}y[(1-w_m)x^2+(1+w_m)(1-y^2)]=0
+    \quad\,\,-\frac{\sqrt{6}}{2}\lambda xy+\frac{3}{2}y[(1-w_m)x^2+(1+w_m)(1-y^2)]=0.
 \end{align}
 \begin{itemize}
 \item An obvious solution is 
@@ -1097,7 +1133,8 @@ This gives us two more solutions
     x_3&=\frac{\lambda}{\sqrt{6}}, y_3=\sqrt{1-\frac{\lambda^2}{6}}\qquad\qquad\qquad\quad(\lambda^2<6)\\
     x_4&=\sqrt{\frac{3}{2}}\frac{1+w_m}{\lambda}, y_4=\sqrt{\frac{3}{2}}\frac{\sqrt{1-w_m^2}}{\lambda}\qquad(w_m^2<1).
 \end{align}
-Let quickly check the stability of the fix points. The characteristic equation for the fix points of a 2d system is given by
+
+\item Let's quickly check the stability of the fix points. The characteristic equation for the fix points of a 2d system is given by
 \begin{align}
     \alpha^2+a_1(x_i,y_i)\alpha+a_2(x_i,y_i)=0\\
     a_1(x_i,y_i)=-\left(\frac{df_x}{dx}+\frac{df_y}{dy}\right)_{x=x_i,y=y_i}\\
