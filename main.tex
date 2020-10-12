@@ -330,6 +330,26 @@ Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
     &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
 \end{align}
 
+General transformation laws for tensors of first and second order
+\begin{align}
+    V'^\alpha&=\Lambda^\alpha_{\;\beta}V^\beta\\
+    \eta_{\alpha\mu}V'^\alpha&=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}V^\beta=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}(\eta^{\nu\beta}V_\nu)\\
+    V'_\mu&=\Lambda_\mu^{\;\nu}V_\nu\\
+    &\rightarrow\quad \Lambda_\mu^{\;\nu} = \eta_{\alpha\mu}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta}
+\end{align}
+\begin{align}
+    T'^{\alpha\beta}&=\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}\\
+    \eta_{\alpha\delta}\eta_{\beta\gamma}T'^{\alpha\beta}&=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}(\eta^{\mu\rho}\eta^{\nu\sigma} T_{\rho\sigma})\\
+    T'_{\delta\gamma}&=\Lambda_\delta^{\;\rho}\Lambda_\gamma^{\;\sigma}T_{\rho\sigma}
+\end{align}
+
+\begin{align}
+    \Lambda_\gamma^{\;\nu}\Lambda^\gamma_{\;\mu}&=\eta_{\alpha\gamma}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta} \Lambda^\gamma_{\;\mu}\\
+    &=\eta^{\nu\beta}(\eta_{\alpha\gamma}\Lambda^\alpha_{\;\beta} \Lambda^\gamma_{\;\mu})\\
+    &=\eta^{\nu\beta}\eta_{\beta\mu}\\
+    &=\delta^\nu_{\;\mu}
+\end{align}
+
 \section{Groups}
 \subsection{Overview}
 \begin{table}[!h]
@@ -370,6 +390,29 @@ and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product repre
 \subsection{SU(3)}
 
 \subsection{Lorentz group O(1,3)}
+There are the obvious tensor representations for tensors of first and second order
+\begin{align}
+    [D(\Lambda)]^\alpha_{\;\beta}=\Lambda^\alpha_{\;\beta}\quad &\rightarrow\quad V^\alpha = [D(\Lambda)]^\alpha_{\;\beta} V^\beta=\Lambda^\alpha_{\;\beta} V^\beta\\
+    [D(\Lambda)]_{\alpha\beta}^{\;\;\gamma\delta}=\Lambda_\alpha^{\;\gamma}\Lambda_\beta^{\;\delta}\quad&\rightarrow\quad T_{\alpha\beta} = [D(\Lambda)]_{\alpha\beta}^{\;\;\gamma\delta} T_{\gamma\delta}=\Lambda_\alpha^{\;\gamma}\Lambda_\beta^{\;\delta}T_{\gamma\delta}
+\end{align}
+which are 4 and 16 dimensional.
+
+Infinitesimal Lorentz transformations can be written as
+\begin{align}
+    \Lambda^\alpha_{\;\beta}=\delta^\alpha_{\;\beta}+\omega^\alpha_{\;\beta}\qquad(|\omega^\alpha_{\;\beta}|\ll 1).
+\end{align}
+The first order approximation gives an additional restriction
+\begin{align}
+    \eta_{\mu\nu} &= \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}=\eta_{\alpha\beta}(\delta^\alpha_{\;\mu}+\omega^\alpha_{\;\mu})(\delta^\beta_{\;\nu}+\omega^\beta_{\;\nu})=\eta_{\mu\nu}+\eta_{\mu\beta}\omega^\beta_{\;\nu}+\eta_{\alpha\nu}\omega^\alpha_{\;\mu}\\
+    &\rightarrow \omega_{\mu\nu}=-\omega_{\nu\mu}
+\end{align}
+which implies six independent components. As the four dimensional representation of the infinitesimal transformation is close to unity it can then be written as
+\begin{align}
+    D(\Lambda)=D(1+\omega)=1+\frac{1}{2}\omega^{\alpha\beta}\sigma_{\alpha_\beta}
+\end{align}
+where the six $\omega$ components correspond to the six matrices $\sigma_{01},\sigma_{02},\sigma_{03},\sigma_{12},\sigma_{13},\sigma_{23}$ which are the generators of the group.
+
+
 Finite dimensional irreps of the Lorentz group are labeled by two parameters $(\mu,\nu)$ with
 \begin{align}
     \mu,\nu &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
@@ -1024,6 +1067,35 @@ where we used $\Delta_F(x)=\Delta_F(-x)$.
      &\left.+3\left(i\Delta_F(0)\right)^2\right]\exp\left(\text{i}W_0[J]\right)\\
 \end{align*}
 \end{enumerate}
+
+\subsubsection{Problem 19.6 - Dirac-Schwarzschild}
+\begin{enumerate}
+    \item (19.13) - adding the bi-spinor index might be helpful for some readers, see (B.27)
+    \item (19.13) vs (B.27) naming of generators $J^{\mu\nu}$ vs $\sigma_{\mu\nu}/2$
+\end{enumerate}
+The Dirac equation in curved space is obtained (from the covariance principle) by replacing all derivatives $\partial_k$ with covariant tetrad derivatives $\mathscr{D}_k$ 
+\begin{align}
+    (i\hbar\gamma^k\mathscr{D}_k+mc)\psi=0
+\end{align}
+
+
+
+
+Lets start with the Schwarzschild line element
+\begin{align}
+    ds^2&=\left(1-\frac{2M}{r}\right)dt^2-\left(1-\frac{2M}{r}\right)^{-1}dr^2-r^2(d\vartheta^2+\sin^2\vartheta\,d\phi^2)\\
+    &=\eta_{mn}d\xi^md\xi^n
+\end{align}
+with
+\begin{align}
+    d\xi^0=\left(1-\frac{2M}{r}\right)^{1/2}dt,\quad d\xi^1=\left(1-\frac{2M}{r}\right)^{-1/2}dr,\quad d\xi^2=rd\vartheta,\quad d\xi^3=r\sin\vartheta d\phi.
+\end{align}
+and the tetrad fields $e^m_\mu$ can then be derived via $d\xi^m=e^m_\mu(x) dx^\mu$.
+
+
+
+
+
 
 \subsubsection{Problem 23.6 - Reflection formula}
 \begin{align}
