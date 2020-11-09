@@ -329,26 +329,49 @@ Definition 4-momentum (using the 3-momentum $\vec{p}=\gamma m\vec{v}$)
     &\rightarrow\quad E_p=\sqrt{m^2c^4+\vec{p}^2c^2}\\
     &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
 \end{align}
-
-General transformation laws for tensors of first and second order
+First we observe
 \begin{align}
-    V'^\alpha&=\Lambda^\alpha_{\;\beta}V^\beta\\
-    \eta_{\alpha\mu}V'^\alpha&=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}V^\beta=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}(\eta^{\nu\beta}V_\nu)\\
-    V'_\mu&=\Lambda_\mu^{\;\nu}V_\nu\\
-    &\rightarrow\quad \Lambda_\mu^{\;\nu} = \eta_{\alpha\mu}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta}
+    \eta_{\mu\nu} &= \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}\\
+    \det(\eta)&=\det(\Lambda)^2\det(\eta)\\
+    1&=\det(\Lambda)^2.
 \end{align}
-\begin{align}
-    T'^{\alpha\beta}&=\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}\\
-    \eta_{\alpha\delta}\eta_{\beta\gamma}T'^{\alpha\beta}&=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}(\eta^{\mu\rho}\eta^{\nu\sigma} T_{\rho\sigma})\\
-    T'_{\delta\gamma}&=\Lambda_\delta^{\;\rho}\Lambda_\gamma^{\;\sigma}T_{\rho\sigma}
-\end{align}
-
+Now we see
 \begin{align}
     \Lambda_\gamma^{\;\nu}\Lambda^\gamma_{\;\mu}&=\eta_{\alpha\gamma}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta} \Lambda^\gamma_{\;\mu}\\
     &=\eta^{\nu\beta}(\eta_{\alpha\gamma}\Lambda^\alpha_{\;\beta} \Lambda^\gamma_{\;\mu})\\
     &=\eta^{\nu\beta}\eta_{\beta\mu}\\
     &=\delta^\nu_{\;\mu}
 \end{align}
+which means in matrix notation $\Lambda_\gamma^{\;\nu}=(\Lambda^{-1})^\nu_{\;\gamma}$.
+General transformation laws for tensors of first order
+\begin{align}
+    V'^\alpha&=\Lambda^\alpha_{\;\beta}V^\beta\\
+    \eta_{\alpha\mu}V'^\alpha&=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}V^\beta=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}(\eta^{\nu\beta}V_\nu)\\
+    V'_\mu&=\Lambda_\mu^{\;\nu}V_\nu\\
+    &\rightarrow\quad \Lambda_\mu^{\;\nu} = \eta_{\alpha\mu}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta}
+\end{align}
+and second order
+\begin{align}
+    T'^{\alpha\beta}&=\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}\\
+    \eta_{\alpha\delta}\eta_{\beta\gamma}T'^{\alpha\beta}&=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}(\eta^{\mu\rho}\eta^{\nu\sigma} T_{\rho\sigma})\\
+    T'_{\delta\gamma}&=\Lambda_\delta^{\;\rho}\Lambda_\gamma^{\;\sigma}T_{\rho\sigma}.
+\end{align}
+The general transformation is therefore given by
+\begin{align}
+    {T'_{\mu_1\mu_2...}}^{\nu_1\nu_2...}={\Lambda_{\mu_1}}^{\rho_1}{\Lambda_{\mu_2}}^{\rho_2}... {\Lambda^{\nu_1}}_{\sigma_1}{\Lambda^{\nu_2}}_{\sigma_2}... {T'_{\rho_1\rho_2...}}^{\sigma_1\sigma_2...}
+\end{align}
+There exist two invariant tensors
+\begin{align}
+    \eta'_{\mu\nu} 
+    &=\eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}
+    =\Lambda_{\beta\mu} \Lambda^\beta_{\;\nu}
+    =\eta_{\mu\sigma}\Lambda_{\beta}^{\;\sigma} \Lambda^\beta_{\;\nu}
+    =\eta_{\mu\sigma}\delta^\sigma_{\;\nu}
+    =\eta_{\mu\nu}\\
+    {\epsilon'}^{\mu\nu\rho\sigma}
+    &=\Lambda^\mu_{\;\alpha}\Lambda^\nu_{\;\beta}\Lambda^\rho_{\;\gamma}\Lambda^\sigma_{\;\delta}{\epsilon'}^{\alpha\beta\gamma\delta}\equiv \epsilon^{\mu\nu\rho\sigma} \det(\Lambda)=\pm \epsilon^{\mu\nu\rho\sigma}
+\end{align}
+Due to the possibility of the minus sign the Levi-Civita symbol $\epsilon$ is sometimes called pseudo-tensor.
 
 \section{Groups}
 \subsection{Overview}
