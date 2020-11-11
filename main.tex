@@ -473,6 +473,53 @@ and have dimension $(2\mu+1)(2\nu+1)$
 
 \newpage
 \section{Mathematical}
+\subsection{{\sc Morse, Feshbach} - Methods of mathematical physics}
+\subsubsection{Problem 1.1}
+With
+\begin{align}
+    \cot^2\psi=\frac{\cos^2\psi}{\sin^2\psi}=\frac{\cos^2\psi}{1-\cos^2\psi}
+\end{align}
+we can obtain a quadratic equation
+\begin{align}
+    (x^2+y^2)\cos^2\psi(1-\cos^2\psi)+z^2\cos^2\psi=a^2(1-\cos^2\psi)\\
+    \cos^4\psi-\frac{x^2+y^2+z^2+a^2}{x^2+y^2}\cos^2\psi+\frac{a^2}{x^2+y^2}=0
+\end{align}
+with the solution
+\begin{align}
+    \cos^2\psi
+    &=\frac{x^2+y^2+z^2+a^2}{2(x^2+y^2)}\pm\sqrt{ \frac{(x^2+y^2+z^2+a^2)^2}{4(x^2+y^2)^2}-\frac{4a^2(x^2+y^2)}{4(x^2+y^2)^2}  }\\
+    &=\frac{x^2+y^2+z^2+a^2\pm\sqrt{ (x^2+y^2+z^2+a^2)^2-4a^2(x^2+y^2)}}{2(x^2+y^2)}
+\end{align}
+To obtain the gradient we differentiate the surface equation implicitly with respect to $x,y$ and z
+\begin{align}
+    2x\cos^2\psi-2(x^2+y^2)\cos\psi\sin\psi\frac{\partial\psi}{\partial x}-2z^2\cot\psi\csc^2\psi\frac{\partial\psi}{\partial x}=0\\
+    \rightarrow\frac{\partial\psi}{\partial x}=\psi_x=\frac{x\cos^2\psi}{z^2\cot\psi\csc^2\psi+(x^2+y^2)\sin\psi\cos\psi}\\
+    2y\cos^2\psi-2(x^2+y^2)\cos\psi\sin\psi\frac{\partial\psi}{\partial x}-2z^2\cot\psi\csc^2\psi\frac{\partial\psi}{\partial x}=0\\
+    \rightarrow\frac{\partial\psi}{\partial y}=\psi_y=\frac{y\cos^2\psi}{z^2\cot\psi\csc^2\psi+(x^2+y^2)\sin\psi\cos\psi}\\
+    -2(x^2+y^2)\cos\psi\sin\psi\frac{\partial\psi}{\partial z}+2z\cot^2\psi-2z^2\cot\psi\csc^2\psi\frac{\partial\psi}{\partial z}=0\\
+     \rightarrow\frac{\partial\psi}{\partial z}=\psi_z=\frac{z\cot^2\psi}{z^2\cot\psi\csc^2\psi + (x^2+y^2)\cos\psi\sin\psi}
+\end{align}
+The direction cosines are then given by
+\begin{align}
+    \cos\alpha&=\frac{\psi_x}{\sqrt{\psi_x^2+\psi_y^2+\psi_z^2}}=\frac{2\sqrt{2}x\sin^2\psi}{\sqrt{8z^2+(x^2+y^2)(3-4\cos2\psi+\cos4\psi)}}\\
+    \cos\beta&=\frac{\psi_y}{\sqrt{\psi_x^2+\psi_y^2+\psi_z^2}}=\frac{2\sqrt{2}y\sin^2\psi}{\sqrt{8z^2+(x^2+y^2)(3-4\cos2\psi+\cos4\psi)}}\\
+    \cos\gamma&=\frac{\psi_z}{\sqrt{\psi_x^2+\psi_y^2+\psi_z^2}}=\frac{2\sqrt{2}z}{\sqrt{8z^2+(x^2+y^2)(3-4\cos2\psi+\cos4\psi)}}.
+\end{align}
+The second derivatives (for the Laplacian) can again be calculated via (lengthy) implicit differentiation and substituting the first derivatives from above. Adding them up gives zero which implies $\triangle\psi=0$.
+
+The surface equations $\psi=\text{const}$ can be written in form of an ellipsoid
+\begin{align}
+    \frac{x^2}{a^2\sec^2\psi}+\frac{y^2}{a^2\sec^2\psi}+\frac{z^2}{a^2\tan^2\psi}=1
+\end{align}
+which degenerates to a flat pancake for $\psi=0,\pi$.
+
+\subsubsection{Problem 4.1}
+Standard trick
+\begin{align}
+    x=\tan\vartheta/2\rightarrow d\theta =\frac{2dx}{1+x^2},\,\sin\vartheta=\frac{2x}{1+x^2},\,\cos\vartheta=\frac{1-x^2}{1+x^2}\\
+    \int_0^{2\pi}\frac{\sin^2\vartheta d\vartheta}{a+b\cos\vartheta}=\int_?^{?}\frac{8x^3\cdot dx}{(1+x^2)^3(a+b\frac{1-x^2}{1+x^2})}
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% WOIT %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2079,8 +2126,39 @@ and can subsequently solve for $m_M$
     &=\frac{g R_E^2}{G\left(\frac{6\pi^2R_E^2}{ghT_M^2} -1\right)}\\
     &=1.38\cdot10^{23}\text{kg}
 \end{align}
-
 \end{enumerate}
+
+\subsubsection{Problem Set 3-3 - 1961 Nov 03 (3.10)}
+\begin{enumerate}[label=(\alph*)]
+\item We use Keplers 3rd law for the earth
+\begin{align}
+    \frac{a_E^3}{T_E^2}&=\frac{G(m_S+m_E)}{4\pi^2}\approx\frac{Gm_S}{4\pi^2}\\
+\end{align}
+and the stars $a$ and $b$
+\begin{align}
+    \frac{a^3}{T^2}&=\frac{G(m_A+m_B)}{4\pi^2}\\
+    \frac{(Ra_E)^3}{(TT_E)^2}&=\frac{R^3}{T^2}\frac{a_E^3}{T_E^2}=\frac{R^3}{T^2}\frac{Gm_S}{4\pi^2}=\frac{G(m_A+m_B)}{4\pi^2}\\
+    &\rightarrow m_A+m_B = \frac{R^3}{T^2}m_S=\frac{729}{25}m_S
+\end{align}
+
+\item For a the circular orbits we have the stability condition
+\begin{align}
+    m_A\omega^2r_A&=F_{AB}=m_B\omega^2r_B\\
+    &\rightarrow m_A\omega v_A=m_B\omega v_B\\
+    &\rightarrow \frac{m_A}{m_B} =\frac{v_B}{v_A}=\frac{1}{5}
+\end{align}
+with $m_B=5m_A$ we have 
+\begin{align}
+    m_A&=\frac{243}{50}m_S\\
+    m_B&=\frac{243}{10}m_S.
+\end{align}
+\end{enumerate}
+
+\subsubsection{Problem Set 3-4 - 1961 Nov 03 (?.??)}
+\begin{align}
+    g_M=\frac{GM_M}{R_M^2}&=\frac{4}{3}G\rho_M R_M=\frac{4}{3}G (0.537\rho_E) (0.716R_E)=0.384 \cdot g_E
+\end{align}
+
 
 \subsection{{\sc Thorne, Blandford} - Modern Classical Physics}
 
