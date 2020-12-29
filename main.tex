@@ -2161,6 +2161,39 @@ with $m_B=5m_A$ we have
 
 
 \subsection{{\sc Thorne, Blandford} - Modern Classical Physics}
+\subsubsection{Exercise 1.1 Practice: Energy Change for Charged Particle}
+With $E=p^2/2m$ and (1.7c) we obtain
+\begin{align}
+    \frac{dE}{dt}&=\frac{d}{dt}\frac{p^2}{2m}=\frac{2 \vec{p}\cdot d\vec{p}/dt}{2m}\\
+    &=\frac{q}{m}\vec{p}\cdot (\vec{E}+\vec{v}\times\vec{B})\\
+    &=q\vec{v}\cdot (\vec{E}+\vec{v}\times\vec{B})\\
+    &=q\vec{v}\cdot\vec{E}.
+\end{align}
+As $\vec{v}\times\vec{B}$ is orthogonal to $\vec{v}$ (and $\vec{B}$) the scalar product $\vec{v}\cdot(\vec{v}\times\vec{B})$ vanishes.
+
+\subsubsection{Exercise 1.2 Practice: Particle Moving in a Circular Orbit}
+\begin{enumerate}[label=(\alph*)]
+\item With
+\begin{align}
+\frac{d\vec{n}}{ds}=\frac{\vec{n}'-\vec{n}}{R\cdot d\phi}=\frac{\vec{v}'-\vec{v}}{vR\cdot d\phi}
+\end{align}
+we can calculate the norm
+\begin{align}
+\left|\frac{d\vec{n}}{ds}\right|
+&=\frac{\sqrt{v^2+v^2-2v^2\cos(d\phi)}}{vR\cdot d\phi}
+=\frac{v\sqrt{1-\cos(d\phi)}}{vR\cdot d\phi}
+= \frac{v\sqrt{2[1-\cos(d\phi)]}}{vR\cdot d\phi}\\
+&\approx\frac{vd\phi}{vR\cdot d\phi}=\frac{1}{R}
+\end{align}
+and the scalar product
+\begin{align}
+\frac{d\vec{n}}{ds}\cdot\vec{n}
+&=\frac{\vec{n}'\cdot\vec{n}-\vec{n}\cdot\vec{n}}{R\cdot d\phi}=\frac{n^2\cos(d\phi)-n^2}{vR\cdot d\phi}\\
+&\approx \frac{(1-d\phi^2/2)-1}{vR\cdot d\phi}=\frac{d\phi}{2vR}
+\end{align}
+which vanished for $d\phi\rightarrow0$ and therefore implies that $d\vec{n}$ is orthogonal to $\vec{n}$ (and therefore points to the center).
+\item ...
+\end{enumerate}
 
 \subsubsection{Exercise 3.3 Practice and Example: Regimes of Particulate and Wave - Like Behavior}
 \begin{enumerate}[label=(\alph*)]
