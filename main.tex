@@ -278,8 +278,98 @@ Some examples
     
 \end{enumerate}
 
+\subsubsection{Space hierarchy}
+\begin{enumerate}
+    \item K-Vector space $(K,\oplus,\odot)$ 
+        \begin{itemize}
+            \item set $V$, field $K$ with $(K,+,\cdot)$
+            \item vector addition $\oplus: V\times V\rightarrow V$
+            \item scalar multiplication $\odot: K\times V\rightarrow V$
+        \end{itemize}
+    \item Topological vector space
+        \begin{itemize}
+            \item K-vector space
+            \item continuous (smooth) vector addition and scalar multiplication
+        \end{itemize}
+    \item Metric (vector) space $(M,d)$
+        \begin{itemize}
+            \item set $M$, metric $d: M\times M\rightarrow \mathbb{R}$
+            \item $d(x,y)=0 \Leftrightarrow x=y$
+            \item $d(x,y)=d(y,x)$
+            \item $d(x,y)+d(y,z) \ge d(x,z)$
+            \item from the requirements above follows $d(x,y)\ge0$
+        \end{itemize}
+    \item Normed vector space $(V,\|\cdot\|)$
+        \begin{itemize}
+            \item K-vector space $V$, norm $\|\cdot\|: V\rightarrow \mathbb{R}$
+            \item Typically $K\in(\mathbb{R}, \mathbb{C})$ to have a definition of $|\lambda|$
+            \item $\|x\|\ge0$
+            \item $\|x\|=0 \Leftrightarrow x=0$
+            \item $\|\lambda x\|=|\lambda| \|x\|$ with $\lambda\in K$
+            \item $\|x\|+\|y\|\ge\|x+y\|$
+            \item with $d(x,y):=\|x-y\|$ every normed vector space has also a metric
+            \item a metric does NOT induce a always norm as the linearity/homogeneity of the norm is not guaranteed 
+        \end{itemize}
+    \item Banach space (complete normed vector space)
+        \begin{itemize}
+            \item normed K-vector space $(V,\|\cdot\|)$ with $K\in(\mathbb{R}, \mathbb{C})$
+            \item completeness: every Cauchy sequence converges (with the metric induced by the norm) to a well defined limit
+            \item if the space is just a metric space (without a norm) the space is called Cauchy space
+        \end{itemize}
+    \item Hilbert space (complete vector space with a scalar product)
+        \begin{itemize}
+            \item K-vector space $V$ with $K\in(\mathbb{R}, \mathbb{C})$
+            \item scalar product $\langle\cdot,\cdot\rangle:V\times V\rightarrow K$
+            \item $\langle \lambda x_1+x_2,y\rangle = \langle \lambda x_1,y\rangle + \langle \lambda x_2,y\rangle$
+            \item $\langle \lambda x,y\rangle = \lambda\langle x,y\rangle$ for $\lambda\in K$
+            \item $\langle x,y\rangle=\overline{\langle y,x\rangle}$ which implies $\langle x,x\rangle \in \mathbb{R}$
+            \item $\langle x,x\rangle>0$
+            \item $\langle x,x\rangle=0\Leftrightarrow x=0$
+            \item completeness: every Cauchy sequence converges (with the metric induced by the norm which is itself induced by the scalar product) to a well defined limit
+            \item without completeness the space is called Pre-Hilbert space
+        \end{itemize}
+\end{enumerate}
 
 
+\subsubsection{Tensors}
+\begin{itemize}
+\item For a vector $\mathbf{A}$ the expression $\mathbf{A}^2$ is the squared distance between tip and tail.
+\item The inner product of two vectors can then be defined by the parallelogram law
+\begin{align}
+    \mathbf{A}\cdot\mathbf{B}\equiv\frac{1}{4}\left[(\mathbf{A}+\mathbf{B})^2-(\mathbf{A}-\mathbf{B})^2\right]
+\end{align}
+\item A rank-$n$ tensor $\mathbf{T}=\mathbf{T}(\_,\_,\_)$ is real-valued linear function of $n$ vectors.
+\begin{align}
+    \mathbf{T}(\alpha\mathbf{A}+\mu\mathbf{B},\mathbf{C},\mathbf{D})=\alpha\mathbf{T}(\mathbf{A},\mathbf{C},\mathbf{D})+\beta\mathbf{T}(\mathbf{B},\mathbf{C},\mathbf{D})
+\end{align}
+\item Metric tensor
+\begin{align}
+    \mathbf{g}(\mathbf{A},\mathbf{B})\equiv\mathbf{A}\cdot\mathbf{B}
+\end{align}
+\item A vector is a tensor of rank one 
+\begin{align}
+    \mathbf{A}(\mathbf{C})\equiv\mathbf{A}\cdot\mathbf{C}
+\end{align}
+\item Tensor product 
+\begin{align}
+    \mathbf{A}\otimes\mathbf{B}\otimes\mathbf{C}(\mathbf{E},\mathbf{F},\mathbf{G})\equiv\mathbf{A}(\mathbf{E})\mathbf{B}(\mathbf{F})\mathbf{C}(\mathbf{G})=(\mathbf{A}\cdot\mathbf{E})(\mathbf{B}\cdot\mathbf{F})(\mathbf{C}\cdot\mathbf{G})
+\end{align}
+\item Contraction
+\begin{align}
+    \text{1\&3 contraction}(\mathbf{A}\otimes\mathbf{B}\otimes\mathbf{C}\otimes\mathbf{D})\equiv(\mathbf{A}\cdot\mathbf{C})\mathbf{B}\otimes\mathbf{D}
+\end{align}
+\item Orthogonal basis
+\begin{align}
+    \mathbf{e}_j\cdot\mathbf{e}_k=\delta_{jk}
+\end{align}
+\item Component expansion
+\begin{align}
+    \mathbf{A}=A_j\mathbf{e}_j\quad&\rightarrow\quad A_j=\mathbf{A}(\mathbf{e}_j)=\mathbf{A}\cdot\mathbf{e}_j\\
+    \mathbf{T}=T_{abc}\mathbf{e}_a\otimes\mathbf{e}_b\otimes\mathbf{e}_c\quad&\rightarrow\quad T_{ijk}=\mathbf{T}(\mathbf{e}_i,\mathbf{e}_j,\mathbf{e}_k)\\
+    \text{1\&3 contraction}(\mathbf{R})\quad&\rightarrow\quad R_{ijik}\\
+    \mathbf{g}\quad&\rightarrow\quad g_{jk}=\mathbf{g}(\mathbf{e}_j,\mathbf{e}_k)=\mathbf{e}_j\cdot\mathbf{e}_k=\delta_{jk}
+\end{align}
+\end{itemize}
 
 
 \newpage
@@ -2175,25 +2265,211 @@ As $\vec{v}\times\vec{B}$ is orthogonal to $\vec{v}$ (and $\vec{B}$) the scalar 
 \begin{enumerate}[label=(\alph*)]
 \item With
 \begin{align}
-\frac{d\vec{n}}{ds}=\frac{\vec{n}'-\vec{n}}{R\cdot d\phi}=\frac{\vec{v}'-\vec{v}}{vR\cdot d\phi}
+    \frac{d\vec{n}}{ds}
+    =\frac{\vec{n}'-\vec{n}}{R\cdot d\phi}=\frac{\vec{v}'-\vec{v}}{vR\cdot d\phi}
 \end{align}
 we can calculate the norm
 \begin{align}
-\left|\frac{d\vec{n}}{ds}\right|
-&=\frac{\sqrt{v^2+v^2-2v^2\cos(d\phi)}}{vR\cdot d\phi}
-=\frac{v\sqrt{1-\cos(d\phi)}}{vR\cdot d\phi}
-= \frac{v\sqrt{2[1-\cos(d\phi)]}}{vR\cdot d\phi}\\
-&\approx\frac{vd\phi}{vR\cdot d\phi}=\frac{1}{R}
+    \left|\frac{d\vec{n}}{ds}\right|
+    &=\frac{\sqrt{v^2+v^2-2v^2\cos(d\phi)}}{vR\cdot d\phi}
+    =\frac{v\sqrt{1-\cos(d\phi)}}{vR\cdot d\phi}
+    = \frac{v\sqrt{2[1-\cos(d\phi)]}}{vR\cdot d\phi}\\
+    &\approx\frac{vd\phi}{vR\cdot d\phi}=\frac{1}{R}
 \end{align}
 and the scalar product
 \begin{align}
-\frac{d\vec{n}}{ds}\cdot\vec{n}
-&=\frac{\vec{n}'\cdot\vec{n}-\vec{n}\cdot\vec{n}}{R\cdot d\phi}=\frac{n^2\cos(d\phi)-n^2}{vR\cdot d\phi}\\
-&\approx \frac{(1-d\phi^2/2)-1}{vR\cdot d\phi}=\frac{d\phi}{2vR}
+    \frac{d\vec{n}}{ds}\cdot\vec{n}
+    &=\frac{\vec{n}'\cdot\vec{n}-\vec{n}\cdot\vec{n}}{R\cdot d\phi}=\frac{n^2\cos(d\phi)-n^2}{vR\cdot d\phi}\\
+    &\approx \frac{(1-d\phi^2/2)-1}{vR\cdot d\phi}=\frac{d\phi}{2vR}
 \end{align}
 which vanished for $d\phi\rightarrow0$ and therefore implies that $d\vec{n}$ is orthogonal to $\vec{n}$ (and therefore points to the center).
-\item ...
+\item From (a) we know
+\begin{align}
+    \vec{R}=R^2\frac{d\vec{n}}{ds}
+    =R^2\frac{d\vec{v}}{v\cdot ds}
+    =R^2\frac{d\vec{v}}{v\cdot ds}
+    =\frac{R^2}{v}\frac{d\vec{v}}{dt}\frac{dt}{ds}
+    =\left(\frac{R}{v}\right)^2\vec{a}
+\end{align}
+Taking the absolute value we have
+\begin{align}
+    R=\frac{R^2}{v^2}a\quad\rightarrow\quad R=\frac{v^2}{a}
+\end{align}
+and therefore
+\begin{align}
+    \vec{R}=\frac{R^2}{v^2}\vec{a}=\frac{v^4}{v^2 a^2}\vec{a}=\left(\frac{v}{a}\right)^2\vec{a}.
+\end{align}
 \end{enumerate}
+
+\subsubsection{Exercise 1.3 Derivation: Component Manipulation Rules}
+\begin{enumerate}
+\item (1.9g I) - using (1.9b), (1.9a) and (1.9c)
+\begin{align}
+    \mathbf{A}\cdot\mathbf{B}
+    =(A_j\mathbf{e}_j)\cdot(B_k\mathbf{e}_k)
+    =A_jB_k\mathbf{e}_j\cdot\mathbf{e}_k
+    =A_jB_k\delta_{jk}
+    =A_jB_j
+\end{align}
+\item (1.9g II) - using (1.9d) and (1.5a)
+\begin{align}
+    \mathbf{T}&=T_{ijk}\mathbf{e}_i\otimes\mathbf{e}_j\otimes\mathbf{e}_k\\
+    \mathbf{T}(\mathbf{A},\mathbf{B},\mathbf{C})
+    &=T_{ijk}\mathbf{e}_i\otimes\mathbf{e}_j\otimes\mathbf{e}_k(\mathbf{A},\mathbf{B},\mathbf{C})\\
+    &=T_{ijk}(\mathbf{A}\cdot\mathbf{e}_i)(\mathbf{B}\cdot\mathbf{e}_j)(\mathbf{C}\cdot\mathbf{e}_k)\\
+    &=T_{ijk}A_iB_jC_k
+\end{align}
+\item (1.9h) - using (1.9d), (1.6b), (1.9a) and (1.5a)
+\begin{align}
+    \mathbf{R}
+    &=R_{abcd}\mathbf{e}_a\otimes\mathbf{e}_b\otimes\mathbf{e}_c\otimes\mathbf{e}_d\\
+    \text{1\&3 contraction}(\mathbf{R})
+    &=R_{abcd}(\mathbf{e}_a\cdot\mathbf{e}_c) \mathbf{e}_b\otimes\mathbf{e}_d\\
+    &=R_{abcd}\delta_{ac} \mathbf{e}_b\otimes\mathbf{e}_d\\
+    &=R_{abad}\mathbf{e}_b\otimes\mathbf{e}_d\\
+    \text{components of [1\&3 contraction}(\mathbf{R})]&=R_{abad}\mathbf{e}_b\otimes\mathbf{e}_d(\mathbf{e}_j,\mathbf{e}_k)\\
+    &=R_{abad}(\mathbf{e}_b\cdot\mathbf{e}_j)(\mathbf{e}_d\cdot\mathbf{e}_k)\\
+    &=R_{abad}\delta_{bj}\delta_{dk}\\
+    &=R_{ajak}
+\end{align}
+\end{enumerate}
+
+\subsubsection{Exercise 1.4 Example and Practice: Numerics of Component Manipulations}
+\begin{align}
+    \mathbf{C}
+    &=\mathbf{S}(\mathbf{A},\mathbf{B},\_)\\
+    &=S_{ijk}\mathbf{e}_i\otimes\mathbf{e}_j\otimes\mathbf{e}_k(\mathbf{A},\mathbf{B},\_)\\
+    &=S_{ijk}(\mathbf{A}\cdot\mathbf{e}_i)(\mathbf{B}\cdot\mathbf{e}_j)\mathbf{e}_k\\
+    &=S_{ijk}A_iB_j\mathbf{e}_k
+\end{align}
+\begin{align}
+    C_k&=S_{11k}A_1B_1+S_{12k}A_1B_2\\
+    C_1&=0,\quad C_2=0,\quad C_3=S_{123}A_1B_2=15
+\end{align}
+\begin{align}
+    \mathbf{D}
+    &=\mathbf{S}(\mathbf{A},\_,\mathbf{B})\\
+    &=S_{ijk}\mathbf{e}_i\otimes\mathbf{e}_j\otimes\mathbf{e}_k(\mathbf{A},\_,\mathbf{B})\\
+    &=S_{ijk}(\mathbf{A}\cdot\mathbf{e}_i)(\mathbf{B}\cdot\mathbf{e}_k)\mathbf{e}_j\\
+    &=S_{ijk}A_iB_k\mathbf{e}_j
+\end{align}
+\begin{align}
+    D_j&=S_{1j1}A_1B_1 + S_{1j2}A_1B_2=0
+\end{align}
+\begin{align}
+    \mathbf{W}
+    &=\mathbf{A}\otimes\mathbf{B}\\
+    &=(A_i\mathbf{e}_i)\otimes(B_j\mathbf{e}_j)\\
+    &=A_iB_j \mathbf{e}_i\otimes\mathbf{e}_j
+\end{align}
+\begin{align}
+    W_{11}=12,\quad W_{12}=15,\quad 
+\end{align}
+
+\subsubsection{Exercise 1.5 Practice: Meaning of Slot-Naming Index Notation}
+\begin{enumerate}[label=(\alph*)]
+\item Somewhat guessing
+\begin{align}
+    A_iB_{jk}
+    &\rightarrow A_iB_{jk}\mathbf{e}_i\otimes\mathbf{e}_j\otimes\mathbf{e}_k\\
+    &= (A_i\mathbf{e}_i)\otimes (B_{jk}\mathbf{e}_j\otimes\mathbf{e}_k)\\
+    &=A(\_)\otimes B(\_,\_)
+\end{align}
+\begin{align}
+    A_iB_{ji}
+    &\rightarrow A_iB_{ji}\mathbf{e}_j\\
+    &=(\mathbf{A}\cdot\mathbf{e}_i)B_{ji}\mathbf{e}_j\\
+    &=B_{ji}\mathbf{e}_j\otimes\mathbf{e}_i(\_,\mathbf{A})\\
+    &=\mathbf{B}(\_,\mathbf{A})
+\end{align}
+\begin{align}
+    S_{ijk}
+    &=S_{kji}\rightarrow ...
+\end{align}
+\begin{align}
+    A_iB_i&=AiB_jg_{ij}\rightarrow \mathbf{A}\cdot\mathbf{B}=\mathbf{g}(\mathbf{A},\mathbf{B})
+\end{align}
+
+\item Applying the standard machinery
+\begin{align}
+    \mathbf{T}(\_,\_,\mathbf{A})
+    &=T_{ijk}\mathbf{e}_i\otimes\mathbf{e}_j(\mathbf{A}\cdot\mathbf{e}_k)\\
+    &=T_{ijk}A_k\mathbf{e}_i\otimes\mathbf{e}_j\\
+    &\rightarrow T_{ijk}A_k
+\end{align}
+\begin{align}
+    \mathbf{S}(\mathbf{B},\_)
+    &=S_{ab}(\mathbf{B}\cdot\mathbf{e}_a)\mathbf{e}_b\\
+    &=S_{ab}B_a\mathbf{e}_b\\
+    \mathbf{T}(\_,\mathbf{S}(\mathbf{B},\_),\_)
+    &=T_{ijk}\mathbf{e}_i\otimes\mathbf{e}_k(S_{ab}B_a\mathbf{e}_b\cdot\mathbf{e}_j)\\
+    &=T_{ijk}\mathbf{e}_i\otimes\mathbf{e}_k(S_{ab}B_a\delta_{bj})\\
+    &=T_{ijk}S_{aj}B_a\mathbf{e}_i\otimes\mathbf{e}_k\\
+    &\rightarrow T_{ijk}S_{aj}
+\end{align}
+\end{enumerate}
+
+
+\subsubsection{Exercise 1.6 Example and Practice: Rotation in x-y Plane}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 1.7 Derivation: Properties of the Levi-Civita Tensor}
+
+\subsubsection{Exercise 1.8 Example and Practice: Vectorial Identities for the Cross Product
+and Curl}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 1.9 Example and Practice: Levi-Civita Tensor in 2-Dimensional Euclidean Space}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 1.10 Derivation and Practice: Volume Elements in Cartesian Coordinates}
+
+\subsubsection{Exercise 1.11 Example and Practice: Integral of a Vector Field over a Sphere}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 1.12 Example: Faraday’s Law of Induction}
+
+\subsubsection{Exercise 1.13 Example: Equations of Motion for a Perfect Fluid}
+\begin{enumerate}[label=(\alph*)]
+\item 
+\item
+\item
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 1.14 Problem: Electromagnetic Stress Tensor}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 1.15 Practice: Geometrized Units}
+\begin{enumerate}[label=(\alph*)]
+\item $t_P=\sqrt{G\hbar}\quad\rightarrow\quad\sqrt{\frac{G\hbar}{c^5}}= 5.39\cdot10^{-44}\text{s}\equiv 1.61\cdot10^{-35}\text{m}$
+\item $E=2mc^2$
+\item 
+\item 
+\item $1\text{m}\equiv 3.33\cdot10^{-9}\text{s}$ and $1\text{yr}\equiv 9.45\cdot10^{15}\text{m}$
+\end{enumerate}
+
 
 \subsubsection{Exercise 3.3 Practice and Example: Regimes of Particulate and Wave - Like Behavior}
 \begin{enumerate}[label=(\alph*)]
@@ -2331,7 +2607,35 @@ The condition for the spread limitation is
 \end{align}
 \end{enumerate}
 
-
+\subsubsection{Exercise 16.9 Example: Breaking of a Dam}
+The PDEs
+\begin{align}
+    &h_t+hv_x+vh_x=0\\
+    &v_t+vv_x+gh_x=0
+\end{align}
+can be written as
+\begin{align}
+&Au_t+Bu_x=0\\
+&u=\left(
+\begin{array}{c}
+ h \\
+ v \\
+\end{array}
+\right)\qquad
+A=\left(
+\begin{array}{cc}
+ 1 & 0 \\
+ 0 & 1 \\
+\end{array}
+\right)
+\qquad
+B=\left(
+\begin{array}{cc}
+ v & h  \\
+ g & v  \\
+\end{array}
+\right)
+\end{align}
 
 
 \subsection{{\sc Walter} - Astronautics}
