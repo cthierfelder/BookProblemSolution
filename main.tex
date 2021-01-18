@@ -2607,6 +2607,261 @@ The condition for the spread limitation is
 \end{align}
 \end{enumerate}
 
+
+\textcolor{red}{Not done yet}
+
+\subsubsection{Exercise 13.1 Example: Earth's Atmosphere}
+\begin{enumerate}[label=(\alph*)]
+\item With $PV=Nk_BT$, $\rho=\frac{\mu m_p N}{V}$ and assuming $g=\text{const}$ we obtain
+\begin{align}
+    \nabla P&=\rho \mathbf{g}\\
+    \frac{dP}{dz} &=-\rho g\\
+    &=-\frac{\mu m_p N}{V} g\\
+    &=-\mu m_p g\frac{P}{k_BT}\\
+\end{align}
+which can be solved by
+\begin{align}
+    \frac{dP}{P}&=-\frac{\mu m_p g}{k_BT}\\
+    P(z)&=P_0\exp\left(-\frac{\mu m_p g}{k_B T}z\right).
+\end{align}
+With $\mu=0.2\cdot2\cdot16+0.8\cdot2\cdot14+$ (20\%O$_2$/80\%N$_2$) and $T=220$K we have
+\begin{align}
+    H&=6,400\text{m}\\
+    P(16\text{km})&=0.083\text{bar}\\
+    \frac{P(35\text{km})}{P(16\text{km})}&=0.052
+\end{align}
+\item The isentropic condition $P\sim\rho^\gamma$ acts as an additional condition on top of the equations of state. It can be rewritten as
+\begin{align}
+    P\rho^{-\gamma}&=\text{const}\\
+    PV^{\gamma}&=\text{const}\\
+    P\left(\frac{T}{P}\right)^{\gamma}&=\text{const}\\
+    TP^\frac{1-\gamma}{\gamma}&=\text{const}.
+\end{align}
+Differentiating the last equation gives
+\begin{align}
+    \frac{dT}{dz}P^\frac{1-\gamma}{\gamma}+\left(\frac{1-\gamma}{\gamma}\right)P^{\frac{1-2\gamma}{\gamma}}\frac{dP}{dz}T=0\\
+    \rightarrow\frac{dT}{dz}=-\left(\frac{1-\gamma}{\gamma}\right)\frac{T}{P}\frac{dP}{dz}
+\end{align}
+Inserting the
+\begin{align}
+    \frac{dP}{dz}&=-\mu m_p g\frac{P}{k_BT}
+\end{align}
+which we calculated in (a) we obtain
+\begin{align}
+    \frac{dT}{dz}=\left(\frac{1-\gamma}{\gamma}\right)\frac{\mu m_p g}{k_B}.
+\end{align}
+With this we calculate a lapse rate of 9.76K\;km$^{-1}$.
+\end{enumerate}
+
+\subsubsection{Exercise 13.2 Practise: Weight in Vacuum}
+\begin{align}
+    F_{b}&=\rho_\text{air}gV_\text{body}\\
+    &=\rho_\text{air}g\frac{m_\text{body}}{\rho_\text{body}}\\
+    &=1\text{N}
+\end{align}
+where we used a mass of 100kg and $\rho_\text{air}/\rho_\text{body}=0.001$.
+
+\subsubsection{Exercise 13.4 Example: Polytropes — The Power of Dimensionless Variables}
+\begin{enumerate}[label=(\alph*)]
+
+\item From 
+\begin{align}
+    \frac{dP}{dr}&=-\rho\frac{Gm}{r^2}\quad\rightarrow\quad m=-\frac{r^2}{G\rho}\frac{dP}{dr}\\
+    \frac{dm}{dr}&=4\pi\rho r^2
+\end{align}
+we obtain by differentiation
+\begin{align}
+    \frac{d^2P}{dr^2}
+    &=-G\frac{(\frac{d\rho}{dr}m+\rho\frac{dm}{dr})r^2-2r\rho m}{r^4}\\
+    &=-\frac{G}{r^4}\left(\left[\frac{d\rho}{dr}m+\rho\frac{dm}{dr}\right]r^2-2r\rho m\right)\\
+    &=-\frac{G}{r^4}\left(\left[-\frac{r^2}{G\rho}\frac{dP}{dr}\frac{d\rho}{dr}+\rho4\pi\rho r^2\right]r^2+\frac{r^2}{G\rho}\frac{dP}{dr}2r\rho \right)\\
+    &=\left(\frac{1}{\rho}\frac{d\rho}{dr}-\frac{2}{r}\right)\frac{dP}{dr}-4\pi G\rho^2
+\end{align}
+\item With the polytropic equation of state $P=K\rho^{1+1/n}$ we find for the derivatives of $P$
+\begin{align}
+    \frac{dP}{dr}
+    &=K\left(1+\frac{1}{n}\right)\rho^{1/n}\frac{d\rho}{dr}\\
+    \frac{d^2P}{dr^2}
+    &=K\left(1+\frac{1}{n}\right)\rho^{1/n}\left[\frac{1}{n}\rho^{-1}\left(\frac{d\rho}{dr}\right)^2+\frac{d^2\rho}{dr^2}\right]
+\end{align}
+and therefore
+\begin{align}
+\frac{1}{n}\rho^{-1}\left(\frac{d\rho}{dr}\right)^2+\frac{d^2\rho}{dr^2} 
+&=\left(\frac{1}{\rho}\frac{d\rho}{dr}-\frac{2}{r}\right)\frac{d\rho}{dr}-\frac{n}{1+n}\frac{4\pi G\rho^{2-1/n}}{K}\\
+\frac{d^2\rho}{dr^2} 
+&=\left(\frac{n-1}{n}\frac{1}{\rho}\frac{d\rho}{dr}-\frac{2}{r}\right)\frac{d\rho}{dr}-\frac{n}{1+n}\frac{4\pi G}{K}\rho^{2-1/n}\\
+\frac{d^2\rho}{dr^2} 
+&=\frac{n-1}{n}\frac{1}{\rho}\left(\frac{d\rho}{dr}\right)^2-\frac{2}{r}\frac{d\rho}{dr}-\frac{n}{1+n}\frac{4\pi G}{K}\rho^{2-1/n}.
+\end{align}
+
+\item With
+\begin{align}
+    \rho(r)&=\rho_c\theta^\alpha(r)\\
+    \frac{d\rho}{dr}&=\rho_c\alpha\theta^{\alpha-1}\frac{d\theta}{dr}\\
+    \left(\frac{d\rho}{dr}\right)^2&=\rho_c^2\alpha^2\theta^{2(\alpha-1)}\left(\frac{d\theta}{dr}\right)^2\\
+    \frac{d^2\rho}{dr^2}&=\rho_c\alpha(\alpha-1)\theta^{\alpha-2}\left(\frac{d\theta}{dr}\right)^2+\rho_c\alpha\theta^{\alpha-1}\frac{d^2\theta}{dr^2}
+\end{align}
+we can rewrite the differential equation as
+\begin{align}
+    \rho_c\alpha(\alpha-1)\theta^{\alpha-2}\left(\frac{d\theta}{dr}\right)^2+\rho_c\alpha\theta^{\alpha-1}\frac{d^2\theta}{dr^2}\\
+    =\frac{n-1}{n}\frac{1}{\rho_c\theta^\alpha}\rho_c^2\alpha^2\theta^{2(\alpha-1)}\left(\frac{d\theta}{dr}\right)^2-\frac{2}{r}\rho_c\alpha\theta^{\alpha-1}\frac{d\theta}{dr}-\frac{n}{1+n}\frac{4\pi G}{K}\rho_c^{2-1/n}\theta^{\alpha(2-1/n)}
+\end{align}
+and see that for $n=\alpha$ the $(d\theta/dr)^2$ terms and the left and right side cancel out.
+
+\item With $n=\alpha$ the simplified equation is given by
+\begin{align}
+    \frac{d^2\theta}{dr^2}+\frac{2}{r}\frac{d\theta}{dr}+\frac{4\pi G\rho_c^{1-1/n}}{(n+1)K}\theta^{n}=0\\
+    \frac{d^2\theta}{dr^2}+\frac{2}{r}\frac{d\theta}{dr}+\frac{4\pi G}{(n+1)K\rho_c^{1/n-1}}\theta^{n}=0
+\end{align}
+
+\item With
+\begin{align}
+    r&=a\xi\\
+    \frac{d\theta}{dr}&=\frac{d\theta}{d\xi}\frac{d\xi}{dr}=\frac{1}{a}\frac{d\theta}{d\xi}\\
+    \frac{d^2\theta}{dr^2}&=\frac{1}{a^2}\frac{d^2\theta}{d\xi^2}
+\end{align}
+we obtain
+\begin{align}
+\frac{d^2\theta}{d\xi^2}+\frac{2}{\xi}\frac{d\theta}{d\xi}+a^2\frac{4\pi G}{(n+1)K\rho_c^{1/n-1}}\theta^{n}=0
+\end{align}
+which for $a^{-2}=\frac{4\pi G}{(n+1)K\rho_c^{1/n-1}}$ gives the Lane-Emden equation in standard form
+\begin{align}
+\frac{d^2\theta}{d\xi^2}+\frac{2}{\xi}\frac{d\theta}{d\xi}+\theta^{n}=0\\
+\frac{1}{\xi^2}\frac{d}{d\xi}\left(\xi^2\frac{d\theta}{d\xi}\right)=-\theta^{n}.
+\end{align}
+
+\item
+\begin{itemize}
+    \item $\theta(\xi=0)=1$
+    \begin{align}
+        \rightarrow\quad \rho(r=0)=\rho_c    
+    \end{align}
+    
+    \item $\theta'(\xi=0)=0$
+    \begin{align}
+        \rightarrow\quad\frac{dP}{dr}
+        &=K\left(\frac{n+1}{n}\right)\rho^{1/n}\frac{d\rho}{dr}\\
+        &=K\left(\frac{n+1}{n}\right)(\rho_c^{1/n}\theta)\frac{d(\rho_c\theta^n)}{d\xi}\frac{d\xi}{dr}\\
+        &=K\left(\frac{n+1}{n}\right)\rho_c^{1+1/n}\theta n\theta^{n-1}\frac{d\theta}{d\xi}\frac{d\xi}{dr}\\
+        &=K(n+1)\rho_c^{1+1/n}\theta^{n}\frac{d\theta}{d\xi}\frac{1}{a}\\
+        &\rightarrow\left.\frac{dP}{dr}\right|_{r=0} = 0
+    \end{align}
+\end{itemize}
+
+\item The mass integral can be rewritten by using the Lane-Emden equation
+\begin{align}
+    M&=4\pi\int_0^{R}\rho(r)r^2dr\\
+    &=4\pi\rho_c a^3\int_0^{\xi_1}\theta^n\xi^2d\xi\\
+    &=-4\pi\rho_c a^3\int_0^{\xi_1}\frac{d}{d\xi}\left(\xi^2\frac{d\theta}{d\xi}\right)d\xi\\
+    &=-4\pi\rho_c a^3\left[\xi^2\frac{d\theta}{d\xi}\right]^{\xi_1}_0\\
+    &=-4\pi\rho_c a^3\xi_1^2\theta'(\xi_1).
+\end{align}
+For the radius $R$ we find
+\begin{align}
+    R&=a\xi_1\\
+    &=\left[\frac{(n+1)K\rho_c^{1/n-1}}{4\pi G}\right]^\frac{1}{2}\xi_1\\
+    &=\left[\frac{(n+1)K}{4\pi G}\right]^\frac{1}{2}\rho_c^{(1-n)/2n}\xi_1\\
+\end{align}
+\begin{align}
+    \xi_1=\left[\frac{(n+1)K}{4\pi G}\right]^{-\frac{1}{2}}\rho_c^{(n-1)/2n}R.
+\end{align}
+Furthermore we can write (somewhat arbitrarily)
+\begin{align}
+    \xi_1^2&=\xi_1^2 1^\frac{3-n}{1-n}=\xi_1^2\left(\frac{R}{a\xi_1}\right)^\frac{3-n}{1-n}\\
+    &=\xi_1^{2-\frac{3-n}{1-n}}\left(\frac{1}{a}\right)^\frac{3-n}{1-n}R^\frac{3-n}{1-n}\\
+    &=\xi_1^{\frac{n+1}{n-1}}a^\frac{3-n}{n-1}R^\frac{3-n}{1-n}
+\end{align}
+which results in
+\begin{align}
+    M&=4\pi\rho_c a^3\cdot\xi_1^{\frac{n+1}{n-1}}a^\frac{3-n}{n-1}R^\frac{3-n}{1-n} \theta'(\xi_1)\\
+    &=4\pi\rho_c a^{2n/(n-1)}\cdot\xi_1^{\frac{n+1}{n-1}}R^\frac{3-n}{1-n} \theta'(\xi_1)\\
+    &=4\pi\rho_c \left[\frac{(n+1)K\rho_c^{1/n-1}}{4\pi G}\right]^{n/(n-1)}\cdot\xi_1^{\frac{n+1}{n-1}}R^\frac{3-n}{1-n} \theta'(\xi_1)\\
+    &=4\pi R^\frac{3-n}{1-n}\left[\frac{(n+1)K}{4\pi G}\right]^{n/(n-1)}\cdot\xi_1^{\frac{n+1}{n-1}} \theta'(\xi_1)
+\end{align}
+which is an expression without $\rho_c$.
+\item For $n=1$ we have
+\begin{align}
+    R=\left[\frac{K}{2\pi G}\right]^{1/2}\xi_1
+\end{align}
+which means $R$ is independent of mass and central pressure and therefore constant for all objects. So we conclude $R_S=R_J$.
+
+For $n=1$ have have $\theta(\xi)=\sin\xi/\xi$ and find
+\begin{align}
+    \theta'&=\frac{\xi\cos\xi-\sin\xi}{\xi^2}\\
+    \xi_1&=\pi\\
+    \theta'(\xi_1)&=-1/\pi.
+\end{align}
+Therefore
+\begin{align}
+    R&=\pi\left[\frac{K}{2\pi G}\right]^{1/2}\\
+    M&=4\pi^2\left[\frac{K}{2\pi G}\right]^{3/2}\rho_c=4\pi^2\left[\frac{R}{\pi}\right]^3\rho_c\\
+    &=\frac{4R^3}{\pi}\rho_c\\
+    &\rightarrow \rho_c=\frac{\pi M}{4R^3}=\frac{\pi}{3}\frac{\pi M}{4\frac{\pi}{3}R^3}=\frac{\pi^2}{3}\rho_\text{avg}
+\end{align}
+which gives $\rho_{c,J}=4.6\cdot10^{12}$kg/m$^3$ and $\rho_{c,S}=1.3\cdot10^{12}$kg/m$^3$.
+\end{enumerate}
+
+\subsubsection{Exercise 14.1 Practice: Constant-Angular-Momentum Flow - Relative Motion of Fluid Elements}
+Taylor expansion of the components of the velocity field gives
+\begin{align}
+    v_j(\mathbf{x}+\boldsymbol\xi)
+    &= v_j(\mathbf{x})+\left(\left.\frac{\partial v_j(\mathbf{y})}{\partial y_i}\right|_{y=x}\xi_i\right).
+\end{align}
+For the vector we can then write
+\begin{align}
+    \mathbf{v}(\mathbf{x}+\boldsymbol\xi)
+    &= \mathbf{v}(\mathbf{x})+\left(\left.\frac{\partial v_j(\mathbf{y})}{\partial y_i}\right|_{y=x}\xi_i\right) \mathbf{e}_j\\
+    \nabla_{\boldsymbol\xi}\mathbf{v}
+    &\equiv\mathbf{v}(\mathbf{x}+\boldsymbol\xi) - \mathbf{v}(\mathbf{x})\\
+    &=\boldsymbol\xi\cdot\nabla\mathbf{v}
+\end{align}
+For the constant-angular-momentum flow we have
+\begin{align}
+    \mathbf{v}&=\frac{1}{\varpi^2}\mathbf{j}\times\mathbf{x}\\
+    &=\frac{1}{\varpi^2}j\varpi\mathbf{e}_\phi = \frac{j}{\varpi}\mathbf{e}_\phi.
+\end{align}
+The only non-vanishing component of $\nabla\mathbf{v}$ is
+\begin{align}
+    \frac{\partial v_\phi}{\partial \varpi}=-\frac{j}{\varpi^2}.
+\end{align}
+
+\begin{itemize}
+    \item tangential: $\boldsymbol\xi=\varpi\, d\phi\mathbf{e}_\phi=d\epsilon\,\mathbf{e}_\phi$
+    \textcolor{red}{Not done yet}
+    \item radial: $\boldsymbol\xi=d\varpi\, \mathbf{e}_\varpi=d\epsilon\,\mathbf{e}_\varpi$
+    \textcolor{red}{Not done yet}
+\end{itemize}
+
+
+\subsubsection{Exercise 14.2 Practice: Vorticity and Incompressibility}
+Vorticity: $\boldsymbol\omega=\nabla\times\mathbf{v}$. Compressibility: $\rho=\text{const}$
+\begin{align}
+    \frac{d\rho}{dt}+\rho\nabla\cdot\mathbf{v}=0\quad\rightarrow\quad\nabla\cdot\mathbf{v}=0
+\end{align}
+\begin{enumerate}[label=(\alph*)]
+    \item 
+    \begin{align}
+        \nabla\times\mathbf{v} &=\left(\frac{\partial v_y}{\partial x}-\frac{\partial v_x}{\partial y}\right)\mathbf{e}_z= 0\cdot\mathbf{e}_z\\
+        \nabla\cdot\mathbf{v} &= \frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y}=2y
+    \end{align}
+    \item 
+    \begin{align}
+        \nabla\times\mathbf{v} &= -2y\cdot\mathbf{e}_z\\
+        \nabla\cdot\mathbf{v} &= 0
+    \end{align}
+    \item 
+    \begin{align}
+        \nabla\times\mathbf{v} &= \frac{1}{\varpi}\left(\frac{\partial (\varpi v_\phi)}{\partial \varpi}-\frac{\partial v_\varpi}{\partial \phi}\right)\mathbf{e}_z= 2\cdot\mathbf{e}_z\\
+        \nabla\cdot\mathbf{v} &= \frac{1}{\varpi}\left(\frac{\partial (\varpi v_\varpi)}{\partial \varpi}+\frac{\partial v_\phi}{\partial \phi}\right)=0
+    \end{align}
+    \item 
+    \begin{align}
+        \nabla\times\mathbf{v} &=  0\cdot\mathbf{e}_z\\
+        \nabla\cdot\mathbf{v} &= 0
+    \end{align}
+\end{enumerate}
+
+
 \subsubsection{Exercise 16.9 Example: Breaking of a Dam}
 The PDEs
 \begin{align}
@@ -2636,7 +2891,16 @@ B=\left(
 \end{array}
 \right)
 \end{align}
+Now
+\begin{align}
+    vh_t+vhv_x+v^2h_x&=0\\
+    hv_t+hvv_x+ghh_x&=0\\
+    \rightarrow (hv)_t&=hv_t+vh_t\\
+    &=-2vhv_x-v^2h_x-ghh_x\\
+    &=-\partial_x\left(h\left[v^2+\frac{1}{2}gh\right]\right)
+\end{align}
 
+\textcolor{red}{Not done yet}
 
 \subsection{{\sc Walter} - Astronautics}
 \subsubsection{Problem 1.1 - Balloon Propulsion}
