@@ -2161,9 +2161,11 @@ This result is quite sensitive to the satellite orbital data.
 \end{tikzpicture}
 \end{center}
 \begin{align}
-    M_E\omega^2a_E&=\frac{Gm_Em_M}{D^2}=m_M\omega^2a_M\\
-    &\rightarrow a_E=\frac{m_MD}{M_E+M_M}\\
-    &\rightarrow \omega^2=\frac{G(m_E+m_M)}{D^3}
+    m_E\omega^2a_E&=\frac{Gm_Em_M}{D^2}=m_M\omega^2a_M\\
+    &\rightarrow a_E=\frac{m_MD}{m_E+m_M}\\
+    &\rightarrow \omega^2=\frac{G(m_E+m_M)}{D^3}\\
+    &\rightarrow \omega^2a_E^2=\frac{Gm_M^2}{D(m_E+m_M)}\\
+    &\rightarrow \frac{R_E}{a_E}=\frac{m_E+m_M}{m_M}\frac{R_E}{D}
 \end{align}
 
 \begin{center}
@@ -2176,11 +2178,18 @@ This result is quite sensitive to the satellite orbital data.
 \draw (-0.5,0) -- (-1.5,0.866);
 \end{tikzpicture}
 \end{center}
-The potential is then given by (gravity of moo and earth as well as the centripetal potential around the center of gravity)
+The potential is then given by (gravity of moon and earth as well as the centripetal potential around the center of gravity)
 \begin{align}
-    V&=-\frac{G m_M}{\sqrt{R_E^2+D^2-2DR_E\cos\phi}}-\frac{Gm_E}{R_E}-\frac{1}{2}\omega^2(R_E^2+a_E^2-2a_ER_E\cos\phi)\\
-    &\approx -\frac{G m_E}{R_E} +\frac{1}{2} G R_E^2 \left(-\frac{3 m_M \cos^2\phi }{D^3}-\frac{m_E}{D^3}\right)+\frac{1}{2} G
-   \left(-\frac{m_M^2}{D \left(m_E+m_M\right)}-\frac{2 m_M}{D}\right).
+    V&=V_\text{G,moon}+V_\text{G,earth}+V_\text{cent}\\
+    &=-\frac{G m_M}{\sqrt{R_E^2+D^2-2DR_E\cos\phi}}-\frac{Gm_E}{R_E}-\frac{1}{2}\omega^2(R_E^2+a_E^2-2a_ER_E\cos\phi)\\
+    &=-\frac{Gm_M}{D\sqrt{\left(\frac{R_E}{D}\right)^2+1-2\frac{R_E}{D}\cos\phi}}-\frac{Gm_E}{R_E}-\frac{1}{2}\omega^2a_E^2\left[\left(\frac{R_E}{a_E}\right)^2+1-2\frac{R_E}{a_E}\cos\phi\right]\\
+    &\approx-\frac{Gm_M}{D}\left(1+\frac{R_E}{D}\cos\phi+\frac{3}{2}\left(\frac{R_E}{D}\right)^2\cos^2\phi\right)-\frac{Gm_E}{R_E}\\
+    &\quad\quad\quad-\frac{1}{2}\omega^2a_E^2\left[\left(\frac{R_E}{a_E}\right)^2+1-2\frac{R_E}{a_E}\cos\phi\right]\\
+    &\approx-\frac{Gm_M}{D}\left(1+\frac{R_E}{D}\cos\phi+\frac{3}{2}\left(\frac{R_E}{D}\right)^2\cos^2\phi\right)-\frac{Gm_E}{R_E}\\
+    &\quad\quad\quad-\frac{1}{2}\frac{Gm_M^2}{D(m_E+m_M)}\left[\left(\frac{m_E+m_M}{m_M}\frac{R_E}{D}\right)^2+1-2\frac{m_E+m_M}{m_M}\frac{R_E}{D}\cos\phi\right]\\
+    &\approx-\frac{Gm_M}{D}-\frac{3Gm_M}{2D}\frac{R_E^2}{D^2}\cos^2\phi-\frac{Gm_E}{R_E}\\
+    &\quad\quad\quad-\frac{1}{2}\frac{Gm_M^2}{D(m_E+m_M)}\left[\left(\frac{m_E+m_M}{m_M}\frac{R_E}{D}\right)^2+\frac{m_M^2D^2}{m_M^2D^2}\right]\\
+    &\approx-\frac{Gm_M}{D}-\frac{3Gm_M}{2D}\frac{R_E^2}{D^2}\cos^2\phi-\frac{Gm_E}{R_E}-\frac{G}{2}\left[(m_E+m_M)\frac{R_E^2}{D^3}+\frac{m_M^2}{m_E+m_M}\frac{1}{D}\right].
 \end{align}
 with the angular dependent tidal part
 \begin{align}
@@ -2524,7 +2533,7 @@ With the definition of phase and group velocities
     \omega=\Omega(k)&=\omega(k_0)+\left.\frac{\partial \omega(k)}{\partial k}\right|_{k=k_0}(k-k_0)+\frac{1}{2}\left.\frac{\partial^2\omega(k)}{\partial k^2}\right|_{k=k_0}(k-k_0)^2\\
     &=\omega(k_0)+V_g|_{k=k_0}(k-k_0)+\frac{1}{2}\left.\frac{\partial V_g(k)}{\partial k}\right|_{k=k_0}(k-k_0)^2.
 \end{align}
-The wave packet can then be written as
+\item The wave packet can then be written as
 \begin{align}
    \psi(x,t)
    &=\frac{1}{2\pi}\int_{-\infty}^\infty dk A(k)e^{i\alpha(k)}e^{i(kx-\omega t)}\\
@@ -2579,6 +2588,63 @@ The condition for the spread limitation is
 \end{align}
 \end{enumerate}
 
+\subsubsection{Exercise 7.3 Derivation and Example: Amplitude Propagation for Dispersionless Waves Expressed as Constancy of Something along a Ray}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\item
+\item
+\end{enumerate}
+
+\subsubsection{Exercise 7.4 Example: Energy Density and Flux, and Adiabatic Invariant, or a Dispersionless Wave}
+\begin{enumerate}[label=(\alph*)]
+\item For a generic Lagrangian density $\mathcal{L}$ we find
+\begin{align}
+    \delta\mathcal{L}
+    &=\frac{\partial \mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\delta\left(\frac{\partial \psi}{\partial x_i}\right)\\
+    &=\frac{\partial \mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\frac{\partial}{\partial x_i}\left(\delta\psi\right)\\
+    \rightarrow\delta\int\mathcal{L}d^4x
+    &=\int\delta\mathcal{L}d^4x\\
+    &=\int\left[\frac{\partial \mathcal{L}}{\partial\psi}-\frac{\partial}{\partial x_i}\left(\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\right)\right]\delta\psi\\
+    \rightarrow 0&=\frac{\partial \mathcal{L}}{\partial\psi}-\frac{\partial}{\partial x_i}\left(\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\right)
+\end{align}
+the general Euler-Lagrange equation. For the given density we can calculate the derivatives
+\begin{align}
+    \mathcal{L}&=W\left[\frac{1}{2}\left(\frac{\partial\psi}{\partial t}\right)^2-\frac{1}{2}C^2\left(\nabla\psi\right)^2\right]\\
+    \frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial t}\right)}&=W\frac{\partial \psi}{\partial t}\\
+    \frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}&=-WC^2\frac{\partial\psi}{\partial x_i}
+\end{align}
+and obtain
+\begin{align}
+    \frac{\partial}{\partial t}\left(W\frac{\partial\psi}{\partial t}\right)-\frac{\partial}{\partial x_i}\left(WC^2\frac{\partial \psi}{\partial x_i}\right)=0.
+\end{align}
+
+\item Using the definitions we obtain
+\begin{align}
+    \frac{\partial U}{\partial t} 
+    &=\frac{\partial^2\psi}{\partial t^2}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}+\frac{\partial\psi}{\partial t}\frac{\partial}{\partial t}\left(\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}\right)-\frac{\partial\mathcal{L}}{\partial t}\\
+    \frac{\partial F_j}{\partial x_j}
+    &=\frac{\partial^2\psi}{\partial t\partial x_j}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}+\frac{\partial\psi}{\partial t}\frac{\partial}{\partial x_j}\left(\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}\right)
+\end{align}
+and therefore
+\begin{align}
+    \frac{\partial U}{\partial t} + \frac{\partial F_j}{\partial x_j} 
+    &=\frac{\partial^2\psi}{\partial t^2}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}+\frac{\partial\psi}{\partial t}\frac{\partial}{\partial t}\left(\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}\right)-\frac{\partial\mathcal{L}}{\partial t}+ \frac{\partial^2\psi}{\partial t\partial x_j}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}+\frac{\partial\psi}{\partial t}\frac{\partial}{\partial x_j}\left(\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}\right)\\
+    &=\frac{\partial^2\psi}{\partial t^2}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}+\frac{\partial\psi}{\partial t}\left(\frac{\partial\mathcal{L}}{\partial\psi}\right)-\frac{\partial\mathcal{L}}{\partial t}+ \frac{\partial^2\psi}{\partial t\partial x_j}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}\\
+    &=\frac{\partial\psi}{\partial t}\left(-\frac{\partial}{\partial t}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}\right)+\frac{\partial\psi}{\partial t}\left(\frac{\partial\mathcal{L}}{\partial\psi}\right)-\frac{\partial\mathcal{L}}{\partial t}+ \frac{\partial\psi}{\partial t}\left(-\frac{\partial}{\partial x_i}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}\right)\\
+    &=\frac{\partial\psi}{\partial t}\left(-\frac{\partial\mathcal{L}}{\partial\psi}\right)+\frac{\partial\psi}{\partial t}\left(\frac{\partial\mathcal{L}}{\partial\psi}\right)-\frac{\partial\mathcal{L}}{\partial t}\\
+    &=-\frac{\partial\mathcal{L}}{\partial t}
+\end{align}
+\item Substituting $\mathcal{L}$ into the definitions yields
+\begin{align}
+    U&=\frac{\partial\psi}{\partial t}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial t)}-\mathcal{L}\\
+    &=W\left(\frac{\partial\psi}{\partial t}\right)^2-\mathcal{L}\\
+    &=W\left[\frac{1}{2}\left(\frac{\partial\psi}{\partial t}\right)^2+\frac{1}{2}C^2\left(\nabla\psi\right)^2\right]\\
+    F_j&=\frac{\partial\psi}{\partial t}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}\\
+    &=-\frac{\partial\psi}{\partial t} W C^2\frac{\partial\psi}{\partial x_j}.
+\end{align}
+\item
+\end{enumerate}
 
 \subsubsection{Exercise 8.1 Practice: Convolutions and Fourier Transforms}
 \begin{enumerate}[label=(\alph*)]
@@ -2801,6 +2867,85 @@ Therefore
 which gives $\rho_{c,J}=4.6\cdot10^{12}$kg/m$^3$ and $\rho_{c,S}=1.3\cdot10^{12}$kg/m$^3$.
 \end{enumerate}
 
+\subsubsection{Exercise 13.5 Example: Shape of a Constant-Density, Spinning Planet}
+\begin{enumerate}[label=(\alph*)]
+\item The gravitational potential is given by the integral of the mass distribution $\rho(\vec{r})$
+\begin{align}
+    \Phi(\vec{r})
+    &=-G\int\frac{\rho(\vec{r}')}{|\vec{r}-\vec{r}'|}d^3\vec{r}'\\
+    &=-2\pi G\int\frac{\rho(\vec{r}')}{\sqrt{r^2+{r'}^2-2rr'\cos\theta}}r'^2\sin\theta d\theta dr'\\
+    &=-\frac{2\pi G\rho}{r}\int_0^R\frac{1}{\sqrt{1+(r'/r)^2-2r'/r\cos\theta}}d(\cos\theta) r'^2dr'\\
+    &=-\frac{2\pi G\rho}{r}\int_0^Rr'\left(r+r'-\sqrt{(r-r')^2}\right)dr'.
+\end{align}
+For $\vec{r}$ inside the mass distribution the integral needs to be split
+\begin{align}
+    \Phi(\vec{r})
+    &=-\frac{2\pi G\rho}{r}\left[\int_0^rr'\left(2r'\right)dr'+\int_r^Rr'\left(2r\right)dr'\right]\\
+    &=-\frac{4\pi G\rho}{r}\left[\int_0^rr'^2dr'+r\int_r^Rr'dr'\right]\\
+    &=-\frac{4\pi G\rho}{r}\left[\frac{r^3}{3}+r\frac{1}{2}(R^2-r^2)\right]\\
+    &=-4\pi G\rho\left[\frac{r^2}{3}+\frac{1}{2}(R^2-r^2)\right]\\
+    &=-4\pi G\rho\left[-\frac{r^2}{6}+\frac{R^2}{2}\right]\\
+    &=\frac{2\pi G\rho}{3}\left[r^2-3R^2\right]
+\end{align}
+
+\item For the centrifugal force and potential we find
+\begin{align}
+    F_\text{cen}&=m\frac{v^2}{\varpi}=m\Omega^2\varpi\\
+    \Phi_\text{cen}&=-\frac{1}{2}(\Omega\varpi)^2\\
+    &=-\frac{1}{2}(\Omega r\cos\theta)^2\\
+    &=-\frac{1}{2}(\Omega r\sin\theta')^2\\
+    &=-\frac{1}{2}(\vec{\Omega}\times \vec{r})^2
+\end{align}
+we results in 
+\begin{align}
+    \Phi&=\frac{2\pi G\rho r^2}{3}-2\pi G\rho R^2-\frac{1}{2}(\Omega r\cos\theta)^2\\
+    &=\frac{2\pi G\rho r^2}{3}-2\pi G\rho R^2-\frac{1}{2}\Omega^2 r^2\cos^2\theta\\
+    &=\frac{2\pi G\rho r^2}{3}-2\pi G\rho R^2-\frac{\Omega^2 }{3} r^2\frac{1}{2} 3\cos^2\theta\\
+    &=\frac{2\pi G\rho r^2}{3}-2\pi G\rho R^2-\frac{\Omega^2r^2}{3}-\frac{\Omega^2 }{3} r^2\frac{1}{2} (3\cos^2\theta-1)\\
+    &=\frac{2\pi G\rho r^2}{3}-2\pi G\rho R^2-\frac{\Omega^2r^2}{3}-\frac{\Omega^2 }{3} r^2P_2(\cos\theta)\\
+\end{align}
+\item
+\item
+\item
+
+\end{enumerate}
+
+
+\subsubsection{Exercise 13.7 Problem: A Hole in My Bucket}
+Applying the Bernoulli equation 
+\begin{align}
+    \frac{1}{2}\rho v^2 + \rho g h = \text{const}
+\end{align}
+to the hole and the water surface we get
+\begin{align}
+    \frac{1}{2}\rho v_\text{hole}^2 = \rho g h + \frac{1}{2}\rho v_\text{surf}^2.
+\end{align}
+The change in volume is given by (neglecting limitations from the Hagen-Poiseulle equation but having a hole significantly smaller than the bucket surface - with hole has the same size the assumption of a static pressure does not make sense)
+\begin{align}
+    \frac{dV}{dt}=A_\text{bucket}v_\text{surf}=A_\text{hole}v_\text{hole}=A_\text{bucket}\frac{dh}{dt}\\
+    \rightarrow\quad v_\text{hole}=\frac{A_\text{bucket}}{A_\text{hole}}\frac{dh}{dt}\\
+    \rightarrow\quad v_\text{surf}=\frac{dh}{dt}.
+\end{align}
+With this the Bernoulli equation turns into
+\begin{align}
+    \frac{1}{2}\left(\frac{A_\text{bucket}}{A_\text{hole}}\right)^2\left(\frac{dh}{dt}\right)^2&=gh+\frac{1}{2}\left(\frac{dh}{dt}\right)^2\\
+    \left(\frac{dh}{dt}\right)^2&=\frac{2g}{\left(\frac{A_\text{bucket}}{A_\text{hole}}\right)^2-1}h\\
+    &=\frac{2A_\text{hole}^2g}{A_\text{bucket}^2-A_\text{hole}^2}h\\
+\end{align}
+which can be solved by
+\begin{align}
+    \frac{dh}{\sqrt{h}}&=-\sqrt{\frac{2A_\text{hole}^2g}{A_\text{bucket}^2-A_\text{hole}^2}}dt\\
+    2\sqrt{h}&=-\sqrt{\frac{2A_\text{hole}^2g}{A_\text{bucket}^2-A_\text{hole}^2}}\cdot t+2\sqrt{H_0}\\
+    h(t)&=\left(\sqrt{H_0}-\sqrt{\frac{A_\text{hole}^2g}{2(A_\text{bucket}^2-A_\text{hole}^2)}}\cdot t\right)^2\\
+    &\approx\left(\sqrt{H_0}-\frac{A_\text{hole}}{A_\text{surface}}\sqrt{\frac{g}{2}}\cdot t\right)^2
+\end{align}
+For the time $T$ to empty the bucket we solve for $h(T)=0$ and obtain
+\begin{align}
+    T = \sqrt{\frac{2H_0}{g}}\frac{A_\text{bucket}}{A_\text{hole}}.
+\end{align}
+in the case of small holes or buckets with thick walls $D$ the Hagen-Poiseulle should be taken into account.
+
+
 \subsubsection{Exercise 14.1 Practice: Constant-Angular-Momentum Flow - Relative Motion of Fluid Elements}
 Taylor expansion of the components of the velocity field gives
 \begin{align}
@@ -3021,6 +3166,25 @@ Important general principles
     \end{enumerate}
 \end{itemize}
 
+\newpage 
+\section{Companion for Banks book}
+\begin{enumerate}
+\item Obtaining (1.2)
+\begin{align*}
+    p &= (\omega_p,\vec{p})\\
+    \langle\vec{p}|\vec{q}\rangle&=N_p^2\cdot\delta^3(\vec{p}-\vec{q})\\
+    \mathbb{I} &=C\int d^3\vec{p}|\vec{p}\rangle\langle\vec{p}|\quad\rightarrow |q\rangle=C\int d^3\vec{p}|p\rangle\langle p|q\rangle\\
+    |\vec{y}\rangle &=C\int d^3\vec{p}|\vec{p}\rangle\langle\vec{p}|\vec{y}\rangle=C\int d^3\vec{p}|\vec{p}\rangle e^{-i\vec{p}\cdot\vec{y}}\\
+    H|\vec{p}\rangle&=\omega_p|\vec{p}\rangle\\
+    A_\text{AE}&=\int d^4xd^4y J_\text{A}(x)J_\text{B}(y)\cdot C^2\int d^3\vec{p}\int d^3\vec{q}\langle\vec{p}|e^{-H(x^0-y^0)}|\vec{q}\rangle e^{i\vec{q}\cdot\vec{x}} e^{-i\vec{p}\cdot\vec{y}}\\
+    &=\int d^4xd^4y J_\text{A}(x)J_\text{B}(y)\cdot C^2\int d^3\vec{p}\int d^3\vec{q}\langle\vec{p}|e^{-\omega_q(x^0-y^0)}|\vec{q}\rangle e^{i(\vec{q}\cdot\vec{x}-\vec{p}\cdot\vec{y})}\\
+    &=\int d^4xd^4y J_\text{A}(x)J_\text{B}(y)\cdot C^2\int d^3\vec{p}\int d^3\vec{q}\langle\vec{p}|\vec{q}\rangle e^{-\omega_q(x^0-y^0)} e^{i(\vec{q}\cdot\vec{x}-\vec{p}\cdot\vec{y})}\\
+    &=\int d^4xd^4y J_\text{A}(x)J_\text{B}(y)\cdot C^2\int d^3\vec{p}N_p^2 e^{-\omega_p(x^0-y^0)} e^{i\vec{p}(\vec{x}-\cdot\vec{y})}\\
+    &=\int d^4xd^4y J_\text{A}(x)J_\text{B}(y)\cdot C^2\int d^3\vec{p}N_p^2 e^{-ip(x-y))}\\
+\end{align*}
+\item
+
+\end{enumerate}
 
 \newpage 
 \section{Some stuff for later}
