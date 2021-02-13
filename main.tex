@@ -563,6 +563,8 @@ and have dimension $(2\mu+1)(2\nu+1)$
 
 \newpage
 \section{Mathematical}
+\subsection{{\sc Spivak} - Calculus on Manifolds}
+\subsection{{\sc Flanders} - Differential Forms with Applications to the Physical Sciences}
 \subsection{{\sc Morse, Feshbach} - Methods of mathematical physics}
 \subsubsection{Problem 1.1}
 With
@@ -1227,6 +1229,44 @@ where we used $\Delta_F(x)=\Delta_F(-x)$.
      &\left.+3\left(i\Delta_F(0)\right)^2\right]\exp\left(\text{i}W_0[J]\right)\\
 \end{align*}
 \end{enumerate}
+
+\subsubsection{Problem 19.1 - Dynamical stress tensor}
+Preliminaries
+\begin{itemize} 
+\item The Laplace expansion of the determinate by row or column is given by
+\begin{align}
+    |g|&=\sum_\kappa g_{\kappa\mu}G_{\kappa\mu}\quad\text{(no sum over $\mu$!)}
+\end{align}
+with the cofactor matrix $G_{\kappa\mu}$ (matrix of determinants of minors of g).
+\item The inverse matrix is given by
+\begin{align}
+    g^{\alpha\beta}=\frac{1}{|g|}G_{\alpha\beta}
+\end{align}
+\item Therefore we have
+\begin{align}
+    \frac{\partial|g|}{\delta g_{\alpha\beta}}
+    &=\frac{\partial\left(\sum_\kappa g_{\kappa\beta}G_{\kappa\beta}\right)}{\delta g_{\alpha\beta}}\\
+    &=\delta_{\kappa\alpha}G_{\kappa\beta}\\
+    &=G_{\alpha\beta}\\
+    &=|g|g^{\alpha\beta}
+\end{align}
+\end{itemize}
+Now we can calculate
+\begin{align}
+    \delta\sqrt{|g|}
+    &=\frac{\partial\sqrt{|g|}}{\delta g_{\mu\nu}}\delta g_{\mu\nu}
+    =\frac{1}{2\sqrt{|g|}}\frac{\partial|g|}{\delta g_{\mu\nu}}\delta g_{\mu\nu}
+    =\frac{1}{2}\sqrt{|g|}g^{\mu\nu}\delta g_{\mu\nu}\\
+    \frac{\delta\sqrt{|g(x)|}}{\delta g_{\mu\nu}(y)}
+    &=\frac{1}{2}\sqrt{|g|}\delta(x-y)
+\end{align}
+We now use the action and definition (7.49)
+\begin{align}
+    S_\text{m}&=\int d^4x\sqrt{|g|}\mathscr{L}_\text{m}\\
+    T^{\mu\nu}&=\frac{2}{\sqrt{|g|}}\frac{\delta S_\text{m}}{\delta g^{\mu\nu}}\\
+    &=\frac{2}{\sqrt{|g|}}\int d^4x\left[\frac{1}{2}\sqrt{|g|}g^{\mu\nu}\mathscr{L}_\text{m}+\sqrt{|g|}\frac{\delta\mathscr{L}_\text{m}}{\delta g_{\mu\nu}}\right]
+\end{align}
+
 
 \subsubsection{Problem 19.6 - Dirac-Schwarzschild}
 \begin{enumerate}
@@ -2576,8 +2616,7 @@ and therefore (with $|\sqrt{a-ic}|=\sqrt{|a-ic|}=\sqrt{\sqrt{aL^2}}=a^{1/4}\sqrt
 the width of the package is proportional to
 \begin{align}
     L&=\frac{1}{\Delta k}\sqrt{1+\left(V_g'(\Delta k)^2t\right)^2}\\
-    &=\frac{1}{\Delta k}\sqrt{1+\frac{1}{16}\frac{g}{k_0^3}(\Delta k)^4t^2}\\
-    &\rightarrow 3 = \frac{g(\Delta k)^4T_D^2}{16k_0^3}\\
+    &\rightarrow T_D=\frac{\sqrt{3}}{V'_g(\Delta k)^2}\\
     &\rightarrow T_D=\frac{4}{\Delta k^2}\sqrt{\frac{3k_0^3}{g}}.
 \end{align}
 The condition for the spread limitation is
@@ -2643,7 +2682,16 @@ and therefore
     F_j&=\frac{\partial\psi}{\partial t}\frac{\partial\mathcal{L}}{\partial(\partial\psi/\partial x_j)}\\
     &=-\frac{\partial\psi}{\partial t} W C^2\frac{\partial\psi}{\partial x_j}.
 \end{align}
-\item
+\item The momentum density is given by
+\begin{align}
+    \pi
+    &=\frac{\partial\mathcal{L}}{\partial\frac{\partial\phi}{\partial t}}=W\frac{\partial\phi}{\partial t}\\
+    \Pi&=\int\pi d^3x=\int W\frac{\partial\phi}{\partial t}d^3x
+\end{align}
+\begin{align}
+    J&=\int_0^{\omega/2\pi}L dt=\int_0^{\omega/2\pi}\int\mathcal{L} d^3xdt\\
+    &=
+\end{align}
 \end{enumerate}
 
 \subsubsection{Exercise 8.1 Practice: Convolutions and Fourier Transforms}
