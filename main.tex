@@ -153,6 +153,201 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
     \int\delta(x)e^{-ikx}dx&=1\\
     \int e^{ik(x-y)}dk&=2\pi\delta(x-y)
 \end{align}
+\begin{align}
+    \int g(x)\delta(f(x))dx &= \sum_{x_i:f(x_i)=0}\int_{x_i-\epsilon}^{x_i+\epsilon} g(x)\delta(f(x))dx\\
+    &= \sum_{x_i}\int_{x_i-\epsilon}^{x_i+\epsilon} g(x)\delta\left(f(x_i)+f'(x_i)(x-x_i)+\frac{1}{2}f''(x_i)(x-x_i)^2+...\right)dx\\
+    &= \sum_{x_i}\int_{x_i-\epsilon}^{x_i+\epsilon} g(x)\delta\left(f'(x_i)(x-x_i)\right)dx\\
+    &= \sum_{x_i}\int_{(x_i-\epsilon)f'}^{(x_i+\epsilon)f'} g\left(\frac{u}{f'(x_i)}\right)\delta\left(u-f'(x_i)x_i)\right)\frac{1}{f'(x_i)}du\\
+    &= \sum_{x_i}\int_{(x_i-\epsilon)|f'|}^{(x_i+\epsilon)|f'|} g\left(\frac{u}{f'(x_i)}\right)\frac{1}{|f'(x_i)|}\delta\left(u-f'(x_i)x_i)\right)du\\
+    &= \sum_{x_i} g(x_i)\frac{1}{|f'(x_i)|}
+\end{align}
+
+\subsubsection{$\Gamma$ function}
+\begin{align}
+    \Gamma(x)=\int_0^\infty t^{x-1}e^{-t} dx
+\end{align}
+
+\subsubsection{$n$-dimensional unit spheres}
+\begin{align}
+    \pi^{n/2}
+    &=\left(\int_{-\infty}^\infty dt e^{-t^2}\right)^n\\
+    &=\int_{R^n} e^{-|x|^2}dx\\
+    &=\int_0^\infty\int_{\omega_n}e^{-r^2}r^{n-1}dr\,ds\\
+    &=\int_{\omega_n}ds\cdot\int_0^\infty e^{-r^2}r^{n-1}dr\\
+    &=|\omega_n|\cdot\frac{1}{2}\int_0^\infty e^{-\rho}\rho^{\frac{n}{2}-1}d\rho\\
+    &=|\omega_n|\cdot\frac{1}{2}\Gamma\left(\frac{n}{2}\right)
+\end{align}
+Therefore
+\begin{align}
+|\omega_n| &= \frac{2\pi^{n/2}}{\Gamma\left(\frac{n}{2}\right)}\\
+V_n 
+&=|\omega_n|\int_0^1r^{n-1}dr\\
+&=\frac{|\omega_n|}{n}
+\end{align}
+
+\subsubsection{Laplace operator}
+\begin{align}
+    \nabla\cdot X&=\frac{1}{\sqrt{|g|}}\partial_i\left(\sqrt{|g|}X^i\right)\\
+    (\nabla f)^i&=g^{ij}\partial_jf\\
+    \triangle f &= \nabla\cdot\nabla f\\
+    &=\frac{1}{\sqrt{|g|}}\partial_i\left(\sqrt{|g|} g^{ij}\partial_jf \right)\\
+    &= \sum_i \frac{\partial^2}{\partial x_j^2}
+\end{align}
+
+\begin{align}
+    \frac{\partial}{\partial x_i}\frac{\partial f}{\partial x_i}
+    &=\frac{\partial}{\partial x_i}\left(\frac{\partial y_j}{\partial x_i}\frac{\partial f}{\partial y_j}\right)\\
+    &=\frac{\partial y_k}{\partial x_i}\frac{\partial}{\partial y_k}\left(\frac{\partial y_j}{\partial x_i}\frac{\partial f}{\partial y_j}\right)\\
+    &=\frac{\partial^2 y_j}{\partial x_i^2}\frac{\partial f}{\partial y_j} + \frac{\partial y_j}{\partial x_i}\frac{\partial y_k}{\partial x_i}\frac{\partial^2 f}{\partial y_j\partial y_k}\\
+\end{align}
+With $f=f(r)$ and $r=\sqrt{x_1^2+...+x_n^2}$ we have
+\begin{align}
+    \triangle f(r)
+    &=\sum_i \frac{r-x_i \frac{x_i}{r}}{r^2}\frac{\partial f}{\partial r}+\frac{x_i^2}{r^2}\frac{\partial^2 f}{\partial r^2}\\
+    &= \frac{nr-r}{r^2}\frac{\partial f}{\partial r}+\frac{r^2}{r^2}\frac{\partial^2 f}{\partial r^2}\\
+    &= \frac{(n-1)}{r}\frac{\partial f}{\partial r}+\frac{\partial^2 f}{\partial r^2}
+\end{align}
+
+
+
+\subsubsection{Greenfunctions and PDEs}
+The Greensfunction $G(x,y)$ for a general PDE $D_x u(x) = f(x)$ is defined by
+\begin{align}
+    D_x G(x,y) = \delta(x-y).
+\end{align}
+This means that general solution of the PDE can be expresses as
+\begin{align}
+    u(x)=\int G(x,y)f(y)dy
+\end{align}
+because
+\begin{align}
+    D_x u(x)
+    &=D_x \int G(x,y)f(y)dy\\
+    &=\int D_x G(x,y)f(y)dy\\
+    &=\int \delta(x-y) f(y)dy\\
+    &=f(x)
+\end{align}
+
+    
+\begin{enumerate}
+    \item Poisson equation $\triangle u(x) = f(x)$
+    
+    The $n$-dimensional Fourier transform of $\triangle_x G(x,y) = \delta(x-y)$ and integration by parts gives
+    \begin{align}
+        \frac{1}{(2\pi)^{n/2}}\int d^nx\,\triangle_x G(x,y) e^{-ikx}&=\frac{1}{(2\pi)^{n/2}}\underbrace{\int d^nx\,\delta(x-y) e^{-ikx}}_{=e^{-iky}}\\
+        \frac{1}{(2\pi)^{n/2}}\int d^nx\, G(x,y) (-ik)^2 e^{-ikx}&=\frac{1}{(2\pi)^{n/2}}e^{-iky}\\
+        (-ik)^2g(k)&=\frac{1}{(2\pi)^{n/2}}e^{-iky}\\
+        &\rightarrow g(k)=-\frac{1}{(2\pi)^{n/2}}\frac{1}{k^2}e^{-iky}
+    \end{align}
+    we can now use the Fourier transform of the Greensfunction and transform back.
+    \begin{itemize}
+        \item Case $n=1$: The function has a pole at $k=0$ and the Laurent series is given by
+        \begin{align}
+            \frac{e^{ik(x-y)}}{k^2}=\frac{1}{k^2}+i(x-y)\frac{1}{k}-\frac{(x-y)^2}{2}-\frac{i(x-y)^3}{6} k + ...
+        \end{align}
+        with $\text{Res}=i(x-y)$. We can now use the residue theorem to evaluate the integral
+        \begin{align}
+            G(x,y)&=-\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty dk\; \frac{e^{ik(x-y)}}{k^2}=-\frac{1}{2\pi}\int_{C_1} dk\; \frac{e^{ik(x-y)}}{k^2}\\
+            &=-\frac{1}{2\pi}\left(\underbrace{\int_C dk\; \frac{e^{ik(x-y)}}{k^2}}_{=2\pi i\;\text{Res}} - \underbrace{\int_{C_2} dk\; \frac{e^{ik(x-y)}}{k^2}}_{=0}\right)\\
+            &=(x-y)
+        \end{align}
+    
+        \begin{center}
+        \begin{tikzpicture}[decoration={markings,
+            mark=at position 0.5cm with {\arrow[line width=1pt]{>}},
+            mark=at position 2cm with {\arrow[line width=1pt]{>}},
+            mark=at position 7.85cm with {\arrow[line width=1pt]{>}},
+            mark=at position 9cm with {\arrow[line width=1pt]{>}}
+            }
+            ]
+            % The axes
+            \draw[help lines,->] (-4,0) -- (4,0) coordinate (xaxis);
+            \draw[help lines,->] (0,-1) -- (0,4) coordinate (yaxis);
+            
+            
+            \node at (0,0) {$\times$};
+            
+            % The path
+            %\path[draw,line width=0.8pt,postaction=decorate] (1,0) node[below] {$\epsilon$} -- (2,0) node[below] {$r$} arc (0:180:2) -- (-1,0) arc (180:0:1);
+            
+            \path[draw,line width=0.8pt,postaction=decorate] (0.5,0)  -- (3,0) node[below] {$R$} arc (0:180:3) node[below] {$-R$} -- (-0.5,0) node[above]{$-\epsilon$} arc (180:360:.5);
+            
+            % The labels
+            \node[below] at (xaxis) {$\Re(k)$};
+            \node[left] at (yaxis) {$\Im(k)$};
+            \node[above right] {$O$};
+            \node at (1.5,.4) {$C_{1}$};
+            \node at (2,3) {$C_{2}$};
+        \end{tikzpicture}
+        \end{center}
+        \item Case $n=2$:
+        \begin{align}
+            G(x,y)&=-\frac{1}{2\pi}\frac{1}{2\pi}\int_{-\infty}^\infty \int_{-\infty}^\infty dk_1 dk_2\; \frac{e^{i(k_1(x_1-y1)+k_2(x_2-y2))}}{k_1^2+k_2^2}\\
+            &=-\frac{1}{4\pi^2}\int_{0}^\infty \int_{0}^{2\pi} dk\;d\phi\; \frac{e^{ik |x-y|\cos\phi}}{k^2}k\\
+            &=\frac{1}{2\pi}\int_{0}^\infty dk \frac{1}{k}\frac{1}{2\pi}\int_{0}^{2\pi} d\phi\; e^{ik |x-y|\cos\phi}\\
+            &=\frac{1}{2\pi}\int_{0}^\infty dk \; \frac{J_0(k|x-y|)}{k}=-\frac{1}{2\pi}\int_{0}^{\infty|x-y|} dk' \; \frac{J_0(k')}{k'}
+        \end{align}
+        \textcolor{red}{The last integral diverges but we try a nasty trick (?!?)}
+        \begin{align}
+            \frac{dG}{dx}&=-\frac{1}{2\pi}\frac{d}{dx}\int_{0}^{\infty} dk \; \frac{J_0(k|x-y|)}{k}\\
+            &=-\frac{1}{2\pi}\int_{0}^{\infty} dk \; J_1(k|x-y|)\\
+            &=-\frac{1}{2\pi}\frac{1}{|x-y|}
+        \end{align}
+        Now simple integration yields
+        \begin{align}
+            G(x,y)=-\frac{1}{2\pi}\log(|x-y|)
+        \end{align}
+        \item Case $n=3$:
+        \begin{align}
+            G(x,y)&=\frac{1}{(2\pi)^{3}}\int d^3k\,\frac{1}{k^2}e^{ik(x-y)}\\
+            &=\frac{1}{(2\pi)^{3}}\int dk\underbrace{\int d\phi}_{=|\omega_2|} \int d\theta\,e^{ik|x-y|\cos\theta}\sin\theta\\
+            &=-\frac{1}{(2\pi)^{2}}\int dk \int_{-1}^{+1} e^{ik|x-y|\cos\theta}d\cos\theta\\
+            &=-\frac{1}{(2\pi)^{2}}\int dk \frac{e^{ik|x|}-e^{-ik|x-y|}}{ik|x-y|}\\
+            &=-\frac{1}{2\pi^2}\int_0^\infty dk \frac{\sin k|x-y|}{k|x-y|}\\
+            &=-\frac{1}{2\pi^2}\frac{1}{|x-y|}\int_0^\infty dk' \frac{\sin k'}{k'}\\
+            &=-\frac{1}{4\pi}\frac{1}{|x-y|}
+        \end{align}
+        \item Case $n>3$:
+        ...
+        
+    \end{itemize}
+
+Alternatively we can use the Gauss theorem with $\vec{F}=\nabla_x G(x,y)$
+\begin{align}
+    \int_V \nabla\cdot \vec{F} dx&=\int_{\partial V} \vec{F}\cdot d\vec{S}\\
+    \int_{K_r(y)} \triangle_x G(x,y) dx&=\int_{\partial _{K_r(y)}} \nabla G\cdot d\vec{S}\\
+    1&=\frac{\partial G(r,0)}{\partial r}|\omega_{n}|r^{n-1}\\
+    \frac{\partial G(r,0)}{\partial r} &= \frac{r^{-n+1}}{|\omega_n|}\\
+    G(x,y)&=\left\{\begin{array}{cc}
+         \frac{1}{|\omega_2|}\log{|x-y|}                    & n=2  \\
+         -\frac{1}{|\omega_n|(n-2)}\frac{1}{|x-y|^{n-2}}    & n\ge3 
+    \end{array}\right.
+\end{align}
+
+
+\item Wave equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle\right) u(x)= f(x)$
+\item Klein-Gordon equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle+\mu^2\right) u(x)= f(x)$
+
+\item Helmholtz equation $(\triangle +k^2)u(x,t)= f(x)$
+Starting from the wave equation we use the ansatz $g(x,t)=u(x)h(t)$
+\begin{align}
+    \left(\frac{1}{c^2}\partial_{tt}-\triangle\right) g(x,t)
+    &=u(x)\frac{1}{c^2}\partial_{tt}h(t)-h(t)\triangle u(x)\\
+    &=0
+\end{align}
+which leads to
+\begin{align}
+    \frac{1}{c^2}\frac{\partial_{tt}h(t)}{h(t)}&=\frac{\triangle u(x)}{u(x)}=\text{const}=-k^2\\
+    &\rightarrow \triangle u(x) + k^2 u(x)=0
+\end{align}
+
+
+\item Feynman propagator $\left(\triangle-k^2\right) u(x)= f(x)$
+\item Heat equation $\left(\partial_{t}-k\triangle\right) u(x)= f(x)$
+\item Relativistic Heat equation $\left(\partial_{tt}+2\gamma\partial_t-c^2\triangle\right) u(x)= f(x)$
+\end{enumerate}
+
+
 
 \subsubsection{Matrices}
 \begin{enumerate}
@@ -1075,9 +1270,23 @@ where we used (typo in the book!)
     -i\omega\vec{E}&=\vec{k}\times\vec{E}\\
     &=\epsilon_{abc}k_bE_c\vec{e}_a
 \end{align}
-
 \end{enumerate}
 
+\subsubsection{Problem I.7 - Adding and multiplying vector fields}
+\begin{enumerate}
+    \item With $(v+w)f\equiv(f)+w(f)$
+    \begin{enumerate}
+        \item $(v+w)(f+g)=v(f+g)+w(f+g)=vf+vg+wf+wg=(v+w)f+(v+w)g$
+        \item $(v+w)(\alpha f)=v(\alpha f)+w(\alpha f)=\alpha v f+\alpha w f=\alpha(v+w)f$
+        \item $(v+w)(fg)=v(fg)+w(fg)=v(f)g+fv(g)+w(f)g+fw(g)=[(v+w)f]g+f[(v+w)g]$
+    \end{enumerate}
+    \item With $(gv)(f)\equiv gv(f)$
+    \begin{enumerate}
+        \item $(gv)(f+h)=gv(f+h)=gv(f)+gv(h)=g(v(f)+v(h))=gv(f)+gv(h)$
+        \item $gv(\alpha f)=gv(\alpha f)=g\alpha v(f)=\alpha gv(f)$
+        \item $(gv)(fh)=gv(fh)=g(v(f)h+fv(h))=(gv)(f)h+f(gv)(h)$
+    \end{enumerate}
+\end{enumerate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1144,7 +1353,159 @@ and therefore
 n_1\sin\alpha=n_2\sin\beta.
 \end{align}
 
+\subsection{{\sc Schwartz} - Quantum Field Theory and the Standard Model}
+\subsubsection{Problem 2.3 GZK bound}
+\begin{enumerate}
+    \item We are utilizing Plancks law
+    \begin{align}
+        w_\nu d\nu = \frac{8\pi h\nu^3}{c^3}\frac{d\nu}{e^{h\nu/k_BT}-1}
+    \end{align}
+    where the spectral energy density $w_\nu$ [J m$^{-3}$ s] gives the spacial energy density per frequency interval $d\nu$. The total radiative energy density is then given by
+    \begin{align}
+        \rho_\text{rad} &= \frac{8\pi h}{c^3}\int_0\infty \frac{\nu^3d\nu}{e^{h\nu/k_BT}-1}\\
+        &=\frac{8\pi h}{c^3}\cdot\frac{(\pi k_B T)^4}{15h^4}\\
+        &=\frac{8\pi^5k_B^4 T^4}{15h^3 c^3}=0.26\text{MeV/m}^3.
+    \end{align}
+    The photon density is given by
+    \begin{align}
+        n_\text{rad} &=\int_0^\infty\frac{w_\nu}{h\nu}d\nu\\
+        &= \frac{8\pi}{c^3}\int \frac{\nu^2d\nu}{e^{h\nu/k_BT}-1}\\
+        &=\frac{8\pi}{c^3}\cdot\frac{2\zeta(3) k_B^3 T^3}{h^3}\\
+        &=\frac{16\pi\zeta(3) k_B^3 T^3}{h^3c^3}=416\text{cm}^{-3}.
+    \end{align}
+    The average photon energy is then given by
+    \begin{align}
+        E_\text{ph}&=\frac{\rho_\text{rad}}{n_\text{rad}}=\frac{\pi^4}{30\zeta(3)}k_BT=0.63\text{meV}\\
+        \lambda_\text{ph}&=\frac{hc}{E_\text{ph}}=1.9\text{mm}
+    \end{align}
+    therefore it is called CM(icrowave)B.
+    One obtains slightly other values if the peak of the Planck spectrum is used as definition of the average photon energy.
+    \item In the center-of-mass system the total momentum before and after the collision vanishes
+    \begin{align}
+        \vec{p}_{p^+}^{cm}+\vec{p}_\gamma^{cm}=0=\vec{\hat{p}}_{p^+}^{cm}+\vec{\hat{p}}_{\pi^0}^{cm}.
+    \end{align}
+    which implies for (Lorentz-invariant) norm the systems 4-momentum $P^{cm}=p_{p^+}^{cm}+p_{\pi^0}^{cm}$
+    \begin{align}
+        \left(P^{cm}\right)^2&=(E_{p^+}^{cm}+E_\gamma^{cm})^2-c^2(\vec{p}_{p^+}^{cm}+\vec{p}_\gamma^{cm})^2\\
+        &=(E_{p^+}^{cm}+E_\gamma^{cm})^2\\
+        &=(E^{cm})^2\\
+        &\overset{!}{=}(E_{p^+}+E_\gamma)^2-c^2(\vec{p}_{p^+}+\vec{p}_\gamma)^2\\
+        &\overset{!}{=}(\hat{E}_{p^+}+\hat{E}_{\pi^0})^2-c^2(\vec{\hat{p}}_{p^+}+\vec{\hat{p}}_{\pi^0})^2
+    \end{align}
+    with $p^i=\hbar k^i=\hbar(\omega,\vec{k})=\hbar(\omega,\frac{2\pi}{\lambda}\vec{e}_k)=h(\nu,\frac{\nu}{c}\vec{e}_k)$ and the values before
+    \begin{align}
+        E_{p^+}&=m_{p^+}c^2+T_{p^+}\\
+        E_\gamma&=h\nu\\  
+        (\vec{p}_{p^+})^2
+        &=\frac{1}{c^2}\left[(E_{p^+})^2-(m_{p^+})^2c^4\right]\\
+        &=\frac{T_{p^+}}{c^2}\left[T_{p^+}+2m_{p^+}c^2\right]\\
+        (\vec{p}_\gamma)^2&=\frac{h^2\nu^2}{c^2}
+    \end{align}
+    At the threshold the $\pi^0$ is created without any kinetic energy. As the total momentum is vanishing the proton
+    also needs to be at rest
+    \begin{align}
+        (E_{p^+}+E_\gamma)^2-c^2(\vec{p}_{p^+}+\vec{p}_\gamma)^2&=\left(m_{p^+}c^2+m_{\pi^0}c^2\right)^2\\
+        E_{p^+}^2+2E_{p^+}E_\gamma+E_\gamma^2-c^2\left(\vec{p}_{p^+}^2+\vec{p}_\gamma^2-2\vec{p}_{p^+}\cdot\vec{p}_\gamma\right)&=\left(m_{p^+}c^2+m_{\pi^0}c^2\right)^2\\
+        m_{p^+}^2c^4+2E_{p^+}E_\gamma+2c^2\vec{p}_{p^+}\cdot\vec{p}_\gamma&=\left(m_{p^+}c^2+m_{\pi^0}c^2\right)^2\\
+        m_{p^+}^2c^4+2E_{p^+}E_\gamma+2E_\gamma\sqrt{E_{p^+}^2-m_{p^+}^2c^2}\cos{\phi}&=\left(m_{p^+}c^2+m_{\pi^0}c^2\right)^2\\
+        E_{p^+}E_\gamma+E_\gamma\sqrt{E_{p^+}^2-m_{p^+}^2c^2}\cos{\phi}&=\left(m_{p^+}+\frac{m_{\pi^0}}{2}\right)m_{\pi^0}c^4
+    \end{align}
+    Now we can square the equation and solve approximately assuming $E_\gamma\ll m_{p^+}c^2$
+    \begin{align}
+        E_\gamma\sqrt{E_{p^+}^2-m_{p^+}^2c^2}\cos{\phi}&=\left(m_{p^+}+\frac{m_{\pi^0}}{2}\right)m_{\pi^0}c^4-E_{p^+}E_\gamma\\
+        E_\gamma^2\left(E_{p^+}^2-m_{p^+}^2c^2\right)\cos^2{\phi}
+        &=\left(m_{p^+}+\frac{m_{\pi^0}}{2}\right)^2m_{\pi^0}^2c^8+(E_{p^+}E_\gamma)^2-2E_{p^+}E_\gamma\left(m_{p^+}+\frac{m_{\pi^0}}{2}\right)m_{\pi^0}c^4\\
+        -E_\gamma^2m_{p^+}^2c^2\cos^2{\phi}
+        &=\left(m_{p^+}+\frac{m_{\pi^0}}{2}\right)^2m_{\pi^0}^2c^8-2E_{p^+}E_\gamma\left(m_{p^+}+\frac{m_{\pi^0}}{2}\right)m_{\pi^0}c^4\\
+        E_{p^+}&\approx\frac{\left(m_{p^+}+m_{\pi^0}/2\right)m_{\pi^0}c^4}{2E_\gamma}\\
+        &=10.8\cdot 10^{19}\text{eV}
+    \end{align}
+    \item By assumption the $p^+$ and the $\pi^0$ would rest in the CM system
+    \begin{align}
+        (P^\mu)^{cm}&=(p^\mu_{p^+})^{cm}+(p^\mu_{\pi^0})^{cm}\\
+                    &=\left([m_{p^+}+m_{\pi^0}]c^2,\vec{0}\right)\\
+                    &=\Lambda^\mu_\alpha\left[\hat p^\alpha_{p^+}+\hat p^\alpha_{\pi^0}\right]\\
+                    &=\Lambda^\mu_\alpha\left[ p^\alpha_{p^+}+ p^\alpha_{\gamma}\right]\\
+    \end{align}
+    We can therefore calculate $\gamma$
+    \begin{align}
+        \mu=1:\quad0&=\underbrace{\Lambda^1_0}_{-\gamma\beta}(E_{p^+}+E_\gamma)+\underbrace{\Lambda^1_1}_{\gamma}c(p^x_{p^+}+p^x_\gamma)\\
+        &=-\gamma\beta(E_{p^+}+E_\gamma)+\gamma\left(\sqrt{E_{p^+}^2-m_p^2c^4}+E_\gamma\right)\\
+        &\rightarrow\beta=\frac{\sqrt{E_{p^+}^2-m_p^2c^4}+E_\gamma}{E_{p^+}+E_\gamma}\approx\frac{\sqrt{E_{p^+}^2-m_p^2c^4}}{E_{p^+}}\\
+        &\rightarrow\gamma=\frac{1}{\sqrt{1-\beta^2}}=\frac{E_{p^+}}{m_{p^+}c^2}
+    \end{align}
+    which can be used to calculate the pion momentum
+    \begin{align}
+        c\hat{p}_{\pi^0}&=\Lambda^0_\mu (p_{\pi^0}^\mu)^{cm}\\
+        &=\Lambda^0_0 (p_{\pi^0}^0)^{cm}\\
+        &=\gamma m_{\pi^0}c^2\\
+        &=E_{p^+}\frac{m_{\pi^0}}{m_{p^+}}.
+    \end{align}
+    The $p+$ energy after the collision is then given by 
+    \begin{align}
+        E_{p^+}+E_\gamma&=\hat E_{p^+}+\hat E_{\pi^0}\\
+        \rightarrow\hat E_{p^+}&=E_{p^+}+E_\gamma - \hat E_{\pi^0}\\
+        &=E_{p^+}+E_\gamma - \sqrt{m_{\pi^0}^2c^4+\hat{\vec{p}}_{\pi^0}c^2}\\
+        &=E_{p^+}+E_\gamma - \sqrt{m_{\pi^0}^2c^4+E_{p^+}^2\frac{m_{\pi^0}^2}{m_{p^+}^2}}\\
+        &=E_{p^+}+E_\gamma - m_{\pi^0}c^2\sqrt{1+\frac{E_{p^+}^2}{m_{p^+}^2c^4}}\\
+        &\approx E_{p^+} - m_{\pi^0}c^2\frac{E_{p^+}}{m_{p^+}c^2}\\
+        &=E_{p^+}\left(1-\frac{m_{\pi^0}}{m_{p^+}}\right)\\
+        &\approx0.85\cdot E_{p^+}.
+    \end{align}
+\end{enumerate}
 
+\subsubsection{Problem 2.6 Lorentz invariance}
+\begin{enumerate}
+    \item With $\omega_k=\sqrt{\vec{k}^2+m^2}$
+    \begin{align}
+        \int_{-\infty}^\infty dk^0\delta(k^2-m^2)\theta(k^0)
+        &=\int_{-\infty}^\infty dk^0\delta({k^0}^2-[\vec{k}^2+m^2])\theta(k^0)\\
+        &=\frac{\theta(\omega_k)}{2\omega_k}+\frac{\theta(-\omega_k)}{2\omega_k}\\
+        &=\frac{1}{2\omega_k}
+    \end{align}
+    \item Under Lorentz transformations we have $k^2-m^2=0$. For orthochronous transformation we have $k^0 ...$
+    \item Now we can put it all together
+    \begin{align}
+        \int d^4k\delta(k^2-m^2)\theta(k^0)
+        &=\int d^3k\int dk^0\delta(k^2-m^2)\theta(k^0)\\
+        &=\int\frac{d^3k}{2\omega_k}
+    \end{align}
+\end{enumerate}
+
+\subsubsection{Problem 2.7 Coherent states}
+\begin{enumerate}
+\item 
+\begin{align}
+    \partial_z\left(e^{-za^\dagger} a e^{-za^\dagger}\right)
+    &=-e^{-za^\dagger}a^\dagger a e^{-za^\dagger}+e^{-za^\dagger} a a^\dagger e^{-za^\dagger}\\
+    &=e^{-za^\dagger} [a,a^\dagger] e^{-za^\dagger}\\
+    &=1
+\end{align}
+\item Rolling the $a$ through the $(a^\dagger)^k$ using the commutator $[a,a^\dagger]=1$
+\begin{align}
+    a|z\rangle
+    &=a e^{za^\dagger}|0\rangle\\
+    &=a\sum_{k=0}\frac{1}{k!}z^k(a^\dagger)^k|0\rangle\\
+    &=a|0\rangle+\sum_{k=1}\frac{k}{k!}z^k(a^\dagger)^{k-1}|0\rangle\\
+    &=z\sum_{n=0}\frac{1}{n!}z^n(a^\dagger)^{n}|0\rangle\\
+    &=z|z\rangle
+\end{align}
+\item With $a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle$
+\begin{align}
+    \langle n|z\rangle&=\frac{1}{\sqrt{n!}}\langle0|a^n|z\rangle\\
+    &=\frac{z^n}{\sqrt{n!}}\langle0|z\rangle\\
+    &=\frac{z^n}{\sqrt{n!}}\langle0|e^{za^\dagger}|0\rangle\\
+    &=\frac{z^n}{\sqrt{n!}}\langle0|1+za^\dagger+\frac{1}{2}z^2(a^\dagger)^2+...|0\rangle\\
+    &=\frac{z^n}{\sqrt{n!}}\langle0|0\rangle\\
+    &=\frac{z^n}{\sqrt{n!}}
+\end{align}
+\item
+\begin{align}
+    \Delta p\Delta q
+    &=\sqrt{\left(\frac{\langle z|p^2|z\rangle}{\langle z|z\rangle}-\frac{(\langle z|p|z\rangle)^2}{(\langle z|z\rangle)^2}\right)
+    \left(\frac{\langle z|q^2|z\rangle}{\langle z|z\rangle}-\frac{(\langle z|q|z\rangle)^2}{(\langle z|z\rangle)^2}\right)}
+\end{align}
+\end{enumerate}
 
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
@@ -1302,27 +1663,135 @@ therefore
         &=(\partial_\mu A_\nu-\partial_\nu A_\mu)(\partial^\mu A^\nu-\partial^\nu A^\mu)\\
         &=(\partial_\mu A_\nu)(\partial^\mu A^\nu)-(\partial_\mu A_\nu)(\partial^\nu A^\mu)-\underbrace{(\partial_\nu A_\mu)(\partial^\mu A^\nu)}_{=(\partial_\mu A_\nu)(\partial^\nu A^\mu)}+\underbrace{(\partial_\nu A_\mu)(\partial^\nu A^\mu)}_{=(\partial_\mu A_\nu)(\partial^\mu A^\nu)}\\
         &=2\left((\partial_\mu A_\nu)(\partial^\mu A^\nu)-(\partial_\mu A_\nu)(\partial^\nu A^\mu)\right)\\
-        &=2(\partial_\mu A_\nu)F^{\mu\nu}
+        &=2(\partial_\mu A_\nu)F^{\mu\nu}.
     \end{align}
-    we also find
+    The variation is then given by
     \begin{align}
         \delta\left(F_{\mu\nu}F^{\mu\nu}\right)
         &=2\delta\left((\partial_\mu A_\nu)F^{\mu\nu}\right)\\
         &=2\left[\delta\left(\partial_\mu A_\nu\right)F^{\mu\nu}+(\partial_\mu A_\nu)\delta F^{\mu\nu}\right]\\
+        &=2[\delta\left(\partial_\mu A_\nu\right)\underbrace{(\partial^\mu A^\nu-\partial^\nu A^\mu)}_{=F^{\mu\nu}}+(\partial_\mu A_\nu)\underbrace{\left(\delta(\partial^\mu A^\nu-\partial^\nu A^\mu)\right)}_{\delta F^{\mu\nu}}]\\
+        &=2\left[\delta\left(\partial_\mu A_\nu\right)\partial^\mu A^\nu-\delta\left(\partial_\mu A_\nu\right)\partial^\nu A^\mu+(\partial_\mu A_\nu)\delta(\partial^\mu A^\nu)-(\partial_\mu A_\nu)\delta(\partial^\nu A^\mu) \right]\\
+        &=4\left[\delta\left(\partial_\mu A_\nu\right)\partial^\mu A^\nu-\delta\left(\partial_\mu A_\nu\right)\partial^\nu A^\mu \right]\\
+        &=4(\partial^\mu A^\nu-\partial^\nu A^\mu)\;\delta(\partial_\mu A_\nu)\\
+        &=4F^{\mu\nu}\;\delta(\partial_\mu A_\nu)\\
+        &=4F^{\mu\nu}\;\partial_\mu(\delta A_\nu)
     \end{align}
-    
-    
     We start with the source free Maxwell equations $\partial_\mu F^{\mu\nu}=0$
     \begin{align}
         0
-        &=C\int_\Omega d^4x\;(\delta A_\nu) \partial_\mu F^{\mu\nu}\\
-        &=C(\delta A_\nu)F^{\mu\nu}|_{\partial\Omega}-C\int_\Omega d^4x\;\partial_\mu(\delta A_\nu)F^{\mu\nu}\\
-        &=-C\int_\Omega d^4x\;\delta(\partial_\mu A_\nu)F^{\mu\nu}\\
-        &=-C\int_\Omega d^4x\;\left[\delta(\partial_\mu A_\nu F^{\mu\nu})-(\partial_\mu A_\nu)\delta F^{\mu\nu}\right]\\
+        &=\int_\Omega d^4x\;(\delta A_\nu) \partial_\mu F^{\mu\nu}\\
+        &=F^{\mu\nu}(\delta A_\nu)|_{\partial\Omega}-\int_\Omega d^4x\;\underbrace{\partial_\mu(\delta A_\nu)F^{\mu\nu}}_{=\frac{1}{4}\delta(F_{\mu\nu}F^{\mu\nu})}\\
+        &=\int_{\Omega}d^4x\;\delta\left(\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\right)
+    \end{align}
+    and therefore $\mathscr{L}_\text{ph}=\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$.
+    \item So we see that the Lagrangian $\mathscr{L}_\text{ph}=\frac{1}{4}F_{\mu\nu}F^{\mu\nu}=2(\partial_\mu A_\nu)F^{\mu\nu}$ yields the inhomogeneous Maxwell equations 
+    \begin{align}
+        \frac{\partial\mathscr{L}_\text{ph}}{\partial A_\alpha}-\partial_\beta\frac{\partial\mathscr{L}_\text{ph}}{\partial(\partial_\beta A_\alpha)}=0\\
+        -\partial_\beta\left[(2\delta_{\alpha\mu}\delta_{\beta\nu}F^{\mu\nu}+2(\partial_\mu A_\nu)(\delta_\alpha^\mu\delta_\beta^\nu-\delta_\alpha^\nu\delta_\beta^\mu)\right]=0\\
+        -\partial_\beta\left[(2F^{\alpha\beta}+2(\partial^\alpha A^\beta-\partial^\beta A^\alpha)\right]=0\\
+        \partial_\beta(F^{\alpha\beta})=0
+    \end{align}
+    but not the homogeneous ones. They are fulfilled trivially - by construction of $F^{\mu\nu}$.
+    \item The conjugated momentum is given by
+    \begin{align}
+        \pi_\mu
+        &=\frac{\partial\mathscr{L}_\text{ph}}{\partial \dot{A}^\mu}\\
+        &= F_{0\mu}
+    \end{align}
+\end{enumerate}
+
+\subsubsection{Problem 3.3 - Dimension of $\phi$}
+\begin{enumerate}
+    \item With $c=1=\hbar$ we see
+    \begin{align}
+        E=mc^2        &\rightarrow E\sim M\\
+        E=\hbar\omega &\rightarrow T\sim E^{-1}\sim M^{-1}\\
+        s=ct          &\rightarrow L\sim T\sim M^{-1}
+    \end{align}
+    As $\mathscr{L}$ is an action density we have
+    \begin{align}
+        \mathscr{L}\sim \frac{E\cdot T}{TL^3}\sim M\cdot M^{d-1}=M^d
+    \end{align}
+    From the explicit form of the scalar Lagrangian we derive
+    \begin{align}
+        \mathscr{L}\sim \frac{[\phi^2]}{M^{-2}}=[\phi^2]M^{-2}
+    \end{align}
+    and therefore $[\phi]=M^{(d-2)/2}$
+    
+    \item Using the previous result we see
+    \begin{align}
+        \lambda\phi^3: &\qquad M^d \sim [\lambda] M^{3(d-2)/2}\rightarrow d=6\\
+        \lambda\phi^4: &\qquad M^d \sim [\lambda] M^{4(d-2)/2}\rightarrow d=4
     \end{align}
     
-    \item 
-    \item 
+    \item With
+    \begin{align}
+        \mathscr{L}
+        &=\frac{1}{2}\eta^{\mu\nu}(\partial_\mu\phi)(\partial_\nu\phi)-\frac{1}{2}m^2\phi^2+\lambda\phi^4\\
+        &=\frac{1}{2}\eta^{\mu\nu}\left(\partial_\mu\frac{\tilde\phi}{\sqrt{\lambda}}\right)\left(\partial_\nu\frac{\tilde\phi}{\sqrt{\lambda}}\right)-\frac{1}{2}m^2\frac{\tilde\phi^2}{\lambda}+\lambda\frac{\tilde\phi^4}{\lambda^2}\\
+        &=\frac{1}{\lambda}\left[\frac{1}{2}\eta^{\mu\nu}(\partial_\mu\tilde\phi)(\partial_\nu\tilde\phi)-\frac{1}{2}m^2\tilde\phi^2+\tilde\phi^4\right]
+    \end{align}
+\end{enumerate}
+
+
+\subsubsection{Problem 3.5 - Yukawa potential}
+Integration in spherical coordinates yields (with $x=kr$)
+\begin{align}
+    \int d^3k\frac{e^{-ik\cdot r}}{k^2+m^2}
+    &=2\pi\int  \frac{e^{-ikr\cos{\theta}}}{k^2+m^2} k^2\sin\theta d\theta\, dk\\
+    &=-2\pi\int \frac{e^{-ikr\cos{\theta}}}{k^2+m^2} k^2 \; d(\cos\theta)\, dk\\
+    &=-2\pi\int \left.\frac{k^2}{ikr}\frac{e^{-ikr\cos{\theta}}}{k^2+m^2} \right|_{-1}^{+1} \; dk\\
+    &=-2\pi\int \frac{k}{ir}\frac{e^{-ikr}-e^{+ikr}}{k^2+m^2}  \; dk\\
+    &=\frac{4\pi}{r}\int_0^\infty  \frac{k\sin{kr}}{k^2+m^2}  \; dk\\
+    &=\frac{4\pi}{r^2}\int_0^\infty  \frac{\frac{x}{r}\sin{x}}{\frac{x^2}{r^2}+m^2}  \; dx\\
+    &=\frac{4\pi}{r}\int_0^\infty  \frac{x\sin{x}}{x^2+m^2r^2}  \; dx\\
+\end{align}
+Now we use a small trick
+\begin{align}
+    &=\frac{2\pi}{ir}\int_0^\infty  \frac{x(e^{ix}-e^{-ix})}{x^2+m^2r^2}  \; dx\\
+    &=\frac{2\pi}{ir}\left[\int_0^\infty\frac{xe^{ix}}{x^2+m^2r^2}  \; dx - \int_0^\infty\frac{xe^{-ix}}{x^2+m^2r^2}  \; dx\right]\\
+    &=\frac{2\pi}{ir}\left[\int_0^\infty\frac{xe^{ix}}{x^2+m^2r^2}  \; dx - (-1)^3 \int_{-\infty}^0\frac{ye^{iy}}{y^2+m^2r^2}  \; dy\right]\\
+    &=\frac{2\pi}{ir}\int_{-\infty}^\infty\frac{xe^{ix}}{x^2+m^2r^2}  \; dx \\
+    &=\frac{2\pi}{ir}\int_{-\infty}^\infty\frac{xe^{ix}}{(x+imr)(x-imr)}  \; dx \\
+    &= \frac{2\pi}{ir}\left(2\pi i\cdot \text{Res}_{-imr}-\int_\text{lower half circle}...\right)\\
+    &= \frac{2\pi^2}{r} e^{-mr}
+\end{align}
+Therefore
+\begin{align}
+    \frac{1}{(2\pi)^3}\int d^3k\frac{e^{-ik\cdot r}}{k^2+m^2}
+    &= \frac{1}{4\pi r} e^{-mr}
+\end{align}
+
+\subsubsection{Problem 3.9 - $\zeta$ function regularization}
+\begin{enumerate}
+    \item Calculation the Taylor expansion (using L'Hopital's rule for the limits) we obtain
+    \begin{align}
+        f(t)
+        &=\frac{t}{e^t-1}\\
+        &=\sum_k\left.\frac{d^kf}{dt^k}\right|_{t=0}t^k\\
+        &=1-\frac{1}{2}t+\frac{1}{12}t^2-\frac{1}{12}t^4+...\\
+        &\stackrel{!}{=}B_0+B_1t+\frac{B_2}{2}t^2+\frac{B_3}{6}t^2+...\\
+        \rightarrow B_n&=\{1,-\frac{1}{2},\frac{1}{6},0,...\}
+    \end{align}
+    \item Avoiding mathematical rigor we see after playing around for a while
+    \begin{align}
+        \sum_{n=1}^\infty ne^{-an}
+        &=-\frac{d}{da}\sum_{n=1}^\infty e^{-an}\\
+        &=-\frac{d}{da}\sum_{n=1}^\infty \left(e^{-a}\right)^n\\
+        &=-\frac{d}{da}\frac{1}{1-e^{-a}}\\
+        &=-\frac{d}{da}\left(\frac{1}{a}\frac{a}{1-e^{-a}}\right)\\
+        &=-\frac{d}{da}\left(\frac{1}{a}f(t)\right)\\
+        &=-\frac{d}{da}\left(\frac{1}{a}\sum_{n=0}^\infty\frac{B_n}{n!}a^n\right)\\
+        &=-\frac{d}{da}\left(\frac{1}{a}\left[1-\frac{a}{2}+\frac{a^2}{12}-\frac{a^4}{720}+...\right]\right)\\
+        &=-\frac{d}{da}\left(\frac{1}{a}-\frac{1}{2}+\frac{a}{12}-\frac{a^3}{720}...\right)\\
+        &=\frac{1}{a^2}-\frac{1}{12}+\frac{a}{240}-...\\
+        &\stackrel{a\rightarrow0}{\rightarrow}\frac{1}{a^2}-\frac{1}{12}
+    \end{align}
+    \item Using the definition of the Riemann $\zeta$ function 
+    \begin{align}
+        \zeta(s)=\sum_{k=1}^\infty \frac{1}{k^s}
+    \end{align}
 \end{enumerate}
 
 
@@ -1459,13 +1928,241 @@ and the tetrad fields $e^m_\mu$ can then be derived via $d\xi^m=e^m_\mu(x) dx^\m
 
 
 
+\subsubsection{Problem 23.1 - Conformal transformation}
+For a change of coordinates we find in general
+\begin{align}
+    x^\mu&\mapsto\tilde{x}^\mu\\
+    g_{\mu\nu}(x)&\mapsto\tilde{g}_{\mu\nu}(\tilde{x})=\frac{\partial x^\alpha}{\partial \tilde x^\mu}\frac{\partial x^\beta}{\partial \tilde x^\nu}g_{\textcolor{red}{\alpha\beta}}(x)
+\end{align}
+which for $x\mapsto\tilde{x}=e^{\omega}x$ results in (there might be a sign error in (18.1))
+\begin{align}
+    g_{\mu\nu}(x)&\mapsto\tilde{g}_{\mu\nu}(\tilde{x})=e^{-2\omega}g_{\textcolor{red}{\alpha\beta}}(x)
+\end{align}
+while for a conformal transformation we have 
+\begin{align}
+    g_{\mu\nu}(x)\mapsto &\tilde{g}_{\mu\nu}(x)=\Omega^2g_{\textcolor{red}{\alpha\beta}}(x)\\
+    &\tilde{g}_{\mu\nu}(\tilde{x})=\Omega^2g_{\textcolor{red}{\alpha\beta}}(e^{\omega}x)
+\end{align}
 
+
+\subsubsection{Problem 23.2 - Conformal transformation properties}
+\begin{itemize}
+\item Christoffel symbol:
+\begin{align}
+    \tilde{g}_{\mu\nu}(x)&=\Omega^2(x)g_{\mu\nu}(x)=e^{2\omega(x)}g_{\mu\nu}(x)\\
+    \tilde{g}_{\mu\nu,\alpha}
+    &=2\Omega\Omega_{,\alpha}g_{\mu\nu}+\Omega^2g_{\mu\nu,\alpha}\\
+    &=\Omega(2g_{\mu\nu}\Omega_{,\alpha}+\Omega g_{\mu\nu,\alpha})
+\end{align}
+and
+\begin{align}
+\delta^\mu_{\;\nu}&=\tilde{g}^{\mu\alpha}\tilde{g}_{\alpha\nu}=\tilde{g}^{\mu\alpha}g_{\alpha\nu}\Omega^2\\
+\delta^\mu_{\;\nu}g^{\nu\beta}&=\tilde{g}^{\mu\alpha}g_{\alpha\nu}g^{\nu\beta}\Omega^2\\
+g^{\mu\beta}&=\tilde{g}^{\mu\alpha}\delta^\beta_\alpha\Omega^2\\
+&\rightarrow\tilde{g}^{\mu\beta}=\Omega^{-2}g^{\mu\beta}
+\end{align}
+we find by using $\Gamma^\mu_{\;\alpha\beta}=\frac{1}{2}g^{\mu\nu}\left(g_{\alpha\mu,\beta}+g_{\beta\mu,\alpha}-g_{\alpha\beta,\mu}\right)$
+\begin{align}
+\tilde\Gamma^\mu_{\;\alpha\beta}
+&=\frac{1}{2}\tilde{g}^{\mu\nu}\left(\tilde{g}_{\alpha\nu,\beta}+\tilde{g}_{\beta\nu,\alpha}-\tilde{g}_{\alpha\beta,\nu}\right)\\
+&=\frac{1}{2}\Omega^{-2}g^{\mu\nu}\left[
+ \Omega(2g_{\alpha\nu}\Omega_{,\beta}+\Omega g_{\alpha\nu,\beta})
++\Omega(2g_{\beta\nu}\Omega_{,\alpha}+\Omega g_{\beta\nu,\alpha})
+-\Omega(2g_{\alpha\beta}\Omega_{,\nu}+\Omega g_{\alpha\beta,\nu})
+\right]\\
+&=\Gamma^\mu_{\;\alpha\beta}+\Omega^{-1}g^{\mu\nu}\left[
+ g_{\alpha\nu}\Omega_{,\beta}
++g_{\beta\nu}\Omega_{,\alpha}
+-g_{\alpha\beta}\Omega_{,\nu}
+\right]\\
+&=\Gamma^\mu_{\;\alpha\beta}+\Omega^{-1}\left[
+ \delta^\mu_\alpha\Omega_{,\beta}
++\delta_\beta^\mu\Omega_{,\alpha}
+-g^{\mu\nu}g_{\alpha\beta}\Omega_{,\nu}
+\right]
+\end{align}
+
+\item Ricci tensor: with
+\begin{align}
+    \Omega&=e^{2\omega}\\
+    \Omega^{-2}\Omega_{,\lambda}
+    &=e^{-4\omega}e^{2\omega}2\omega_{,\lambda}\\
+    &=2e^{-2\omega}\omega_{,\lambda}\\
+    \Omega_{,\lambda\alpha}
+    &=\left(2e^{2\omega}\omega_{,\lambda}\right)_{,\alpha}\\
+    &=4e^{2\omega}\omega_{,\lambda}\omega_{,\alpha}+2e^{2\omega}\omega_{,\lambda\alpha}\\
+    &=2e^{2\omega}\left(2\omega_{,\lambda}\omega_{,\alpha}+\omega_{,\lambda\alpha}\right)
+\end{align}
+and
+\begin{align}
+\partial_\lambda\tilde\Gamma^\mu_{\;\alpha\beta}
+&=\partial_\lambda\Gamma^\mu_{\;\alpha\beta}
+-\Omega^{-2}\Omega_{,\lambda}\left[
+ \delta^\mu_\alpha\Omega_{,\beta}
++\delta_\beta^\mu\Omega_{,\alpha}
+-g^{\mu\nu}g_{\alpha\beta}\Omega_{,\nu}
+\right]
++\Omega^{-1}\left[
+ \delta^\mu_\alpha\Omega_{,\beta\lambda}
++\delta_\beta^\mu\Omega_{,\alpha\lambda}
+-(g^{\mu\nu}g_{\alpha\beta}\Omega_{,\nu})_{,\lambda}
+\right]\\
+&=\partial_\lambda\Gamma^\mu_{\;\alpha\beta}
+-4\omega_{,\lambda}\left[
+ \delta^\mu_\alpha\omega_{,\beta}
++\delta_\beta^\mu\omega_{,\alpha}
+-g^{\mu\nu}g_{\alpha\beta}\omega_{,\nu}
+\right]
++2\left[
+ \delta^\mu_\alpha\left(2\omega_{,\beta}\omega_{,\lambda}+\omega_{,\beta\lambda}\right)
++\delta_\beta^\mu\left(2\omega_{,\alpha}\omega_{,\lambda}+\omega_{,\alpha\lambda}\right)\right]\\
+&\qquad-2\left[
+ g^{\mu\nu}_{\quad,\lambda}g_{\alpha\beta}\omega_{,\nu}
++g^{\mu\nu}g_{\alpha\beta,\lambda}\omega_{,\nu}
++g^{\mu\nu}g_{\alpha\beta}(2\omega_{,\nu}\omega_{,\lambda}+\omega_{,\nu\lambda})\right]\\
+\end{align}
+\begin{align}
+\partial_\rho\tilde\Gamma^\rho_{\;\mu\nu}
+&=\partial_\rho\Gamma^\rho_{\;\mu\nu}
+-4\omega_{,\rho}\left[
+ \delta^\rho_\mu\omega_{,\nu}
++\delta_\nu^\rho\omega_{,\mu}
+-g^{\rho\nu}g_{\mu\nu}\omega_{,\lambda}
+\right]
++2\left[
+ \delta^\rho_\mu\left(2\omega_{,\nu}\omega_{,\rho}+\omega_{,\nu\rho}\right)
++\delta_\nu^\rho\left(2\omega_{,\mu}\omega_{,\rho}+\omega_{,\mu\rho}\right)\right]\\
+&\qquad-2\left[
+ g^{\rho\lambda}_{\quad,\rho}g_{\mu\nu}\omega_{,\lambda}
++g^{\rho\lambda}g_{\mu\nu,\rho}\omega_{,\lambda}
++g^{\rho\lambda}g_{\mu\nu}(2\omega_{,\lambda}\omega_{,\rho}+\omega_{,\lambda\rho})\right]\\
+%
+&=\partial_\rho\Gamma^\rho_{\;\mu\nu}
+-4\left[
+2\omega_{,\mu}\omega_{,\nu}
+-\omega_{,\rho}g^{\rho\nu}g_{\mu\nu}\omega_{,\lambda}
+\right]
++4 \left(2\omega_{,\nu}\omega_{,\mu}+\omega_{,\nu\mu}\right)\\
+&\qquad-2\left[
+ g^{\rho\lambda}_{\quad,\rho}g_{\mu\nu}\omega_{,\lambda}
++g^{\rho\lambda}g_{\mu\nu,\rho}\omega_{,\lambda}
++g^{\rho\lambda}g_{\mu\nu}(2\omega_{,\lambda}\omega_{,\rho}+\omega_{,\lambda\rho})\right]\\
+%
+&=\partial_\rho\Gamma^\rho_{\;\mu\nu}
++4g^{\rho\nu}g_{\mu\nu}\omega_{,\lambda}\omega_{,\rho}
++4\omega_{,\nu\mu}
+-2\left[
+ g^{\rho\lambda}_{\quad,\rho}g_{\mu\nu}\omega_{,\lambda}
++g^{\rho\lambda}g_{\mu\nu,\rho}\omega_{,\lambda}
++(2g^{\rho\lambda}g_{\mu\nu}\omega_{,\lambda}\omega_{,\rho}+g^{\rho\lambda}g_{\mu\nu}\omega_{,\lambda\rho})\right]\\
+%
+&=\partial_\rho\Gamma^\rho_{\;\mu\nu}
++4\omega_{,\lambda}\omega_{,\mu}
++4\omega_{,\nu\mu}
+-2\left[
+ g^{\rho\lambda}_{\quad,\rho}g_{\mu\nu}\omega_{,\lambda}
++g_{\mu\nu,\rho}\omega^{,\rho}
++2g_{\mu\nu}\omega^{,\rho}\omega_{,\rho}+g_{\mu\nu}\omega^{,\rho}_{\;\;\;\rho}\right]
+\end{align}
+
+\begin{align}
+\partial_\nu\tilde\Gamma^\rho_{\;\mu\rho}
+&=\partial_\nu\Gamma^\rho_{\;\mu\rho}
+-4\omega_{,\nu}\left[
+ \delta^\rho_\mu\omega_{,\rho}
++\delta_\rho^\rho\omega_{,\mu}
+-g^{\rho\kappa}g_{\mu\rho}\omega_{,\kappa}
+\right]
++2\left[
+ \delta^\rho_\mu\left(2\omega_{,\rho}\omega_{,\nu}+\omega_{,\rho\nu}\right)
++\delta_\rho^\rho\left(2\omega_{,\mu}\omega_{,\nu}+\omega_{,\mu\nu}\right)\right]\\
+&\qquad-2\left[
+ g^{\rho\kappa}_{\quad,\nu}g_{\mu\rho}\omega_{,\kappa}
++g^{\rho\kappa}g_{\mu\rho,\nu}\omega_{,\kappa}
++g^{\rho\kappa}g_{\mu\rho}(2\omega_{,\kappa}\omega_{,\nu}+\omega_{,\kappa\nu})\right]\\
+%
+&=\partial_\nu\Gamma^\rho_{\;\mu\rho}
+-4\left[
+(d+1)\omega_{,\mu}\omega_{,\nu}
+-\omega_{,\mu}\omega_{,\nu}
+\right]
++2(d+1)\left(2\omega_{,\mu}\omega_{,\nu}+\omega_{,\mu\nu}\right)\\
+&\qquad-2\left[
+ g^{\rho\kappa}_{\quad,\nu}g_{\mu\rho}\omega_{,\kappa}
++g^{\rho\kappa}g_{\mu\rho,\nu}\omega_{,\kappa}
++\delta^\kappa_\mu(2\omega_{,\kappa}\omega_{,\nu}+\omega_{,\kappa\nu})\right]\\
+%
+&=\partial_\nu\Gamma^\rho_{\;\mu\rho}
++4\omega_{,\mu}\omega_{,\nu}+2(d+1)\omega_{,\mu\nu}-2\left[
+ g^{\rho\kappa}_{\quad,\nu}g_{\mu\rho}\omega_{,\kappa}
++g^{\rho\kappa}g_{\mu\rho,\nu}\omega_{,\kappa}
++(2\omega_{,\mu}\omega_{,\nu}+\omega_{,\mu\nu})\right]\\
+%
+&=\partial_\nu\Gamma^\rho_{\;\mu\rho}
++2d\cdot\omega_{,\mu\nu}-2\left[
+ g^{\rho\kappa}_{\quad,\nu}g_{\mu\rho}\omega_{,\kappa}
++g_{\mu\rho,\nu}\omega^{,\rho}\right]
+\end{align}
+
+\begin{align}
+\tilde\Gamma^\mu_{\;\alpha\beta}
+&=\Gamma^\mu_{\;\alpha\beta}+\Omega^{-1}\left[
+ \delta^\mu_\alpha\Omega_{,\beta}
++\delta_\beta^\mu\Omega_{,\alpha}
+-g^{\mu\nu}g_{\alpha\beta}\Omega_{,\nu}
+\right]\\
+\end{align}
+
+\begin{align}
+\tilde\Gamma^\rho_{\;\mu\nu}\tilde\Gamma^\sigma_{\;\rho\sigma}
+&=\left(\Gamma^\rho_{\;\mu\nu}+\Omega^{-1}\left[
+ \delta^\rho_\mu\Omega_{,\nu}
++\delta_\nu^\rho\Omega_{,\mu}
+-g^{\rho\lambda}g_{\mu\nu}\Omega_{,\lambda}
+\right]\right)\left(\Gamma^\sigma_{\;\rho\sigma}+d\cdot\Omega^{-1}\Omega_{,\rho}\right)\\
+&=\Gamma^\rho_{\;\mu\nu}\Gamma^\sigma_{\;\rho\sigma}
++\Gamma^\rho_{\;\mu\nu}d\cdot\Omega^{-1}\Omega_{,\rho}
++\Gamma^\sigma_{\;\rho\sigma}\Omega^{-1}\left[
+ \delta^\rho_\mu\Omega_{,\nu}
++\delta_\nu^\rho\Omega_{,\mu}
+-g^{\rho\lambda}g_{\mu\nu}\Omega_{,\lambda}
+\right]\\
+&\qquad+
+d\cdot\Omega^{-2}\left[
+ \delta^\rho_\mu\Omega_{,\nu}
++\delta_\nu^\rho\Omega_{,\mu}
+-g^{\rho\lambda}g_{\mu\nu}\Omega_{,\lambda}
+\right]\Omega_{,\rho}
+\end{align}
+
+
+
+\begin{align}
+    \tilde{R}_{\mu\nu}
+    &=\tilde{R}^\rho_{\;\mu\rho\nu}\\
+    &=\partial_\rho\tilde\Gamma^\rho_{\;\mu\nu}
+    -\partial_\nu\tilde\Gamma^\rho_{\;\mu\rho}
+    +\tilde\Gamma^\rho_{\;\mu\nu}\tilde\Gamma^\sigma_{\;\rho\sigma}
+    -\tilde\Gamma^\sigma_{\;\nu\rho}\tilde\Gamma^\rho_{\;\mu\sigma}
+\end{align}
+
+\item Curvature scalar
+\begin{align}
+    \tilde{R}
+    &=\tilde{g}^{\mu\nu}\tilde{R}_{\mu\nu}\\
+    &=\tilde{g}^{\mu\nu}\left[R_{\mu\nu}-g_{\mu\nu}\Box\omega-(d-2)\nabla_\mu\nabla_\nu\omega+(d-2)\nabla_\mu\omega\nabla_\nu\omega-(d-2)g_{\mu\nu}\nabla^\lambda\omega\nabla_\lambda\omega\right]\\
+    &=\Omega^{-2}\left[R-d\Box\omega-(d-2)\Box\omega+(d-2)\nabla^\mu\omega\nabla_\mu\omega-(d-2)d\nabla^\lambda\omega\nabla_\lambda\omega\right]\\
+    &=\Omega^{-2}\left[R-2(d-1)\Box\omega-(d-2)(d-1)\nabla^\lambda\omega\nabla_\lambda\omega\right]\\
+\end{align}
+
+\end{itemize}
 
 
 \subsubsection{Problem 23.6 - Reflection formula}
 \begin{align}
     \Gamma(z)=\int_0^\infty x^{z-1}e^{-x}dx
 \end{align}
+
 
 
 \subsubsection{Problem 23.7 - Unruh temperature}
@@ -2211,6 +2908,95 @@ The integral can be can be calculated using the residual theorem
 \subsubsection{Problem 12}
 \textcolor{red}{Not done yet}
 
+\section{Quantum Mechanics}
+\subsection{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
+\subsubsection{2.1}
+Observe
+\begin{align}
+    \int_{-\infty}^\infty\left(\theta(x+a)+\theta(a-x)\right)e^{ikx}dx
+    &=\int_{-a}^ae^{ikx}dx\\
+    &=\frac{1}{ik}\left(e^{ika}-e^{-ika}\right)\\
+    &=2a \frac{\sin ka}{ka}
+\end{align} 
+
+\begin{align}
+    \lim_{P\rightarrow\infty}\int_{-\infty}^\infty\frac{d\chi}{\pi}\frac{\sin\chi}{\chi}e^{ik\left(q'+\frac{\chi}{P}\right)}=\frac{1}{\pi}e^{ikq'}\lim_{P\rightarrow\infty}\int_{-\infty}^\infty d\chi\frac{\sin\chi}{\chi}e^{i\frac{k}{P}\chi}
+\end{align} 
+
+
+
+\subsection{{\sc Weinberg} - Quantum Mechanics 2nd edition}
+\subsubsection{1.1}
+\begin{itemize}
+\item The solution of for a free particle in the interval $-a<x<a$ is given by
+\begin{align}
+    \left[-\frac{\hbar^2}{2M}\frac{d^2}{dx^2}-E\right]\phi&=0\\
+    \left[\frac{d^2}{dx^2}+\frac{2ME}{\hbar^2}\right]\phi&=0\\
+    \rightarrow\phi&=A\sin\left(\frac{\sqrt{2ME}}{\hbar}x\right)+B\cos\left(\frac{\sqrt{2ME}}{\hbar}x\right)
+\end{align}    
+with the two boundary conditions
+\begin{align} 
+A\sin\left(\frac{\sqrt{2ME}}{\hbar}(-a)\right)+B\cos\left(\frac{\sqrt{2ME}}{\hbar}(-a)\right)=0\\
+A\sin\left(\frac{\sqrt{2ME}}{\hbar}a\right)+B\cos\left(\frac{\sqrt{2ME}}{\hbar}a\right)=0.
+\end{align}
+The possible energy eigenvalues are therefore
+\begin{align}
+    A=0,\quad\frac{\sqrt{2ME_{2n+1}}}{\hbar}a=(2n+1)\frac{\pi}{2}
+    &\quad\rightarrow\quad E_{2n+1}=\frac{\pi^2\hbar^2}{8Ma^2}(2n+1)^2\\
+    &\quad\rightarrow\quad
+    \phi=\frac{1}{\sqrt{a}}\cos\left(x\frac{\pi}{2a}(2n+1)\right)
+\end{align}   
+    
+\begin{align}    
+    B=0,\quad\frac{\sqrt{2ME_{2n}}}{\hbar}a=2n\frac{\pi}{2}
+    &\quad\rightarrow\quad E_{2n}=\frac{\pi^2\hbar^2}{8Ma^2}(2n)^2\\
+    &\quad\rightarrow\quad
+    \phi=\frac{1}{\sqrt{a}}\sin\left(x\frac{\pi}{2a}(2n)\right)
+\end{align}
+where we calculated the normalization via
+\begin{align}
+    \int_{-a}^a\sin^2(kx)dx
+    &=\int_{-a}^a(1-\cos^2(kx))dx\\
+    &=2a-\int_{-a}^a\cos^2(kx)dx\quad\rightarrow\int_{-a}^a\sin^2(kx)dx=a.
+\end{align}
+
+\item Lets first calculate the normalization
+\begin{align}
+    \int_{-a}^a(a^2-x^2)^2dx
+    &=\left.a^4x-2a^2\frac{x^3}{3}+\frac{x^5}{5}\right|_{-a}^a\\
+    &=a^4(2a)-\frac{2}{3}a^2(16a^3)+\frac{1}{5}(64a^5)\\
+    &=\left(2-\frac{4}{3}+\frac{2}{5}\right)a^5=\frac{16}{15}a^5
+\end{align}
+and then obtain
+\begin{align}
+    \int_{-a}^a \frac{1}{\sqrt{\frac{16a^5}{15}}} \left(a^2-x^2\right)\frac{1}{\sqrt{a}} \cos \left(\frac{\pi  x}{2 a}\right)dx=\frac{8\sqrt{15}}{\pi^3}
+\end{align}
+\end{itemize}
+
+\subsubsection{1.2}
+\begin{itemize}
+\item We can write the Hamiltonian as
+\begin{align}
+    H&=\frac{\vec{P}^2}{2M}+\frac{M\omega_0^2}{2}\vec{X}^2\\
+    &=\sum_{k=1}^3\frac{p_k^2}{2M}+\frac{M\omega_0^2}{2}x_k^2
+\end{align}
+the energy is therefore given by
+\begin{align}
+    E_{n_1,n_2,n_3}&=\hbar\omega_0\left(n_1+n_2+n_3+\frac{3}{2}\right)\\
+    N_{n=n_1+n_2+n_3}&=\sum_{k=0}^{n}(k+1)\\
+    &=\frac{n(n+1)}{2}+n+1\\
+    &=\frac{(n+1)(n+2)}{2}
+\end{align}
+
+\item With (1.4.5), (1.4.15) and $\omega_{01}=\omega_0$ we have
+\begin{align}
+    \vec{x}]_{01}&=e^{i\omega_0 t}\sqrt{\frac{\hbar}{2M\omega_0}}\\
+    A_{n=1}^{n=0}&=\frac{4e^2\omega_0^3}{3c^3\hbar}\left|[\vec{x}]_{01}\right|^2\\
+    &=\frac{2e^2\omega_0^2}{3c^3M}
+\end{align}
+where with (1.4.15)
+\end{itemize}
+
 
 \section{General Physics}
 
@@ -2885,9 +3671,55 @@ and therefore
     &=...
 \end{align}
 \end{enumerate}
-
-
 \textcolor{red}{Not done yet}
+
+\subsubsection{Exercise 11.9 Derivation: Sag in a Cantilever}
+\begin{enumerate}[label=(\alph*)]
+\item For a cantilever with Young's modulus $E$, density $\rho$, width $w$ and height $h$ the weight per length is given by
+\begin{align}
+    W=\rho g w h
+\end{align}
+and
+\begin{align}
+    D&\equiv E\int z^2\,dydz=Ew \left.\frac{z^3}{3}\right|_{-h/2}^{h/2}\\
+    &=Ew\frac{h^3}{3}\frac{2}{8}=\frac{1}{12}Ewh^3.
+\end{align}
+We now solve
+\begin{align}
+    \frac{d^4\eta}{dx^4}
+    &=\frac{W}{D}\\
+    &=\frac{12\rho g}{Eh^2}
+\end{align}
+with $\eta(0)=0$, $\eta'(0=0)$, $\eta''(l)=0$ and $\eta'''(l)=0$ and obtain
+\begin{align}
+    \eta'''(x)&=\frac{W}{D}\left(x+c_3\right)\\
+    \eta''(x)&=\frac{W}{D}\left(\frac{x^2}{2}+c_3x+c_2\right)\\
+    \eta'(x)&=\frac{W}{D}\left(\frac{x^3}{3}+c_3\frac{x^2}{2}+c_2x +c_1\right)\\
+    \eta(x)&=\frac{W}{D}\left(\frac{x^4}{24}+c_3\frac{x^3}{6}+c_2\frac{x^2}{2} +c_1x+c_0\right)
+\end{align}
+using the boundary conditions we see
+\begin{align}
+    \eta(0)=0    \quad&\rightarrow\quad c_0=0\\
+    \eta'(0)=0   \quad&\rightarrow\quad c_1=0\\
+    \eta'''(l)=0 \quad&\rightarrow\quad c_3=-l\\
+    \eta''(l)=0  \quad&\rightarrow\quad c_2=\frac{l^2}{2}
+\end{align}
+and therefore
+\begin{align}
+    \eta(x)&=\frac{W}{D}\left(\frac{1}{24}x^4-\frac{l}{6}x^3+\frac{l^2}{4}x^2\right)\\
+    \eta(l)&=\frac{W}{D}\frac{l^4}{8}=\frac{3\rho gl^4}{2Eh^2}
+\end{align}
+
+\item Now we need to solve
+\begin{align}
+    \frac{d^4\eta}{dx^4}=\frac{1}{D}W(x).
+\end{align}
+The solution for the special case in (a) was $\eta\sim W x^4\sim\int W z^3\,dz$ so we try the ansatz
+\begin{align}
+    \eta(x)=\frac{1}{6D}\int_0^x(x-z)^3W(z)dz
+\end{align}
+
+\end{enumerate}
 
 \subsubsection{Exercise 13.1 Example: Earth's Atmosphere}
 \begin{enumerate}[label=(\alph*)]
@@ -3309,23 +4141,82 @@ which implies with $P_0=101.3\text{Pa}$
 \textcolor{red}{Not done yet}
 
 \subsubsection{Problem 4.1 - Gas Velocity-Pressure Relation in a Nozzle}
-Using the ideal gas equation $pV=NkT$ we have for a adiabatic process
+\begin{itemize}
+\item Using the ideal gas equation $pV=NkT$ we have for a adiabatic process
 \begin{align}
     pV^\kappa&=p\left(\frac{NkT}{p}\right)^\kappa\\
     &=p^{1-\kappa}T^\kappa\\
     &=\text{const}\\
     &\rightarrow\quad p^\frac{1-\kappa}{\kappa}T=p_0^\frac{1-\kappa}{\kappa}T_0
 \end{align}
-and with $pV=nRT$
+and with $pV=nRT$ we obtain more conservation laws for adiabatic processes
 \begin{align}
     \rho=\frac{m}{V}=\frac{nM_p}{V}=\frac{M_pp}{RT}\quad\rightarrow\quad p=\frac{R}{M_p}\rho T\\
     (\rho T)^\frac{1-\kappa}{\kappa}T=\text{const}\\
     \rho^{1-\kappa}T=\text{const}
 \end{align}
-we obtain with $\kappa=\frac{2+n}{n}$ for the energy conversion efficiency 
+as well as
+\begin{align}
+    \rho^{1-\kappa}T&=\text{const}\\
+    \rho^{1-\kappa}\left(\frac{p}{\rho}\right)&=\text{const}\\
+    \rho^{-\kappa}p&=\text{const}\\
+    \rho p^{-\frac{1}{\kappa}}&=\text{const}
+\end{align}
+We obtain with $\kappa=\frac{2+n}{n}$ for the energy conversion efficiency 
 \begin{align}
     \eta=1-\frac{T}{T_0}&=1-\left(\frac{p}{p_0}\right)^\frac{\kappa-1}{\kappa}=1-\left(\frac{\rho}{\rho_0}\right)^{\kappa-1}\\
-    &=1-\left(\frac{p}{p_0}\right)^\frac{2}{n+2}=1-\left(\frac{\rho}{\rho_0}\right)^\frac{2}{n}\\
+    &=1-\left(\frac{p}{p_0}\right)^\frac{2}{n+2}=1-\left(\frac{\rho}{\rho_0}\right)^\frac{2}{n}
+\end{align}
+\item Energy conservation along the engine axis gives
+\begin{align}
+    \frac{1}{2}m_pv_0^2+m_pc_pT_0=\frac{1}{2}m_pv^2+m_pc_pT.
+\end{align}
+with $v_0=0$ we obtain. for the gas flow velocity
+\begin{align}
+    v^2=2c_p(T_0-T)=2c_pT_0\eta=2\left(\frac{\kappa}{\kappa-1}\frac{R}{M_p}\right)T_0\eta
+\end{align}
+which is called the St. Venant-Wantzel equation. Differentiating yields
+\begin{align}
+2v\frac{dv}{dp}=2\left(\frac{\kappa}{\kappa-1}\frac{R}{M_p}\right)T_0\frac{d\eta}{dp}
+\end{align}
+\item The continuity equation is given by
+\begin{align}
+    \dot m_p=\rho vA\quad\rightarrow\quad v=\frac{\dot m_p}{A\rho}
+\end{align}
+\end{itemize}
+Now we can combine all parts
+\begin{align}
+    \frac{dv}{dp}
+    &=\frac{1}{v}\left(\frac{\kappa}{\kappa-1}\frac{R}{M_p}\right)T_0\frac{d\eta}{dp}\\
+    &=-\frac{A\rho}{\dot m_p}\left(\frac{\kappa}{\kappa-1}\frac{R}{M_p}\right)T_0\frac{\kappa-1}{\kappa}\left(\frac{p}{p_0}\right)^{-\frac{1}{\kappa}}\frac{1}{p_0}\\
+    &=-\frac{A\rho}{\dot m_p}\left(\frac{\kappa}{\kappa-1}\frac{R}{M_p}\right)\frac{\kappa-1}{\kappa}\left(\frac{p}{p_0}\right)^{-\frac{1}{\kappa}}\frac{M_p}{R\rho_0}\\
+    &=-\frac{A}{\dot m_p}\left(\frac{p}{p_0}\right)^{-\frac{1}{\kappa}}\frac{\rho}{\rho_0}\\
+    &=-\frac{A}{\dot m_p}
+\end{align}
+and obtain
+\begin{align}
+    dv=-\frac{A}{\dot m_p}dp.
+\end{align}
+
+\subsubsection{Problem 4.2 - Approximation of the Infinite-Expansion Coefficient}
+\begin{align}
+    C_\infty&\equiv(n+2)\sqrt{\frac{n^n}{(n+1)^{n+1}}}\\
+    &=\frac{n+2}{\sqrt{n+1}}\left(\frac{n}{n+1}\right)^{n/2}\\
+    &=\frac{n+2}{\sqrt{n+1}}\left(1+\frac{1}{n}\right)^{-n/2}\\
+    &=\frac{n+2}{\sqrt{n+1}}\frac{4096}{6561}\left[1+\frac{1}{18}\left(1+\log\frac{2^{27}}{3^{18}}\right)(n-8) +O\left(n^2\right)\right]\\
+    &\approx 0.624 \frac{n+2}{\sqrt{n+1}}
+\end{align}
+
+\subsubsection{Problem 7.1 - Solutions of Poisson's Equation}
+\begin{align}
+    \triangle U=4\pi \gamma\rho
+\end{align}
+
+\begin{align}
+    \triangle_x G(x)=4\pi \gamma\delta(x)\\
+    G(x)=\frac{1}{\sqrt{2\pi}}\int d^ny\,g(y)e^{-ixy}\\
+    \triangle_x G(x)=\frac{1}{\sqrt{2\pi}}\int d^ny\,g(y)(-iy)^2e^{-ixy}\equiv4\pi\gamma\delta(x)\\
+    \rightarrow g(y)=-\frac{e^{-i..}}{y^2}
 \end{align}
 
 \newpage
@@ -3407,6 +4298,18 @@ Important general principles
         \mathcal{S}_0=\frac{1}{4\lambda^2}\int_{S^2}d^2z\;\text{tr}(g^{-1}\partial_\mu g g^{-1}\partial^\mu g)
     \end{align}
     then $g^{-1}\partial_\mu g$ defines and element of the Lie algebra and $g^{-1}dg$ is the pullback of the Maurer-Cartan form to $S^2$ under the map defined by $g$.
+    \item Thirring Model, Thirring-Wess Model, CM-Sommerfeld Model
+    \item Volume measure under Lorentz trafo $x^\mu\rightarrow x'^\mu=\Lambda^\mu_\nu x^\nu$
+    \begin{align}
+        d^4x
+        &=dx^0dx^1dx^2dx^3\\
+        d^4x'&=\Lambda^\mu_0dx^0\,\Lambda^\nu_1dx^1\,\Lambda^\sigma_2dx^2\,\Lambda^\rho_1dx^3
+    \end{align}
+    vs
+    \begin{align}
+        d^4x
+        &=dx^0\wedge dx^1\wedge dx^2\wedge dx^3
+    \end{align}
     \item 
     \begin{itemize}
         \item Baez review octonions {\sc https://arxiv.org/abs/math/0105155v4}
