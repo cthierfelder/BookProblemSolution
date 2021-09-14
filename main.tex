@@ -1490,20 +1490,89 @@ n_1\sin\alpha=n_2\sin\beta.
     &=z\sum_{n=0}\frac{1}{n!}z^n(a^\dagger)^{n}|0\rangle\\
     &=z|z\rangle
 \end{align}
-\item With $a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle$
+\item With $a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle$ and using the $|z\rangle$ is an eigenstate of $a$ we have
 \begin{align}
-    \langle n|z\rangle&=\frac{1}{\sqrt{n!}}\langle0|a^n|z\rangle\\
-    &=\frac{z^n}{\sqrt{n!}}\langle0|z\rangle\\
-    &=\frac{z^n}{\sqrt{n!}}\langle0|e^{za^\dagger}|0\rangle\\
+    \langle n|z\rangle&=\frac{1}{\sqrt{n!}}\langle0|a^n|z\rangle
+    =\frac{z^n}{\sqrt{n!}}\langle0|z\rangle
+    =\frac{z^n}{\sqrt{n!}}\langle0|e^{za^\dagger}|0\rangle\\
     &=\frac{z^n}{\sqrt{n!}}\langle0|1+za^\dagger+\frac{1}{2}z^2(a^\dagger)^2+...|0\rangle\\
-    &=\frac{z^n}{\sqrt{n!}}\langle0|0\rangle\\
-    &=\frac{z^n}{\sqrt{n!}}
+    &=\frac{z^n}{\sqrt{n!}}\langle0|0\rangle
+    =\frac{z^n}{\sqrt{n!}}
 \end{align}
-\item
+where we used $\langle0|a^\dagger=0$.
+\item With
 \begin{align}
-    \Delta p\Delta q
-    &=\sqrt{\left(\frac{\langle z|p^2|z\rangle}{\langle z|z\rangle}-\frac{(\langle z|p|z\rangle)^2}{(\langle z|z\rangle)^2}\right)
-    \left(\frac{\langle z|q^2|z\rangle}{\langle z|z\rangle}-\frac{(\langle z|q|z\rangle)^2}{(\langle z|z\rangle)^2}\right)}
+    a+a^\dagger&=\sqrt{\frac{m\omega}{2}}2q\quad\rightarrow\quad q=\frac{1}{\sqrt{2m\omega}}(a+a^\dagger)\\
+    a-a^\dagger&=\sqrt{\frac{m\omega}{2}}2\frac{ip}{m\omega}\quad\rightarrow\quad p=-i\frac{\sqrt{m\omega}}{\sqrt{2}}(a-a^\dagger)
+\end{align}
+and $a|z\rangle=z|z\rangle$ and $\langle z|a^\dagger=\bar{z}\langle z|$ 
+\begin{align}
+    \langle z|q|z\rangle
+    &=\frac{1}{\sqrt{2m\omega}}\langle z|a+a^\dagger|z\rangle
+    =\frac{1}{\sqrt{2m\omega}}\langle z|z\rangle(z+\bar{z})\\
+    \langle z|p|z\rangle&=-i\frac{\sqrt{m\omega}}{\sqrt{2}}\langle z|a-a^\dagger|z\rangle=
+    -i\frac{\sqrt{m\omega}}{\sqrt{2}}\langle z|z\rangle(z-\bar{z})\\
+    \langle z|q^2|z\rangle
+    &=\frac{1}{2m\omega}\langle z|aa+\underbrace{aa^\dagger}_{=1+a^\dagger a}+a^\dagger a+a^\dagger a^\dagger|z\rangle\\
+    &=\frac{1}{2m\omega}\langle z|z\rangle\left(z^2+1+2z\bar{z}+\bar{z}^2\right)\\
+    \langle z|p^2|z\rangle
+    &=-\frac{m\omega}{2}\langle z|aa-\underbrace{aa^\dagger}_{=1+a^\dagger a}-a^\dagger a+a^\dagger a^\dagger|z\rangle\\
+    &=-\frac{m\omega}{2}\langle z|z\rangle\left(z^2-1-2z\bar{z}+\bar{z}^2\right)
+\end{align}
+Therefore
+\begin{align}
+    \Delta q^2
+    &=\langle q^2\rangle-\langle q\rangle^2\\
+    &=\frac{1}{2m\omega}\left(z^2+1+2z\bar{z}+\bar{z}^2\right)-\left(\frac{1}{\sqrt{2m\omega}}(z+\bar{z})\right)^2\\
+    &=\frac{1}{2m\omega}
+\end{align}
+and
+\begin{align}
+    \Delta p^2
+    &=\langle p^2\rangle-\langle p\rangle^2\\
+    &=-\frac{m\omega}{2}\left(z^2-1-2z\bar{z}+\bar{z}^2\right)-\left(-i\frac{\sqrt{m\omega}}{\sqrt{2}}(z-\bar{z})\right)^2\\
+    &=\frac{m\omega}{2}
+\end{align}
+which means
+\begin{align}
+    \Delta p\Delta q=\frac{1}{\sqrt{2m\omega}}\frac{\sqrt{m\omega}}{\sqrt{2}}=\frac{1}{2}.
+\end{align}
+\item At first let's construct the eigenstate $|w\rangle$ for $a$ manually
+\begin{align}
+    a|w\rangle=c_w|w\rangle
+\end{align}
+Expanding the eigenstate with $a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle$
+\begin{align}
+    |w\rangle
+    &=\sum_n\alpha_n|n\rangle\\
+    a|w\rangle
+    &=\sum_n\alpha_n\sqrt{n}|n-1\rangle\overset{!}{=}c_w\sum_n\alpha_n|n\rangle=c_w|n\rangle\\
+    &\rightarrow\alpha_n\sqrt{n}=c_w\alpha_{n-1}\\
+    &\rightarrow\alpha_n=\frac{c_w}{\sqrt{n}}\alpha_{n-1}\\
+    |w\rangle
+    &=\sum_n\alpha_0\frac{c_w^n}{\sqrt{n!}}|n\rangle
+    =\alpha_0\sum_n\frac{c_w^n}{n!}(a^\dagger)^n|0\rangle
+    =\alpha_0 e^{c_wa^\dagger}|0\rangle
+\end{align}
+Now we do the same for $a^\dagger$
+\begin{align}
+    a^\dagger|v\rangle=c_v|v\rangle
+\end{align}
+Expanding the eigenstate 
+\begin{align}
+    |v\rangle
+    &=\sum_n\beta_n|n\rangle\\
+    a^\dagger|v\rangle
+    &=\sum_n\beta_n\sqrt{n+1}|n+1\rangle\overset{!}{=}c_v\sum_n\beta_n|n\rangle=c_v|n\rangle\\
+    &\rightarrow\beta_{n}\sqrt{n+1}=c_v\beta_{n+1}\\
+    &\rightarrow\beta_{n+1}=\frac{\sqrt{n+1}}{c_v}\beta_{n}\\
+    |v\rangle
+    &=\sum_n\beta_0\frac{\sqrt{n!}}{c_v^n}|n\rangle=\beta_0\sum_n\frac{1}{c_v^n}(a^\dagger)^n|0\rangle
+\end{align}
+Now we calculate with $\langle 0|a^\dagger=0$
+\begin{align}
+    \langle 0|a^\dagger|v\rangle&=\beta_0\sum_n\frac{1}{c_v^n}\langle 0|(a^\dagger)^{n+1}|0\rangle\\
+    &=\beta_0\frac{1}{c_v^0}\langle 0|a^\dagger|0\rangle\\
 \end{align}
 \end{enumerate}
 
