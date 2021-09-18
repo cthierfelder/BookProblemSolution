@@ -1354,6 +1354,48 @@ n_1\sin\alpha=n_2\sin\beta.
 \end{align}
 
 \subsection{{\sc Schwartz} - Quantum Field Theory and the Standard Model}
+
+\subsubsection{Problem 2.2 Special relativity and colliders}
+\begin{enumerate}
+    \item Quick special relativity recap
+    \begin{align}
+        p'^\mu&=\Lambda^\mu_\nu p^\nu\quad p^\mu p_\mu=m^2c^2
+    \end{align}
+    At rest
+    \begin{align}
+        p^\mu p_\mu&=(p^0)^2-\vec{p}^2=(p^0)^2=m^2c^2
+    \end{align}
+    After Lorentz trafo in $x$ direction
+    \begin{align}
+        \Lambda=\begin{pmatrix}
+        \gamma & -\beta\gamma & 0 & 0\\
+        -\beta\gamma & \gamma & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 1\\
+        \end{pmatrix}
+    \end{align}
+    \begin{align}
+        p'^\mu&=(\gamma p^0,-\beta\gamma p^0,0,0)\\
+        &\equiv\left(\frac{E}{c},\vec{p}\right)
+    \end{align}
+    with $p^\mu p_\mu=m^2c^2$ we have $E^2/c^2+\vec{p}^2=m^2c^2$.
+    
+    Now we can solve the problem
+    \begin{align}
+        \frac{E_{cm}}{2}&=\sqrt{m_p^2c^4+p^2c^2}\\
+        &\rightarrow p = \frac{1}{c}\sqrt{\frac{E_{cm}^2}{4}-m_p^2c^4}\equiv\beta\gamma m_pc\\
+        &\rightarrow \frac{E_{cm}^2}{4}=m_p^2c^4(\beta^2\gamma^2+1)\\
+        &\rightarrow \gamma=\frac{E_{cm}}{2m_pc^2}\\
+        &\rightarrow\beta=\sqrt{1-\left(\frac{2m_pc}{E_{cm}}\right)^2}\approx1-\frac{1}{2}\left(\frac{2m_pc^2}{E_{cm}}\right)^2\\
+        &\rightarrow c-v=2\left(\frac{m_pc^2}{E_{cm}}\right)^2c=2.69\text{m/s}
+    \end{align}
+    \item Using the velocity addition formula
+    \begin{align}
+        \Delta v=\frac{2v}{1+\frac{v^2}{c^2}}\approx c\left(1-2\left[\frac{m_pc^2}{E_{cm}}\right]^4\right)
+    \end{align}
+\end{enumerate}
+
+
 \subsubsection{Problem 2.3 GZK bound}
 \begin{enumerate}
     \item We are utilizing Plancks law
@@ -1454,6 +1496,35 @@ n_1\sin\alpha=n_2\sin\beta.
     \end{align}
 \end{enumerate}
 
+\subsubsection{Problem 2.5 Compton scattering}
+\begin{enumerate}
+    \item the binding energy of outer(!!!) electrons is in the eV range while typical X-rays energies are in the keV range.
+    \item In the nonrelativistic case we have energy and momentum conservation
+    \begin{align}
+        \frac{hc}{\lambda}&=\frac{hc}{\lambda'}+\frac{1}{2}m_ev^2\\
+        \frac{h}{\lambda}&=\frac{h}{\lambda'}\cos\theta+m_ev\cos\phi\\
+        0&=\frac{h}{\lambda'}\sin\theta+m_ev\sin\phi
+    \end{align}
+    then we see
+    \begin{align}
+        v=\sqrt{\frac{2hc}{m_e}\left(\frac{1}{\lambda}-\frac{1}{\lambda'}\right)}
+        =\sqrt{\frac{2hc}{m_e}\frac{\lambda'-\lambda}{\lambda\lambda'}}
+    \end{align}
+    and
+    \begin{align}
+        \sin\phi&=-\frac{h}{m_ev}\frac{1}{\lambda'}\sin\theta\\
+        \cos\phi&=\frac{h}{m_ev}\frac{1}{\lambda'}\left(\frac{\lambda'}{\lambda}-\cos\theta\right)\\
+        \rightarrow1&=\sin^2\phi+\cos^2\phi\\
+        &=\frac{h^2}{m_e^2v^2\lambda'^2}\left(\sin^2\theta+\frac{\lambda'^2}{\lambda^2}-2\frac{\lambda'}{\lambda}\cos\theta+\cos^2\theta\right)\\
+        &=\frac{h^2}{m_e^2v^2\lambda'^2}\left(1+\frac{\lambda'^2}{\lambda^2}-2\frac{\lambda'}{\lambda}\cos\theta\right)\\
+        &=\frac{h\lambda}{2m_ec\lambda'(\lambda'-\lambda)}\left(1+\frac{\lambda'^2}{\lambda^2}-2\frac{\lambda'}{\lambda}\cos\theta\right)\\
+        &=\frac{h}{2m_ec(\lambda'-\lambda)}\left(\frac{\lambda}{\lambda'}+\frac{\lambda'}{\lambda}-2\cos\theta\right)\\
+        \lambda'-\lambda&\approx\frac{h}{m_ec}\left(1-\cos\theta\right)
+    \end{align}
+    where we used $\lambda\approx\lambda'$.
+    \item 
+\end{enumerate}
+    
 \subsubsection{Problem 2.6 Lorentz invariance}
 \begin{enumerate}
     \item With $\omega_k=\sqrt{\vec{k}^2+m^2}$
@@ -1575,6 +1646,70 @@ Now we calculate with $\langle 0|a^\dagger=0$
     &=\beta_0\frac{1}{c_v^0}\langle 0|a^\dagger|0\rangle\\
 \end{align}
 \end{enumerate}
+
+
+\subsubsection{Problem 3.7 Yukawa potential}
+\begin{enumerate}
+\item We slit the Langranian in three parts
+\begin{align}
+\mathscr{L}&=-\frac{1}{4}F_{\mu\nu}^2+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
+&=\mathscr{L}_F+\mathscr{L}_m+\mathscr{L}_J
+\end{align}
+with the Euler Lagrange equations
+\begin{align}
+        \frac{\partial\mathscr{L}}{\partial A_\alpha}-\partial_\beta\frac{\partial\mathscr{L}}{\partial(\partial_\beta A_\alpha)}=0
+\end{align}
+with
+\begin{align}
+    \frac{\partial(\partial_\mu A_\nu)}{\partial(\partial_\beta A_\alpha)}=\delta_{\mu\beta}\delta_{\nu\alpha}
+\end{align}
+we can calculate
+\begin{align}
+    \frac{\partial\mathscr{L}_m}{\partial A_\alpha}-\partial_\beta\frac{\partial\mathscr{L}_m}{\partial(\partial_\beta A_\alpha)}&=m^2A_\alpha\\
+    \frac{\partial\mathscr{L}_J}{\partial A_\alpha}-\partial_\beta\frac{\partial\mathscr{L}_J}{\partial(\partial_\beta A_\alpha)}&=-J_\alpha\\
+    \frac{\partial\mathscr{L}_F}{\partial A_\alpha}-\partial_\beta\frac{\partial\mathscr{L}_F}{\partial(\partial_\beta A_\alpha)}&=-\frac{1}{4}\partial_\beta\left(-2F_{\mu\nu}(\delta_{\mu\beta}\delta_{\nu\alpha}-\delta_{\nu\beta}\delta_{\mu\alpha})\right)\\
+    &=\frac{1}{4}\partial_\beta\left(2(F_{\beta\alpha}-F_{\alpha\beta})\right)\\
+    &=\partial_\beta F_{\beta\alpha}\\
+    &=\partial_\beta\partial_\beta A_\alpha-\partial_\beta\partial_\alpha A_\beta
+\end{align}
+to obtain (the Proca equation)
+\begin{align}
+    \Box A_\alpha-\partial_\beta\partial_\alpha A_\beta+m^2A_\alpha-J_\alpha=0.
+\end{align}
+Now we can calculate the divergence of the equations
+\begin{align}
+    \partial_\alpha\left(\Box A_\alpha-\partial_\beta\partial_\alpha A_\beta+m^2A_\alpha-J_\alpha\right)=0.\\
+    \Box \partial_\alpha A_\alpha-\partial_\alpha\partial_\alpha\partial_\beta A_\beta+m^2\partial_\alpha A_\alpha-\underbrace{\partial_\alpha J_\alpha}_{=0}=0
+\end{align}
+which implies $\partial_\alpha A_\alpha=0$ and therefore
+\begin{align}
+    \Box A_\alpha+m^2A_\alpha-J_\alpha=0.
+\end{align}
+\item For $A_0$ we have for a static potential
+\begin{align}
+    (\partial_{tt}-\triangle)A_0+m^2A_0-e\delta(x)=0\\
+    -\triangle A_0+m^2A_0-e\delta(x)=0.
+\end{align}
+A Fourier transformation of the equation of motion yields
+\begin{align}
+    -(ik)^2 A_0(k)+m^2A_0(k)-e=0\\
+    \rightarrow A_0(k)=\frac{e}{k^2+m^2}
+\end{align}
+which we can now transform back 
+\begin{align}
+    A_0
+    &=\frac{e}{(2\pi)^3}\int d^3k\frac{e^{ikx}}{k^2+m^2}\\
+    &=\frac{e}{4\pi r} e^{-mr}
+\end{align}
+where we used the integral evaluation from {\sc Kachelriess} Problem 3.5.
+\item 
+\begin{align}
+    \lim_{m\rightarrow0}\frac{e}{4\pi r} e^{-mr}=\frac{e}{4\pi r}
+\end{align}
+\item Scaling down the Coulomb potential exponentaily with a characteristic length of $1/m$
+\item 
+\end{enumerate}
+
 
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
@@ -1823,7 +1958,7 @@ Now we use a small trick
     &=\frac{2\pi}{ir}\left[\int_0^\infty\frac{xe^{ix}}{x^2+m^2r^2}  \; dx - (-1)^3 \int_{-\infty}^0\frac{ye^{iy}}{y^2+m^2r^2}  \; dy\right]\\
     &=\frac{2\pi}{ir}\int_{-\infty}^\infty\frac{xe^{ix}}{x^2+m^2r^2}  \; dx \\
     &=\frac{2\pi}{ir}\int_{-\infty}^\infty\frac{xe^{ix}}{(x+imr)(x-imr)}  \; dx \\
-    &= \frac{2\pi}{ir}\left(2\pi i\cdot \text{Res}_{-imr}-\int_\text{lower half circle}...\right)\\
+    &= \frac{2\pi}{ir}\left(2\pi i\cdot \underbrace{\text{Res}_{x=imr}}_{=\frac{imr\exp(i^2mr)}{2imr}}-\int_\text{upper half circle}...\right)\\
     &= \frac{2\pi^2}{r} e^{-mr}
 \end{align}
 Therefore
