@@ -1335,6 +1335,7 @@ The Dulong-Petit rule says $k/2$ per harmonic degree of freedom which means in 3
 \end{tikzpicture}
 \end{center}
 
+\section{Quantum Field Theory}
 \subsection{{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}
 \subsubsection{Problem 1.1 - Snell's law via Fermat's principle}
 The light travels from point $A$ in medium 1 to point $B$ in medium 2. We assume a vertical medium boundary at $x_0$ and that the light travels within a medium in the straight line. This makes $y_0$ the free parameter and the the travel time is given by
@@ -1647,8 +1648,18 @@ Now we calculate with $\langle 0|a^\dagger=0$
 \end{align}
 \end{enumerate}
 
+\subsubsection{Problem 3.5 Spontaneous symmetry}
+\begin{enumerate}
+    \item 
+    \begin{align}
+    \mathscr{L}=-\frac{1}{2}\phi\Box\phi+\frac{1}{2}m^2\phi^2-\frac{\lambda}{4!}\phi^4\\
+    \frac{\partial\mathscr{L}}{\partial \phi}-\partial_\beta\frac{\partial\mathscr{L}}{\partial(\partial_\beta \phi)}=0\\
+    \rightarrow -\frac{1}{2}\Box\phi+m^2\phi-\frac{\lambda}{3!}\phi^3=0
+\end{align}
+\end{enumerate}
 
-\subsubsection{Problem 3.7 Yukawa potential}
+
+\subsubsection{Problem 3.6 Yukawa potential}
 \begin{enumerate}
 \item We slit the Langranian in three parts
 \begin{align}
@@ -1706,12 +1717,55 @@ where we used the integral evaluation from {\sc Kachelriess} Problem 3.5.
 \begin{align}
     \lim_{m\rightarrow0}\frac{e}{4\pi r} e^{-mr}=\frac{e}{4\pi r}
 \end{align}
-\item Scaling down the Coulomb potential exponentaily with a characteristic length of $1/m$
-\item 
+\item Scaling down the Coulomb potential exponentially with a characteristic length of $1/m$.
+\item We can expand and the integrate each term by parts to move over the partial derivatives 
+\begin{align}
+    \mathscr{L}_F
+    &=-\frac{1}{4}F_{\mu\nu}^2\\
+    &=-\frac{1}{4}(\partial_\mu A_\nu-\partial_\nu A_\mu)(\partial_\nu A_\mu-\partial_\mu A_\nu)\\
+    &=-\frac{1}{4}\left(\partial_\mu A_\nu \partial_\nu A_\mu-\partial_\mu A_\nu \partial_\mu A_\nu
+        -\partial_\nu A_\mu \partial_\nu A_\mu + \partial_\nu A_\mu\partial_\mu A_\nu\right)\\
+    &=-\frac{1}{4}\left(- A_\nu \partial_\nu \partial_\mu A_\mu+ A_\nu \partial_\mu\partial_\mu A_\nu
+        + A_\mu \partial_\nu\partial_\nu A_\mu -  A_\mu\partial_\mu \partial_\nu A_\nu\right)\\
+    &=\frac{1}{2}\left( A_\nu \partial_\nu \underbrace{\partial_\mu A_\mu}_{=0}- A_\nu \Box A_\nu\right)\\ 
+    &=-\frac{1}{2}A_\nu \Box A_\nu
+\end{align}
+We can plug this into the full Lagrangian (renaming the summation index)
+\begin{align}
+    \mathscr{L}&=-\frac{1}{2}A_\mu \Box A_\mu+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
+    &=\frac{1}{2}A_\mu\left(-\Box+m^2 \right)A_\mu-A_\mu J_\mu\\
+\end{align}
+    
 \end{enumerate}
 
-
+\section{Quantum Field Theory}
 \subsection{{\sc Srednicki} - Quantum Field Theory}
+\subsubsection{Problem 1.2 - Schroedinger equation}
+\begin{align}
+    H&=\int d^3x a^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+V(x)\right)a(x)+\frac{1}{2}\int d^3xd^3yV(x-y)a^\dagger(x)a^\dagger(y)a(x)a(y)\\
+    |\psi,t\rangle&=\int d^3x_1...d^3x_n\psi(x_1,...,x_n;t)a^\dagger(x_1)...a^\dagger(x_n)|0\rangle
+\end{align}
+\begin{enumerate}
+    \item Bosons:
+    With the commutations relation and $a|0\rangle=0$
+    \begin{align}
+        a(x)a^\dagger(x_1)...a^\dagger(x_n)|0\rangle
+        &=\left(\delta^3(x-x_1)-a^\dagger(x_1)a(x)\right)...a^\dagger(x_n)|0\rangle\\
+        &=\sum_{k=1}^n(-1)^{k-1} \delta^3(x-x_k)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-1) \times a^\dagger}|0\rangle
+    \end{align}
+    and similar
+    \begin{align}
+        a(y)a(x)a^\dagger(x_1)...a^\dagger(x_n)|0\rangle
+        &=\sum_{j\neq k}^n \delta^3(x-x_k)\delta^3(y-x_j)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-2) \times a^\dagger}|0\rangle
+    \end{align}
+    we obtain
+    \begin{align}
+        H|\psi,t\rangle=&\sum_{k=1}^na^\dagger(x_k)\left(-\frac{\hbar^2}{2m}\triangle_{x_k}+V(x_k)\right)\psi(x_1,...,x_n;t)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-1) \times a^\dagger}|0\rangle\\
+        &+\frac{1}{2}\sum_{j\neq k}^nV(x_k-x_j)\psi(x_1,...,x_n;t)a^\dagger(x_k)a^\dagger(x_j)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-2) \times a^\dagger}|0\rangle
+    \end{align}
+    \item Fermions:
+\end{enumerate}
+
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
 (a) The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
 \begin{align}
@@ -3111,6 +3165,54 @@ The integral can be can be calculated using the residual theorem
 \textcolor{red}{Not done yet}
 \subsubsection{Problem 12}
 \textcolor{red}{Not done yet}
+
+\section{Cosmology}
+\subsection{{\sc Boerner} - The Early Universe - Facts and Fiction (4th edition)}
+\subsubsection{1.1 Friedman equations}
+\begin{enumerate}
+\item The Friedman equations in book contain a small typo ($\rho=\varrho$)
+\begin{align}
+    (A)\qquad \ddot R&=-\frac{4\pi}{3}(\varrho+3p)GR+\frac{1}{3}\Lambda R\\
+    (B)\qquad  \dot R^2&=\frac{8\pi}{3}G\varrho R^2+\frac{1}{3}\Lambda R^2-K\\
+    (C)\qquad 0&=(\varrho R^3)^\cdot+p(R^3)^\cdot
+\end{align}
+Calculating the time derivative of (B)
+\begin{align}
+    2\dot{R}\ddot{R}&=\frac{8\pi}{3}G(\dot{\varrho}R^2+2\varrho R\dot{R})+\frac{2}{3}\Lambda R\dot{R}\\
+    \ddot{R}&=\frac{R}{3}\left(4\pi G\dot\varrho \frac{R}{\dot{R}}+8\pi G\varrho +\Lambda\right)
+\end{align}
+and simplifying (A)
+\begin{align}
+    \ddot R&=\frac{R}{3}\left(-4\pi G(\varrho+3p)+\Lambda\right)
+\end{align}
+Combining both yields
+\begin{align}
+    \dot\varrho \frac{R}{\dot{R}}+2\varrho=-(\varrho+3p)\\
+    \dot\varrho R=-3(\varrho+p)\dot{R}
+\end{align}
+which is (C). Rearranging the order of the steps gives the other two  cases.
+\item We obtain from (B)
+\begin{align}
+    \dot R^2&=\frac{8\pi}{3}G\varrho R^2+\frac{1}{3}\Lambda R^2-K\\
+    &\rightarrow \varrho=\frac{3}{8\pi GR^2}\left(\dot R^2-\frac{1}{3}\Lambda R^2+K\right)\\
+    &\rightarrow \varrho=\frac{3}{8\pi G}\left(\frac{\dot R^2}{R^2}-\frac{1}{3}\Lambda +\frac{K}{R^2}\right)
+\end{align}
+and from (A)
+\begin{align}
+    \frac{\ddot R}{R}&=-\frac{4\pi G}{3}(\varrho+3p)+\frac{1}{3}\Lambda
+\end{align}
+from (C) we have
+\begin{align}
+    R^3\dot\varrho+ 3R^2\dot R\varrho+3R^2\dot Rp=0\\
+    \dot\varrho+ 3\frac{\dot R}{R}(\varrho+p)=0\\
+    \dot\varrho+ 3\frac{\dot R}{R}\varrho(1+k\varrho^{\gamma-1})=0\\
+\end{align}
+
+and with $p=k\varrho^\gamma$ ($K$ is already in use) we have
+\begin{align}
+    \varrho+3p=\varrho+3k\varrho^\gamma
+\end{align}
+\end{enumerate}
 
 \section{Quantum Mechanics}
 \subsection{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
@@ -5002,7 +5104,7 @@ D(a_5)=\left(\begin{array}{cc}
     \begin{itemize}
     \item {\sc Camille Jordan} (1838-1922) - Jordan normal, Jordan-Hoelder theorem
     \item {\sc Wilhelm Jordan} (1842-1899) - Gauss-Jordan elimination
-    \item {\sc Pascual Gordon} (1902-1980) - Jordan algebra, Jordan Wigner transformation
+    \item {\sc Pascual Jordan} (1902-1980) - Jordan algebra, Jordan Wigner transformation
     \end{itemize}
 \item Kac vs Kac
     \begin{itemize}
