@@ -3215,6 +3215,47 @@ and with $p=k\varrho^\gamma$ ($K$ is already in use) we have
 \end{enumerate}
 
 \section{Quantum Mechanics}
+\subsection{{\sc Straumann} - Quantenmechanik 2ed}
+\subsubsection{2.1 - Spectral oscillator density}
+The vanishing electrical field in the surface requires for each standing wave
+\begin{align}
+    k_i=\frac{\pi}{L}n_i. 
+\end{align}
+and
+\begin{align}
+    k^2&=k_x^2+k_y^2+k_z^2\\
+    \Delta V&=\frac{\pi^3}{L^3}.
+\end{align}
+With $k=2\pi/\lambda = \omega/c$ we have $dk=\frac{d\omega}{c}$ and the volume of a sphere in $k$-space is given by
+\begin{align}
+    V(k)&=\frac{4}{3}\pi k^3\\
+    dV&=4\pi k^2 dk=4\pi \frac{\omega^2}{c^2} \frac{d\omega}{c} 
+    =4\pi (2\pi)^3\frac{\nu^2}{c^3} d\nu 
+\end{align}
+The number of oscillator are then given by the number of points in the positive quadrant (all $k_i$ positive) time two (polarization)
+\begin{align}
+    dN(\nu)=2\frac{V(\nu)/8}{\Delta V}=L^3 \frac{8\pi}{c^3}\nu^2d\nu
+\end{align}
+
+\subsubsection{2.2 - Energy variance of the harmonic oscillator}
+First we obtain an expression for $T$
+\begin{align}
+    E=\frac{h\nu}{e^{h\nu/kT}-1}\quad\rightarrow\quad\frac{h\nu}{kT}=\ln\left(\frac{h\nu}{E}+1\right)
+\end{align}
+which we can use in
+\begin{align}
+    \frac{dS}{dE}=\frac{1}{T}=\frac{k}{h\nu}\ln\left(\frac{h\nu}{E}+1\right)
+\end{align}
+and take one more derivative
+\begin{align}
+    \frac{d^2S}{dE^2}&=-\frac{k}{h\nu}\frac{\frac{h\nu}{E^2}}{\frac{h\nu}{E}+1}\\
+    &=-k\frac{1}{ h\nu E+E^2}.
+\end{align}
+Now we see
+\begin{align}
+    \langle(\Delta E)^2\rangle=E^2+E h \nu.
+\end{align}
+
 \subsection{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
 \subsubsection{2.1}
 Observe
@@ -4599,7 +4640,7 @@ Important general principles
 \newpage 
 \section{Some stuff for later}
 \begin{enumerate}
-    \item QFT on Riemann sphere with $g:S^2\rightarrow G$ consider the action 
+    \item For a Quantum field theory on a Riemann sphere with $g:S^2\rightarrow G$ consider the action 
     \begin{align}
         \mathcal{S}_0=\frac{1}{4\lambda^2}\int_{S^2}d^2z\;\text{tr}(g^{-1}\partial_\mu g g^{-1}\partial^\mu g)
     \end{align}
