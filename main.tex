@@ -3256,6 +3256,51 @@ Now we see
     \langle(\Delta E)^2\rangle=E^2+E h \nu.
 \end{align}
 
+\subsubsection{3.6 - 1D molecular potential}
+With the given coordinate transformation we get for the single terms
+\begin{align}
+    e^{-\alpha x}&=\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\\
+    e^{-2\alpha x}&=\frac{(\alpha\hbar\xi)^2}{8mA}\\
+    \frac{\partial}{\partial x}&=\frac{\partial\xi}{\partial x}\frac{\partial}{\partial\xi}\\
+    &=-\alpha\xi\frac{\partial}{\partial\xi}\\
+    \frac{\partial^2}{\partial x^2}&=\frac{\partial^2\xi}{\partial x^2}\frac{\partial}{\partial\xi}+\left(\frac{\partial\xi}{\partial x}\right)^2\frac{\partial^2}{\partial\xi^2}\\
+    &=\alpha^2\xi\frac{\partial}{\partial\xi}+(\alpha\xi)^2\frac{\partial^2}{\partial\xi^2}
+\end{align}
+and combined
+\begin{align}
+    -\frac{\hbar^2}{2m}\partial_{xx}\psi+A(e^{-2\alpha x}-2e^{-\alpha x})\psi=E\psi\\
+    -\frac{\hbar^2}{2m}\left(\alpha^2\xi\frac{\partial}{\partial\xi}+(\alpha\xi)^2\frac{\partial^2}{\partial\xi^2}\right)\psi+A\left(\frac{(\alpha\hbar\xi)^2}{8mA}-2\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\right)\psi=E\psi\\
+    \left(\alpha^2\xi\frac{\partial}{\partial\xi}+(\alpha\xi)^2\frac{\partial^2}{\partial\xi^2}\right)\psi-\frac{2mA}{\hbar^2}\left(\frac{(\alpha\hbar\xi)^2}{8mA}-2\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\right)\psi=-\frac{2mE}{\hbar^2}\psi\\
+    \left(\frac{1}{\xi}\frac{\partial}{\partial\xi}+\frac{\partial^2}{\partial\xi^2}\right)\psi-\frac{2mA}{\alpha^2\xi^2\hbar^2}\left(\frac{(\alpha\hbar\xi)^2}{8mA}-2\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\right)\psi=-\frac{2mE}{\hbar^2\alpha^2\xi^2}\psi\\
+    \left(\frac{1}{\xi}\frac{\partial}{\partial\xi}+\frac{\partial^2}{\partial\xi^2}\right)\psi+\left(-\frac{1}{4}+\frac{\sqrt{2mA}}{\alpha\hbar\xi}\right)\psi=-\frac{2mE}{\hbar^2\alpha^2\xi^2}\psi\\
+    \left(\frac{1}{\xi}\frac{\partial}{\partial\xi}+\frac{\partial^2}{\partial\xi^2}\right)\psi+\left(-\frac{1}{4}+\frac{n+s+\frac{1}{2}}{\xi}\right)\psi=\frac{s^2}{\xi^2}\psi\\
+    \left(\frac{\partial^2}{\partial\xi^2}+\frac{1}{\xi}\frac{\partial}{\partial\xi}\right)\psi+\left(-\frac{1}{4}+\frac{n+s+\frac{1}{2}}{\xi}-\frac{s^2}{\xi^2}\right)\psi=0.
+\end{align}
+The units of $\xi$ is $\sqrt{\text{kg}\cdot \text{J}}/\text{m}^{-1}\text{Js}=1$ so $\xi$ in dimensionless.
+\begin{enumerate}
+    \item Case $\xi\gg 1$ ($x\rightarrow-\infty$)
+    Dropping all $1/\xi$ terms
+    \begin{align}
+        \psi''-\frac{1}{4}\psi=0\quad\rightarrow\quad\psi=c_1 e^{\xi/2}+c_2 e^{-\xi/2}
+    \end{align}
+    \item Case $0<\xi\ll 1$ ($x\rightarrow+\infty$)
+    Ansatz $\psi\sim\xi^m$
+    \begin{align}
+        m(m-1)\xi^{m-2}+m\xi^{m-2}-\frac{1}{4}\xi^m+\left(n+s+\frac{1}{2}\right)\xi^{m-1}-s^2\xi^{m-2}=0\\
+        \left[(m^2-s^2)-\frac{1}{4}\xi^2+\left(n+s+\frac{1}{2}\right)\xi\right]\xi^{m-2}=0
+    \end{align}
+    which for small $\xi$ becomes
+    \begin{align}
+        (m^2-s^2)\xi^{m-2}=0 \quad\rightarrow\quad\psi=\xi^{\pm s}
+    \end{align}
+\end{enumerate}
+With the two asymptotics we can make a physically sensible ansatz for a full solutions $\psi=\xi^s e^{-\xi/2}u(\xi)$ which leads to
+\begin{align}
+    \xi u''+(2s+1-\xi)u'+n u=0
+\end{align}
+
+
+
 \subsection{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
 \subsubsection{2.1}
 Observe
