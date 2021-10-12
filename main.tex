@@ -3215,6 +3215,52 @@ and with $p=k\varrho^\gamma$ ($K$ is already in use) we have
 \end{enumerate}
 
 \section{Quantum Mechanics}
+\subsection{{\sc Feynman, Hibbs} - Quantum mechanics and path integrals 2ed}
+\subsubsection{2.1}
+With $\dot x=0$ and $\dot x=$const we see
+\begin{align}
+    S&=\int_{t_a}^{t_b}L dt\\
+    &=\frac{m}{2}\int_{t_a}^{t_b}\dot x^2 dt\\
+    &=\frac{m}{2}\left[\left.\dot x x\right|_{t_a}^{t_b}-\int_{t_a}^{t_b} x\ddot xdt\right]\\
+    &=\frac{m}{2}\frac{x_b-x_a}{t_b-t_b}(x_b-x_a)\\
+     &=\frac{m}{2}\frac{(x_b-x_a)^2}{t_b-t_b}
+\end{align}
+
+\subsubsection{2.1}
+With the solution of the equation of motion 
+\begin{align}
+    \ddot x+\omega^2x=0 &\quad\rightarrow\quad x=x_0\sin(\omega t+\varphi_0)=(x_0\cos\varphi_0)\sin \omega t+(x_0\sin\varphi_0)\cos\omega t\\
+    &\quad\rightarrow\quad \dot x=(x_0\omega\cos\varphi_0)\cos \omega t-(x_0\omega\sin\varphi_0)\sin\omega t
+\end{align}
+then with ($x_a,x_b,t_a,t_b$) we can solve for $x_0$ and $\varphi_0$
+\begin{align}
+    x_0\cos\varphi_0
+    &=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\cos\omega t_b\sin\omega t_a-\cos\omega t_a\sin\omega t_b}\\
+    &=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\sin\omega(t_a-t_b)}\\
+    x_0\sin\varphi_0&=-\frac{x_a\frac{\sin\omega t_b}{\sin\omega t_a}-x_b\tan\omega t_a}{-\sin\omega t_b+\cos\omega t_b\tan\omega t_a}\\
+    &=\frac{x_b\sin\omega t_a-x_a\sin\omega t_b}{\sin\omega(t_a-t_b)}
+\end{align}
+and therefore
+\begin{align}
+    v_a&=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\sin\omega(t_a-t_b)}\sin\omega t_a+\frac{x_b\sin\omega t_a-x_a\sin\omega t_b}{\sin\omega(t_a-t_b)}\sin\omega t_a\\
+    &=-\frac{1}{\sin\omega T}\left[(x_a\cos\omega t_b-x_b\cos\omega t_a)\sin\omega t_a+(x_b\sin\omega t_a-x_a\sin\omega t_b)\sin\omega t_a\right]\\
+    &=-\frac{1}{\sin\omega T}\left[x_a(\cos\omega t_b\sin\omega t_a-\sin\omega t_a\sin\omega t_b)+x_b(\sin^2\omega t_a-\cos\omega t_a\sin\omega t_a)\right]\\
+    v_b&=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\sin\omega(t_a-t_b)}\sin\omega t_b+\frac{x_b\sin\omega t_a-x_a\sin\omega t_b}{\sin\omega(t_a-t_b)}\sin\omega t_b\\
+    &=-\frac{1}{\sin\omega T}\left[x_a(\cos\omega t_b\sin\omega t_b-\sin^2\omega t_b)+x_b(\sin\omega t_a\sin\omega t_b-\cos\omega t_a\sin\omega t_b)\right]
+\end{align}
+Now we can write
+\begin{align}
+    S&=\int_{t_a}^{t_b}L dt\\
+    &=\frac{m}{2}\int_{t_a}^{t_b}(\dot x^2-\omega^2x^2) dt\\
+    &=\frac{m}{2}x_0^2\omega^2\int_{t_a}^{t_b}dt\left(\cos^2(\omega t+\varphi)-\sin^2(\omega t+\varphi)\right)\\
+    &=\frac{m}{2}x_0^2\omega^2\int_{t_a}^{t_b}dt\cos(2[\omega t+\varphi])\\
+    &=\frac{m}{4}x_0^2\omega\sin(2[\omega t+\varphi])|_{t_a}^{t_b}\\
+    &=\frac{m}{2}x_0^2\omega\sin(\omega t+\varphi)\cos(\omega t+\varphi)|_{t_a}^{t_b}\\
+    &=\frac{m}{2} x \dot x|_{t_a}^{t_b}\\
+    &=\frac{m}{2}(x_bv_b-x_av_a)\\
+    &=\frac{m\omega}{2\sin\omega T}\left[(x_a^2+x_b^2)\cos\omega T-2x_ax_b\right]
+\end{align}
+
 \subsection{{\sc Straumann} - Quantenmechanik 2ed}
 \subsubsection{2.1 - Spectral oscillator density}
 The vanishing electrical field in the surface requires for each standing wave
@@ -3298,7 +3344,20 @@ With the two asymptotics we can make a physically sensible ansatz for a full sol
 \begin{align}
     \xi u''+(2s+1-\xi)u'+n u=0
 \end{align}
-
+To solve this equation we use the Sommerfeld polynomial method
+\begin{align}
+    u=\sum_ka_k\xi^k\quad\rightarrow\quad
+    &\sum_kk(k-1)a_k\xi^{k-1}+(2s+1)ka_k\xi^{k-1}-ka_k\xi^k+na_k\xi^k=0\\
+    &\sum_k(k+1)ka_{k+1}\xi^{k}+(2s+1)(k+1)a_{k+1}\xi^{k}-ka_k\xi^k+na_k\xi^k=0\\
+    &a_{k+1}=\frac{k-n}{(k+1)(2s+1+k)}a_k.
+\end{align}
+The requirement for the series to cut off (making $u$ a finite order polynomial) is $n_k=k$. The energies of the bound states are therefore
+\begin{align}
+    E_k&=-\frac{\alpha^2\hbar^2}{2m}s_k^2\\
+    &=-\frac{\alpha^2\hbar^2}{2m}\left[\frac{\sqrt{2mA}}{\alpha\hbar}-(k+1/2)\right]^2\\
+    &=-A\left[1-\frac{\alpha\hbar}{\sqrt{2mA}}(k+1/2)\right]^2
+\end{align}
+where the only valid $k$ are the ones where $E_k$ is in $[-A,0]$.
 
 
 \subsection{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
