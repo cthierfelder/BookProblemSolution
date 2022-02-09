@@ -19,6 +19,8 @@
 \usepackage{units}
 \usepackage{mathrsfs}
 
+
+
 \newtheorem{remark}{Remark}[section]
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -128,13 +130,13 @@ There is another theory which states that this has already happened.
     &=-2\pi\left.\frac{e^{-r^2}}{2}\right|^\infty_0=\pi
 \end{align}
 
-\subsubsection{Common integrals}
+\subsection{Common integrals}
 \begin{align}
     \int_{-\infty}^\infty dx e^{-ax^2}&=\sqrt{\frac{\pi}{a}} \qquad a>0, a\in\mathbb{R}\\
     \int_{-\infty}^\infty dx e^{-ax^2+bx+c}&=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c} \qquad a>0, a,b,c\in\mathbb{R}\\
     \int_{-\infty}^\infty dx e^{iax^2}&=\sqrt{\frac{\pi}{a}}e^{\frac{i\pi}{4}} \qquad a>0, a\in\mathbb{R}
 \end{align}
-\subsubsection{Common Fourier integrals}
+\subsection{Common Fourier integrals}
 \begin{align}
     \int_{-\infty}^\infty dy e^{-ay^2}e^{-iby}&=\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}} \qquad a>0, a,b\in\mathbb{R}\\
     \int_{-\infty}^\infty dy e^{iay^2}e^{-iby}&=\sqrt{\frac{\pi}{a}}e^{\frac{i}{4}\left(\pi-\frac{b^2}{a}\right)} \qquad a>0, a,b\in\mathbb{R}\\
@@ -142,13 +144,13 @@ There is another theory which states that this has already happened.
     &=\sqrt{\frac{\pi}{a^2+c^2}}\sqrt{a-ic}\,e^{-\frac{b^2}{4(a^2+c^2)}(a-ic)}
 \end{align}
 
-\subsubsection{Fourier transformation}
+\subsection{Fourier transformation}
 Starting from the Fourier integral theorem we have some freedom to distribute the $2\pi$ between back and forth transformation ($a,b\in\mathbb{R}$)
 \begin{align}
     F(k)=\sqrt{\frac{|b|}{(2\pi)^{1-a}}}\int_{-\infty}^\infty f(x)e^{ibkx}dx\quad\leftrightarrow\quad f(x)=\sqrt{\frac{|b|}{(2\pi)^{1+a}}}\int_{-\infty}^\infty F(t)e^{-ibkx}dk
 \end{align}
 
-\subsubsection{Delta distribution}
+\subsection{Delta distribution}
 \begin{align}
     \int\delta(x)e^{-ikx}dx&=1\\
     \int e^{ik(x-y)}dk&=2\pi\delta(x-y)
@@ -161,13 +163,14 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
     &= \sum_{x_i}\int_{(x_i-\epsilon)|f'|}^{(x_i+\epsilon)|f'|} g\left(\frac{u}{f'(x_i)}\right)\frac{1}{|f'(x_i)|}\delta\left(u-f'(x_i)x_i)\right)du\\
     &= \sum_{x_i} g(x_i)\frac{1}{|f'(x_i)|}
 \end{align}
+Important restriction: $x_i$ are the {\bf simple} zeros
 
-\subsubsection{$\Gamma$ function}
+\subsection{$\Gamma$ function}
 \begin{align}
     \Gamma(x)=\int_0^\infty t^{x-1}e^{-t} dx
 \end{align}
 
-\subsubsection{$n$-dimensional unit spheres}
+\subsection{$n$-dimensional unit spheres}
 \begin{align}
     \pi^{n/2}
     &=\left(\int_{-\infty}^\infty dt e^{-t^2}\right)^n\\
@@ -185,7 +188,7 @@ V_n
 &=\frac{|\omega_n|}{n}
 \end{align}
 
-\subsubsection{Laplace operator}
+\subsection{Laplace operator}
 \begin{align}
     \nabla\cdot X&=\frac{1}{\sqrt{|g|}}\partial_i\left(\sqrt{|g|}X^i\right)\\
     (\nabla f)^i&=g^{ij}\partial_jf\\
@@ -210,12 +213,12 @@ With $f=f(r)$ and $r=\sqrt{x_1^2+...+x_n^2}$ we have
 
 
 
-\subsubsection{Greenfunctions and PDEs}
+\subsection{Greenfunctions and PDEs}
 The Greensfunction $G(x,y)$ for a general PDE $D_x u(x) = f(x)$ is defined by
 \begin{align}
     D_x G(x,y) = \delta(x-y).
 \end{align}
-This means that general solution of the PDE can be expresses as
+This means that general solution of the PDE can be expressed as
 \begin{align}
     u(x)=\int G(x,y)f(y)dy
 \end{align}
@@ -228,10 +231,8 @@ because
     &=f(x)
 \end{align}
 
-    
-\begin{enumerate}
-    \item Poisson equation $\triangle u(x) = f(x)$
-    
+\subsubsection{Poisson equation $\triangle u(x) = f(x)$}
+        
     The $n$-dimensional Fourier transform of $\triangle_x G(x,y) = \delta(x-y)$ and integration by parts gives
     \begin{align}
         \frac{1}{(2\pi)^{n/2}}\int d^nx\,\triangle_x G(x,y) e^{-ikx}&=\frac{1}{(2\pi)^{n/2}}\underbrace{\int d^nx\,\delta(x-y) e^{-ikx}}_{=e^{-iky}}\\
@@ -324,32 +325,53 @@ Alternatively we can use the Gauss theorem with $\vec{F}=\nabla_x G(x,y)$
     \end{array}\right.
 \end{align}
 
+\subsubsection{Helmholtz equation $(\triangle +k^2)u(x)= f(x)$}
+The Greens function is given by $(\triangle_x +k^2)G(x,y)=\delta(x-y)$
 
-\item Wave equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle\right) u(x)= f(x)$
-\item Klein-Gordon equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle+\mu^2\right) u(x)= f(x)$
 
-\item Helmholtz equation $(\triangle +k^2)u(x,t)= f(x)$
-Starting from the wave equation we use the ansatz $g(x,t)=u(x)h(t)$
+\subsubsection{Wave equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle\right) u(x,t)= f(x,t)$}
+\subsubsection{Klein-Gordon equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle+\mu^2\right) u(x,t)= f(x,t)$}
+
+
+\subsubsection{Feynman propagator $\left(\triangle-k^2\right) u(x)= f(x)$}
+\subsubsection{Heat equation $\left(\partial_{t}-k\triangle\right) u(x)= f(x)$}
+\subsubsection{Relativistic Heat equation $\left(\partial_{tt}+2\gamma\partial_t-c^2\triangle\right) u(x)= f(x)$}
+
+\subsection{Probability}
+
+\begin{itemize}
+\item Hypothesis $H$: Steve is a librarian
+\item Evidence $E$: Steve likes reading books
+\end{itemize}
+Question: Whats the probability of the hypothesis is true given the evidence is true $P(H|E)$ 
 \begin{align}
-    \left(\frac{1}{c^2}\partial_{tt}-\triangle\right) g(x,t)
-    &=u(x)\frac{1}{c^2}\partial_{tt}h(t)-h(t)\triangle u(x)\\
-    &=0
+   P(H|E)\equiv\frac{P(E\cap H)}{P(E)}\qquad P(E|H)\equiv\frac{P(E\cap H)}{P(H)}\\
+   \rightarrow\qquad P(H|E)=\frac{P(E|H)\cdot P(H)}{P(E)}=\frac{P(H)\cdot P(E|H)}{P(H)\cdot P(E|H)+ P(\neg H)\cdot P(E|\neg H)}
 \end{align}
-which leads to
+alternatively
 \begin{align}
-    \frac{1}{c^2}\frac{\partial_{tt}h(t)}{h(t)}&=\frac{\triangle u(x)}{u(x)}=\text{const}=-k^2\\
-    &\rightarrow \triangle u(x) + k^2 u(x)=0
+  P(H|E)&=\frac{\#\text{allPeople}\cdot P(H)\cdot P(E|H)}{\#\text{allPeople}\cdot P(H)\cdot P(E|H)+\#\text{allPeople}\cdot P(\neg H)\cdot P(E|\neg H)}\\
+  &=\frac{P(H)\cdot P(E|H)}{P(H)\cdot P(E|H)+ P(\neg H)\cdot P(E|\neg H)}\\
+  &=\frac{P(H)\cdot P(E|H)}{P(E)}
 \end{align}
 
+\begin{center}
+        \begin{tikzpicture}
+        
+            \path[draw,line width=0.8pt] (0,0)  -- (5,0) -- (5,5) -- (0,5) -- (0,0);
+            \path[draw,line width=0.8pt] (1.6,0)  -- (1.6,5);
+            \path [fill=cyan, fill opacity=0.2] (0,0) rectangle (1.6,2);
+            \path [fill=blue, fill opacity=0.6] (1.6,0) rectangle (5,1);
+            
+            \node at (0.8,4) {$P(H)$};
+            \node at (3,4) {$P(\neg H)$};
+            \node at (0.8,0.4) {$P(E\cap H)$};
+            \node at (3,0.4) {$P(E\cap\neg H)$};
+        \end{tikzpicture}
+\end{center}
 
-\item Feynman propagator $\left(\triangle-k^2\right) u(x)= f(x)$
-\item Heat equation $\left(\partial_{t}-k\triangle\right) u(x)= f(x)$
-\item Relativistic Heat equation $\left(\partial_{tt}+2\gamma\partial_t-c^2\triangle\right) u(x)= f(x)$
-\end{enumerate}
 
-
-
-\subsubsection{Matrices}
+\subsection{Matrices}
 \begin{enumerate}
     \item inverse $A^{-1}A=\mathbb{I}$
     \begin{itemize}
@@ -364,7 +386,7 @@ which leads to
     \item Hermitian $A^\dagger = A$
 \end{enumerate}
 
-\subsubsection{Diagonalization}
+\subsection{Diagonalization}
 Any  matrix $A$ is called diagonalizable if there exists an invertible matrix $S$ such that
 \begin{align}
     D_A=S^{-1}AS
@@ -373,7 +395,7 @@ is a diagonal matrix. The diagonalizability of $A$ is equivalent to the fact tha
 
 To find $S$ and $D_A$ one has to find the eigensystem $\{\lambda_i,\vec{v}_i\}$ with $A\vec{v}_i=\lambda_i\vec{v}_i$. Then $D_AS$ and $S$ can be written as $S=(\vec{v}_1,...,\vec{v}_n)$ and $D_A=\text{diag}(\lambda_1,...,\lambda_n)$ because $AS=(A\vec{v}_1,...,A\vec{v}_n)=(\lambda_1\vec{v}_1,...,\lambda_n\vec{v}_n)=SD_A$.
 
-\subsubsection{Functional derivatives}
+\subsection{Functional derivatives}
 Let $F[\phi]$ a functional, i.e. a mapping from a Banach space $\mathcal{M}$ to the field of real or complex numbers. The functional (Frechet) derivative $\delta F[\phi]/\delta\phi$ is defined by
 \begin{align}
     \delta F
@@ -473,7 +495,7 @@ Some examples
     
 \end{enumerate}
 
-\subsubsection{Space hierarchy}
+\subsection{Space hierarchy}
 \begin{enumerate}
     \item K-Vector space $(K,\oplus,\odot)$ 
         \begin{itemize}
@@ -526,7 +548,7 @@ Some examples
 \end{enumerate}
 
 
-\subsubsection{Tensors}
+\subsection{Tensors}
 \begin{itemize}
 \item For a vector $\mathbf{A}$ the expression $\mathbf{A}^2$ is the squared distance between tip and tail.
 \item The inner product of two vectors can then be defined by the parallelogram law
@@ -758,6 +780,101 @@ and have dimension $(2\mu+1)(2\nu+1)$
 
 \newpage
 \section{Mathematical}
+\subsection{{\sc Bender, Orszag} - Advanced Mathematical Methods for Scientists and Engineers}
+\subsubsection{Problem 1.1}
+\begin{enumerate}
+    \item $y'=e^{x+y}$
+    \begin{align}
+        \int\frac{dy}{e^y}&=\int e^xdx\\
+        -e^{-y}&=e^x+c\\
+        y&=-\log\left(-e^x+c\right)
+    \end{align}
+    \item $y'=xy+x+y+1$
+    \begin{align}
+        \frac{dy}{y+1}&=x+1\\
+        \log y+1&=\frac{x^2}{2}+x+c\\
+        y&=c'e^{x/2(x+2)}-1
+    \end{align}
+\end{enumerate}
+\subsubsection{Problem 1.2}
+$y''=yy'/x$
+\begin{enumerate}
+    \item Equidimensional-in-$s$ equation
+    \begin{align}
+        x&=e^t\\
+        \frac{d}{dx}&=\frac{dt}{dx}\frac{d}{dt}\\
+        &=\frac{1}{x}\frac{d}{dt}\\
+        \frac{d^2}{dx^2}&=\frac{dt}{dx}\frac{d}{dt}\left(\frac{1}{x}\frac{d}{dt}\right)\\
+        &=\frac{1}{x}\left(-\frac{1}{x^2}x\frac{d}{dt}+\frac{1}{x}\frac{d^2}{dx^2}\right)\\
+        &=\frac{1}{x^2}\left(-\frac{d}{dt}+\frac{d^2}{dt^2}\right)
+    \end{align}
+    now with $y=y(t)$
+    \begin{align}
+        -y'+y''=yy'
+    \end{align}
+    \item Autonomous equation
+    \begin{align}
+        y'&\equiv u(y)\\
+        y''&=\frac{du}{dy}\frac{dy}{dt}=\dot u y'
+    \end{align}
+    now with $u=u(y)$
+    \begin{align}
+        -u+\dot u u&=y u\\
+        \dot u&=y+1
+    \end{align}
+    \item integration
+    \begin{align}
+        u=\frac{y^2}{2}+y+c_0
+    \end{align}
+    \item resubstitution I (with $\tan z = i\frac{e^{-iz}-e^{iz}}{e^{-iz}+e^{iz}}$)
+    \begin{align}
+        y'&=\frac{y^2}{2}+y+c_0\\
+        t+c_3&=\int\frac{dy}{y^2/2+y+c_0}\\
+        &=2\frac{1}{2\sqrt{1-2c_0}}\int dy\left(-\frac{1}{y+1+\sqrt{1-2c_0}}+\frac{1}{y+1-\sqrt{1-2c_0}}\right)\\
+        &=\frac{1}{\sqrt{1-2c_0}}\left(-\log\left[y+1+\sqrt{1-2c_0}\right]+\log\left[y+1-\sqrt{1-2c_0}\right]\right)\\
+        &=\frac{1}{\sqrt{1-2c_0}}\log\frac{y+1-\sqrt{1-2c_0}}{y+1+\sqrt{1-2c_0}}\\
+        &=\frac{1}{\sqrt{1-2c_0}}\log\frac{-i\sqrt{1-2c_0}\left(-i+\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}{i\sqrt{1-2c_0}\left(-i-\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}\\
+        &=\frac{1}{\sqrt{1-2c_0}}\log\frac{-\left(-i+\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}{\left(-i-\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}\\
+        &=\frac{2}{\sqrt{1-2c_0}}\log\sqrt{-\frac{-i+\frac{i(y+1)}{\sqrt{1-2c_0}}}{-i-\frac{i(y+1)}{\sqrt{1-2c_0}}}}\\
+        &=\frac{2}{i\sqrt{1-2c_0}}\arctan\left(-\frac{i(y+1)}{\sqrt{1-2c_0}}\right)
+    \end{align}
+    \item resubstitution II
+    \begin{align}
+        \log x+c_3&=\frac{2}{i\sqrt{1-2c_0}}\arctan \frac{y+1}{i\sqrt{1-2c_0}}\\
+        \tan\left[\frac{\sqrt{2c_0-1}}{2}(\log x+c_3)\right]&=\frac{y+1}{\sqrt{2c_0-1}}\\
+        y&=\sqrt{2c_0-1}\tan\left[\frac{\sqrt{2c_0-1}}{2}(\log x+c_3)\right]-1\\
+        y&=2c_1\tan\left[c_1\log x+c_2\right]-1
+    \end{align}
+
+\end{enumerate}
+This solution has poles at
+\begin{align}
+    \log x_P =\frac{\pi/2+k\pi-c_2}{c_1}
+\end{align}
+while the special solution $-2/(c_4+\log x)-1$ has a pole at
+\begin{align}
+    \log x_P=-c_4
+\end{align}
+???
+
+\subsubsection{Problem 1.10}
+With $y=e^{rx}$ the equation $y'''-3y''+3y'-y=0$ becomes
+\begin{align}
+    r^3-3r^2+3r-1&=0\\
+    (r-1)^3&=0
+\end{align}
+then $y=c_1e^x+c_2xe^x+c_3x^2e^x$.
+
+\subsubsection{Problem 1.11}
+We guess $y_1=e^{-x}$ and have another guess  $y_2=e^{-x}u(x)$ we see
+\begin{align}
+    r^{-x}\left(u''+xu'\right)&=0\\
+    v'+xv&=0\\
+    v&=c_0e^{-x^2/2}\\
+    u&=c_1\text{erf}\left(\frac{x}{\sqrt{2}}\right)+c_2
+\end{align}
+and therefore $y=c_3e^{-x}+c_4e^{-x}\left[\text{erf}\left(\frac{x}{\sqrt{2}}\right)+c_5\right]$
+
 \subsection{{\sc Arnol'd} - A mathematical trivium}
 \subsubsection{Problem 4}
 \begin{align}
@@ -1352,6 +1469,80 @@ The local extrema of the travel time is given by
 and therefore
 \begin{align}
 n_1\sin\alpha=n_2\sin\beta.
+\end{align}
+
+\subsection{{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell} 
+\subsubsection{Problem 2.1 - 1}
+The Klein-Gordon equations is given by
+\begin{align}
+    \left(\partial_\mu\partial^\mu+\frac{m^2c^2}{\hbar^2}\right)\varphi&=0\\
+    \left(c^2\partial_{tt}-\triangle+\frac{m^2c^2}{\hbar^2}\right)\varphi&=0
+\end{align}
+We make the ansatz
+\begin{align}
+    \varphi&=\phi_1+\phi_2\\
+    \phi_1&=\frac{1}{2}\varphi-\alpha\partial_t\varphi\\
+    \phi_2&=\frac{1}{2}\varphi+\alpha\partial_t\varphi
+\end{align}
+Then we get expressions for the time derivatives 
+\begin{align}
+    \phi_2-\phi_1&=2\alpha\partial_t\varphi\\
+    \rightarrow\partial_t\varphi&=\frac{1}{2\alpha}(\phi_2-\phi_1)
+\end{align}
+and
+\begin{align}
+    \partial_{tt}\varphi&=c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)\varphi\\
+    &=c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)(\phi_1+\phi_2)
+\end{align}
+Therefore we get for $\phi_{1,2}$
+\begin{align}
+    \partial_t\phi_1
+    &=\frac{1}{2}\partial_t\varphi-\alpha\partial_{tt}\varphi\\
+    &=\frac{1}{2\alpha}(\phi_2-\phi_1)-\alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)(\phi_1+\phi_2)\\
+    \partial_t\phi_2
+    &=\frac{1}{2}\partial_t\varphi+\alpha\partial_{tt}\varphi\\
+    &=\frac{1}{2\alpha}(\phi_2-\phi_1)+\alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)(\phi_1+\phi_2)
+\end{align}
+which we can write in the form
+\begin{align}
+i\hbar\partial_t\begin{pmatrix}
+\phi_1 \\
+\phi_2 
+\end{pmatrix}=-i\hbar\alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)
+\begin{pmatrix}
+ 1 &  1 \\
+-1 & -1 
+\end{pmatrix}\begin{pmatrix}
+\phi_1 \\
+\phi_2 
+\end{pmatrix}
++\frac{i\hbar}{2\alpha}
+\begin{pmatrix}
+-1 &  1 \\
+-1 &  1 
+\end{pmatrix}
+\begin{pmatrix}
+\phi_1 \\
+\phi_2 
+\end{pmatrix}\\
+=i\hbar\begin{pmatrix}
+-\alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)-\frac{1}{2\alpha} &  -\alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)+\frac{1}{2\alpha} \\
+\alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)-\frac{1}{2\alpha} &  \alpha c^2\left(\triangle-\frac{m^2c^2}{\hbar^2}\right)+\frac{1}{2\alpha}
+\end{pmatrix}
+\begin{pmatrix}
+\phi_1  \\
+\phi_2  
+\end{pmatrix}
+\end{align}
+Diagonalization gives
+\begin{align}
+    i\hbar\partial_t\phi&=\hat{H}\phi\\
+    \rightarrow i\hbar\partial_tS^{-1}\phi&=\underbrace{S^{-1}\hat{H}S}_{=h}S^{-1}\phi\\
+    \lambda_\pm&=\sqrt{2}mc^2\sqrt{1-\frac{\hbar^2}{m^2c^2}\triangle}
+\end{align}
+A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ look like a momentum operator
+\begin{align}
+    \i\hbar\alpha c^2=-\frac{\hbar^2}{2m}\quad\rightarrow\quad\alpha=\frac{i\hbar}{2mc^2}
 \end{align}
 
 \subsection{{\sc Schwartz} - Quantum Field Theory and the Standard Model}
@@ -3021,7 +3212,13 @@ and therefore
         &=-\int dt\left(mc^2-\frac{1}{2}mv^2\right)
     \end{align}
     
-    \item
+    \item We start with (1.2.9) and $X^\mu=X^\mu(\tau,\sigma)$
+    \begin{align}
+        S_\text{NG}
+        &=\int_Md\tau d\sigma \mathcal{L}_\text{NG}\\
+        &=-\frac{1}{2\pi\alpha'}\int_Md\tau d\sigma \sqrt{-\det h_{ab}}\\
+        &=-\frac{1}{2\pi\alpha'}\int_Md\tau d\sigma \sqrt{-\det \partial_aX^\mu\partial_bX_\mu}\\
+    \end{align}
     
 \end{enumerate}
 
@@ -3191,27 +3388,65 @@ Combining both yields
     \dot\varrho R=-3(\varrho+p)\dot{R}
 \end{align}
 which is (C). Rearranging the order of the steps gives the other two  cases.
-\item We obtain from (B)
+\item From (C) we have
 \begin{align}
-    \dot R^2&=\frac{8\pi}{3}G\varrho R^2+\frac{1}{3}\Lambda R^2-K\\
-    &\rightarrow \varrho=\frac{3}{8\pi GR^2}\left(\dot R^2-\frac{1}{3}\Lambda R^2+K\right)\\
-    &\rightarrow \varrho=\frac{3}{8\pi G}\left(\frac{\dot R^2}{R^2}-\frac{1}{3}\Lambda +\frac{K}{R^2}\right)
+    \dot\varrho &=-3(\varrho+p)\frac{\dot{R}}{R}\\
+    &=-3\varrho\left(1+k\varrho^{\gamma-1}\right)\frac{\dot{R}}{R}
 \end{align}
-and from (A)
+which can be rearranged and integrated
 \begin{align}
-    \frac{\ddot R}{R}&=-\frac{4\pi G}{3}(\varrho+3p)+\frac{1}{3}\Lambda
+    \frac{\dot{R}}{R}&=\frac{\dot\varrho}{-3\varrho\left(1+k\varrho^{\gamma-1}\right)}\\
+    &\rightarrow-\frac{1}{3(1-\gamma)}\log(k+\varrho^{1-\gamma})=\log R+c\\
+    &\rightarrow\log(k+\varrho^{1-\gamma})=-3(1-\gamma)\log R+c'\\
+    &\rightarrow k+\varrho^{1-\gamma}=e^{-3(1-\gamma)\log R+c'}\\
+    &\rightarrow k+\varrho^{1-\gamma}=c''R^{-3(1-\gamma)}\\
+    &\rightarrow \varrho=\left(c''R^{3(\gamma-1)}-k\right)^{1/(1-\gamma)}
 \end{align}
-from (C) we have
+with
 \begin{align}
-    R^3\dot\varrho+ 3R^2\dot R\varrho+3R^2\dot Rp=0\\
-    \dot\varrho+ 3\frac{\dot R}{R}(\varrho+p)=0\\
-    \dot\varrho+ 3\frac{\dot R}{R}\varrho(1+k\varrho^{\gamma-1})=0\\
+    c''&=\frac{k+\varrho_0^{1-\gamma}}{R_0^{3(\gamma-1)}}\\
+    &\quad\rightarrow\quad\varrho=\left([k+\varrho_0^{1-\gamma}]\frac{R}{R_0}^{3(\gamma-1)}-k\right)^{1/(1-\gamma)}\\
+    &\quad\rightarrow\quad\varrho=\left(k\left[\frac{R}{R_0}^{3(\gamma-1)}-1\right]+\left[\frac{R^3}{\varrho_0R_0^3}\right]^{\gamma-1}\right)^{1/(1-\gamma)}
 \end{align}
 
-and with $p=k\varrho^\gamma$ ($K$ is already in use) we have
+We obtain from (B)
 \begin{align}
-    \varrho+3p=\varrho+3k\varrho^\gamma
+    \dot R^2-\left(\frac{8\pi}{3}G\varrho +\frac{1}{3}\Lambda\right) R^2=-K
 \end{align}
+which we can interpret as motion of a particle in a changing $-R^2$ potential.
+
+\begin{center}
+\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-1.9,-4.9) grid (5.9,1.9);
+\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {$R$};
+\draw[thick,->] (0,-4.5) -- (0,1.5) node[anchor=south east] {?};
+\draw (0,0) parabola (4,-4);
+\draw (0,0) parabola (4,-3.3);
+\draw (0,0) parabola (4,-4.8);
+
+\draw[red,thick,dashed] (0,1) -- (4,1);
+\draw[red,thick,dashed] (0,0) -- (4,0);
+\draw[red,thick,dashed] (0,-1) -- (4,-1);
+
+\coordinate (A) at (0,1);
+\coordinate (B) at (0,0);
+\coordinate (C) at (0,-1);
+\node[xshift=-1.2cm] at (A) {$K=-1$};
+\node[xshift=-1.2cm] at (B) {$K=0$};
+\node[xshift=-1.2cm] at (C) {$K=+1$};
+
+\coordinate (AA) at (4,-3.3);
+\coordinate (BB) at (4,-4);
+\coordinate (CC) at (4,-4.8);
+\node[xshift=0.7cm] at (AA) {$\Lambda<0$};
+\node[xshift=0.7cm] at (BB) {$\Lambda=0$};
+\node[xshift=0.7cm] at (CC) {$\Lambda>0$};
+\end{tikzpicture}
+\end{center}
+
+
+
+
 \end{enumerate}
 
 \section{Quantum Mechanics}
@@ -3700,6 +3935,225 @@ with $m_B=5m_A$ we have
     g_M=\frac{GM_M}{R_M^2}&=\frac{4}{3}G\rho_M R_M=\frac{4}{3}G (0.537\rho_E) (0.716R_E)=0.384 \cdot g_E
 \end{align}
 
+\subsubsection{Problem Set 1b  3-3 - 1962 Jan 16 (?.??)}
+\begin{enumerate}
+    \item 
+    \item For the angular momentum (without precision) we get
+    \begin{align}
+        L=J\omega=\frac{1}{2}MR^2\omega
+    \end{align}
+    \item With a little geometry we see
+    \begin{align}
+        \frac{d\vec{L}}{dt}&=\vec{a}\times\vec{M}=M\vec{a}\times\vec{g}\\
+        \frac{dL}{L}&=\sin d\phi\approx d\phi\\
+        &\rightarrow\Omega_1=\frac{d\phi}{dt}=\frac{Mag}{L}=\frac{2ag}{R^2\omega}\\
+        &\rightarrow\omega=\frac{2ag}{R^2\Omega_1}
+    \end{align}
+    \item
+\end{enumerate}
+
+\subsection{{\sc Jackson} - Classical Electrodynamics}
+\subsubsection{Exercise 12.1 Lagrangian of point charge}
+\begin{enumerate}
+\item With $U^\alpha=\frac{dx_\alpha}{ds}$
+\begin{align}
+	L&=-\frac{mU_\alpha U^\alpha}{2}-\frac{q}{c}U_\alpha A^\alpha\\
+	\frac{\partial L}{\partial x_\beta}&=-\frac{q}{c}U_\alpha\frac{\partial A^\alpha}{\partial x_\beta}\\
+	\frac{\partial L}{\partial U_\beta}&=-mU^\beta-\frac{q}{c}A^\beta
+\end{align}
+\begin{align}
+	-m\frac{d}{ds}\left(\frac{dU^\beta}{ds}\right)-\frac{q}{c}\frac{dA^\beta}{ds}+\frac{q}{c}U_\alpha\frac{\partial A^\alpha}{\partial x_\beta}=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{dA^\beta}{ds}-\frac{q}{c}\frac{dx_\alpha}{ds}\frac{\partial A^\alpha}{\partial x_\beta}=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\left(\frac{\partial A^\beta}{\partial x^\alpha}\frac{\partial x^\alpha}{\partial s}\right)-\frac{q}{c}\frac{dx_\alpha}{ds}\frac{\partial A^\alpha}{\partial x_\beta}=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{\partial x^\alpha}{\partial s}\left(\frac{\partial A^\beta}{\partial x^\alpha}-\frac{\partial A^\alpha}{\partial x_\beta}\right)=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{\partial x^\alpha}{\partial s}F^{\alpha\beta}=0
+\end{align}
+\item Bit of a odd sign convention for the canonical momentum
+\begin{align}
+P^\beta&=-\frac{\partial L}{\partial U_\beta}=mU^\beta+\frac{q}{c}A^\beta\quad\rightarrow\quad U^\beta=\frac{1}{m}\left(P^\beta-\frac{q}{c}A^\beta\right)\\
+H&=P^\alpha U_\alpha+L\\
+&=P^\alpha\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)-\frac{m}{2}\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)-\frac{q}{c}\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)A^\alpha\\
+&=\frac{1}{2m}\left(P^\alpha-\frac{q}{c}A^\alpha\right)\left(P_\alpha-\frac{q}{c}A_\alpha\right)
+\end{align}
+In space-time coordinates we can write
+\begin{align}
+H&=\frac{1}{2m}\left((p_0)^2-\vec{p}^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2q}{c}[\vec{p}\cdot\vec{A}-p^0\phi]\right)\\
+&=\frac{1}{2m}\left((\gamma m c)^2-(\gamma m\vec{v})^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2q}{c}[\gamma m\vec{v}\cdot\vec{A}-\gamma m c\phi]\right)\\
+&=\frac{\gamma^2mc^2}{2}\left(1-\frac{\vec{v}^2}{c^2}\right)+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]\\
+&=\frac{mc^2}{2}+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]
+\end{align}
+\end{enumerate}
+
+\subsection{{\sc Schwinger} - Classical Electrodynamics}
+\subsubsection{Exercise 31.1 Potentials of moving point charge}
+\begin{align}
+    w=z-vt
+    \rightarrow
+    \frac{\partial}{\partial z}&=\frac{\partial w}{\partial z}\frac{\partial}{\partial w}\\
+    \rightarrow\frac{\partial^2}{\partial z^2}&=\frac{\partial^2 w}{\partial z^2}\frac{\partial}{\partial w}+\left(\frac{\partial w}{\partial z}\right)^2\frac{\partial^2}{\partial w^2}=\frac{\partial^2}{\partial w^2}\\
+    \rightarrow\frac{\partial^2}{\partial t^2}&=\frac{\partial^2 w}{\partial t^2}\frac{\partial}{\partial w}+\left(\frac{\partial w}{\partial t}\right)^2\frac{\partial^2}{\partial w^2}=v^2\frac{\partial^2}{\partial w^2}
+\end{align}
+then
+\begin{align}
+    \triangle-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}&=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial w^2}-\frac{v^2}{c^2}\frac{\partial^2}{\partial w^2}\\
+    &=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\left(1-\frac{v^2}{c^2}\right)\frac{\partial^2}{\partial w^2}\\
+    &=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}
+\end{align}
+with with $u=w/\sqrt{1-v^2/c^2}$. The wave equation can then be rewritten
+\begin{align}
+    -\Box\phi&=4\pi\rho\\
+    &=4\pi e\delta(x)\delta(y)\delta(z-vt)\\
+    -\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}\right)\phi&=4\pi e\delta(x)\delta(y)\delta\left(\sqrt{1-\frac{v^2}{c^2}}u\right)\\
+    &=\frac{4\pi}{\sqrt{1-\frac{v^2}{c^2}}} e\delta(x)\delta(y)\delta\left(u\right)
+\end{align}
+Using the Green function of the Coulomb equation (13.3) we obtain
+\begin{align}
+    \phi&=\frac{e}{\sqrt{1-\frac{v^2}{c^2}}\sqrt{u^2+x^2+y^2}}\\
+    &=\frac{e}{\sqrt{w^2+(1-\frac{v^2}{c^2})(x^2+y^2})}\\
+    &=\frac{e}{\sqrt{(z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2})}
+\end{align}
+For the vector potential we can calculate similarly
+\begin{align}
+    -\Box\vec{A}&=4\pi\frac{\vec{j}}{c}\\
+    -\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}\right)\vec{A}&=4\pi e\frac{\vec{v}}{c}\delta(x)\delta(y)\delta\left(\sqrt{1-\frac{v^2}{c^2}}u\right)\\
+    &=\frac{4\pi}{\sqrt{1-\frac{v^2}{c^2}}} e\frac{\vec{v}}{c}\delta(x)\delta(y)\delta\left(u\right)
+\end{align}
+which gives $\vec{A}=\vec{v}/c\phi$.
+
+\subsubsection{Exercise 31.2 Fields of moving point charge}
+\begin{align}
+	\vec{E}&=-\nabla\phi-\frac{1}{c}\frac{\partial\vec{A}}{\partial t}\\
+	&=\frac{e}{2}\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[(1-\frac{v^2}{c^2})2x,(1-\frac{v^2}{c^2})2y,2(z-vt)(1-\frac{v^2}{c^2})]\\
+	&=e(1-\frac{v^2}{c^2})\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[x,y,(z-vt)]\\
+	\vec{B}&=\nabla\times\vec{A}\\
+	&=-e\frac{v}{c}(1-\frac{v^2}{c^2})\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[y,x,0]
+\end{align}
+
+\subsubsection{Exercise 31.4 Wave equation for fields}
+With
+\begin{align}
+\nabla\times\vec{B}&=\frac{1}{c}\frac{\partial}{\partial t}\vec{E}+\frac{4\pi}{c}\vec{j}_e\\
+\nabla\cdot\vec{E}&=4\pi\rho_e\\
+-\nabla\times\vec{E}&=\frac{1}{c}\frac{\partial}{\partial t}\vec{B}+\frac{4\pi}{c}\vec{j}_m\\
+\nabla\cdot\vec{B}&=4\pi\rho_m
+\end{align}
+we obtain
+\begin{align}
+\nabla\times\nabla\times\vec{B}
+&=\nabla(\nabla\cdot\vec{B})-\triangle\vec{B}\\
+&=4\pi\nabla\rho_m-\triangle\vec{B}\\
+&=\frac{1}{c}\frac{\partial}{\partial t}\nabla\times\vec{E}+\frac{4\pi}{c}\nabla\times\vec{j}_e\\
+&=-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\vec{B}-\frac{4\pi}{c^2}\frac{\partial}{\partial t}\vec{j}_m+\frac{4\pi}{c}\nabla\times\vec{j}_e\\
+&\rightarrow-\Box\vec{B}=-4\pi\nabla\rho_m+\frac{4\pi}{c}(\nabla\times\vec{j}_e-\frac{1}{c}\frac{\partial}{\partial t}\vec{j}_m)
+\end{align}
+
+\begin{align}
+\nabla\times\nabla\times\vec{E}
+&=\nabla(\nabla\cdot\vec{E})-\triangle\vec{E}\\
+&=4\pi\nabla\rho_e-\triangle\vec{E}\\
+&=-\frac{1}{c}\frac{\partial}{\partial t}\nabla\times\vec{B}-\frac{4\pi}{c}\nabla\times\vec{j}_m\\
+&=-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\vec{E}-\frac{4\pi}{c^2}\frac{\partial}{\partial t}\vec{j}_e-\frac{4\pi}{c}\nabla\times\vec{j}_m\\
+&\rightarrow-\Box\vec{E}=-4\pi\nabla\rho_e+\frac{4\pi}{c}(\nabla\times\vec{j}_m-\frac{1}{c}\frac{\partial}{\partial t}\vec{j}_e)
+\end{align}
+
+\subsubsection{Exercise 31.5 Lienard-Wiechert potentials}
+\begin{align}
+\phi(\vec{r},t)&=\int d\vec{r}'dt'\frac{\delta(\frac{1}{c}|\vec{r}-\vec{r}'|-(t-t'))}{|\vec{r}-\vec{r}'|}\rho(\vec{r}',t')\\
+&=\int d\vec{r}'dt'\frac{\delta(t'-t+\frac{1}{c}|\vec{r}-\vec{r}'|)}{|\vec{r}-\vec{r}'|}e\delta(\vec{r}'-\vec{r}_B(t'))\\
+&=e\int d\vec{r}'\frac{1}{|\vec{r}-\vec{r}'|}\delta(\vec{r}'-\vec{r}_B(t-\frac{1}{c}|\vec{r}-\vec{r}'|))
+\end{align}
+\begin{align}
+\delta(\vec{r}'-\vec{r}_B(t-\frac{1}{c}|\vec{r}-\vec{r}'|))&=\delta(f(\vec{r}'))\\
+&=\sum\frac{\delta(\vec{r}')}{|f'(\vec{r}')|}
+\end{align}
+
+\begin{align}
+&=e\int d\vec{r}'\frac{1}{|\vec{r}-\vec{r}'|}\sum\frac{}{}
+%\vec{A}(\vec{r},t)&=\int d\vec{r}'dt'\frac{\delta(\frac{1}{c}|\vec{r}-\vec{r}'|-(t-t'))}{|\vec{r}-\vec{r}'|}\frac{1}{c}\vec{j}(\vec{r}',t')
+\end{align}
+
+
+\subsubsection{Exercise 38.1 Total radiated power}
+We observe
+\begin{align}
+\frac{\lambda}{(1+\lambda\beta)^4}=-\frac{1}{\beta(1+\lambda\beta)^4}+\frac{1}{\beta(1+\lambda\beta)^3}.    
+\end{align}
+Then
+\begin{align}
+    f(\lambda)&=\frac{2}{(1+\lambda\beta)^3}\left(-\frac{\beta^2}{2}+\frac{\lambda\beta}{8}\frac{\beta^2-1}{1+\lambda\beta}\right)\\
+    &=-\beta^2\frac{1}{(1+\lambda\beta)^3}+\frac{\beta(\beta^2-1)}{4}\frac{\lambda}{(1+\lambda\beta)^4}\\
+    &=\left(-\beta^2+\frac{\beta^2-1}{4}\right)\frac{1}{(1+\lambda\beta)^3}-\frac{(\beta^2-1)}{4}\frac{1}{(1+\lambda\beta)^4}\\
+    \int_{-1}^1f(\lambda)d\lambda&=-\frac{1+3\lambda^2}{4}
+\end{align}
+
+
+\subsection{{\sc Smythe} - Static and Dynamic Electricity}
+\subsubsection{Exercise 1.1 Two coaxial rings and a point charge}
+Total charge of an axial ringlike charge distribution
+\begin{align}
+    Q&=\int \rho_0(\varphi')\delta(z'-0)\delta(r'-a) d\varphi' dz' dr'\\
+    &=2\pi a\rho_0
+\end{align}
+which means that the 1-dimensional charge density is $\rho_0=Q/2\pi a$.
+The axial potential of a single ring is then
+\begin{align}
+    \phi(z)&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho_0\delta(z'-0)\delta(r'-a)}{\sqrt{a^2+z^2}}r d\varphi' dz' dr'\\
+    &=\frac{1}{4\pi\varepsilon_0}2\pi a \rho_0\frac{1}{\sqrt{a^2+z^2}}\\
+    &=\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+z^2}}
+\end{align}
+therefore we get for the energies
+\begin{align}
+    W_1&=\frac{qQ_1}{4\pi\varepsilon_0}\frac{1}{a}+\frac{qQ_2}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+b^2}}\\
+    W_2&=\frac{qQ_1}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+b^2}}+\frac{qQ_2}{4\pi\varepsilon_0}\frac{1}{a}
+\end{align}
+solving the linear system for the charges $Q_{1,2}$ we obtain
+\begin{align}
+    Q_1&=\frac{4\pi\varepsilon_0}{qb^2}\sqrt{a^2+b^2}\left(\sqrt{a^2+b^2}W_1-aW_2\right)\\
+    Q_2&=\frac{4\pi\varepsilon_0}{qb^2}\sqrt{a^2+b^2}\left(-aW_1+\sqrt{a^2+b^2}W_2\right).
+\end{align}
+
+\subsubsection{Exercise 1.3 Flux of two point charges through circle}
+For the flux we have
+\begin{align}
+    N&\equiv\int\vec{E}\cdot d\vec{A}\\
+    &=\int E \cos(\vec{E},\vec{n})\ dA\\
+    &=2\pi\int\frac{q}{4\pi\varepsilon_0(a^2+r^2)}\frac{a}{\sqrt{a^2+r^2}}rdr-2\pi\int\frac{Q}{4\pi\varepsilon_0(a^2+r^2)}\frac{a}{\sqrt{a^2+r^2}}rdr\\
+    &=\frac{2\pi a}{4\pi\varepsilon_0}(q-Q)\int_0^a\frac{1}{(a^2+r^2)^{3/2}}rdr\\
+    &=\frac{1}{4\varepsilon_0}(q-Q)\left(2-\sqrt{2}\right)
+\end{align}
+therefore
+\begin{align}
+    Q=q-\frac{4N\varepsilon_0}{2-\sqrt{2}}.
+\end{align}
+
+\subsubsection{Exercise 1.4 Concentric charged rings}
+The axial potential of a single ring is with radius $a$ and charge $Q=2\pi a\rho_0$ is
+\begin{align}
+    \phi(x)&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho_0\delta(z'-0)\delta(r'-a)}{\sqrt{a^2+x^2}}r d\varphi' dz' dr'\\
+    &=\frac{1}{4\pi\varepsilon_0}2\pi a \rho_0\frac{1}{\sqrt{a^2+x^2}}\\
+    &=\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+x^2}}
+\end{align}
+The total potential and the resulting electrical field is therefore
+\begin{align}
+    \phi(x)&=-\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a_1^2+x^2}}+\frac{\sqrt{27}Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a_2^2+x^2}}\\
+    E_x&=-\frac{\partial\phi}{\partial x}\\
+    &=\frac{Qx}{4\pi\varepsilon_0}\left(-\frac{1}{(a_2^2+x^2)^{3/2}}+\frac{\sqrt{27}}{(a_2^2+x^2)^{3/2}}\right)
+\end{align}
+which only vanishes for
+\begin{align}
+    x=0,\pm\sqrt{\frac{-3a_1^2+a2^2}{2}}.
+\end{align}
+Due to the radial symmetry the other field components at this points vanish too.
+
+\subsubsection{Exercise 12.1 Linear quadrupole}
+\begin{align}
+    \beta&=\omega\sqrt{\mu\epsilon}\\
+    q_{zz}^{(2)}&=a^2q\sin\omega t\\
+    8\pi\epsilon\vec{Z}_{zz}&=a^2q\sin\omega t\left(\frac{\beta}{r}-\frac{j}{r^2}\right)(\vec{r}_1\cos\theta-\vec{\theta}\sin\theta)\cos\theta e^{-j\beta r}\\
+    %E_r&=...\\
+    %E_\theta&=...\\
+    %B_\phi&=...
+\end{align}
 
 \subsection{{\sc Thorne, Blandford} - Modern Classical Physics}
 \subsubsection{Exercise 1.1 Practice: Energy Change for Charged Particle}
