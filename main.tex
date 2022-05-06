@@ -165,12 +165,12 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
 \end{align}
 Important restriction: $x_i$ are the {\bf simple} zeros
 
-\subsection{$\Gamma$ function}
+\subsection{\texorpdfstring{$\Gamma$}{TEXT} function}
 \begin{align}
     \Gamma(x)=\int_0^\infty t^{x-1}e^{-t} dx
 \end{align}
 
-\subsection{$n$-dimensional unit spheres}
+\subsection{\texorpdfstring{$n$}{TEXT}-dimensional unit spheres}
 \begin{align}
     \pi^{n/2}
     &=\left(\int_{-\infty}^\infty dt e^{-t^2}\right)^n\\
@@ -231,7 +231,7 @@ because
     &=f(x)
 \end{align}
 
-\subsubsection{Poisson equation $\triangle u(x) = f(x)$}
+\subsubsection{Poisson equation \texorpdfstring{$\triangle u(x) = f(x)$}{TEXT}}
         
     The $n$-dimensional Fourier transform of $\triangle_x G(x,y) = \delta(x-y)$ and integration by parts gives
     \begin{align}
@@ -325,17 +325,20 @@ Alternatively we can use the Gauss theorem with $\vec{F}=\nabla_x G(x,y)$
     \end{array}\right.
 \end{align}
 
-\subsubsection{Helmholtz equation $(\triangle +k^2)u(x)= f(x)$}
+\subsubsection{Helmholtz equation \texorpdfstring{$(\triangle +k^2)u(x)= f(x)$}{TEXT}}
 The Greens function is given by $(\triangle_x +k^2)G(x,y)=\delta(x-y)$
 
 
-\subsubsection{Wave equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle\right) u(x,t)= f(x,t)$}
-\subsubsection{Klein-Gordon equation $\left(\frac{1}{c^2}\partial_{tt}-\triangle+\mu^2\right) u(x,t)= f(x,t)$}
+\subsubsection{Wave equation \texorpdfstring{$\left(\frac{1}{c^2}\partial_{tt}-\triangle\right) u(x,t)= f(x,t)$}{TEXT}}
+
+\subsubsection{Klein-Gordon equation \texorpdfstring{$\left(\frac{1}{c^2}\partial_{tt}-\triangle+\mu^2\right) u(x,t)= f(x,t)$}{TEXT}}
 
 
-\subsubsection{Feynman propagator $\left(\triangle-k^2\right) u(x)= f(x)$}
-\subsubsection{Heat equation $\left(\partial_{t}-k\triangle\right) u(x)= f(x)$}
-\subsubsection{Relativistic Heat equation $\left(\partial_{tt}+2\gamma\partial_t-c^2\triangle\right) u(x)= f(x)$}
+\subsubsection{Feynman propagator \texorpdfstring{$\left(\triangle-k^2\right) u(x)= f(x)$}{TEXT}}
+
+\subsubsection{Heat equation \texorpdfstring{$\left(\partial_{t}-k\triangle\right) u(x)= f(x)$}{TEXT}}
+
+\subsubsection{Relativistic Heat equation \texorpdfstring{$\left(\partial_{tt}+2\gamma\partial_t-c^2\triangle\right) u(x)= f(x)$}{TEXT}}
 
 \subsection{Probability}
 
@@ -380,6 +383,10 @@ alternatively
     \item Hermitian transpose $A^\dagger = (\overline{A})^T = \overline{A^T}$
         \begin{itemize}
         \item $(AB)^\dagger=B^\dagger A^\dagger$ therefore $\mathbb{I}=(AA^{-1})^\dagger=(A^{-1})^\dagger A^\dagger\quad\rightarrow\quad (A^\dagger)^{-1}=(A^{-1})^\dagger$
+        \begin{align}
+        \langle x |A y\rangle=\sum_k x_k^* (\vec{A}_{\text{row}k}\cdot\vec{y})=\sum_{k,l} x_k^* A_{kl}y_l\\
+        \langle Bx |y\rangle = \sum_k(\vec{B}_{\text{row}k}\cdot \vec{x})^*y_k= \sum_{k,l}B_{kl}^*x_l^*y_k
+        \end{align}
     \end{itemize}
     \item Orthorgonal $A^T = A^{-1}$
     \item Unitary $A^\dagger = A^{-1}$
@@ -780,6 +787,19 @@ and have dimension $(2\mu+1)(2\nu+1)$
 
 \newpage
 \section{Mathematical}
+
+\subsection{{\sc Andrews} - Number theory}
+\subsubsection{Problem 1.1}
+Lets cut the chase
+\begin{align}
+\frac{n(n+1)(2n+1)}{6}+(n+1)^2
+&=(n+1)\frac{n(2n+1)+6(n+1)}{6}\\
+&=\frac{(n+1)}{6}(2n^2+7n+6)\\
+&=\frac{(n+1)}{6}(n+2)(2n+3)\\
+&=\frac{(n+1)}{6}(n+2)(2(n+1)+1)\\
+&=\frac{(n+1)(n+2)(2(n+1)+1)}{6}\\
+\end{align}
+
 \subsection{{\sc Bender, Orszag} - Advanced Mathematical Methods for Scientists and Engineers}
 \subsubsection{Problem 1.1}
 \begin{enumerate}
@@ -1925,11 +1945,10 @@ We can plug this into the full Lagrangian (renaming the summation index)
 \begin{align}
     \mathscr{L}&=-\frac{1}{2}A_\mu \Box A_\mu+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
     &=\frac{1}{2}A_\mu\left(-\Box+m^2 \right)A_\mu-A_\mu J_\mu\\
-\end{align}
-    
+\end{align}    
 \end{enumerate}
 
-\section{Quantum Field Theory}
+
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 1.2 - Schroedinger equation}
 \begin{align}
@@ -1950,6 +1969,11 @@ We can plug this into the full Lagrangian (renaming the summation index)
         &=\sum_{j\neq k}^n \delta^3(x-x_k)\delta^3(y-x_j)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-2) \times a^\dagger}|0\rangle
     \end{align}
     we obtain
+	\begin{align}
+		i\hbar\frac{\partial}{\partial t}|\psi,t\rangle
+		&=\int d^3x_1...d^3x_n\frac{\partial}{\partial t}\psi(x_1,...,x_n;t)a^\dagger(x_1)...a^\dagger(x_n)|0\rangle 
+	\end{align}
+    and
     \begin{align}
         H|\psi,t\rangle=&\sum_{k=1}^na^\dagger(x_k)\left(-\frac{\hbar^2}{2m}\triangle_{x_k}+V(x_k)\right)\psi(x_1,...,x_n;t)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-1) \times a^\dagger}|0\rangle\\
         &+\frac{1}{2}\sum_{j\neq k}^nV(x_k-x_j)\psi(x_1,...,x_n;t)a^\dagger(x_k)a^\dagger(x_j)\underbrace{a^\dagger(x_1)...a^\dagger(x_n)}_{(n-2) \times a^\dagger}|0\rangle
@@ -2150,7 +2174,7 @@ therefore
     \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 3.3 - Dimension of $\phi$}
+\subsubsection{Problem 3.3 - Dimension of \texorpdfstring{$\phi$}{TEXT}}
 \begin{enumerate}
     \item With $c=1=\hbar$ we see
     \begin{align}
@@ -2212,7 +2236,7 @@ Therefore
     &= \frac{1}{4\pi r} e^{-mr}
 \end{align}
 
-\subsubsection{Problem 3.9 - $\zeta$ function regularization}
+\subsubsection{Problem 3.9 - \texorpdfstring{$\zeta$}{TEXT} function regularization}
 \begin{enumerate}
     \item Calculation the Taylor expansion (using L'Hopital's rule for the limits) we obtain
     \begin{align}
@@ -2773,7 +2797,245 @@ From equating coefficients and powers (in $t$) we obtain
 \end{align}
 
 \newpage
+\section{Particle Physics}
+\subsection{{\sc Nagashima} - Elementary Particle Physics Volume 1: Quantum Field Theory and Particles}
+\subsubsection{Problem 2.1}
+\begin{enumerate}
+\item Simple calculation
+\begin{align}
+\alpha=\frac{e^2}{4\pi\epsilon_0\hbar c}&=\frac{1.6^2\cdot 10^{-38}}{12\cdot 9\cdot 10^{-12}\cdot 10^{-34}\cdot3\cdot10^8}\\
+&=\frac{1}{108}10^{-38+34}\frac{1}{10^{-12+8}}\\
+&\approx\frac{1}{137}
+\end{align}
+\begin{align}
+\alpha_G=G_N\frac{m_em_p}{\hbar c}&=7\cdot10^{-11}\frac{10^{-30}\cdot2\cdot10^{-27}}{10^{-34}\cdot3\cdot10^8}\\
+&=4\cdot10^{-11-30-27}\frac{1}{10^{-34+8}}\\
+&=4\cdot10^{-42}
+\end{align}
+\item Another simple one
+\begin{align}
+1=G\frac{m_P^2}{\hbar c}\quad\rightarrow\quad m_P&=\sqrt{\frac{\hbar c}{G}}=2\cdot10^{-8}\text{kg}\\
+E_P&=m_Pc^2=\sqrt{\frac{\hbar c^5}{G}}=2\cdot10^9\text{J}=1.2\cdot10^{19}\text{eV}
+\end{align}
+
+\subsubsection{Problem 2.3}
+Basic approximation with $\Delta m = m$
+\begin{align}
+\Delta E\cdot\Delta t&\approx\frac{\hbar}{2}\\
+\Delta t&\approx\frac{\hbar}{2\Delta m\cdot c^2}\\
+\Delta x&=c\cdot\Delta t\approx\frac{\hbar}{2\Delta m\cdot c}\\
+\end{align}
+Forgetting the factor 2 and knowing $1\text{GeV}^{-1}= 0.197\cdot10^{-15}\text{s}$
+\begin{align}
+\Delta x_W&=\frac{1}{80}\frac{1}{\text{GeV}}=2.4\cdot10^{-18}\\
+\Delta x_Z&=\frac{1}{91}\frac{1}{\text{GeV}}=2.16\cdot10^{-18}
+\end{align}
+\end{enumerate}
+
+\subsubsection{Problem 2.4}
+\begin{align}
+\Delta m &= \frac{\hbar}{\Delta x c}\\
+\Delta E &= \Delta m c^2=\frac{\hbar c}{\Delta x}\\
+\Delta E_\text{crab}&=2\cdot10^{-25}\text{eV}\\
+\Delta E_\text{galactic}&=2\cdot10^{-29}\text{eV}
+\end{align}
+
+\newpage
+\section{General Relativity}
+
+\subsection{{\sc Coleman} - Sidney Coleman’s Lectures On Relativity}
+\subsubsection{Problem 1.1}
+Lets simplify
+\begin{align}
+\tau(b)-\tau(a)=\int_a^b\sqrt{dt^2-dx^2-dy^2-dz^2}
+\end{align}
+into a 1-dimensional problem 
+\begin{align}
+\tau(b)-\tau(a)=\int_a^bdt\sqrt{1-v^2}
+\end{align}
+First let's calculate the linear worldline
+\begin{align}
+\Delta\tau_A&=\int_{(0,0,0,0)}^{(t_1,x_1,0,0)}dt\sqrt{1-v^2}\\
+&=t_1\sqrt{1-\left(\frac{x_1}{t_1}\right)^2}\\
+&=\sqrt{t_1^2-x_1^2}
+\end{align}
+Now split the worldline into two linear pieces
+\begin{align}
+\Delta\tau_B&=\int_{(0,0,0,0)}^{(t_0,x_0,0,0)}dt\sqrt{1-v^2}+\int_{(t_0,x_0,0,0)}^{(t_1,x_1,0,0)}dt\sqrt{1-v^2}\\
+&=t_0\sqrt{1-\left(\frac{x_0}{t_0}\right)^2}+(t_1-t_0)\sqrt{1-\left(\frac{x_1-x_0}{t_1-t_0}\right)^2}\\
+&=\sqrt{t_0^2-x_0^2}+\sqrt{(t_1-t_0)^2-(x_1-x_0)^2}
+\end{align}
+
+
+\section{General Relativity}
+\subsection{{\sc Carroll} - Spacetime an Geometry}
+\subsubsection{Problem 1.7}
+\begin{enumerate}
+\item Because the metric is symmetric
+\begin{align}
+ X^\mu_{\;\;\nu}&=\eta_{\nu\alpha}X^{\mu\alpha}=X^{\mu\alpha}\eta_{\alpha\nu}\equiv X\eta\\
+ &=\begin{pmatrix}
+-2 & 0 & 1 & -1\\
+1 & 0 & 3 &  2\\
+1 & 1 & 0 & 0\\
+2 & 1 & 1 & -2
+\end{pmatrix}
+\end{align}
+
+\item
+\begin{align}
+ X_\mu^{\;\;\nu}&=\eta_{\nu\alpha}X^{\alpha\nu}\equiv\eta X\\
+ &=\begin{pmatrix}
+-2 & 0 & -1 & 1\\
+-1 & 0 & 3 &  2\\
+-1 & 1 & 0 & 0\\
+-2 & 1 & 1 & -2
+\end{pmatrix}
+\end{align}
+
+\item 
+\begin{align}
+X^{(\mu\nu)}&=\frac{1}{2}(X^{\mu\nu}+X^{\nu\mu})\\
+&=\begin{pmatrix}
+2     & -1/2 & 0.  & -3/2\\
+-1/2 & 0    & 2   &  3/2\\
+0     & 2    & 0   & 1/2\\
+-3/2 & 3/2 & 1/2 & -2
+\end{pmatrix}
+\end{align}
+
+\item 
+\begin{align}
+X_{\mu\nu}&=\eta_{\mu\alpha}\eta_{\nu\beta}X^{\alpha\beta}\equiv\eta X\eta\\
+&=\begin{pmatrix}
+2 & 0 & -1 & 1\\
+1 & 0 & 3 &  2\\
+1 & 1 & 0 & 0\\
+2 & 1 & 1 & -2
+\end{pmatrix}\\
+X_{[\mu\nu]}&=\frac{1}{2}(X_{\mu\nu}-X_{\nu\mu})\\
+&=\begin{pmatrix}
+0    & -1/2 & -1  & -1/2\\
+1/2 & 0    & 1  &  1/2\\
+1    & -1    & 0   & -1/2\\
+1/2 & -1/2 & 1/2 & 0
+\end{pmatrix}
+\end{align}
+
+\item 
+\begin{align}
+ X^\lambda_{\;\;\lambda}&=\eta_{\lambda\alpha}X^{\lambda\alpha}=X^{\lambda_\alpha}\eta_{\alpha\lambda}\equiv  \text{Tr}(X\eta)=-4\\
+\end{align}
+
+\item 
+\begin{align}
+V^\mu V_\mu = V^\mu \eta_{\mu\nu}V^\nu=7
+\end{align}
+
+\item 
+\begin{align}
+V_\mu X^{\mu\nu} = V^\alpha\eta_{\alpha\mu} X^{\mu\nu}\equiv V\eta X=(4,-2,5,7)
+\end{align}
+\end{enumerate}
+
+
+\subsubsection{Problem 3.3 - Christoffel symbols for diagonal metric}
+With $g_{\mu\nu}=\text{diag}(g_{11},g_{22},g_{33},g_{44})$ the inverse is given by $g^{\mu\nu}=\text{diag}(1/g_{11},1/g_{22},1/g_{33},1/g_{44})$. Now for $\mu\neq\mu\neq\lambda$ we obtain
+\begin{align}
+\Gamma^\lambda_{\mu\nu}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\mu \underbrace{g_{\nu\lambda}}_{=0}+\partial_\nu \underbrace{g_{\mu\lambda}}_{=0}-\partial_\lambda \underbrace{g_{\mu\nu}}_{=0})\\
+&=0
+\end{align}
+
+\begin{align}
+\Gamma^\lambda_{\mu\mu}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\mu\sigma}+\partial_\mu g_{\mu\sigma}-\partial_\sigma g_{\mu\mu})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\mu g_{\mu\lambda}+\partial_\mu g_{\mu\lambda}-\partial_\lambda g_{\mu\mu})\\
+&=-\frac{1}{2}\frac{1}{g_{\lambda\lambda}}\partial_\lambda g_{\mu\mu}
+\end{align}
+
+\begin{align}
+\Gamma^\lambda_{\mu\lambda}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\lambda g_{\mu\sigma}+\partial_\mu g_{\lambda\sigma}-\partial_\sigma g_{\lambda\mu})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\lambda g_{\mu\lambda}+\partial_\mu g_{\lambda\lambda}-\partial_\lambda g_{\lambda\mu})\\
+&=\frac{1}{2}\frac{1}{g^{\lambda\lambda}}\partial_\mu g_{\lambda\lambda}\\
+&=\frac{1}{2}\frac{1}{\text{sgn}\cdot|g^{\lambda\lambda}|}\partial_\mu (\text{sgn}\cdot|g_{\lambda\lambda}|)\\
+&=\frac{1}{2}\frac{1}{|g^{\lambda\lambda}|}\partial_\mu (|g_{\lambda\lambda}|)\\
+&=\frac{1}{2}\partial_\mu \log|g_{\lambda\lambda}|\\
+&=\partial_\mu \log\sqrt{|g_{\lambda\lambda}|}
+\end{align}
+
+\begin{align}
+\Gamma^\lambda_{\lambda\lambda}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\lambda g_{\lambda\sigma}+\partial_\lambda g_{\lambda\sigma}-\partial_\sigma g_{\lambda\lambda})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\lambda g_{\lambda\lambda}+\partial_\lambda g_{\lambda\lambda}-\partial_\lambda g_{\lambda\lambda})\\
+%&=\frac{1}{2}g^{\lambda\lambda}\partial_\lambda g_{\lambda\lambda}\\
+&=\frac{1}{2}\frac{\partial_\lambda g_{\lambda\lambda}}{g_{\lambda\lambda}}\\
+&=\partial_\lambda \log \sqrt{|g_{\lambda\lambda}|}
+\end{align}
+
+\subsection{{\sc Poisson} - A relativists toolkit}
+\subsubsection{Problem 1.1 - Parallel transport on cone}
+\begin{enumerate}
+\item We find the metric by using elementary geometry
+\begin{align}
+ds^2 = dr^2+(r\sin\alpha)^2d\phi^2
+\end{align}
+
+\item Trying around a bit - we find
+\begin{align}
+x&=r\cos(\phi \sin\alpha)\\
+y&=r\sin(\phi \sin\alpha)
+\end{align}
+\begin{align}
+x=f(r,\phi)\quad\rightarrow\quad dx&=\frac{\partial f}{\partial r}dr+\frac{\partial f}{\partial \phi}d\phi\\
+dx&=\cos(\phi\sin\alpha)dr-r\sin(\phi\sin\alpha)\sin\alpha\;d\phi\\
+y=g(r,\phi)\quad\rightarrow\quad dy&=\frac{\partial g}{\partial r}dr+\frac{\partial g}{\partial \phi}d\phi\\
+dy&=\sin(\phi\sin\alpha)dr+r\cos(\phi\sin\alpha)\sin\alpha\;d\phi
+\end{align}
+We can then simply check $ds^2=dx^2+dy^2$
+
+
+\item The parallel transport equation for a vector $A^\lambda$ along curve $x^\mu(s)$ is given by
+\begin{align}
+\dot x^\mu\nabla_\mu A^\lambda=0\\
+\frac{dx^\mu}{ds}\partial_\mu A^\lambda+\Gamma^\lambda_{\mu\nu}\dot x^{\mu}A^\nu=0\\
+\frac{\partial A^\lambda}{\partial s}+\Gamma^\lambda_{\mu\nu}\dot x^{\mu}A^\nu=0
+\end{align}
+We are moving the vector $\vec{A}=(A_r,A_\phi)$ along $\vec{x}(s)=(r,s)$ with $s\in[0,2\pi]$ and $\dot{\vec{x}}(s)=(0,1)$. Calculating the Christoffel symbols gives 
+\begin{align}
+\Gamma^\lambda_{\mu\nu}&=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu})\\
+\Gamma^r_{\phi\phi}&=-r\sin^2\alpha\\
+\Gamma^\phi_{r\phi}&=1/r\\
+\Gamma^\phi_{\phi r}&=1/r
+\end{align}
+and the parallel transport equations simplify to
+\begin{align}
+\dot{A}_r+\Gamma^r_{\phi\phi}\dot{x}_\phi A_\phi=0&\quad\rightarrow\quad \dot{A}_r-r\sin^2\alpha A_\phi=0\\
+\dot{A}_\phi+\Gamma^\phi_{\phi r}\dot{x}_\phi A_r=0&\quad\rightarrow\quad \dot{A}_\phi+\frac{1}{r}A_r=0.
+\end{align}
+which can be solved by Mathematica. To obtain the angle $\beta$ we calculate first the norm of the vector at a given $t$
+\begin{align}
+	|\vec{A}(t)|&=g_{\mu\nu}A^\mu(t) A^\nu(t)\\
+	&=A_r(0)^2+A_\phi(0)^2r^2\sin^2\alpha.
+\end{align}
+Now we can calculate the inner product
+\begin{align}
+	\vec{A}(t=2\pi)\cdot\vec{A}(0)&=g_{\mu\nu}A^\mu(t) A^\nu(0)\\
+	&=(A_r(0)^2+A_\phi(0)^2r^2\sin^2\alpha)\cos(2\pi\sin\alpha)
+\end{align}
+so $\cos\beta=\cos(2\pi\sin\alpha)$.
+
+\end{enumerate}
+
+
+
+\newpage
 \section{Quantum Gravity}
+\subsection{{\sc Hartman} - Lectures on Quantum Gravity and Black Holes}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Ammon, Erdmenger %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3680,8 +3942,223 @@ the energy is therefore given by
     A_{n=1}^{n=0}&=\frac{4e^2\omega_0^3}{3c^3\hbar}\left|[\vec{x}]_{01}\right|^2\\
     &=\frac{2e^2\omega_0^2}{3c^3M}
 \end{align}
-where with (1.4.15)
+where with (1.4.15).
 \end{itemize}
+
+\subsection{{\sc Sakurai, Napolitano} - Modern Quantum Mechanics 3rd ed}
+\subsubsection{5.1 Harmonic oscillator with linear perturbation}
+The Hamiltonians are given by
+\begin{align}
+\hat{H}_0&=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}m\omega_o^2x^2\\
+\hat{H}_1&=bx
+\end{align}
+We remember
+\begin{align}
+\phi_0(x)&=\left(\frac{m\omega_0}{\pi\hbar}\right)^{1/4}e^{-m\omega_0x^2/2\hbar}\\
+E_0&=\frac{1}{2}\hbar\omega_0\\
+\phi_n(x)&=\frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega_0}{\pi\hbar}\right)^{1/4}e^{-m\omega_0x^2/2\hbar}H_n\left(\sqrt{\frac{m\omega_0}{\hbar}}x\right)\\
+E_n&=\hbar\omega_0\left(n+\frac{1}{2}\right)
+\end{align}
+\begin{enumerate}
+\item Time independent perturbation theory gives
+\begin{align}
+\Delta E_n^{(1)}&=\langle n^{(0)}|\hat{H}_1|n^{(0)}\rangle\\
+\Delta E_0^{(1)}&=\langle 0^{(0)}|\hat{H}_1|0^{(0)}\rangle =0
+\end{align}
+The first order energy shift vanishes because of the wave function is even and $H_1$ is odd.
+For the first order perturbation of the wave function we observe
+\begin{align}
+H_1(x)&=2xH_0(x)\quad\rightarrow\quad\hat{H}_1|0^{(0)}\rangle=\frac{b}{2}\sqrt{2}\sqrt{\frac{\hbar}{m\omega_0}}|1^{(0)}\rangle\\
+\langle m^{(0)}|n^{(0)}\rangle&=\delta_{nm}
+\end{align}
+Now we can calculate  
+\begin{align}
+|n^{(1)}\rangle&=\sum_{k\neq n}\frac{\langle k^{(0)}|\hat{H}_1|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle\\
+|0^{(1)}\rangle&=\frac{\langle 0^{(0)}|\hat{H}_1|1^{(0)}\rangle}{E_0^{(0)}-E_1^{(0)}}|1^{(0)}\rangle\\
+&=-\frac{1}{\hbar\omega_0}b\sqrt{\frac{\hbar}{2m\omega_0}}|1^{(0)}\rangle\\
+&=-b\sqrt{\frac{1}{2m\hbar\omega_0^3}}|1^{(0)}\rangle
+\end{align}
+Second order enegy perturbation
+\begin{align}
+\Delta E_n^{(2)}&=\langle n^{(0)}|\hat{H}_1|n^{(1)}\rangle=\sum_{k\neq n}\frac{|\langle k^{(0)}|\hat{H}_1|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}\\
+\Delta E_0^{(2)}&=\langle 0^{(0)}|\hat{H}_1|0^{(1)}\rangle\\
+&=b\sqrt{\frac{\hbar}{2m\omega_0}}\langle 1^{(0)}|0^{(1)}\rangle\\
+&=b\sqrt{\frac{\hbar}{2m\omega_0}}\langle 1^{(0)}|\left(-b\sqrt{\frac{1}{2m\hbar\omega_0^3}}\right)|1^{(0)}\rangle\\
+&=-b^2\frac{1}{2m\omega_0^2}
+\end{align}
+\item The linear perturbation does not change the shape of the potential - only shifts the minimum 
+\begin{align}
+ V(x)&=\frac{m\omega_0^2}{2}x^2+bx=\frac{m\omega_0^2}{2}\left(x+\frac{b}{m\omega_0^2}\right)^2-\frac{b^2}{2m\omega_0^2}\\
+\Delta E^{(\infty)}&=-\frac{b^2}{2m\omega_0^2} 
+\end{align}
+\end{enumerate}
+So the second order gives the exact result - interesting to see if higher orders would all  vanish or give oscillating contributions.  
+
+\subsubsection{5.2 Potential well with linear slope}
+We will treat the slope as a perturbation with
+\begin{align}
+\hat{H}_1=\frac{V}{L}x
+\end{align} 
+Therefore the unperturbed wave functions are given by
+\begin{align}
+\phi_n=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L}\qquad
+E_n=\frac{\pi^2\hbar^2}{2mL^2}n^2
+\end{align}
+Then
+\begin{align}
+\Delta E_n^{(1)}
+&=\langle n^{(0)}|\hat{H}_1|n^{(0)}\rangle\\
+&=\frac{V}{L}\frac{2}{L}\int_0^L x\sin^2\frac{n\pi x}{L}dx\\
+&=\frac{2V}{L^2}\int_0^L x\sin^2\frac{n\pi x}{L}dx\\
+&=\frac{2V}{L^2}\int_0^L x\left(1-\cos^2\frac{n\pi x}{L}\right)dx\\
+&=\frac{2V}{L^2}\frac{L^2}{2}-\Delta E_n^{(1)}
+\end{align}
+meaning $\Delta E_n^{(1)}=V/2$.
+
+\subsubsection{5.3 Relativistic perturbation}
+We can approximate the kinetic energy by
+\begin{align}
+E&=\sqrt{m^2c^4+p^2c^2}\\
+&\approx mc^2+\frac{p^2}{2m}-\frac{p^4}{8m^3c^2}+\frac{p^6}{16m^5c^4}+\cdots\\
+&=mc^2+\frac{mc^2}{2}\frac{p^2}{m^2c^2}-\frac{mc^2}{8}\frac{p^4}{m^4c^4}+\cdots\\
+&=mc^2\left(1+\frac{1}{2}\beta^2-\frac{1}{8}\beta^4+\cdots\right)
+\end{align}
+so
+\begin{align}
+\hat{H}_0&=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}m\omega^2x^2\\
+\hat{H}_1&=-\frac{1}{8m^3c^2}p^4=-\frac{\hbar^4}{8m^3c^2}\frac{d^4}{dx^4}
+\end{align}
+and we remember
+\begin{align}
+\phi_0(x)&=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-m\omega x^2/2\hbar}\\
+E_0&=\frac{1}{2}\hbar\omega_0
+\end{align}
+then
+\begin{align}
+\Delta E_0^{(1)}&=\langle 0^{(0)}|\hat{H}_1|0^{(0)}\rangle\\
+&=-\frac{\hbar^4}{8m^3c^2}\int_{-\infty}^\infty\phi_0(x)^*\frac{d^4}{d^4x}\phi_0(x)dx\\
+&=-\frac{3\hbar^2\omega^2}{32mc^2}
+\end{align}
+
+\subsubsection{5.4 Diatomic atomic rotor}
+Hamiltonian of the problem is given by
+\begin{align}
+H=\frac{L^2}{2I}\quad\rightarrow\quad\hat{H}&=-\frac{\hbar^2}{2I}\frac{d^2}{d\varphi^2}
+\end{align}
+with the unperturbed solutions
+\begin{align}
+\phi_n^{(0)}&=C e^{in\phi}\qquad E_n^{(0)}=\frac{\hbar^2n^2}{2I}
+\end{align}
+where only $E_0$  is non-degenerate (all other are double degenerated). 
+For the perturbation we use the Hamiltonian
+\begin{align}
+\hat{H}_1&=Ed\cos\varphi
+\end{align}
+Hmmm....
+
+
+\subsubsection{5.6 Two dimensional potential well}
+As the problem separates 
+\begin{align}
+\left(\hat{H}_x+\hat{H}_y\right)\phi_x\phi_y=(E_x+E_y)\phi_x\phi_y\\
+\phi_y\hat{H}_x\phi_x+\phi_x\hat{H}_y\phi_y=(E_x+E_y)\phi_x\phi_y\\
+\frac{\hat{H}_x\phi_x}{\phi_x}+\frac{\hat{H}_y\phi_y}{\phi_y}=(E_x+E_y)
+\end{align}
+the wave function can be written as a product of the 1-dimensional wave functions
+\begin{align}
+\phi_{n_x,n_y}&=\sqrt{\frac{2}{L}}\sqrt{\frac{2}{L}}\sin\left(\frac{n_x\pi}{L}x\right)\sin\left(\frac{n_y\pi}{L}y\right)\\
+E_{n_x,n_y}&=\frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2)
+\end{align}
+So 
+\begin{align}
+\phi_{1,1}\quad\rightarrow\quad E_{1,1}&=2\frac{\pi^2\hbar^2}{2mL^2}\\
+\phi_{2,1},\phi_{1,2}\quad\rightarrow\quad E_{2,1}&=5\frac{\pi^2\hbar^2}{2mL^2}\\
+\phi_{2,2}\quad\rightarrow\quad E_{1,1}&=8\frac{\pi^2\hbar^2}{2mL^2}
+\end{align}
+for the non-degenerated levels $E_{1,1}$ and $E_{2,2}$ we get
+\begin{align}
+\Delta E_{1,1}^{(1)}&=\langle 1,1^{(0)}|\hat{H}_1|1,1^{(0)}\rangle\\
+&=\frac{1}{4}\lambda L^2\\
+\Delta E_{2,2}^{(1)}&=\langle 2,2^{(0)}|\hat{H}_1|2,2^{(0)}\rangle\\
+&=\frac{1}{4}\lambda L^2
+\end{align}
+and for the degenerated levels $E_{1,2}/E_{2,1}$ we get
+\begin{align}
+H=
+\begin{pmatrix}
+\langle 1,2^{(0)}|\hat{H}_1|1,2^{(0)}\rangle & \langle 1,2^{(0)}|\hat{H}_1|2,1^{(0)}\rangle\\
+\langle 2,1^{(0)}|\hat{H}_1|1,2^{(0)}\rangle & \langle 2,1^{(0)}|\hat{H}_1|2,1^{(0)}\rangle
+\end{pmatrix}
+\end{align}
+with
+\begin{align}
+H_{aa}&=\langle 1,2^{(0)}|\hat{H}_1|1,2^{(0)}\rangle=\frac{\lambda L^2}{4}\\
+H_{ab}&=\langle 1,2^{(0)}|\hat{H}_1|2,1^{(0)}\rangle=\frac{256\lambda L^2}{81\pi^4}\\
+H_{bb}&=\langle 2,1^{(0)}|\hat{H}_1|2,1^{(0)}\rangle=\frac{\lambda L^2}{4}
+\end{align}
+and $\hat{H}_1=\lambda x y$ Diagonalising the matrix $H$ gives the perturbation
+\begin{align}
+\Delta E_{12,21}^{(1)}=\frac{\lambda L^2}{4}-\frac{256\lambda L^2}{81\pi^4}\\
+\Delta E_{12,21}^{(1)}=\frac{\lambda L^2}{4}+\frac{256\lambda L^2}{81\pi^4}\\
+\end{align}
+
+
+\subsubsection{5.8 Quadratically perturbed harmonic oscillator}
+\begin{align}
+\hat{H}_1=\epsilon\frac{1}{2}m\omega^2x^2
+\end{align}
+
+\begin{align}
+H_0(x)&=1\\
+H_2(x)&=4x^2-2\quad\rightarrow\quad x^2=\frac{H_2}{4}+\frac{1}{2}
+\end{align}
+
+
+\subsubsection{8.1 Natural units}
+\begin{enumerate}
+\item Proton Mass
+\begin{align}
+      E_p=m_pc^2/e=0.937\text{GeV}
+\end{align}
+\item With $\Delta p\cdot\Delta x\ge\hbar/2$ and $E=\sqrt{m^2c^4+p^2c^2}\approx pc$
+\begin{align}
+	E=\Delta p c/e=98.6\text{MeV}
+\end{align}
+Alternatively we have $E=\frac{\hbar c}{e\cdot dx}$ meaning $1\text{fm}=\frac{1}{197.3\text{MeV}}$ and therefore
+\begin{align}
+	E=\frac{\hbar}{2\cdot\Delta x}c=197.3/2\text{MeV}
+\end{align}
+\item Solving for $\alpha,\beta,\gamma$
+\begin{align}
+	M_P
+	&=G^\alpha c^\beta \hbar^\gamma\\
+	&=\left(\frac{\text{Nm}^2}{\text{kg}^2}\right)^\alpha\left(\frac{\text{m}}{\text{s}}\right)^\beta\left(\text{Js}\right)^\gamma\\
+	&=\sqrt{\frac{\hbar c}{G}}\\
+	E_P&=\sqrt{\frac{\hbar c}{G}}c^2\frac{1}{e}=1.22\cdot10^{19}\text{GeV}
+\end{align}
+\end{enumerate}
+\subsubsection{8.2 Minkowski Metric}
+The definition implies that $\eta_{\lambda\nu}$ is the inverse of $\eta^{\lambda\nu}$ - simple calculation shows that they are identical. Now we can calculate
+\begin{align}
+\eta^{\mu\lambda}\eta^{\nu\sigma}\eta_{\lambda\sigma}
+&=\eta^{\nu\sigma}\delta^\mu_\sigma\\
+&=\eta^{\nu\mu}
+\end{align}
+and
+\begin{align}
+a^\mu b_\mu=a_\alpha\eta^{\alpha\mu}b^\beta\eta_{\beta\mu}=a_\alpha b^\beta\delta^\alpha_\beta=a_\alpha b^\alpha
+\end{align}
+
+
+\subsection{{\sc Bethe, Jackiw} - Intermediate Quantum Mechanics}
+\subsubsection{1.1 Atomic units}
+Set $\hbar=e=m_e=1$ and $a_B=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}=1$ then $4\pi\varepsilon_0=1$ and therefore $\alpha=\frac{e^2}{4\pi\varepsilon_0\hbar c}=1/c$
+\begin{enumerate}
+\item energy: $E_{1s}=\frac{1}{2}m_ec^2\alpha^2$ therefore 1 a.u. = $2\times13.6$eV
+\item momentum: $p=m_e c$ therefore 1 a.u. = $2\cdot 10^{-31}\text{kg}\times 3\cdot 10^8\text{m/s}^2=2.73\cdot10^{-22}$J
+\item angular momentum: $L=\hbar$ therefore 1 a.u. = $1.04\cdot10^{-34}$Js 
+\end{enumerate}
+
 
 
 \section{General Physics}
@@ -3951,6 +4428,39 @@ with $m_B=5m_A$ we have
     \end{align}
     \item
 \end{enumerate}
+
+\subsubsection{Problem Set 1c  13-1 - 1962 May 25 (?.??)}
+We cheat a little and use the Lagrange formalism 
+\begin{align}
+L&=T-V\\
+&=\frac{m_1}{2}\dot{x}^2+\frac{m_2}{2}\dot{y}^2-\frac{k_1}{2}x^2-\frac{k_2}{2}y^2-\frac{k}{2}(x-y)^2
+\end{align}
+then
+\begin{align}
+\frac{\partial L}{\partial x_i}-\frac{d}{dt}\frac{\partial L}{\partial\dot{x}_i}=0
+\end{align}
+gives
+\begin{align}
+m_1\ddot{x}+k_1x+k(x-y)=0\quad\rightarrow\quad \ddot{x}+\omega_0^2x+\frac{k}{m_1}(x-y)=0\\
+m_2\ddot{y}+k_2y-k(x-y)=0\quad\rightarrow\quad \ddot{y}+\omega_0^2y+\frac{k}{m_2}(y-x)=0
+\end{align}
+
+\subsubsection{Problem Set 1c  13-2 - 1962 May 25 (?.??)}
+We obtain
+\begin{align}
+-A\omega^2+A\omega_0^2+\frac{k}{m_1}(A-B)=0\\
+-B\omega^2+B\omega_0^2+\frac{k}{m_2}(B-A)=0
+\end{align}
+and therefore
+\begin{align}
+\omega^2=\omega_0^2+\frac{k}{m_1}(1-B/A)\\
+\omega^2=\omega_0^2+\frac{k}{m_2}(1-A/B)
+\end{align}
+both expressions give the same valuers for $\omega$ if
+\begin{align}
+A/B=1\quad&\rightarrow\quad \omega=\omega_0\\
+A/B=-m_2/m_1\quad&\rightarrow\quad \omega=\sqrt{\omega_0+\frac{k}{m_1}+\frac{k}{m_2}}
+\end{align} 
 
 \subsection{{\sc Jackson} - Classical Electrodynamics}
 \subsubsection{Exercise 12.1 Lagrangian of point charge}
@@ -5175,8 +5685,56 @@ Important general principles
     \end{enumerate}
 \end{itemize}
 
+\newpage
+\section{Finance stuff for Aki}
+Stochastic ODE for Geometric Brownian motion
+\begin{align}
+ dS_t=\mu S_t dt+\sigma S_t dW_t
+\end{align}
+Solving it via Ito's Lemma gives
+\begin{align}
+ S_t=S_0 \exp\left(\left(\mu-\frac{\sigma^2}{2}\right)t+\sigma W_t\right)
+\end{align}
+The transition probability for the price going from $S_0$ at time $t=0$ to $S_t$ at time $t$ (with fixed $\sigma$ and $\mu$) is given by (only stating the result)
+\begin{align}
+f(S_t,t,S_0,t;\mu,\sigma)=\frac{1}{\sqrt{2\pi}}\frac{1}{\sigma\sqrt{t} S_t}\exp\left(-\frac{\left[\log\frac{S_t}{S_0}-\left(\mu-\frac{1}{2}\sigma^2\right)t\right]^2}{2\sigma^2 t}\right)
+\end{align}
+You numbers are
+\begin{itemize}
+\item $S_{max}=0.9\; S_0$ price down 10\%
+\item $\sigma=0.24$
+\item $\mu=0.05$ maybe 5\% discount rate
+\item $t=1/12$ meaning one month
+\end{itemize}
+so market being down 10\% means integrate over the tail of the probability density 
+\begin{align}
+p&=\int_0^{0.9S_0} f(S_t,t,S_0,t;\mu,\sigma) dS_t\\
+&=0.061\\
+&=6.1\%
+\end{align}
+
 \newpage 
-\section{Companion for Banks book}
+\section{Companion for Dyson QFT book}
+\begin{enumerate}
+\item Calculating 2.1 (9)
+\begin{align}
+\frac{\partial\psi}{\partial t}&=-\sum_k c\alpha^k\frac{\partial\psi}{\partial x_k}-i\frac{mc^2}{\hbar}\beta\psi\\
+\frac{\partial\psi^*}{\partial t}&=-\sum_k c\frac{\partial\psi^*}{\partial x_k}\alpha^{k*}+i\frac{mc^2}{\hbar}\psi^*\beta^*
+\end{align}
+then
+\begin{align}
+\frac{\partial\rho}{\partial t}
+&=\frac{\partial\psi*}{\partial t}\psi+\psi^*\frac{\partial\psi}{\partial t}\\
+&=-\sum_k c\left(\frac{\partial\psi^*}{\partial x_k}\alpha^{k*}\psi+\psi^*\alpha^k\frac{\partial\psi}{\partial x_k}\right)+i\frac{mc^2}{\hbar}(\psi^*\beta^*\psi-\psi^*\beta\psi)\\
+&\overset{\beta=\beta^*}{=}-\sum_k c\left(\frac{\partial\psi^*}{\partial x_k}\alpha^{k*}\psi+\psi^*\alpha^k\frac{\partial\psi}{\partial x_k}\right)\\
+&\overset{\alpha=\alpha^*}{=}-\sum_k c\left(\frac{\partial\psi^*}{\partial x_k}\alpha^{k}\psi+\psi^*\alpha^k\frac{\partial\psi}{\partial x_k}\right)\\
+&=-c\partial_k(\psi^*\alpha^k\psi)
+\end{align}
+so $j_k=\psi^*\alpha^k\psi$.
+\end{enumerate}
+
+\newpage 
+\section{Companion for Banks QFT book}
 \begin{enumerate}
 \item Obtaining (1.2)
 \begin{align*}
@@ -5382,7 +5940,7 @@ Every finite simple group is isomorphic to one of the following groups:
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=8cm]{PTFSG.jpg}
+    %\includegraphics[width=8cm]{PTFSG.jpg}
     \caption{Periodic table of finite simple groups }
     \label{fig:galaxy}
 \end{figure}
@@ -5552,7 +6110,7 @@ Killing classification of simple Lie groups
 \end{remark}
 
 \section{Example representations}
-\subsection{Cyclic group $Z_2$}
+\subsection{Cyclic group \texorpdfstring{$Z_2$}{TEXT}}
 \begin{align}
 \begin{array}{c||cc}
 Z_2 & e & p \\ \hline\hline
@@ -5566,7 +6124,7 @@ D(e)&=1,\quad D(p)=1\\
 D'(e)&=1,\quad D'(p)=-1
 \end{align}
 
-\subsection{Cyclic group $Z_3$}
+\subsection{Cyclic group \texorpdfstring{$Z_3$}{TEXT}}
 \begin{align}
 \begin{array}{c||ccc}
 Z_3 & e & a & b \\ \hline\hline
@@ -5610,7 +6168,7 @@ D(b)=\left(\begin{array}{ccc}
 \end{align}
 
 
-\subsection{Group $S_3$}
+\subsection{Group \texorpdfstring{$S_3$}{TEXT}}
 \begin{align}
 \begin{array}{c||cccccc}
 S_3 & e   & a_1 & a_2 & a_3 & a_4 & a_5\\ \hline\hline

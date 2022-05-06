@@ -1,224 +1,255 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}Useful formulas}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Common integrals}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Common Fourier integrals}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Fourier transformation}{7}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Delta distribution}{7}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}$\Gamma $ function}{8}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}$n$-dimensional unit spheres}{8}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Laplace operator}{9}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Greenfunctions and PDEs}{9}{subsection.2.8}%
-\contentsline {subsubsection}{Poisson equation $\triangle u(x) = f(x)$}{10}{section*.2}%
-\contentsline {subsubsection}{Helmholtz equation $(\triangle +k^2)u(x)= f(x)$}{11}{section*.3}%
-\contentsline {subsubsection}{Wave equation $\left (\frac {1}{c^2}\partial _{tt}-\triangle \right ) u(x,t)= f(x,t)$}{12}{section*.4}%
-\contentsline {subsubsection}{Klein-Gordon equation $\left (\frac {1}{c^2}\partial _{tt}-\triangle +\mu ^2\right ) u(x,t)= f(x,t)$}{12}{section*.5}%
-\contentsline {subsubsection}{Feynman propagator $\left (\triangle -k^2\right ) u(x)= f(x)$}{12}{section*.6}%
-\contentsline {subsubsection}{Heat equation $\left (\partial _{t}-k\triangle \right ) u(x)= f(x)$}{12}{section*.7}%
-\contentsline {subsubsection}{Relativistic Heat equation $\left (\partial _{tt}+2\gamma \partial _t-c^2\triangle \right ) u(x)= f(x)$}{12}{section*.8}%
-\contentsline {subsection}{\numberline {2.9}Probability}{12}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Matrices}{12}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Diagonalization}{13}{subsection.2.11}%
-\contentsline {subsection}{\numberline {2.12}Functional derivatives}{13}{subsection.2.12}%
-\contentsline {subsection}{\numberline {2.13}Space hierarchy}{15}{subsection.2.13}%
-\contentsline {subsection}{\numberline {2.14}Tensors}{16}{subsection.2.14}%
-\contentsline {section}{\numberline {3}Primer special relativity}{18}{section.3}%
-\contentsline {section}{\numberline {4}Groups}{19}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Overview}{19}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}SO(2)}{20}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}SO(3)}{20}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}SU(2)}{20}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}SU(3)}{20}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Lorentz group O(1,3)}{20}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Mathematical}{22}{section.5}%
-\contentsline {subsection}{\numberline {5.1}{\sc Bender, Orszag} - Advanced Mathematical Methods for Scientists and Engineers}{22}{subsection.5.1}%
-\contentsline {subsubsection}{Problem 1.1}{22}{section*.9}%
-\contentsline {subsubsection}{Problem 1.2}{22}{section*.10}%
-\contentsline {subsubsection}{Problem 1.10}{24}{section*.11}%
-\contentsline {subsubsection}{Problem 1.11}{24}{section*.12}%
-\contentsline {subsection}{\numberline {5.2}{\sc Arnol'd} - A mathematical trivium}{24}{subsection.5.2}%
-\contentsline {subsubsection}{Problem 4}{24}{section*.13}%
-\contentsline {subsubsection}{Problem 13}{24}{section*.14}%
-\contentsline {subsubsection}{Problem 20}{24}{section*.15}%
-\contentsline {subsubsection}{Problem 23}{25}{section*.16}%
-\contentsline {subsubsection}{Problem 85}{25}{section*.17}%
-\contentsline {subsection}{\numberline {5.3}{\sc Spivak} - Calculus on Manifolds}{26}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}{\sc Flanders} - Differential Forms with Applications to the Physical Sciences}{26}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}{\sc Morse, Feshbach} - Methods of mathematical physics}{26}{subsection.5.5}%
-\contentsline {subsubsection}{Problem 1.1}{26}{section*.18}%
-\contentsline {subsubsection}{Problem 4.1}{27}{section*.19}%
-\contentsline {subsection}{\numberline {5.6}{\sc Woit} - Quantum Theory, Groups and Representations}{28}{subsection.5.6}%
-\contentsline {subsubsection}{Problem B.1-3}{28}{section*.20}%
-\contentsline {subsubsection}{Problem B.1-4}{28}{section*.21}%
-\contentsline {subsubsection}{Problem B.2-1}{29}{section*.22}%
-\contentsline {subsubsection}{Problem B.2-2}{30}{section*.23}%
-\contentsline {subsection}{\numberline {5.7}{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}{31}{subsection.5.7}%
-\contentsline {subsubsection}{Problem I.1 - Plane waves in vacuum}{31}{section*.24}%
-\contentsline {subsubsection}{Problem I.7 - Adding and multiplying vector fields}{32}{section*.25}%
-\contentsline {section}{\numberline {6}Many-body physics}{32}{section.6}%
-\contentsline {subsection}{\numberline {6.1}{\sc Coleman} - Introduction to Many-Body Physics}{32}{subsection.6.1}%
-\contentsline {subsubsection}{Problem 2.1 - Specific heat capacity of a solid}{32}{section*.26}%
-\contentsline {section}{\numberline {7}Quantum Field Theory}{33}{section.7}%
-\contentsline {subsection}{\numberline {7.1}{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}{33}{subsection.7.1}%
-\contentsline {subsubsection}{Problem 1.1 - Snell's law via Fermat's principle}{33}{section*.27}%
-\contentsline {subsection}{\numberline {7.2}{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell}{34}{subsection.7.2}%
-\contentsline {subsubsection}{Problem 2.1 - 1}{34}{section*.28}%
-\contentsline {subsection}{\numberline {7.3}{\sc Schwartz} - Quantum Field Theory and the Standard Model}{35}{subsection.7.3}%
-\contentsline {subsubsection}{Problem 2.2 Special relativity and colliders}{35}{section*.29}%
-\contentsline {subsubsection}{Problem 2.3 GZK bound}{36}{section*.30}%
-\contentsline {subsubsection}{Problem 2.5 Compton scattering}{38}{section*.31}%
-\contentsline {subsubsection}{Problem 2.6 Lorentz invariance}{39}{section*.32}%
-\contentsline {subsubsection}{Problem 2.7 Coherent states}{40}{section*.33}%
-\contentsline {subsubsection}{Problem 3.5 Spontaneous symmetry}{42}{section*.34}%
-\contentsline {subsubsection}{Problem 3.6 Yukawa potential}{42}{section*.35}%
-\contentsline {section}{\numberline {8}Quantum Field Theory}{44}{section.8}%
-\contentsline {subsection}{\numberline {8.1}{\sc Srednicki} - Quantum Field Theory}{44}{subsection.8.1}%
-\contentsline {subsubsection}{Problem 1.2 - Schroedinger equation}{44}{section*.36}%
-\contentsline {subsubsection}{Problem 6.1 - Path integral in quantum mechanics}{44}{section*.37}%
-\contentsline {subsection}{\numberline {8.2}{\sc Kachelriess} - Quantum Fields - From the Hubble to the Planck scale}{47}{subsection.8.2}%
-\contentsline {subsubsection}{Problem 1.1 - Units}{47}{section*.38}%
-\contentsline {subsubsection}{Problem 3.2 - Maxwell Lagrangian}{48}{section*.39}%
-\contentsline {subsubsection}{Problem 3.3 - Dimension of $\phi $}{49}{section*.40}%
-\contentsline {subsubsection}{Problem 3.5 - Yukawa potential}{50}{section*.41}%
-\contentsline {subsubsection}{Problem 3.9 - $\zeta $ function regularization}{51}{section*.42}%
-\contentsline {subsubsection}{Problem 4.1 - $Z[J]$ at order $\lambda $ in $\phi ^4$ theory}{52}{section*.43}%
-\contentsline {subsubsection}{Problem 19.1 - Dynamical stress tensor}{53}{section*.44}%
-\contentsline {subsubsection}{Problem 19.6 - Dirac-Schwarzschild}{54}{section*.45}%
-\contentsline {subsubsection}{Problem 23.1 - Conformal transformation}{54}{section*.46}%
-\contentsline {subsubsection}{Problem 23.2 - Conformal transformation properties}{55}{section*.47}%
-\contentsline {subsubsection}{Problem 23.6 - Reflection formula}{56}{section*.48}%
-\contentsline {subsubsection}{Problem 23.7 - Unruh temperature}{57}{section*.49}%
-\contentsline {subsubsection}{Problem 24.14 - Jeans length and the \leavevmode {\color {red}speed of sound}}{57}{section*.50}%
-\contentsline {subsubsection}{Problem 26.4 - Fixed points of (26.18)}{57}{section*.51}%
-\contentsline {subsubsection}{Problem 26.5 - Tracker solution}{59}{section*.52}%
-\contentsline {section}{\numberline {9}Quantum Gravity}{61}{section.9}%
-\contentsline {subsection}{\numberline {9.1}{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}{61}{subsection.9.1}%
-\contentsline {subsubsection}{Problem 1.1.1 - Fourier representation of free scalar field}{61}{section*.53}%
-\contentsline {subsubsection}{Problem 1.1.2 - Lagrangian of self-interacting scalar field}{61}{section*.54}%
-\contentsline {subsubsection}{Problem 1.1.3 - Complex scalar field }{62}{section*.55}%
-\contentsline {subsubsection}{Problem 1.2.1 - Time-independence of Noether charge}{62}{section*.56}%
-\contentsline {subsubsection}{Problem 1.2.2 - Hamiltonian of scalar field}{63}{section*.57}%
-\contentsline {subsubsection}{Problem 1.2.3 - Symmetric energy-momentum tensor}{63}{section*.58}%
-\contentsline {subsubsection}{Problem 1.2.4 - Callan-Coleman-Jackiw energy-momentum tensor}{65}{section*.59}%
-\contentsline {subsubsection}{Problem 1.2.6 - $O(n)$ invariance of action of $n$ free scalar fields}{66}{section*.61}%
-\contentsline {subsubsection}{Problem 1.3.1 - Field commutators of scalar field}{67}{section*.62}%
-\contentsline {subsubsection}{Problem 1.3.2 - Lorentz invariant integration measure}{68}{section*.63}%
-\contentsline {subsubsection}{Problem 1.3.3 - Retarded Green function}{69}{section*.64}%
-\contentsline {subsubsection}{Problem 1.3.4 - Feynman rules of $\phi ^4$ theory}{70}{section*.65}%
-\contentsline {subsubsection}{Problem 1.3.5 - Convergence of perturbative expansion}{70}{section*.66}%
-\contentsline {subsubsection}{Problem 1.3.6}{70}{section*.67}%
-\contentsline {subsubsection}{Problem 1.3.7}{70}{section*.68}%
-\contentsline {subsubsection}{Problem 1.3.8}{70}{section*.69}%
-\contentsline {section}{\numberline {10}String Theory}{71}{section.10}%
-\contentsline {subsection}{\numberline {10.1}{\sc Zwiebach} - A First Course in String Theory }{71}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}{\sc Becker, Becker, Schwarz} - String Theory and M-Theroy }{71}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}{\sc Polchinski} - String Theory Volumes 1 and 2 }{71}{subsection.10.3}%
-\contentsline {subsubsection}{Problem 1.1 - Non-relativistic action limits}{71}{section*.70}%
-\contentsline {section}{\numberline {11}Astrophysics}{71}{section.11}%
-\contentsline {subsection}{\numberline {11.1}{\sc Carroll, Ostlie} - An Introduction to Modern Astrophysics}{71}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}{\sc Weinberg} - Lecture on Astrophysics}{71}{subsection.11.2}%
-\contentsline {subsubsection}{Problem 1 - Hydrostatics of spherical star}{71}{section*.71}%
-\contentsline {subsubsection}{Problem 2 - CNO cycle}{72}{section*.72}%
-\contentsline {subsubsection}{Problem 3}{72}{section*.73}%
-\contentsline {subsubsection}{Problem 4}{72}{section*.74}%
-\contentsline {subsubsection}{Problem 5 - Radial density expansion for a polytrope}{72}{section*.75}%
-\contentsline {subsubsection}{Problem 6}{73}{section*.76}%
-\contentsline {subsubsection}{Problem 7}{74}{section*.77}%
-\contentsline {subsubsection}{Problem 8}{74}{section*.78}%
-\contentsline {subsubsection}{Problem 9}{74}{section*.79}%
-\contentsline {subsubsection}{Problem 10}{74}{section*.80}%
-\contentsline {subsubsection}{Problem 11 - Modified Newtonian gravity}{74}{section*.81}%
-\contentsline {subsubsection}{Problem 12}{75}{section*.82}%
-\contentsline {section}{\numberline {12}Cosmology}{75}{section.12}%
-\contentsline {subsection}{\numberline {12.1}{\sc Boerner} - The Early Universe - Facts and Fiction (4th edition)}{75}{subsection.12.1}%
-\contentsline {subsubsection}{1.1 Friedman equations}{75}{section*.83}%
-\contentsline {section}{\numberline {13}Quantum Mechanics}{76}{section.13}%
-\contentsline {subsection}{\numberline {13.1}{\sc Feynman, Hibbs} - Quantum mechanics and path integrals 2ed}{76}{subsection.13.1}%
-\contentsline {subsubsection}{2.1}{76}{section*.84}%
-\contentsline {subsubsection}{2.1}{77}{section*.85}%
-\contentsline {subsection}{\numberline {13.2}{\sc Straumann} - Quantenmechanik 2ed}{78}{subsection.13.2}%
-\contentsline {subsubsection}{2.1 - Spectral oscillator density}{78}{section*.86}%
-\contentsline {subsubsection}{2.2 - Energy variance of the harmonic oscillator}{78}{section*.87}%
-\contentsline {subsubsection}{3.6 - 1D molecular potential}{79}{section*.88}%
-\contentsline {subsection}{\numberline {13.3}{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}{80}{subsection.13.3}%
-\contentsline {subsubsection}{2.1}{80}{section*.89}%
-\contentsline {subsection}{\numberline {13.4}{\sc Weinberg} - Quantum Mechanics 2nd edition}{80}{subsection.13.4}%
-\contentsline {subsubsection}{1.1}{80}{section*.90}%
-\contentsline {subsubsection}{1.2}{81}{section*.91}%
-\contentsline {section}{\numberline {14}General Physics}{82}{section.14}%
-\contentsline {subsection}{\numberline {14.1}{\sc Feynman} - Feynman Lectures on Physics}{82}{subsection.14.1}%
-\contentsline {subsubsection}{Section G1-1 - 1961 Sep 28 (1.16)}{82}{section*.92}%
-\contentsline {subsubsection}{Section G1-2 - 1961 Sep 28 (1.15)}{82}{section*.93}%
-\contentsline {subsubsection}{Section G-1 - 1961 Oct 5 (?.??)}{83}{section*.94}%
-\contentsline {subsubsection}{Section G-2 - 1961 Oct 5 (?.??)}{84}{section*.95}%
-\contentsline {subsubsection}{Problem Set 3-1 - 1961 Nov 03 (3.16)}{84}{section*.96}%
-\contentsline {subsubsection}{Problem Set 3-3 - 1961 Nov 03 (3.10)}{87}{section*.97}%
-\contentsline {subsubsection}{Problem Set 3-4 - 1961 Nov 03 (?.??)}{88}{section*.98}%
-\contentsline {subsubsection}{Problem Set 1b 3-3 - 1962 Jan 16 (?.??)}{88}{section*.99}%
-\contentsline {subsection}{\numberline {14.2}{\sc Jackson} - Classical Electrodynamics}{88}{subsection.14.2}%
-\contentsline {subsubsection}{Exercise 12.1 Lagrangian of point charge}{88}{section*.100}%
-\contentsline {subsection}{\numberline {14.3}{\sc Schwinger} - Classical Electrodynamics}{89}{subsection.14.3}%
-\contentsline {subsubsection}{Exercise 31.1 Potentials of moving point charge}{89}{section*.101}%
-\contentsline {subsubsection}{Exercise 31.2 Fields of moving point charge}{90}{section*.102}%
-\contentsline {subsubsection}{Exercise 31.4 Wave equation for fields}{91}{section*.103}%
-\contentsline {subsubsection}{Exercise 31.5 Lienard-Wiechert potentials}{91}{section*.104}%
-\contentsline {subsubsection}{Exercise 38.1 Total radiated power}{92}{section*.105}%
-\contentsline {subsection}{\numberline {14.4}{\sc Smythe} - Static and Dynamic Electricity}{92}{subsection.14.4}%
-\contentsline {subsubsection}{Exercise 1.1 Two coaxial rings and a point charge}{92}{section*.106}%
-\contentsline {subsubsection}{Exercise 1.3 Flux of two point charges through circle}{93}{section*.107}%
-\contentsline {subsubsection}{Exercise 1.4 Concentric charged rings}{93}{section*.108}%
-\contentsline {subsubsection}{Exercise 12.1 Linear quadrupole}{93}{section*.109}%
-\contentsline {subsection}{\numberline {14.5}{\sc Thorne, Blandford} - Modern Classical Physics}{94}{subsection.14.5}%
-\contentsline {subsubsection}{Exercise 1.1 Practice: Energy Change for Charged Particle}{94}{section*.110}%
-\contentsline {subsubsection}{Exercise 1.2 Practice: Particle Moving in a Circular Orbit}{94}{section*.111}%
-\contentsline {subsubsection}{Exercise 1.3 Derivation: Component Manipulation Rules}{95}{section*.112}%
-\contentsline {subsubsection}{Exercise 1.4 Example and Practice: Numerics of Component Manipulations}{95}{section*.113}%
-\contentsline {subsubsection}{Exercise 1.5 Practice: Meaning of Slot-Naming Index Notation}{96}{section*.114}%
-\contentsline {subsubsection}{Exercise 1.6 Example and Practice: Rotation in x-y Plane}{96}{section*.115}%
-\contentsline {subsubsection}{Exercise 1.7 Derivation: Properties of the Levi-Civita Tensor}{96}{section*.116}%
-\contentsline {subsubsection}{Exercise 1.8 Example and Practice: Vectorial Identities for the Cross Product and Curl}{96}{section*.117}%
-\contentsline {subsubsection}{Exercise 1.9 Example and Practice: Levi-Civita Tensor in 2-Dimensional Euclidean Space}{97}{section*.118}%
-\contentsline {subsubsection}{Exercise 1.10 Derivation and Practice: Volume Elements in Cartesian Coordinates}{97}{section*.119}%
-\contentsline {subsubsection}{Exercise 1.11 Example and Practice: Integral of a Vector Field over a Sphere}{97}{section*.120}%
-\contentsline {subsubsection}{Exercise 1.12 Example: Faraday’s Law of Induction}{97}{section*.121}%
-\contentsline {subsubsection}{Exercise 1.13 Example: Equations of Motion for a Perfect Fluid}{97}{section*.122}%
-\contentsline {subsubsection}{Exercise 1.14 Problem: Electromagnetic Stress Tensor}{97}{section*.123}%
-\contentsline {subsubsection}{Exercise 1.15 Practice: Geometrized Units}{97}{section*.124}%
-\contentsline {subsubsection}{Exercise 3.3 Practice and Example: Regimes of Particulate and Wave - Like Behavior}{98}{section*.125}%
-\contentsline {subsubsection}{Exercise 7.1 Practice: Group and Phase Velocities}{98}{section*.126}%
-\contentsline {subsubsection}{Exercise 7.2 Example: Gaussian Wave Packet and Its Dispersion}{99}{section*.127}%
-\contentsline {subsubsection}{Exercise 7.3 Derivation and Example: Amplitude Propagation for Dispersionless Waves Expressed as Constancy of Something along a Ray}{101}{section*.128}%
-\contentsline {subsubsection}{Exercise 7.4 Example: Energy Density and Flux, and Adiabatic Invariant, or a Dispersionless Wave}{101}{section*.129}%
-\contentsline {subsubsection}{Exercise 8.1 Practice: Convolutions and Fourier Transforms}{103}{section*.130}%
-\contentsline {subsubsection}{Exercise 11.9 Derivation: Sag in a Cantilever}{103}{section*.131}%
-\contentsline {subsubsection}{Exercise 13.1 Example: Earth's Atmosphere}{104}{section*.132}%
-\contentsline {subsubsection}{Exercise 13.2 Practise: Weight in Vacuum}{105}{section*.133}%
-\contentsline {subsubsection}{Exercise 13.4 Example: Polytropes — The Power of Dimensionless Variables}{106}{section*.134}%
-\contentsline {subsubsection}{Exercise 13.5 Example: Shape of a Constant-Density, Spinning Planet}{109}{section*.135}%
-\contentsline {subsubsection}{Exercise 13.7 Problem: A Hole in My Bucket}{110}{section*.136}%
-\contentsline {subsubsection}{Exercise 14.1 Practice: Constant-Angular-Momentum Flow - Relative Motion of Fluid Elements}{111}{section*.137}%
-\contentsline {subsubsection}{Exercise 14.2 Practice: Vorticity and Incompressibility}{112}{section*.138}%
-\contentsline {subsubsection}{Exercise 16.9 Example: Breaking of a Dam}{112}{section*.139}%
-\contentsline {subsection}{\numberline {14.6}{\sc Walter} - Astronautics}{113}{subsection.14.6}%
-\contentsline {subsubsection}{Problem 1.1 - Balloon Propulsion}{113}{section*.140}%
-\contentsline {subsubsection}{Problem 1.2 - Nozzle Exit Area of an SSME}{113}{section*.141}%
-\contentsline {subsubsection}{Problem 1.3 - Proof of $\eta _\text {VDF}\le 1$ }{113}{section*.142}%
-\contentsline {subsubsection}{Problem 4.1 - Gas Velocity-Pressure Relation in a Nozzle}{114}{section*.143}%
-\contentsline {subsubsection}{Problem 4.2 - Approximation of the Infinite-Expansion Coefficient}{115}{section*.144}%
-\contentsline {subsubsection}{Problem 7.1 - Solutions of Poisson's Equation}{115}{section*.145}%
-\contentsline {section}{\numberline {15}Doodling}{116}{section.15}%
-\contentsline {section}{\numberline {16}Companion for Banks book}{117}{section.16}%
-\contentsline {section}{\numberline {17}Some stuff for later}{118}{section.17}%
-\contentsline {section}{\numberline {18}Representations CheatSheet}{119}{section.18}%
-\contentsline {subsection}{\numberline {18.1}Preliminaries}{119}{subsection.18.1}%
-\contentsline {subsection}{\numberline {18.2}Groups theory}{119}{subsection.18.2}%
-\contentsline {subsection}{\numberline {18.3}Representation theory}{122}{subsection.18.3}%
-\contentsline {section}{\numberline {19}Lie algebras}{123}{section.19}%
-\contentsline {section}{\numberline {20}Example representations}{123}{section.20}%
-\contentsline {subsection}{\numberline {20.1}Cyclic group $Z_2$}{123}{subsection.20.1}%
-\contentsline {subsubsection}{1d}{123}{section*.146}%
-\contentsline {subsection}{\numberline {20.2}Cyclic group $Z_3$}{123}{subsection.20.2}%
-\contentsline {subsubsection}{1d}{123}{section*.147}%
-\contentsline {subsubsection}{3d - regular representation}{124}{section*.148}%
-\contentsline {subsection}{\numberline {20.3}Group $S_3$}{124}{subsection.20.3}%
-\contentsline {subsubsection}{2d}{124}{section*.149}%
-\contentsline {section}{\numberline {21}Fun with names}{125}{section.21}%
+\contentsline {section}{\numberline {2}Useful formulas}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Common integrals}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Common Fourier integrals}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Fourier transformation}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Delta distribution}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}$\Gamma $ function}{9}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}$n$-dimensional unit spheres}{9}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Laplace operator}{10}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Greenfunctions and PDEs}{10}{subsection.2.8}%
+\contentsline {subsubsection}{Poisson equation $\triangle u(x) = f(x)$}{11}{section*.2}%
+\contentsline {subsubsection}{Helmholtz equation $(\triangle +k^2)u(x)= f(x)$}{12}{section*.3}%
+\contentsline {subsubsection}{Wave equation $\left (\frac {1}{c^2}\partial _{tt}-\triangle \right ) u(x,t)= f(x,t)$}{13}{section*.4}%
+\contentsline {subsubsection}{Klein-Gordon equation $\left (\frac {1}{c^2}\partial _{tt}-\triangle +\mu ^2\right ) u(x,t)= f(x,t)$}{13}{section*.5}%
+\contentsline {subsubsection}{Feynman propagator $\left (\triangle -k^2\right ) u(x)= f(x)$}{13}{section*.6}%
+\contentsline {subsubsection}{Heat equation $\left (\partial _{t}-k\triangle \right ) u(x)= f(x)$}{13}{section*.7}%
+\contentsline {subsubsection}{Relativistic Heat equation $\left (\partial _{tt}+2\gamma \partial _t-c^2\triangle \right ) u(x)= f(x)$}{13}{section*.8}%
+\contentsline {subsection}{\numberline {2.9}Probability}{13}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Matrices}{13}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Diagonalization}{14}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Functional derivatives}{14}{subsection.2.12}%
+\contentsline {subsection}{\numberline {2.13}Space hierarchy}{16}{subsection.2.13}%
+\contentsline {subsection}{\numberline {2.14}Tensors}{17}{subsection.2.14}%
+\contentsline {section}{\numberline {3}Primer special relativity}{19}{section.3}%
+\contentsline {section}{\numberline {4}Groups}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Overview}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}SO(2)}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}SO(3)}{21}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}SU(2)}{21}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}SU(3)}{21}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Lorentz group O(1,3)}{21}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Mathematical}{23}{section.5}%
+\contentsline {subsection}{\numberline {5.1}{\sc Andrews} - Number theory}{23}{subsection.5.1}%
+\contentsline {subsubsection}{Problem 1.1}{23}{section*.9}%
+\contentsline {subsection}{\numberline {5.2}{\sc Bender, Orszag} - Advanced Mathematical Methods for Scientists and Engineers}{23}{subsection.5.2}%
+\contentsline {subsubsection}{Problem 1.1}{23}{section*.10}%
+\contentsline {subsubsection}{Problem 1.2}{23}{section*.11}%
+\contentsline {subsubsection}{Problem 1.10}{25}{section*.12}%
+\contentsline {subsubsection}{Problem 1.11}{25}{section*.13}%
+\contentsline {subsection}{\numberline {5.3}{\sc Arnol'd} - A mathematical trivium}{25}{subsection.5.3}%
+\contentsline {subsubsection}{Problem 4}{25}{section*.14}%
+\contentsline {subsubsection}{Problem 13}{25}{section*.15}%
+\contentsline {subsubsection}{Problem 20}{26}{section*.16}%
+\contentsline {subsubsection}{Problem 23}{26}{section*.17}%
+\contentsline {subsubsection}{Problem 85}{27}{section*.18}%
+\contentsline {subsection}{\numberline {5.4}{\sc Spivak} - Calculus on Manifolds}{27}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}{\sc Flanders} - Differential Forms with Applications to the Physical Sciences}{27}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}{\sc Morse, Feshbach} - Methods of mathematical physics}{27}{subsection.5.6}%
+\contentsline {subsubsection}{Problem 1.1}{27}{section*.19}%
+\contentsline {subsubsection}{Problem 4.1}{28}{section*.20}%
+\contentsline {subsection}{\numberline {5.7}{\sc Woit} - Quantum Theory, Groups and Representations}{29}{subsection.5.7}%
+\contentsline {subsubsection}{Problem B.1-3}{29}{section*.21}%
+\contentsline {subsubsection}{Problem B.1-4}{29}{section*.22}%
+\contentsline {subsubsection}{Problem B.2-1}{30}{section*.23}%
+\contentsline {subsubsection}{Problem B.2-2}{31}{section*.24}%
+\contentsline {subsection}{\numberline {5.8}{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}{32}{subsection.5.8}%
+\contentsline {subsubsection}{Problem I.1 - Plane waves in vacuum}{32}{section*.25}%
+\contentsline {subsubsection}{Problem I.7 - Adding and multiplying vector fields}{33}{section*.26}%
+\contentsline {section}{\numberline {6}Many-body physics}{33}{section.6}%
+\contentsline {subsection}{\numberline {6.1}{\sc Coleman} - Introduction to Many-Body Physics}{33}{subsection.6.1}%
+\contentsline {subsubsection}{Problem 2.1 - Specific heat capacity of a solid}{33}{section*.27}%
+\contentsline {section}{\numberline {7}Quantum Field Theory}{34}{section.7}%
+\contentsline {subsection}{\numberline {7.1}{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}{34}{subsection.7.1}%
+\contentsline {subsubsection}{Problem 1.1 - Snell's law via Fermat's principle}{34}{section*.28}%
+\contentsline {subsection}{\numberline {7.2}{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell}{35}{subsection.7.2}%
+\contentsline {subsubsection}{Problem 2.1 - 1}{35}{section*.29}%
+\contentsline {subsection}{\numberline {7.3}{\sc Schwartz} - Quantum Field Theory and the Standard Model}{36}{subsection.7.3}%
+\contentsline {subsubsection}{Problem 2.2 Special relativity and colliders}{36}{section*.30}%
+\contentsline {subsubsection}{Problem 2.3 GZK bound}{37}{section*.31}%
+\contentsline {subsubsection}{Problem 2.5 Compton scattering}{39}{section*.32}%
+\contentsline {subsubsection}{Problem 2.6 Lorentz invariance}{40}{section*.33}%
+\contentsline {subsubsection}{Problem 2.7 Coherent states}{41}{section*.34}%
+\contentsline {subsubsection}{Problem 3.5 Spontaneous symmetry}{43}{section*.35}%
+\contentsline {subsubsection}{Problem 3.6 Yukawa potential}{43}{section*.36}%
+\contentsline {subsection}{\numberline {7.4}{\sc Srednicki} - Quantum Field Theory}{45}{subsection.7.4}%
+\contentsline {subsubsection}{Problem 1.2 - Schroedinger equation}{45}{section*.37}%
+\contentsline {subsubsection}{Problem 6.1 - Path integral in quantum mechanics}{45}{section*.38}%
+\contentsline {subsection}{\numberline {7.5}{\sc Kachelriess} - Quantum Fields - From the Hubble to the Planck scale}{48}{subsection.7.5}%
+\contentsline {subsubsection}{Problem 1.1 - Units}{48}{section*.39}%
+\contentsline {subsubsection}{Problem 3.2 - Maxwell Lagrangian}{49}{section*.40}%
+\contentsline {subsubsection}{Problem 3.3 - Dimension of $\phi $}{50}{section*.41}%
+\contentsline {subsubsection}{Problem 3.5 - Yukawa potential}{51}{section*.42}%
+\contentsline {subsubsection}{Problem 3.9 - $\zeta $ function regularization}{52}{section*.43}%
+\contentsline {subsubsection}{Problem 4.1 - $Z[J]$ at order $\lambda $ in $\phi ^4$ theory}{53}{section*.44}%
+\contentsline {subsubsection}{Problem 19.1 - Dynamical stress tensor}{54}{section*.45}%
+\contentsline {subsubsection}{Problem 19.6 - Dirac-Schwarzschild}{55}{section*.46}%
+\contentsline {subsubsection}{Problem 23.1 - Conformal transformation}{55}{section*.47}%
+\contentsline {subsubsection}{Problem 23.2 - Conformal transformation properties}{56}{section*.48}%
+\contentsline {subsubsection}{Problem 23.6 - Reflection formula}{57}{section*.49}%
+\contentsline {subsubsection}{Problem 23.7 - Unruh temperature}{58}{section*.50}%
+\contentsline {subsubsection}{Problem 24.14 - Jeans length and the \leavevmode {\color {red}speed of sound}}{58}{section*.51}%
+\contentsline {subsubsection}{Problem 26.4 - Fixed points of (26.18)}{58}{section*.52}%
+\contentsline {subsubsection}{Problem 26.5 - Tracker solution}{60}{section*.53}%
+\contentsline {section}{\numberline {8}Particle Physics}{62}{section.8}%
+\contentsline {subsection}{\numberline {8.1}{\sc Nagashima} - Elementary Particle Physics Volume 1: Quantum Field Theory and Particles}{62}{subsection.8.1}%
+\contentsline {subsubsection}{Problem 2.1}{62}{section*.54}%
+\contentsline {subsubsection}{Problem 2.3}{62}{section*.55}%
+\contentsline {subsubsection}{Problem 2.4}{62}{section*.56}%
+\contentsline {section}{\numberline {9}General Relativity}{63}{section.9}%
+\contentsline {subsection}{\numberline {9.1}{\sc Coleman} - Sidney Coleman’s Lectures On Relativity}{63}{subsection.9.1}%
+\contentsline {subsubsection}{Problem 1.1}{63}{section*.57}%
+\contentsline {section}{\numberline {10}General Relativity}{63}{section.10}%
+\contentsline {subsection}{\numberline {10.1}{\sc Carroll} - Spacetime an Geometry}{63}{subsection.10.1}%
+\contentsline {subsubsection}{Problem 1.7}{63}{section*.58}%
+\contentsline {subsubsection}{Problem 3.3 - Christoffel symbols for diagonal metric}{64}{section*.59}%
+\contentsline {subsection}{\numberline {10.2}{\sc Poisson} - A relativists toolkit}{65}{subsection.10.2}%
+\contentsline {subsubsection}{Problem 1.1 - Parallel transport on cone}{65}{section*.60}%
+\contentsline {section}{\numberline {11}Quantum Gravity}{67}{section.11}%
+\contentsline {subsection}{\numberline {11.1}{\sc Hartman} - Lectures on Quantum Gravity and Black Holes}{67}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}{\sc Ammon, Erdmenger} - Gauge/Gravity Duality - Foundations and Applications}{67}{subsection.11.2}%
+\contentsline {subsubsection}{Problem 1.1.1 - Fourier representation of free scalar field}{67}{section*.61}%
+\contentsline {subsubsection}{Problem 1.1.2 - Lagrangian of self-interacting scalar field}{67}{section*.62}%
+\contentsline {subsubsection}{Problem 1.1.3 - Complex scalar field }{68}{section*.63}%
+\contentsline {subsubsection}{Problem 1.2.1 - Time-independence of Noether charge}{68}{section*.64}%
+\contentsline {subsubsection}{Problem 1.2.2 - Hamiltonian of scalar field}{69}{section*.65}%
+\contentsline {subsubsection}{Problem 1.2.3 - Symmetric energy-momentum tensor}{69}{section*.66}%
+\contentsline {subsubsection}{Problem 1.2.4 - Callan-Coleman-Jackiw energy-momentum tensor}{71}{section*.67}%
+\contentsline {subsubsection}{Problem 1.2.6 - $O(n)$ invariance of action of $n$ free scalar fields}{72}{section*.69}%
+\contentsline {subsubsection}{Problem 1.3.1 - Field commutators of scalar field}{73}{section*.70}%
+\contentsline {subsubsection}{Problem 1.3.2 - Lorentz invariant integration measure}{74}{section*.71}%
+\contentsline {subsubsection}{Problem 1.3.3 - Retarded Green function}{75}{section*.72}%
+\contentsline {subsubsection}{Problem 1.3.4 - Feynman rules of $\phi ^4$ theory}{76}{section*.73}%
+\contentsline {subsubsection}{Problem 1.3.5 - Convergence of perturbative expansion}{76}{section*.74}%
+\contentsline {subsubsection}{Problem 1.3.6}{76}{section*.75}%
+\contentsline {subsubsection}{Problem 1.3.7}{76}{section*.76}%
+\contentsline {subsubsection}{Problem 1.3.8}{76}{section*.77}%
+\contentsline {section}{\numberline {12}String Theory}{77}{section.12}%
+\contentsline {subsection}{\numberline {12.1}{\sc Zwiebach} - A First Course in String Theory }{77}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}{\sc Becker, Becker, Schwarz} - String Theory and M-Theroy }{77}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}{\sc Polchinski} - String Theory Volumes 1 and 2 }{77}{subsection.12.3}%
+\contentsline {subsubsection}{Problem 1.1 - Non-relativistic action limits}{77}{section*.78}%
+\contentsline {section}{\numberline {13}Astrophysics}{77}{section.13}%
+\contentsline {subsection}{\numberline {13.1}{\sc Carroll, Ostlie} - An Introduction to Modern Astrophysics}{77}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}{\sc Weinberg} - Lecture on Astrophysics}{77}{subsection.13.2}%
+\contentsline {subsubsection}{Problem 1 - Hydrostatics of spherical star}{77}{section*.79}%
+\contentsline {subsubsection}{Problem 2 - CNO cycle}{78}{section*.80}%
+\contentsline {subsubsection}{Problem 3}{78}{section*.81}%
+\contentsline {subsubsection}{Problem 4}{78}{section*.82}%
+\contentsline {subsubsection}{Problem 5 - Radial density expansion for a polytrope}{78}{section*.83}%
+\contentsline {subsubsection}{Problem 6}{79}{section*.84}%
+\contentsline {subsubsection}{Problem 7}{80}{section*.85}%
+\contentsline {subsubsection}{Problem 8}{80}{section*.86}%
+\contentsline {subsubsection}{Problem 9}{80}{section*.87}%
+\contentsline {subsubsection}{Problem 10}{80}{section*.88}%
+\contentsline {subsubsection}{Problem 11 - Modified Newtonian gravity}{80}{section*.89}%
+\contentsline {subsubsection}{Problem 12}{81}{section*.90}%
+\contentsline {section}{\numberline {14}Cosmology}{81}{section.14}%
+\contentsline {subsection}{\numberline {14.1}{\sc Boerner} - The Early Universe - Facts and Fiction (4th edition)}{81}{subsection.14.1}%
+\contentsline {subsubsection}{1.1 Friedman equations}{81}{section*.91}%
+\contentsline {section}{\numberline {15}Quantum Mechanics}{82}{section.15}%
+\contentsline {subsection}{\numberline {15.1}{\sc Feynman, Hibbs} - Quantum mechanics and path integrals 2ed}{82}{subsection.15.1}%
+\contentsline {subsubsection}{2.1}{82}{section*.92}%
+\contentsline {subsubsection}{2.1}{83}{section*.93}%
+\contentsline {subsection}{\numberline {15.2}{\sc Straumann} - Quantenmechanik 2ed}{84}{subsection.15.2}%
+\contentsline {subsubsection}{2.1 - Spectral oscillator density}{84}{section*.94}%
+\contentsline {subsubsection}{2.2 - Energy variance of the harmonic oscillator}{84}{section*.95}%
+\contentsline {subsubsection}{3.6 - 1D molecular potential}{85}{section*.96}%
+\contentsline {subsection}{\numberline {15.3}{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}{86}{subsection.15.3}%
+\contentsline {subsubsection}{2.1}{86}{section*.97}%
+\contentsline {subsection}{\numberline {15.4}{\sc Weinberg} - Quantum Mechanics 2nd edition}{86}{subsection.15.4}%
+\contentsline {subsubsection}{1.1}{86}{section*.98}%
+\contentsline {subsubsection}{1.2}{87}{section*.99}%
+\contentsline {subsection}{\numberline {15.5}{\sc Sakurai, Napolitano} - Modern Quantum Mechanics 3rd ed}{88}{subsection.15.5}%
+\contentsline {subsubsection}{5.1 Harmonic oscillator with linear perturbation}{88}{section*.100}%
+\contentsline {subsubsection}{5.2 Potential well with linear slope}{89}{section*.101}%
+\contentsline {subsubsection}{5.3 Relativistic perturbation}{90}{section*.102}%
+\contentsline {subsubsection}{5.4 Diatomic atomic rotor}{90}{section*.103}%
+\contentsline {subsubsection}{5.6 Two dimensional potential well}{91}{section*.104}%
+\contentsline {subsubsection}{5.8 Quadratically perturbed harmonic oscillator}{92}{section*.105}%
+\contentsline {subsubsection}{8.1 Natural units}{92}{section*.106}%
+\contentsline {subsubsection}{8.2 Minkowski Metric}{92}{section*.107}%
+\contentsline {subsection}{\numberline {15.6}{\sc Bethe, Jackiw} - Intermediate Quantum Mechanics}{93}{subsection.15.6}%
+\contentsline {subsubsection}{1.1 Atomic units}{93}{section*.108}%
+\contentsline {section}{\numberline {16}General Physics}{93}{section.16}%
+\contentsline {subsection}{\numberline {16.1}{\sc Feynman} - Feynman Lectures on Physics}{93}{subsection.16.1}%
+\contentsline {subsubsection}{Section G1-1 - 1961 Sep 28 (1.16)}{93}{section*.109}%
+\contentsline {subsubsection}{Section G1-2 - 1961 Sep 28 (1.15)}{93}{section*.110}%
+\contentsline {subsubsection}{Section G-1 - 1961 Oct 5 (?.??)}{94}{section*.111}%
+\contentsline {subsubsection}{Section G-2 - 1961 Oct 5 (?.??)}{94}{section*.112}%
+\contentsline {subsubsection}{Problem Set 3-1 - 1961 Nov 03 (3.16)}{95}{section*.113}%
+\contentsline {subsubsection}{Problem Set 3-3 - 1961 Nov 03 (3.10)}{98}{section*.114}%
+\contentsline {subsubsection}{Problem Set 3-4 - 1961 Nov 03 (?.??)}{99}{section*.115}%
+\contentsline {subsubsection}{Problem Set 1b 3-3 - 1962 Jan 16 (?.??)}{99}{section*.116}%
+\contentsline {subsubsection}{Problem Set 1c 13-1 - 1962 May 25 (?.??)}{99}{section*.117}%
+\contentsline {subsubsection}{Problem Set 1c 13-2 - 1962 May 25 (?.??)}{99}{section*.118}%
+\contentsline {subsection}{\numberline {16.2}{\sc Jackson} - Classical Electrodynamics}{100}{subsection.16.2}%
+\contentsline {subsubsection}{Exercise 12.1 Lagrangian of point charge}{100}{section*.119}%
+\contentsline {subsection}{\numberline {16.3}{\sc Schwinger} - Classical Electrodynamics}{101}{subsection.16.3}%
+\contentsline {subsubsection}{Exercise 31.1 Potentials of moving point charge}{101}{section*.120}%
+\contentsline {subsubsection}{Exercise 31.2 Fields of moving point charge}{102}{section*.121}%
+\contentsline {subsubsection}{Exercise 31.4 Wave equation for fields}{102}{section*.122}%
+\contentsline {subsubsection}{Exercise 31.5 Lienard-Wiechert potentials}{103}{section*.123}%
+\contentsline {subsubsection}{Exercise 38.1 Total radiated power}{103}{section*.124}%
+\contentsline {subsection}{\numberline {16.4}{\sc Smythe} - Static and Dynamic Electricity}{103}{subsection.16.4}%
+\contentsline {subsubsection}{Exercise 1.1 Two coaxial rings and a point charge}{103}{section*.125}%
+\contentsline {subsubsection}{Exercise 1.3 Flux of two point charges through circle}{104}{section*.126}%
+\contentsline {subsubsection}{Exercise 1.4 Concentric charged rings}{104}{section*.127}%
+\contentsline {subsubsection}{Exercise 12.1 Linear quadrupole}{105}{section*.128}%
+\contentsline {subsection}{\numberline {16.5}{\sc Thorne, Blandford} - Modern Classical Physics}{105}{subsection.16.5}%
+\contentsline {subsubsection}{Exercise 1.1 Practice: Energy Change for Charged Particle}{105}{section*.129}%
+\contentsline {subsubsection}{Exercise 1.2 Practice: Particle Moving in a Circular Orbit}{105}{section*.130}%
+\contentsline {subsubsection}{Exercise 1.3 Derivation: Component Manipulation Rules}{106}{section*.131}%
+\contentsline {subsubsection}{Exercise 1.4 Example and Practice: Numerics of Component Manipulations}{106}{section*.132}%
+\contentsline {subsubsection}{Exercise 1.5 Practice: Meaning of Slot-Naming Index Notation}{107}{section*.133}%
+\contentsline {subsubsection}{Exercise 1.6 Example and Practice: Rotation in x-y Plane}{108}{section*.134}%
+\contentsline {subsubsection}{Exercise 1.7 Derivation: Properties of the Levi-Civita Tensor}{108}{section*.135}%
+\contentsline {subsubsection}{Exercise 1.8 Example and Practice: Vectorial Identities for the Cross Product and Curl}{108}{section*.136}%
+\contentsline {subsubsection}{Exercise 1.9 Example and Practice: Levi-Civita Tensor in 2-Dimensional Euclidean Space}{108}{section*.137}%
+\contentsline {subsubsection}{Exercise 1.10 Derivation and Practice: Volume Elements in Cartesian Coordinates}{108}{section*.138}%
+\contentsline {subsubsection}{Exercise 1.11 Example and Practice: Integral of a Vector Field over a Sphere}{108}{section*.139}%
+\contentsline {subsubsection}{Exercise 1.12 Example: Faraday’s Law of Induction}{108}{section*.140}%
+\contentsline {subsubsection}{Exercise 1.13 Example: Equations of Motion for a Perfect Fluid}{108}{section*.141}%
+\contentsline {subsubsection}{Exercise 1.14 Problem: Electromagnetic Stress Tensor}{108}{section*.142}%
+\contentsline {subsubsection}{Exercise 1.15 Practice: Geometrized Units}{109}{section*.143}%
+\contentsline {subsubsection}{Exercise 3.3 Practice and Example: Regimes of Particulate and Wave - Like Behavior}{109}{section*.144}%
+\contentsline {subsubsection}{Exercise 7.1 Practice: Group and Phase Velocities}{109}{section*.145}%
+\contentsline {subsubsection}{Exercise 7.2 Example: Gaussian Wave Packet and Its Dispersion}{110}{section*.146}%
+\contentsline {subsubsection}{Exercise 7.3 Derivation and Example: Amplitude Propagation for Dispersionless Waves Expressed as Constancy of Something along a Ray}{112}{section*.147}%
+\contentsline {subsubsection}{Exercise 7.4 Example: Energy Density and Flux, and Adiabatic Invariant, or a Dispersionless Wave}{112}{section*.148}%
+\contentsline {subsubsection}{Exercise 8.1 Practice: Convolutions and Fourier Transforms}{114}{section*.149}%
+\contentsline {subsubsection}{Exercise 11.9 Derivation: Sag in a Cantilever}{114}{section*.150}%
+\contentsline {subsubsection}{Exercise 13.1 Example: Earth's Atmosphere}{115}{section*.151}%
+\contentsline {subsubsection}{Exercise 13.2 Practise: Weight in Vacuum}{116}{section*.152}%
+\contentsline {subsubsection}{Exercise 13.4 Example: Polytropes — The Power of Dimensionless Variables}{117}{section*.153}%
+\contentsline {subsubsection}{Exercise 13.5 Example: Shape of a Constant-Density, Spinning Planet}{120}{section*.154}%
+\contentsline {subsubsection}{Exercise 13.7 Problem: A Hole in My Bucket}{121}{section*.155}%
+\contentsline {subsubsection}{Exercise 14.1 Practice: Constant-Angular-Momentum Flow - Relative Motion of Fluid Elements}{122}{section*.156}%
+\contentsline {subsubsection}{Exercise 14.2 Practice: Vorticity and Incompressibility}{123}{section*.157}%
+\contentsline {subsubsection}{Exercise 16.9 Example: Breaking of a Dam}{123}{section*.158}%
+\contentsline {subsection}{\numberline {16.6}{\sc Walter} - Astronautics}{124}{subsection.16.6}%
+\contentsline {subsubsection}{Problem 1.1 - Balloon Propulsion}{124}{section*.159}%
+\contentsline {subsubsection}{Problem 1.2 - Nozzle Exit Area of an SSME}{124}{section*.160}%
+\contentsline {subsubsection}{Problem 1.3 - Proof of $\eta _\text {VDF}\le 1$ }{124}{section*.161}%
+\contentsline {subsubsection}{Problem 4.1 - Gas Velocity-Pressure Relation in a Nozzle}{125}{section*.162}%
+\contentsline {subsubsection}{Problem 4.2 - Approximation of the Infinite-Expansion Coefficient}{126}{section*.163}%
+\contentsline {subsubsection}{Problem 7.1 - Solutions of Poisson's Equation}{126}{section*.164}%
+\contentsline {section}{\numberline {17}Doodling}{127}{section.17}%
+\contentsline {section}{\numberline {18}Finance stuff for Aki}{128}{section.18}%
+\contentsline {section}{\numberline {19}Companion for Dyson QFT book}{129}{section.19}%
+\contentsline {section}{\numberline {20}Companion for Banks QFT book}{130}{section.20}%
+\contentsline {section}{\numberline {21}Some stuff for later}{131}{section.21}%
+\contentsline {section}{\numberline {22}Representations CheatSheet}{132}{section.22}%
+\contentsline {subsection}{\numberline {22.1}Preliminaries}{132}{subsection.22.1}%
+\contentsline {subsection}{\numberline {22.2}Groups theory}{132}{subsection.22.2}%
+\contentsline {subsection}{\numberline {22.3}Representation theory}{134}{subsection.22.3}%
+\contentsline {section}{\numberline {23}Lie algebras}{136}{section.23}%
+\contentsline {section}{\numberline {24}Example representations}{136}{section.24}%
+\contentsline {subsection}{\numberline {24.1}Cyclic group $Z_2$}{136}{subsection.24.1}%
+\contentsline {subsubsection}{1d}{136}{section*.165}%
+\contentsline {subsection}{\numberline {24.2}Cyclic group $Z_3$}{136}{subsection.24.2}%
+\contentsline {subsubsection}{1d}{136}{section*.166}%
+\contentsline {subsubsection}{3d - regular representation}{136}{section*.167}%
+\contentsline {subsection}{\numberline {24.3}Group $S_3$}{137}{subsection.24.3}%
+\contentsline {subsubsection}{2d}{137}{section*.168}%
+\contentsline {section}{\numberline {25}Fun with names}{138}{section.25}%
