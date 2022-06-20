@@ -1017,6 +1017,60 @@ D_A=\begin{pmatrix}
 \end{align}
 the length of the principal axes are therefore 4, 1 and 1.
 
+\newpage
+\subsection{{\sc Ahlfors} - Complex Calculus}
+\subsubsection{Chap 1.1}
+\begin{enumerate}
+\item\begin{align}
+(1+2i)^3
+&=1+3(2i)^2+3\cdot2i+(2i)^3\\
+&=1-12+6i-8i\\
+&=-11-2i
+\end{align}
+
+\begin{align}
+\frac{5}{-3+4i}
+&=\frac{5(-3-4i)}{(-3+4i)(-3-4i)}\\
+&=\frac{-15-20i}{25}\\
+&=-\frac{3}{5}-\frac{4}{5}i
+\end{align}
+
+\begin{align}
+\left(\frac{2+i}{3-2i}\right)^2
+&=\frac{3+4i}{5-12i}\\
+&=\frac{(3+4i)(5+12i)}{169}\\
+&=\frac{15-48+20i+36i}{169}\\
+&=-\frac{33}{169}+\frac{56}{169}i
+\end{align}
+
+\begin{align}
+(1+i)^n+(1-i)^n
+&=\sqrt{2}^n\left(e^{i\pi n/4}+e^{-i\pi n/4}\right)\\
+&=2^{(n+1)/2}\cos\frac{n\pi}{4}
+\end{align}
+
+\item
+\begin{align}
+z^4
+&=(x+iy)^4\\
+&=x^4+4x^3(iy)+6x^2(iy)^2+4x(iy)^3+(iy)^4\\
+&=x^4-6x^2y^2+y^4+(4x^3y-4xy^3)i
+\end{align}
+
+\begin{align}
+1/z
+&=\frac{x-iy}{x^2+y^2}\\
+&=\frac{\bar{z}}{|z|^2}
+\end{align}
+
+\begin{align}
+\frac{z-1}{z+1}
+&=\frac{(x-1)+iy}{(x+1)+iy}\\
+&=\frac{x^2+y^2-1+2xyi}{(x+1)^2+y^2}
+\end{align}
+
+\end{enumerate}
+
 
 \subsection{{\sc Spivak} - Calculus on Manifolds}
 \subsection{{\sc Flanders} - Differential Forms with Applications to the Physical Sciences}
@@ -1869,10 +1923,49 @@ Now we calculate with $\langle 0|a^\dagger=0$
 \end{align}
 \end{enumerate}
 
+\subsubsection{Problem 3.1 Higher order Lagrangian}
+With the principle of least action
+\begin{align}
+\delta S=\delta\int\mathcal{L}d^4x=\int\delta\mathcal{L}d^4x
+\end{align}
+we calculate
+\begin{align}
+\delta\mathcal{L}
+&=\frac{\partial \mathcal{L}}{\partial\phi}\delta\phi+
+\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\delta(\partial_\mu\phi)+
+\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta(\partial_nu\partial_\mu\phi)+...
+\end{align}
+Now we can integrate each term
+\begin{align}
+\delta\mathcal{L}_0&=\int \frac{\partial \mathcal{L}}{\partial\phi}\delta\phi d^4x\\
+%
+\delta\mathcal{L}_1&=\int \frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\delta(\partial_\mu\phi) d^4x
+=\int \frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\mu\delta\phi d^4x\\
+&=\left.\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi\right|_{\partial\Omega}-\int \partial_\mu\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}\delta\phi d^4x\\
+%
+\delta\mathcal{L}_2&=\int \frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta(\partial_\nu\partial_\mu\phi) d^4x
+=\int \frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\partial_\nu\delta\partial_\mu\phi d^4x\\
+&=\left.\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta\partial_\mu\phi\right|_{\partial\Omega}-\int \partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta\partial_\mu\phi d^4x\\
+&=\left.\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta\partial_\mu\phi\right|_{\partial\Omega}-\left.\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta\phi\right|_{\partial\Omega}+\int \partial_\mu\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}\delta\phi d^4x
+\end{align}
+Requiring that all derivatives vanish at infinity we obtain
+\begin{align}
+\delta S=\int d^4x\left(
+\frac{\partial \mathcal{L}}{\partial\phi}
+- \partial_\mu\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}
++\partial_\mu\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}-...
+\right)\delta\phi
+\end{align}
+and therefore
+\begin{align}
+\frac{\partial \mathcal{L}}{\partial\phi}
+- \partial_\mu\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}
++\partial_\mu\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}-...=0
+\end{align}
 
 \subsubsection{Problem 3.6 Yukawa potential}
 \begin{enumerate}
-\item We slit the Langranian in three parts
+\item We slit the Lagranian in three parts
 \begin{align}
 \mathscr{L}&=-\frac{1}{4}F_{\mu\nu}^2+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
 &=\mathscr{L}_F+\mathscr{L}_m+\mathscr{L}_J
@@ -1948,6 +2041,61 @@ We can plug this into the full Lagrangian (renaming the summation index)
 \end{align}    
 \end{enumerate}
 
+\subsubsection{Problem 3.7 Perihelion shift of Mercury by dimensional analysis}
+\begin{enumerate}[label=(\alph*)]
+\item Lets summarize the rules of dimensional analysis 
+
+\begin{center}
+\begin{tabular}{ lccc } 
+ \hline
+ varible & SI unit &equation & natural unit \\ 
+ \hline\hline
+ $c$               & m/s    & -                        & 1        \\
+ $\hbar$           & Js     & -                        & 1        \\
+ Velocity          & m/s    & -                        & 1      \\
+ mass              & kg     & $E=mc^2$                 & $E$      \\
+ frequency         & 1/s    & $E=\hbar\omega$          & $E$      \\
+ time              & s      & $t=2\pi/\omega$          & $E^{-1}$ \\
+ length            & m      & $s=ct$                   & $E^{-1}$ \\
+ $\partial_\mu$    & 1/m    & -                        & $E$      \\
+ momentum          & kg\,m/s& $E=p^2/2m$               & $E$      \\
+ action            & Js     & $S=Et$                   & 1        \\
+ $\mathcal{L}$     & J/m$^3$& $S=\int d^4x\mathcal{L}$ & $E^4$    \\
+ energy density    & J/m$^3$& $\rho=E/V$               & $E^4$    \\
+ $T^{\mu\nu}$      & J/m$^3$& $\rho=E/V$               & $E^4$    \\
+ \hline
+\end{tabular}
+\end{center}
+Now we can do a dimensions count for each term
+\begin{align}
+\underbrace{\mathcal{L}}_{=4}&=-\frac{1}{2}\underbrace{h\Box h}_{2\cdot[h]+2}+ \underbrace{M_\text{Pl}^a h^2\Box h}_{=a+3\cdot[h]+2}-\underbrace{M_\text{Pl}^bhT}_{b+[h]+4}\\
+&\rightarrow\quad[h]=1\\
+&\rightarrow\quad a=-1\\
+&\rightarrow\quad b=-1
+\end{align} 
+\item Deriving the equations of motions
+\begin{align}
+\mathcal{L}&=-\frac{1}{2}h\Box h+\frac{1}{M_\text{Pl}}h^2\Box h-\frac{1}{M_\text{Pl}}hT\\
+\frac{\partial\mathcal{L}}{\partial h}&=-\frac{1}{2}\cdot2\cdot\Box h+2\frac{1}{M_\text{Pl}}h\Box h-\frac{1}{M_\text{Pl}}T\\
+\frac{\partial\mathcal{L}}{\partial(\partial h)}&=0\\
+&\rightarrow\Box h=\frac{4}{M_\text{Pl}}h\Box h-\frac{2}{M_\text{Pl}}T
+\end{align}
+which is not the given result. But
+alternatively we can integrate the Lagrangian by parts (neglecting the boundary terms) and get
+\begin{align}
+\mathcal{L}&=\frac{1}{2}\partial h\partial h-\frac{1}{M_\text{Pl}}\partial(h^2)\partial h-\frac{1}{M_\text{Pl}}hT\\
+\frac{\partial\mathcal{L}}{\partial h}&=-\frac{1}{M_\text{Pl}}T\\
+\frac{\partial\mathcal{L}}{\partial(\partial h)}&=\Box h-\frac{1}{M_\text{Pl}}\Box(h^2)\\
+&\rightarrow\Box h=\frac{1}{M_\text{Pl}}\Box(h^2)-\frac{1}{M_\text{Pl}}T
+\end{align}
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+
+
 
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 1.2 - Schroedinger equation}
@@ -1980,6 +2128,61 @@ We can plug this into the full Lagrangian (renaming the summation index)
     \end{align}
     \item Fermions:
 \end{enumerate}
+
+\subsubsection{Problem 2.1 - Infinitesimal LT}
+\begin{align}
+g_{\mu\nu}\Lambda^\mu_{\;\rho}\Lambda^\nu_{\;\sigma}&=g_{\rho\sigma}\\
+g_{\mu\nu}\left(\delta^\mu_{\;\rho}+\delta\omega^\mu_{\;\rho}\right)\left(\delta^\nu_{\;\sigma}+\delta\omega^\nu_{\;\sigma}\right)&=g_{\rho\sigma}\\
+g_{\mu\nu}\left(\delta^\mu_{\;\rho}\delta^\nu_{\;\sigma}+\delta^\nu_{\;\sigma}\cdot\delta\omega^\mu_{\;\rho}+\delta^\mu_{\;\rho}\cdot\delta\omega^\nu_{\;\sigma}+\mathcal{O}(\delta\omega^2)\right)&=g_{\rho\sigma}\\
+g_{\rho\sigma}+g_{\mu\sigma}\cdot\delta\omega^\mu_{\;\rho}+g_{\rho\nu}\cdot\delta\omega^\nu_{\;\sigma}&=g_{\rho\sigma}
+\end{align}
+which implies
+\begin{align}
+\delta\omega_{\sigma\rho}+\delta\omega_{\rho\sigma}=0
+\end{align}
+
+\subsubsection{Problem 2.2 - Infinitesimal LT II}
+Important: each $M^{\mu\nu}$ is an operator and $\delta\omega$ is just a coefficient matrix so $\delta\omega _{\mu\nu}M^{\mu\nu}$ ist a weighted sum of operators.
+\begin{align}
+U(\Lambda^{-1}\Lambda'\Lambda)&=U(\Lambda^{-1})U(\Lambda')U(\Lambda)\\
+U(\Lambda^{-1}(I+\delta\omega')\Lambda)&=U(\Lambda^{-1})\left(I+\frac{i}{2\hbar}\delta\omega'_{\mu\nu}M^{\mu\nu}\right)U(\Lambda)\\
+U(I+\Lambda^{-1}\delta\omega'\Lambda)&=I+\frac{i}{2\hbar}\delta\omega'_{\mu\nu}U(\Lambda^{-1})M^{\mu\nu}U(\Lambda)
+\end{align}
+now we calculate recalling successive LT's $(\Lambda^{-1})^{\varepsilon}_{\;\gamma}\delta\omega'^\gamma_{\;\;\beta}\Lambda^\beta_{\;\alpha}x^\alpha$
+\begin{align}
+(\Lambda^{-1}\delta\omega'\Lambda)_{\rho\sigma}
+&=g_{\varepsilon\rho}(\Lambda^{-1})^{\varepsilon}_{\;\mu}\delta\omega'^\mu_{\;\;\nu}\Lambda^\nu_{\;\sigma}\\
+&=g_{\varepsilon\rho}\Lambda^{\;\varepsilon}_{\mu}\delta\omega'^\mu_{\;\;\nu}\Lambda^\nu_{\;\sigma}\\
+&=\delta\omega'_{\mu\nu}\Lambda^{\mu}_{\;\rho}\Lambda^\nu_{\;\sigma}
+\end{align}
+now we can rewrite $U(I+\Lambda^{-1}\delta\omega'\Lambda)$ and therefore
+\begin{align}
+\delta\omega'_{\mu\nu}\Lambda^{\mu}_{\;\rho}\Lambda^\nu_{\;\sigma}M^{\rho\sigma}&=\delta\omega'_{\mu\nu}U(\Lambda^{-1})M^{\mu\nu}U(\Lambda)
+\end{align}
+As all $\delta\omega'$ components are basically independent the equation must hold for each pair $\mu,\nu$.
+
+\subsubsection{Problem 2.3 - Commutator of LT generators}
+LHS:
+\begin{align}
+U(\Lambda^{-1})M^{\mu\nu}U(\Lambda)
+&\simeq\left(I-\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta}\right)M^{\mu\nu}\left(I+\frac{i}{2\hbar}\delta\omega_{\rho\sigma}M^{\rho\sigma}\right)\\
+&\simeq M^{\mu\nu}-\frac{i}{2\hbar}\delta\omega_{\rho\sigma}(M^{\rho\sigma}M^{\mu\nu}-M^{\mu\nu}M^{\rho\sigma})+\mathcal{O}(\delta\omega^2)\\
+&\simeq M^{\mu\nu}-\frac{i}{2\hbar}\delta\omega_{\rho\sigma}[M^{\rho\sigma},M^{\mu\nu}]
+\end{align}
+RHS:
+\begin{align}
+\Lambda^{\mu}_{\;\rho}\Lambda^\nu_{\;\sigma}M^{\rho\sigma}
+&\simeq\left(\delta^{\mu}_{\;\rho}+\delta\omega^{\mu}_{\;\rho}\right)\left(\delta^{\nu}_{\;\sigma}+\delta\omega^{\nu}_{\;\sigma}\right)M^{\rho\sigma}\\
+&\simeq M^{\mu\nu}+\delta^\mu_{\;\rho}\delta\omega^\nu_{\;\sigma}M^{\rho\sigma}+\delta^\nu_{\;\sigma}\delta\omega^\mu_{\;\rho}M^{\rho\sigma}\\
+&\simeq M^{\mu\nu}+\delta\omega^\nu_{\;\sigma}M^{\mu\sigma}+\delta\omega^\mu_{\;\rho}M^{\rho\nu}\\
+&\simeq M^{\mu\nu}+\delta\omega_{\alpha\sigma}g^{\alpha\nu}M^{\mu\sigma}+\delta\omega_{\alpha\rho}g^{\alpha\mu}M^{\rho\nu}\\
+&\simeq M^{\mu\nu}+\delta\omega_{\alpha\sigma}(g^{\alpha\nu}M^{\mu\sigma}+g^{\alpha\mu}M^{\sigma\nu})\\
+&\simeq M^{\mu\nu}+\delta\omega_{\rho\sigma}(g^{\rho\nu}M^{\mu\sigma}+g^{\rho\mu}M^{\sigma\nu})\\
+&\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\rho\nu}(M^{\mu\sigma}-M^{\sigma\mu})+g^{\rho\mu}(M^{\sigma\nu}-M^{\nu\sigma})\right)\\
+&\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\rho\nu}M^{\mu\sigma}-g^{\nu\rho}M^{\sigma\mu}+g^{\rho\mu}M^{\sigma\nu}-g^{\mu\rho}M^{\nu\sigma}\right)\\
+&\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\nu\rho}M^{\mu\sigma}-g^{\nu\rho}M^{\sigma\mu}+g^{\rho\mu}M^{\sigma\nu}-g^{\mu\rho}M^{\nu\sigma}\right)\\
+\end{align}
+
 
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
 (a) The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
@@ -2797,6 +3000,85 @@ From equating coefficients and powers (in $t$) we obtain
 \end{align}
 
 \newpage
+\subsection{{\sc Kugo} - Eichtheorie}
+\subsubsection{Problem 1.1}
+With $\Lambda^\alpha_{\;\mu}\approx\delta^\alpha_\mu+\epsilon^\alpha_{\;\;\mu}$ we obtain
+\begin{align}
+g_{\mu\nu}
+&=\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}g_{\alpha\beta}\\
+&\simeq\left(\delta^\alpha_\mu+\epsilon^\alpha_{\;\;\mu}\right)\left(\delta^\beta_\nu+\epsilon^\beta_{\;\;\nu}\right)g_{\alpha\beta}\\
+&\simeq g_{\mu\nu}+\epsilon^\alpha_{\;\;\mu}\delta^\beta_\nu g_{\alpha\beta}+\epsilon^\beta_{\;\;\nu}\delta^\alpha_\mu g_{\alpha\beta}+\mathcal{O}(\epsilon^2)\\
+&\simeq g_{\mu\nu}+\epsilon_{\nu\mu}+\epsilon_{\mu\nu}+\mathcal{O}(\epsilon^2)
+\end{align}
+which means that $\epsilon$ is antisymmetric $\epsilon_{\nu\mu}=-\epsilon_{\mu\nu}$ and we can write
+\begin{align}
+\epsilon_{\nu\mu}=\frac{1}{2}\left(\epsilon_{\nu\mu}-\epsilon_{\mu\nu}\right).
+\end{align}
+The infinitesimal Poincare transformation can then be written as
+\begin{align}
+x'^\mu
+&=\Lambda^\mu_{\;\alpha}x^\alpha+a^\mu\\
+&\simeq\left(\delta^\mu_\alpha+\epsilon^\mu_{\;\;\alpha}\right)x^\alpha+a^\mu\\
+&\simeq x^\mu+\epsilon^\mu_{\;\;\alpha}x^\alpha+a^\mu.
+\end{align}
+The inverted PT is then given by
+\begin{align}
+x&=\Lambda^{-1}(x'-a)\\
+&=\Lambda^{-1}x'-\Lambda^{-1}a\\
+x^\mu&\simeq\left(\delta^\mu_\alpha-\epsilon^\mu_{\;\;\alpha}\right)x'^\alpha-\left(\delta^\mu_\alpha-\epsilon^\mu_{\;\;\alpha}\right)a^\alpha\\
+&\simeq x'^\mu-\epsilon^\mu_{\;\;\alpha}x'^\alpha-a^\mu+\mathcal{O}(\epsilon\cdot a)
+\end{align}
+Because of 
+\begin{align}
+\phi'(x')=\phi(x)
+&\quad\Leftrightarrow\quad\phi'(\Lambda x+a)=\phi(x)\\
+&\quad\Leftrightarrow\quad\phi'(x)=\phi(\Lambda^{-1}(x-a))
+\end{align}
+we can now calculate 
+\begin{align}
+\delta\phi(x)
+&\equiv\phi'(x)-\phi(x)\\
+&=\phi(\Lambda^{-1}(x-a))-\phi(x)\\
+&\simeq\phi(x^\mu-\epsilon^\mu_{\;\;\alpha}x^\alpha-a^\mu)-\phi(x)\\
+&\simeq\phi(x)+\partial_\mu\phi(x)\cdot(-\epsilon^\mu_{\;\;\alpha}x^\alpha-a^\mu)-\phi(x)\\
+&\simeq-(a^\mu+\epsilon^\mu_{\;\;\alpha}x^\alpha)\partial_\mu\phi(x)\\
+&\simeq-(a^\mu+\epsilon^{\mu\alpha}x_\alpha)\partial_\mu\phi(x)\\
+&\simeq-\left(a^\mu+\frac{1}{2}\left(\epsilon^{\mu\alpha}-\epsilon^{\alpha\mu}\right)x_\alpha\right)\partial_\mu\phi(x)\\
+&\simeq-\left(a^\mu\partial_\mu+\frac{1}{2}\left(\epsilon^{\mu\alpha}x_\alpha\partial_\mu-\epsilon^{\alpha\mu}x_\alpha\partial_\mu\right)\right)\phi(x)\\
+&\simeq-\left(a^\mu\partial_\mu+\frac{1}{2}\left(\epsilon^{\mu\alpha}x_\alpha\partial_\mu-\epsilon^{\mu\alpha}x_\mu\partial_\alpha\right)\right)\phi(x)\\
+&\simeq i\left(a^\mu i\partial_\mu+\frac{1}{2}\epsilon^{\mu\alpha}i\left(x_\alpha\partial_\mu-x_\mu\partial_\alpha\right)\right)\phi(x)\\
+&\simeq i\left(a^\mu i\partial_\mu-\frac{1}{2}\epsilon^{\mu\alpha}i\left(x_\mu\partial_\alpha-x_\alpha\partial_\mu\right)\right)\phi(x)\\
+&\simeq i\left(a^\mu P_\mu-\frac{1}{2}\epsilon^{\mu\alpha}M_{\mu\alpha}\right)\phi(x)
+\end{align}
+Calculating the commutators
+\begin{align}
+[P_\mu,P_\nu]=0
+\end{align}
+\begin{align}
+[M_{\mu\nu},P_\rho]
+&=i^2(x_\mu\partial_\nu-x_\nu\partial_\mu)\partial_\rho-i^2\partial_\rho(x_\mu\partial_\nu-x_\nu\partial_\mu)\\
+&=-(x_\mu\partial_\nu-x_\nu\partial_\mu)\partial_\rho+\partial_\rho(x_\mu\partial_\nu-x_\nu\partial_\mu)\\
+&=-x_\mu\partial_\nu\partial_\rho+x_\nu\partial_\mu\partial_\rho+ (\partial_\rho g_{\mu\alpha}x^\alpha)\partial_\nu+x_\mu\partial_\rho\partial_\nu
+-(\partial_\rho g_{\nu\alpha}x^\alpha)\partial_\mu-x_\nu\partial_\rho\partial_\mu\\
+&=(\partial_\rho g_{\mu\alpha}x^\alpha)\partial_\nu
+-(\partial_\rho g_{\nu\alpha}x^\alpha)\partial_\mu\\
+&=(g_{\mu\alpha}\partial_\rho x^\alpha)\partial_\nu
+-(g_{\nu\alpha}\partial_\rho x^\alpha)\partial_\mu\\
+&=(g_{\mu\alpha}\delta^\alpha_\rho)\partial_\nu
+-(g_{\nu\alpha}\delta^\alpha_\rho)\partial_\mu\\
+&=g_{\mu\rho}\partial_\nu
+-g_{\nu\rho}\partial_\mu\\
+&=-i(g_{\mu\rho}i\partial_\nu
+-g_{\nu\rho}i\partial_\mu)\\
+&=-i(g_{\mu\rho}P_\nu
+-g_{\nu\rho}P_\mu)
+\end{align}
+\begin{align}
+[M_{\mu\nu},M_{\rho,\sigma}]
+&=...\text{painful}
+\end{align}
+
+\newpage
 \section{Particle Physics}
 \subsection{{\sc Nagashima} - Elementary Particle Physics Volume 1: Quantum Field Theory and Particles}
 \subsubsection{Problem 2.1}
@@ -2847,27 +3129,20 @@ Forgetting the factor 2 and knowing $1\text{GeV}^{-1}= 0.197\cdot10^{-15}\text{s
 \subsubsection{Problem 1.1}
 Lets simplify
 \begin{align}
-\tau(b)-\tau(a)=\int_a^b\sqrt{dt^2-dx^2-dy^2-dz^2}
+\tau(b)-\tau(a)&=\int_a^b\sqrt{c^2dt^2-dx^2-dy^2-dz^2}\\
+&=\int_a^bcdt\sqrt{1-\frac{v^2}{c^2}}
 \end{align}
-into a 1-dimensional problem 
+If we LT into the inertial system of Alice her proper time is simply (because $v=0$)
 \begin{align}
-\tau(b)-\tau(a)=\int_a^bdt\sqrt{1-v^2}
+\Delta\tau_A&=\int_a^bcdt=ct
 \end{align}
-First let's calculate the linear worldline
+For Bob we obtain
 \begin{align}
-\Delta\tau_A&=\int_{(0,0,0,0)}^{(t_1,x_1,0,0)}dt\sqrt{1-v^2}\\
-&=t_1\sqrt{1-\left(\frac{x_1}{t_1}\right)^2}\\
-&=\sqrt{t_1^2-x_1^2}
+\Delta\tau_B&=\int_a^bcdt\sqrt{1-\frac{v(t)^2}{c^2}}
 \end{align}
-Now split the worldline into two linear pieces
-\begin{align}
-\Delta\tau_B&=\int_{(0,0,0,0)}^{(t_0,x_0,0,0)}dt\sqrt{1-v^2}+\int_{(t_0,x_0,0,0)}^{(t_1,x_1,0,0)}dt\sqrt{1-v^2}\\
-&=t_0\sqrt{1-\left(\frac{x_0}{t_0}\right)^2}+(t_1-t_0)\sqrt{1-\left(\frac{x_1-x_0}{t_1-t_0}\right)^2}\\
-&=\sqrt{t_0^2-x_0^2}+\sqrt{(t_1-t_0)^2-(x_1-x_0)^2}
-\end{align}
+where the square root is smaller than one as soon the the observer is moving. Therefore it clear that $\Delta\tau_A<\Delta\tau_B$.
 
 
-\section{General Relativity}
 \subsection{{\sc Carroll} - Spacetime an Geometry}
 \subsubsection{Problem 1.7}
 \begin{enumerate}
@@ -5635,6 +5910,83 @@ and obtain
 \end{align}
 
 \newpage
+\section{Simulations of Cosmic Structure Formation - MAUCA 2018}
+\subsubsection{Exercise 2}
+\begin{enumerate}
+\item Summary of Friedmann equations
+We start with the total energy density
+\begin{align}
+\rho=\frac{3H_0^2}{8\pi G}\left[
+\Omega_\Lambda+
+\Omega_m\left(\frac{a_0}{a}\right)^3+
+\Omega_r\left(\frac{a_0}{a}\right)^4\right]
+\end{align}
+Using the Friedman equation we get
+\begin{align}
+\dot{a}^2+K
+&=\frac{8\pi G\rho a^2}{3}\\
+\dot{a}^2-\Omega_Ka_0^2H_0^2&=a^2H_0^2\left[
+\Omega_\Lambda+
+\Omega_m\left(\frac{a_0}{a}\right)^3+
+\Omega_r\left(\frac{a_0}{a}\right)^4\right]\\
+\dot{a}^2&=a^2H_0^2\left[
+\Omega_\Lambda+
+\Omega_m\left(\frac{a_0}{a}\right)^3+
+\Omega_r\left(\frac{a_0}{a}\right)^4+
+\Omega_K\left(\frac{a_0}{a}\right)^2\right]
+\end{align}
+where we used $\Omega_K=-K/(a_0H_0)^2$. With $a(t_0)=a_0$ and $H_0\equiv\frac{\dot{a}(t_0)}{a(t_0)}$ we find a constraint on the $\Omega$ parameters
+\begin{align}
+\Omega_\Lambda+\Omega_m+\Omega_r+\Omega_K=1
+\end{align}
+Then with $x=a/a_0$
+\begin{align}
+\dot{x}^2&=x^2H_0^2\left[
+\Omega_\Lambda+
+\Omega_m x^{-3}+
+\Omega_r x^{-4}+
+\Omega_K x^{-2}\right]\\
+\frac{dx}{dt}&=H_0\sqrt{
+\Omega_\Lambda x^2+
+\Omega_m x^{-1}+
+\Omega_r x^{-2}+
+\Omega_K}\\
+H_0dt&=
+\frac{dx}{\sqrt{
+\Omega_\Lambda x^2+
+\Omega_m x^{-1}+
+\Omega_r x^{-2}+
+\Omega_K}}
+\end{align}
+\item Solutions
+\begin{align}
+\dot{x}&=H_0\sqrt{
+\Omega_\Lambda x^2+
+\Omega_m x^{-1}+
+\Omega_r x^{-2}+
+\Omega_K}
+\end{align}
+\begin{itemize}
+\item $k=0, \Omega_\Lambda=1,\Omega_m=\Omega_r=0$
+\begin{align}
+\dot{x}=H_0x\quad\rightarrow\quad x=e^{H_0t}
+\end{align}
+
+\item $k=0, \Omega_m=1,\Omega_\Lambda=\Omega_r=0$
+\begin{align}
+\dot{x}=H_0x^{-1/2}\quad\rightarrow\quad x=\left(1+\frac{3}{2}H_0t\right)^{2/3}
+\end{align}
+
+\item $k=0, \Omega_r=1,\Omega_\Lambda=\Omega_m=0$
+\begin{align}
+\dot{x}=H_0x^{-1}\quad\rightarrow\quad x=1+H_0t
+\end{align}
+
+
+\end{itemize}
+\end{enumerate}
+
+\newpage
 \section{Doodling}
 Fundamental ingredients for a quantum theory are a set of states $\{|\psi\rangle\}$ and operators $\{\mathcal{O}\}$. The time development is governed by a Hamilton operator
 \begin{align}
@@ -5996,7 +6348,7 @@ Freudenthal-Rosenfeld-Tits magic square of Lie algebras
 \subsection{Representation theory}
 \theoremstyle{definition}
 \begin{definition}{}
-A {\bf representation} of a group $G=\left(\{g_i\},\circ\right)$ is a mapping $D$ of the elements of $G$ onto a set of linear operators with
+A {\bf representation} of a group $G=\left(\{g_i\},\circ\right)$ is a mapping $g\mapsto D(g)$ of the elements $g\in G$ onto a set of linear operators with
 \begin{enumerate}
     \item $D(e)=\mathbb{I}$
     \item $D(g_1)D(g_2) = D(g_1\circ g_2)$.
@@ -6098,7 +6450,12 @@ F D_1(g) = D_2(g)F\quad \forall g \in G.
 
 
 
-\section{Lie algebras}
+\section{Lie groups/algebras}
+Linear representation
+\begin{align}
+g\to
+\end{align}
+
 
 \begin{remark}{}
 Killing classification of simple Lie groups
