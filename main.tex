@@ -2073,22 +2073,52 @@ Now we can do a dimensions count for each term
 &\rightarrow\quad a=-1\\
 &\rightarrow\quad b=-1
 \end{align} 
-\item Deriving the equations of motions
+\item Deriving the equations of motions: keeping in mind that the Lagrangian contains second order derivatives with implies and extra term in the Euler-Lagrange equations (see problem 3.1)
 \begin{align}
 \mathcal{L}&=-\frac{1}{2}h\Box h+\frac{1}{M_\text{Pl}}h^2\Box h-\frac{1}{M_\text{Pl}}hT\\
-\frac{\partial\mathcal{L}}{\partial h}&=-\frac{1}{2}\cdot2\cdot\Box h+2\frac{1}{M_\text{Pl}}h\Box h-\frac{1}{M_\text{Pl}}T\\
+\frac{\partial\mathcal{L}}{\partial h}&=-\frac{1}{2}\cdot\Box h+2\frac{1}{M_\text{Pl}}h\Box h-\frac{1}{M_\text{Pl}}T\\
 \frac{\partial\mathcal{L}}{\partial(\partial h)}&=0\\
-&\rightarrow\Box h=\frac{4}{M_\text{Pl}}h\Box h-\frac{2}{M_\text{Pl}}T
+\frac{\partial\mathcal{L}}{\partial(\Box h)}&=-\frac{1}{2}h+\frac{1}{M_\text{Pl}}h^2\\
+&\rightarrow\Box h=\frac{1}{M_\text{Pl}}\Box(h^2)+\frac{2}{M_\text{Pl}}h\Box h-\frac{1}{M_\text{Pl}}T
 \end{align}
-which is not the given result. But
-alternatively we can integrate the Lagrangian by parts (neglecting the boundary terms) and get
+which show an extra term. Alternatively we can integrate the Lagrangian by parts (neglecting the boundary terms) and get
 \begin{align}
 \mathcal{L}&=\frac{1}{2}\partial h\partial h-\frac{1}{M_\text{Pl}}\partial(h^2)\partial h-\frac{1}{M_\text{Pl}}hT\\
 \frac{\partial\mathcal{L}}{\partial h}&=-\frac{1}{M_\text{Pl}}T\\
 \frac{\partial\mathcal{L}}{\partial(\partial h)}&=\Box h-\frac{1}{M_\text{Pl}}\Box(h^2)\\
 &\rightarrow\Box h=\frac{1}{M_\text{Pl}}\Box(h^2)-\frac{1}{M_\text{Pl}}T
 \end{align}
+We now assume a solution of the form
+\begin{align}
+h&=h_0+\frac{1}{M_\text{Pl}}h_1+\frac{1}{M_\text{Pl}^2}h_2+...\\
+\rightarrow h^2&=h_0^2+\frac{1}{M_\text{Pl}}2h_0h_1+\frac{1}{M_\text{Pl}^2}(2h_0h_2+h_1^2)+\frac{1}{M_\text{Pl}^3}(2h_1h_2+2h_0h_3)+...
+\end{align}
+and obtain (with the Coulomb solution 3.61 and 3.61)
+\begin{align}
+k=0:&\quad\Box h_0=0\quad\rightarrow\quad h_0=0\\
+k=1:&\quad\Box h_1=\Box h_0^2-m\delta^{(3)}\\
+    &\quad\Box h_1=-m\delta^{(3)}\quad\rightarrow\quad h_1=-\frac{m}{\Box}\delta^{(3)}=\frac{m}{\triangle}\delta^{(3)}=-\frac{m}{4\pi r}\\
+k=2:&\quad\Box h_2=2\Box h_0h_1\quad\rightarrow\quad h_2=0\\
+k=3:&\quad\Box h_3=\Box(2h_0h_2+h_1^2)\\
+    &\quad\Box h_3=\Box(h_1^2)\quad\rightarrow\quad h_3=h_1^2=\frac{m^2}{16\pi^2r^2}
+\end{align}
+and therefore
+\begin{align}
+h&=-\frac{m}{4\pi r}\frac{1}{M_\text{Pl}}+\frac{m^2}{16\pi^2r^2}\frac{1}{M_\text{Pl}^3}\\
+&=-\frac{m}{4\pi r}\sqrt{G_N}+\frac{m^2}{16\pi^2r^2}\sqrt{G_N^3}
+\end{align}
 \item 
+The Newton potential is actually given by (and additional power of $M_\text{Pl}$ is missing and we are dropping the $4\pi$)
+\begin{align}
+V_N=h_1\frac{1}{M_\text{Pl}}\cdot\frac{1}{M_\text{Pl}}=-\frac{Gm_\text{Sun}}{r}
+\end{align}
+the virial theorem implies $E_\text{kin}\simeq E_\text{pot}$ and therefore
+\begin{align}
+\frac{1}{2}J\omega^2&\simeq \frac{G_N m_\text{Sun} m_\text{Mercury}}{R}\\
+\frac{1}{2}m_\text{Mercury}R^2\omega^2&\simeq \frac{G_N m_\text{Sun} m_\text{Mercury}}{R}\\
+\omega^2&\simeq\frac{G_Nm_\text{Sun}}{R^3}
+\end{align}
+
 \item 
 \item 
 \item 
