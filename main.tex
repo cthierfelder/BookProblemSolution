@@ -57,7 +57,7 @@
 \usepackage{etoolbox}
 \providetoggle{includeCoverPic}
 \settoggle{includeCoverPic}{true}
-\settoggle{includeCoverPic}{false}
+%\settoggle{includeCoverPic}{false}
 
 
 \begin{document}
@@ -136,6 +136,7 @@ There is another theory which states that this has already happened.
     \int_{-\infty}^\infty dx e^{-ax^2+bx+c}&=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c} \qquad a>0, a,b,c\in\mathbb{R}\\
     \int_{-\infty}^\infty dx e^{iax^2}&=\sqrt{\frac{\pi}{a}}e^{\frac{i\pi}{4}} \qquad a>0, a\in\mathbb{R}
 \end{align}
+
 \subsection{Common Fourier integrals}
 \begin{align}
     \int_{-\infty}^\infty dy e^{-ay^2}e^{-iby}&=\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}} \qquad a>0, a,b\in\mathbb{R}\\
@@ -144,6 +145,15 @@ There is another theory which states that this has already happened.
     &=\sqrt{\frac{\pi}{a^2+c^2}}\sqrt{a-ic}\,e^{-\frac{b^2}{4(a^2+c^2)}(a-ic)}
 \end{align}
 
+\subsection{Common contour integrals}
+\begin{align}
+G(t-t')&=-\frac{1}{2\pi}\int_{-\infty}^{+\infty}dE\frac{e^{-iE(t-t')}}{E^2-\omega^2+i\epsilon}=\frac{i}{2\omega}e^{i\omega|t|}\qquad\text{Sredniki (7.12)}\\
+D(x-y)&=\frac{4\pi}{(2\pi)^3}\int_{0}^{\infty} dp\frac{p^2 e^{i\sqrt{p^2+m^2}t}}{2\sqrt{p^2+m^2}}=\frac{1}{4\pi^2}\int_m^\infty dE\sqrt{E^2-m^2}e^{iEt}\qquad \text{PS (2.51)}\\
+D(x-y)&=\frac{-i}{2(2\pi)^2r}\int_{-\infty}^{+\infty} dp\frac{p e^{ipr}}{\sqrt{p^2+m^2}}=\frac{1}{4\pi^2 r}\int_m^\infty d\rho\frac{\rho e^{-\rho r}}{\sqrt{\rho^2-m^2}}\qquad\text{PS (2.52)}\\
+V(r)&=\frac{1}{(2\pi)^2ir}\int_{-\infty}^\infty dp\frac{p e^{ipr}}{p^2+m^2}=\frac{1}{4\pi r}e^{-mr}\qquad\text{PS (4.126)}
+\end{align}
+
+
 \subsection{Fourier transformation}
 Starting from the Fourier integral theorem we have some freedom to distribute the $2\pi$ between back and forth transformation ($a,b\in\mathbb{R}$)
 \begin{align}
@@ -151,6 +161,10 @@ Starting from the Fourier integral theorem we have some freedom to distribute th
 \end{align}
 
 \subsection{Delta distribution}
+\begin{align}
+x\delta(x)=0
+\end{align}
+
 \begin{align}
     \int\delta(x)e^{-ikx}dx&=1\\
     \int e^{ik(x-y)}dk&=2\pi\delta(x-y)
@@ -1964,7 +1978,7 @@ and therefore
 \end{align}
 
 \subsubsection{Problem 3.6 Yukawa potential}
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item We slit the Lagranian in three parts
 \begin{align}
 \mathscr{L}&=-\frac{1}{4}F_{\mu\nu}^2+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
@@ -2022,23 +2036,35 @@ where we used the integral evaluation from {\sc Kachelriess} Problem 3.5.
     \lim_{m\rightarrow0}\frac{e}{4\pi r} e^{-mr}=\frac{e}{4\pi r}
 \end{align}
 \item Scaling down the Coulomb potential exponentially with a characteristic length of $1/m$.
+\item
 \item We can expand and the integrate each term by parts to move over the partial derivatives 
 \begin{align}
     \mathscr{L}_F
     &=-\frac{1}{4}F_{\mu\nu}^2\\
-    &=-\frac{1}{4}(\partial_\mu A_\nu-\partial_\nu A_\mu)(\partial_\nu A_\mu-\partial_\mu A_\nu)\\
-    &=-\frac{1}{4}\left(\partial_\mu A_\nu \partial_\nu A_\mu-\partial_\mu A_\nu \partial_\mu A_\nu
-        -\partial_\nu A_\mu \partial_\nu A_\mu + \partial_\nu A_\mu\partial_\mu A_\nu\right)\\
-    &=-\frac{1}{4}\left(- A_\nu \partial_\nu \partial_\mu A_\mu+ A_\nu \partial_\mu\partial_\mu A_\nu
-        + A_\mu \partial_\nu\partial_\nu A_\mu -  A_\mu\partial_\mu \partial_\nu A_\nu\right)\\
-    &=\frac{1}{2}\left( A_\nu \partial_\nu \underbrace{\partial_\mu A_\mu}_{=0}- A_\nu \Box A_\nu\right)\\ 
-    &=-\frac{1}{2}A_\nu \Box A_\nu
+    &=-\frac{1}{4}(\partial_\mu A_\nu-\partial_\nu A_\mu)(\partial_\mu A_\nu-\partial_\nu A_\mu)\\
+    &=-\frac{1}{4}\left(\partial_\mu A_\nu \partial_\mu A_\nu-\partial_\mu A_\nu \partial_\nu A_\mu
+        -\partial_\nu A_\mu \partial_\mu A_\nu + \partial_\nu A_\mu\partial_\nu A_\mu\right)\\
+    &=-\frac{1}{2}\left(\partial_\mu A_\nu \partial_\mu A_\nu-\partial_\mu A_\nu \partial_\nu A_\mu\right)\\
+    &=-\frac{1}{2}\left(-A_\nu\partial_\mu\partial_\mu A_\nu+ A_\nu \partial_\nu \partial_\mu A_\mu\right)\\
+    &=\frac{1}{2}\left(A_\mu \Box A_\mu- A_\nu \partial_\nu \underbrace{\partial_\mu A_\mu}_{=0}\right)\\ 
+    &=\frac{1}{2}A_\mu \Box A_\mu
 \end{align}
 We can plug this into the full Lagrangian (renaming the summation index)
 \begin{align}
-    \mathscr{L}&=-\frac{1}{2}A_\mu \Box A_\mu+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
-    &=\frac{1}{2}A_\mu\left(-\Box+m^2 \right)A_\mu-A_\mu J_\mu\\
-\end{align}    
+    \mathscr{L}&=\frac{1}{2}A_\mu \Box A_\mu+\frac{1}{2}m^2A_\mu^2-A_\mu J_\mu\\
+    &=\frac{1}{2}A_\mu\left(\Box+m^2 \right)A_\mu-A_\mu J_\mu
+\end{align} 
+then we calculate the derivatives for the Euler-Lagrange equations up to second order (see problem 3.1)
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial A_\mu}&=\frac{1}{2}\Box A_\mu+m^2A_\mu-J_\mu\\
+\frac{\partial\mathcal{L}}{\partial (\partial_\alpha A_\mu)}&=0\\
+\frac{\partial\mathcal{L}}{\partial (\partial_\alpha\partial_\alpha A_\mu)}&=\frac{1}{2}A_\mu
+\end{align}
+and get
+\begin{align}
+(\Box+m^2)A_\mu=J_\mu
+\end{align}
+   
 \end{enumerate}
 
 \subsubsection{Problem 3.7 Perihelion shift of Mercury by dimensional analysis}
@@ -2125,7 +2151,49 @@ the virial theorem implies $E_\text{kin}\simeq E_\text{pot}$ and therefore
 \item 
 \end{enumerate}
 
+\subsubsection{Problem 3.9 - Photon polarizations}
 
+\begin{enumerate}[label=(\alph*)]
+\item Then using the results from problem 3.6 and the corrected sign in the Lagranian we get
+\begin{align}
+\mathcal{L}&=-\frac{1}{4}(F_{\mu\nu})^2-J_\mu A_\mu\\
+&=\frac{1}{2}A_\mu\Box A_\mu-J_\mu A_\mu\\
+&=\frac{1}{2}A_\mu\Box A_\mu-(\Box A_\mu) A_\mu\\
+&=-\frac{1}{2}A_\mu\Box A_\mu
+\end{align}
+The equations of motion are $\Box A_\mu=J_\mu$ which can be written in momentum space as $k^2A_\mu(k)=J_\mu(k)$. Now let's write the Lagranian in momentum space as well
+\begin{align}
+\mathcal{L}&=\int d^4k e^{ikx}A_\mu(k)k^2A_\mu(k)\\
+&=\int d^4k e^{ikx}\frac{J_\mu(k)}{k^2}k^2\frac{J_\mu(k)}{k^2}\\
+&=\int d^4k e^{ikx}J_\mu(k)\frac{1}{k^2}J_\mu(k)
+\end{align} 
+\item In momentum space charge conservation is given by
+\begin{align}
+  k_\mu J_\mu&=0\\
+  \omega J_0-\kappa J_1&=0\\
+  &\rightarrow\quad J_1=\frac{\omega}{\kappa}J_0
+\end{align}
+
+\item
+\begin{align}
+\mathcal{L}&=\int d^4k e^{ikx}J_\mu(k)\frac{1}{k^2}J_\mu(k)\\
+&\simeq\frac{J_0^2-J_1^2-J_3^2-J_4^2}{\omega^2-\kappa^2}\\
+&\simeq\frac{J_0^2(1-\omega^2/\kappa^2)}{\omega^2-\kappa^2}-\frac{J_3^2+J_4^2}{\omega^2-\kappa^2}\\
+&\simeq-\frac{J_0^2}{\kappa^2}-\frac{J_3^2+J_4^2}{\omega^2-\kappa^2}\\
+&\simeq\triangle J_0^2-\Box(J_3^2+J_4^2)
+\end{align} 
+
+\item
+\end{enumerate}
+
+
+\subsubsection{Problem 3.10 - Graviton polarizations}
+\begin{enumerate}[label=(\alph*)]
+\item
+\item
+\item
+\item
+\end{enumerate}
 
 \subsection{{\sc Srednicki} - Quantum Field Theory}
 \subsubsection{Problem 1.2 - Schroedinger equation}
@@ -2159,6 +2227,58 @@ the virial theorem implies $E_\text{kin}\simeq E_\text{pot}$ and therefore
     \item Fermions:
 \end{enumerate}
 
+\subsubsection{Problem 1.3 - Commutator of the number operator}
+Preliminary calculations (we use the boson commutation relations)
+\begin{align}
+a^\dagger(z)a(z)a^\dagger(x)&=a^\dagger(z)(\delta(x-z)+a^\dagger(x)a(z))\\
+&=a^\dagger(z)\delta^3(x-z)+a^\dagger(z)a^\dagger(x)a(z)\\
+&=a^\dagger(z)\delta^3(x-z)+a^\dagger(x)a^\dagger(z)a(z)
+\end{align}
+and
+\begin{align}
+a(x)a^\dagger(z)a(z)&=(\delta(x-z)+a^\dagger(z)a(x))a(z)\\
+&=\delta^3(x-z)a(z)+a^\dagger(z)a(x)a(z)\\
+&=\delta^3(x-z)a(z)+a^\dagger(z)a(z)a(x)
+\end{align}
+With
+\begin{align}
+N&=\int d^3z\; a^\dagger(z)a(z)\\
+H&=H_1+H_\text{int}\\
+&=\int d^3x\; a^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)a(x)+\frac{1}{2}\int d^3xd^3y\;V(x-y) a^\dagger(x)a^\dagger(y)a(y)a(x)
+\end{align}
+We are calculating the commutator in two parts. We start with $[N,H_1]$
+\begin{align}
+N H_1&=\int d^3xd^3z\left(a^\dagger(z)\delta^3(x-z)+a^\dagger(x)a^\dagger(z)a(z)\right)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)a(x)\\
+&=\int d^3xa^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)a(x)+\int d^3xd^3za^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)a^\dagger(z)a(z)a(x)
+\end{align}
+and
+\begin{align}
+H_1N&=\int d^3x\; a^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)(\delta^3(x-z)a(z)+a^\dagger(z)a(z)a(x))\\
+&=\int d^3xa^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)a(x)+\int d^3xd^3za^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+U(x)\right)a^\dagger(z)a(z)a(x)
+\end{align}
+therefore $[N,H_1]=0$.
+For the second part $[N,H_\text{int}]$ we calculate
+\begin{align}
+a^\dagger_za_za^\dagger_xa^\dagger_ya_ya_x
+&=a^\dagger_z(\delta^3_{zx}+a^\dagger_xa_z)a^\dagger_ya_ya_x\\
+&=\delta^3_{zx}a^\dagger_za^\dagger_ya_ya_x+a^\dagger_za^\dagger_xa_za^\dagger_ya_ya_x\\
+&=\delta^3_{zx}a^\dagger_ya^\dagger_za_ya_x+a^\dagger_za^\dagger_x(\delta^3_{zy}+a^\dagger_ya_z)a_ya_x\\
+&=\delta^3_{zx}a^\dagger_ya^\dagger_za_ya_x+\delta^3_{zy}a^\dagger_za^\dagger_xa_ya_x+a^\dagger_za^\dagger_xa^\dagger_ya_za_ya_x\\
+&=\delta^3_{zx}a^\dagger_ya^\dagger_za_ya_x+\delta^3_{zy}a^\dagger_xa^\dagger_za_ya_x+a^\dagger_xa^\dagger_ya^\dagger_za_za_ya_x\\
+&\rightarrow a^\dagger_ya^\dagger_xa_ya_x+a^\dagger_xa^\dagger_ya_ya_x+a^\dagger_xa^\dagger_ya^\dagger_za_za_ya_x
+\end{align}
+and
+\begin{align}
+a^\dagger_xa^\dagger_ya_ya_xa^\dagger_za_z
+&=a^\dagger_xa^\dagger_ya_y(\delta^3_{xz}+a^\dagger_za_x)a_z\\
+&=\delta^3_{xz}a^\dagger_xa^\dagger_ya_ya_z+a^\dagger_xa^\dagger_ya_ya^\dagger_za_xa_z\\
+&=\delta^3_{xz}a^\dagger_xa^\dagger_ya_za_y+a^\dagger_xa^\dagger_y(\delta^3_{zy}+a^\dagger_za_y)a_xa_z\\
+&=\delta^3_{xz}a^\dagger_xa^\dagger_ya_za_y+\delta^3_{zy}a^\dagger_xa^\dagger_ya_xa_z+a^\dagger_xa^\dagger_ya^\dagger_za_ya_xa_z\\
+&=\delta^3_{xz}a^\dagger_xa^\dagger_ya_za_y+\delta^3_{zy}a^\dagger_xa^\dagger_ya_za_x+a^\dagger_xa^\dagger_ya^\dagger_za_za_ya_x\\
+&\rightarrow a^\dagger_xa^\dagger_ya_xa_y+a^\dagger_xa^\dagger_ya_ya_x+a^\dagger_xa^\dagger_ya^\dagger_za_za_ya_x
+\end{align}
+We therefore see that the commutator vanishes as well.
+
 \subsubsection{Problem 2.1 - Infinitesimal LT}
 \begin{align}
 g_{\mu\nu}\Lambda^\mu_{\;\rho}\Lambda^\nu_{\;\sigma}&=g_{\rho\sigma}\\
@@ -2191,13 +2311,14 @@ now we can rewrite $U(I+\Lambda^{-1}\delta\omega'\Lambda)$ and therefore
 \end{align}
 As all $\delta\omega'$ components are basically independent the equation must hold for each pair $\mu,\nu$.
 
-\subsubsection{Problem 2.3 - Commutator of LT generators}
+\subsubsection{Problem 2.3 - Commutators of LT generators I}
 LHS:
 \begin{align}
-U(\Lambda^{-1})M^{\mu\nu}U(\Lambda)
+U(\Lambda)^{-1}M^{\mu\nu}U(\Lambda)
 &\simeq\left(I-\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta}\right)M^{\mu\nu}\left(I+\frac{i}{2\hbar}\delta\omega_{\rho\sigma}M^{\rho\sigma}\right)\\
 &\simeq M^{\mu\nu}-\frac{i}{2\hbar}\delta\omega_{\rho\sigma}(M^{\rho\sigma}M^{\mu\nu}-M^{\mu\nu}M^{\rho\sigma})+\mathcal{O}(\delta\omega^2)\\
-&\simeq M^{\mu\nu}-\frac{i}{2\hbar}\delta\omega_{\rho\sigma}[M^{\rho\sigma},M^{\mu\nu}]
+&= M^{\mu\nu}-\frac{i}{2\hbar}\delta\omega_{\rho\sigma}[M^{\rho\sigma},M^{\mu\nu}]\\
+&= M^{\mu\nu}+\frac{i}{2\hbar}\delta\omega_{\rho\sigma}[M^{\mu\nu},M^{\rho\sigma}]
 \end{align}
 RHS:
 \begin{align}
@@ -2209,10 +2330,613 @@ RHS:
 &\simeq M^{\mu\nu}+\delta\omega_{\alpha\sigma}(g^{\alpha\nu}M^{\mu\sigma}+g^{\alpha\mu}M^{\sigma\nu})\\
 &\simeq M^{\mu\nu}+\delta\omega_{\rho\sigma}(g^{\rho\nu}M^{\mu\sigma}+g^{\rho\mu}M^{\sigma\nu})\\
 &\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\rho\nu}(M^{\mu\sigma}-M^{\sigma\mu})+g^{\rho\mu}(M^{\sigma\nu}-M^{\nu\sigma})\right)\\
-&\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\rho\nu}M^{\mu\sigma}-g^{\nu\rho}M^{\sigma\mu}+g^{\rho\mu}M^{\sigma\nu}-g^{\mu\rho}M^{\nu\sigma}\right)\\
+&\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\rho\nu}M^{\mu\sigma}-g^{\nu\rho}M^{\sigma\mu}+g^{\rho\mu}M^{\sigma\nu}-g^{\mu\rho}M^{\nu\sigma}\right)
+\end{align}
+Now we use the antisymmetry of $M$ 
+\begin{align}
+\Lambda^{\mu}_{\;\rho}\Lambda^\nu_{\;\sigma}M^{\rho\sigma}
 &\simeq M^{\mu\nu}+\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\nu\rho}M^{\mu\sigma}-g^{\nu\rho}M^{\sigma\mu}+g^{\rho\mu}M^{\sigma\nu}-g^{\mu\rho}M^{\nu\sigma}\right)\\
+&\simeq M^{\mu\nu}-\frac{1}{2}\delta\omega_{\rho\sigma}\left(-g^{\nu\rho}M^{\mu\sigma}+g^{\nu\rho}M^{\sigma\mu}-g^{\rho\mu}M^{\sigma\nu}+g^{\mu\rho}M^{\nu\sigma}\right)\\
+&\simeq M^{\mu\nu}-\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\mu\rho}M^{\nu\sigma}-g^{\nu\rho}M^{\mu\sigma}-g^{\rho\mu}M^{\sigma\nu}+g^{\nu\rho}M^{\sigma\mu}\right)\\
+&\simeq M^{\mu\nu}-\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\mu\rho}M^{\nu\sigma}-g^{\nu\rho}M^{\mu\sigma}\right)-\frac{1}{2}\underbrace{\delta\omega_{\rho\sigma}\left(-g^{\rho\mu}M^{\sigma\nu}+g^{\nu\rho}M^{\sigma\mu}\right)}_{=\underbrace{\delta\omega_{\sigma\rho}\left(-g^{\sigma\mu}M^{\rho\nu}+g^{\nu\sigma}M^{\rho\mu}\right)}_{=-\delta\omega_{\rho\sigma}\left(-g^{\mu\sigma}(-M^{\nu\rho})+g^{\nu\sigma}(-M^{\mu\rho})\right)}}\\
+&\simeq M^{\mu\nu}-\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\mu\rho}M^{\nu\sigma}-g^{\nu\rho}M^{\mu\sigma}\right)-\frac{1}{2}\delta\omega_{\rho\sigma}\left(-g^{\mu\sigma}M^{\nu\rho}+g^{\nu\sigma}M^{\mu\rho}\right)\\
+&\simeq M^{\mu\nu}-\frac{1}{2}\delta\omega_{\rho\sigma}\left(g^{\mu\rho}M^{\nu\sigma}-g^{\nu\rho}M^{\mu\sigma}-g^{\mu\sigma}M^{\nu\rho}+g^{\nu\sigma}M^{\mu\rho}\right)
+\end{align}
+As the components of $\delta\omega$ (besides the antisymmetry) are independent we get
+\begin{align}
+[M^{\mu\nu},M^{\rho\sigma}]=i\hbar\left(g^{\mu\rho}M^{\nu\sigma}-g^{\nu\rho}M^{\mu\sigma}-g^{\mu\sigma}M^{\nu\rho}+g^{\nu\sigma}M^{\mu\rho}\right)
 \end{align}
 
+
+\subsubsection{Problem 2.4 - Commutators of LT generators II}
+Preliminary calculations
+\begin{align}
+\epsilon_{ijk}J_k
+&=\varepsilon_{ijk}\frac{1}{2}\varepsilon_{kab}M^{ab}\\
+&=-\frac{1}{2}\varepsilon_{kij}\varepsilon_{kab}M^{ab}\\
+&=-\frac{1}{2}\left(\delta_{ia}\delta_{jb}-\delta_{ja}\delta_{ib}\right)M^{ab}\\
+&=-\frac{1}{2}\left(M^{ij}-M^{ji}\right)\\
+&=-M^{ij}
+\end{align}
+\begin{itemize}
+\item  With
+\begin{align}
+J_1
+&=\frac{1}{2}(\varepsilon_{123}M^{23}+\varepsilon_{132}M^{32})\\
+&=\varepsilon_{123}M^{23}\\
+&=M^{23}
+\end{align}
+then
+\begin{align}
+[J_1,J_3]
+&=[M^{23},M^{12}]\\
+&=i\hbar\left(g^{21}M^{32}-g^{31}M^{22}-g^{22}M^{31}+g^{32}M^{21}\right)\\
+&=-i\hbar g^{22}M^{31}\\
+&=-i\hbar M^{31}\\
+&=-i\hbar J_2
+\end{align}
+\item analog ...
+\item
+\begin{align}
+[K^i,K^j]
+&=[M^{i0},M^{j0}]\\
+&=i\hbar\left(g^{ij}M^{00}-g^{0j}M^{i0}-g^{i0}M^{0j}+g^{00}M^{ij}\right)\\
+&=i\hbar\left(-\delta^{ij}M^{00}+M^{ij}\right) \\
+&=\left\{
+\begin{array}{ll} 
+i\hbar M^{ij}=-i\hbar\epsilon_{ijk}J_k 	& (i=j)\\
+ 0 										& (i\neq j)
+\end{array}\right.
+\end{align}
+where we used the result from the preliminary calculation in the last step.
+\end{itemize}
+
+\subsubsection{Problem 2.7 - Translation operator}
+The obvious property $T(a)T(b)=T(a+b)$. Then
+\begin{align}
+T(\delta a+\delta b)&=T(\delta a)T(\delta b)\\
+&=\left(1-\frac{i}{\hbar}\delta a_\mu P^\mu\right)\left(1-\frac{i}{\hbar}\delta b_\nu P^\nu\right)\\
+&\simeq 1-\frac{i}{\hbar}(\delta a_\mu +\delta b_\mu) P^\mu+\frac{1}{\hbar^2}\delta a_\mu\delta b_\mu P^\mu P^\nu
+\end{align}
+and 
+\begin{align}
+T(\delta a+\delta b)&=T(\delta b)T(\delta a)\\
+&=\left(1-\frac{i}{\hbar}\delta b_\nu P^\nu\right)\left(1-\frac{i}{\hbar}\delta a_\mu P^\mu\right)\\
+&\simeq 1-\frac{i}{\hbar}(\delta a_\mu +\delta b_\mu) P^\mu+\frac{1}{\hbar^2}\delta a_\mu\delta b_\mu P^\nu P^\mu
+\end{align}
+which implies $P^\mu P^\nu=P^\nu P^\mu$.
+
+\subsubsection{Problem 2.8 - Transformation of scalar field}
+(a) We start with
+\begin{align}
+U(\Lambda)^{-1}\varphi(x)U(\Lambda)&=\varphi(\Lambda^{-1}x)\\
+\left(1-\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu}\right)\varphi(x)\left(1+\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu}\right)&=\varphi([\delta^\mu_{\;\nu}-\delta\omega^\mu_{\;\nu}]x^\nu)\\
+\varphi(x)-\frac{i}{2\hbar}\delta\omega_{\mu\nu}[M^{\mu\nu},\varphi(x)]&=\varphi(x)-\delta\omega^\mu_{\;\nu}x^\nu\frac{\partial\varphi}{\partial x^\mu}\\
+&=\varphi(x)-\delta\omega^\mu_{\;\nu}\frac{1}{2}\left(x^\nu\frac{\partial\varphi}{\partial x^\mu}-x^\mu\frac{\partial\varphi}{\partial x^\nu}\right)\\
+&=\varphi(x)-\delta\omega_{\mu\nu}\frac{1}{2}\left(x^\nu\partial^\mu-x^\mu\partial^\nu\right)\varphi
+\end{align}
+and therefore
+\begin{align}
+[\varphi,M^{\mu\nu}]=\frac{\hbar}{i}(x^\mu\partial^\nu-x^\nu\partial^\mu)\varphi
+\end{align}
+
+(b)
+(c)
+(d)
+(e)
+(f)
+
+\subsubsection{Problem 3.2 - Multiparticle eigenstates of the hamiltonian}
+With
+\begin{align}
+|k_1...k_n\rangle&=a^\dagger_{k_1}...a^\dagger_{k_n}|0\rangle\\
+H&=\int\widetilde{dk}\;\omega_k a^\dagger_ka_k\\
+[a_k,a_q^\dagger]&=\underbrace{(2\pi)^3 2\omega_k\delta^3(\vec{k}-\vec{q})}_{\delta_{kq}}
+\end{align}
+we see that the expression which needs calculating is the creation and annihilation operators. The idea is to use the commutation relations to move the $a_k$ to the right end to use $a_k|0\rangle$
+\begin{align}
+a^\dagger_ka_ka^\dagger_{k_1}...a^\dagger_{k_n}|0\rangle
+&=a^\dagger_k(a^\dagger_{k_1}a_k+\delta_{kk_1})a^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle\\
+&=\delta_{kk_1}a^\dagger_ka^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle
++a^\dagger_ka^\dagger_{k_1}a_ka^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle\\
+&=...\\
+&=\sum_j\delta_{kk_j}a^\dagger_k\underbrace{a^\dagger_{k_2}...a^\dagger_{k_n}}_{(n-1)\, \text{times with}\;a_{k_j}\;\text{missing}}|0\rangle+a^\dagger_ka^\dagger_{k_1}...a^\dagger_{k_n}\underbrace{a_k|0\rangle}_{=0}.
+\end{align}
+Therefore we obtain
+\begin{align}
+H|k_1...k_n\rangle
+&=\int\frac{d^3k}{(2\pi)^3 2\omega_k}\omega_k\sum_j\delta_{kk_j}a^\dagger_ka^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle\\
+&=\int\frac{d^3k}{(2\pi)^3 2\omega_k}\omega_k\sum_j(2\pi)^32\omega_k\delta^3(\vec{k}-\vec{k}_j)a^\dagger_ka^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle\\
+&=\int d^3k\omega_k\sum_j\delta^3(\vec{k}-\vec{k}_j)a^\dagger_ka^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle
+\end{align}
+which we can integrate obtaining the desired result
+\begin{align}
+H|k_1...k_n\rangle
+&=\sum_j\omega_{k_j}a^\dagger_{k_j}a^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle\\
+&=\left(\sum_j\omega_{k_j}\right)a^\dagger_{k_1}a^\dagger_{k_2}...a^\dagger_{k_n}|0\rangle\\
+&=\left(\sum_j\omega_{k_j}\right)|k_1...k_n\rangle.
+\end{align}
+
+\subsubsection{Problem 3.4 - Heisenberg equations of motion for free field}
+(a) For the translation operator $T(a)=e^{-iP^\mu a_\mu}$ we expand in first order
+\begin{align}
+T(a)^{-1}\varphi(a)T(a)
+&=\left(1-(-i)P^\mu a_\mu+\mathcal{O}(a^2)\right)\varphi(x)\left(1+(-i)P^\mu a_\mu+\mathcal{O}(a^2)\right)\\
+&=\left(1+iP^\mu a_\mu+\mathcal{O}(a^2)\right)\varphi(x)\left(1-iP^\mu a_\mu+\mathcal{O}(a^2)\right)\\
+&\simeq\varphi(x)+ia_\mu P^\mu\varphi(x)-ia_\mu\varphi(x)P^\mu\\
+&\simeq\varphi(x)+ia_\mu [P^\mu,\varphi(x)]
+\end{align}
+for the right hand right we get
+\begin{align}
+\varphi(x-a)\simeq\varphi(x)-\partial^\mu \varphi(x)a_\mu
+\end{align}
+and therefore
+\begin{align}
+i[P^\mu,\varphi(x)]=-\partial^\mu\varphi(x)
+\end{align}
+(b) With $\mu=0$ and $\partial^0=g_{0\nu}\partial_\nu=-\partial_0$ we have
+\begin{align}
+i[H,\varphi(x)]&=-\partial^0\varphi(x)=+\partial_0\varphi(x)\\
+&\rightarrow\quad\dot{\varphi}(x)=i[H,\varphi(x)]
+\end{align}
+(c) We start with the hamiltonian (3.25)
+\begin{align}
+H=\int d^3y\frac{1}{2}\Pi^2(y)+\frac{1}{2}(\nabla_y\varphi(y))^2+\frac{1}{2}m^2\varphi(y)^2-\Omega_0
+\end{align}
+\begin{itemize}
+\item Obtaining $\dot{\varphi}(x)=i[H,\varphi(x)]$
+
+We need to calculate (setting $x^0=y^0$ - why can we?)
+\begin{align}
+[\Pi^2(y),\varphi(x)]
+&=\Pi(y)\Pi(y)\varphi(x)-\varphi(x)\Pi(y)\Pi(y)\\
+&=\Pi(y)\Pi(y)\varphi(x)-\Pi(y)\varphi(x)\Pi(y)+\Pi(y)\varphi(x)\Pi(y)-\varphi(x)\Pi(y)\Pi(y)\\
+&=\Pi(y)[\Pi(y),\varphi(x)]+[\Pi(y),\varphi(x)]\Pi(y)\\
+&=2\Pi(y)(-1)i\delta^3(\vec{y}-\vec{x})\\
+%
+[(\nabla_y\varphi(y))^2,\varphi(x)]
+&=\nabla_y\varphi(y)\nabla_y\varphi(y)\varphi(x)-\varphi(x)\nabla_y\varphi(y)\nabla_y\varphi(y)\\
+&=\nabla_y\varphi(y)[\nabla_y\varphi(y),\varphi(x)]+[\nabla_y\varphi(y),\varphi(x)]\nabla_y\varphi(y)\\
+&=\nabla_y\varphi(y)\nabla_y[\varphi(y),\varphi(x)]+\nabla_y[\varphi(y),\varphi(x)]\nabla_y\varphi(y)\\
+&=0\\
+%
+[\varphi(y)^2,\varphi(x)]
+&=\varphi(y)\varphi(y)\varphi(x)-\varphi(x)\varphi(y)\varphi(y)\\
+&=\varphi(y)\varphi(y)\varphi(x)-\varphi(y)\varphi(x)\varphi(y)+\varphi(y)\varphi(x)\varphi(y)-\varphi(x)\varphi(y)\varphi(y)\\
+&=\varphi(y)[\varphi(y),\varphi(x)]+[\varphi(y),\varphi(x)]\varphi(y)\\
+&=0
+\end{align}
+then
+\begin{align}
+\int d^3y[\Pi^2(y),\varphi(x)]&=-2i\Pi(x)\\
+\int d^3y[(\nabla_y\varphi(y))^2,\varphi(x)]&=\int d^3y\nabla_y\varphi(y)
+%
+[\nabla_y\varphi(y),\varphi(x)]+[\nabla_y\varphi(y),\varphi(x)]\nabla_y\varphi(y)\\
+&=0\\
+%
+\int d^3y[\varphi(y)^2,\varphi(x)]&=0
+\end{align}
+and therefore
+\begin{align}
+\dot{\varphi}(x)
+&=i[H,\varphi(x)]\\
+&=i\frac{1}{2}(-2i)\Pi(x)\\
+&=\Pi(x)
+\end{align}
+
+\item Obtaining $\dot{\Pi}(x)=-i[H,\Pi(x)]$ (sign!?!)
+
+Now we need to calculate - by using the results from above we can now shortcut a bit
+\begin{align}
+[\Pi^2(y),\Pi(x)]
+&=0\\
+%
+[(\nabla_y\varphi(y))^2,\Pi(x)]
+&=(\nabla_y\varphi(y))(\nabla_y\varphi(y))\Pi(x)-\Pi(x)(\nabla_y\varphi(y))(\nabla_y\varphi(y))
+\\
+&=(\nabla_y\varphi(y))[(\nabla_y\varphi(y)),\Pi(x)]-[\Pi(x),(\nabla_y\varphi(y))](\nabla_y\varphi(y))
+\\
+&=(\nabla_y\varphi(y))\nabla_y[\varphi(y),\Pi(x)]-(\nabla_y[\Pi(x),\varphi(y)])(\nabla_y\varphi(y))
+\\
+&=(\nabla_y\varphi(y))\nabla_yi\delta^3(\vec{x}-\vec{y})-(\nabla_y(-i)\delta^3(\vec{x}-\vec{y}))(\nabla_y\varphi(y))
+\\
+&=2i(\nabla_y\delta^3(\vec{x}-\vec{y}))(\nabla_y\varphi(y))
+\\
+%
+[\varphi(y)^2,\Pi(x)]
+&=\varphi(y)\varphi(y)\Pi(x)-\Pi(x)\varphi(y)\varphi(y)\\
+&=\varphi(y)\varphi(y)\Pi(x)-\varphi(y)\Pi(x)\varphi(y)+\varphi(y)\Pi(x)\varphi(y)-\Pi(x)\varphi(y)\varphi(y)\\
+&=\varphi(y)[\varphi(y),\Pi(x)]+[\varphi(y),\Pi(x)]\varphi(y)\\
+&=2i\varphi(y)\delta^3(\vec{x}-\vec{y})
+\end{align}
+then
+\begin{align}
+\int d^3y [\Pi^2(y),\Pi(x)]
+&=0\\
+\int d^3y [(\nabla_y\varphi(y))^2,\Pi(x)]
+&=2i\int d^3y (\nabla_y\delta^3(\vec{x}-\vec{y}))(\nabla_y\varphi(y))\\
+&=-2i\int d^3y \delta^3(\vec{x}-\vec{y})(\nabla_y\nabla_y\varphi(y))\\
+&=-2i\triangle_x\varphi(x)\\
+\int d^3y[\varphi(y)^2,\Pi(x)]
+&=2i\varphi(x)
+\end{align}
+and therefore
+\begin{align}
+\dot\Pi(x)&=-i[H,\Pi(x)]\\
+&=-i\left(\frac{1}{2}(-2i)\triangle_x\varphi(x)+\frac{1}{2}m^22i\varphi(x)\right)\\
+&=-i\left(-i\triangle_x\varphi(x)+m^2i\varphi(x)\right)\\
+&=-\triangle_x\varphi(x)+m^2\varphi(x)
+\end{align}
+which finally leads to (with $\Box=\partial_{tt}-\triangle$)
+\begin{align}
+\partial^0\partial_0\varphi(x)
+&=\partial^0\Pi(x)\\
+&=-\partial_0\Pi(x)\\
+&=-(-\triangle_x\varphi(x)+m^2\varphi(x))\\
+&\rightarrow(\Box_x+m^2)\varphi(x)=0
+\end{align}
+\end{itemize}
+(d) With
+\begin{align}
+\vec{P}\equiv-\int d^3x\Pi(x)\nabla_x\varphi(x)
+\end{align}
+we have to calculate
+\begin{align}
+[\vec{P},\varphi(y)]=-\int d^3x[\Pi(x)\nabla_x\varphi(x),\varphi(y)].
+\end{align}
+Let's start with
+\begin{align}
+[\Pi(x)\nabla_x\varphi(x),\varphi(y)]
+&=\Pi(x)\nabla_x\varphi(x)\varphi(y)-\varphi(y)\Pi(x)\nabla_x\varphi(x)\\
+&=\Pi(x)\nabla_x\varphi(x)\varphi(y)-(\Pi(x)\varphi(y)+i\delta^3(\vec{x}-\vec{y}))\nabla_x\varphi(x)\\
+&=\Pi(x)\nabla_x\varphi(x)\varphi(y)-\Pi(x)\varphi(y)\nabla_x\varphi(x)+i\delta^3(\vec{x}-\vec{y})\nabla_x\varphi(x)\\
+&=\Pi(x)\nabla_x(\varphi(x)\varphi(y))-\Pi(x)\nabla_x(\varphi(y)\varphi(x))+i\delta^3(\vec{x}-\vec{y})\nabla_x\varphi(x)\\
+&=\Pi(x)\nabla_x[\varphi(x),\varphi(y)]+i\delta^3(\vec{x}-\vec{y})\nabla_x\varphi(x)\\
+&=i\delta^3(\vec{x}-\vec{y})\nabla_x\varphi(x)
+\end{align}
+and then
+\begin{align}
+[\vec{P},\varphi(y)]
+&=-i\int d^3x\delta^3(\vec{x}-\vec{y})\nabla_x\varphi(x)\\
+&=-i\nabla_y\varphi(y)
+\end{align}
+(e) With
+\begin{align}
+\Pi(x)&=
+\dot\varphi(x)\\
+&=\int\frac{d^3k}{(2\pi)^32\omega_k}(-i\omega_k)(a_ke^{ikx}-a^\dagger_ke^{-ikx})\\
+\nabla\varphi(x)
+&=\int\frac{d^3q}{(2\pi)^32\omega_k}(i\vec{q})(a_qe^{iqx}-a^\dagger_qe^{-iqx})\\
+\end{align}
+then
+\begin{align}
+\vec{P}
+&=-\int d^3x\Pi(x)\nabla_x\varphi(x)\\
+&=-\iiint d^3x
+\frac{d^3k}{(2\pi)^3 2\omega_k}
+\frac{d^3q}{(2\pi)^3 2\omega_k}
+(-i\omega_k)(i\vec{q})
+(a_ke^{ikx}-a^\dagger_ke^{-ikx})
+(a_qe^{iqx}-a^\dagger_qe^{-iqx})\\
+&=-\iiint d^3x
+\frac{d^3k}{(2\pi)^3 2}
+\frac{d^3q}{(2\pi)^3 2\omega_k}\vec{q}
+(a_ka_qe^{i(k+q)x}-a^\dagger_ka_qe^{-i(k-q)x}-
+a_ka^\dagger_q e^{i(k-q)x}+a^\dagger_ka^\dagger_qe^{-i(k+q)x})\\
+\end{align}
+now we can use the commutation relations and reindex
+\begin{align}
+&=-\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+(a_ka_qe^{i(k+q)x}-a^\dagger_ka_qe^{-i(k-q)x}-
+(a^\dagger_qa_k+(2\pi)^32\omega_k\delta^3(\vec{k}-\vec{q})) e^{i(k-q)x}+a^\dagger_ka^\dagger_qe^{-i(k+q)x})\\
+&=-\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+(a_ka_qe^{i(k+q)x}+a^\dagger_ka^\dagger_qe^{-i(k+q)x})+\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+2a^\dagger_ka_qe^{-i(k-q)x}\\
+&\quad+\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+(2\pi)^32\omega_k\delta^3(\vec{k}-\vec{q})e^{i(k-q)x}
+\end{align}
+Now we can look at the integrals individually and use the asymmetry. The first
+\begin{align}
+-\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+(a_ka_qe^{i(k+q)x}+a^\dagger_ka^\dagger_qe^{-i(k+q)x})
+&=...\\
+&=0
+\end{align}
+second
+\begin{align}
+\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+(2\pi)^32\omega_k\delta^3(\vec{k}-\vec{q})e^{i(k-q)x}
+&=\iiint d^3x
+\frac{d^3kd^3q}{2(2\pi)^3}
+\vec{q}
+\delta^3(\vec{k}-\vec{q})e^{i(k-q)x}\\
+&=\iiint d^3x
+\frac{d^3k}{2(2\pi)^3}
+\vec{k}\\
+&=0
+\end{align}
+and third
+\begin{align}
+\iiint d^3x
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+2a^\dagger_ka_qe^{-i(k-q)x}
+&=\iint 
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+2a^\dagger_ka_q\int d^3x\;e^{-i(k-q)x}\\
+&=\iint 
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+2a^\dagger_ka_qe^{-i(k-q)x} e^{-i(k^0-q^0)x^0}\int d^3x\;e^{-i(\vec{k}-\vec{q})\vec{x}}\\
+&=\iint 
+\frac{d^3kd^3q}{4\omega_k(2\pi)^6}
+\vec{q}
+2a^\dagger_ka_qe^{-i(k-q)x} e^{-i(k^0-q^0)x^0}(2\pi)^3\delta^3(\vec{k}-\vec{q})\\
+&=\int 
+\frac{d^3k}{2\omega_k(2\pi)^3}
+\vec{k}
+a^\dagger_ka_k\\
+&=\int 
+\widetilde{d^3k}\;
+\vec{k}
+a^\dagger_ka_k
+\end{align}
+Therefore we obtain
+\begin{align}
+\vec{P}&=\int 
+\frac{d^3k}{2\omega_k(2\pi)^3}
+\vec{k}
+a^\dagger_ka_k\\
+&=\int 
+\widetilde{d^3k}\;
+\vec{k}
+a^\dagger_ka_k
+\end{align}
+
+\subsubsection{Problem 3.5 - Complex scalar field}
+(a) Sloppy way - Calculating the Euler-Lagrange equations
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial\varphi}
+&=-m^2\varphi^\dagger\\
+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\varphi)}&=-\partial^\mu\varphi^\dagger\\
+&\rightarrow -m^2\varphi^\dagger+\partial_\mu\partial^\mu\varphi^\dagger=0\\
+&\rightarrow (\partial_\mu\partial^\mu-m^2)\varphi^\dagger=0
+\end{align}
+Bit more rigorous with
+\begin{align}
+\frac{\delta\phi(x_1,t_1)}{\delta\phi(x_2,t_2)}&=\delta(x_1-x_2)\times\delta(t_1-t_2)\\
+\frac{\delta\partial_\mu\phi(x)}{\delta\phi(y)}&=\frac{\delta}{\delta\phi(y)}\lim_{\epsilon\rightarrow0}\frac{\phi(x_1,x_\mu+\epsilon,...,x_4)-\phi(x_1,x_2,x_3,x_4)}{\epsilon}\\
+&=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}\left(\delta(x_\mu+\epsilon-y_\mu)-\delta(x_\mu-y_\mu)\right)\times\delta(x_1-y_1)\times...\times\delta(x_4-y_4)\\
+&=\frac{\partial}{\partial x^\mu}\delta^4(x-y)
+\end{align}
+we get
+\begin{align}
+S[\varphi]
+&=\int d^4x\left(-\partial^\mu\varphi^\dagger(x)\partial_\mu\varphi(x)-m^2\varphi^\dagger(x)\varphi(x)\right)\\
+\frac{\delta S[\varphi]}{\delta\varphi(y)}
+&=\int d^4x\left(-\partial^\mu\varphi^\dagger(x)\partial_\mu\delta^4(x-y)-m^2\varphi^\dagger(y)\delta^4(x-y)\right)\\
+&=\int d^4x\left(\partial_\mu\partial^\mu\varphi^\dagger(x)\delta^4(x-y)-m^2\varphi^\dagger(x)\delta^4(x-y)\right)\\
+&=(\Box_y-m^2)\varphi^\dagger(y)
+\end{align}
+(b) With
+\begin{align}
+\mathcal{L}
+&=-\partial^0\varphi^\dagger\partial_0\varphi-\partial^a\varphi^\dagger\partial_a\varphi-m^2\varphi^\dagger\varphi+\Omega_0\\
+&=\partial_0\varphi^\dagger\partial_0\varphi-\partial^a\varphi^\dagger\partial_a\varphi-m^2\varphi^\dagger\varphi+\Omega_0\\
+\Pi&=\frac{\partial\mathcal{L}}{\partial\dot\varphi}
+=\dot\varphi^\dagger\\
+\Pi^\dagger&=\frac{\partial\mathcal{L}}{\partial\dot\varphi^\dagger}
+=\dot\varphi\\
+\rightarrow\mathcal{H}&=\Pi\dot\varphi+\Pi^\dagger\dot\varphi^\dagger-\mathcal{L}\\
+&=\dot\varphi^\dagger\dot\varphi+\dot\varphi\dot\varphi^\dagger-\dot\varphi^\dagger\dot\varphi+(\nabla^a\varphi^\dagger)(\nabla_a\varphi)+m^2\varphi^\dagger\varphi-\Omega_0\\
+&=\Pi^\dagger\Pi+(\nabla^a\varphi^\dagger)(\nabla_a\varphi)+m^2\varphi^\dagger\varphi-\Omega_0
+\end{align}
+(c) Considering the plane wave solutions $e^{i\vec{k}\vec{x}\pm i\omega_kt}$ with 
+\begin{align}
+kx=g_{\mu\nu}k^\mu x^\nu=g_{00}k^0x^0+g_{ik}k^ix^k=-\omega_kt+\vec{k}\vec{x}
+\end{align}
+we have
+\begin{align}
+\varphi(\vec{x},t)
+&=\int\frac{d^3k}{(2\pi)^32\omega_k}\;a_ke^{ikx}+b^\dagger_ke^{-ikx}\\
+&=\int\frac{d^3k}{(2\pi)^32\omega_k}\;a_ke^{i\vec{k}\vec{x}-i\omega_kt}+b^\dagger_ke^{-i\vec{k}\vec{x}+i\omega_kt}\\
+e^{-iqx}\varphi(\vec{x},t)&=\int\frac{d^3k}{(2\pi)^32\omega_k}\;a_ke^{i(k-q)x}+b^\dagger_ke^{-i\vec{k}\vec{x}+i\omega_kt}e^{-iqx}\\
+\int d^3xe^{-iqx}\varphi(\vec{x},t)
+&=\int\frac{d^3k}{(2\pi)^32\omega_k} \;a_k\underbrace{\int d^3xe^{i(k-q)x}}_{(2\pi)^3\delta^3(\vec{k}-\vec{q})e^{-i(\omega_k-\omega_q)t}}+b_{-k}\underbrace{\int d^3xe^{i(\vec{k}-\vec{q})\vec{x}}}_{(2\pi)^3\delta^3(\vec{k}-\vec{q})}e^{i(\omega_k+\omega_q)t}\\
+&=\frac{1}{2\omega_q}\left(a_q+b^\dagger_{-q}e^{2i\omega_qt}\right)
+\end{align}
+and
+\begin{align}
+\partial_0\varphi(\vec{x},t)&=\int\frac{d^3k\;(-i\omega_k)}{(2\pi)^32\omega_k}\;a_ke^{i\vec{k}\vec{x}-i\omega_kt}-b^\dagger_ke^{-i\vec{k}\vec{x}+i\omega_kt}\\
+\int d^3x e^{-iqx}\partial_0\varphi(\vec{x},t)&=-\frac{i}{2}\left(a_q-b^\dagger_{-q}e^{2i\omega_qt}\right)
+\end{align}
+adding both equations gives with $\partial_0e^{-iqx}=\partial_0e^{-i(-\omega_kt+\vec{k}\vec{x})}=-i\omega_qe^{-iqx}$ and $f\stackrel{\leftrightarrow}{\partial_\mu}g=f(\partial_\mu g)-(\partial_\mu f)g$
+\begin{align}
+a_q&=\omega_q\int d^3x e^{-iqx}\varphi(\vec{x},t)+i\int d^3x e^{-iqx}\partial_0\varphi(\vec{x},t)\\
+&=i\int d^3x e^{-iqx}(-i\omega_q+\partial_0)\varphi(\vec{x},t)\\
+&=i\int d^3x e^{-iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi(\vec{x},t)
+\end{align}
+To get $b_q$ we solve a second set of equations for $\varphi^\dagger$ 
+\begin{align}
+\varphi(\vec{x},t)
+&=\int\frac{d^3k}{(2\pi)^32\omega_k}\;a_ke^{ikx}+b^\dagger_ke^{-ikx}\\
+\rightarrow\varphi^\dagger(\vec{x},t)
+&=\int\frac{d^3k}{(2\pi)^32\omega_k}\;a^\dagger_ke^{-ikx}+b_ke^{ikx}\\
+&=\int\frac{d^3k}{(2\pi)^32\omega_k}\;b_ke^{ikx}+a^\dagger_ke^{-ikx}
+\end{align}
+Now $b_k$ takes the role of $a_k$ and we can just copy the solution
+\begin{align}
+b_q&=\omega_q\int d^3x e^{-iqx}\varphi^\dagger(\vec{x},t)+i\int d^3x e^{-iqx}\partial_0\varphi^\dagger(\vec{x},t)\\
+&=i\int d^3x e^{-iqx}(-i\omega_q+\partial_0)\varphi^\dagger(\vec{x},t)\\
+&=i\int d^3x e^{-iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi^\dagger(\vec{x},t)
+\end{align}
+(d) Starting with the observation
+\begin{align}
+[A,B]^\dagger
+&=(AB)^\dagger-(BA)^\dagger\\
+&=B^\dagger A^\dagger- A^\dagger B^\dagger\\
+&=[B^\dagger,A^\dagger]\\
+&=-[A^\dagger,B^\dagger]
+\end{align}
+therefore the relevant commutation relations for the fields are
+\begin{align}
+[\varphi(\vec{x},t),\varphi(\vec{y},t)]&=0\quad&\rightarrow\quad[\varphi^\dagger(\vec{x},t),\varphi^\dagger(\vec{y},t)]=0\\
+%
+[\varphi^\dagger(\vec{x},t),\varphi(\vec{y},t)]&=0&\\
+%
+[\Pi(\vec{x},t),\Pi(\vec{y},t)]&=0\quad&\rightarrow\quad[\Pi^\dagger(\vec{x},t),\Pi^\dagger(\vec{y},t)]=0\\
+%
+[\Pi^\dagger(\vec{x},t),\Pi(\vec{y},t)]&=0&\\
+%
+[\varphi(\vec{x},t),\Pi(\vec{y},t)]&=i\delta^3(\vec{x}-\vec{y})\quad&\rightarrow\quad[\varphi^\dagger(\vec{x},t),\Pi^\dagger(\vec{y},t)]=i\delta^3(\vec{x}-\vec{y})\\
+%
+[\varphi^\dagger(\vec{x},t),\Pi(\vec{y},t)]&=0\quad&\rightarrow\quad[\varphi(\vec{x},t),\Pi^\dagger(\vec{y},t)]=0
+\end{align}
+with the previous results
+\begin{align}
+a_q&=i\int d^3x e^{-iqx}(-i\omega_q+\partial_0)\varphi(\vec{x},t)\\
+&=i\int d^3x e^{-iqx}(-i\omega_q\varphi(\vec{x},t)+\Pi^\dagger(\vec{x},t))\\
+a^\dagger_q&=i\int d^3x e^{iqx}(i\omega_q\varphi^\dagger(\vec{x},t)+\Pi(\vec{x},t))\\
+b_q&=i\int d^3x e^{-iqx}(-i\omega_q+\partial_0)\varphi^\dagger(\vec{x},t)\\
+&=i\int d^3x e^{-iqx}(-i\omega_q\varphi(\vec{x},t)+\Pi(\vec{x},t))\\
+b^\dagger_q&=i\int d^3x e^{iqx}(i\omega_q\varphi^\dagger(\vec{x},t)+\Pi^\dagger(\vec{x},t))
+\end{align}
+let's calculate each of the commutators
+\begin{align}
+[a_k,a^\dagger_q]
+&=\iint d^3x\,d^3y\,e^{-ikx}e^{iqy}\left(\omega_k\omega_q[\varphi_x,\varphi^\dagger_y]-i\omega_q[\varphi_x,\Pi_y]+i\omega_q[\Pi^\dagger_x,\varphi^\dagger_y]+[\Pi^\dagger_x,\Pi_y]\right)\\
+&=\iint d^3x\,d^3y\,e^{-i(kx-qy)}\left(-i\omega_q[\varphi_x,\Pi_y]+i\omega_q[\Pi^\dagger_x,\varphi^\dagger_y]\right)\\
+&=\iint d^3x\,d^3y\,e^{-i(kx-qy)}\left(-i\omega_qi\delta^3(\vec{x}-\vec{y})+i\omega_q(-i)\delta^3(\vec{x}-\vec{y})\right)\\
+&=\left(\omega_q+\omega_q\right)\iint d^3x\,e^{-i(k-q)x}\\
+&=\left(\omega_q+\omega_q\right)(2\pi)^3\delta^3(\vec{k}-\vec{q})\\
+&=2\omega_q(2\pi)^3\delta^3(\vec{k}-\vec{q})
+\end{align}
+and so on
+\begin{align}
+[b_k,b^\dagger_q]=...=2\omega_q(2\pi)^3\delta^3(\vec{k}-\vec{q})
+\end{align}
+(e) Now
+\begin{align}
+H&=\int d^3x\;\Pi^\dagger\Pi+(\nabla^a\varphi^\dagger)(\nabla_a\varphi)+m^2\varphi^\dagger\varphi-\Omega_0\\
+%
+\Pi^\dagger\Pi&=\dot\varphi\dot\varphi^\dagger\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}(i\omega_k)(i\omega_q)\left(a_ke^{ikx}-b^\dagger_ke^{-ikx}\right)\left(a^\dagger_qe^{-iqx}-b_qe^{iqx}\right)\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}(-\omega_k\omega_q)\left(a_ka^\dagger_qe^{-iqx}e^{ikx}-b^\dagger_ka^\dagger_qe^{-iqx}e^{-ikx}-a_kb_qe^{iqx}e^{ikx}+b^\dagger_kb_qe^{iqx}e^{-ikx}\right)\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}(-\omega_k\omega_q)\left([a^\dagger_qa_k-2\omega_k(2\pi)^3\delta^3(\vec{k}-\vec{q})]e^{-i(q-k)x}-b^\dagger_ka^\dagger_qe^{-i(q+k)x}-a_kb_qe^{i(q+k)x}+b^\dagger_kb_qe^{i(q-k)x}\right)
+\end{align}
+\begin{align}
+(\nabla^a\varphi^\dagger)(\nabla_a\varphi)&=\int\widetilde{d^3k}\widetilde{d^3q}(k^aq_a)\left(-a^\dagger_ke^{-ikx}+b_ke^{ikx}\right)\left(a_qe^{iqx}-b^\dagger_qe^{-iqx}\right)\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}(k^aq_a)\left(-a^\dagger_ka_qe^{iqx}e^{-ikx}+b_ka_qe^{iqx}e^{ikx}+a^\dagger_kb^\dagger_qe^{-iqx}e^{-ikx}-b_kb^\dagger_qe^{-iqx}e^{ikx}\right)\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}(k^aq_a)\left(-a^\dagger_ka_qe^{i(q-k)x}+a_qb_ke^{i(q+k)x}+a^\dagger_kb^\dagger_qe^{-i(q+k)x}-[b^\dagger_qb_k-2\omega_k(2\pi)^3\delta^3(\vec{k}-\vec{q})]e^{-i(q-k)x}\right)
+\end{align}
+\begin{align}
+\varphi^\dagger\varphi&=\int\widetilde{d^3k}\widetilde{d^3q}\left(a^\dagger_ke^{-ikx}+b_ke^{ikx}\right)\left(a_qe^{iqx}+b^\dagger_qe^{-iqx}\right)\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}\left(a^\dagger_ka_qe^{iqx}e^{-ikx}+b_ka_qe^{iqx}e^{ikx}+a^\dagger_kb^\dagger_qe^{-iqx}e^{-ikx}+b_kb^\dagger_qe^{-iqx}e^{ikx}\right)\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}\left(a^\dagger_ka_qe^{i(q-k)x}+a_qb_ke^{i(q+k)x}+a^\dagger_kb^\dagger_qe^{-i(q+k)x}+[b^\dagger_qb_k-2\omega_k(2\pi)^3\delta^3(\vec{k}-\vec{q})]e^{-i(q-k)x}\right)
+\end{align}
+then
+\begin{align}
+H_{a^\dagger a}&=\int\widetilde{d^3k}\widetilde{d^3q}\int d^3x\left[(-\omega_k\omega_q)[a^\dagger_qa_k-2\omega_k(2\pi)^3\delta^3(\vec{k}-\vec{q})]e^{-i(q-k)x}\right]\\
+&\quad+\int\widetilde{d^3k}\widetilde{d^3q}\int d^3x(k^aq_a)\left[-a^\dagger_ka_qe^{i(q-k)x}\right]+m^2a^\dagger_ka_qe^{i(q-k)x}\\
+&=\int\widetilde{d^3k}\widetilde{d^3q}\;a^\dagger_ka_q\left[-\omega_k\omega_q-k^aq_a+m^2\right]\int d^3xe^{i(q-k)x}\\
+&\quad-\int\widetilde{d^3k}\widetilde{d^3q}\;(-\omega_k\omega_q)2\omega_q(2\pi)^3\delta^3(\vec{q}-\vec{k})\int d^3x\;e^{i(q-k)x}\\
+&=\int\widetilde{d^3k}\frac{d^3q}{(2\pi)^32\omega_q}\;a^\dagger_ka_q\left[-\omega_k\omega_q-k^aq_a+m^2\right](2\pi)^3\delta^3(\vec{q}-\vec{k})e^{-i(\omega_q-\omega_k)t}\\
+&\quad-\int\frac{d^3k}{(2\pi)^32\omega_k}\frac{1}{(2\pi)^32\omega_k}\;(-\omega_k^2)2\omega_k(2\pi)^3e^{-i(\omega_k-\omega_k)t}\int d^3x \\
+&=\int\widetilde{d^3k}\frac{1}{2\omega_k}\;a^\dagger_ka_k\underbrace{\left[-\omega^2_k-\vec{k}^2+m^2\right]}_{2\omega_k^2!?!?!}+\frac{V}{2(2\pi)^3}\int d^3k\;\omega_k\\
+&=\int\widetilde{d^3k}\omega_k\;a^\dagger_ka_k+\frac{V}{2(2\pi)^3}\int d^3k\;\omega_k
+\end{align}
+and similar for $H_{b^\dagger b},H_{ab},H_{a^\dagger b^\dagger}$.
+\begin{align}
+H=\int\widetilde{d^3k}\omega_k\;(a^\dagger_ka_k+b^\dagger_kb_k)+\frac{V}{2(2\pi)^3}\int d^3k\;\omega_k
+\end{align}
+\subsubsection{Problem 4.1 - Commutator non-hermitian field}
+With $t=t'$ and $|\vec{x}-\vec{x}'|=r$ we have 
+\begin{align}
+[\varphi^+(x),\varphi^-(x')]_\pm
+&=\int\widetilde{dk}e^{ik(x-x')}\\
+&=\int d^3k\frac{1}{(2\pi)^3 2\omega_k}e^{ik(x-x')}\\
+&=\frac{1}{2\cdot8\pi^3}\int d^3k\frac{1}{\sqrt{|k|^2+m^2}}e^{i[\vec{k}(\vec{x}-\vec{x}')]}\\
+&=\frac{1}{16\pi^3}\int |k|^2dkd\phi d\theta\sin\theta\frac{1}{\sqrt{|k|^2+m^2}}e^{i|k|r\cos\theta}\\
+&=\frac{2\pi}{16\pi^3}\int |k|^2dk \underbrace{d\theta\sin\theta}_{-d\cos\theta}\frac{1}{\sqrt{|k|^2+m^2}}e^{i|k|r\cos\theta}\\
+&=\frac{2\pi}{16\pi^3}\int |k|^2dk \frac{1}{\sqrt{|k|^2+m^2}}\int_{-1}^1d\cos\theta e^{i|k|r\cos\theta}\\
+&=\frac{2\pi}{16\pi^3}\int |k|^2dk \frac{1}{\sqrt{|k|^2+m^2}}2\frac{\sin(|k|r)}{|k|r}\\
+&=\frac{1}{4\pi^2r}\int_0^\infty dk \frac{|k|\sin(|k|r)}{\sqrt{|k|^2+m^2}}
+\end{align}
+With Gradshteyn, Ryzhik 7ed (8.486) - we find for the definition of the modified Bessel function $K_1$ 
+\begin{align}
+\frac{d}{dz}K_0(z)=-K_1(z)
+\end{align}
+and Gradshteyn, Ryzhik 7ed (3.754)
+\begin{align}
+\int_0^\infty dx \frac{\cos(ax)}{\sqrt{\beta^2+x^2}}=K_0(a\beta)
+\end{align}
+therefore
+\begin{align}
+\frac{d}{da}K_0(a\beta)&=\int_0^\infty dx \frac{-x\sin(ax)}{\sqrt{\beta^2+x^2}}\\
+&=\beta K_0'(a\beta)\\
+&=-\beta K_1(a\beta)\\
+&\rightarrow K_1(a\beta)=\frac{1}{\beta}\int_0^\infty dx \frac{x\sin(ax)}{\sqrt{\beta^2+x^2}}
+\end{align}
+which we can use to finish the calculation
+\begin{align}
+[\varphi^+(x),\varphi^-(x')]_\pm=\frac{1}{4\pi^2r}mK_1(mr)
+\end{align}
+From \texttt{https://dlmf.nist.gov/10.30} we get
+\begin{align}
+&\lim_{z\rightarrow0}K_\nu(z)\sim\frac{1}{2}\Gamma(\nu)\left(\frac{1}{2}z\right)^{-\nu}\\
+\rightarrow&\lim_{z\rightarrow0}K_1(z)\sim\frac{1}{2}\left(\frac{1}{2}z\right)^{-1}=1/z
+\end{align}
+and therefore
+\begin{align}
+[\varphi^+(x),\varphi^-(x')]_\pm=\frac{1}{4\pi^2r^2}.
+\end{align}
+
+\subsubsection{Problem 5.1 - LSZ reduction for complex scalar field}
+From Exercise 3.5 we have
+\begin{align}
+a_q&=i\int d^3x e^{-iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi(\vec{x},t)\\
+a_q^\dagger&=-i\int d^3x e^{iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi^\dagger(\vec{x},t)\\
+b_q&=i\int d^3x e^{-iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi^\dagger(\vec{x},t)\\
+b_q^\dagger&=-i\int d^3x e^{iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi(\vec{x},t)
+\end{align}
+then
+\begin{align}
+a^\dagger_1(+\infty)-a^\dagger_1(-\infty)
+&=-i\int d^3k f_1(\vec{k})\int d^4x e^{ikx}(-\Box_x+m^2)\varphi^\dagger(x)
+\end{align}
+rearranging leads to
+\begin{align}
+a^\dagger_1(-\infty)&=a^\dagger_1(+\infty)+i\int d^3k f_1(\vec{k})\int d^4x e^{ikx}(-\Box_x+m^2)\varphi^\dagger(x)\\
+a_1(+\infty)&=a_1(-\infty)+i\int d^3k f_1(\vec{k})\int d^4x e^{-ikx}(-\Box_x+m^2)\varphi(x)\\
+b^\dagger_1(-\infty)&=b^\dagger_1(+\infty)+i\int d^3k f_1(\vec{k})\int d^4x e^{ikx}(-\Box_x+m^2)\varphi^\dagger(x)\\
+b_1(+\infty)&=b_1(-\infty)+i\int d^3k f_1(\vec{k})\int d^4x e^{-ikx}(-\Box_x+m^2)\varphi(x)
+\end{align}
+then we get for $a,b$ particle scattering with the time ordering operator $T$ (Later time to the Left)
+\begin{align}
+\langle f|i\rangle
+&=\langle 0|a_{1'}(+\infty)b_{2'}(+\infty)a^\dagger_1(-\infty)b^\dagger_2(-\infty)|0\rangle\\
+&=\langle 0|Ta_{1'}(+\infty)b_{2'}(+\infty)a^\dagger_1(-\infty)b^\dagger_2(-\infty)|0\rangle\\
+&=\langle 0|T(a_{1'}(-\infty)+i\int)(b_{2'}(-\infty)+i\int)(a^\dagger_{1}(+\infty)+i\int)(b^\dagger_{2}(+\infty)+i\int)|0\rangle\\
+&=i^4
+\int d^4x'_1e^{-ik'_1x'_1}(-\Box_{x'_1}+m_a^2)
+\int d^4x'_2e^{-ik'_2x'_2}(-\Box_{x'_2}+m_b^2)\times\\
+&\quad\times
+\int d^4x_1e^{-ik_1x_1}(-\Box_{x_1}+m_a^2)
+\int d^4x_2e^{-ik_2x_2}(-\Box_{x_2}+m_b^2)\langle0|\phi_{x'_1}\phi_{x'_2}\phi^\dagger_{x_1}\phi^\dagger_{x_2}|0\rangle
+\end{align}
 
 \subsubsection{Problem 6.1 - Path integral in quantum mechanics}
 (a) The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
@@ -2243,10 +2967,10 @@ Let's now assume $H(p,q)$ has only a quadratic term in $p$ which is independent 
 \end{align}
 then
 \begin{align}
-\langle q''|e^{-iH(t''-t')}|q'\rangle
+\langle q'',t''|q',t'\rangle
         &=\int\left(\prod_{j=1}^N dq_j\right)\left(\prod_{k=0}^{N}\frac{dp_k}{2\pi}\right) \left(e^{i\sum_{n=0}^N[p_n\dot{q}_n-\frac{1}{2m}p_n^2-V(\textcolor{red}{\bar{q}_n})]\delta t}\right)
 \end{align}
-We can evaluate a single integral using
+We can evaluate a single $p$-integral using
 \begin{align}
     \int_{-\infty}^\infty dx e^{-ax^2+bx+c}=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}+c}
 \end{align}
@@ -2264,40 +2988,254 @@ As there are $N+1$ $p$-integrals we have
 \end{align}
 (b) We now assume $V(q)=0$
 \begin{align}
-    \langle q'',t''|q',t'\rangle
-    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\left(\prod_{j=1}^N \int_{-\infty}^{\infty}dq_j\, e^{i\frac{m\dot{q}_j^2}{2}\delta t}\right)e^{i\frac{m\dot{q}_0^2}{2}\delta t}\\
-    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\, e^{i\frac{m(q_{j+1}-q_j)^2}{2\delta t}}\right)e^{i\frac{m(q_1-q_0)^2}{2\delta t}}\\
-    &=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\int_{-\infty}^{\infty}\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}
+\langle q'',t''|q',t'\rangle
+&=\int\mathcal{D}q\,e^{i\int_{t'}^{t''}dt\frac{\dot{q}^2}{2m}}\\
+&=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\left(\prod_{j=1}^N \int_{-\infty}^{\infty}dq_j\, e^{im\frac{(q_j-q_{j+1})^2}{2\delta t^2}\delta t}\right)e^{im\frac{(q'-q_1)^2}{2\delta t}}e^{im\frac{(q_N-q'')^2}{2\delta t}}\\
+&=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\left(\prod_{j=3}^N \int_{-\infty}^{\infty}dq_j\, e^{im\frac{(q_j-q_{j+1})^2}{2\delta t}}\right)\int dq_2e^{im\frac{(q_2-q_3)^2}{2\delta t}}\int dq_1e^{im\frac{(q_1-q_2)^2}{2\delta t}}e^{im\frac{(q_0-q_1)^2}{2\delta t}}
 \end{align}
-Integrating one by one with
+now we can simplify the $q_1$-integral
 \begin{align}
- (q_{j+1}-q_j)^2+\frac{1}{n}(q_j-q_0)^2=\frac{n+1}{n}q_j^2-2\left(q_{j+1}+\frac{1}{n}q_0\right)q_j+q_{j+1}^2+\frac{1}{n}q_0^2   
+\int_{-\infty}^{\infty}dq_1\,e^{im\frac{(q_1-q_2)^2}{2\delta t}}e^{im\frac{(q_0-q_1)^2}{2\delta t}}
+&=\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}(q_0^2-2q_0q_1+q_1^2+q_1^2-2q_1q_2+q_2^2)}\\
+&=e^{\frac{im}{2\delta t}(q_0^2+q_2^2)}\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{\delta t}(q^2_1-q_1(q_2+q_0))}\\
+&=e^{\frac{im}{2\delta t}(q_0^2+q_2^2)}\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i}{4}\left(\pi-\frac{(q_2+q_0)^2m}{\delta t}\right)}\\
+&=e^{\frac{im}{4\delta t}(q_0-q_2)^2}\sqrt{\frac{\pi\delta t}{m}}\sqrt{i}\\
+&=e^{\frac{im}{4\delta t}(q_0-q_2)^2}\sqrt{\frac{i\pi\delta t}{m}}
+\end{align}
+now simplify the $q_2$-integral
+\begin{align}
+\sqrt{\frac{i\pi\delta t}{m}}\int_{-\infty}^\infty dq_2e^{\frac{im}{2\delta t}(q_2-q_3)^2}e^{\frac{im}{4\delta t}(q_0-q_2)^2}
+&=\sqrt{\frac{i\pi\delta t}{m}}\int_{-\infty}^\infty dq_2e^{\frac{im}{4\delta t}(2q_2^2-4q_3q_2+2q_3^2+q_0^2-2q_0q_2+q_2^2)}\\
+&=\sqrt{\frac{i\pi\delta t}{m}}\int_{-\infty}^\infty dq_2e^{\frac{im}{4\delta t}(3q_2^2-(4q_3+2q_0)q_2+2q_3^2+q_0^2)}\\
+&=\sqrt{\frac{i\pi\delta t}{m}}e^{\frac{im}{4\delta t}(2q_3^2+q_0^2)}\int_{-\infty}^\infty dq_2e^{\frac{im}{4\delta t}(3q_2^2-(4q_3+2q_0)q_2)}\\
+&=\sqrt{\frac{i\pi\delta t}{m}}e^{\frac{im}{4\delta t}(2q_3^2+q_0^2)}\sqrt{\frac{\pi4\delta t}{3m}}e^{\frac{i}{4}\left(\pi-\frac{(4q_3+2q_0)^2m}{12\delta t}\right)}\\
+&=\sqrt{\frac{i\pi\delta t}{m}}\sqrt{\frac{4i\pi\delta t}{3m}}e^{\frac{im}{6\delta t}(q_3-q_0)^2}
+\end{align}
+then we can extend the results (without explicitly proving)
+\begin{align}
+\langle q'',t''|q',t'\rangle
+&=\lim_{N\rightarrow\infty}\left(\frac{m}{2\pi i\delta t}\right)^\frac{N+1}{2}\prod_{j=1}^N\sqrt{\frac{2i\pi\delta t}{m}\frac{j}{j+1}}\cdot e^{\frac{im}{2(j+1)\delta t}(q''-q')^2}\\
+&=\lim_{N\rightarrow\infty}\sqrt{\frac{m}{2\pi i\delta t}}\sqrt{\frac{1}{N+1}}\cdot e^{\frac{im}{2(N+1)\delta t}(q_{N+1}-q_0)^2}\\
+&=\sqrt{\frac{m}{2\pi i(t''-t')}}\cdot e^{\frac{im(q''-q')^2}{2(t''-t')}}.
+\end{align}
+The exponent has the dimension $\text{kg}\cdot\text{m}^2/s$ which is the same as Js. So we just insert an $\hbar$
+\begin{align}
+\langle q'',t''|q',t'\rangle
+&=\sqrt{\frac{m}{2\pi i\hbar(t''-t')}}\cdot e^{\frac{im(q''-q')^2}{2\hbar(t''-t')}}.
+\end{align}
+(c) Simple - with $H|k\rangle=\frac{k^2}{2m}|k\rangle$ we get
+\begin{align}
+\langle q'',t''|q',t'\rangle
+&=\langle q''|\exp(-iH(t''-t'))|q'\rangle\\
+&=\int dp\int dk\langle q''|p\rangle\langle p|\exp(-iH(t''-t'))|k\rangle\langle k|q'\rangle\\
+&=\int dp\int dk\frac{1}{\sqrt{2\pi}}e^{ipq'}\langle p|k\rangle\exp(-i\frac{k^2}{2m}(t''-t'))\frac{1}{\sqrt{2\pi}}e^{-ikq''}\\
+&=\int dp\int dk\frac{1}{\sqrt{2\pi}}e^{ipq'}\exp(-i\frac{k^2}{2m}(t''-t'))\delta(k-p)\frac{1}{\sqrt{2\pi}}e^{-ikq''}\\
+&=\frac{1}{2\pi}\int dpe^{ip(q'-q'')}\exp(-i\frac{p^2}{2m}(t''-t'))\\
+&=\frac{1}{2\pi}\sqrt{-\frac{2m\pi}{t''-t'}}e^{\frac{i}{4}\left(\pi-\frac{-2m(q''-q')^2}{t''-t'}\right)}\\
+&=\sqrt{-\frac{im}{2\pi(t''-t')}}e^{-\frac{i}{4}\frac{-2m(q''-q')^2}{t''-t'}}\\
+&=\sqrt{\frac{m}{2\pi i(t''-t')}}e^{\frac{-im(q''-q')^2}{2(t''-t')}}\\
+\end{align}
+which is the same as in (b).
+
+\subsubsection{Problem 7.1 - Oscillator Green's function I}
+\begin{align}
+G(t-t')&=\int_{-\infty}^{+\infty}\frac{dE}{2\pi}\frac{e^{-iE(t-t')}}{-E^2+\omega^2-i\epsilon}\\
+&=-\frac{1}{2\pi}\int_{-\infty}^{+\infty}dE\frac{e^{-iE(t-t')}}{E^2-\omega^2+i\epsilon}
+\end{align}
+with
+\begin{align}
+E^2-\omega^2+i\epsilon
+&=(E+\sqrt{\omega^2-i\epsilon})(E-\sqrt{\omega^2-i\epsilon})\\
+&=\left(E+\omega\sqrt{1-\frac{i\epsilon}{\omega^2}}\right)\left(E-\omega\sqrt{1-\frac{i\epsilon}{\omega^2}}\right)\\
+&\simeq\left(E+\omega-\frac{i\epsilon}{2\omega}\right)\left(E-\omega+\frac{i\epsilon}{2\omega^2}\right)
+\end{align}
+we can simplify
+\begin{align}
+G(\Delta t)
+&=-\frac{1}{2\pi}\int_{-\infty}^{+\infty}dEe^{-iE\Delta t}\left(\frac{1}{E+\omega-\frac{i\epsilon}{2\omega}}+\frac{1}{E-\omega+\frac{i\epsilon}{2\omega}}\right)\\
+&=-\frac{1}{2\pi}\frac{1}{2\left(\omega-\frac{i\epsilon}{2\omega}\right)}\int_{-\infty}^{+\infty}dEe^{-iE\Delta t}\left(-\frac{1}{E+\omega-\frac{i\epsilon}{2\omega}}+\frac{1}{E-\omega+\frac{i\epsilon}{2\omega}}\right)
+\end{align}
+Integrating along the closed contour along the lower half plane (seeing that the exponential function makes the arc part vanish - for $\Delta t>0$) and using the residual theorem (only one pole is inside) we get (with $\epsilon\rightarrow0$)
+\begin{align}
+G(\Delta t)
+&=+\frac{1}{2\pi}\frac{1}{2\left(\omega-\frac{i\epsilon}{2\omega}\right)}(2\pi i)e^{-i(\omega-\frac{i\epsilon}{2\omega})\Delta t}\\
+&=\frac{i}{2\omega}e^{-i\omega\Delta t}
+\end{align}
+For $\Delta t<0$ we integrate along the contour of the upper plane - combining both results we get
+\begin{align}
+G(t)&=\frac{i}{2\omega}e^{-i\omega|t|}
+\end{align}
+
+
+\subsubsection{Problem 7.2 - Oscillator Green's function II}
+We can rewrite the Greens function using the Heaviside theta function 
+\begin{align}
+|t|
+&=(2\theta(t)-1)t\\
+\frac{d}{dt}|t|
+&=2\theta'(t)t+(2\theta(t)-1)\\
+&=2\underbrace{\delta(t)t}_{=0}+2\theta(t)-1\\
+&=2\theta(t)-1
+\end{align}
+and then differentiate and use $\theta'(t)=\delta(t)$
+\begin{align}
+G(t)=&\frac{i}{2\omega}e^{-i\omega(2\theta(t)-1)t}\\
+\partial_t G(t)
+&=\frac{i}{2\omega}e^{-i\omega(2\theta(t)-1)t}(-i\omega)(2\theta(t)-1))\\
+&=(-i\omega)G(t)\left(2\theta(t)-1\right)\\
+\partial_{tt} G(t)
+&=(-i\omega)\partial_tG(t)\left(2\theta(t)-1\right)+(-2i\omega)G(t)\delta(t)\\
+&=(-i\omega)^2G(t)\left(2\theta(t)-1\right)^2+(-2i\omega)G(t)\delta(t)\\
+&=-\omega^2G(t)+e^{-i\omega|t|}\delta(t)
+\end{align}
+where we used $\left(2\theta(t)-1\right)^2\equiv1$
+\begin{align}
+\left(\partial_{tt}+\omega^2\right)G(t)
+&=\left(-\omega^2+\omega^2\right)G(t)+\delta(t)=\delta(t)
+\end{align}
+
+\subsubsection{Problem 7.3 - Harmonic Oscillator  - Heisenberg and Schroedinger picture}
+(a) With $\hbar=1$ and
+\begin{align}
+H&=\frac{1}{2}P^2+\frac{1}{2}m\omega^2Q^2\\
+[Q,P]&=QP-PQ=i\\
+[Q,Q]&=[P,P]=0
+\end{align}
+we obtain for the commutators
+\begin{align}
+[P^2,Q]
+&=P(PQ)-QP^2\\
+&=P(QP-i)-QP^2\\
+&=(PQ)P-Pi-QP^2\\
+&=(QP-i)P-Pi-QP^2\\
+&=-2Pi\\
+[Q^2,P]
+&=Q(QP)-PQ^2\\
+&=Q(PQ+i)-PQ^2\\
+&=(QP)Q+iQ-PQ^2\\
+&=(PQ+i)Q+iQ-PQ^2\\
+&=2Qi
+\end{align}
+Then the Heisenberg equations are
+\begin{align}
+\dot Q(t)&=i[H,Q(t)]=i\frac{1}{2m}[P^2(t),Q(t)]=\frac{1}{m}P(t)\\
+\dot P(t)&=i[H,P(t)]=i\frac{1}{2}m\omega^2[Q^2(t),P(t)]=-m\omega^2Q(t)\\
+\rightarrow &\ddot Q(t)=\frac{1}{m}\dot P(t)=-\omega^2 Q(t)
+\end{align}
+with the solutions (initial conditions $Q(0)=Q, P(0)=P$)
+\begin{align}
+Q(t)&=A\cos\omega t+B\sin\omega t\qquad\rightarrow A=Q,\quad\omega B=\frac{1}{m}P\\
+&=Q\cos\omega t+\frac{1}{\omega m}P\sin\omega t\\
+P(t)&=m\dot Q(t)\\
+&=-m\omega Q\sin\omega t+P\cos\omega t
+\end{align}
+(b) Using Diracs trick from QM (rewriting $H$ in terms of $a$ and $a^\dagger$)
+\begin{align}
+a&=\sqrt{\frac{m\omega}{2}}(Q+\frac{i}{m\omega}P)\\
+a^\dagger&=\sqrt{\frac{m\omega}{2}}(Q-\frac{i}{m\omega}P)
+\end{align}
+we can invert the relation
+\begin{align}
+Q&=\frac{1}{\sqrt{2m\omega}}(a^\dagger+a)\\
+P&=i\sqrt{\frac{m\omega}{2}}(a^\dagger-a)
 \end{align}
 and
 \begin{align}
- \int_{-\infty}^\infty dy e^{iay^2-iby}&=\sqrt{\frac{\pi}{a}}e^{\frac{i}{4}\left(\pi-\frac{b^2}{a}\right)} \qquad a>0, a,b\in\mathbb{R}\\
- \int_{-\infty}^\infty dy e^{ic\frac{n+1}{n}y^2-i2c(q_{j+1}+\frac{1}{n}q_0)y}\cdot e^{ic(q_{j+1}^2+q_0^2/n)}&=\sqrt{\frac{\pi n}{c(n+1)}}e^{\frac{i}{4}\left(\pi-\frac{4nc(q_{j+1}+\frac{1}{n}q_0)^2}{n+1}\right)}\cdot e^{ic(q_{j+1}^2+q_0^2/n)}\\
- &=\sqrt{\frac{\pi n}{c(n+1)}}e^{\frac{\pi i}{4}}e^{-\frac{inc(q_{j+1}+\frac{1}{n}q_0)^2}{n+1}}\cdot e^{ic(q_{j+1}^2+q_0^2/n)}\\
- &=\sqrt{\frac{\pi n}{c(n+1)}}e^{\frac{\pi i}{4}}e^{\frac{ic(q_{j+1}+q_0)^2}{n+1}}
+Q(t)&=Q\cos\omega t+\frac{1}{\omega m}P\sin\omega t\\
+&=\frac{1}{\sqrt{2m\omega}}(a^\dagger+a)\cos\omega t+\frac{1}{\omega m}i\sqrt{\frac{m\omega}{2}}(a^\dagger-a)\sin\omega t\\
+&=\frac{1}{\sqrt{2m\omega}}\left((a^\dagger+a)\cos\omega t+i(a^\dagger-a)\sin\omega t\right)\\
+&=\frac{1}{\sqrt{2m\omega}}\left(a^\dagger(\cos\omega t+i\sin\omega t)+a(\cos\omega t-i\sin\omega t) \right)\\
+&=\frac{1}{\sqrt{2m\omega}}\left(a^\dagger e^{i\omega t}+a e^{-i\omega t} \right)\\
+P(t)&=i\sqrt{\frac{m\omega}{2}}\left(a^\dagger e^{i\omega t}-a e^{-i\omega t} \right)\\
 \end{align}
-we obtain
+(c) Now with $t_1<t_2$ and the time ordering operator (larger time to the left)
 \begin{align}
-    \int_{-\infty}^{\infty}&\left(\prod_{j=1}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=0}^N(q_{k+1}-q_k)^2}\\
-    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=2}^N(q_{k+1}-q_k)^2}
-    \times\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}\left[(q_2-q_1)^2+(q_1-q_0)^2\right]}\\
-    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=2}^N(q_{k+1}-q_k)^2}
-    e^{\frac{im}{2\delta t}(q_2^2+q_0^2)}\int_{-\infty}^{\infty}dq_1\,e^{\frac{im}{2\delta t}[2q_1^2-2q_1(q_2+q_0)]}\\
-    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=2}^N(q_{k+1}-q_k)^2}
-    e^{\frac{im}{2\delta t}(q_2^2+q_0^2)}\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i}{4}\left(\pi-\frac{m(q_2+q_0)^2}{\delta t}\right)}\\
-    &=\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=2}^N(q_{k+1}-q_k)^2}
-    e^{\frac{im}{2\delta t}(q_2^2+q_0^2)}\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}e^{-\frac{im(q_2+q_0)^2}{4\delta t}}\\
-    &=\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}\int_{-\infty}^{\infty}\left(\prod_{j=2}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=2}^N(q_{k+1}-q_k)^2}
-    e^{\frac{im}{4\delta t}(q_2-q_0)^2}\\
-    &=\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}\int_{-\infty}^{\infty}\left(\prod_{j=3}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=3}^N(q_{k+1}-q_k)^2}\times\int_{-\infty}^\infty dq_2\,e^{\frac{im}{2\delta t}(q_3-q_2)^2}
-    e^{\frac{im}{4\delta t}(q_2-q_0)^2}\\
-    &=\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}\int_{-\infty}^{\infty}\left(\prod_{j=3}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=3}^N(q_{k+1}-q_k)^2}e^{\frac{im}{2\delta t}(q_3^2+\frac{1}{4}q_0^2)}\int_{-\infty}^\infty dq_2\,e^{\frac{im}{2\delta t}[\frac{3}{2}q_2^2-2(q_3+\frac{1}{2}q_0)q_2]}\\
-    &=\sqrt{\frac{\pi\delta t}{m}}e^{\frac{i\pi}{4}}\int_{-\infty}^{\infty}\left(\prod_{j=3}^N dq_j\right)\,e^{\frac{im}{2\delta t}\sum_{k=3}^N(q_{k+1}-q_k)^2}e^{\frac{im}{2\delta t}(q_3^2+\frac{1}{4}q_0^2)}\sqrt{\frac{\pi4\delta t}{3m}}e^{\frac{i}{4}\left(\pi-\frac{4m(q_3+q_0/2)^2}{3\delta t}\right)}\\
+\langle0|TQ(t_1)Q(t_2)|0\rangle
+&=\frac{1}{2m\omega}\langle0|T\left(a^\dagger e^{i\omega t_1}+a e^{-i\omega t_1} \right)\left(a^\dagger e^{i\omega t_2}+a e^{-i\omega t_2} \right)|0\rangle\\
+&=\frac{1}{2m\omega}\langle0|\left(a^\dagger e^{i\omega t_2}+a e^{-i\omega t_2} \right)\left(a^\dagger e^{i\omega t_1}+a e^{-i\omega t_1} \right)|0\rangle\\
+&=\frac{1}{2m\omega}\langle0|a e^{-i\omega t_2}a^\dagger e^{i\omega t_1}|0\rangle
 \end{align}
+all other terms are vanishing because of $a|0\rangle=0$ and $\langle0|a^\dagger=0$. Then
+\begin{align}
+\langle0|TQ(t_1)Q(t_2)|0\rangle
+&=\frac{1}{2m\omega}e^{-i\omega (t_2-t_1)}\underbrace{\langle0|a a^\dagger |0\rangle}_{=1}\\
+&=\frac{1}{2m\omega}e^{-i\omega (t_2-t_1)}\\
+&\equiv\frac{1}{i}G(t_2-t_1)
+\end{align}
+And now the next case with $t_1>t_2>t_3>t_4$
+\begin{align}
+\langle0|TQ(t_1)Q(t_2)Q(t_3)Q(t_4)|0\rangle
+&=\frac{1}{(2m\omega)^2}...
+\end{align}
+
+\subsubsection{Problem 7.4 - Harmonic Oscillator with perturbation}
+As $f(t)$ is a real function we have $\tilde f(-E)=(\tilde f(E))^*$ then with (7.10)
+\begin{align}
+\langle0|0\rangle_f
+&=\exp\left[\frac{i}{2}\int_{-\infty}^{+\infty}\frac{dE}{2\pi}\frac{\tilde f(E)\tilde f(-E)}{-E^2+\omega^2-i\epsilon}\right]\\
+&=\exp\left[\frac{i}{2}\int_{-\infty}^{+\infty}\frac{dE}{2\pi}\frac{\tilde f(E)\tilde f(E)^*}{-E^2+\omega^2-i\epsilon}\right]
+\end{align}
+But we actually need to calculate $|\langle0|0\rangle_f|^2$ therefore we observe with
+\begin{align}
+e^{iz}&=e^{i(x+iy)}=e^{-y}e^{ix}=e^{-y}(\cos x+i\sin x)\\
+&\quad\rightarrow\quad (e^{iz})^*=e^{-y}(\cos x-i\sin x)=e^{-y-ix}e^{-i(x-iy)}=e^{-iz^*}\\
+\langle0|0\rangle_f&=e^{iA}\quad\rightarrow\quad|\langle0|0\rangle_f|^2=e^{iA}(e^{iA})^*=e^{iA}e^{-iA^*}=e^{i(A-A^*)}=e^{-2\Im A}
+\end{align}
+Now we calculate the imaginary part of the integral
+\begin{align}
+\Im\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\frac{\tilde f(E)\tilde f(E)^*}{-E^2+\omega^2-i\epsilon}
+&=\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\Im\frac{\tilde f(E)\tilde f(E)^*}{-E^2+\omega^2-i\epsilon}\\
+&=\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\tilde f(E)\tilde f(E)^*\Im\frac{1}{-E^2+\omega^2-i\epsilon}\\
+&=\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\tilde f(E)\tilde f(E)^*\Im\frac{-E^2+\omega^2+i\epsilon}{(-E^2+\omega^2)^2+\epsilon^2}\\
+&=\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\tilde f(E)\tilde f(E)^*\frac{\epsilon}{(-E^2+\omega^2)^2+\epsilon^2}\\
+&\simeq\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\tilde f(E)\tilde f(E)^*\pi\delta(-E^2+\omega^2)\\
+&\simeq\frac{1}{4\pi}\int_{-\infty}^{+\infty}dE\tilde f(E)\tilde f(E)^*\pi\delta((\omega+E)(\omega-E))\\
+&\simeq\frac{1}{4\cdot 2\omega}(\tilde f(\omega)\tilde f(\omega)^*+\tilde f(-\omega)\tilde f(-\omega)^*)\\
+&\simeq\frac{1}{8\omega}(\tilde f(\omega)\tilde f(\omega)^*+\tilde f(\omega)^*\tilde f(\omega))\\
+&\simeq\frac{1}{4\omega}\tilde f(\omega)\tilde f(\omega)^*
+\end{align}
+then
+\begin{align}
+|\langle0|0\rangle_f|^2
+&=e^{-2\left(\frac{1}{4\omega}\right)\tilde f(\omega)\tilde f(\omega)^*}\\
+&=e^{-\frac{1}{2\omega}\tilde f(\omega)\tilde f(\omega)^*}\\
+\end{align}
+
+\subsubsection{Problem 8.1 - Feynman propagator is Greens function Klein-Gordon equation}
+With
+\begin{align}
+\Delta(x-x')=\frac{1}{(2\pi)^4}\int d^4k\frac{e^{ik(x-x')}}{k^2+m^2-i\epsilon}
+\end{align}
+we have
+\begin{align}
+(-\partial_x^2+m^2)\Delta(x-x')
+&=\frac{1}{(2\pi)^4}\int d^4k(-i^2k^2+m^2)\frac{e^{ik(x-x')}}{k^2+m^2-i\epsilon}\\
+&=\frac{1}{(2\pi)^4}\int d^4k\frac{k^2+m^2}{k^2+m^2-i\epsilon}e^{ik(x-x')}\\
+&\simeq\frac{1}{(2\pi)^4}\int d^4ke^{ik(x-x')}\\
+&=\delta^4(x-x')
+\end{align}
+
+\subsubsection{Problem 8.2 - Feynman propagator II}
+With $\widetilde{dk}=d^3k/((2\pi)^32\omega_k)$ and $\omega_k=\sqrt{\vec{k}^2+m^2}$
+\begin{align}
+\Delta(x-x')
+&=\frac{1}{(2\pi)^4}\int d^4k\frac{e^{ik(x-x')}}{k^2+m^2-i\epsilon}\\
+&=\frac{1}{(2\pi)^4}\int d^3k\int dk^0e^{-ik^0(t-t')}\frac{e^{i\vec{k}(\vec{x}-\vec{x}')}}{-(k^0)^2+\vec{k}^2+m^2-i\epsilon}\\
+&=\frac{1}{(2\pi)^4}\int d^3k\,e^{i\vec{k}(\vec{x}-\vec{x}')}\int dE\frac{e^{-iE(t-t')}}{-E^2+\vec{k}^2+m^2-i\epsilon}\\
+&=\frac{1}{(2\pi)^4}\int d^3k\,e^{i\vec{k}(\vec{x}-\vec{x}')}2\pi\frac{i}{2(\vec{k}^2+m^2)}e^{-i(\vec{k}^2+m^2)|t-t'|}
+\end{align}
+where we used exercise (7.1). Then
+\begin{align}
+\Delta(x-x')
+&=\frac{i}{(2\pi)^3}\int d^3k\,e^{i\vec{k}(\vec{x}-\vec{x}')}\frac{i}{2\omega_k}e^{-i\omega_k|t-t'|}\\
+&=i\int\frac{d^3k}{(2\pi)^3 2\omega_k}\,e^{i\vec{k}(\vec{x}-\vec{x}')}e^{-i\omega_k|t-t'|}\\
+&=i\int\widetilde{dk}\,e^{i\vec{k}(\vec{x}-\vec{x}')-i\omega_k|t-t'|}\\
+&=i\theta(t-t')\int\widetilde{dk}\,e^{i\vec{k}(\vec{x}-\vec{x}')-i\omega_k(t-t')}+i\theta(t'-t)\int\widetilde{dk}\,e^{i\vec{k}(\vec{x}-\vec{x}')+i\omega_k(t-t')}\\
+&=i\theta(t-t')\int\widetilde{dk}\,e^{ik(x-x')}+i\theta(t'-t)\int\widetilde{dk}\,e^{-i\vec{k}(\vec{x}-\vec{x}')+i\omega_k(t-t')}\\
+&=i\theta(t-t')\int\widetilde{dk}\,e^{ik(x-x')}+i\theta(t'-t)\int\widetilde{dk}\,e^{-ik(x-x')}\\
+\end{align}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Kachelriess %%%%%%%%%%%%%%%%%%%%%%%%
@@ -3106,6 +4044,35 @@ Calculating the commutators
 \begin{align}
 [M_{\mu\nu},M_{\rho,\sigma}]
 &=...\text{painful}
+\end{align}
+
+\subsection{{\sc LeBellac} - Quantum and Statistical Field Theory}
+\subsubsection{Problem 1.1}
+Some simple geometry
+\begin{align}
+l&=2a\cos\theta\\
+x&=l\sin\theta\\
+&=2a\cos\theta\sin\theta\\
+h&=x\tan\theta\\
+&=2a\sin^2\theta
+\end{align}
+Then the potential is given by
+\begin{align}
+V(\phi)
+&=2mga\sin^2\theta+\frac{1}{2}Ca^2(2\cos\theta-1)^2\\
+\frac{\partial V}{\partial\theta}
+&=4mga\sin\theta\cos\theta-2Ca^2(2\cos\theta-1)\sin\theta\\
+&=2a\sin\theta\left(2mg\cos\theta-Ca(2\cos\theta-1)\right)\\
+&=2a\sin\theta\left(2(mg-Ca)\cos\theta+Ca\right)\\
+&\rightarrow\theta_0=0\\
+&\rightarrow\theta_{1,2}=\arccos\frac{Ca}{2(Ca-mg)}
+\end{align}
+Stability
+\begin{align}
+\frac{\partial^2 V}{\partial\theta^2}(\theta_{1,2})
+&=2a(2mg-Ca)\\
+\frac{\partial^2 V}{\partial\theta^2}(\theta_{0})
+&=2a(2mg-Ca)
 \end{align}
 
 \newpage
@@ -4011,10 +4978,92 @@ which we can interpret as motion of a particle in a changing $-R^2$ potential.
 \end{tikzpicture}
 \end{center}
 
-
-
-
 \end{enumerate}
+
+\subsection{{\sc Dodelson, Schmidt} - Cosmology (2nd edition)}
+\subsubsection{1.2}
+We start with 
+\begin{align}
+\rho_\text{cr}&=\frac{3H_0^2}{8\pi G}\\
+H(t)&=\frac{1}{a}\frac{da}{dt}\\
+H(t)^2
+&=\frac{8\pi G}{3}\left[\varrho(t)+\frac{\Lambda}{3}-\frac{k}{a^2}\right]\\
+&=\frac{8\pi G}{3}\left[\rho(t)+\frac{\rho_\text{cr}-\rho(t_0)}{a^2}\right]\\
+&=\frac{8\pi G}{3}\left[\Omega_m\left(\frac{a_0}{a}\right)^3\rho_\text{cr}+\Omega_\Lambda\rho_\text{cr}+\frac{\rho_\text{cr}-\rho(t_0)}{a^2}\right]\\
+&=H_0^2\left[\Omega_m\left(\frac{a_0}{a}\right)^3+\Omega_\Lambda+\frac{\rho_\text{cr}-\rho(t_0)}{\rho_\text{cr}a^2}\right]\\
+\end{align}
+and assume $\rho_\text{cr}=\rho(t_0)$ (same as Euclidean $k=0$?!?) and $\Omega_\Lambda+\Omega_m=1$ and $a_0=1$
+\begin{align}
+dt&=\frac{da}{a}\frac{1}{H(t)}\\
+&=\frac{da}{a}\frac{1}{H_0\sqrt{\Omega_m\left(\frac{a_0}{a}\right)^3+\Omega_\Lambda}}\\
+&=\frac{1}{H_0}\frac{da}{a}\left[\frac{1-\Omega_\Lambda}{a^3}+\Omega_\Lambda\right]^{-1/2}
+\end{align}
+(a) Now with $\Omega_\Lambda=0$
+\begin{align}
+dt&=\frac{1}{H_0}\frac{da}{a}a^{3/2}=\frac{1}{H_0}da\;a^{1/2}\\
+&\rightarrow t-t_i=\frac{2}{3H_0}(a^{3/2}-a_i^{3/2})\\
+&\rightarrow a(t)=\left(\frac{3H_0}{2}(t-t_i)+a_i^{3/2}\right)^{2/3}
+\end{align}
+with $a(t=0)=0$
+\begin{align}
+a(t)&=\left(\frac{3H_0}{2}t\right)^{2/3}\\
+&\rightarrow T=\frac{2}{3H_0}
+\end{align}
+(b) ...
+
+\subsubsection{1.3 Lyman-$\alpha$ splitting in hydrogen isotopes}
+The energy eigenvalues are
+\begin{align}
+E_n
+&=-\frac{1}{2}\mu c^2\frac{\alpha^2}{n^2}\\
+&=-\frac{1}{2}\frac{m_eM_\text{nuc}}{m_e+M_\text{nuc}} c^2\frac{\alpha^2}{n^2}
+\end{align}
+then
+\begin{align}
+\Delta E_{2\rightarrow1}
+&=-\frac{1}{2}\frac{m_eM_\text{nuc}}{m_e+M_\text{nuc}} c^2\alpha^2\left(\frac{1}{2^2}-\frac{1}{1^2}\right)\\
+&=\frac{3}{8}\frac{m_eM_\text{nuc}}{m_e+M_\text{nuc}} c^2\alpha^2\\
+&=\frac{3}{8}\frac{m_eM_\text{nuc}}{M_\text{nuc}(1+m_e/M_\text{nuc})} c^2\alpha^2\\
+&=\frac{3}{8}\frac{m_e}{1+m_e/M_\text{nuc}} c^2\alpha^2
+\end{align}
+and
+\begin{align}
+\Delta E^\text{D}_{2\rightarrow1}
+&=\frac{3}{8}\frac{m_e}{1+m_e/2m_p} c^2\alpha^2\\
+\Delta E^\text{H}_{2\rightarrow1}
+&=\frac{3}{8}\frac{m_e}{1+m_e/m_p} c^2\alpha^2\\
+\rightarrow \Delta E^\text{D}_{2\rightarrow1}&= \Delta E^\text{H}_{2\rightarrow1}\frac{1+m_e/m_p}{1+m_e/2m_p}
+\end{align}
+and with $E=hc/\lambda$
+\begin{align}
+\lambda^\text{D}_{2\rightarrow1}&=\frac{hc}{\Delta E^\text{D}_{2\rightarrow1}}\\
+&=\frac{hc}{\Delta E^\text{H}_{2\rightarrow1}}\frac{1+m_e/2m_p}{1+m_e/m_p}\\
+&=\lambda^\text{H}_{2\rightarrow1}\frac{1+m_e/2m_p}{1+m_e/m_p}\\
+&=\lambda^\text{H}_{2\rightarrow1}\left(1+\frac{m_e}{2m_p}\right)\left(1-\frac{m_e}{m_p}\right)\\
+&\simeq\lambda^\text{H}_{2\rightarrow1}\left(1-\frac{1}{2}\frac{m_e}{m_p}\right)\\
+&=1215.67\text{\AA}
+\end{align}
+furthermore
+\begin{align}
+c\frac{\Delta\lambda}{\lambda}&=
+c\frac{\lambda^\text{D}_{2\rightarrow1}-\lambda^\text{H}_{2\rightarrow1}}{\lambda^\text{H}_{2\rightarrow1}}\\
+&=\left(1-\frac{1}{2}\frac{m_e}{m_p}\right)\\
+&=0.999727c
+\end{align}
+
+\subsubsection{1.4 Planck law for CMB}
+Insider hint $1\text{MJy} =10^6\text{Jansky}=10^6\cdot10^{-26}\text{J}\cdot\text{s}^{-1}\cdot\text{Hz}^{-1}\cdot\text{m}^{-2}$. We start with $c=\lambda\nu=2\pi\nu/k$
+\begin{align}
+I_\nu=\frac{4\pi\hbar\nu^3}{c^2}\frac{1}{e^{2\pi\hbar\nu/k_\text{B}T}-1}
+\end{align}
+which has the unit energy per area (per frequency per time are cancelling)
+\begin{align}
+\frac{\text{Js}\cdot \text{s}^{-3}}{\text{m}^2/\text{s}^2}=\text{J}\cdot\text{m}^{-2}
+\end{align}
+then
+\begin{align}
+\frac{I_\nu d\nu}{d\Omega}
+\end{align}
 
 \section{Quantum Mechanics}
 \subsection{{\sc Feynman, Hibbs} - Quantum mechanics and path integrals 2ed}
@@ -4464,7 +5513,14 @@ Set $\hbar=e=m_e=1$ and $a_B=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}=1$ then $4\
 \item angular momentum: $L=\hbar$ therefore 1 a.u. = $1.04\cdot10^{-34}$Js 
 \end{enumerate}
 
-
+\subsubsection{1.9 Exponential potential}
+Stepwise calculation for the verification of the solution
+\begin{align}
+r^2\partial_r \psi
+&=u'r-u\\
+&=\frac{1}{2}\left[J_{n-1}(.)-J_{n+1}(.)\right]ar_0e^{-\frac{r}{2r_0}}\frac{-r}{2r_0}-J_n(.)\\
+&=-\frac{1}{4}\left[J_{n-1}(.)-J_{n+1}(.)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+\end{align}
 
 \section{General Physics}
 
@@ -4712,12 +5768,117 @@ with $m_B=5m_A$ we have
 \end{align}
 \end{enumerate}
 
+\subsubsection{Book (2.22)}
+The center of the spheres build a tetrahedron
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+\draw[thick,  <-]  (0,0) -- (1.5,2) node[midway, left] {$F$};
+\draw[thick,  ->]  (1.5,2) -- (3,0)node[midway, left] {$F$};
+\draw[thick,  <-] (2,-0.75) -- (1.5,2)node[midway, left] {$F$};
+\draw[dotted] (0,0) -- (3,0);
+\draw (0,0) -- (2,-0.75) -- (3,0);
+
+\draw (5,0) -- (8,0) -- (6.5,0.866*3) -- (5,0);
+\draw[thick, <-] (5,0) -- (6.5,0.866)node[midway, above] {$F_h$};
+\draw[thick, ->] (5,0) -- (6.2,0)node[midway, below] {$T$};
+\draw[thick, ->] (5,0) -- (5.6,1)node[midway, left] {$T$};
+\draw (8,0) -- (6.5,0.866);
+\draw (6.5,0.866*3) -- (6.5,0.866);
+\end{tikzpicture}
+\caption{Problem (2.22)}
+\end{figure}
+where each connection has to carry a third of the weight $mg$
+\begin{align}
+F=\frac{mg}{3\cos\alpha}
+\end{align}
+where $\alpha$ is the angle of the edge
+\begin{align}
+\cos\alpha=\frac{H}{a}=\frac{\sqrt{a^2-\left(\frac{2}{3}h\right)^2}}{a}=\frac{\sqrt{a^2-\left(\frac{2}{3}\frac{\sqrt{3}}{2}a\right)^2}}{a}=\sqrt{2/3}.
+\end{align}
+The horizontal projection is then
+\begin{align}
+F_h=F\sin\alpha=\frac{mg}{3}\tan\alpha.
+\end{align}
+Projecting them in the plane gives
+\begin{align}
+F_h&=\sqrt{T^2+T^2-2T^2\cos\frac{2\pi}{3}}\\
+&\rightarrow T=\frac{mg}{3\sqrt{6}}
+\end{align}
+including the safety margin we obtain
+\begin{align}
+\widetilde{T}=3T=\frac{mg}{\sqrt{6}}=2\text{ton-wt}
+\end{align}
+
+
 \subsubsection{Problem Set 3-4 - 1961 Nov 03 (?.??)}
 \begin{align}
     g_M=\frac{GM_M}{R_M^2}&=\frac{4}{3}G\rho_M R_M=\frac{4}{3}G (0.537\rho_E) (0.716R_E)=0.384 \cdot g_E
 \end{align}
 
-\subsubsection{Problem Set 1b  3-3 - 1962 Jan 16 (?.??)}
+\subsubsection{Problem Set 1a 4-1 - 1961 Nov 10 (11.16)}
+For the masses we obtain
+\begin{align}
+\widetilde{m}_i
+&=\rho_i V_i=\frac{4}{3}\pi (kR_i)^3\rho_i\\
+&=k^3m_i
+\end{align}
+The third Kepler law is given by
+\begin{align}
+T^2=a^3\frac{4\pi}{G(M+m)}
+\end{align}
+applying the scaling to $a$ we have $\widetilde{a}^3=(ka)^3$ and therefore
+\begin{align}
+\widetilde{T}^2
+&=\widetilde{a}^3\frac{4\pi}{G(\widetilde{M}+\widetilde{m})}\\
+&=k^3a^3\frac{4\pi}{G(k^3M+k^3m)}\\
+&=a^3\frac{4\pi}{G(M+m)}\\
+&=T^2.
+\end{align}
+So we conclude that there is no change in $T$. 
+
+\subsubsection{Problem Set 1a 4-3 - 1961 Nov 10 (??.??)}
+With $\vec{a}=(1,0,2)$ and $\vec{b}=(1,4,0)$
+\begin{align}
+\cos\alpha=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}|\,|\vec{b}|}
+=1/\sqrt{85}
+\end{align}
+
+\subsubsection{Problem Set 1a 4-6 - 1961 Nov 10 (??.??)}
+The 3, 4, 5 triangle is rectangular with and incline angle $\alpha$
+\begin{align}
+\sin\alpha&=3/5\\
+\cos\alpha&=4/5
+\end{align}
+and therefore
+\begin{align}
+F_{A,\parallel}&=M_Ag(\sin\alpha-\mu_A\cos\alpha)\\
+F_{B,\parallel}&=M_Bg(\sin\alpha-\mu_B\cos\alpha)
+\end{align}
+(a) Then
+\begin{align}
+a
+&=\frac{F_{A,\parallel}+F_{B,\parallel}}{M_A+M_B}\\
+&=\frac{M_A(\sin\alpha-\mu_A\cos\alpha)+M_B(\sin\alpha-\mu_B\cos\alpha)}{M_A+M_B}g\\
+&=\frac{(M_A+M_B)\sin\alpha-(M_A\mu_A+M_B\mu_B)\cos\alpha}{M_A+M_B}g\\
+&=\left(\sin\alpha-\frac{M_A\mu_A+M_B\mu_B}{M_A+M_B}\cos\alpha\right)g\\
+&=4.84\text{m/s}^2
+\end{align}
+(b) Newton 3
+\begin{align}
+F_{A,\parallel}-M_Aa&=T\\
+F_{B,\parallel}-M_Ba&=-T
+\end{align}
+then
+\begin{align}
+2T
+&=(F_{A,\parallel}-F_{B,\parallel})-(M_A-M_B)a\\
+T&=\frac{M_AM_B}{M_A+M_B}(\mu_B-\mu_A)g\cos\alpha\\
+&=2.09\text{N}
+\end{align}
+
+
+\subsubsection{Problem Set 1b 3-3 - 1962 Jan 16 (??.??)}
 \begin{enumerate}
     \item 
     \item For the angular momentum (without precision) we get
@@ -4734,7 +5895,123 @@ with $m_B=5m_A$ we have
     \item
 \end{enumerate}
 
-\subsubsection{Problem Set 1c  13-1 - 1962 May 25 (?.??)}
+\subsubsection{Problem Set 1b 11-1 - 1962 Feb 16 (20.11)}
+
+\begin{figure}[!h]
+\begin{center}
+\usetikzlibrary{quotes,angles}
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (4.5,0);
+\draw[thick,->] (0,0) -- (0,2.5);
+\draw[thick] (1.3,2) arc (110:210:2cm);
+\draw (-1,1.5) -- (0.5,1.5) -- (4,0);
+\draw[dashed] (-0.5,2.5) -- (0.5,1.5) -- (2,0);
+
+\draw (-1,1.5) coordinate (a)  (0.5,1.5) coordinate (b)  (-0.5,2.5) coordinate (c)
+pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=0.8cm] {angle=c--b--a};
+
+\draw (2,0) coordinate (a)  (0.5,1.5) coordinate (b)  (4,0) coordinate (c)
+pic["$\beta$", draw=orange, <->, angle eccentricity=1.2, angle radius=0.8cm] {angle=a--b--c};
+
+\draw (0.5,1.5) coordinate (a)  (2,0) coordinate (b)  (4,0) coordinate (c)
+pic["$\pi-\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=0.4cm] {angle=c--b--a};
+
+\draw[dashed] (0,1) -- (0.5,1.5) -- (1.5,2.5);
+\draw[dotted]  (0.5,1.5) -- (3,1.5);
+\draw (1.5,2.5) coordinate (a)  (0.5,1.5) coordinate (b)  (3,1.5) coordinate (c)
+pic["$\gamma$", draw=orange, <->, angle eccentricity=1.2, angle radius=0.8cm] {angle=c--b--a};
+
+
+\draw (0.5,1.5) -- (4,0) node[midway, anchor=south west] {$\sqrt{y^2+(F-x)^2}$};
+\draw[orange, thick] (0.0,0) -- (0.5,0) node[midway, below] {$x$};
+\draw[purple, thick] (0.5,0) -- (2,0) node[midway, below] {$z$};
+\draw[red, thick] (2,0) -- (4,0) node[midway, below] {$F-x-z$};
+\draw[blue, thick] (0.5,0) -- (0.5,1.5) node[midway, left] {$y$};
+\end{tikzpicture}
+\end{center}
+\caption{Problem (20.11)}
+\end{figure}
+
+We start with Snell's law
+\begin{align}
+\sin\alpha=n\sin\beta
+\end{align}
+and the sine law
+\begin{align}
+\frac{\sin(\pi-\alpha)}{\sqrt{y^2+(F-x)^2}}&=\frac{\sin\beta}{F-x-z}
+\end{align}
+we also see
+\begin{align}
+\frac{y}{z}=\tan\alpha
+\end{align}
+most importantly we have for the slope of the surface
+\begin{align}
+\frac{dy}{dx}&=\tan\gamma\\
+&=\tan\left(\pi/2-\alpha\right)=\cot\alpha=\frac{1}{\tan\alpha}
+\end{align}
+Now we can put it all together
+\begin{align}
+\frac{\sin(\alpha)}{\sqrt{y^2+(F-x)^2}}&=\frac{\sin\alpha}{n(F-x-
+\frac{y}{\tan\alpha})}\\
+\frac{1}{\sqrt{y^2+(F-x)^2}}&=\frac{1}{n[(F-x)-
+y\frac{dy}{dx}]}\\
+(F-x)-y\frac{dy}{dx}&=\frac{1}{n}\sqrt{y^2+(F-x)^2}
+\end{align}
+The ODE can be solved by Mathematica which gives two solutions
+\begin{align}
+y_1&=\pm\sqrt{2Fx\left(1-\frac{1}{n}\right)-\left(1-\frac{1}{n^2}\right)x^2}\\
+y_2&=\pm\sqrt{2Fx\left(1+\frac{1}{n}\right)-\left(1-\frac{1}{n^2}\right)x^2}
+\end{align}
+\iftoggle{includeCoverPic}{
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Feynman2011.jpeg}
+\caption{Light rays for solution $y_1$ of Feynman problem (20.11)}
+\end{figure}
+}
+
+\subsubsection{Book (20.14)}
+Using the sine law for the appropriate triangle inside the sphere (cosine law to calculate the length of one side) we obtain
+\begin{align}
+\frac{\sin\beta}{R}&=\frac{\sin\alpha}{\sqrt{R^2+R^2-2R\cdot R\cos\alpha}}\\
+\frac{\sin\alpha}{nR}&=\frac{\sin\alpha}{\sqrt{2}R\sqrt{1-\cdot R\cos\alpha}}
+\end{align}
+where we used Snells law. Simplifying further
+\begin{align}
+\cos\alpha&=1-\frac{n^2}{2}\\
+\sqrt{1-\sin^2\alpha}&=1-\frac{n^2}{2}\\
+\sin^2\alpha&=1-\left(1-\frac{n^2}{2}\right)^2\\
+\frac{y^2}{4R^2}&=1-\left(1-\frac{n^2}{2}\right)^2\\
+&\rightarrow y=2nR\sqrt{1-\frac{n^2}{4}}=1.92R
+\end{align}
+
+\subsubsection{Book (20.16)}
+First lens
+\begin{align}
+\frac{1}{f}&=\frac{1}{g}+\frac{1}{b}\quad\rightarrow\quad b=\frac{gF}{g-F}\\
+\frac{B}{G}&=\frac{b}{g}\quad\rightarrow\quad B=G\frac{b}{g}=\frac{G}{g}\frac{gF}{g-F}
+\end{align}
+Distant object means
+\begin{align}
+B\simeq\frac{GF}{g}
+\end{align}
+The second lens works as a magnifying glass - focussing at infinity means the virtual picture is at infinity and therefore the object (real picture of the first lens) needs to be at the focus of the second lens.
+The angle is then given by
+\begin{align}
+\tan\alpha'=\frac{B}{f}=\frac{GF}{gf}
+\end{align}
+without lenses the angle would have been
+\begin{align}
+\tan\alpha=\frac{G}{g}.
+\end{align}
+Then
+\begin{align}
+M=\tan\alpha'/\tan\alpha=F/f.
+\end{align}
+
+
+
+\subsubsection{Problem Set 1c 13-1 - 1962 May 25 (?.??)}
 We cheat a little and use the Lagrange formalism 
 \begin{align}
 L&=T-V\\
@@ -4749,6 +6026,7 @@ gives
 m_1\ddot{x}+k_1x+k(x-y)=0\quad\rightarrow\quad \ddot{x}+\omega_0^2x+\frac{k}{m_1}(x-y)=0\\
 m_2\ddot{y}+k_2y-k(x-y)=0\quad\rightarrow\quad \ddot{y}+\omega_0^2y+\frac{k}{m_2}(y-x)=0
 \end{align}
+
 
 \subsubsection{Problem Set 1c  13-2 - 1962 May 25 (?.??)}
 We obtain
@@ -4768,6 +6046,208 @@ A/B=-m_2/m_1\quad&\rightarrow\quad \omega=\sqrt{\omega_0+\frac{k}{m_1}+\frac{k}{
 \end{align} 
 
 \subsection{{\sc Jackson} - Classical Electrodynamics}
+
+\subsubsection{Exercise 1.3 Charge densities and the Dirac delta function}
+\begin{align}
+\rho_a=\frac{Q}{4\pi R^2}\delta(r-R)\quad\rightarrow\quad \int\rho_a d^3r&=4\pi\frac{Q}{4\pi R^2}\int_0^\infty\delta(r-R)r^2\,dr\\&=Q\\
+\rho_b=\frac{\lambda}{2\pi b}\delta(r-b)\quad\rightarrow\quad \int\rho_b d^3r&=\frac{\lambda}{2\pi b}2\pi\int_0^Ldz\int_0^\infty \delta(r-b)r\,dr\\&=\lambda L\\
+\rho_c=\frac{Q}{\pi R^2}\theta(R-r)\delta(z)\quad\rightarrow\quad \int\rho_c d^3r&=\frac{Q}{\pi R^2}2\pi\int dz\int_0^\infty\theta(r-R)r\;dr\\
+&=\frac{Q}{\pi R^2}2\pi\int dz\int_0^Rr\;dr\\
+&=\frac{Q}{\pi R^2}2\pi\frac{R^2}{2}=Q
+\end{align}
+Now we got curvilinear coordinates so we need an additional $1/r$ scaling
+\begin{align}
+\rho_d=\frac{Q}{\pi R^2r}\theta(R-r)\delta(\vartheta-\pi/2)\quad\rightarrow\quad \int\rho_d d^3r&=\frac{Q}{\pi R^2}2\pi\int_0^\infty \frac{r^2}{r}\theta(R-r)\int_0^\pi\delta(\vartheta-\pi/2)\sin\vartheta\;d\vartheta\\
+&=\frac{Q}{\pi R^2}2\pi\int_0^R r\int_0^\pi\delta(\vartheta-\pi/2)\sin\vartheta\;d\vartheta\\
+&=\frac{Q}{\pi R^2}2\pi \frac{R^2}{2}\sin\pi/2=Q
+\end{align}
+
+\subsubsection{Exercise 1.4 Charged spheres}
+We can utilize the Gauss theorem
+\begin{align}
+\oint_S\vec{E}\cdot\vec{n}dA&=\frac{1}{\epsilon_0}\int_V\rho(x)d^3x\\
+4\pi r^2E_r&=\frac{q_r}{\epsilon_0}\\
+E_r&=\frac{q_r}{4\pi\epsilon_0r^2}
+\end{align}
+assuming a radial electrical field.
+\begin{itemize}
+\item Conducting sphere
+\begin{align}
+\rho_\text{cond}&=Q\delta(r-a)\\
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+0 & r<a\\
+Q/r^2 & r>a
+\end{array}
+\right.
+\end{align}
+
+\item Uniform sphere
+\begin{align}
+\rho_\text{hom}&=Q\theta(a-r)\\
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Qa^3r & r<a\\
+Q/r^2 & r>a
+\end{array}
+\right.
+\end{align}
+
+\item Nonuniform sphere
+\begin{align}
+\rho_\text{inhom}&=Q\frac{n+3}{a^{n+3}}r^n\quad(r<a)\\
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Qa^{n+3}r^{n+1} & r<a\\
+Q/r^2 & r>a
+\end{array}
+\right.
+\end{align}
+\end{itemize}
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+  \draw[->] (0, 0) -- (3, 0) node[right] {$r$};
+  \draw[->] (0, 0) -- (0, 2.2) node[above] {$E_r$};
+  \draw[thick, scale=1.0, domain=2:3, smooth, variable=\x, black] plot ({\x}, {4/(\x*\x)});
+  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, red] plot ({\x}, {0});
+  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, blue] plot ({\x}, {0.5*\x});
+  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, purple] plot ({\x}, {0.125*\x*\x*\x});
+  \draw[thick, scale=1.0, domain=1:2, smooth, variable=\x, purple] plot ({\x}, {2/(\x)});
+  \draw[dashed] (2,0) -- (2,2);
+\end{tikzpicture}
+\caption{Jackson problem (1.4)}
+\end{figure}
+
+
+
+\subsubsection{Exercise 1.5 Charge density of hydrogen atom}
+With the potential
+\begin{align}
+\Phi=\frac{q}{4\pi\epsilon_0}\frac{e^{-\alpha r}}{r}\left(1+\frac{\alpha r}{2}\right)
+\end{align}
+we calculate for $r>0$
+\begin{align}
+\rho_1
+&=-\epsilon_0\triangle\Phi\\
+&=-\epsilon_0\frac{1}{r^2}\partial_r(r^2\partial_r\Phi)\\
+&=-\frac{q}{4\pi}e^{-\alpha r}\frac{\alpha^3}{2}\\
+&=-\frac{q}{\pi a_0^3}e^{-2r/a_0}
+\end{align}
+For $r=0$ we have
+\begin{align}
+\Phi(r\rightarrow0)&=\frac{q}{4\pi\epsilon_0r}\\
+&\rightarrow\quad \rho_0=q\delta(r)
+\end{align}
+Therefore
+\begin{align}
+\rho&=\rho_0+\rho_1\\
+&=q\left(\delta^{(3)}(r)-\frac{1}{\pi a_0^3}e^{-2r/a_0}\right)
+\end{align}
+Calculating the total charge
+\begin{align}
+Q_0&=q\int d^3r\delta(r)=q\\
+Q_1
+&=4\pi\int_0^\infty r^2\rho_1 dr\\
+&=-\frac{4\pi q}{\pi a_0^3}\int_0^\infty r^2e^{-2r/a_0}dr\\
+&=-\frac{4\pi q}{\pi a_0^3}\frac{a_0^3}{8}\int_0^\infty z^2e^{-z}dz\\
+&=-\frac{4\pi q}{\pi a_0^3}\frac{a_0^3}{8}\Gamma(3)\\
+&=-q
+\end{align}
+
+\subsubsection{Exercise 1.6 Simple capacitors}
+(a) Assuming only front and back surfaces contribute
+\begin{align}
+2E_xA&=\frac{Q}{\epsilon_0}\\
+\rightarrow\quad E_x&=\frac{Q}{2\epsilon_0A}\\
+\rightarrow\quad \phi&=-\frac{Q}{2\epsilon_0A}x\\
+\rightarrow\quad \phi_\text{tot}(x)&=-\frac{Q}{2\epsilon_0A}x-\frac{-Q}{2\epsilon_0A}(d-x)\\
+&=-\frac{Q}{2\epsilon_0A}(x-(d-x))\\
+&=-\frac{Q}{2\epsilon_0A}(2x-d)\\
+\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{-\frac{Q}{2\epsilon_0A}(-d-d)}\\
+&=\epsilon_0\frac{A}{d}
+\end{align}
+(b) The outer sphere does not contribute to the total potential as it is field free
+\begin{align}
+4\pi r^2 E_r&=\frac{Q}{\epsilon_0}\\
+\rightarrow\quad E_r&=\frac{Q}{4\pi\epsilon_0 r^2}\\
+\rightarrow\quad \phi&=\frac{Q}{4\pi\epsilon_0 r}\\
+\rightarrow\quad \phi_\text{tot}&=\frac{Q}{4\pi\epsilon_0 r}\quad(a<r<b)\\
+\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{\frac{Q}{4\pi\epsilon_0 b}-\frac{Q}{4\pi\epsilon_0 a}}\\
+&=\epsilon_0\frac{4\pi ab}{b-a}
+\end{align}
+(c) 
+\begin{align}
+2\pi r L E_r=\frac{Q}{\epsilon_0}\\
+\rightarrow\quad E_r&=\frac{Q}{2\pi r L\epsilon_0}\\
+\rightarrow\quad \phi&=-\frac{Q}{2\pi L\epsilon_0}\log r\\
+\rightarrow\quad \phi_\text{tot}&=-\frac{Q}{2\pi L\epsilon_0}\log r\quad(a<r<b)\\
+\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{-\frac{Q}{2\pi L\epsilon_0}\log b+\frac{Q}{2\pi L\epsilon_0}\log a}\\
+&=\frac{2\pi L\epsilon_0}{\log a/b}
+\end{align}
+(d) ...
+
+\subsubsection{Exercise 1.7 Capacity of two parallel cylinders}Gauss law for one cylinder
+\begin{align}
+\oint_S\vec{E}\cdot\vec{n}dA&=\frac{1}{\epsilon_0}\int_V\rho(x)d^3x\\
+2\pi rLE_r&=\frac{\rho_{1} L}{\epsilon_0}\\
+E_r&=\frac{\rho}{2\pi\epsilon_0r}\\
+\phi&=-\frac{\rho}{2\pi\epsilon_0}\ln r
+\end{align}
+For $d\gg a_{1,2}$ the potential of one cylinder on the surface of the second cylinder is constant - which means that the potential can be approximated by the sum of the potential of both cylinders (no need to make it complicated)
+\begin{align}
+\phi(\vec{r})&=\phi_1+\phi_2\\
+&=-\frac{\rho_{1}}{2\pi\epsilon_0}\ln |\vec{r}|-\frac{\rho_{2}}{2\pi\epsilon_0}\ln |\vec{r}-\vec{d}|\\
+&=-\frac{\rho}{2\pi\epsilon_0}\ln |\vec{r}|+\frac{\rho}{2\pi\epsilon_0}\ln |\vec{r}-\vec{d}|\\
+&=-\frac{\rho}{2\pi\epsilon_0}\left(\ln |\vec{r}|-\ln |\vec{r}-\vec{d}|\right)\\
+&=-\frac{\rho}{2\pi\epsilon_0}\ln \frac{|\vec{r}|}{|\vec{r}-\vec{d}|}\\
+&=-\frac{\rho}{\pi\epsilon_0}\ln \sqrt{\frac{|\vec{r}|}{|\vec{r}-\vec{d}|}}
+\end{align}
+Then the potential difference between to surfaces is given by (with $\vec{n}=\vec{d}/d$ and $\rho=\rho_1=-\rho_2$)
+\begin{align}
+\Delta\phi&=\phi(a_1\vec{n})-\phi((d-a_2)\vec{n})\\
+&=-\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{a_1}{d-a_1}}-\ln \sqrt{\frac{d-a_2}{a_2}}\right)\\
+&=\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{d-a_1}{a_1}}+\ln \sqrt{\frac{d-a_2}{a_2}}\right)\\
+&\simeq\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{d}{a_1}}+\ln \sqrt{\frac{d}{a_2}}\right)\\
+&\simeq\frac{\rho}{\pi\epsilon_0}\ln \frac{d}{\sqrt{a_1a_2}}
+\end{align}
+With $C=Q/U$ we have
+\begin{align}
+C=\frac{\rho L}{\Delta\phi}&=\frac{\pi\epsilon_0L}{\ln \frac{d}{\sqrt{a_1a_2}}}
+\end{align}
+which is the desired result. The numbers are 0.49mm, 1.47mm and 4.92mm.
+
+
+\subsubsection{Exercise 1.8 Energy of capacitors}
+\begin{align}
+W
+=\frac{1}{2}\int\rho(x)\phi(x)d^3x
+=-\frac{\epsilon_0}{2}\int\phi\triangle\phi d^3x
+=\frac{\epsilon_0}{2}\int(\nabla\phi)^2 d^3x
+=\frac{\epsilon_0}{2}\int|\vec{E}|^2 d^3x
+\end{align}
+(a) With $\vec{E}_\text{tot}=-\nabla\phi_\text{tot}$ and $Q=C\cdot U$
+\begin{align}
+W_\text{plate}&=\frac{\epsilon_0}{2}\cdot\left(\frac{Q}{\epsilon_0A}\right)^2\cdot(Ad)=\frac{Q^2d}{2\epsilon_0A}\\
+&=\frac{U^2d}{2\epsilon_0A}\left(\frac{\epsilon_0A}{d}\right)^2=
+\frac{\epsilon_0AU^2}{2d}
+\end{align}
+\begin{align}
+W_\text{sphere}&=\frac{\epsilon_0}{2}4\pi\int_a^br^2\frac{Q^2}{16\pi^2\epsilon_0^2r^4}dr=\frac{Q^2}{8\pi\epsilon_0}\left(\frac{1}{b}-\frac{1}{a}\right)\\
+&=\frac{U^2}{8\pi\epsilon_0}\left(\frac{a-b}{ab}\right)\cdot\left(\epsilon_0\frac{4\pi ab}{b-a}\right)^2=2\pi\epsilon_0U^2\frac{ab}{b-a}
+\end{align}
+\begin{align}
+W_\text{cylinder}&=\frac{\epsilon_0}{2}2\pi L\int_a^b\left(\frac{Q}{2\pi\epsilon_0Lr}\right)^2r\;dr
+=\frac{Q^2}{4\pi\epsilon_0L}\log\frac{b}{a}\\
+&=\frac{U^2}{4\pi\epsilon_0L}\log\frac{b}{a}\left(\frac{2\pi\epsilon_0 L}{\log b/a}\right)^2=\frac{\pi\epsilon_0LU^2}{\log b/a}
+\end{align}
+(b) 
+\begin{align}
+w_\text{plate}&=\text{const}\\
+w_\text{sphere}&\sim r^{-4}\\
+w_\text{cylinder}&\sim r^{-2}
+\end{align}
+
 \subsubsection{Exercise 12.1 Lagrangian of point charge}
 \begin{enumerate}
 \item With $U^\alpha=\frac{dx_\alpha}{ds}$
@@ -5393,6 +6873,10 @@ and therefore
 \end{enumerate}
 \textcolor{red}{Not done yet}
 
+
+
+
+
 \subsubsection{Exercise 11.9 Derivation: Sag in a Cantilever}
 \begin{enumerate}[label=(\alph*)]
 \item For a cantilever with Young's modulus $E$, density $\rho$, width $w$ and height $h$ the weight per length is given by
@@ -5438,6 +6922,8 @@ The solution for the special case in (a) was $\eta\sim W x^4\sim\int W z^3\,dz$ 
 \begin{align}
     \eta(x)=\frac{1}{6D}\int_0^x(x-z)^3W(z)dz
 \end{align}
+Calculating the 4th derivative we see that our ansatz is correct.
+
 
 \end{enumerate}
 
@@ -6278,6 +7764,13 @@ A subgroup $N$ of a group $G$ is called {\bf normal subgroup (Normalteiler)} $N\
 A {\bf simple group} is a nontrivial group whose only normal subgroups are the trivial group and the group itself.
 \end{definition}
 
+\begin{definition}{}
+Let $(G,\circ)$ and $(K,*)$ be two groups with elements $g_a\in G$ and $k_i\in K$. The {\bf direct product} is a group $(G\otimes K,\star)$ with elements $(g_a,k_i)$ and the multiplication rule
+\begin{align}
+(g_a,k_i)\star(g_b,k_j)=(g_a\circ g_b,k_i*k_j).
+\end{align}
+\end{definition}
+
 \begin{theorem}
 Every finite simple group is isomorphic to one of the following groups:
 \begin{enumerate}
@@ -6507,7 +8000,6 @@ p & p & e
 \end{align}
 \subsubsection{1d}
 \begin{align}
-D(e)&=1,\quad D(p)=1\\
 D'(e)&=1,\quad D'(p)=-1
 \end{align}
 
@@ -6521,9 +8013,6 @@ b & b & e & a
 \end{array}
 \end{align}
 \subsubsection{1d}
-\begin{align}
-D(e)=1,\quad D(a)=1,\quad D(b)=1
-\end{align}
 \begin{align}
 D'(e)=1,\quad D'(a)=e^{i\frac{2\pi}{3}},\quad D'(b)=e^{i\frac{4\pi}{3}}
 \end{align}
@@ -6554,6 +8043,33 @@ D(b)=\left(\begin{array}{ccc}
 \right),\quad
 \end{align}
 
+\subsection{Dihedral group \texorpdfstring{$D_2=Z_2\otimes Z_2$}{TEXT}}
+We construct the group table by utilizing the direct product rule
+\begin{align}
+(g_a,k_i)\star(g_b,k_j)=(g_a\circ g_b,k_i*k_j)
+\end{align}
+which simplifies to
+\begin{align}
+(g_a,g_i)\star(g_b,g_j)=(g_a\circ g_b,g_i\circ g_j).
+\end{align}
+\begin{align}
+\begin{array}{c||cccc}
+D_2   & (e,e) & (e,P) & (P,e) & (P,P) \\ \hline\hline
+(e,e) & (e,e) & (e,P) & (P,e) & (P,P) \\
+(e,P) & (e,P) & (e,e) & (P,P) & (P,e) \\
+(P,e) & (P,e) & (P,P) & (e,e) & (e,P) \\
+(P,P) & (P,P) & (P,e) & (e,P) & (e,e)
+\end{array}
+\end{align}
+
+
+\subsection{Cyclic group \texorpdfstring{$Z_4$}{TEXT}}
+\begin{align}
+D'(e)=1,\quad 
+D'(a)=e^{i\frac{1\pi}{4}},\quad 
+D'(b)=e^{i\frac{2\pi}{4}},\quad 
+D'(c)=e^{i\frac{3\pi}{4}}
+\end{align}
 
 \subsection{Group \texorpdfstring{$S_3$}{TEXT}}
 \begin{align}
