@@ -225,7 +225,86 @@ With $f=f(r)$ and $r=\sqrt{x_1^2+...+x_n^2}$ we have
     &= \frac{(n-1)}{r}\frac{\partial f}{\partial r}+\frac{\partial^2 f}{\partial r^2}
 \end{align}
 
+\subsection{ODE solving strategies}
+\subsubsection{Special ODEs}
+\begin{tabular}{lc}
+Bernoulli       & $y'+p(x)y+q(x)y^n=0$\\
+Ricatti         & $y'+p(x)y+q(x)y^2=r(x)$\\
+d'Alembert      & $y=x\cdot g(y')+h(y')$\\
+Exact           & $M(x,y)+N(x,y)y'=0 \quad (\partial_yM=\partial_xN)$\\
+                & \\
+Airy            & $y''-xy=0$\\
+Bessel          & $x^2y''+xy'+(x^2-\nu^2)y=0$\\
+modified Bessel & $x^2y''+xy'-(x^2+\nu^2)y=0$\\
+Weber Hermite   & $y''+\left(\nu+\frac{1}{2}-\frac{1}{4}x^2\right)y=0$
+\end{tabular}
 
+\newpage
+\subsubsection{1st order ODE}
+\begin{enumerate}
+\item Is separable $y'=g(x)h(y)\quad\rightarrow\quad \int\frac{dy}{h(y)}=\int g(x)dx$ - done.
+\item Is linear homogen $y'+f(x)y=0$ go to 1.
+\begin{align}
+y(x)=Ce^{-\int f(x)dx}
+\end{align}
+\item Is linear inhomogen $y'+f(x)y=g(x)$ general solution
+\begin{align}
+y(x)&=y_\text{hom}(x)+y_\text{spec}(x)\\
+y_\text{hom}(x)&=Ce^{-\int f(x)dx}\\
+y_\text{spec}(x)&=C(x)e^{-\int f(x)dx}\\
+&\rightarrow C(x)'e^{-\int f(x)dx}-f(x)C(x)e^{-\int f(x)dx}+f(x)C(x)e^{-\int f(x)dx}=g(x)\\
+&\rightarrow C(x)'=g(x)e^{\int f(x)dx}\\
+&\rightarrow C(x)=\int g(x)e^{\int f(x)dx}dx+c_1\\
+y(x)&=Ce^{-\int f(x)dx}+\left(\int g(x)e^{\int f(x)dx}dx+c_1\right)e^{-\int f(x)dx}
+\end{align}
+solve homogen (go to 2) then variation of constants.
+\item Is linear Bernoulli $y'+f(x)y+g(x)y^n=0$ divide by $y^n$ and subs $z=\frac{1}{y^{n-1}}$ then go to 3.
+\item Is linear Ricatti $y'+f(x)y+g(x)y^2=r(x)$
+\item Is exact $M(x,y)+N(x,y)y'=0$ with $M_y=N_y$ then solution $\Phi(x,y)=C$ because
+\begin{align}
+0=\frac{d\Phi(x,y)}{dx}&=\frac{\partial\Phi}{\partial x}+\frac{\partial\Phi}{\partial y}\frac{dy}{dx}\\
+d\Phi&=M(x,y)dx+N(x,y)dy\\
+\Phi(x,y)&=\int_{y_0}^yN(x,v)dv+\int_{x_0}^xM(u,y)du
+\end{align}
+or easier
+\begin{align}
+\frac{\partial\Phi}{\partial x}=M\quad\rightarrow\quad\Phi=\int M dx+G(y)\quad\rightarrow\quad\frac{\partial\Phi}{\partial y}=N
+\end{align}
+\item If nothing works try if of form $y'=f\left(\frac{y}{x}\right)$ and subs $z=y/x$ and go to 1.
+
+\item If still nothing works try $y=u(x)\cdot v(x)$
+\end{enumerate}
+
+\subsubsection{2nd order ODE}
+
+
+\subsubsection{n-th order ODE}
+\begin{enumerate}
+\item Linear homogen $c_ny^{n}+...+c_{2}y''+c_{1}y'+c_{0}y=0$ ansatz $y=e^{\alpha x}$ then solve polynom for $\alpha$,  for repeated root $\alpha_1$ try $y=xe^{\alpha_1 x}, x^2e^{\alpha_1 x}, ...$
+\end{enumerate}
+
+
+
+
+\subsection{Greenfunctions and ODEs}
+\subsubsection{Harmonic Oscillator}
+\begin{align}
+\ddot{G}(t-t')+2\gamma\dot{G}(t-t')+\omega_0G(t-t')=\delta(t-t')
+\end{align}
+with $G(t-t')=(2\pi)^{-1/2}\int e^{i\omega (t-t')}y(\omega)d\omega$
+\begin{align}
+\frac{1}{\sqrt{2\pi}}\int e^{i\omega (t-t')}\left((i\omega)^2y+2\gamma(i\omega)y+\omega_0y\right)d\omega=\frac{1}{2\pi}\int e^{i\omega(t-t')}d\omega
+\end{align}
+then
+\begin{align}
+y(\omega)&=\frac{1}{\sqrt{2\pi}}\frac{1}{\omega_0^2-\omega^2+2i\gamma\omega}\\
+G(t-t')&=\frac{1}{2\pi}\int \frac{e^{-i\omega(t-t')}}{\omega_0^2-\omega^2+2i\gamma\omega}d\omega
+\end{align}
+and the general solution is given by
+\begin{align}
+\ddot{x}(t)+2\gamma\dot{x}(t)+\omega_0x(t)=f(t)\quad\rightarrow\quad
+x(t)=\int G(t-t')f(t)
+\end{align}
 
 \subsection{Greenfunctions and PDEs}
 The Greensfunction $G(x,y)$ for a general PDE $D_x u(x) = f(x)$ is defined by
@@ -716,28 +795,105 @@ Due to the possibility of the minus sign the Levi-Civita symbol $\epsilon$ is so
 Observation: $\text{dim}(\text{SO}(n,\mathbb{F}))=\text{dim}(\text{O}(n,\mathbb{F}))$  - sign that SO($n$) is not connected
 
 \subsection{SO(2)}
-There are infinitely many (non-equivalent) 1-dimensional standard irreps
+Group of rotations in two dimensions - therefore rotations are naturally given by a $2\times2$ matrix $R$ with parameter $\alpha$ (and the generator $X$)
+\begin{align}
+R=\left(\begin{matrix}
+\cos\alpha  & -\sin\alpha\\
+\sin\alpha & \cos\alpha
+\end{matrix}\right)
+\qquad
+-iX=\left.\frac{\partial R}{\partial\alpha}\right|_{\alpha=0}=\left(\begin{matrix}
+0 & -1\\
+1 & 0
+\end{matrix}\right)
+\end{align}
+acting on vectors $(x,y)$. This is therefore also a 2-dimensional (real) representation of SO(2) - it is even an irrep.
+In a complex space the vector can be written as $z=x+iy$ and the rotation is represented by $e^{i\alpha}$ - which serves as a one dimensional complex representation.
+
+There are actually infinitely many (non-equivalent) 1-dimensional standard irreps
 \begin{align}
     D^{k}(\alpha)=e^{-ik\alpha},\,k=0,\pm1,\pm2,...
 \end{align}
 
+\subsection{SO(3) - What we know from quantum mechanics}
+The angular momentum algebra is given by $[J_i,J_j]=i\hbar\varepsilon_{ijk}J_k$. We know that
+\begin{align}
+J^2|jm\rangle&=j(j+1)|jm\rangle\qquad j\in\left\{0,\frac{1}{2},1,\frac{3}{2},...\right\},\quad m=-j,...,j\\
+J_z|jm\rangle&=m|jm\rangle
+\end{align}
+meaning that $J^2$ and $J_3$ can be diagonalized at the same time. For each $j$ there is a $2j+1$ dimensional 
+irrep on the Hilbert space. The subspace spanned by the states $\{|jm\rangle\}_{m\in\{-j,...,j\}}$ 
+is called $\mathfrak{h}_j$. The states of 
+two added angular momenta $j_1$ and $j_2$ are in the space $\mathfrak{h}_{j_1j_2}=\mathfrak{h}_{j_1}\otimes\mathfrak{h}_{j_2}$ spanned by the tensor product of the eigenstates of $(J_{j_1}^2,J_{j_1,3})$ and $(J_{j_2}^2,J_{j_2,3})$
+\begin{align}
+|j_1m_1j_2m_2\rangle=|j_1,m_1\rangle\otimes|j_2,m_2\rangle
+\end{align}
+The operators $J^2$, $J_3$, $J_{j_1}^2$ and $J_{j_2}^2$ commute which means they share one set of eigenfunctions $|j_1,j_2,j,m\rangle$ which also spans $\mathfrak{h}_{j_1,j_2}$. Both basis set are connected by the Clebsch-Gordon coefficients
+\begin{align}
+|j_1,j_2,j,m\rangle=\sum_{m_1,m_2}\langle j_1,m_1,j_2,m_2|j_1,j_2,j,m\rangle|j_1m_1,j_2,m_2\rangle
+\end{align}
+
+The dimension of the Product space is given by
+\begin{align}
+\text{dim}(\mathfrak{h}_{j_1} \otimes \mathfrak{h}_{j_2})&=(2j_1+1)(2j_2+1).
+\end{align}
+The tensor product representations decomposes as ({\sc Clebsch-Gordan} decomposition)
+\begin{align}
+    \mathfrak{h}_{j_1} \otimes \mathfrak{h}_{j_1} &\cong \bigoplus_{j=|j_1-j_2|}^{j_1+j_2} \mathfrak{h}_{j}\\
+    &=\mathfrak{h}_{j_1+j_2}\oplus \mathfrak{h}_{j_1+j_2-1}\oplus ... \oplus \mathfrak{h}_{j_1-j_2+1}\oplus \mathfrak{h}_{|j_1-j_2|}
+\end{align}
+Examples
+\begin{align}
+j_1=\frac{1}{2}, j_2=\frac{1}{2}&\quad\rightarrow\quad 2\otimes2=1\oplus3\\
+j_1=1, j_2=1&\quad\rightarrow\quad 3\otimes3=1\oplus3\oplus5
+\end{align}
+
 \subsection{SO(3)}
+Group of rotations in three dimensions - therefore rotations around the 3 coordinate axis are naturally given by three  $3\times3$ matrices $R_i$ (with the generators $X_i$)
+\begin{align}
+R_3=\left(\begin{matrix}
+\cos\alpha  & -\sin\alpha & 0\\
+\sin\alpha & \cos\alpha & 0\\
+0 & 0 & 1 
+\end{matrix}\right)
+\qquad
+-iX_3=\left.\frac{\partial R}{\partial\alpha}\right|_{\alpha=0}=\left(\begin{matrix}
+0 & -1 & 0\\
+1 & 0  & 0\\
+0 & 0  & 0
+\end{matrix}\right)\\
+R_2=\left(\begin{matrix}
+\cos\alpha  & 0 & \sin\alpha\\
+0 & 1 & 0\\
+-\sin\alpha & 0 & \cos\alpha\\
+\end{matrix}\right)
+\qquad
+-iX_2=\left.\frac{\partial R}{\partial\alpha}\right|_{\alpha=0}=\left(\begin{matrix}
+0 & 0  & 1\\
+0 & 0  & 0\\
+-1 & 0  & 0
+\end{matrix}\right)\\
+R_1=\left(\begin{matrix}
+1 & 0 & 0 \\
+0 & \cos\alpha & -\sin\alpha\\
+0 & \sin\alpha &  \cos\alpha\\
+\end{matrix}\right)
+\qquad
+-iX_1=\left.\frac{\partial R}{\partial\alpha}\right|_{\alpha=0}=\left(\begin{matrix}
+0 & 0  & 0\\
+0 & 0  & -1\\
+0 & 1  & 0
+\end{matrix}\right)
+\end{align}  
+which also a 3-dimensional representation of SO(3). The generators obey the commutation relation 
+\begin{align}
+[X_i,X_i]=i\varepsilon_{ijk}X_k
+\end{align}
+
+
+
 
 \subsection{SU(2)}
-Finite dimensional irreps of the Lorentz group are labeled by $l$ with
-\begin{align}
-    l &\in \left\{0,\frac{1}{2},1,\frac{3}{2},2,...\right\}.
-\end{align}
-and have dimension $2l+1$. For two irreps with $l\ge m$ the tensor product representations decomposes as ({\sc Clebsch-Gordan} decomposition)
-\begin{align}
-    V_l \otimes V_m &\cong \bigoplus_{j=l-m}^{l+m} V_j\\
-    &=V_{l+m}\oplus V_{l+m-1}\oplus ... \oplus V_{l-m+1}\oplus V_{l-m}\\
-    \text{dim}(V_l \otimes V_m)&=(2l+1)(2m+1)\\
-    \text{dim}(V_{l+m} \oplus ...\oplus V_{l-m})&=\sum_{k=0}^{2m}2[(l-m)+k]+1\\
-    &=(2m+1)[2(l-m)+1]+2\frac{2m(2m+1)}{2}\\
-    &=(2m+1)(2l+1)
-\end{align}
-
 \subsection{SU(3)}
 
 \subsection{Lorentz group O(1,3)}
@@ -908,6 +1064,119 @@ We guess $y_1=e^{-x}$ and have another guess  $y_2=e^{-x}u(x)$ we see
     u&=c_1\text{erf}\left(\frac{x}{\sqrt{2}}\right)+c_2
 \end{align}
 and therefore $y=c_3e^{-x}+c_4e^{-x}\left[\text{erf}\left(\frac{x}{\sqrt{2}}\right)+c_5\right]$
+
+\subsubsection{Problem 1.23}
+Calculating the gradient
+\begin{align}
+\nabla z&=e^{-(x^4+4y^2)}(-4x^3,-8y)\\
+&=-4e^{-(x^4+4y^2)}(x^3,2y)
+\end{align}
+Equation of motions $\ddot{\vec{x}}=-\nabla V$ are
+\begin{align}
+\ddot x&=4e^{-(x^4+4y^2)}x^3\\
+\ddot y&=4e^{-(x^4+4y^2)}2y
+\end{align}
+with the initial conditions $x_0=0=y_0$. To make this simpler to solve we rescale ($\tilde t=\alpha t$) the time variable
+\begin{align}
+\frac{\partial}{\partial t}
+&=\frac{\partial\tilde{t}}{\partial t}\frac{\partial}{\partial \tilde{t}}\\
+&=\alpha\frac{\partial}{\partial \tilde{t}}\\
+\frac{\partial^2}{\partial t^2}
+&=\frac{\partial^2\tilde{t}}{\partial t^2}\frac{\partial}{\partial \tilde{t}}+\left(\frac{\partial\tilde{t}}{\partial t}\right)^2\frac{\partial^2}{\partial {\tilde t}^2}\\
+&=\alpha^2\frac{\partial^2}{\partial {\tilde t}^2}.
+\end{align}
+
+
+
+\subsubsection{Problem 1.31}
+(a) Multiply by $y$ and observe $yy'\sim(y^2)'$ and substitute $z=y^2$
+\begin{align}
+y'&=\frac{y}{x}+\frac{1}{y}\\
+yy'-\frac{1}{x}y^2-1&=0\\
+\frac{1}{2}(y^2)'-\frac{1}{x}y^2-1&=0\\
+\frac{1}{2}z'-\frac{1}{x}z-1&=0\qquad(z=y^2)\\
+z'-\frac{2}{x}z-2&=0
+\end{align}
+General solution of the homogeneous equation
+\begin{align}
+\frac{z'}{z}=\frac{2}{x}\quad\rightarrow\quad z_H=cx^2
+\end{align}
+For special solution of the inhomogeneous equation - varying constants
+\begin{align}
+z_I&=C(x)x^2\\
+&\rightarrow C'x^2+2xC-\frac{2}{x}Cx^2-2=0\\
+&\rightarrow C'=\frac{2}{x^2}\\
+&\rightarrow C=-\frac{2}{x}
+\end{align}
+therefore
+\begin{align}
+z&=z_H+z_I\\
+&=x(cx-2)\\
+y&=\pm\sqrt{x(cx-2)}
+\end{align}
+(b) Nothing obvious pops into the eye so we make a desperate try $z=y/x$
+\begin{align}
+z'=\frac{y'x-y}{x^2}\rightarrow y'=z'x+z
+\end{align}
+then
+\begin{align}
+y'&=\frac{xy}{x^2+y^2}\\
+z'x+z
+&=\frac{zx^2}{x^2+z^2x^2}\\
+&=\frac{z}{1+z^2}'\\
+z'x&=\frac{z-z(1+z^2)}{1+z^2}\\
+&=\frac{-z^3}{1+z^2}
+\end{align}
+Now we can separate and integrate on both sides
+\begin{align}
+\frac{1+z^2}{z^3}dz&=-\frac{dx}{x}\\
+\int\left(\frac{1}{z^2}+\frac{1}{z}\right)dz&=\int\frac{dx}{x}\\
+-\frac{1}{z}+\log z&=\log{x}+c\\
+-\frac{x}{y}+\log\frac{y}{x}&=\log{x}+c\\
+-\frac{x}{y}+\log y&=2\log{x}+c
+\end{align}
+(c) Try the obvious $z=x+y$
+\begin{align}
+y'&=x^2+2xy+y^2\\
+y'&=(x+y)^2\\
+\rightarrow z'-1&=z^2
+\end{align}
+Now separate and integrate (subs $z=\tan t$)
+\begin{align}
+\frac{dz}{z^2+1}&=dx\\
+\arctan z&=x+c\\
+y&=\tan(x+c)-x
+\end{align}
+(d) Rewriting the ODE we see similarities to the quotient rule
+\begin{align}
+\frac{yy''}{(y')^2}=2
+\end{align}
+Let's guess
+\begin{align}
+\left(\frac{y}{y'}\right)'=\frac{y'y'-yy''}{(y')^2}=1-\frac{yy''}{(y')^2}
+\end{align}
+so we can rewrite the ODE
+\begin{align}
+\frac{yy''}{(y')^2}=1-\left(\frac{y}{y'}\right)'=2
+\end{align}
+then we can solve
+\begin{align}
+\left(\frac{y}{y'}\right)'&=-1\\
+\frac{y}{y'}&=-x+c_1\\
+\frac{y'}{y}&=\frac{1}{-x+c_1}\\
+\log y&=-\log(-x+c_1)+c_2\\
+y&=\frac{c_3}{c_1-x}
+\end{align}
+
+\subsection{{\sc Arnol'd} - Ordinary differential equations}
+\subsubsection{Sample Examination Problem 2}
+\begin{align}
+\ddot x=1+2\sin x\quad\rightarrow
+\begin{array}{l}
+\dot x=y\\
+\dot y=1+2\sin x
+\end{array}
+\end{align}
 
 \subsection{{\sc Arnol'd} - A mathematical trivium}
 \subsubsection{Problem 4}
@@ -1557,6 +1826,29 @@ The local extrema of the travel time is given by
 and therefore
 \begin{align}
 n_1\sin\alpha=n_2\sin\beta.
+\end{align}
+
+
+\subsection{{\sc Ramond} - Field Theory - A modern primer} 
+\subsubsection{Problem 1.1.1 A}
+With
+\begin{align}
+\left(\frac{d(x+\delta x)}{dt}\right)^2
+&=\left(\frac{dx}{dt}+\delta\frac{dx}{dt}\right)\left(\frac{dx}{dt}+\delta\frac{dx}{dt}\right)\\
+&=\left(\frac{dx}{dt}\right)^2+2\frac{dx}{dt}\cdot\delta\frac{dx}{dt}+\left(\delta\frac{dx}{dt}\right)^2\\
+&=\left(\frac{dx}{dt}\right)^2+\frac{d}{dt}\left(\frac{dx}{dt}\delta x\right)-2\frac{d^2x}{dt^2}\delta x+\left(\delta\frac{dx}{dt}\right)^2
+\end{align}
+where we integrates the second term by parts. Now we can expand the action
+\begin{align}
+S
+&=\int dt\frac{1}{2}m\left(\frac{dx}{dt}\right)^2\\
+S[x+\delta x]
+&=\int dt\frac{1}{2}m\left(\frac{d(x+\delta x)}{dt}\right)^2\\
+\delta S&=-\frac{1}{2}m\int_{t_1}^{t_2} dt\delta x\left(2\frac{d^2x}{dt^2}\right)+\left.\frac{1}{2}m\frac{dx}{dt}\delta x\right|_{t_1}^{t_2}
+\end{align}
+the last (surface) term vanished and we have
+\begin{align}
+\frac{d}{dt}\left(\frac{dx}{dt}\right)=0
 \end{align}
 
 \subsection{{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell} 
@@ -3845,6 +4137,59 @@ For wave numbers $k_J<\sqrt{4\pi G/c_s^2}$ the $\omega$ becomes complex which gi
     \lambda_J=\frac{2\pi}{k_J}=c_s\sqrt{\frac{\pi}{G\rho_0}}=\sqrt{\frac{\pi w}{G\rho_0}}.
 \end{align}
 
+\subsubsection{Problem 25.1 - Schwarzschild metric}
+The simplified vacuum Einstein equations are given by
+\begin{align}
+R_{\mu\nu}&-\frac{1}{2}Rg_{\mu\nu}=0\\
+&\quad\rightarrow\quad R-\frac{1}{2}R\cdot 4=0\quad\rightarrow\quad R=0\\
+R_{\mu\nu}&=0
+\end{align}
+Lets start with the metric ansatz (25.4) 
+\begin{align}
+g_{\mu\nu}&=\text{diag}(A(r),-B(r),-r^2,-r^2\sin^2\theta)\\
+g^{\mu\nu}&=\text{diag}(1/A(r),-1/B(r),-1/r^2,-1/r^2\sin^2\theta)
+\end{align}
+The non-vanishing Chistoffel symbols are then
+\begin{align}
+\Gamma^\mu_{\nu\lambda}&=\frac{1}{2}g^{\mu\kappa}(g_{\kappa\lambda,\nu}+g_{\nu\kappa,\lambda}-g_{\nu\lambda,\kappa})\\
+\Gamma^0_{01}&=\frac{A'}{2A},\quad
+\Gamma^1_{00}=\frac{A'}{2B}\quad
+\Gamma^1_{11}=\frac{B'}{2B}\quad
+\Gamma^1_{22}=-\frac{r}{B}\quad
+\Gamma^1_{33}=\frac{r\sin^2\theta}{B}\\
+\Gamma^2_{12}&=1/r\quad
+\Gamma^2_{12}=-\cos\theta\sin\theta\quad
+\Gamma^2_{12}=1/r\quad
+\Gamma^2_{12}=\cot\theta
+\end{align}
+The non-vanishing components of the Ricci tensor are
+\begin{align}
+R_{00}&=\frac{A'}{rB}-\frac{A'^2}{4AB}-\frac{A'B'}{4B^2}+\frac{A''}{2B}\\
+R_{11}&=\frac{A'^2}{4A^2}+\frac{B'}{rB}+\frac{A'B'}{4AB}-\frac{A''}{2A}\\
+R_{22}&=-\frac{1}{B}+1-\frac{rA'}{2AB}+\frac{rB''}{2B^2}\\
+R_{33}&=R_{22}\sin^2\theta
+\end{align}
+As there are only the two unknown functions $A, B$ we only need two vacuum equations $R_{00}=0$ and $R_{11}=0$. Multiplying the first by $B/A$ and leaving the second  one untouched we obtain the system
+\begin{align}
+\frac{A'}{rA}-\frac{A'^2}{4A^2}-\frac{A'B'}{4AB}+\frac{A''}{2A}&=0\\
+\frac{B'}{rB}+\frac{A'^2}{4A^2}+\frac{A'B'}{4AB}-\frac{A''}{2A}&=0
+\end{align}
+Adding bot we get $B'/B=-A'/A$ which we can substitude into the first one obtaining
+\begin{align}
+\frac{A'}{rA}+\frac{A''}{2A}&=0\\
+&\rightarrow A'(r)=\frac{c_1}{r^2}\\
+&\rightarrow A(r)=c_2-\frac{c_1}{r}
+\end{align}
+now we can solve for $B(r)$
+\begin{align}
+\frac{B'}{B}&=-\frac{A'}{A}\\
+&\rightarrow B(r)=\frac{c_3 r}{c_1-rc_2}=\frac{-c_3}{c_2-\frac{c_1}{r}}
+\end{align}
+
+
+
+
+
 \subsubsection{Problem 26.4 - Fixed points of (26.18)}
 We start with
 \begin{align}
@@ -4268,7 +4613,6 @@ dy&=\sin(\phi\sin\alpha)dr+r\cos(\phi\sin\alpha)\sin\alpha\;d\phi
 \end{align}
 We can then simply check $ds^2=dx^2+dy^2$
 
-
 \item The parallel transport equation for a vector $A^\lambda$ along curve $x^\mu(s)$ is given by
 \begin{align}
 \dot x^\mu\nabla_\mu A^\lambda=0\\
@@ -4301,6 +4645,94 @@ so $\cos\beta=\cos(2\pi\sin\alpha)$.
 
 \end{enumerate}
 
+\subsubsection{Problem 1.5 - Killing vectors of a spherical surface}
+Definition of the Lie derivative
+\begin{align}
+\mathcal{L}_\mathbf{a}T^\mu&=T^\mu_{\;,\alpha}a^\alpha-T^\alpha a^\mu_{\;,\alpha}\\
+\mathcal{L}_\mathbf{a}T_\mu&=T_{\mu,\alpha}a^\alpha+T_\alpha a^\alpha_{\;,\mu}\\
+\mathcal{L}_\mathbf{a}T_{\mu\nu}&=T_{\mu\nu,\alpha}a^\alpha+T_{\alpha\nu} a^\alpha_{\;,\mu}+T_{\mu\alpha} a^\alpha_{\;,\nu}
+\end{align}
+Definition Killing vectors
+\begin{align}
+\mathcal{L}_\xi g_{\mu\nu}&=0\\
+\rightarrow &\quad g_{\mu\nu,\alpha}\xi^\alpha+g_{\alpha\nu} \xi^\alpha_{\;,\mu}+g_{\mu\alpha} \xi^\alpha_{\;,\nu}=0
+\end{align}
+Using coordinates $x=(\theta,\phi)$ the metric is given by
+\begin{align}
+ds^2=d\theta^2+\sin^2\theta d\phi^2
+\end{align}
+and we can write down the three Killing equations
+\begin{align}
+\mu=\nu=1\qquad &g_{11,1}\xi^1+g_{11}\xi^1_{\;,1}+g_{11}\xi^1_{\;,1}=0\\
+&\rightarrow\quad\xi^1_{\;,1}=0\\
+\mu=1, \nu=2\qquad &g_{22}\xi^2_{\;,1}+g_{11}\xi^1_{\;,2}=0\\
+&\rightarrow\quad\xi^2_{\;,1}\sin^2\theta+\xi^1_{\;,2}=0\\
+\mu=\nu=2\qquad &g_{22,1}\xi^1+g_{22}\xi^2_{\;,2}+g_{22}\xi^2_{\;,2}=0\\
+&\rightarrow\quad\xi^1\cos\theta+\xi^2_{\;,2}\sin\theta=0
+\end{align}
+then we see immediately $\xi^1=f(\phi)$ and set/try $\xi^2=g(\phi,\theta)=u(\theta)v(\phi)$
+\begin{align}
+vu_{,\theta}\sin^2\theta+f_{,\phi}&=0\\
+f\cos\theta+uv_{,\phi}\sin\theta&=0
+\end{align}
+then we can separate
+\begin{align}
+u_{,\theta}\sin^2\theta&=-\frac{f_{,\phi}}{v}=A\\
+\frac{f}{v_{,\phi}}&=-u\tan\theta=B
+\end{align}
+and see $u=-\frac{B}{\tan\theta}$ and simplify
+\begin{align}
+Bv_{,\phi\phi}&=f_{,\phi}=-Av\\
+&\rightarrow v_{,\phi\phi}=\frac{A}{B}v\\
+&\rightarrow v=\sin(\sqrt{A/B}\phi+c)\\
+&\rightarrow f=Bv_{,\phi}=\sqrt{AB}\cos(\sqrt{A/B}\phi+c)
+\end{align}
+Now we find two vectors
+\begin{align}
+c=-\pi/2, A=1, B=1\quad \xi^\mu_{(1)}&=(\sin\phi,\cos\phi\cot\theta)\\
+c=0, A=1, B=1\quad \xi^\mu_{(2)}&=(\cos\phi,-\sin\phi\cot\theta)
+\end{align}
+but there is a third vector which we did not find as it was not caught by the separation ansatz
+\begin{align}
+\xi^\mu_{(3)}&=(0,1).
+\end{align}
+We could have found it also by calculating the Lie bracket of two Killing vectors we already found
+\begin{align}
+Y&=\xi_{(1)}=\sin\phi\partial_\theta+\cos\phi\cot\theta\partial_\phi\\
+X&=\xi_{(2)}=\cos\phi\partial_\theta-\sin\phi\cot\theta\partial_\phi\\
+\rightarrow[X,Y]&=XY-YX=\partial_\phi
+\end{align}
+we find (by construction) another Killing vector field - which translates into $\xi^\mu_{(3)}=(0,1)$ .
+
+\subsection{{\sc Wald} - General Relativity}
+\subsubsection{5.1}
+Case $k=-1$
+\begin{align}
+ds_{k=0}^2&=-d\tau^2+a^2(\tau)\left[dx^2+dy^2+dz^2\right]\\
+ &=-d\tau^2+a^2(\tau)\left[dr^2+r^2(d\theta^2+\sin^2\theta d\phi^2)\right]
+\end{align}
+Case $k=0$
+\begin{align}
+r&=\sinh\psi\\
+&\rightarrow\quad\frac{dr}{d\psi}=\cosh\psi\\
+&\rightarrow\quad d\psi=\frac{dr}{\cosh\psi}=\frac{dr}{\sqrt{1+\sinh^2\psi}}=\frac{dr}{\sqrt{1+r^2}}\\
+d_{k=-1}s^2&=-d\tau^2+a^2(\tau)\left[d\psi^2+\sinh^2\psi(d\theta^2+\sin^2\theta d\phi^2)\right]\\
+&=-d\tau^2+a^2(\tau)\left[\frac{dr^2}{1+r^2}+r^2(d\theta^2+\sin^2\theta d\phi)^2\right]
+\end{align}
+Case $k=1$
+\begin{align}
+r&=\sin\psi\\
+&\rightarrow\quad\frac{dr}{d\psi}=\cos\psi\\
+&\rightarrow\quad d\psi=\frac{dr}{\cos\psi}=\frac{dr}{\sqrt{1-\sin^2\psi}}=\frac{dr}{\sqrt{1-r^2}}\\
+ds_{k=1}^2&=-d\tau^2+a^2(\tau)\left[d\psi^2+\sin^2\psi(d\theta^2+\sin^2\theta d\phi)^2\right]\\
+&=-d\tau^2+a^2(\tau)\left[\frac{dr^2}{1-r^2}+r^2(d\theta^2+\sin^2\theta d\phi)^2\right]
+\end{align}
+where $\psi\in(0,\pi)$, $\theta\in(0,\pi)$ and $\phi\in(0,2\pi)$. The 3-volume is given by
+\begin{align}
+V&=\int \sqrt{\gamma}\;d\psi d\theta d\phi\\
+&=a^3\int \sin\theta\sin^2\psi\; d\psi d\theta d\phi\\
+&=2\pi^2 a^3
+\end{align}
 
 
 \newpage
@@ -4898,6 +5330,110 @@ The integral can be can be calculated using the residual theorem
 \textcolor{red}{Not done yet}
 
 \section{Cosmology}
+\subsection{{\sc Ryden} - Introduction to Cosmology, 2016}
+\subsubsection{Exercise 2.1}
+The power emitted by a surface $dA$ under the angle $\theta$ ($\theta=0$ is perpendicular to the surface $dA$) into the solid angle $d\Omega$ is $B_\nu\cos\theta\,dA\,d\Omega\,d\nu$ with
+\begin{align}
+B_\nu(\nu,T)=\frac{2h\nu^3}{c^2}\frac{1}{e^{h\nu/kT}-1}
+\end{align}
+this is related to the spectral energy density (eqn 2.27) of the photon field by
+\begin{align}
+\varepsilon(\nu)=u_\nu=\frac{4\pi}{c}B_\nu.
+\end{align}
+The angular integration (for $dA$ in the $xy$ plane) gives
+\begin{align}
+\int\cos\theta\,d\Omega=\int_0^{2\pi}\int_0^{\pi/2}\cos\theta\,\sin\theta\;d\theta\,d\phi
+\end{align}
+and therefore with $\rho=m/V$ and $V=4/3\pi R^3$ we obtain
+\begin{align}
+P&=\int B_\nu\cos\theta\,dA\,d\Omega\,d\nu\\
+&=\pi\int B_\nu\,dA\,d\nu\\
+&=\frac{2\pi^5k^4}{15c^2h^3}T^4\int dA\\
+&=\frac{2\pi^5k^4}{15c^2h^3}T^4\cdot 4\pi R^2\\
+&=\frac{2\pi^5k^4}{15c^2h^3}T^4\cdot \left(\frac{6\sqrt{\pi}m}{\rho}\right)^{2/3}
+\end{align}
+which gives for $m=75$kg a power of 440W. The net power is obviously smaller $P_\text{net}=\sigma A(T_\text{body}^4-T_\text{ambient}^4)$. 
+
+\subsubsection{Exercise 2.2}
+The photon number density is given by (eqn 2.30)
+\begin{align}
+n(\nu)=\frac{\varepsilon(\nu)}{h\nu}=\frac{8\pi\nu^2}{c^3}\frac{1}{e^{h\nu/kT}-1}
+\end{align}
+then the flux across the projected surface of the sphere $\pi R^2$ from each direction is given by  
+\begin{align}
+N&=\int d\Omega\int d\nu\,\pi R^2 cn(\nu)\\
+&=4\pi^2 cR^2\int d\nu\, n(\nu)\\
+&=\zeta(3)\frac{64\pi^3R^2}{c^2h^3}(kT)^3\\
+&=3.2\cdot10^{17}
+\end{align}
+assuming $m=\rho V=75$kg. Analog
+\begin{align}
+P&=\int d\Omega\int d\nu\,\pi R^2 c\varepsilon(\nu)\\
+&=4\pi^2 cR^2\int d\nu\, varepsilon(\nu)\\
+&=\frac{32\pi^7R^2}{15c^2h^3}(kT)^4\\
+&=3.3\cdot10^{-5}\text{W}
+\end{align}
+
+\subsubsection{Exercise 2.3}
+Combining the results
+\begin{align}
+P_\text{rad}&=-440\text{W}\\
+P_\text{absCMB}&=3.3\cdot10^{-5}\text{W}\\
+P_\text{tot}&=-440W
+\end{align}
+So the astronaut is loosing heat and can not overheat.
+The astronauts energy loss is given by
+\begin{align}
+\Delta E_\text{heat}=mC\Delta T\equiv P_\text{tot}\Delta t\\
+\rightarrow \frac{\Delta t}{\Delta T}=\frac{mC}{P_\text{tot}}=716\text{s/K}=12\text{min/K}
+\end{align}
+therefore so the lack of oxygen seems to be most likely.
+
+\subsubsection{Exercise 2.4}
+\begin{align}
+z(r)&=\frac{\lambda(r)-\lambda_\text{em}}{\lambda_\text{em}}\quad\rightarrow\quad\lambda(r)=[1+z(r)]\lambda_\text{em}\\
+E(r)&=hc\frac{1}{\lambda(r)}=\frac{hc}{[1+z(r)]\lambda_\text{em}}\\
+\frac{dE}{dr}&=-kE\quad\rightarrow\quad z'-k(1+z)=0\\
+&\quad\rightarrow\quad z(r)=ce^{kr}-1 \quad(z(0)=0) \\
+&\quad\rightarrow\quad z(r)=e^{kr}-1\\
+&\quad\rightarrow\quad z(r)\approx kr
+\end{align}
+with $k=H_0/c$
+
+\subsubsection{Exercise 2.5}
+With
+\begin{align}
+n(\nu)&=\frac{\varepsilon(\nu)}{h\nu}=\frac{8\pi\nu^2}{c^3}\frac{1}{e^{h\nu/kT}-1}\\
+n_\gamma=&\int d\nu\,n(\nu)\\
+&=\frac{16\zeta(3)\pi}{c^3h^3}(kT)^3
+=\frac{2\zeta(3)}{\pi^2c^3\hbar^3}(kT)^3
+\end{align}
+then
+\begin{align}
+n(h\nu>E_0)&=\frac{8\pi}{c^3}\int_{E_0/h}^\infty\frac{\nu^2}{e^{h\nu/kT}-1}d\nu\\
+&\overset{h\nu>E_0\gg kT}{\simeq}\frac{8\pi}{c^3}\int_{E_0/h}^\infty e^{-h\nu/kT}\nu^2 d\nu\\
+&=\frac{8\pi kT}{c^3h^3}e^{-E_0/kT}(E_0^2+2E_0kT+2(kT)^2)\\
+&\simeq\frac{8\pi kT}{c^3h^3}e^{-E_0/kT}E_0^2
+\end{align}
+then
+\begin{align}
+\frac{n(h\nu>E_0)}{n_\gamma}=\frac{1}{2\zeta(3)}e^{-E_0/kT}\left(\frac{E_0^2}{kT}\right)^2
+\end{align}
+Using this result we obtain $5.8\%$ of infrared photons. Exact numerical integration gives $6\cdot10^{-4}\%$ radio waves (or longer), $91.6\%$ microwaves, $8.4\%$ infrared, $0\%$ optical (and shorter).
+
+\subsubsection{Exercise 2.6}
+Now
+\begin{align}
+n(h\nu<E_0)&=\frac{8\pi}{c^3}\int_0^{E_0/h}\frac{\nu^2}{e^{h\nu/kT}-1}d\nu\\
+&\overset{h\nu<E_0\ll kT}{\simeq}\frac{8\pi}{c^3}\int_{E_0/h}^\infty \frac{kT}{h\nu}\nu^2d\nu\\
+&=\frac{4E_0^2 \pi kT}{c^3h^3}
+\end{align}
+then
+\begin{align}
+\frac{n(h\nu<E_0)}{n_\gamma}=\frac{E_0^2}{4\zeta(3)k^2T^2}
+\end{align}
+For $\lambda>3$cm ($hc/\lambda=h\nu<E_0=hc/\lambda_0$) we obtain $0.6\%$.
+
 \subsection{{\sc Boerner} - The Early Universe - Facts and Fiction (4th edition)}
 \subsubsection{1.1 Friedman equations}
 \begin{enumerate}
@@ -4979,6 +5515,375 @@ which we can interpret as motion of a particle in a changing $-R^2$ potential.
 \end{center}
 
 \end{enumerate}
+
+\subsection{{\sc Baumann} - Cosmology (1nd edition)}
+\subsubsection{Problem 1.1 Length scales}
+\begin{tabular}{lcc}
+\hline 
+object & size & size in m \\ 
+\hline \hline 
+pepper corn & 5mm & 0.005m \\
+basketball size 7 (75 cm circumference) & 24cm & 0.24m \\ 
+basketball court & 30.62yds & 28m \\ 
+\hline 
+\end{tabular} 
+
+\begin{enumerate}
+\item $R_\text{Moon}$ = 6.5cm, $d_\text{ME}$=11.3m
+\item $R_\text{Sun}$ = 55cm, $r_\text{Earth orbit}$=118m, $r_\text{Neptune orbit}$=3544m
+\item $d_\text{Solar system}$=0.2mm
+\item $R_\text{Solar neigh}$ = 18mm
+\item $R_\text{Galaxy}$ = 28cm
+\item $R_\text{Local Group}$ = 56cm
+\item $R_\text{Super Cluster}$ = 30cm
+\end{enumerate} 
+
+\subsubsection{Problem 1.2 Hubble constant}
+\begin{enumerate}
+\item $t_{H_0}=14\cdot10^{9}$a
+\item $d_{H_0}=140\cdot10^{9}$ly
+\item $\rho_0=9\cdot10^{-27}$kg/m$^3$
+\item $n_\text{H universe}=\frac{\rho_0 d^3}{m_\text{H}}=10^{79}$, $n_\text{H brain}=\frac{m_\text{brain}}{m_{H_2O}}=10^{26}$
+\end{enumerate}
+
+\subsubsection{Exercise 2.1}
+Using the Euler Lagrange equations we obtain
+\begin{align}
+\frac{\partial L}{\partial r}=mr\dot\phi^2,\quad\frac{\partial L}{\partial\dot r}=mr\dot r\quad&\rightarrow\quad\ddot r=r\dot\phi^2\\
+\frac{\partial L}{\partial \phi}=0,\quad\frac{\partial L}{\partial\dot\phi}=mr^2\dot \phi\quad&\rightarrow\quad\ddot\phi=-2\frac{\dot r}{r}\dot\phi
+\end{align}
+
+\subsubsection{Exercise 2.2}
+Calculating
+\begin{align}
+\Gamma^\mu_{\alpha\beta}=\frac{1}{2}g^{\mu\lambda}(g_{\beta\lambda,\alpha}+g_{\alpha\lambda,\beta}-g_{\alpha\beta,\lambda})
+\end{align}
+we need the FRW metric which is given by
+\begin{align}
+g_{\alpha\beta}=\left(\begin{array}{cc}
+-1&0\\
+0&a^2\gamma
+\end{array}
+\right)\qquad
+g^{\alpha\beta}=\left(\begin{array}{cc}
+-1&0\\
+0&\frac{1}{a^2}\gamma^{-1}
+\end{array}
+\right)
+\end{align}
+then
+\begin{align}
+\Gamma^i_{0j}
+&=\frac{1}{2}g^{i\lambda}(g_{j\lambda,0}+g_{0\lambda,j}-g_{0j,\lambda})\\
+&=\frac{1}{2}g^{il}(g_{jl,0}+g_{0l,j}-g_{0j,l})\\
+&=\frac{1}{2}g^{il}g_{jl,0}=\frac{1}{2}g^{il}\frac{1}{c}\partial_tg_{jl}\\
+&=\frac{1}{2}\frac{1}{a^2}\gamma^{il}\frac{1}{c}\partial_t(a^2\gamma_{jl})=\frac{1}{2}\frac{1}{a^2}\gamma^{il}\frac{1}{c}2a\dot a\gamma_{jl}\\
+&=\frac{\dot a}{a}\frac{1}{c}\gamma^{il}\gamma_{jl}=\frac{\dot a}{a}\frac{1}{c}\delta^i_j
+\end{align}
+and
+\begin{align}
+\Gamma^i_{jk}
+&=\frac{1}{2}g^{i\lambda}(g_{k\lambda,j}+g_{j\lambda,k}-g_{jk,\lambda})\\
+&=\frac{1}{2}g^{il}(g_{kl,j}+g_{j\lambda,k}-g_{jk,l})
+\end{align}
+
+\subsubsection{Exercise 2.3}
+With $P^\mu=(E/c,P^i)$
+\begin{align}
+-m^2c^2
+&=g_{\mu\nu}P^\mu P^\nu\\
+&=g_{00}(P^0)^2+g_{ij}P^iP^j\\
+&=-\frac{E^2}{c^2}+a^2\gamma_{ij}P^iP^j\\
+&\rightarrow \vec{p}^2=a^2\gamma_{ij}P^iP^j=\left(\frac{E^2}{c^2}-m^2c^2\right)
+\end{align}
+then
+\begin{align}
+\frac{E}{c^3}\frac{dE}{dt}
+&=-\frac{1}{c}a\dot{a}\gamma_{ij}P^iP^j\\
+&=-\frac{1}{c}\frac{\dot{a}}{a}\left(\frac{E^2}{c^2}-m^2c^2\right)\\
+\frac{E}{E^2-m^2c^4}dE&=-\frac{da}{a}
+\end{align}
+Integrating on both sides
+\begin{align}
+\frac{1}{2}\log(E^2-m^2c^4)&=-\log a+k_1\\
+\sqrt{E^2-m^2c^4}&=\frac{k_2}{a}\\
+pc&=\frac{k_2}{a}
+\end{align}
+meaning $p\sim a^{-1}$.
+
+
+\subsubsection{Exercise 2.4}
+With
+\begin{align}
+\frac{dU}{dt}
+&=(c^2\dot\rho)V+(\rho c^2)\dot V\\
+&=c^2ka^3\dot\rho+3ka^2(\rho c^2)\dot a\\
+-P\frac{dV}{dt}
+&=-P\cdot3ka^2\dot a
+\end{align}
+then
+\begin{align}
+c^2ka^3\dot\rho+3ka^2(\rho c^2)\dot a+P\cdot3ka^2\dot a&=0\\
+\dot\rho+3\rho\frac{\dot a}{a}+\frac{P}{c^2}\cdot3\frac{\dot a}{a}&=0\\
+\dot\rho+3\frac{\dot a}{a}\left(\rho+\frac{P}{c^2}\right)&=0
+\end{align}
+
+\subsubsection{Problem 2.1 - Robertson-Walker metric}
+\begin{enumerate}
+\item 
+\begin{itemize}
+\item $t$ proper time measured along the world lines of the galaxies or fluid elements: $g_{00}=\text{const}=-1$
+\item Spacial part - isometry at every point means none of the $\gamma_{ij}$ have preferred time dependency -  which can be ultimately factored out 
+\begin{align}
+\gamma_{ij}=\gamma_{ij}(t,x^k)=a(t)^2\gamma_{ij}(x^k)
+\end{align} 
+\item Weyl postulate: The world lines of the fluid elements, that model the universe’s matter content, are orthogonal to hypersurfaces of constant time: $g_{0i}\equiv\mathbf{g}(\mathbf{e}_0,\mathbf{e}_1)=0$
+\end{itemize}
+Therefore
+\begin{align}
+ds^2=-dt^2+a(t)^2\gamma_{ij}(x^k)dx^idx^j
+\end{align}
+\item 
+\begin{itemize}
+\item Spherical symmetry around a point means the proper distance between two points does not change under rotations this means the angular part is $d\Omega^2=d\theta^2+\sin^2\theta d\phi^2$
+\item $\theta$ and $\phi$ mirror symmetry implies $g_{\hat{r}\phi}=0$ and $g_{\hat{r}\theta}=0$ so we are left with
+\begin{align}
+ds^2=-dt^2+a(t)^2\left[C(\hat{r})d\hat{r}^2+D(\hat{r})d\Omega^2\right]
+\end{align}
+at this moment $\hat{r}$ is an arbitrary radial coordinate with $D(\hat{r})>0$
+\item Defining new radial coordinate $r=\sqrt{D(\hat{r})}$ then
+\begin{align}
+ds^2=-dt^2+a(t)^2\left[\tilde{C}(r)dr^2+r^2d\Omega^2\right]
+\end{align}
+\item Now we just rewrite $\tilde{C}(r)>0$ in a more convenient way
+\begin{align}
+ds^2=-dt^2+a(t)^2\left[e^{2\alpha(r)}dr^2+r^2d\Omega^2\right]
+\end{align}
+\end{itemize}
+Now we calculate the connection coefficients - the non-vanishing ones are
+\begin{align}
+\Gamma^r_{rr}&=\alpha'\quad\Gamma^r_{\theta\theta}=-re^{-2\alpha}\quad\Gamma^r_{\phi\phi}=-re^{-2\alpha}\sin^2\theta\\
+\Gamma^\theta_{\theta r}&=1/r\quad\Gamma^\theta_{r\theta}=1/r\quad\Gamma^\theta_{\phi\phi}=-\sin\theta\cos\theta\\
+\Gamma^\phi_{\phi r}&=1/r\quad\Gamma^\phi_{\phi\theta=\cot\theta}\quad\Gamma^\phi_{r\phi}=1/r\quad\Gamma^\phi_{\theta\phi}=\cot\theta
+\end{align}
+then
+\begin{align}
+R_{ij}&=\left(\begin{array}{ccc}
+\frac{2\alpha'}{r} & 0 & 0\\
+0 & e^{-2\alpha}(-1+e^{2\alpha}+r\alpha') & 0\\
+0 & 0 & e^{-2\alpha}\sin^2\theta(-1+e^{2\alpha}+r\alpha')
+\end{array}
+\right)\\
+R_{(3)}&=R_{ij}\gamma^{ij}\\
+&=\frac{2e^{-2\alpha}(-1+e^{2\alpha}+2r\alpha')}{r^2}\\
+&=\frac{2}{r^2}(1-e^{-2\alpha}+2r\alpha'e^{-2\alpha})\\
+&=\frac{2}{r^2}(1-\partial_r[re^{-2\alpha}])
+\end{align}
+\item Solving the differential equation for the constant curvature $\hat{K}$
+\begin{align}
+\frac{2}{r^2}(1-\partial_r[re^{-2\alpha}])=K\\
+\partial_r[re^{-2\alpha}]=1-\frac{\hat{K}r^2}{2}\\
+re^{-2\alpha}=r-\frac{Kr^3}{6}-b\\
+\alpha=-\frac{1}{2}\log\left(1-\frac{\hat{K}r^2}{6}-\frac{b}{r}\right)\\
+\alpha=\frac{1}{2}\log\left(1-\frac{\hat{K}r^2}{6}-\frac{b}{r}\right)^{-1}\\
+e^{2\alpha}=\frac{1}{1-Kr^2-br^{-1}} \quad(K=\hat{K}/6)
+\end{align}
+Locally flat means
+\begin{align}
+e^{2\alpha}|_{r=0}=1 \quad\rightarrow\quad b=0.
+\end{align}
+Now we rewrite
+\begin{align}
+\frac{1}{1-Kr^2}=\frac{1}{1-k\frac{r^2}{R_0^2}}
+\end{align}
+where $R_0$ is a scaling parameter and $k$ determines the sign of the constant 3-curvature $R_{(3)}$.
+\item Using the coordinate transformation
+\begin{align}
+d\rho&=\dot{a}r\,dt+a\,dr\\
+dT&=dt+\frac{1}{2}(\ddot{a}a+\dot{a}^2)r^2\,dt+\dot{a}ar\,dt
+\end{align}
+we see
+\begin{align}
+dt&\simeq \left(1+\frac{\dot{a}^2-a\ddot{a}}{2a^2}\rho^2\right)dT-\frac{\dot{a}}{a}\rho\,d\rho\\
+dr&\simeq-\frac{\dot{a}}{a^2}\rho\,dT+\frac{1}{a}\left(1+\frac{\dot{a}^2}{a^2}\rho^2\right)d\rho
+\end{align}
+then with $\frac{1}{1-Kr^2}\simeq 1+Kr^2=1+k\frac{r^2}{R_0^2}=1+k\frac{\rho^2}{a^2R_0^2}$ we obtain
+\begin{align}
+ds^2
+&=-dt^2+a(t)^2\left[\frac{1}{1-Kr^2} dr^2+r^2d\Omega^2\right]\\
+&=-dT^2\left(1-\frac{\ddot{a}}{a}\rho^2\right)+\left(\frac{\dot{a}^2}{a^2}\rho^2+1+\frac{k}{a^2R_0^2}\rho^2\right) d\rho^2+\rho^2d\Omega^2
+\end{align}
+\end{enumerate}
+
+\subsubsection{Problem 2.2 - Geodesics from a simple Lagrangian}
+1. Calculating every term individually
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial x^\alpha}
+&=-\frac{\partial g_{\mu\nu}}{\partial x^\alpha}\dot{x}^\mu\dot{x}^\nu\\
+\frac{\partial\mathcal{L}}{\partial \dot{x}^\alpha}
+&=-g_{\mu\nu}\left(\frac{\partial\dot{x}^\mu}{\partial\dot{x}^\alpha}\dot{x}^\nu+\dot{x}^\mu\frac{\partial\dot{x}^\nu}{\partial\dot{x}^\alpha}\right)\\
+&=-g_{\mu\nu}\left(\delta^\mu_\alpha\dot{x}^\nu+\dot{x}^\mu\delta^\nu_\alpha\right)\\
+&=-(g_{\alpha\nu}\dot{x}^\nu+g_{\mu\alpha}\dot{x}^\mu)=-2g_{\alpha\nu}\dot{x}^\nu\\
+\frac{d}{d\lambda}\frac{\partial\mathcal{L}}{\partial \dot{x}^\alpha}
+&=-\left(\frac{\partial g_{\alpha\nu}}{\partial x^\beta}\dot{x}^\beta\dot{x}^\nu+g_{\alpha\nu}\ddot{x}^\alpha+\frac{\partial g_{\mu\alpha}}{\partial x^\beta}\dot{x}^\beta\dot{x}^\mu+g_{\mu\alpha}\ddot{x}^\mu\right)\\
+&=-\left(\frac{\partial g_{\alpha\nu}}{\partial x^\mu}\dot{x}^\mu\dot{x}^\nu
++\frac{\partial g_{\mu\alpha}}{\partial x^\nu}\dot{x}^\nu\dot{x}^\mu
++2g_{\mu\alpha}\ddot{x}^\mu\right)
+\end{align}
+then the equations of motion are
+\begin{align}
+g_{\mu\alpha}\ddot{x}^\mu+\frac{1}{2}\left(\frac{\partial g_{\alpha\nu}}{\partial x^\mu}\dot{x}^\mu\dot{x}^\nu
++\frac{\partial g_{\mu\alpha}}{\partial x^\nu}\dot{x}^\nu\dot{x}^\mu-\frac{\partial g_{\mu\nu}}{\partial x^\alpha}\dot{x}^\mu\dot{x}^\nu\right)=0\\
+g_{\mu\alpha}\ddot{x}^\mu+\frac{1}{2}\left(\frac{\partial g_{\alpha\nu}}{\partial x^\mu}
++\frac{\partial g_{\mu\alpha}}{\partial x^\nu}-\frac{\partial g_{\mu\nu}}{\partial x^\alpha}\right)\dot{x}^\mu\dot{x}^\nu=0
+\end{align}
+Now we multiply with $g^{\alpha\beta}$ and use $g_{\mu\alpha}g^{\alpha\beta}\ddot{x}^\mu=\delta^\beta_\mu\ddot{x}^\mu=\ddot{x}^\beta$
+\begin{align}
+\ddot{x}^\beta+\frac{1}{2}g^{\alpha\beta}\left(\frac{\partial g_{\alpha\nu}}{\partial x^\mu}
++\frac{\partial g_{\mu\alpha}}{\partial x^\nu}-\frac{\partial g_{\mu\nu}}{\partial x^\alpha}\right)\dot{x}^\mu\dot{x}^\nu=0\\
+\ddot{x}^\beta+\Gamma^\beta_{\mu\nu}\dot{x}^\mu\dot{x}^\nu=0
+\end{align}
+2. Calculating the $\lambda$ derivative of $\mathcal{H}$ along the geodesic (substituting )
+\begin{align}
+\frac{\partial\mathcal{H}}{\partial\lambda}&=\frac{\partial\mathcal{L}}{\partial\lambda}-\frac{d}{d\lambda}\left(\frac{\partial\mathcal{L}}{\partial\dot{x}^\gamma}\dot{x}^\gamma\right)\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}-\frac{d}{d\lambda}\left(\frac{\partial\mathcal{L}}{\partial\dot{x}^\gamma}\right)\dot{x}^\gamma-\frac{\partial\mathcal{L}}{\partial\dot{x}^\gamma}\ddot{x}^\gamma\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}-\underbrace{\frac{\partial\mathcal{L}}{\partial x^\gamma}}_{-\frac{\partial g_{\mu\nu}}{\partial x^\gamma}\dot{x}^\mu\dot{x}^\nu}\dot{x}^\gamma
+-\underbrace{\frac{\partial\mathcal{L}}{\partial\dot{x}^\gamma}}_{-2g_{\gamma\varepsilon}\dot{x}^\varepsilon}\underbrace{\ddot{x}^\gamma}_{-\Gamma^\gamma_{\mu\nu}\dot{x}^\mu\dot{x}^\nu}\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}+\frac{\partial g_{\mu\nu}}{\partial x^\gamma}\dot{x}^\mu\dot{x}^\nu\dot{x}^\gamma-2g_{\gamma\varepsilon}\dot{x}^\varepsilon \Gamma^\gamma_{\mu\nu}\dot{x}^\mu\dot{x}^\nu\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}+g_{\mu\nu,\varepsilon}\dot{x}^\mu\dot{x}^\nu\dot{x}^\varepsilon-g_{\gamma\varepsilon}g^{\gamma\sigma}(g_{\mu\sigma,\nu}+g_{\nu\sigma,\mu}-g_{\mu\nu,\sigma})\dot{x}^\varepsilon \dot{x}^\mu\dot{x}^\nu\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}+g_{\mu\nu,\varepsilon}\dot{x}^\mu\dot{x}^\nu\dot{x}^\varepsilon-\delta_\varepsilon^\sigma(g_{\mu\sigma,\nu}+g_{\nu\sigma,\mu}-g_{\mu\nu,\sigma})\dot{x}^\varepsilon \dot{x}^\mu\dot{x}^\nu\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}-(-g_{\mu\nu,\varepsilon}+g_{\mu\varepsilon,\nu}+g_{\nu\varepsilon,\mu}-g_{\mu\nu,\varepsilon})\dot{x}^\varepsilon \dot{x}^\mu\dot{x}^\nu\quad\text{(reindex)}\\
+&=\frac{\partial\mathcal{L}}{\partial\lambda}\\
+&=0
+\end{align}
+then
+\begin{align}
+\mathcal{H}&=\mathcal{L}-\frac{\partial\mathcal{L}}{\partial\dot{x}^\gamma}\dot{x}^\gamma\\
+&=-g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu-(-2g_{\alpha\gamma}\dot{x}^\alpha)\dot{x}^\gamma\\
+&=g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu
+\end{align}
+
+
+\subsubsection{Problem 2.3 - Christoffel symbols from a Lagrangian}
+\begin{align}
+\mathcal{L}&=-g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu\\
+&=\dot{t}^2-a(t)^2(\dot{x}^2+\dot{y}^2+\dot{z}^2)
+\end{align}
+Now $\mu=0, x^\mu=t$
+\begin{align}
+\frac{d}{d\lambda}\frac{\partial\mathcal{L}}{\partial \dot{t}}&=\frac{\partial\mathcal{L}}{\partial t}\\
+2\ddot{t}&=-2a\dot{a}(\dot{x}^2+\dot{y}^2+\dot{z}^2)\\
+\rightarrow&\ddot{t}+a\dot{a}(\dot{x}^2+\dot{y}^2+\dot{z}^2)=0\\
+\rightarrow&\Gamma^0_{11}=\Gamma^0_{22}=\Gamma^0_{33}=a\dot{a}
+\end{align}
+Now $\mu=1, x^\mu=x$
+\begin{align}
+\frac{d}{d\lambda}\frac{\partial\mathcal{L}}{\partial \dot{x}}&=\frac{\partial\mathcal{L}}{\partial x}\\
+-2\left(\ddot{x}a^2+\dot{x}2a\frac{\partial a}{\partial t}\frac{\partial t}{\partial\lambda}\right)&=0\\
+\rightarrow&\ddot{x}+2\frac{\dot{a}}{a}\dot{x}\dot{t}=0\\
+\rightarrow&\Gamma^1_{01}=\Gamma^1_{10}=\frac{\dot{a}}{a}
+\end{align}
+Analog for $\mu=2,3$
+\begin{align}
+\Gamma^2_{02}=\Gamma^1_{20}=\frac{\dot{a}}{a}\\
+\Gamma^3_{03}=\Gamma^1_{30}=\frac{\dot{a}}{a}
+\end{align}
+
+\subsubsection{Problem 2.4 - Geodesics in de Sitter}
+1.) To derive the conserved quantities we need to find the Killing vectors $\xi^\alpha$ defined by
+\begin{align}
+\mathcal{L}_\xi g_{\mu\nu}&=0\\
+\rightarrow &\quad g_{\mu\nu,\alpha}\xi^\alpha+g_{\alpha\nu} \xi^\alpha_{\;,\mu}+g_{\mu\alpha} \xi^\alpha_{\;,\nu}=0
+\end{align}
+which for $ds^2=-A(r)dt^2+B(r)dr^2+r^2d\Omega^2$ is a system of 10 coupled PDEs
+\begin{align}
+-\frac{\partial A}{\partial r}\xi^r-2A\xi^t_{,t}&=0	\qquad(\mu=1,\nu=1)\\
+-A\xi^t_{,r}+B\xi^r_{,t}&=0							\qquad(\mu=1,\nu=2)\\
+-A\xi^t_{,\theta}+r^2\xi^\theta_{,t}&=0		\qquad(\mu=1,\nu=3)\\
+-A\xi^t_{,\phi}+r^2\sin^2\theta\xi^\phi_{,t}&=0	\qquad(\mu=1,\nu=4)\\
+%
+\xi^rB'+2B\xi^r_{,r}&=0								\qquad(\mu=2,\nu=2)\\
+B\xi^r_{,\theta}+r^2\xi^\theta_{,r}&=0			\qquad(\mu=2,\nu=3)\\
+B\xi^r_{,\phi}+r^2\sin^2\theta\xi^\phi_{,r}&=0	\qquad(\mu=2,\nu=4)\\
+%
+\frac{1}{r}\xi^r+\xi^\theta_{,\theta}&=0			\qquad(\mu=3,\nu=3)\\
+\xi^\theta_{,\phi}+\sin^2\theta\xi^\phi_{,\theta}&=0		\qquad(\mu=3,\nu=4)\\
+%
+\frac{1}{r}\xi^r+\cot\theta\xi^\theta+\xi^\phi_{,\phi}&=0	\qquad(\mu=4,\nu=4)
+\end{align}
+We guess some solutions
+\begin{align}
+\xi^\alpha_{(t)}=(1,0,0,0)&\rightarrow\partial_t\\
+\xi^\alpha_{(\phi)}=(0,0,0,1)&\rightarrow\partial_\phi\\
+\xi^\alpha_{(1)}=(0,0,\sin\phi,\cos\phi\cot\theta)&\rightarrow\sin\phi\partial_\theta+\cos\phi\cot\theta\partial_\phi\\
+\xi^\alpha_{(2)}=(0,0,\cos\phi,-\sin\phi\cot\theta)&\rightarrow\cos\phi\partial_\theta-\sin\phi\cot\theta\partial_\phi
+\end{align}
+With the geodesic equation
+\begin{align}
+u^\alpha_{\,;\beta}u^\beta&=0\\
+\rightarrow\quad& (u^\alpha_{\,,\beta}+\Gamma^\alpha_{\beta\gamma}u^\gamma)u^\beta=0\\
+\rightarrow\quad& \underbrace{u^\alpha_{\,,\beta}u^\beta}_{\frac{\partial u^\alpha}{\partial x^\beta}\frac{\partial x^\beta}{\partial \lambda}}+\Gamma^\alpha_{\beta\gamma}u^\gamma u^\beta=0\\
+\rightarrow\quad& \frac{du^\alpha}{d\lambda}+\Gamma^\alpha_{\beta\gamma}u^\gamma u^\beta=0
+\end{align}
+we see with the Killing equation $\xi_{\alpha;\beta}+\xi_{\beta;\alpha}=0$
+\begin{align}
+\xi_\alpha (u^\alpha_{\,;\beta}u^\beta)&=0\\
+(\xi_\alpha u^\alpha)_{\,;\beta}u^\beta-\xi_{\alpha;\beta}u^\alpha u^{\beta}&=0\\
+(\xi_\alpha u^\alpha)_{\,,\beta}u^\beta-\xi_{\alpha;\beta}u^\alpha u^{\beta}&=0\qquad (\xi_\alpha u^\alpha \text{ is a scalar})\\
+\frac{\partial(\xi_\alpha u^\alpha)}{\partial x^\beta}\frac{dx^\beta}{d\lambda}-\xi_{\alpha;\beta}u^\alpha u^{\beta}&=0\qquad\text{symmetry of Killing equation}\\
+\frac{d}{d\lambda}(\xi_\alpha u^\alpha)&=0
+\end{align}
+which means $\xi_\alpha u^\alpha$ is constant along the geodesic. Therefore we find
+\begin{align}
+L_1&=g_{\theta\theta}\xi^\theta_{(1)}u^\theta+g_{\phi\phi}\xi^\phi_{(1)}u^\phi\\
+&=r^2\sin\phi\cdot\dot{\theta}+r^2\sin^2\theta\cos\phi\cot\theta\cdot\dot{\phi}\\
+&=\text{const}\\
+L_2&=r^2\cos\phi\cdot\dot{\theta}-r^2\sin^2\theta\sin\phi\cot\theta\cdot\dot{\phi}\\
+&=\text{const}\\
+&\rightarrow L_1\sin\phi+L_2\cos\phi=r^2\dot\theta\\
+&\rightarrow\dot\theta=\frac{1}{r^2}(L_1\sin\phi+L_2\cos\phi)\\
+&\rightarrow\dot\theta=\frac{\dot\phi\sin^2\theta}{L}(L_1\sin\phi+L_2\cos\phi)
+\end{align}
+\textcolor{red}{From here we should?!? to conclude $\dot{\theta}=0$ ... and therefore $\theta=\pi/2$=const}
+\begin{align}
+L&=g_{\alpha\beta}\xi^\beta_{(\phi)}u^\alpha\\
+&=g_{\phi\phi}u^\phi\\
+&=r^2\sin^2\theta \cdot\dot{\phi}\\
+&=r^2\dot{\phi}\qquad{(\theta=\pi/2=\text{const}})
+\end{align}
+and
+\begin{align}
+E&=g_{\alpha\beta}\xi^\beta_{(t)}u^\alpha\\
+&=g_{tt}u^t\\
+&=-\left(1-\frac{r^2}{R^2}\right)\dot{t}
+\end{align}
+The conserved Hamiltonian is given by
+\begin{align}
+\mathcal{H}
+&=g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu\\
+-1&=-\left(1-\frac{r^2}{R^2}\right)\dot{t}^2+\left(1-\frac{r^2}{R^2}\right)^{-1}\dot{r}^2+r^2(\dot{\theta}^2+\sin^2\theta\;\dot{\phi}^2)\\
+-1&=-\left(1-\frac{r^2}{R^2}\right)\dot{t}^2+\left(1-\frac{r^2}{R^2}\right)^{-1}\dot{r}^2+r^2\dot{\phi}^2\\
+-1&=-\left(1-\frac{r^2}{R^2}\right)^{-1}E^2+\left(1-\frac{r^2}{R^2}\right)^{-1}\dot{r}^2+\frac{L^2}{r^2}
+\end{align}
+which gives an ODE for $\dot{r}$
+\begin{align}
+-\left(1-\frac{r^2}{R^2}\right)^{-1}(\dot{r}^2-E^2)+\left(1+\frac{L^2}{r^2}\right)=0\\
+\dot{r}^2=E^2+\left(1-\frac{r^2}{R^2}\right)\left(1+\frac{L^2}{r^2}\right)\\
+\dot{r}^2=E^2+1-\frac{L^2}{R^2}+\frac{L^2}{r^2}-\frac{r^2}{R^2}.
+\end{align}
+\begin{center}
+\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-0.9,-1.9) grid (4.9,1.9);
+\draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {$r$};
+\draw[thick,->] (0,-2.0) -- (0,1.5) node[anchor=south east] {$V(r)$};
+
+\draw[scale=0.5, domain=0:7, smooth, variable=\x, blue] plot ({\x}, {1-\x*\x/12});
+\draw[scale=0.5, domain=0.7:7, smooth, variable=\x, red] plot ({\x}, {1-1*(1/12-1/(\x*\x))-\x*\x/12});
+
+\end{tikzpicture}
+\end{center}
+3.)
+
 
 \subsection{{\sc Dodelson, Schmidt} - Cosmology (2nd edition)}
 \subsubsection{1.2}
@@ -5064,6 +5969,8 @@ then
 \begin{align}
 \frac{I_\nu d\nu}{d\Omega}
 \end{align}
+
+\subsection{{\sc Mukhanov} - Physical foundations of cosmology, 2005}
 
 \section{Quantum Mechanics}
 \subsection{{\sc Feynman, Hibbs} - Quantum mechanics and path integrals 2ed}
@@ -5513,13 +6420,65 @@ Set $\hbar=e=m_e=1$ and $a_B=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}=1$ then $4\
 \item angular momentum: $L=\hbar$ therefore 1 a.u. = $1.04\cdot10^{-34}$Js 
 \end{enumerate}
 
+\subsubsection{1.7 Hydrogen atom with finite nucleus}
+The field of a uniform sphere of charge $Q$ can be found by Gauss law
+\begin{align}
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Q/a^3\cdot r & r<R\\
+Q/r^2 & r>R
+\end{array}
+\right.
+\end{align}
+The potential is then given by
+\begin{align}
+\phi&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Q/2R\left(3-\frac{r^2}{R^2}\right) & r<R\\
+Q/r & r>R
+\end{array}
+\right.
+\end{align}
+Treating this as a perturbation problem the energy shift can be calculated via the perturbation Hamiltonian (switching the electrostatic energy within the finite nucleus)
+\begin{align}
+H_1
+&=(q\phi_\text{finite}-q\phi_\text{point})\theta(R-a)\\
+&=-e\left(\phi_\text{finite}-\phi_\text{point}\right)\theta(R-a)\\
+&=-\frac{e}{4\pi\epsilon_0}\left(\frac{Ze}{2R}
+\left[3-\frac{r^2}{R^2}\right]-\frac{Ze}{r}\right)\theta(R-a)\\
+&=-\frac{Ze^2}{4\pi\epsilon_0}\left(\frac{1}{2R}
+\left[3-\frac{r^2}{R^2}\right]-\frac{1}{r}\right)\theta(R-a)\\
+\end{align}
+
+
 \subsubsection{1.9 Exponential potential}
+The Schroedinger equation is given by
+\begin{align}
+-\frac{1}{2}\triangle_r\psi+V\psi&=E\psi\\
+-\frac{1}{2r^2}\partial_r(r^2\partial_r \psi)-\frac{a^2}{8}e^{-r/2r_0}\psi&=E\psi\\
+-\frac{1}{2}\left(\frac{2}{r}\psi'+\psi''\right)-\frac{a^2}{8}e^{-r/2r_0}\psi&=E\psi
+\end{align}
+Ansatz $\psi(r)=u(r)/r$
+\begin{align}
+-\frac{1}{2}\left(\frac{2}{r}\frac{u'r-u}{r^2}+\frac{(u''r+u'-u')r^2-2r(u'r-u)}{r^4}\right)-\frac{a^2}{8}e^{-r/2r_0}\frac{u}{r}&=E\frac{u}{r}\\
+-\frac{u'}{r^2}+\frac{u}{r^3}-\frac{u''}{2r}+\frac{2u'}{r^2}-\frac{u}{r^3}-\frac{a^2}{8}e^{-r/2r_0}\frac{u}{r}&=E\frac{u}{r}\\
+-\frac{u''}{2r}+\frac{u'}{r^2}-\frac{a^2}{8}e^{-r/2r_0}\frac{u}{r}&=E\frac{u}{r}\\
+\end{align}
 Stepwise calculation for the verification of the solution
 \begin{align}
 r^2\partial_r \psi
 &=u'r-u\\
-&=\frac{1}{2}\left[J_{n-1}(.)-J_{n+1}(.)\right]ar_0e^{-\frac{r}{2r_0}}\frac{-r}{2r_0}-J_n(.)\\
+&=\frac{1}{2}\left[J_{n-1}(.)-J_{n+1}(.)\right]ar_0e^{-\frac{r}{2r_0}}\frac{-1}{2r_0}r-J_n(.)\\
 &=-\frac{1}{4}\left[J_{n-1}(.)-J_{n+1}(.)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+&=-\frac{1}{4}\left[J_{n-1}(.)-\left(\frac{2n}{ar_0e^{-r/2r_0}}J_n(.)-J_{n-1}(.)\right)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+&=-\frac{1}{4}\left[2J_{n-1}(.)-\frac{2n}{ar_0e^{-r/2r_0}}J_n(.)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+&=-\frac{1}{2}J_{n-1}(.)are^{-\frac{r}{2r_0}}+\left(\frac{nr}{2r_0}-1\right)J_n(.)
+\end{align}
+\begin{align}
+\frac{1}{r^2}\partial_r(r^2\partial_r \psi)
+&=-\frac{1}{2}\left(J_{n-1}-J_{n+1}\right)a^2\frac{r_0}{r}-\frac{1}{2}J_{n-1}(.)\frac{a}{r^2}e^{-\frac{r}{2r_0}}-\frac{1}{2}J_{n-1}(.)\frac{-a}{2rr_0}e^{-\frac{r}{2r_0}}\\
+&\quad+\frac{n}{2r_0r^2}J_n(.)+\left(\frac{nr}{2r_0}-1\right)\frac{1}{2r^2}(J_{n-1}(.)-J_{n+1}(.))ar_0e^{-\frac{r}{2r_0}}\frac{-1}{2r_0}\\
+&=\left(J_{n-1}-J_{n+1}\right)\left[-\frac{a^2r_0}{2r}-\left(\frac{nr}{2r_0}-1\right)\frac{ar_0}{4r^2r_0}\right]e^{-\frac{r}{2r_0}}
 \end{align}
 
 \section{General Physics}
@@ -6087,7 +7046,7 @@ Q/r^2 & r>a
 \rho_\text{hom}&=Q\theta(a-r)\\
 E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
 \begin{array}{ll}
-Qa^3r & r<a\\
+Q/a^3\cdot r & r<a\\
 Q/r^2 & r>a
 \end{array}
 \right.
@@ -7425,6 +8384,33 @@ and obtain
     \rightarrow g(y)=-\frac{e^{-i..}}{y^2}
 \end{align}
 
+\subsection{{\sc Sutton, Biblarz} - Rocket Propulsion Elements}
+\subsubsection{Problem 2.1}
+a)
+\begin{align}
+F=\frac{dp}{dt}=\frac{dm}{dt}v=\frac{50}{60}\text{kg/s}\cdot200\text{m/s}=166.66N
+\end{align}
+
+b) changing the reference frame
+\begin{align}
+\frac{dm}{dt}&=A\rho v\quad\rightarrow\quad A=\frac{1}{v\rho}\frac{dm}{dt}\\
+F&=A\rho(v-u)\cdot(v-u)=\frac{dm}{dt}\frac{v-u}{v}(v-u)=144.322\text{N}
+\end{align}
+
+\subsubsection{Problem 2.2}
+a) effective velocity
+\begin{align}
+v_\text{eff}=\frac{F}{\dot{m}}=2,300\text{m/s}
+\end{align}
+b) kinetic jet energy per unit flow of propellant
+\begin{align}
+\rho_\text{kin}=\frac{1}{2}v_\text{eff}^2=2.646\text{kJ/kg}
+\end{align}
+c) internal efficiency
+\begin{align}
+\eta_\text{int}=\frac{\frac{1}{2}mv_\text{eff}^2}{\eta_\text{comb}\frac{Q_\text{chem}}{m}m}=\frac{\frac{1}{2}v_\text{eff}^2}{\eta_\text{comb}c_\text{chem}}=38.3%
+\end{align}
+
 \newpage
 \section{Simulations of Cosmic Structure Formation - MAUCA 2018}
 \subsubsection{Exercise 2}
@@ -7501,9 +8487,99 @@ H_0dt&=
 
 \end{itemize}
 \end{enumerate}
+\newpage
+\section{Doodling I}
+\subsection{Basic Principles}
+Relativistic QFT unifies quantum mechanics ($\hbar$) and special relativity ($c$). We will put $\hbar=1=c$.
+\begin{itemize}
+\item Relativistic Invariance
+
+Coordinates and how they transform
+\begin{align}
+x^\mu&=(ct,\vec{x}), \qquad \partial_\mu=\frac{\partial}{\partial x^\mu}\\
+x^\mu&\rightarrow x'^{\mu}=a^\mu+\Lambda^\mu_{\;\nu}x^\nu
+\end{align}
+All transformations ($a$,$\Lambda$) - translations and Lorentz transformations - build the Poincare group $\mathcal{P}$.
+\begin{align}
+x^\mu x_\mu=x^\mu x^\nu\eta_{\mu\nu}, \qquad \eta=\text{diag}(1,-1,-1,-1)
+\end{align}
+Invariance requirement
+\begin{align}
+x'^2\overset{!}{=}x^2\quad\Rightarrow\quad \Lambda_\mu^{\;\rho}\Lambda_\nu^{\;\sigma}\eta_{\rho\sigma}\overset{!}{=}\eta_{\mu\nu}
+\end{align}
+\end{itemize}
+
+\subsection{Representation Theory of the Poincare group}
+\begin{itemize}
+\item Relevant because: elementary particles  = unitary, irreducible representation of the Poincare group $\mathcal{P}$.
+
+\item But there are no finite dimensional unitary representations of non-compact groups $\rightarrow$ $\infty$-dimensional representation (need Hilbert space).
+
+\item So each transformation
+\begin{align}
+x^\mu&\rightarrow x'^{\mu}=a^\mu+\Lambda^\mu_{\;\nu}x^\nu
+\end{align}
+will be represented by some unitary operator $U(a,\Lambda)$ ( with $U^\dagger=U^{-1}$) acting on some infinitely dimensional Hilbert space.
+
+\item Let's look at pure translations first
+\begin{align}
+U(a,1)\equiv U(a)=e^{ia^\mu P_\mu}
+\end{align}
+with the generators (the momentum operator) of the translations $P_\mu=(H,\vec{P})$ with needs to be hermitian $P_\mu=P^\dagger_\mu$.
+\item For the pure Lorentz transformations we get
+\begin{align}
+U(0,\Lambda)\equiv U(\Lambda)=e^{\frac{i}{2}\omega_{\mu\nu} M^{\mu\nu}}
+\end{align}
+with the generators of the Lorenz transformations $M^{\mu\nu}$ which need to obey $M_{\mu\nu}=M^\dagger_{\mu\nu}$. They can be identified by $M^{12}\equiv J^3$, $M^{23}\equiv J^1$ and $M^{31}\equiv J^2$ with the angular momentum operator $\vec{J}$ (generating rotations) and generators of the Lorentz boosts $M_{0i}$.
+
+\item Lets derive the commutation operator of the generators. Translations commute therefore
+\begin{align}
+U(a_1)U(a_2)=U(a_1+a_2)=U(a_2)U(a_1)\quad\Rightarrow\quad
+\boxed{[P_\mu,P_\nu]=0}
+\end{align}
+In general
+\begin{align}
+(a_1,\Lambda_1)\circ(a_2,\Lambda_2)=(a_1+\Lambda_1a_2,\Lambda_1\Lambda_2)
+\end{align}
+Then the representation need to obey
+\begin{align}
+U(a_1,\Lambda_1)U(a_2,\Lambda_2)=U(a_1+\Lambda_1a_2,\Lambda_1\Lambda_2)
+\end{align}
+which for $\Lambda_1=\Lambda$, $\Lambda_2=\Lambda^{-1}$, $a_2=a$ and $a_1=0$
+\begin{align}
+U(0,\Lambda)U(a,\Lambda^{-1})&=U(\Lambda a,1)\\
+\rightarrow U(\Lambda)U(a)U(\Lambda^{-1})&=U(\Lambda a)
+\end{align}
+In lowest order this results in
+\begin{align}
+\boxed{[M_{\rho\sigma},P_\mu]=i\eta_{\mu\rho}P_\sigma-i\eta_{\mu\sigma}P_\rho }
+\end{align}
+\begin{align}
+\boxed{[M^{\mu\nu},M^{\rho\sigma}]=i\eta^{\mu\rho}M^{\nu\sigma}+i\eta^{\nu\sigma}M^{\mu\rho}-i\eta^{\mu\nu}M^{\rho\sigma}-i\eta^{\rho\sigma}M^{\mu\nu}}
+\end{align}
+From this we can recover $[J^i,J^k]=i\varepsilon^{ijk}J^k$ , $[H,\vec{P}]=0$ (angular momentum conservation) and $[H,M_{0i}]\neq0$ (not conserved).
+\end{itemize}
+
+How to classify irreps:
+\begin{itemize}
+\item recall QM: SO(3) use the Casimir operator $\vec{J}^2$ (operator that commutes with all generators) 
+\begin{itemize}
+\item use it to label all irreducible representations
+\item use $J_3$ to label the states within the representation
+\end{itemize}  
+\item Casimir operators for $\mathcal{P}$ (must be relativistic invariant)
+\begin{enumerate}
+\item $\mathcal{M}^2=P_\mu P^\mu$ which is related to the mass (squared)
+\item $\mathcal{W}^2=W_\mu W^{\mu}$ with the Pauli-Lubanski vector $W^\mu=\frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}M_{\nu\rho}P_\sigma$ which is related to the spin (we see $W^\mu P_\mu=0$)
+\end{enumerate}
+\item Distinguish between mass $m^2=0$ and $m^2\neq0$
+\begin{enumerate}
+\item Case $m^2\neq0$ - then in the rest frame $P^\mu=(m,0,0,0)$ and because $W^\mu P_\mu=0$ we see $P^\mu=(0,\vec{W})$ and $[W^\mu,W^\nu]=-i\varepsilon^{\mu,\nu,\rho,\sigma}W_\rho P_\sigma$. With $\vec{S}=\frac{1}{m}\vec{W}$ one can show $[S^i,S^j]=i\varepsilon^{ijk}S^k$
+\end{enumerate}
+\end{itemize}
 
 \newpage
-\section{Doodling}
+\section{Doodling II}
 Fundamental ingredients for a quantum theory are a set of states $\{|\psi\rangle\}$ and operators $\{\mathcal{O}\}$. The time development is governed by a Hamilton operator
 \begin{align}
     i\hbar\partial_t|\psi\rangle=H|\psi\rangle
