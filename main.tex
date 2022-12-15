@@ -1358,6 +1358,43 @@ Some examples
 \end{align}
 \end{itemize}
 
+\subsection{Spinors}
+3D vector ($x,y,z\in\mathbb{R}$) can be written as a Pauli vector which can be written as a product of Pauli spinors ($\xi_1,\xi_2\in\mathbb{C}$) 
+\begin{align}
+\vec{v}=
+\left(
+\begin{matrix}
+x\\
+y\\
+z
+\end{matrix}
+\right)
+\Longleftrightarrow
+x\sigma_x+y\sigma_y+z\sigma_z
+&=\left(
+\begin{matrix}
+z    & x-yi\\
+x+yi &  -z
+\end{matrix}
+\right)\\
+&=\left(
+\begin{matrix}
+-\xi_1\xi_2 & \xi_1^2\\
+-\xi_2^2    & \xi_1\xi_2
+\end{matrix}
+\right)\\
+&=\left(
+\begin{matrix}
+\xi_1 \\
+\xi_2 
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+-\xi_2&\xi_1 
+\end{matrix}
+\right)
+\end{align}
 
 \newpage
 \chapter{Primer special relativity}
@@ -2617,8 +2654,8 @@ The Dulong-Petit rule says $k/2$ per harmonic degree of freedom which means in 3
 \end{center}
 
 \chapter{Quantum Field Theory}
-\subsection{{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}
-\subsubsection{Problem 1.1 - Snell's law via Fermat's principle}
+\section{{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}
+\subsection{Problem 1.1 - Snell's law via Fermat's principle}
 The light travels from point $A$ in medium 1 to point $B$ in medium 2. We assume a vertical medium boundary at $x_0$ and that the light travels within a medium in the straight line. This makes $y_0$ the free parameter and the the travel time is given by
 \begin{align}
     t&=\frac{s_{A0}}{c/n_1}+\frac{s_{0B}}{c/n_2}\\
@@ -2635,7 +2672,7 @@ and therefore
 n_1\sin\alpha=n_2\sin\beta.
 \end{align}
 
-\subsubsection{Problem 1.2 - Functional derivatives I}
+\subsection{Problem 1.2 - Functional derivatives I}
 \begin{itemize}
 \item $H[f]=\int G(x,y)f(y)dy$ 
 \begin{align}
@@ -2692,7 +2729,7 @@ n_1\sin\alpha=n_2\sin\beta.
 \end{align}
 \end{itemize}
 
-\subsubsection{Problem 1.3 - Functional derivatives II}
+\subsection{Problem 1.3 - Functional derivatives II}
 \begin{itemize}
 \item
 \begin{align}
@@ -2716,7 +2753,7 @@ n_1\sin\alpha=n_2\sin\beta.
 \item Same as above but two times integration by parts is needed. Therefore $(-1)^2=1$ giving the term a final $+$ sign.
 \end{itemize}
 
-\subsubsection{Problem 1.4 - Functional derivatives III}
+\subsection{Problem 1.4 - Functional derivatives III}
 \begin{itemize}
 \item
 \begin{align}
@@ -2732,7 +2769,7 @@ n_1\sin\alpha=n_2\sin\beta.
 \end{align}
 \end{itemize}
 
-\subsubsection{Problem 1.5 - Euler-Langrange equations for elastic medium}
+\subsection{Problem 1.5 - Euler-Langrange equations for elastic medium}
 \begin{align}
 \mathcal{L}=T-V\\
 \frac{\partial\mathcal{L}}{\partial\psi}-\partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi)}\right)=0
@@ -2746,7 +2783,7 @@ then
 \rightarrow&\frac{\rho}{\mathcal{T}}\ddot\psi=\nabla^2\psi
 \end{align}
 
-\subsubsection{Problem 1.6 - Functional derivatives IIII}
+\subsection{Problem 1.6 - Functional derivatives IIII}
 \begin{align}
 \frac{\delta Z_0[J]}{\delta J(z_1)}
 &=\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}\exp\left(-\frac{1}{2}\int d^4xd^4y(J(x)+\epsilon\delta(x-z_1))\Delta(x-y)(J(y)+\epsilon\delta(y-z_1))\right)\\
@@ -2758,10 +2795,192 @@ then
 &=-Z_0[J]\int d^4y\,\Delta(z_1-y)J(y)
 \end{align}
 
+\subsection{Problem 2.1 - Commutators of creation and annihilation operators}
+With $[\hat{x},\hat{p}]=\hat{x}\hat{p}-\hat{p}\hat{x}=i\hbar$
+\begin{align}
+[\hat{a},\hat{a}]
+&=\frac{m\omega}{2\hbar}\left(\hat{x}\hat{x}+\frac{i}{m\omega}(\hat{x}\hat{p}+\hat{p}\hat{x})+\frac{i^2}{m^2\omega^2}\hat{p}\hat{p}\right)-\frac{m\omega}{2\hbar}\left(\hat{x}\hat{x}+\frac{i}{m\omega}(\hat{x}\hat{p}+\hat{p}\hat{x})+\frac{i^2}{m^2\omega^2}\hat{p}\hat{p}\right)\\
+&=0\\
+[\hat{a}^\dagger,\hat{a}^\dagger]
+&=...=0
+\end{align}
+\begin{align}
+[\hat{a},\hat{a}^\dagger]
+&=\frac{m\omega}{2\hbar}\left(\hat{x}\hat{x}+\frac{i}{m\omega}(-\hat{x}\hat{p}+\hat{p}\hat{x})-\frac{i^2}{m^2\omega^2}\hat{p}\hat{p}\right)-\frac{m\omega}{2\hbar}\left(\hat{x}\hat{x}+\frac{i}{m\omega}(\hat{x}\hat{p}-\hat{p}\hat{x})-\frac{i^2}{m^2\omega^2}\hat{p}\hat{p}\right)\\
+&=\frac{m\omega}{2\hbar}\frac{i}{m\omega}2(-\hat{x}\hat{p}+\hat{p}\hat{x})\\
+&=\frac{i}{\hbar}(-\hat{p}\hat{x}-i\hbar+\hat{p}\hat{x})\\
+&=1
+\end{align}
+Now the Hamiltonian
+\begin{align}
+\hat{a}^\dagger\hat{a}
+&=\frac{m\omega}{2\hbar}\left(\hat{x}\hat{x}+\frac{i}{m\omega}(\hat{x}\hat{p}-\hat{p}\hat{x})-\frac{i^2}{m^2\omega^2}\hat{p}\hat{p}\right)\\
+&=\frac{m\omega}{2\hbar}\left(\hat{x}\hat{x}+\frac{i}{m\omega}i\hbar-\frac{i^2}{m^2\omega^2}\hat{p}\hat{p}\right)\\
+&=\frac{1}{2m\omega\hbar}\hat{p}^2+\frac{m\omega}{2\hbar}\hat{x}^2-\frac{1}{2}\\
+\hat{a}^\dagger\hat{a}+\frac{1}{2}&=\frac{1}{2m\omega\hbar}\hat{p}^2+\frac{m\omega}{2\hbar}\hat{x}^2\\
+\hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right)&=\frac{1}{2m}\hat{p}^2+\frac{m\omega^2}{2}\hat{x}^2=\hat{H}
+\end{align}
+
+\subsection{Problem 2.2 - Perturbed harmonic oscillator}
+We see
+\begin{align}
+a+a^\dagger&=\sqrt{\frac{2m\omega}{\hbar}}x\\
+(a+a^\dagger)^2&=\frac{2m\omega}{\hbar}x^2\\
+x^2&=\frac{\hbar}{2m\omega}(a+a^\dagger)^2\\
+x^4&=(a+a^\dagger)^2\frac{\hbar}{2m\omega}\cdot\frac{\hbar}{2m\omega}(a+a^\dagger)^2
+\end{align}
+The first order energy perturbation is given by
+\begin{align}
+E^{(1)}_n
+&=\langle n|H_1|n \rangle\\
+&=\langle n|x^4|n \rangle\\
+&=\langle n|x^2\cdot x^2|n \rangle.
+\end{align}
+By splitting $H_1$ the calculation gets a bit shorter. Using
+\begin{align}
+a|n\rangle\sqrt{n}|n\rangle \qquad a^\dagger|n\rangle\sqrt{n+1}|n+1\rangle
+\end{align}
+we obtain
+\begin{align}
+x^2|n \rangle
+&=\frac{\hbar}{2m\omega}(a+a^\dagger)^2|n \rangle\\
+&=\frac{\hbar}{2m\omega}(aa^\dagger+a^\dagger a+(a^\dagger)^2+a^2)|n \rangle\\
+&=\frac{\hbar}{2m\omega}\left((n+1)|n\rangle +n|n\rangle+\sqrt{n(n-1)}|n-2\rangle+\sqrt{(n+1)(n+2)}|n+2\rangle\right)\\
+&=\frac{\hbar}{2m\omega}\left((2n+1)|n\rangle +\sqrt{n(n-1)}|n-2\rangle+\sqrt{(n+1)(n+2)}|n+2\rangle\right)\\
+\langle n|x^2&=(x^2|n \rangle)^\dagger\\
+&=\frac{\hbar}{2m\omega}\left((2n+1)|n\rangle +\sqrt{n(n-1)}|n-2\rangle+\sqrt{(n+1)(n+2)}|n+2\rangle\right)
+\end{align}
+Using the orthogonality of the unperturbed states (eigenstates of the Hamiltonian which is hermitian) we obtain
+\begin{align}
+E^{(1)}_n
+&=\langle n|x^2\cdot x^2|n \rangle\\
+&=\frac{\hbar^2}{4m^2\omega^2}\left((2n+1)^2+n(n-1)+(n+1)(n+2)\right)\\
+&=\frac{\hbar^2}{4m^2\omega^2}\left(4n^2+4n+1+n^2-n+n^2+3n+2\right)\\
+&=\frac{\hbar^2}{4m^2\omega^2}\left(6n^2+6n+3\right)\\
+&=\frac{3}{4}\frac{\hbar^2}{m^2\omega^2}\left(2n^2+2n+1\right)
+\end{align}
+which gives the desired result using $E_n=E_n^{(0)}+\lambda E_n^{(1)}$
+
+\subsection{Problem 2.3 - ...}
+Odd notation $\tilde{x}=\hat{x}$
+\begin{align}
+\hat{x}_j&=\sqrt{\frac{\hbar}{2\omega_j m}}(\hat{a}_j+\hat{a}_{-j}^\dagger)\\
+x_j
+&=\frac{1}{\sqrt{N}}\sum_k\tilde{x}_ke^{ikja}\\
+&=\frac{1}{\sqrt{N}}\sqrt{\frac{\hbar}{m}}\sum_k\frac{1}{\sqrt{2\omega_k}}(\hat{a}_k+\hat{a}_{-k}^\dagger)e^{ikja}\\
+&=\frac{1}{\sqrt{N}}\sqrt{\frac{\hbar}{m}}\sum_k\frac{1}{\sqrt{2\omega_k}}(\hat{a}_k e^{ikja}+\hat{a}_{k}^\dagger e^{-ikja})
+\end{align}
 
 
-\subsection{{\sc van Baal} - A Course in Field Theory}
-\subsubsection{Problem 1. Violation of causality in 1+1 dimensions}
+\subsection{Problem 2.4 - Wavefunction in space representation}
+\begin{align}
+\hat{a}&=\sqrt{\frac{2\hbar}{m\omega}}\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right), \qquad \hat{a}|0\rangle=0\\
+&\rightarrow\sqrt{\frac{2\hbar}{m\omega}}\langle x|\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right)|0\rangle=0\\
+&\rightarrow\sqrt{\frac{2\hbar}{m\omega}}\left(\langle x|\hat{x}|0\rangle+\frac{i}{m\omega}\langle x|\hat{p}|0\rangle\right)=0\\
+&\rightarrow\sqrt{\frac{2\hbar}{m\omega}}\left(x\langle x|0\rangle+\frac{i}{m\omega}(-i\hbar)\frac{d}{dx}\langle x|0\rangle\right)=0\\
+&\rightarrow\sqrt{\frac{2\hbar}{m\omega}}\left(x+\frac{\hbar}{m\omega}\frac{d}{dx}\right)\langle x|0\rangle=0
+\end{align}
+Now we can solve the ODE ($\psi_0(x)=\langle x|0\rangle$)
+\begin{align}
+\left(x+\frac{\hbar}{m\omega}\frac{d}{dx}\right)\psi_0&=0\\
+\int dx\,\psi_0'+\int dx\,\frac{m\omega}{\hbar} x\psi_0&=0\\
+\frac{\psi_0'}{\psi_0}&=-\frac{m\omega}{\hbar}x\\
+\log\psi_0&=-\frac{m\omega}{2\hbar}x^2+c\\
+\psi_0&=Ce^{-m\omega x^2/2\hbar}
+\end{align}
+Normalization
+\begin{align}
+\int dx\,\psi_0^*\,\psi_0&=1\\
+C^*C\int dx\,e^{-m\omega x^2/\hbar}&=1\\
+|C|^2\sqrt{\frac{\pi\hbar}{m\omega}}&=1\quad\rightarrow\quad C=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+\end{align}
+
+
+\subsection{Problem 3.1 - ...}
+Bosons
+\begin{align}
+\frac{1}{\mathcal{V}}\sum_{\mathbf{p,q}}e^{i(\mathbf{p}\cdot\mathbf{x}-\mathbf{q}\cdot\mathbf{y})}[a_\mathbf{p},a^\dagger_\mathbf{q}]
+&=\frac{1}{\mathcal{V}}\sum_{\mathbf{p,q}}e^{i(\mathbf{p}\cdot\mathbf{x}-\mathbf{q}\cdot\mathbf{y})}\delta_{\mathbf{pq}}\\
+&=\frac{1}{\mathcal{V}}\sum_{\mathbf{p}}e^{i\mathbf{p}\cdot(\mathbf{x}-\mathbf{y})}\\
+\end{align}
+
+
+
+\subsection{Problem 3.2 - Harmonic oscillator relations}
+With
+\begin{align}
+[\hat{a},\hat{a}^\dagger]&=1\\
+\hat{a}^\dagger\hat{a}&=\hat{n}\\
+\frac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle&=|n\rangle
+\end{align}
+Then
+\begin{itemize}
+\item $[\hat{a},(\hat{a}^\dagger)^n]$
+\begin{align}
+\hat{a}(\hat{a}^\dagger)^n
+&=(a a^\dagger)(a^\dagger)^{n-1}\\
+&=(a^\dagger a+1)(a^\dagger)^{n-1}\\
+&=a^\dagger a(a^\dagger)^{n-1}+(a^\dagger)^{n-1}\\
+&=a^\dagger aa^\dagger(a^\dagger)^{n-2}+(a^\dagger)^{n-1}\\
+&=a^\dagger (a^\dagger a+1)(a^\dagger)^{n-2}+(a^\dagger)^{n-1}\\
+&=(a^\dagger)^2 a(a^\dagger)^{n-2}+2(a^\dagger)^{n-1}\\
+&=...\\
+&=(a^\dagger)^{n}a+n(a^\dagger)^{n-1}\\
+\rightarrow[\hat{a},(\hat{a}^\dagger)^n]&=n(a^\dagger)^{n-1}
+\end{align}
+
+\item $\langle0|a^n(a^\dagger)^m|0\rangle$
+
+If $n<m$ (similar for $n>m$) we get zero 
+\begin{align}
+\langle0|a^n(a^\dagger)^m|0\rangle
+&\sim\langle1|a^{n-1}(a^\dagger)^{m-1}|1\rangle\\
+&\sim\langle2|a^{n-2}(a^\dagger)^{m-2}|2\rangle\\
+&...\\
+&\sim\langle k|(a^\dagger)^{m-k}|k\rangle\\
+&=0\qquad (\langle k|a^\dagger=0).
+\end{align}
+For $n=m$ we have with the definition
+\begin{align}
+\frac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle&=|n\rangle\\
+(a^\dagger)^n|0\rangle&=\sqrt{n!}|n\rangle\\
+\langle0|a^n(a^\dagger)^m|0\rangle&=\sqrt{n!}^2\langle n|n|\rangle\\
+&=n!
+\end{align}
+Therefore  $\langle0|a^n(a^\dagger)^m|0\rangle=n!\delta_{nm}$
+
+\item $\langle m|a^\dagger|n\rangle$
+
+\begin{align}
+\frac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle&=|n\rangle\\
+a^\dagger\frac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle&=a^\dagger|n\rangle\\
+\frac{1}{\sqrt{n+1}}a^\dagger\frac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle&=\frac{1}{\sqrt{n+1}}a^\dagger|n\rangle=|n+1\rangle
+\end{align}
+then
+\begin{align}
+\langle m|a^\dagger|n\rangle
+&=\sqrt{n+1}\langle m|n+1\rangle\\
+&=\sqrt{n+1}\delta_{m,n+1}
+\end{align}
+
+\item $\langle m|a|n\rangle$
+
+\begin{align}
+(\langle m|a)^\dagger
+&=a^\dagger|m\rangle\\
+&=\sqrt{m+1}|m+1\rangle
+\end{align}
+then
+\begin{align}
+\langle m|a|n\rangle
+&=\sqrt{m+1}\delta_{m+1,n}\\
+&=\sqrt{n}\delta_{m+1,n}
+\end{align}
+\end{itemize}
+
+
+\section{{\sc van Baal} - A Course in Field Theory}
+\subsection{Problem 1. Violation of causality in 1+1 dimensions}
 \begin{enumerate}[(a)]
 \item With $H^2=m^2c^4+p^2c^2$ and $p=-i\hbar\partial_x$
 \begin{align}
@@ -2844,9 +3063,9 @@ then we obtain with $y=u-v$
 
 \end{enumerate}
 
-\subsection{{\sc Nastase} - Introduction to Quantum Field Theory} 
+\section{{\sc Nastase} - Introduction to Quantum Field Theory} 
 
-\subsubsection{Exercise 1.4 Scalar Dirac–Born–Infeld equations of motion}
+\subsection{Exercise 1.4 Scalar Dirac–Born–Infeld equations of motion}
 With
 \begin{align}
 \frac{\partial(\partial_\mu\phi)^2}{\partial_\nu\phi}
@@ -2881,7 +3100,7 @@ by $\sqrt{1+L^4[g(\partial_\mu\phi)^2+m^2\phi^2]}$ we obtain
 g(\Box\phi-m^2\phi)-\frac{1}{2}\frac{\partial g}{\partial\phi}(\partial_\mu\phi)^2+gL^4\frac{g(\partial_\nu\phi)(\partial_\mu\phi)(\partial_\nu\partial_\mu\phi)+m^2\phi(\partial_\nu\phi)^2}{1+L^4[g(\partial_\mu\phi)^2+m^2\phi^2]}&=0
 \end{align}
 
-\subsubsection{Exercise 2.1 Equations of motion for an anharmonic}
+\subsection{Exercise 2.1 Equations of motion for an anharmonic}
 With
 \begin{align}
 p
@@ -2905,8 +3124,8 @@ M(q',t';q,t)
 
 
 
-\subsection{{\sc Ramond} - Field Theory - A modern primer} 
-\subsubsection{Problem 1.1.1 A}
+\section{{\sc Ramond} - Field Theory - A modern primer} 
+\subsection{Problem 1.1.1 A}
 With
 \begin{align}
 \left(\frac{d(x+\delta x)}{dt}\right)^2
@@ -2927,8 +3146,8 @@ the last (surface) term vanished and we have
 \frac{d}{dt}\left(\frac{dx}{dt}\right)=0
 \end{align}
 
-\subsection{{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell} 
-\subsubsection{Problem 2.1 - 1}
+\section{{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell} 
+\subsection{Problem 2.1 - 1}
 The Klein-Gordon equations is given by
 \begin{align}
     \left(\partial_\mu\partial^\mu+\frac{m^2c^2}{\hbar^2}\right)\varphi&=0\\
@@ -3001,9 +3220,9 @@ A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ lo
     \i\hbar\alpha c^2=-\frac{\hbar^2}{2m}\quad\rightarrow\quad\alpha=\frac{i\hbar}{2mc^2}
 \end{align}
 
-\subsection{{\sc Schwartz} - Quantum Field Theory and the Standard Model}
+\section{{\sc Schwartz} - Quantum Field Theory and the Standard Model}
 
-\subsubsection{Problem 2.2 Special relativity and colliders}
+\subsection{Problem 2.2 Special relativity and colliders}
 \begin{enumerate}
     \item Quick special relativity recap
     \begin{align}
@@ -3044,7 +3263,7 @@ A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ lo
 \end{enumerate}
 
 
-\subsubsection{Problem 2.3 GZK bound}
+\subsection{Problem 2.3 GZK bound}
 \begin{enumerate}
     \item We are utilizing Plancks law
     \begin{align}
@@ -3144,7 +3363,7 @@ A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ lo
     \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 2.5 Compton scattering}
+\subsection{Problem 2.5 Compton scattering}
 \begin{enumerate}
     \item the binding energy of outer(!!!) electrons is in the eV range while typical X-rays energies are in the keV range.
     \item In the nonrelativistic case we have energy and momentum conservation
@@ -3173,7 +3392,7 @@ A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ lo
     \item 
 \end{enumerate}
     
-\subsubsection{Problem 2.6 Lorentz invariance}
+\subsection{Problem 2.6 Lorentz invariance}
 \begin{enumerate}
     \item With $\omega_k=\sqrt{\vec{k}^2+m^2}$
     \begin{align}
@@ -3191,7 +3410,7 @@ A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ lo
     \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 2.7 Coherent states}
+\subsection{Problem 2.7 Coherent states}
 \begin{enumerate}
 \item 
 \begin{align}
@@ -3296,7 +3515,7 @@ Now we calculate with $\langle 0|a^\dagger=0$
 \end{enumerate}
 
 
-\subsubsection{Problem 3.1 Higher order Lagrangian}
+\subsection{Problem 3.1 Higher order Lagrangian}
 With the principle of least action
 \begin{align}
 \delta S=\delta\int\mathcal{L}d^4x=\int\delta\mathcal{L}d^4x
@@ -3336,7 +3555,7 @@ and therefore
 +\partial_\mu\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}-...=0
 \end{align}
 
-\subsubsection{Problem 3.5 Spontaneous symmetry}
+\subsection{Problem 3.5 Spontaneous symmetry}
 \begin{enumerate}
     \item 
     \begin{align}
@@ -3346,7 +3565,7 @@ and therefore
 \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 3.6 Yukawa potential}
+\subsection{Problem 3.6 Yukawa potential}
 \begin{enumerate}[label=(\alph*)]
 \item We slit the Lagranian in three parts
 \begin{align}
@@ -3436,7 +3655,7 @@ and get
    
 \end{enumerate}
 
-\subsubsection{Problem 3.7 Perihelion shift of Mercury by dimensional analysis}
+\subsection{Problem 3.7 Perihelion shift of Mercury by dimensional analysis}
 \begin{enumerate}[label=(\alph*)]
 \item Lets summarize the rules of dimensional analysis 
 
@@ -3520,7 +3739,7 @@ the virial theorem implies $E_\text{kin}\simeq E_\text{pot}$ and therefore
 \item 
 \end{enumerate}
 
-\subsubsection{Problem 3.9 - Photon polarizations}
+\subsection{Problem 3.9 - Photon polarizations}
 
 \begin{enumerate}[label=(\alph*)]
 \item Then using the results from problem 3.6 and the corrected sign in the Lagranian we get
@@ -3556,7 +3775,7 @@ The equations of motion are $\Box A_\mu=J_\mu$ which can be written in momentum 
 \end{enumerate}
 
 
-\subsubsection{Problem 3.10 - Graviton polarizations}
+\subsection{Problem 3.10 - Graviton polarizations}
 \begin{enumerate}[label=(\alph*)]
 \item
 \item
@@ -3564,8 +3783,8 @@ The equations of motion are $\Box A_\mu=J_\mu$ which can be written in momentum 
 \item
 \end{enumerate}
 
-\subsection{{\sc Srednicki} - Quantum Field Theory}
-\subsubsection{Problem 1.2 - Schroedinger equation}
+\section{{\sc Srednicki} - Quantum Field Theory}
+\subsection{Problem 1.2 - Schroedinger equation}
 \begin{align}
     H&=\int d^3x a^\dagger(x)\left(-\frac{\hbar^2}{2m}\triangle_x+V(x)\right)a(x)+\frac{1}{2}\int d^3xd^3yV(x-y)a^\dagger(x)a^\dagger(y)a(x)a(y)\\
     |\psi,t\rangle&=\int d^3x_1...d^3x_n\psi(x_1,...,x_n;t)a^\dagger(x_1)...a^\dagger(x_n)|0\rangle
@@ -3596,7 +3815,7 @@ The equations of motion are $\Box A_\mu=J_\mu$ which can be written in momentum 
     \item Fermions:
 \end{enumerate}
 
-\subsubsection{Problem 1.3 - Commutator of the number operator}
+\subsection{Problem 1.3 - Commutator of the number operator}
 Preliminary calculations (we use the boson commutation relations)
 \begin{align}
 a^\dagger(z)a(z)a^\dagger(x)&=a^\dagger(z)(\delta(x-z)+a^\dagger(x)a(z))\\
@@ -3648,7 +3867,7 @@ a^\dagger_xa^\dagger_ya_ya_xa^\dagger_za_z
 \end{align}
 We therefore see that the commutator vanishes as well.
 
-\subsubsection{Problem 2.1 - Infinitesimal LT}
+\subsection{Problem 2.1 - Infinitesimal LT}
 \begin{align}
 g_{\mu\nu}\Lambda^\mu_{\;\rho}\Lambda^\nu_{\;\sigma}&=g_{\rho\sigma}\\
 g_{\mu\nu}\left(\delta^\mu_{\;\rho}+\delta\omega^\mu_{\;\rho}\right)\left(\delta^\nu_{\;\sigma}+\delta\omega^\nu_{\;\sigma}\right)&=g_{\rho\sigma}\\
@@ -3660,7 +3879,7 @@ which implies
 \delta\omega_{\sigma\rho}+\delta\omega_{\rho\sigma}=0
 \end{align}
 
-\subsubsection{Problem 2.2 - Infinitesimal LT II}
+\subsection{Problem 2.2 - Infinitesimal LT II}
 Important: each $M^{\mu\nu}$ is an operator and $\delta\omega$ is just a coefficient matrix so $\delta\omega _{\mu\nu}M^{\mu\nu}$ ist a weighted sum of operators.
 \begin{align}
 U(\Lambda^{-1}\Lambda'\Lambda)&=U(\Lambda^{-1})U(\Lambda')U(\Lambda)\\
@@ -3680,7 +3899,7 @@ now we can rewrite $U(I+\Lambda^{-1}\delta\omega'\Lambda)$ and therefore
 \end{align}
 As all $\delta\omega'$ components are basically independent the equation must hold for each pair $\mu,\nu$.
 
-\subsubsection{Problem 2.3 - Commutators of LT generators I}
+\subsection{Problem 2.3 - Commutators of LT generators I}
 LHS:
 \begin{align}
 U(\Lambda)^{-1}M^{\mu\nu}U(\Lambda)
@@ -3717,7 +3936,7 @@ As the components of $\delta\omega$ (besides the antisymmetry) are independent w
 \end{align}
 
 
-\subsubsection{Problem 2.4 - Commutators of LT generators II}
+\subsection{Problem 2.4 - Commutators of LT generators II}
 Preliminary calculations
 \begin{align}
 \epsilon_{ijk}J_k
@@ -3760,7 +3979,7 @@ i\hbar M^{ij}=-i\hbar\epsilon_{ijk}J_k 	& (i=j)\\
 where we used the result from the preliminary calculation in the last step.
 \end{itemize}
 
-\subsubsection{Problem 2.7 - Translation operator}
+\subsection{Problem 2.7 - Translation operator}
 The obvious property $T(a)T(b)=T(a+b)$. Then
 \begin{align}
 T(\delta a+\delta b)&=T(\delta a)T(\delta b)\\
@@ -3775,7 +3994,7 @@ T(\delta a+\delta b)&=T(\delta b)T(\delta a)\\
 \end{align}
 which implies $P^\mu P^\nu=P^\nu P^\mu$.
 
-\subsubsection{Problem 2.8 - Transformation of scalar field}
+\subsection{Problem 2.8 - Transformation of scalar field}
 (a) We start with
 \begin{align}
 U(\Lambda)^{-1}\varphi(x)U(\Lambda)&=\varphi(\Lambda^{-1}x)\\
@@ -3795,7 +4014,7 @@ and therefore
 (e)
 (f)
 
-\subsubsection{Problem 3.2 - Multiparticle eigenstates of the hamiltonian}
+\subsection{Problem 3.2 - Multiparticle eigenstates of the hamiltonian}
 With
 \begin{align}
 |k_1...k_n\rangle&=a^\dagger_{k_1}...a^\dagger_{k_n}|0\rangle\\
@@ -3826,7 +4045,7 @@ H|k_1...k_n\rangle
 &=\left(\sum_j\omega_{k_j}\right)|k_1...k_n\rangle.
 \end{align}
 
-\subsubsection{Problem 3.4 - Heisenberg equations of motion for free field}
+\subsection{Problem 3.4 - Heisenberg equations of motion for free field}
 (a) For the translation operator $T(a)=e^{-iP^\mu a_\mu}$ we expand in first order
 \begin{align}
 T(a)^{-1}\varphi(a)T(a)
@@ -4075,7 +4294,7 @@ a^\dagger_ka_k\\
 a^\dagger_ka_k
 \end{align}
 
-\subsubsection{Problem 3.5 - Complex scalar field}
+\subsection{Problem 3.5 - Complex scalar field}
 (a) Sloppy way - Calculating the Euler-Lagrange equations
 \begin{align}
 \frac{\partial\mathcal{L}}{\partial\varphi}
@@ -4231,7 +4450,7 @@ and similar for $H_{b^\dagger b},H_{ab},H_{a^\dagger b^\dagger}$.
 \begin{align}
 H=\int\widetilde{d^3k}\omega_k\;(a^\dagger_ka_k+b^\dagger_kb_k)+\frac{V}{2(2\pi)^3}\int d^3k\;\omega_k
 \end{align}
-\subsubsection{Problem 4.1 - Commutator non-hermitian field}
+\subsection{Problem 4.1 - Commutator non-hermitian field}
 With $t=t'$ and $|\vec{x}-\vec{x}'|=r$ we have 
 \begin{align}
 [\varphi^+(x),\varphi^-(x')]_\pm
@@ -4273,7 +4492,7 @@ and therefore
 [\varphi^+(x),\varphi^-(x')]_\pm=\frac{1}{4\pi^2r^2}.
 \end{align}
 
-\subsubsection{Problem 5.1 - LSZ reduction for complex scalar field}
+\subsection{Problem 5.1 - LSZ reduction for complex scalar field}
 From Exercise 3.5 we have
 \begin{align}
 a_q&=i\int d^3x e^{-iqx}\stackrel{\leftrightarrow}{\partial_0}\varphi(\vec{x},t)\\
@@ -4307,7 +4526,7 @@ then we get for $a,b$ particle scattering with the time ordering operator $T$ (L
 \int d^4x_2e^{-ik_2x_2}(-\Box_{x_2}+m_b^2)\langle0|\phi_{x'_1}\phi_{x'_2}\phi^\dagger_{x_1}\phi^\dagger_{x_2}|0\rangle
 \end{align}
 
-\subsubsection{Problem 6.1 - Path integral in quantum mechanics}
+\subsection{Problem 6.1 - Path integral in quantum mechanics}
 (a) The transition amplitude $\langle q''|e^{-iH(t''-t')}|q'\rangle$ (particle to start at $q',t'$ and ends at position $q''$ at time $t''$) can be written in the Heisenberg picture as
 \begin{align}
     \langle q''|e^{-iH(t''-t')}|q'\rangle
@@ -4406,7 +4625,7 @@ The exponent has the dimension $\text{kg}\cdot\text{m}^2/s$ which is the same as
 \end{align}
 which is the same as in (b).
 
-\subsubsection{Problem 7.1 - Oscillator Green's function I}
+\subsection{Problem 7.1 - Oscillator Green's function I}
 \begin{align}
 G(t-t')&=\int_{-\infty}^{+\infty}\frac{dE}{2\pi}\frac{e^{-iE(t-t')}}{-E^2+\omega^2-i\epsilon}\\
 &=-\frac{1}{2\pi}\int_{-\infty}^{+\infty}dE\frac{e^{-iE(t-t')}}{E^2-\omega^2+i\epsilon}
@@ -4436,7 +4655,7 @@ G(t)&=\frac{i}{2\omega}e^{-i\omega|t|}
 \end{align}
 
 
-\subsubsection{Problem 7.2 - Oscillator Green's function II}
+\subsection{Problem 7.2 - Oscillator Green's function II}
 We can rewrite the Greens function using the Heaviside theta function 
 \begin{align}
 |t|
@@ -4463,7 +4682,7 @@ where we used $\left(2\theta(t)-1\right)^2\equiv1$
 &=\left(-\omega^2+\omega^2\right)G(t)+\delta(t)=\delta(t)
 \end{align}
 
-\subsubsection{Problem 7.3 - Harmonic Oscillator  - Heisenberg and Schroedinger picture}
+\subsection{Problem 7.3 - Harmonic Oscillator  - Heisenberg and Schroedinger picture}
 (a) With $\hbar=1$ and
 \begin{align}
 H&=\frac{1}{2}P^2+\frac{1}{2}m\omega^2Q^2\\
@@ -4537,7 +4756,7 @@ And now the next case with $t_1>t_2>t_3>t_4$
 &=\frac{1}{(2m\omega)^2}...
 \end{align}
 
-\subsubsection{Problem 7.4 - Harmonic Oscillator with perturbation}
+\subsection{Problem 7.4 - Harmonic Oscillator with perturbation}
 As $f(t)$ is a real function we have $\tilde f(-E)=(\tilde f(E))^*$ then with (7.10)
 \begin{align}
 \langle0|0\rangle_f
@@ -4570,7 +4789,7 @@ then
 &=e^{-\frac{1}{2\omega}\tilde f(\omega)\tilde f(\omega)^*}\\
 \end{align}
 
-\subsubsection{Problem 8.1 - Feynman propagator is Greens function Klein-Gordon equation}
+\subsection{Problem 8.1 - Feynman propagator is Greens function Klein-Gordon equation}
 With
 \begin{align}
 \Delta(x-x')=\frac{1}{(2\pi)^4}\int d^4k\frac{e^{ik(x-x')}}{k^2+m^2-i\epsilon}
@@ -4584,7 +4803,7 @@ we have
 &=\delta^4(x-x')
 \end{align}
 
-\subsubsection{Problem 8.2 - Feynman propagator II}
+\subsection{Problem 8.2 - Feynman propagator II}
 With $\widetilde{dk}=d^3k/((2\pi)^32\omega_k)$ and $\omega_k=\sqrt{\vec{k}^2+m^2}$
 \begin{align}
 \Delta(x-x')
@@ -4609,8 +4828,8 @@ where we used exercise (7.1). Then
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Kachelriess %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{{\sc Kachelriess} - Quantum Fields - From the Hubble to the Planck scale}
-\subsubsection{Problem 1.1 - Units}
+\section{{\sc Kachelriess} - Quantum Fields - From the Hubble to the Planck scale}
+\subsection{Problem 1.1 - Units}
 \begin{enumerate}
 \item The fundamental constants are given by
 \begin{align}
@@ -4668,7 +4887,7 @@ therefore
 \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 3.2 - Maxwell Lagrangian}
+\subsection{Problem 3.2 - Maxwell Lagrangian}
 \begin{enumerate}
     \item First we observe that
     \begin{align}
@@ -4714,7 +4933,7 @@ therefore
     \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 3.3 - Dimension of \texorpdfstring{$\phi$}{TEXT}}
+\subsection{Problem 3.3 - Dimension of \texorpdfstring{$\phi$}{TEXT}}
 \begin{enumerate}
     \item With $c=1=\hbar$ we see
     \begin{align}
@@ -4748,7 +4967,7 @@ therefore
 \end{enumerate}
 
 
-\subsubsection{Problem 3.5 - Yukawa potential}
+\subsection{Problem 3.5 - Yukawa potential}
 Integration in spherical coordinates yields (with $x=kr$)
 \begin{align}
     \int d^3k\frac{e^{-ik\cdot r}}{k^2+m^2}
@@ -4776,7 +4995,7 @@ Therefore
     &= \frac{1}{4\pi r} e^{-mr}
 \end{align}
 
-\subsubsection{Problem 3.9 - \texorpdfstring{$\zeta$}{TEXT} function regularization}
+\subsection{Problem 3.9 - \texorpdfstring{$\zeta$}{TEXT} function regularization}
 \begin{enumerate}
     \item Calculation the Taylor expansion (using L'Hopital's rule for the limits) we obtain
     \begin{align}
@@ -4808,7 +5027,7 @@ Therefore
 \end{enumerate}
 
 
-\subsubsection{Problem 4.1 - \texorpdfstring{$Z[J]$}{Lg} at order \texorpdfstring{$\lambda$}{Lg} in \texorpdfstring{$\phi^4$}{Lg} theory}
+\subsection{Problem 4.1 - \texorpdfstring{$Z[J]$}{Lg} at order \texorpdfstring{$\lambda$}{Lg} in \texorpdfstring{$\phi^4$}{Lg} theory}
 Lets start at (4.6a) with $\mathscr{L}_I=-\lambda/4!\phi^4$
 \begin{align}
     Z[J]&=\exp\left[\text{i}\int d^4x\mathscr{L}_I\left(\frac{1}{\text{i}}\frac{\delta}{\delta J(x)}\right)\right]\int\mathcal{D}\phi\exp\left[\text{i}\int d^4x(\mathscr{L}_0+J\phi)\right]\\
@@ -4877,7 +5096,7 @@ where we used $\Delta_F(x)=\Delta_F(-x)$.
 \end{align*}
 \end{enumerate}
 
-\subsubsection{Problem 19.1 - Dynamical stress tensor}
+\subsection{Problem 19.1 - Dynamical stress tensor}
 Preliminaries
 \begin{itemize} 
 \item The Laplace expansion of the determinate by row or column is given by
@@ -4915,7 +5134,7 @@ We now use the action and definition (7.49)
 \end{align}
 
 
-\subsubsection{Problem 19.6 - Dirac-Schwarzschild}
+\subsection{Problem 19.6 - Dirac-Schwarzschild}
 \begin{enumerate}
     \item (19.13) - adding the bi-spinor index might be helpful for some readers, see (B.27)
     \item (19.13) vs (B.27) naming of generators $J^{\mu\nu}$ vs $\sigma_{\mu\nu}/2$
@@ -4941,7 +5160,7 @@ and the tetrad fields $e^m_\mu$ can then be derived via $d\xi^m=e^m_\mu(x) dx^\m
 
 
 
-\subsubsection{Problem 23.1 - Conformal transformation}
+\subsection{Problem 23.1 - Conformal transformation}
 For a change of coordinates we find in general
 \begin{align}
     x^\mu&\mapsto\tilde{x}^\mu\\
@@ -4958,7 +5177,7 @@ while for a conformal transformation we have
 \end{align}
 
 
-\subsubsection{Problem 23.2 - Conformal transformation properties}
+\subsection{Problem 23.2 - Conformal transformation properties}
 \begin{itemize}
 \item Christoffel symbol:
 \begin{align}
@@ -5171,16 +5390,16 @@ d\cdot\Omega^{-2}\left[
 \end{itemize}
 
 
-\subsubsection{Problem 23.6 - Reflection formula}
+\subsection{Problem 23.6 - Reflection formula}
 \begin{align}
     \Gamma(z)=\int_0^\infty x^{z-1}e^{-x}dx
 \end{align}
 
 
 
-\subsubsection{Problem 23.7 - Unruh temperature}
+\subsection{Problem 23.7 - Unruh temperature}
 
-\subsubsection{Problem 24.14 - Jeans length and the \textcolor{red}{speed of sound}}
+\subsection{Problem 24.14 - Jeans length and the \textcolor{red}{speed of sound}}
 We start with the Euler equations
 \begin{align}
     \frac{D\rho}{Dt}=-\rho\nabla\cdot\vec{u}\quad&\rightarrow\quad\frac{\partial\rho}{\partial t}+\vec{u}\cdot(\nabla\rho)+\rho(\nabla\cdot\vec{u})=0\\
@@ -5214,7 +5433,7 @@ For wave numbers $k_J<\sqrt{4\pi G/c_s^2}$ the $\omega$ becomes complex which gi
     \lambda_J=\frac{2\pi}{k_J}=c_s\sqrt{\frac{\pi}{G\rho_0}}=\sqrt{\frac{\pi w}{G\rho_0}}.
 \end{align}
 
-\subsubsection{Problem 25.1 - Schwarzschild metric}
+\subsection{Problem 25.1 - Schwarzschild metric}
 The simplified vacuum Einstein equations are given by
 \begin{align}
 R_{\mu\nu}&-\frac{1}{2}Rg_{\mu\nu}=0\\
@@ -5267,7 +5486,7 @@ now we can solve for $B(r)$
 
 
 
-\subsubsection{Problem 26.4 - Fixed points of (26.18)}
+\subsection{Problem 26.4 - Fixed points of (26.18)}
 We start with
 \begin{align}
     \text{(F1)}\qquad H^2&=\frac{8\pi G}{3}\left(\frac{1}{2}\dot{\phi}^2+V+\rho\right)\\
@@ -5369,7 +5588,7 @@ with the stability classification (assuming for EoS parameter $w_m^2<1$)
 
 \end{itemize} 
 
-\subsubsection{Problem 26.5 - Tracker solution}
+\subsection{Problem 26.5 - Tracker solution}
 Inserting the ansatz
 \begin{align}
     \phi(t)=C(\alpha,n)M^{1+\nu}t^\nu
@@ -5390,8 +5609,8 @@ From equating coefficients and powers (in $t$) we obtain
 \end{align}
 
 \newpage
-\subsection{{\sc Kugo} - Eichtheorie}
-\subsubsection{Problem 1.1}
+\section{{\sc Kugo} - Eichtheorie}
+\subsection{Problem 1.1}
 With $\Lambda^\alpha_{\;\mu}\approx\delta^\alpha_\mu+\epsilon^\alpha_{\;\;\mu}$ we obtain
 \begin{align}
 g_{\mu\nu}
@@ -5468,8 +5687,8 @@ Calculating the commutators
 &=...\text{painful}
 \end{align}
 
-\subsection{{\sc LeBellac} - Quantum and Statistical Field Theory}
-\subsubsection{Problem 1.1}
+\section{{\sc LeBellac} - Quantum and Statistical Field Theory}
+\subsection{Problem 1.1}
 Some simple geometry
 \begin{align}
 l&=2a\cos\theta\\
@@ -5499,8 +5718,8 @@ Stability
 
 \newpage
 \chapter{Particle Physics}
-\subsection{{\sc Nagashima} - Elementary Particle Physics Volume 1: Quantum Field Theory and Particles}
-\subsubsection{Problem 2.1}
+\section{{\sc Nagashima} - Elementary Particle Physics Volume 1: Quantum Field Theory and Particles}
+\subsection{Problem 2.1}
 \begin{enumerate}
 \item Simple calculation
 \begin{align}
@@ -5519,7 +5738,7 @@ Stability
 E_P&=m_Pc^2=\sqrt{\frac{\hbar c^5}{G}}=2\cdot10^9\text{J}=1.2\cdot10^{19}\text{eV}
 \end{align}
 
-\subsubsection{Problem 2.3}
+\subsection{Problem 2.3}
 Basic approximation with $\Delta m = m$
 \begin{align}
 \Delta E\cdot\Delta t&\approx\frac{\hbar}{2}\\
@@ -5533,7 +5752,7 @@ Forgetting the factor 2 and knowing $1\text{GeV}^{-1}= 0.197\cdot10^{-15}\text{s
 \end{align}
 \end{enumerate}
 
-\subsubsection{Problem 2.4}
+\subsection{Problem 2.4}
 \begin{align}
 \Delta m &= \frac{\hbar}{\Delta x c}\\
 \Delta E &= \Delta m c^2=\frac{\hbar c}{\Delta x}\\
@@ -10546,6 +10765,29 @@ D(a_5)=\left(\begin{array}{cc}
 \right)
 \end{align}
 
+\chapter{Richard Borcherds}
+\begin{enumerate}
+\item Introduction to number theory (53)
+\item Complex analysis (20)
+\item Theory of numbers (20)
+\item Zermelo Fraenkel axioms (8)
+\item Group theory (32)
+\item Rings and modules (22)
+\item Galois theory (25)
+\item Lie groups (11)
+\item Representation theory (9)
+\item Commutative Algebra (76)
+\item Introduction to homological algebra (6)
+\item Categories for the idle mathematician (7)
+\item Modular forms (13)
+\item Algebraic topology (4)
+\item Algebraic geometry I: Varieties (51)
+\item Algebraic geometry II: Schemes (48)
+\item Algebraic geometry: Extra Topics (24)
+\item Math talks (20)
+\item History of science (7)
+\end{enumerate}
+
 \chapter{How to learn ...}
 How to Learn Physics
 
@@ -10669,296 +10911,430 @@ Particle physics:
 
 While studying general relativity and quantum field theory, you should take a break now and then and dip into this book: it's a wonderful guided tour of the world of math and physics:
 
-Roger Penrose, The Road to Reality: A Complete Guide to the Laws of the Universe, Knopf, New York, 2005.
+\begin{itemize}
+\item  Roger Penrose, The Road to Reality: A Complete Guide to the Laws of the Universe, Knopf, New York, 2005.
 And then, some books on more advanced topics...
 The interpretation of quantum mechanics:
 
-Roland Omnes, Interpretation of Quantum Mechanics, Princeton U. Press, Princeton, 1994.
+\item Roland Omnes, Interpretation of Quantum Mechanics, Princeton U. Press, Princeton, 1994.
+\end{itemize}
+
 This is a reasonable treatment of an important but incredibly controversial topic. Warning: there's no way to understand the interpretation of quantum mechanics without also being able to solve quantum mechanics problems — to understand the theory, you need to be able to use it (and vice versa). If you don't heed this advice, you'll fall prey to all sorts of nonsense that's floating around out there.
+
 The mathematical foundations of quantum physics:
 
-Josef M. Jauch, Foundations of Quantum Mechanics, Addison-Wesley, 1968. (Very thoughtful and literate. Get a taste of quantum logic.)
-George Mackey, The Mathematical Foundations of Quantum Mechanics, Dover, New York, 1963. (Especially good for mathematicians who only know a little physics.)
+\begin{itemize}
+\item Josef M. Jauch, Foundations of Quantum Mechanics, Addison-Wesley, 1968. (Very thoughtful and literate. Get a taste of quantum logic.)
+
+\item George Mackey, The Mathematical Foundations of Quantum Mechanics, Dover, New York, 1963. (Especially good for mathematicians who only know a little physics.)
+\end{itemize}
+
 Loop quantum gravity and spin foams:
 
-Carlo Rovelli, Quantum Gravity, Cambridge University Press, Cambridge, 2004.
+\begin{itemize}
+\item Carlo Rovelli, Quantum Gravity, Cambridge University Press, Cambridge, 2004.
 String theory:
 
-Barton Zwiebach, A First Course in String Theory, Cambridge U. Press, Cambridge, 2004. (The best easy introduction.)
-Katrin Becker, Melanie Becker and John H. Schwartz, String Theory and M-Theory: A Modern Introduction, Cambridge U. Press, Cambridge, 2007. (A more detailed introduction.)
-Michael B. Green, John H. Schwarz and Edward Witten, Superstring Theory (2 volumes), Cambridge U. Press, Cambridge, 1987. (The old testament.)
-Joseph Polchinski, String Theory (2 volumes), Cambridge U. Press, Cambridge, 1998. (The new testament — he's got branes.)
+\item Barton Zwiebach, A First Course in String Theory, Cambridge U. Press, Cambridge, 2004. (The best easy introduction.)
+
+\item Katrin Becker, Melanie Becker and John H. Schwartz, String Theory and M-Theory: A Modern Introduction, Cambridge U. Press, Cambridge, 2007. (A more detailed introduction.)
+
+\item Michael B. Green, John H. Schwarz and Edward Witten, Superstring Theory (2 volumes), Cambridge U. Press, Cambridge, 1987. (The old testament.)
+
+\item Joseph Polchinski, String Theory (2 volumes), Cambridge U. Press, Cambridge, 1998. (The new testament — he's got branes.)
+\end{itemize}
+
 How to Learn Math
 
 Math is a much more diverse subject than physics, in a way: there are lots of branches you can learn without needing to know other branches first... though you only deeply understand a subject after you see how it relates to all the others!
-After basic schooling, the customary track through math starts with a bit of:
 
-Finite mathematics (combinatorics)
-and
-Probability theory
-To dig deeper into math you need calculus and linear algebra, which are interconnected:
+The study of math branches out into a dizzying variety of more advanced topics! It's hard to get the "big picture" of mathematics until you've gone fairly far into it; indeed, the more I learn, the more I laugh at my previous pathetically naive ideas of what math is "all about". But if you want a glimpse, try these books:
 
-Calculus
-Multivariable calculus
-Linear algebra
-Ordinary differential equations
-Partial differential equations
-Then it's good to learn these:
-Set theory and logic
-Complex analysis
-Real analysis
-Topology
-Abstract algebra
-not necessarily in exactly this order. Proofs become very important at this stage. You need to know a little set theory and logic to really understand what a proof is, but you don't even need calculus to get started on
-Number theory
-From then on, the study of math branches out into a dizzying variety of more advanced topics! It's hard to get the "big picture" of mathematics until you've gone fairly far into it; indeed, the more I learn, the more I laugh at my previous pathetically naive ideas of what math is "all about". But if you want a glimpse, try these books:
-F. William Lawvere and Stephen H. Schanuel, Conceptual Mathematics: a First Introduction to Categories, Cambridge University Press, 1997. (A great place to start.)
-Saunders Mac Lane, Mathematics, Form and Function, Springer, New York, 1986. (More advanced.)
-Jean Dieudonne, A Panorama of Pure Mathematics, as seen by N. Bourbaki, translated by I.G. Macdonald, Academic Press, 1982. (Very advanced — best if you know a lot of math already. Beware: many people disagree with Bourbaki's outlook.)
+\begin{itemize}
+\item F. William Lawvere and Stephen H. Schanuel, Conceptual Mathematics: a First Introduction to Categories, Cambridge University Press, 1997. (A great place to start.)
+
+\item Saunders Mac Lane, Mathematics, Form and Function, Springer, New York, 1986. (More advanced.)
+
+\item Jean Dieudonne, A Panorama of Pure Mathematics, as seen by N. Bourbaki, translated by I.G. Macdonald, Academic Press, 1982. (Very advanced — best if you know a lot of math already. Beware: many people disagree with Bourbaki's outlook.)
+\end{itemize}
+
 I haven't decided on my favorite books on all the basic math topics, but here are a few. In this list I'm trying to pick the clearest books I know, not the deepest ones — you'll want to dig deeper later:
+
 Finite mathematics (combinatorics):
 
-Arthur T. Benjamin and Jennifer Quinn, Proofs that Really Count: The Art of Combinatorial Proof, The Mathematical Association of America, 2003.
-Ronald L. Graham, Donald Knuth, and Oren Patashnik, Concrete Mathematics, Addison-Wesley, Reading, Massachusetts, 1994. (Too advanced for a first course in finite mathematics, but this book is fun — quirky, full of jokes, it'll teach you tricks for counting stuff that will blow your friends minds!)
+\begin{itemize}
+\item Arthur T. Benjamin and Jennifer Quinn, Proofs that Really Count: The Art of Combinatorial Proof, The Mathematical Association of America, 2003.
+
+\item Ronald L. Graham, Donald Knuth, and Oren Patashnik, Concrete Mathematics, Addison-Wesley, Reading, Massachusetts, 1994. (Too advanced for a first course in finite mathematics, but this book is fun — quirky, full of jokes, it'll teach you tricks for counting stuff that will blow your friends minds!)
+\end{itemize}
+
 Probability theory:
 
-Charles M. Grinstead and J. Laurie Snell, Introduction to Probability, American Mathematical Society, Providence, Rhode Island, 1997. Also available free online at https://math.dartmouth.edu/~prob/prob/prob.pdf.
+\begin{itemize}
+\item Charles M. Grinstead and J. Laurie Snell, Introduction to Probability, American Mathematical Society, Providence, Rhode Island, 1997. Also available free online at https://math.dartmouth.edu/~prob/prob/prob.pdf.
+\end{itemize}
+
 Calculus:
 
-Silvanus P. Thompson, Calculus Made Easy, St. Martin's Press, 1914. Also available free online at http://www.gutenberg.org/ebooks/33283. (Most college calculus texts weigh a ton; this one does not — it just gets to the point. This is how I learned calculus: my uncle gave me a copy.)
-Gilbert Strang, Calculus, Wellesley-Cambridge Press, Cambridge, 1991. Also available free online at http://ocw.mit.edu/ans7870/resources/Strang/strangtext.htm. (Another classic, with lots of applications to real-world problems.)
+\begin{itemize}
+\item Silvanus P. Thompson, Calculus Made Easy, St. Martin's Press, 1914. Also available free online at http://www.gutenberg.org/ebooks/33283. (Most college calculus texts weigh a ton; this one does not — it just gets to the point. This is how I learned calculus: my uncle gave me a copy.)
+
+\item Gilbert Strang, Calculus, Wellesley-Cambridge Press, Cambridge, 1991. Also available free online at http://ocw.mit.edu/ans7870/resources/Strang/strangtext.htm. (Another classic, with lots of applications to real-world problems.)
+\end{itemize}
+
 Multivariable calculus:
 
-James Nearing, Mathematical Tools for Physics, available at http://www.physics.miami.edu/~nearing/mathmethods/. See especially the sections on multvariable calculus, vector calculus 1, and vector calculus 2. (Very nice explanations!)
-George Cain and James Herod, Multivariable Calculus. Available free online at http://www.math.gatech.edu/~cain/notes/calculus.html
+\begin{itemize}
+\item James Nearing, Mathematical Tools for Physics, available at http://www.physics.miami.edu/~nearing/mathmethods/. See especially the sections on multvariable calculus, vector calculus 1, and vector calculus 2. (Very nice explanations!)
+
+\item George Cain and James Herod, Multivariable Calculus. Available free online at http://www.math.gatech.edu/~cain/notes/calculus.html
+\end{itemize}
+
 Linear algebra:
 
 This is a great linear algebra book if you want to understand the subject thoroughly:
 
-Elizabeth S. Meckes and Mark Meckes, Linear Algebra, Cambridge U. Press, 2018.
+\begin{itemize}
+\item Elizabeth S. Meckes and Mark Meckes, Linear Algebra, Cambridge U. Press, 2018.
+
 These books are probably easier, and they're free online:
-Keith Matthews, Elementary Linear Algebra, available free online at http://www.numbertheory.org/book/.
-Jim Hefferon, Linear Algebra, available free online at http://joshua.smcvt.edu/linalg.html/.
-Robert A. Beezer, A First Course in Linear Algebra, available free online at http://linear.ups.edu/.
+
+\item Keith Matthews, Elementary Linear Algebra, available free online at http://www.numbertheory.org/book/.
+
+\item Jim Hefferon, Linear Algebra, available free online at http://joshua.smcvt.edu/linalg.html/.
+
+\item Robert A. Beezer, A First Course in Linear Algebra, available free online at http://linear.ups.edu/.
+\end{itemize}
+
 Ordinary differential equations — some free online books:
 
-Bob Terrell, Notes on Differential Equations, available free online at http://www.math.cornell.edu/~bterrell/dn.pdf. (Does both ordinary and partial differential equations.)
-James Nearing, Mathematical Tools for Physics, available at http://www.physics.miami.edu/~nearing/mathmethods/. See especially the sections on ordinary differential equations and Fourier series (which are good for solving such equations).
+\begin{itemize}
+\item Bob Terrell, Notes on Differential Equations, available free online at http://www.math.cornell.edu/~bterrell/dn.pdf. (Does both ordinary and partial differential equations.)
+
+\item James Nearing, Mathematical Tools for Physics, available at http://www.physics.miami.edu/~nearing/mathmethods/. See especially the sections on ordinary differential equations and Fourier series (which are good for solving such equations).
+\end{itemize}
+
 Partial differential equations — some free online books:
 
-Bob Terrell, Notes on Differential Equations, available free online at http://www.math.cornell.edu/~bterrell/dn.pdf. (Does both ordinary and partial differential equations.)
-James Nearing, Mathematical Tools for Physics, available at http://www.physics.miami.edu/~nearing/mathmethods/. See especially the section on partial differential equations.
+\begin{itemize}
+\item Bob Terrell, Notes on Differential Equations, available free online at http://www.math.cornell.edu/~bterrell/dn.pdf. (Does both ordinary and partial differential equations.)
+
+\item James Nearing, Mathematical Tools for Physics, available at http://www.physics.miami.edu/~nearing/mathmethods/. See especially the section on partial differential equations.
+\end{itemize}
+
 Set theory and logic:
 
-Herbert B. Enderton, Elements of Set Theory, Academic Press, New York, 1977.
-Herbert B. Enderton, A Mathematical Introduction to Logic, Academic Press, New York, 2000.
-F. William Lawvere and Robert Rosebrugh, Sets for Mathematics, Cambridge U. Press, Cambridge, 2002. (An unorthodox choice, since this book takes an approach based on category theory instead of the old-fashioned Zermelo-Fraenkel axioms. But this is the wave of the future, so you might as well hop on now!)
+\begin{itemize}
+\item Herbert B. Enderton, Elements of Set Theory, Academic Press, New York, 1977.
+
+\item Herbert B. Enderton, A Mathematical Introduction to Logic, Academic Press, New York, 2000.
+
+\item F. William Lawvere and Robert Rosebrugh, Sets for Mathematics, Cambridge U. Press, Cambridge, 2002. (An unorthodox choice, since this book takes an approach based on category theory instead of the old-fashioned Zermelo-Fraenkel axioms. But this is the wave of the future, so you might as well hop on now!)
+\end{itemize}
+
 Complex analysis:
 
-George Cain, Complex Analysis, available free online at http://www.math.gatech.edu/~cain/winter99/complex.html. (How can you not like free online?)
-James Ward Brown and Ruel V. Churchill, Complex Variables and Applications, McGraw-Hill, New York, 2003. (A practical introduction to complex analysis.)
-Serge Lang, Complex Analysis, Springer, Berlin, 1999. (More advanced.)
+\begin{itemize}
+\item George Cain, Complex Analysis, available free online at http://www.math.gatech.edu/~cain/winter99/complex.html. (How can you not like free online?)
+
+\item James Ward Brown and Ruel V. Churchill, Complex Variables and Applications, McGraw-Hill, New York, 2003. (A practical introduction to complex analysis.)
+
+\item Serge Lang, Complex Analysis, Springer, Berlin, 1999. (More advanced.)
+\end{itemize}
+
 Real analysis:
 
-Richard R. Goldberg, Methods of Real Analysis, Wiley, New York, 1976. (A gentle introduction.)
-Halsey L. Royden, Real Analysis, Prentice Hall, New York, 1988. (A bit more deep; here you get Lebesgue integration and measure spaces.)
+\begin{itemize}
+\item  Richard R. Goldberg, Methods of Real Analysis, Wiley, New York, 1976. (A gentle introduction.)
+
+\item Halsey L. Royden, Real Analysis, Prentice Hall, New York, 1988. (A bit more deep; here you get Lebesgue integration and measure spaces.)
+\end{itemize}
+
 Topology:
 
-James R. Munkres, Topology, James R. Munkres, Prentice Hall, New York, 1999.
-Lynn Arthur Steen and J. Arthur Seebach, Jr., Counterexamples in Topology, Dover, New York, 1995. (It's fun to see how crazy topological spaces can get: also, counterexamples help you understand definitions and theorems. But, don't get fooled into thinking this stuff is the point of topology!)
+\begin{itemize}
+\item  James R. Munkres, Topology, James R. Munkres, Prentice Hall, New York, 1999.
+
+\item Lynn Arthur Steen and J. Arthur Seebach, Jr., Counterexamples in Topology, Dover, New York, 1995. (It's fun to see how crazy topological spaces can get: also, counterexamples help you understand definitions and theorems. But, don't get fooled into thinking this stuff is the point of topology!)
+\end{itemize}
+
 Abstract algebra:
 
 I didn't like abstract algebra as an undergrad. Now I love it! Textbooks that seem pleasant now seemed dry as dust back then. So, I'm not confident that I could recommend an all-around textbook on algebra that my earlier self would have enjoyed. But, I would have liked these:
 
-Hermann Weyl, Symmetry, Princeton University Press, Princeton, New Jersey, 1983. (Before diving into group theory, find out why it's fun.)
-Ian Stewart, Galois Theory, 3rd edition, Chapman and Hall, New York, 2004. (A fun-filled introduction to a wonderful application of group theory that's often explained very badly.)
+\begin{itemize}
+\item Hermann Weyl, Symmetry, Princeton University Press, Princeton, New Jersey, 1983. (Before diving into group theory, find out why it's fun.)
+
+\item Ian Stewart, Galois Theory, 3rd edition, Chapman and Hall, New York, 2004. (A fun-filled introduction to a wonderful application of group theory that's often explained very badly.)
+\end{itemize}
+
 Number theory:
 
 These are elementary textbooks; for more advanced ones read on further.
 
-George E. Andews, Number Theory, Dover, New York, 1994. (A good elementary introduction; don't buy the Kindle version of this edition since the equations are tiny.)
-Joseph Silverman, Friendly Introduction to Number Theory, Pearson, 2017. (Doesn't require any advanced mathematics, not even calculus.)
-Martin H. Weissman, An Illustrated Theory of Numbers, American Mathematical Society, Providence, Rhode Island, 2017. (This reveals the oft-hidden visual side of number theory.)
+\begin{itemize}
+\item George E. Andews, Number Theory, Dover, New York, 1994. (A good elementary introduction; don't buy the Kindle version of this edition since the equations are tiny.)
+\item Joseph Silverman, Friendly Introduction to Number Theory, Pearson, 2017. (Doesn't require any advanced mathematics, not even calculus.)
+\item Martin H. Weissman, An Illustrated Theory of Numbers, American Mathematical Society, Providence, Rhode Island, 2017. (This reveals the oft-hidden visual side of number theory.)
+\end{itemize}
+
 More Advanced Math
 
 I'll start with some books on mathematical physics, because that's been one of my favorite subjects for a long time. Out of laziness, I'll assume you're already somewhat comfortable with the topics listed above — yes, I know that requires about 4 years of full-time work! —l and I'll pick up from there. Here's a good place to start:
 
-Paul Bamberg and Shlomo Sternberg, A Course of Mathematics for Students of Physics, Cambridge University, Cambridge, 1982. (A good basic introduction to modern math, actually.)
+\begin{itemize}
+\item Paul Bamberg and Shlomo Sternberg, A Course of Mathematics for Students of Physics, Cambridge University, Cambridge, 1982. (A good basic introduction to modern math, actually.)
+
 It's also good to get ahold of these books and keep referring to them as needed:
-Robert Geroch, Mathematical Physics, University of Chicago Press, Chicago, 1985.
-Yvonne Choquet-Bruhat, Cecile DeWitt-Morette, and Margaret Dillard-Bleick, Analysis, Manifolds, and Physics (2 volumes), North-Holland, 1982 and 1989.
+
+\item Robert Geroch, Mathematical Physics, University of Chicago Press, Chicago, 1985.
+\item Yvonne Choquet-Bruhat, Cecile DeWitt-Morette, and Margaret Dillard-Bleick, Analysis, Manifolds, and Physics (2 volumes), North-Holland, 1982 and 1989.
+
 Here's a free online reference book that's 787 pages long:
 
-Jean Claude Dutailly, Mathematics for Theoretical Physics, 2012.
+\item Jean Claude Dutailly, Mathematics for Theoretical Physics, 2012.
+\end{itemize}
+
 Here are my favorite books on various special topics:
 
 Group theory in physics:
 
-Shlomo Sternberg, Group Theory and Physics, Cambridge University Press, 1994.
-Robert Hermann, Lie Groups for Physicists, Benjamin-Cummings, 1966.
-George Mackey, Unitary Group Representations in Physics, Probability, and Number Theory, Addison-Wesley, Redwood City, California, 1989.
+\begin{itemize}
+\item Shlomo Sternberg, Group Theory and Physics, Cambridge University Press, 1994.
+\item Robert Hermann, Lie Groups for Physicists, Benjamin-Cummings, 1966.
+\item George Mackey, Unitary Group Representations in Physics, Probability, and Number Theory, Addison-Wesley, Redwood City, California, 1989.
+\end{itemize}
+
 Lie groups, Lie algebras and their representations — in rough order of increasing sophistication:
 
-Brian Hall, Lie Groups, Lie Algebras, and Representations, Springer, Berlin, 2003.
-William Fulton and Joe Harris, Representation Theory — a First Course, Springer, Berlin, 1991. (A friendly introduction to finite groups, Lie groups, Lie algebras and their representations, including the classification of simple Lie algebras. One great thing is that it has many pictures of root systems, and works slowly up a ladder of examples of these before blasting the reader with abstract generalities.)
-J. Frank Adams, Lectures on Lie Groups, University of Chicago Press, Chicago, 2004. (A very elegant introduction to the theory of semisimple Lie groups and their representations, without the morass of notation that tends to plague this subject. But it's a bit terse, so you may need to look at other books to see what's really going on in here!)
-Daniel Bump, Lie Groups, Springer, Berlin, 2004. (A friendly tour of the vast and fascinating panorama of mathematics surrounding groups, starting from really basic stuff and working on up to advanced topics. The nice thing is that it explains stuff without feeling the need to prove every statement, so it can cover more territory.)
+\begin{itemize}
+\item Brian Hall, Lie Groups, Lie Algebras, and Representations, Springer, Berlin, 2003.
+\item William Fulton and Joe Harris, Representation Theory — a First Course, Springer, Berlin, 1991. (A friendly introduction to finite groups, Lie groups, Lie algebras and their representations, including the classification of simple Lie algebras. One great thing is that it has many pictures of root systems, and works slowly up a ladder of examples of these before blasting the reader with abstract generalities.)
+\item J. Frank Adams, Lectures on Lie Groups, University of Chicago Press, Chicago, 2004. (A very elegant introduction to the theory of semisimple Lie groups and their representations, without the morass of notation that tends to plague this subject. But it's a bit terse, so you may need to look at other books to see what's really going on in here!)
+\item Daniel Bump, Lie Groups, Springer, Berlin, 2004. (A friendly tour of the vast and fascinating panorama of mathematics surrounding groups, starting from really basic stuff and working on up to advanced topics. The nice thing is that it explains stuff without feeling the need to prove every statement, so it can cover more territory.)
+\end{itemize}
+
 Geometry and topology for physicists — in rough order of increasing sophistication:
 
-Gregory L. Naber, Topology, Geometry and Gauge Fields: Foundations, Springer, Berlin, 1997.
-Chris Isham, Modern Differential Geometry for Physicists, World Scientific Press, Singapore, 1999. (Isham is an expert on general relativity so this is especially good if you want to study that.)
-Harley Flanders, Differential Forms with Applications to the Physical Sciences, Dover, New York, 1989. (Everyone has to learn differential forms eventually, and this is a pretty good place to do it.)
-Charles Nash and Siddhartha Sen, Topology and Geometry for Physicists, Academic Press, 1983. (This emphasizes the physics motivations... it's not quite as precise at points.)
-Mikio Nakahara, Geometry, Topology, and Physics, A. Hilger, New York, 1990. (More advanced.)
-Charles Nash, Differential Topology and Quantum Field Theory, Academic Press, 1991. (Still more advanced — essential if you want to understand what Witten is up to.)
+\begin{itemize}
+\item Gregory L. Naber, Topology, Geometry and Gauge Fields: Foundations, Springer, Berlin, 1997.
+\item Chris Isham, Modern Differential Geometry for Physicists, World Scientific Press, Singapore, 1999. (Isham is an expert on general relativity so this is especially good if you want to study that.)
+\item Harley Flanders, Differential Forms with Applications to the Physical Sciences, Dover, New York, 1989. (Everyone has to learn differential forms eventually, and this is a pretty good place to do it.)
+\item Charles Nash and Siddhartha Sen, Topology and Geometry for Physicists, Academic Press, 1983. (This emphasizes the physics motivations... it's not quite as precise at points.)
+\item Mikio Nakahara, Geometry, Topology, and Physics, A. Hilger, New York, 1990. (More advanced.)
+\item Charles Nash, Differential Topology and Quantum Field Theory, Academic Press, 1991. (Still more advanced — essential if you want to understand what Witten is up to.)
+\end{itemize}
+
 Geometry and topology, straight up:
 
-Victor Guillemin and Alan Pollack, Differential Topology, Prentice-Hall, Englewood Cliffs, 1974.
-B. A. Dubrovin, A. T. Fomenko, and S. P. Novikov, Modern Geometry — Methods and Applications, 3 volumes, Springer, Berlin, 1990. (Lots of examples, great for building intuition, some mistakes here and there. The third volume is an excellent course on algebraic topology from a geometrical viewpoint.)
+\begin{itemize}
+\item Victor Guillemin and Alan Pollack, Differential Topology, Prentice-Hall, Englewood Cliffs, 1974.
+\item B. A. Dubrovin, A. T. Fomenko, and S. P. Novikov, Modern Geometry — Methods and Applications, 3 volumes, Springer, Berlin, 1990. (Lots of examples, great for building intuition, some mistakes here and there. The third volume is an excellent course on algebraic topology from a geometrical viewpoint.)
+\end{itemize}
+
 Algebraic topology:
 
-Allen Hatcher, Algebraic Topology, Cambridge U. Press, Cambridge, 2002. Also available free at http://www.math.cornell.edu/~hatcher/AT/ATpage.html. (An excellent modern introduction.)
-Peter May, A Concise Course in Algebraic Topology, U. of Chicago Press, Chicago, 1999. Also available free at http://www.math.uchicago.edu/~may/CONCISE/ConciseRevised.pdf. (More intense.)
+\begin{itemize}
+\item Allen Hatcher, Algebraic Topology, Cambridge U. Press, Cambridge, 2002. Also available free at http://www.math.cornell.edu/~hatcher/AT/ATpage.html. (An excellent modern introduction.)
+\item Peter May, A Concise Course in Algebraic Topology, U. of Chicago Press, Chicago, 1999. Also available free at http://www.math.uchicago.edu/~may/CONCISE/ConciseRevised.pdf. (More intense.)
+\end{itemize}
+
 Geometrical aspects of classical mechanics:
 
-Vladimir I. Arnol'd, Mathematical Methods of Classical Mechanics, translated by K. Vogtmann and A. Weinstein, 2nd edition, Springer, Berlin, 1989. (The appendices are somewhat more advanced and cover all sorts of nifty topics.)
+\begin{itemize}
+\item Vladimir I. Arnol'd, Mathematical Methods of Classical Mechanics, translated by K. Vogtmann and A. Weinstein, 2nd edition, Springer, Berlin, 1989. (The appendices are somewhat more advanced and cover all sorts of nifty topics.)
+\end{itemize}
+
 Analysis and its applications to quantum physics:
 
-Michael Reed and Barry Simon, Methods of Modern Mathematical Physics (4 volumes), Academic Press, 1980.
+\begin{itemize}
+\item Michael Reed and Barry Simon, Methods of Modern Mathematical Physics (4 volumes), Academic Press, 1980.
+\end{itemize}
+
 And moving on to pure mathematics...
 Knot theory:
 
-Louis Kauffman, On Knots, Princeton U. Press, Princeton, 1987.
-Louis Kauffman, Knots and Physics, World Scientific, Singapore, 1991.
-Dale Rolfsen, Knots and Links, Publish or Perish, Berkeley, 1976.
+\begin{itemize}
+\item Louis Kauffman, On Knots, Princeton U. Press, Princeton, 1987.
+\item Louis Kauffman, Knots and Physics, World Scientific, Singapore, 1991.
+\item Dale Rolfsen, Knots and Links, Publish or Perish, Berkeley, 1976.
+\end{itemize}
+
 Homological algebra:
 
-Joseph Rotman, An Introduction to Homological Algebra, Academic Press, New York, 1979. (A good introduction to an important but sometimes intimidating branch of math.)
-Charles Weibel, An Introduction to Homological Algebra, Cambridge U. Press, Cambridge, 1994. (Despite having the same title as the previous book, this goes into many more advanced topics.)
+\begin{itemize}
+\item Joseph Rotman, An Introduction to Homological Algebra, Academic Press, New York, 1979. (A good introduction to an important but sometimes intimidating branch of math.)
+
+\item Charles Weibel, An Introduction to Homological Algebra, Cambridge U. Press, Cambridge, 1994. (Despite having the same title as the previous book, this goes into many more advanced topics.)
+\end{itemize}
+
 Combinatorics:
 
-Herbert Wilf, Generatinfunctionology, Academic Press, 1994. (Tons of fun and also available free online at https://www.math.upenn.edu/~wilf/DownldGF.html. It's good to read this after Concrete Mathematics by Graham, Knuth and Pataschnik, listed above under combinatorics.)
-Richard P. Stanley, Enumerative Combinatorics, two volumes, Cambridge U. Press, 1997. (Packed with great exercises; volume one is also available free online at http://www-math.mit.edu/~rstan/ec/ec1.pdf.)
+\begin{itemize}
+\item Herbert Wilf, Generatinfunctionology, Academic Press, 1994. (Tons of fun and also available free online at https://www.math.upenn.edu/~wilf/DownldGF.html. It's good to read this after Concrete Mathematics by Graham, Knuth and Pataschnik, listed above under combinatorics.)
+\item Richard P. Stanley, Enumerative Combinatorics, two volumes, Cambridge U. Press, 1997. (Packed with great exercises; volume one is also available free online at http://www-math.mit.edu/~rstan/ec/ec1.pdf.)
+\end{itemize}
+
 Algebraic geometry:
 
 I found Hartshorne's famous book quite off-putting the first ten times I tried to read it. I think it's better to start by getting to know some 'classical' algebraic geometry so you see why the subject is interesting and why it's called 'geometry' before moving on to delightful modern abstractions like schemes. So, start with this introduction:
 
-Karen E. Smith, Lauri Kahanpää, Pekka Kekäläinen and William Traves, An Invitation to Algebraic Geometry, Springer, Berlin, 2004.
+\begin{itemize}
+\item Karen E. Smith, Lauri Kahanpää, Pekka Kekäläinen and William Traves, An Invitation to Algebraic Geometry, Springer, Berlin, 2004.
+
 Then try these:
-Igor R. Shafarevich, Basic Algebraic Geometry, two volumes, third edition, Springer, 2013.
-David Eisenbud and Joseph Harris, The Geometry of Schemes, Springer, 2006.
-Phillip Griffiths and Joseph Harris, Principles of Algebraic Geometry, 1994. (Especially nice if you like complex analysis, differential geometry and de Rham theory.)
+
+\item Igor R. Shafarevich, Basic Algebraic Geometry, two volumes, third edition, Springer, 2013.
+\item David Eisenbud and Joseph Harris, The Geometry of Schemes, Springer, 2006.
+\item Phillip Griffiths and Joseph Harris, Principles of Algebraic Geometry, 1994. (Especially nice if you like complex analysis, differential geometry and de Rham theory.)
+\end{itemize}
+
 Number theory:
 
-Kenneth Ireland and Keith Rosen, A Classical Introduction to Modern Number Theory, second edition, Springer, 1998. (A good way to catch up on some classic results in number theory while getting a taste of modern methods.)
-Yu. I. Manin and Alexei A. Panchishkin, Introduction to Modern Number Theory: Fundamental Problems, Ideas and Theories, Springer, 2007. (Much more hard-hitting, but a very useful overview of what modern number theory is like.)
-Jürgen Neukirch, Algebraic Number Theory, Springer, 2010. (A friendly introduction to class field theory.)
+\begin{itemize}
+\item Kenneth Ireland and Keith Rosen, A Classical Introduction to Modern Number Theory, second edition, Springer, 1998. (A good way to catch up on some classic results in number theory while getting a taste of modern methods.)
+\item Yu. I. Manin and Alexei A. Panchishkin, Introduction to Modern Number Theory: Fundamental Problems, Ideas and Theories, Springer, 2007. (Much more hard-hitting, but a very useful overview of what modern number theory is like.)
+\item Jürgen Neukirch, Algebraic Number Theory, Springer, 2010. (A friendly introduction to class field theory.)
+\end{itemize}
 Category theory:
 
-Brendan Fong and David Spivak, Seven Sketches in Compositionality: An Invitation to Applied Category Theory. (A good first introduction to category theory through applications; available free online at http://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf. Also see the website with videos and my online course based on this book.)
-Tom Leinster, Basic Category Theory, Cambridge Studies in Advanced Mathematics, Vol. 143, Cambridge U. Press, 2014. Also available for free on the arXiv. (A introduction for beginners that focuses on three key concepts and how they're related: adjoint functor, representable functors, and limits.)
-Emily Riehl, Category Theory in Context, Dover, New York, 2016. Also available for free on her website. (More advanced. As the title suggests, this gives many examples of how category theory is applied to other subjects in math.)
+\begin{itemize}
+\item Brendan Fong and David Spivak, Seven Sketches in Compositionality: An Invitation to Applied Category Theory. (A good first introduction to category theory through applications; available free online at http://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf. Also see the website with videos and my online course based on this book.)
+\item Tom Leinster, Basic Category Theory, Cambridge Studies in Advanced Mathematics, Vol. 143, Cambridge U. Press, 2014. Also available for free on the arXiv. (A introduction for beginners that focuses on three key concepts and how they're related: adjoint functor, representable functors, and limits.)
+\item Emily Riehl, Category Theory in Context, Dover, New York, 2016. Also available for free on her website. (More advanced. As the title suggests, this gives many examples of how category theory is applied to other subjects in math.)
+\end{itemize}
+
+\newpage
+In this section, I discuss some books that
+\begin{enumerate}
+\item discuss the mathematical background for GR (differential geometry),
+\item place relativity theory in the context of physics at large,
+\item contain important milestones in the history of relativity theory.
+\end{enumerate}
 
 I'll begin with several books in the Schaum's outline series, which, if read with discipline, can actually be a very effective way, I think, to learn some problem-solving skills.  If you really are starting with linear algebra, however, you should expect to spend many months in hard labor working through these books before you are ready to being your study of GR.  I am not familiar with all of the following books, but consider the one I own (the last) to be a good book.
 
-Seymour Lipschutz,
+\begin{itemize}
+\item Seymour Lipschutz,
 Schaum's Outline of Linear Algebra, 2nd ed.
 McGraw-Hill, 1991.
 In print, ISBN 0-07-038007-4; list price 13.95 (paperback).
-Frank Ayres and Elliot Mendelson,
+
+\item Frank Ayres and Elliot Mendelson,
 Schaum's Outline of Calculus, 3rd ed.
 McGraw-Hill, 1990.
 In print, ISBN 0-07-002662-9; list price 14.95 (paperback).
-Richard Bronson,
+
+\item Richard Bronson,
 Schaum's Outline of Differential Equations, 2nd ed.
 McGraw-Hill, 1994.
 In print, ISBN 0-07-008019-4; list price 14.95 (paperback).
-Paul C. DuChateau, and D. W. Zachmann,
+
+\item Paul C. DuChateau, and D. W. Zachmann,
 Schaum's Outline of Partial Differential Equations
 McGraw-Hill, 1986.
 In print, ISBN 0-07-017897-6; list price 14.95 (paperback).
-Murray R. Spiegel,
+
+\item Murray R. Spiegel,
 Advanced Mathematics for Engineers and Scientists.
 McGraw-Hill, 1971.
 In print, ISBN 0-07-060216-6; list price 14.95 (paperback).
-Martin Lipschutz,
+
+\item Martin Lipschutz,
 Differential Geometry.
 McGraw-Hill, 1969.
 In print, ISBN 0-07-037985-8; list price 12.95 (paperback).
+\end{itemize}
+
 A good introduction to classical differential geometry.  Note well; for GR you need more advanced notions, including modern notions of manifolds, covariant, Lie, and exterior derivatives, connections, and curvature tensors.
 
-David C. Kay,
+\begin{itemize}
+\item David C. Kay,
 Schaum's Outline of Tensor Calculus
 McGraw-Hill, 1988.
-In print, ISBN 0-07-033484-6; list price \
+In print, ISBN 0-07-033484-6; list price
+
 An introduction to coordinate basis tensor computations, including the metric tensor, geodesics, the Riemann tensor, with applications to classical mechanics and SR (but not GR).  This won't entirely get you up to speed for GR, but like the previous book it may be useful as a supplementary text.
 
-John H. Hubbard,
+\item John H. Hubbard,
 Vector Calculus, Linear Algebra and Differential Forms: A Unified Approach.
 Prentice Hall, 1998.
 In print, ISBN 0-13-657446-7; 
+
 This book can probably serve as a substitute for all of the Schaum's books mentioned above (save the last two), with the additional bonus of introducing exterior forms early on and properly emphasizing the fact that these objects are natural, easy to understand, and easy to compute with.
 
-Theodore Frankel,
+\item Theodore Frankel,
 The Geometry of Physics: An Introduction.
 Cambridge University Press, 1997.
 In print, ISBN 0-521-38334-X; 
+
 This book is simply gorgeous.  It offers a thorough and beautifully illustrated introduction to everything from riemannian geometry, Cartan geometry, symplectic geometry, differential topology and Morse Theory to vector bundles and Pontryagin and Chern classes.  Applications to hamiltonian mechanics, GR, Yang-Mills theories, the Standard Model of particle physics, etc., are also sketched.
+\end{itemize}
+
+
 
 Speaking of manifolds and differential geometry, I think that one of the best all around introductions is:
 
-William M. Boothby,
+\begin{itemize}
+\item William M. Boothby,
 An Introduction to Differentiable Manifolds and Riemannian Geometry, 2nd ed.
 Academic Press, 1986.
 In print, ISBN 0-12-116053-X;.
+
 One book which is particularly well suited for background reading in GR is the outrageously expensive
 
-Barrett O'Neill,
+\item Barrett O'Neill,
 Semi-Riemannian Geometry with Applications to Relativity.
 Academic Press, 1983.
 In print, ISBN 0-12-526740-1; 
+
 This book covers not only manifolds, tensors, metrics, connections, curvature, calculus of variations, homogeneous spaces, and covering spaces, but also Minkowski spacetime, the Friedmann and Schwarzschild solutions, and the singularity theorems.
 
 Another classic, easy to read introduction is "the great American differential geometry book":
 
-Michael Spivak,
-A Comprehensive Introduction to Differential Geometry, 5 volumes.
-Publish or Perish, 1979.
-Vol. 1: ISBN 0-914098-84-5; 
-Vol. 2: ISBN 0-914098-85-3;
-Vol. 3: ISBN 0-914098-86-1;
-Vol. 4: ISBN 0-914098-87-X;
-Vol. 5: ISBN 0-914098-88-8; (all in hardcover only).
+\item Michael Spivak,
+A Comprehensive Introduction to Differential Geometry, 5 volumes. Publish or Perish, 1979.
+\begin{enumerate}
+\item Vol.: ISBN 0-914098-84-5; 
+\item Vol.: ISBN 0-914098-85-3;
+\item Vol.: ISBN 0-914098-86-1;
+\item Vol.: ISBN 0-914098-87-X;
+\item Vol.: ISBN 0-914098-88-8; (all in hardcover only).
+\end{enumerate}
+
 This book has a somewhat fussy notation, and tends toward the verbose, but it is engaging and full of insight.  Boothby is shorter but covers more, although the last volume of Spivak is a gentle introduction to Chern classes.
 
 A gentle introduction by popular author is:
 
-Frank Morgan,
+\item Frank Morgan,
 Riemannian Geometry: A Beginner's Guide, 2nd ed.
 A K Peters, 1997.
 In print, ISBN 1-56881-073-3; 
 
 Another well known textbook (the author is a relativist) is:
 
-Barrett O'Neill,
+\item Barrett O'Neill,
 Elementary Differential Geometry, 2nd ed.
 Academic Press, 1997.
 In print, ISBN 0-12-526745-2; list price 49.95 (hardcover).
+
 Another well known textbook (aimed more at hamiltonian mechanics) is:
 
-R. Abraham, Jerrold E. Marsden, and T. Ratiu,
+\item R. Abraham, Jerrold E. Marsden, and T. Ratiu,
 Manifolds, Tensor Analysis, and Applications.
 Springer-Verlag, 1996.
 In print, ISBN 0-387-96790-7; list price 69.95 (hardcover).
+
 A cheaper alternative is:
 
-Richard Bishop and Samuel Goldberg,
+\item Richard Bishop and Samuel Goldberg,
 Tensor Analysis on Manifolds.
 Dover, 1980.
 In print, ISBN 0-486-64039-6; list price 8.95 (paperback).
+
 At a higher level, try:
 
-Y. Choquet-Bruhat, C. DeWitt-Morette, and M. Dillard-Bleick,
+\item Y. Choquet-Bruhat, C. DeWitt-Morette, and M. Dillard-Bleick,
 Analysis, Manifolds and Physics, Pt. I: Basics.  Revised ed.
 Elsevier Science, 1991.
 In print, ISBN 0-444-86017-7; list price 63.50 (paperback).
@@ -10966,7 +11342,7 @@ Note that the first author has made important contributions to GR.
 
 The most influential geometry book of all time is:
 
-Shoshichi Kobayashi and Katsumi Nobizu,
+\item Shoshichi Kobayashi and Katsumi Nobizu,
 Foundations of Differential Geometry.  Two volumes.
 John Wiley \& Sons, 1996.
 In print, ISBN 0-471-15733-3; list price 59.95 (paperback).
@@ -10974,32 +11350,34 @@ Not for the faint of heart.
 
 A textbook by the greatest geometer of all time is:
 
-Shiing-Shen Chern,
+\item Shiing-Shen Chern,
 Differential Geometry.
 World Scientific, 1998.
 In print, ISBN 981-02-2647-0; list price 26.00 (paperback).
 For the Russian perspective (one author is a legendary relativist), try:
 
-B. A. Dubrovin, A. T. Fomenko, and S. P. Novikov,
+\item B. A. Dubrovin, A. T. Fomenko, and S. P. Novikov,
 Modern Geometry - Methods and Applications.  2 volumes, 2nd ed.
 Springer-Verlag, 1993.
 In print, ISBN 0-387-97663-9; list price 65.9a (hardcover).
+
 I am not familiar with the following book, but I like an elementary GR text by the second author:
 
-F. De Felice, C. J. Clarke,
+\item F. De Felice, C. J. Clarke,
 Relativity on Curved Manifolds.
 Cambridge University Press, 1992.
 ISBN 0-521-42908-0; list price 42.95 (paperback).
 Here are two pricey and extremely concise outlines of the basics of differential geometry and topology as they are used in modern physics:
 
-M. Nakahara,
+\item M. Nakahara,
 Geometry, Topology and Physics.
 I O P Publishing, 1990.
 In print, ISBN 0-85274-095-6; list price 61.00 (paperback).
 
-Charles Nash and Siddartha Sen.
+\item Charles Nash and Siddartha Sen.
 Topology and Geometry for Physicists.
 Academic Press, 1988 (reprint).
+
 In print, ISBN 0-12-514081-9; list price 58.00 (paperback).
 These are so dense I wouldn't recommend them for anyone without a strong background in modern physics.
 
@@ -11007,131 +11385,150 @@ Dover has reprinted books by Levi-Civita, Schouten, and Synge on tensor calculus
 
 Here are some books that may help the student place relativity theory into the grand scheme of things, physically speaking:
 
-I.D. Lawrie,
+\item I.D. Lawrie,
 A Unified Grand Tour of Theoretical Physics.
 I O P Publishing, 1990.
 In print, ISBN 0-85274-015-8; list price 49.00 (paperback).
 I like this book very much.  Lawrie quite properly emphasizes the formal analogies between hamiltonian mechanics and quantum theory; the variational principle formulations of GR ties this relativity theory to both these subjects.  Lawrie also emphasizes the fact that newtonian theory is not simply "wrong"; by a mere change of interpretation (and a factor of i here and a factor of h bar there) the equations of newtonian theory (as rewritten by Hamilton) go over to their quantum analogs.  Needless to say these formal analogies are a great help to the working physicist.
 
-Richard P. Feynman,
+\item Richard P. Feynman,
 The Feynman Lectures on Physics
 Addison Wesley Longman, 1970.  3 Volumes.
 In print, available as boxed set or individual paperbacks.
+
 One of the great scientific expositions of all time.  Full of enthusiasm and overflowing with fabulous ideas.  Feynman's geometric explanation of the physical meaning of Maxwell's equation is a joy; so is his discussion of action at a distance (his revolutionary work with Wheeler).  The first two volumes are particularly recommended.  Note well: in volume 2, the section on SR is one of the few weak points in the book; I advise that you skip it altogether.  If you must read it, not, RPF is not saying that spacetime has a Euclidean metric!
 
-L. D. Landau, E. M. Lifshitz and others,
+\item L. D. Landau, E. M. Lifshitz and others,
 Course of Theoretical Physics, 8 volumes.
 Butterworth-Heinemann, various years.
+
 Vol. 1 (Mechanics) and Vol. 2 (Classical Field Theory) are particularly relevant.  Well translated and quite readable for the most part.  Initiated by the great Russian physicist Lev Landau and continued after his untimely death by his disciple Lifshitz.  The Russian approach to physics and math is significantly different from American ideas in many respects and it is worthwhile gaining some familiarity with Landau's vision.  Unlike say Feynman's great books, this series offers many excellent exercises.
 
-Walter Greiner and others.
+\item Walter Greiner and others.
 A Curriculum in Theoretical Physics.
 Springer-Verlag, various years.
 Another heroic attempt to survey all of modern theoretical physics at the advanced undergraduate to second year graduate level, this time with a European perspective.  Well translated from the German, very readable, with an excellent balance of theory, descriptions of "great experiments", and practical experience in computing things using the theory.  Many exercises are solved in full.
 
 Here are some books that relate relativity theory to important subjects in mathematics:
 
-E. J. Flaherty,
+\item E. J. Flaherty,
 Hermitian and Kahlerian Geometry in Relativity.
 Springer-Verlag New York, 1976.
 Out of print.
+
 In Kahler geometry, instead of bundling tangent planes with a euclidean inner product, we bundle tangent planes with a hermitian inner product, which gives a much more "rigid" structure.  But symplectic geometry may be even more important in the future; see
 
-M. Kauderer,
+\item M. Kauderer,
 Symplectic Matrices, First Order Systems and Special Relativity.
 World Scientific, 1994.
 In print, ISBN 981-02-0829-4; list price 64.00 (hardcover).
-Victor W. Guillemin and Shlomo Sternberg,
+
+\item Victor W. Guillemin and Shlomo Sternberg,
 Symplectic Techniques in Physics.
 Cambridge University Press, 1990.
 In print, ISBN 0-521-38990-9; list price 37.95 (paper).
-Helmut Hofer and Eduard Zehnder,
+
+\item Helmut Hofer and Eduard Zehnder,
 Symplectic Invariants and Hamiltonian Dynamics.
 Birkhauser, 1994.
 In print, ISBN 0-8176-5066-0; list price 59.50 (hardcover).
-J. M. Souriau,
+
+\item J. M. Souriau,
 Structure of Dynamical Systems: A Symplectic View of Physics.
 Birkhauser, 1997.
 Out of print.
-Dusa McDuff and Dietmar Salamon,
+
+\item Dusa McDuff and Dietmar Salamon,
 Introduction to Symplectic Topology.
 Oxford University Press, 1995.
 In print, ISBN 0-19-851177-9; list price 90.00 (hardcover).
-A. T. Fomenko,
+
+\item A. T. Fomenko,
 Symplectic Geometry, 2nd ed.
 Gordon \& Breach Publishing Group, 1995.
 In print, ISBN 2-88124-901-9; list price 110.00 (hardcover).
+
 Finally, for a glimpse of what quantum gravity may look like, try:
 
-J. Baez and J. Muniain,
+\item J. Baez and J. Muniain,
 Gauge Fields, Knots and Gravity.
 World Scientific, 1994.
 In print, ISBN 981-02-2034-0; list price 43.00 (paperback).
+
 This book also features an excellent and concise introduction to exterior forms and a good discussion of the rather vexed terms "contravariant" and "covariant" (they way they are used in older GR books is exactly opposite to their modern meaning in mathematics!) [From the editor (DK): But I think their use in older books makes much more sense!]
 
 Here are some books of enduring historical interest:
 
-Albert Einstein and others,
+\item Albert Einstein and others,
 The Principle of Relativity
 Dover, 1952 reprint.
 In print, ISBN 0-486-60081-5; list price 7.95 (paperback).
+
 A collection of historic papers by Lorentz, Einstein, and others, including Einstein's 1905 paper on STR, his 1907 paper on the equivalence of mass and energy, Minkowski's 1908 paper introducing the physical interpretation of his geometry, Einstein's 1916 paper on the foundations of GTR, and early attempts to unify EM and gravitation.  In particular, the paper by Weyl laid the foundation for Yang-Mills theories, and the paper by Kaluza and Klein contains the idea of "compactified dimensions" which is a key element of modern string theories.
 
-Hermann Weyl,
+\item Hermann Weyl,
 Space, Time, Matter
 Dover, 1922.
 In print, ISBN 0-486-60267-2; list price 9.95 (paperback).
+
 Weyl was one of the great mathematicians of the early twentieth century, and one of the first to appreciate the importance of Einstein's ideas about gravitation and unified field theories.  In this quirky but clearly written book, he describes the five year old theory of GR, assuming virtually no mathematical prerequisites, and attempts to go beyond it with ideas on non-riemannian connections which were several generations ahead of their time (in terms of physical application).
 
-Richard C. Tolman,
+\item Richard C. Tolman,
 Relativity, Thermodynamics and Cosmology
 Dover, 1987 reprint.
 In print, ISBN 0-486-65383-8; list price 13.95 (paperback).
+
 An important resource in the thirties and forties but by now hopelessly out of date.
 
-Arthur S. Eddington,
+\item Arthur S. Eddington,
 Space, Time and Gravitation: An Outline of the General Theory.
 Cambridge University Press, 1987.
 In print, ISBN 0-521-33709-7; list price 24.95 (paperback).
+
 A classic semipopular book, by now hopelessly outdated, but written with the engaging, stylish verve that made Eddington one of the most popular science writers of his day.
 
-Wolfgang Pauli,
+\item Wolfgang Pauli,
 Theory of Relativity.
 Dover, 1981 reprint.
 In print, ISBN 0-486-64152-X; list price 8.95 (paperback).
+
 This was the first book on relativity theory, written in a burst of youthful enthusiasm by the twenty year old Pauli.  Needless to say, it is of purely historical interest today.
 
 Here is a book which is quirky but which will be valuable to some readers:
 
-Richard P. Feynman,
+\item Richard P. Feynman,
 Lectures on Gravitation.
 Addison Wesley Longman, 1995.
 In print, ISBN 0-201-62734-5; list price 38.43 (hardcover).
+
 Feynman's attempt to motivate the field equation "in the spirit of QFT"; this approach is somewhat similar to that adopted in Ohanian et al., but this book is of interest mainly for watching Feynman at play.
-
-
+\end{itemize}
 
 
 Histories, Biographies, and Memoirs
-Abraham Pais,
+
+\begin{itemize}
+\item Abraham Pais,
 Subtle Is the Lord: The Science and Life of Albert Einstein
 Oxford University Press, 1983.
 In print, ISBN 0-19-520438-7, list price 17.95 (paperback)
+
 This is the definitive scientific biography, written a noted physicist who personally knew Einstein, Bohr, and other key people in AE's career, and who has read every paper AE ever wrote.  Features a fascinating, detailed—and fully technical—account of Einstein's heroic struggle toward his field equations.
 
-Roberto Torretti,
+\item Roberto Torretti,
 Relativity and Geometry
 Dover, 1996 (reprint).
 In print, ISBN 0-486-69046-6; list price 14.95 (paperback).
 This is another scientific biography focusing on the work rather than the man, offering some mathematical commentary on Einstein's struggle toward the field equation, and also discussing Einstein's "philosophy".
 
-Don Howard and John J. Stachel,
+\item Don Howard and John J. Stachel,
 Einstein: The Formative Years, 1879-1909
 Birkhauser, 1998.
 In print, ISBN 3-7643-4030-4, (price not available).
+
 Another recent biography of Einstein.
 
-John A. Wheeler and Kenneth Ford,
+\item John A. Wheeler and Kenneth Ford,
 Geons, Black Holes, and Quantum Foam: A Life in Physics
 W. W. Norton \& Company, 1998.
 In print, ISBN 0-393-04642-7, list price 27.95 (hardcover).
@@ -11139,7 +11536,7 @@ The autobiography of the physicist widely credited (along with Subrahmanyan Chan
 
 The book by Kip Thorne (a former PhD student of Wheeler, who has had a distinguished career in his own right) cited above contains more information on the modern history of relativity.
 
-N. T. Roseveare,
+\item N. T. Roseveare,
 Mercury's Perihelion from Le Verrier to Einstein.
 Oxford University Press, 1982.
 In print, ISBN 0-19-858174-2; list price 49.95 (hardcover)
@@ -11147,37 +11544,39 @@ Features a detailed comparison of the GR prediction of precession with astronomi
 
 The following may also be of interest:
 
-B. A. Rosenfeld,
+\item B. A. Rosenfeld,
 The History of Non-Euclidean Geometry.
 Springer-Verlag, 1988.
 In print, ISBN 0-387-96458-4; list price 89.00 (hardcover).
-Arthur J. Miller,
+
+\item Arthur J. Miller,
 Albert Einstein's Special Theory of Relativity: Emergence (1905) and Early Interpretation, 1905-1911.
 Springer-Verlag, 1997.
 In print, ISBN 0-387-94870-8; list price 39.95 (hardcover).
-D. Howard and J. J. Stachel,
+
+\item D. Howard and J. J. Stachel,
 Einstein and the History of General Relativity
 Birkhauser, 1989.
 In print, ISBN 0-8176-3392-8; list price 102.00 (hardcover).
-J. Earman, M. Janssen, and J. D. Norton, editors,
+
+\item J. Earman, M. Janssen, and J. D. Norton, editors,
 The Attraction of Gravitation: New Studies in the History of General Relativity,
 Birkhauser, 1993.
 In print, ISBN 0-8176-3624-2; list price 150 (hardcover).
-Who said history is cheap?
-
-
-
+\end{itemize}
 
 Philosophy and Relativity Theory
+
 For a first book on the philosophical reaction to relativity, I'd recommend:
 
-Lawrence Sklar,
+\begin{itemize}
+\item Lawrence Sklar,
 Space, time, and spacetime.
 University of California Press, 1974.
 In print, ISBN 0-520-03174-1, list price 15.95 (paperback).
 Engaging and delightful.  This book won a prize for the exceptionally clear quality of its exposition.  As a bonus, the later chapters contain an excellent nontechnical discussion of some of the features of the spacetime geometries treated in GR.
 
-Hans Reichenbach,
+\item Hans Reichenbach,
 Philosophy of Space and Time,
 Dover, 1998
 In print, ISBN 0-486-60443-8; list price 8.95 (paperback).
@@ -11185,43 +11584,44 @@ A reprint of a (well translated) classic book.  Clearly written and highly influ
 
 Here are a few more recent books:
 
-Lawrence Sklar,
+\item Lawrence Sklar,
 Philosophy and Spacetime Physics
 University of California Press, 1985.
 In print, ISBN 0-520-06180-2; list price 13.00 (paperback).
-Michael Friedman,
+\item Michael Friedman,
 Foundations of Space-Time Theories: Relativistic Physics and Philosophy of Science.
 Princeton University Press, 1983.
 In print, ISBN 0-691-02039-6; list price 35.00 (paperback).
-John Earman,
+\item John Earman,
 World Enough and Space-Time: Absolute vs. Relational Theories of Space and Time,
 M.I.T. Press, 1989.
 In print, ISBN 0-262-05040-4; list price 30.00 (hardcover).
-
-
+\end{itemize}
 
 Advanced Technical Books
+
 I begin by listing three classic books that must be studied by every dedicated student of GR.
 
-Stephen W. Hawking and G. F. Ellis,
+\begin{itemize}
+\item Stephen W. Hawking and G. F. Ellis,
 The Large Scale Structure of Space-Time.
 Cambridge University Press, 1975.
 In print, ISBN 0-521-09906-4; list price 47.95 (paperback)
 An extremely influential classic and a standard reference; this was the first book to provide a detailed description of the revolutionary topological methods introduced by Penrose and Hawking in the early seventies.
 
-Roger Penrose and Wolfgang Rindler,
+\item Roger Penrose and Wolfgang Rindler,
 Spinors and Space Time: Two-Spinor Calculus and Relativistic Fields,
 Cambridge University Press, 1984.  Two Volumes.
 Out of print.
 Another standard reference, unfortunately out of print.  This is the book that made Newman-Penrose tetrads and spinorial methods into a standard technique in the field.
 
-S. Chandrasekhar,
+\item S. Chandrasekhar,
 The Mathematical Theory of Black Holes,
 Oxford University Press, 1998.
 In print, ISBN 0-19-850370-9; list price 29.95 (paperback)
 By common consent, one of the great scientific books of our time.  This is the book on black hole physics.  Not for the faint of heart.
 
-Robert M Wald, editor.
+\item Robert M Wald, editor.
 Black holes and Relativistic Stars.
 University of Chicago Press, 1998.
 In print, ISBN 0-226-87034-0; list price 50.00 (paperback)
@@ -11229,75 +11629,73 @@ This is the proceedings of the Chandrasekhar Memorial conference, and contains e
 
 Here are four recent books focusing on various specialized topics of current interest:
 
-Ignazio Ciufolini and John A. Wheeler,
+\item Ignazio Ciufolini and John A. Wheeler,
 Gravitation and Inertia.
 Princeton University Press, 1995.
 In print, ISBN 0-691-03323-4; list price 49.50 (hardcover).
 Quirky, stylish, and inspiring.  A little too concise for an introductory account, but the first half of this book features masterful summaries of the mathematical structure of GR and observational and experimental evidence.  The remainder of the book focuses on Mach's principle, one of the oldest leitmotifs of GR.
 
-Kip S Thorne, Richard H. Price, and Douglas A. Macdonald, editors. Black holes : the Membrane Paradigm.
+\item Kip S Thorne, Richard H. Price, and Douglas A. Macdonald, editors. Black holes : the Membrane Paradigm.
 Yale University Press, 1986.
 In print, ISBN 0-300-03770-8; list price 21.00 (paperback)
 One of the most important insights into black hole physics is that the event horizon can for many purposes be treated as a physical membrane made of a conducting material; this picture breaks down, of course, once you pass through the horizon, but it turns out to be very useful so long as you restrict yourself to physics occurring outside of the horizon.  This should seem strange, because the event horizon is about as physically substantial as the International Date Line.
 
-John Stewart,
+\item John Stewart,
 Advanced General Relativity.
 Cambridge University Press, 1993.
 In print, ISBN 0-521-44946-4; list price 32.95 (paperback).
 After a swift review of the basic notions of GR, this book focuses on the theory of gravitational wave detectors, a highly topical subject because of the expected advent of gravitational wave astronomy as workable detectors such as LIGO come on line in the next few years.
 
-Robert M. Wald,
+\item Robert M. Wald,
 Quantum field theory in curved spacetime and black hole thermodynamics.
 University of Chicago Press, 1994.
 In print, ISBN 0-226-87027-8; list 16.95 (paperback).
 John Baez considers this the premier book on semiclassical gravitation; Wald is perhaps the world's leading expert on black hole thermodynamics.  Again, this is a topical subject indeed, as a glance at the Los Alamos preprint server at http://xxx.lanl.gov/ will reveal.
 
-N. D. Birrell, and P. C. Davies,
+\item N. D. Birrell, and P. C. Davies,
 Quantum Fields in Curved Space.
 Cambridge University Press, 1984.
 In print, ISBN 0-521-27858-9; list price 47.95 (paperback).
 Many students prefer this to Wald's book because of the clarity of the writing and the excellent discussion of the particle concept.
 
-S. A. Huggett and K. P. Tod,
+\item S. A. Huggett and K. P. Tod,
 An Introduction to Twistor Theory, 2nd ed.
 Cambridge University Press, 1994.
 In print, ISBN 0-521-45689-4; list price 22.95 (paperback).
 In principle a beginning graduate level introduction to twistor theory, but I think most readers will find this book pretty tough going.
 
-R. S. Ward and R. O. Wells,
+\item R. S. Ward and R. O. Wells,
 Twistor Geometry and Field Theory.
 Cambridge University Press, 1991.
 In print, ISBN 0-521-42268-X; list print 42.95 (paper).
 A more mathematical book, focusing on the Penrose transform and connections with representation theory.
 
-Roger Penrose and Wolfgang Rindler,
+\item Roger Penrose and Wolfgang Rindler,
 Spinors and Space-Time.  Two volumes.
 Cambridge University Press, 1998 (reprint of 1986 edition).
-Vol. I: out of print.
-Vol II: in print, ISBN 0-521-34786-6; list price 52.95 (paperback).
 The two volume book that founded twistor theory as a branch of mathematical physics.  Not for the faint of heart.
 
 Here are some more books on relativistic astrophysics:
 
-I. D. Novikov, and Ya. B. Zel'Dovich,
+\item I. D. Novikov, and Ya. B. Zel'Dovich,
 Stars and Relativity.
 Dover, 1996.
 In print, ISBN 0-486-69424-0; list price 14.95 (paperback).
 A reprint of a classic book (translated from the Russian) by the two most prominent Russian relativists.
 
-Stuart L. Shapiro and Saul A. Teukolsky,
+\item Stuart L. Shapiro and Saul A. Teukolsky,
 Black Holes, White Dwarfs, and Neutron Stars: The Physics of Compact Objects.
 John Wiley \& Sons, 1983.
 In print, ISBN 0-471-87316-0; list price 97.95 (paperback).
 Pricey, but a standard reference.
 
-Barrett O'Neill,
+\item Barrett O'Neill,
 The Geometry of Kerr Black Holes.
 A K Peters, 1995.
 In print, ISBN 1-56881-019-9; list price 88.00 (hardcover).
 Also pricey, but this will surely be the standard book on Kerr geometry for a generation to come.
 
-Steven Weinberg,
+\item Steven Weinberg,
 Gravitation and Cosmology: Principles and Applications of the General Theory of Relativity.
 John Wiley \& Sons, 1972.
 In print, ISBN 0-471-92567-5; 63.50 through discount outlets.
@@ -11305,455 +11703,518 @@ Another standard reference.
 
 It is appropriate to close with three volumes from the collected works of the genius who first appreciated the reality of collapsed objects and black holes:
 
-S. Chandrasekhar,
+\item S. Chandrasekhar,
 Selected Papers: The Mathematical Theory of Black Holes and of Colliding Plane Waves.
 University of Chicago Press, 1991.
 In print, ISBN 0-226-10101-0; list price 42.00 (paperback).
-S. Chandrasekhar,
+
+\item S. Chandrasekhar,
 Selected Papers: Relativistic Astrophysics.
 University of Chicago Press, 1990.
 In print, ISBN 0-226-10099-5; list price 36.00 (paperback).
-S. Chandrasekhar,
+
+\item S. Chandrasekhar,
 Selected Papers: The Non-Radial Oscillations of Stars in General Relativity and Other Writings.
 University of Chicago Press, 1997.
 In print, ISBN 0-226-10104-5; list price 45.00 (paperback).
+\end{itemize}
 
 General Physics (so even mathematicians can understand it!)
-M.S. Longair: Theoretical concepts in physics, 1986.
-An alternative view of theoretical reasoning in physics for final-year undergrads.
-Arnold Sommerfeld: Lectures on Theoretical Physics
-Sommerfeld is God for mathematical physics.
-Richard Feynman: The Feynman lectures on Physics (3 vols)
-Highly recommended texts compiled from the undergraduate lecture course given by Feynman.
-Jearle Walker: The Flying Circus of Physics
-There is the entire Landau and Lifshitz series.  They have volumes on classical mechanics, classical field theory, E\&M, QM, QFT, statistical physics, and more.  Very good series that spans the entire graduate-level curriculum.
-The New Physics edited by Paul Davies.
-This is one big book, and it takes time to look through topics as diverse as general relativity, astrophysics, particle theory, quantum mechanics, chaos and nonlinearity, low-temperature physics, and phase transitions.  Nevertheless, this is an excellent book of recent (1989) physics articles, written by several physicists/astrophysicists.
-Richard Feynman: The Character of Physical Law
-In his unique no-nonsense style, Feynman lectures on what physics is all about.  Down-to-earth examples keep him from straying into the kind of metaphysics of which he is often critical.
-David Mermin: Boojums all the way through: Communicating science in prosaic language
-Frank Wilczek and Betsy Devine: Longing for the Harmonies: Themes and variations from modern physics
-Greg Egan: Permutation City
-This is a science fiction novel which has more to say about the philosophy of physics than do most philosophers and physicists.
-Michael Crowe: A History of Vector Analysis
-This is a history book, covering the birth of quaternions and related concepts throughout the nineteenth century, and how these evolved into our modern vector system.  Its long sentences, extremely passive style, and paucity of commas make it a laboured read—but a far easier read than the nineteenth century mathematicians and physicists whom it quotes!  These early scientists probably wrote in the style of their times, but their meaning is often completely opaque to a modern reader.  Although Crowe covers the history in great depth, his book has very little mathematics; for example, you won't learn anything about quaternions or vectors here.  One of the few mathematical discussions—of rotating by using quaternions on page 191—gives pause for thought.  It states/implies that the unit quaternions each produce a rotation of 90°.  They don't; they each produce a rotation 180°.  This mistake seems to be due to the players in the story, and doesn't appear to be a typographical error.
-Paul Nahin: Mrs Perkins's Electric Quilt
-(British speakers will want to correct that to "Mrs Perkins' Electric Quilt".)  We include this book only as an example of a something that probably has less appeal to physicists than it tries to make out.  Nahin has written several books on general physics for the non-specialist.  I wonder if this book is typical.  He tends to make mountains out of molehills when explaining the mathematics, and he isn't always correct (see, e.g., his incorrect analysis of the game of tic-tac-toe at the end of Chapter 13).  This particular book is a series of rather dry and finicky worked problems that Nahin finds interesting, but which probably won't stimulate your appetite to learn more physics or maths.  One of the few interesting problems in this book is a kinematical calculation in the first chapter that produces a contradiction when it applies a particular acceleration to a particle; and yet Nahin doesn't give a proper explanation for why the relevant calculation fails.  (The reason it fails is that the acceleration of "velocity cubed" can only describe a distance-versus-time curve that is drawn such that its slope becomes infinite at some finite time, and so it must be invalid to demand that this acceleration applies for all times, as Nahin does.)  And yet, after showing that this physical situation is indeed nonsense, Nahin would have us believe, in his preface, that he has proved a mathematical theorem using physics, by solving a very similar problem without asking whether that scenario is also nonsense!  (In fact, contrary to Nahin's claim, the problem he solves in the preface contains no physics, even though it is dressed up as a physics problem.  It is simply a differential equation.)  Nahin's comments on the zeta function are also incorrect: he thinks that just because two or three values of the function appear in physics, that "the zeta function often appears in physical problems".  Rather, the zeta function has never been found in physics: Nahin doesn't appreciate the difference between a function and its isolated values.  His reasoning is like saying that parabolas occur in calendars, because the numbers 1, 4, 9, 16, and 25 appear as dates in a month.  It is perhaps representative of his general approach in the book, in which he gives a higher credence to many ideas and worked examples than physicists and mathematicians would.
-Don't read: The Physicist's World, by Thomas Grissom.
-We include this book as an example of a book that contains a good deal of incorrect physics.  Grissom is a philosopher who managed to publish a book about physics without knowing much physics, and it's a shame that he has taught the content of this book for some (many?) years to philosophy students, who must've gone out into the big world thinking that physicists must be incredibly dumb if they really believe the naïve concepts that Grissom thinks physics is all about.  This book gets all the big tenets of the subject wrong: Grissom thinks that special relativity is all about what is seen with the eye, a mistake that only first-year students are expected to make; he thinks that the Heisenberg Uncertainty Principle concerns the limits of measurement of quantities that are otherwise perfectly well defined; he thinks that the Second Law of Thermodynamics is an actual law that must be obeyed.  And apparently he thinks that physicists spend a great deal of their time pondering the philosophy of the Ancient Greeks.  All completely wrong.
 
+\begin{itemize}
+\item M.S. Longair: Theoretical concepts in physics, 1986.
+An alternative view of theoretical reasoning in physics for final-year undergrads.
+\item Arnold Sommerfeld: Lectures on Theoretical Physics
+Sommerfeld is God for mathematical physics.
+\item Richard Feynman: The Feynman lectures on Physics (3 vols)
+Highly recommended texts compiled from the undergraduate lecture course given by Feynman.
+
+\item Jearle Walker: The Flying Circus of Physics
+There is the entire Landau and Lifshitz series.  They have volumes on classical mechanics, classical field theory, E\&M, QM, QFT, statistical physics, and more.  Very good series that spans the entire graduate-level curriculum.
+
+\item The New Physics edited by Paul Davies.
+This is one big book, and it takes time to look through topics as diverse as general relativity, astrophysics, particle theory, quantum mechanics, chaos and nonlinearity, low-temperature physics, and phase transitions.  Nevertheless, this is an excellent book of recent (1989) physics articles, written by several physicists/astrophysicists.
+
+\item Richard Feynman: The Character of Physical Law
+In his unique no-nonsense style, Feynman lectures on what physics is all about.  Down-to-earth examples keep him from straying into the kind of metaphysics of which he is often critical.
+\item David Mermin: Boojums all the way through: Communicating science in prosaic language
+\item Frank Wilczek and Betsy Devine: Longing for the Harmonies: Themes and variations from modern physics
+\item Greg Egan: Permutation City
+This is a science fiction novel which has more to say about the philosophy of physics than do most philosophers and physicists.
+\item Michael Crowe: A History of Vector Analysis
+This is a history book, covering the birth of quaternions and related concepts throughout the nineteenth century, and how these evolved into our modern vector system.  Its long sentences, extremely passive style, and paucity of commas make it a laboured read—but a far easier read than the nineteenth century mathematicians and physicists whom it quotes!  These early scientists probably wrote in the style of their times, but their meaning is often completely opaque to a modern reader.  Although Crowe covers the history in great depth, his book has very little mathematics; for example, you won't learn anything about quaternions or vectors here.  One of the few mathematical discussions—of rotating by using quaternions on page 191—gives pause for thought.  It states/implies that the unit quaternions each produce a rotation of 90°.  They don't; they each produce a rotation 180°.  This mistake seems to be due to the players in the story, and doesn't appear to be a typographical error.
+\end{itemize}
 
 
 Classical Mechanics
-Herbert Goldstein: Classical Mechanics, 2nd ed, 1980.
-Intermediate to advanced; excellent bibliography.
-Introductory: The Feynman Lectures, vol 1.
-Keith Symon: Mechanics, 3rd ed., 1971 undergrad. level.
-H. Corbin and P. Stehle: Classical Mechanics, 2nd ed., 1960
-V.I. Arnold: Mathematical methods of classical mechanics, translated by K. Vogtmann and A. Weinstein, 2nd ed., 1989.
-The appendices are somewhat more advanced and cover all sorts of nifty topics.  Deals with geometrical aspects of classical mechanics.
-R. Resnick and D. Halliday: Physics, vol 1, 4th Ed., 1993
-Excellent introduction without much calculus.  Lots of problems and review questions.
-Marion \& Thornton: Classical Dynamics of Particles and Systems, 2nd ed., 1970.
-Undergrad level.  A useful intro to classical dynamics.  Not as advanced as Goldstein, but with real worked-out examples.
-A. Fetter and J. Walecka: Theoretical mechanics of particles and continua
-Graduate-level text, a little less impressive than Goldstein, but sometimes a little less obtuse.
-Kiran Gupta: Classical Mechanics of Particles and Rigid Bodies (1988)
-At the level of Goldstein, but has many more worked problems at the end of each chapter as a good illustration of the material.  Very useful for preparations for the PhD Qualifying Examination (I presume this is America only — ed.).
-Avoid: Physics for Mathematicians: Mechanics I, by Michael Spivak.
-Spivak is a well-known author of calculus and differential geometry textbooks.  His book on mechanics was his attempt to show physicists how a mathematician thinks about their field.  The result—at least in what I've read, the early part of the book—contains a great many comments that apparently are meant to show how much more deeply a mathematician can think about physics than any physicist could, but which only serve to show how good Spivak was at making mountains out of molehills.  He sometimes misunderstood what he was doing, and laid the resulting problem at the feet of physics with an unwarranted self assurance.  An example of his self confidence is his comment on page 25 that Newton need not have said that acceleration dv/dt is in the same direction as force F, because "what other direction could it have?".  Well, how about F × v?  Remarks such as "if you can believe that [Newton's] proof [of a particular thing] can be valid" are tiresome.  The book is peppered with spelling mistakes, and on the rare occasion that its equations have been numbered, the numbering is an unprofessional mix of upper- and lower-case letters, numbers, and symbols such as asterisks, asterisks with subscripts, and even the odd set of wavy lines.  Spivak's statement in the preface that the prerequisites for his book are the first two volumes of his multi-volume set on differential geometry (which is utterly unreadable for most mortals) suggests that physicists might best avoid reading this mechanics book—even though a knowledge of differential geometry is not needed for at least the first part of the book.
 
+\begin{itemize}
+\item Herbert Goldstein: Classical Mechanics, 2nd ed, 1980.
+Intermediate to advanced; excellent bibliography.
+
+Introductory: 
+
+\item The Feynman Lectures, vol 1.
+\item Keith Symon: Mechanics, 3rd ed., 1971 undergrad. level.
+\item H. Corbin and P. Stehle: Classical Mechanics, 2nd ed., 1960
+\item V.I. Arnold: Mathematical methods of classical mechanics, translated by K. Vogtmann and A. Weinstein, 2nd ed., 1989.
+
+The appendices are somewhat more advanced and cover all sorts of nifty topics.  Deals with geometrical aspects of classical mechanics.
+
+\item R. Resnick and D. Halliday: Physics, vol 1, 4th Ed., 1993
+Excellent introduction without much calculus.  Lots of problems and review questions.
+
+\item Marion \& Thornton: Classical Dynamics of Particles and Systems, 2nd ed., 1970.
+Undergrad level.  A useful intro to classical dynamics.  Not as advanced as Goldstein, but with real worked-out examples.
+
+\item A. Fetter and J. Walecka: Theoretical mechanics of particles and continua. Graduate-level text, a little less impressive than Goldstein, but sometimes a little less obtuse.
+
+\item Kiran Gupta: Classical Mechanics of Particles and Rigid Bodies (1988)
+\textcolor{red}{At the level of Goldstein, but has many more worked problems at the end of each chapter as a good illustration of the material.}  Very useful for preparations for the PhD Qualifying Examination (I presume this is America only — ed.).
+
+Avoid: Physics for Mathematicians: 
+
+\item Mechanics I, by Michael Spivak.
+Spivak is a well-known author of calculus and differential geometry textbooks.  His book on mechanics was his attempt to show physicists how a mathematician thinks about their field.  The result—at least in what I've read, the early part of the book—contains a great many comments that apparently are meant to show how much more deeply a mathematician can think about physics than any physicist could, but which only serve to show how good Spivak was at making mountains out of molehills.  He sometimes misunderstood what he was doing, and laid the resulting problem at the feet of physics with an unwarranted self assurance.  An example of his self confidence is his comment on page 25 that Newton need not have said that acceleration dv/dt is in the same direction as force F, because "what other direction could it have?".  Well, how about F × v?  Remarks such as "if you can believe that [Newton's] proof [of a particular thing] can be valid" are tiresome.  The book is peppered with spelling mistakes, and on the rare occasion that its equations have been numbered, the numbering is an unprofessional mix of upper- and lower-case letters, numbers, and symbols such as asterisks, asterisks with subscripts, and even the odd set of wavy lines.  Spivak's statement in the preface that the prerequisites for his book are the first two volumes of his multi-volume set on differential geometry (which is utterly unreadable for most mortals) suggests that physicists might best avoid reading this mechanics book—even though a knowledge of differential geometry is not needed for at least the first part of the book.
+\end{itemize}
 
 
 Classical Electromagnetism
-Jackson: Classical Electrodynamics, 2nd ed., 1975
-Intermediate to advanced, the definitive graduate(US)/undergraduate(UK) text.
-Purcell: Berkeley Physics Series Vol 2.
-You can't beat this for the intelligent, reasonably sophisticated beginning physics student.  He tells you on the very first page about the experimental proof of how charge does not vary with speed.
-plus... Chen, Min, Berkeley Physics problems with solutions.
-Reitz, Milford and Christy: Foundations of Electromagnetic Theory 4th ed., 1992
-Undergraduate level.  Pretty difficult to learn from at first, but a good reference, for some calculations involving stacks of thin films and their reflectance and transmission properties, for example.  It's a good, rigorous text as far as it goes, which is pretty far, but not all the way.  For example, it has a great section on optical properties of a single thin film between two dielectric semi-infinite media, but no generalization to stacks of films.
-Feynman: The Feynman Lectures, Vol. 2
-Lorrain \& Corson: Electromagnetism, Principles and Applications, 1979
-Resnick and Halliday: Physics, vol 2, 4th ed., 1993
-Igor Irodov: Problems in Physics Excellent and extensive collection of EM problems for undergrads.
-William Smythe: Static and Dynamic Electricity, 3rd ed., 1968
-For the extreme masochists.  Some of the most hair-raising EM problems you'll ever see.  Definitely not for the weak-of-heart.
-Landau, Lifshitz, and Pitaevskii: Electrodynamics of Continuous Media, 2nd ed., 1984
-Same level as Jackson's book above, but with lots of material that is not in Jackson.
-Marion and Heald: Classical Electromagnetic Radiation, 2nd ed., 1980.
-Undergraduate or low-level graduate.
 
+\begin{itemize}
+\item Jackson: Classical Electrodynamics, 2nd ed., 1975
+Intermediate to advanced, the definitive graduate(US)/undergraduate(UK) text.
+
+\item Purcell: Berkeley Physics Series Vol 2.
+You can't beat this for the intelligent, reasonably sophisticated beginning physics student.  He tells you on the very first page about the experimental proof of how charge does not vary with speed.
+plus... 
+\item Chen, Min, Berkeley Physics problems with solutions.
+\item Reitz, Milford and Christy: Foundations of Electromagnetic Theory 4th ed., 1992.cUndergraduate level. Pretty difficult to learn from at first, but a good reference, for some calculations involving stacks of thin films and their reflectance and transmission properties, for example.  It's a good, rigorous text as far as it goes, which is pretty far, but not all the way.  For example, it has a great section on optical properties of a single thin film between two dielectric semi-infinite media, but no generalization to stacks of films.
+
+\item Feynman: The Feynman Lectures, Vol. 2
+\item Lorrain \& Corson: Electromagnetism, Principles and Applications, 1979
+\item Resnick and Halliday: Physics, vol 2, 4th ed., 1993
+Igor Irodov: Problems in Physics Excellent and extensive collection of EM problems for undergrads.
+\item William Smythe: Static and Dynamic Electricity, 3rd ed., 1968
+For the extreme masochists.  \textcolor{red}{Some of the most hair-raising EM problems you'll ever see.  Definitely not for the weak-of-heart.}
+\item Landau, Lifshitz, and Pitaevskii: Electrodynamics of Continuous Media, 2nd ed., 1984. Same level as Jackson's book above, but with lots of material that is not in Jackson.
+\item Marion and Heald: Classical Electromagnetic Radiation, 2nd ed., 1980. Undergraduate or low-level graduate.
+\end{itemize}
 
 
 Quantum Mechanics
-QED: The strange theory of light and matter Richard Feynman.
+
+\begin{itemize}
+\item QED: The strange theory of light and matter Richard Feynman.
 One need no longer be confused by this beautiful theory.  Richard Feynman gives an exposition that is once again and by itself a beautiful explanation of the theory of photon-matter interactions.  Taken from a popular, non-technical lecture.
-Cohen-Tannoudji: Quantum Mechanics I \& II\&, 1977.
+
+\item Cohen-Tannoudji: Quantum Mechanics I \& II\&, 1977.
 Introductory to intermediate.
-Liboff: Introductory Quantum Mechanics, 2nd ed., 1992
+
+\item Liboff: Introductory Quantum Mechanics, 2nd ed., 1992
 Elementary level.  Makes a few mistakes.
-Sakurai: Advanced Quantum Mechanics 1967
+
+\item Sakurai: Advanced Quantum Mechanics 1967
 Good as an introduction to the very basic beginnings of quantum field theory, except that it has the unfortunate feature of using "imaginary time" to make Minkowski space look euclidean.
-Sakurai: Modern Quantum Mechanics, 1985
-J. Wheeler and W. Zurek (eds.): Quantum Theory and Measurement, 1983
-On the philosophical end.  People who want to know about interpretations of quantum mechanics should definitely look at this collection of relevant articles.
-C. DeWitt and N. Graham: The Many Worlds Interpretation of Quantum Mechanics
-Philosophical.  Collection of articles.
-H. Everett: Theory of the Universal Wavefunction
+\item Sakurai: Modern Quantum Mechanics, 1985
+\item J. Wheeler and W. Zurek (eds.): Quantum Theory and Measurement, 1983. On the philosophical end.  People who want to know about interpretations of quantum mechanics should definitely look at this collection of relevant articles.
+\item C. DeWitt and N. Graham: The Many Worlds Interpretation of Quantum Mechanics. Philosophical.  Collection of articles.
+\item H. Everett: Theory of the Universal Wavefunction
 An exposition which has some gems on thermodynamics and probability.  Worth reading for this alone.
-Bjorken and Drell: Relativistic Quantum Mechanics/ Relativistic Quantum Fields
+\item Bjorken and Drell: Relativistic Quantum Mechanics/ Relativistic Quantum Fields
 (for comments, see under Particle Physics)
-Ryder: Quantum Field Theory, 1984
-Guidry: Gauge Field Theories: an introduction with applications 1991
-Messiah: Quantum Mechanics, 1961
-Dirac:
+\item Ryder: Quantum Field Theory, 1984
+\item Guidry: Gauge Field Theories: an introduction with applications 1991
+\item Messiah: Quantum Mechanics, 1961
+\item Dirac:
 (a) Principles of QM, 4th ed., 1958
 (b) Lectures in QM, 1964
 (c) Lectures on Quantum Field Theory, 1966
-Itzykson and Zuber: Quantum Field Theory, 1980
+\item Itzykson and Zuber: Quantum Field Theory, 1980
 Advanced level.
-Slater: Quantum theory: Address, essays, lectures.
+\item Slater: Quantum theory: Address, essays, lectures.
 Good follow on to Schiff.
-Note: Schiff, Bjorken and Drell, Fetter and Walecka, and Slater are all volumes in "International Series in pure and Applied Physics" published by McGraw-Hill.
-Pierre Ramond: Field Theory: A Modern Primer, 2nd edition. Volume 74 in the FiP series.
-The so-called "revised printing" is a must, as they must've rushed the first printing of the 2nd edition because it's full of inexcusable mistakes.
-Feynman: The Feynman Lectures, Vol. 3
-A non-traditional approach.  A good place to get an intuitive feel for QM, if one already knows the traditional approach.
-Heitler \& London: Quantum theory of molecules
-J. Bell: Speakable and Unspeakable in Quantum Mechanics, 1987
-An excellent collection of essays on the philosophical aspects of QM.
-Milonni: The quantum vacuum: an introduction to quantum electrodynamics 1994.
-Holland: The Quantum Theory of Motion
-A good bet for a strong foundation in QM.
-John von Neumann: Mathematical foundations of quantum mechanics, 1955.
-For the more mathematical side of quantum theory, especially for those who are going to be arguing about measurement theory.
-Schiff: Quantum Mechanics, 3rd ed., 1968
-A little old.  Not much emphasis on airy-fairy things like many worlds or excessive angst over Heisenberg UP.  Straight up QM for people who want to do calculations.  Introductory graduate level.  Mostly Schrodinger eqn.  Spin included, but only in an adjunct to Schrodinger.  Not much emphasis on things like Dirac eqn, etc.
-Eisberg and Resnick: Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles, 2nd ed., 1985.
-This is a basic intro. to QM, and it is excellent for undergrads.  It is not thorough with the mathematics, but fills in a lot of the intuitive stuff that most textbooks do not present.
-David Saxon: Elementary Quantum Mechanics
-A decent undergraduate (senior level) text.
-Bethe and Jackiw: Intermediate Quantum Mechanics
-P.W.Atkins: Quanta: A Handbook of concepts
-Short entries, arranged alphabetically, emphasis on stuff relevant to quantum chemistry.  Concentrates on the intuition and not the mathematics.
-James Peebles: Quantum Mechanics (1993)
-Intermediate level, based on lectures given by the author at Princeton.  Very lucid exposition of the standard material with outstanding selection of mostly original problems at the end of each chapter.
 
+Note: Schiff, Bjorken and Drell, Fetter and Walecka, and Slater are all volumes in "International Series in pure and Applied Physics" published by McGraw-Hill.
+
+\item Pierre Ramond: Field Theory: A Modern Primer, 2nd edition. Volume 74 in the FiP series.
+The so-called "revised printing" is a must, as they must've rushed the first printing of the 2nd edition because it's full of inexcusable mistakes.
+
+\item Feynman: The Feynman Lectures, Vol. 3
+A non-traditional approach.  A good place to get an intuitive feel for QM, if one already knows the traditional approach.
+\item Heitler \& London: Quantum theory of molecules
+\item J. Bell: Speakable and Unspeakable in Quantum Mechanics, 1987
+An excellent collection of essays on the philosophical aspects of QM.
+\item Milonni: The quantum vacuum: an introduction to quantum electrodynamics 1994.
+\item Holland: \textcolor{red}{The Quantum Theory of Motion. A good bet for a strong foundation in QM.}
+
+\item John von Neumann: Mathematical foundations of quantum mechanics, 1955.
+For the more mathematical side of quantum theory, especially for those who are going to be arguing about measurement theory.
+
+\item Schiff: Quantum Mechanics, 3rd ed., 1968
+A little old.  Not much emphasis on airy-fairy things like many worlds or excessive angst over Heisenberg UP.  Straight up QM for people who want to do calculations.  Introductory graduate level.  Mostly Schrodinger eqn.  Spin included, but only in an adjunct to Schrodinger.  Not much emphasis on things like Dirac eqn, etc.
+
+\item Eisberg and Resnick: Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles, 2nd ed., 1985.
+This is a basic intro. to QM, and it is excellent for undergrads.  It is not thorough with the mathematics, but fills in a lot of the intuitive stuff that most textbooks do not present.
+\item David Saxon: Elementary Quantum Mechanics
+A decent undergraduate (senior level) text.
+\item Bethe and Jackiw: Intermediate Quantum Mechanics
+\item P.W.Atkins: Quanta: A Handbook of concepts
+Short entries, arranged alphabetically, emphasis on stuff relevant to quantum chemistry.  Concentrates on the intuition and not the mathematics.
+\item James Peebles: Quantum Mechanics (1993)
+Intermediate level, based on lectures given by the author at Princeton.  \textcolor{red}{Very lucid exposition of the standard material with outstanding selection of mostly original problems at the end of each chapter.}
+\end{itemize}
 
 
 Statistical Mechanics and Entropy
-David Chandler: Introduction to Modern Statistical Mechanics, 1987
+
+\begin{itemize}
+\item David Chandler: Introduction to Modern Statistical Mechanics, 1987
 Chandler's book is short, but although its discussions are dressed up as being about physics, you will gain little knowledge of statistical mechanics by reading it.
-R. Tolman: Prinicples of Statistical Mechanics. Dover
-Kittel \& Kroemer: Statistical Thermodynamics
+\item R. Tolman: Prinicples of Statistical Mechanics. Dover
+\item Kittel \& Kroemer: Statistical Thermodynamics
 Not a bad book—but, that said, it has little competition, since good books on statistical mechanics are hard to find.
-Keith Stowe: An introduction to Thermodynamics and Statistical Mechanics, 2nd ed., 2007
+\item Keith Stowe: An introduction to Thermodynamics and Statistical Mechanics, 2nd ed., 2007
 Stowe has written an excellent book that has plenty of physics and some very good explanations.  This is worthwhile to buy as your entry into the subject.  His mathematics is sometimes a little short of what you might like to see: for example, he has left a very important calculation to Appendix C, but turns it into something overly complicated there.  Stowe's non-postulatory approach to the subject is far more modern and physically valid and meaningful than Callen's outdated experiment (see below) of simply postulating everything that he found convenient—or possibly didn't understand himself!
-F. Reif: Fundamentals of Statistical and Thermal Physics.
+\item F. Reif: Fundamentals of Statistical and Thermal Physics.
 Reif's book is well known.  You can find much interesting and useful discussion in it, but its mathematics is generally a forest of obscure notation and unnecessary formalism, heavily cluttered by primes and overbars that add nothing.  Its topics are not presented in a particularly pedagogical or clear way.  Although it's a good book to refer to (once you manage to find what you are looking for), it is not for anyone wanting to learn the subject.  It is a very difficult read, even for advanced physicists, on account of its cluttered notation and long discussions that don't always deliver what they promise.
-Felix Bloch: Fundamentals of Statistical Mechanics.
-Radu Balescu: Statistical Physics
+\item Felix Bloch: Fundamentals of Statistical Mechanics.
+\item Radu Balescu: Statistical Physics
 Graduate Level.  Good description of non-equilibrium stat. mech., but difficult to read.  It is all there, but often you don't realize it until after you have learned it somewhere else.  Nice development in early chapters about parallels between classical and quantum statistical mechanics.
-Abrikosov, Gorkov, and Dyzaloshinski: Methods of Quantum Field Theory in Statistical Physics
-Huw Price: Time's Arrow and Archimedes' Point
+\item Abrikosov, Gorkov, and Dyzaloshinski: Methods of Quantum Field Theory in Statistical Physics
+\item Huw Price: Time's Arrow and Archimedes' Point
 Semi-popular book on the direction of time, by a philosopher.  It has been controversial because of its criticism of physicists such as Hawking, for their "double standards" in dealing with the old problem on the origin of the arrow of time.  It is thought provoking and clearly written.
-H. Callen: Thermodynamics and an Introduction to Thermostatistics, 2nd ed., 1985.
+\item H. Callen: Thermodynamics and an Introduction to Thermostatistics, 2nd ed., 1985.
 
 In the preface to this second edition, Callen described his 25-year-old postulatory approach to thermodynamics and statistical mechanics as \"now widely accepted\".  In fact, by the time of his second edition, his approach was completely outdated, because it springs from nineteenth-century ideas of thermodynamics in which concepts such as entropy were not understood.  This means that Callen simply postulated the core quantities such as entropy and temperature with essentially no context, and without providing any physical insight or analysis.  It might all look streamlined, but his approach will give you no insight into the difficult and interesting questions of the subject.  Callen described his approach as rendering the subject transparent and simple; but his approach comes across as obscure.  
 For example, in the early part of the book, he insists on repeatedly writing $1/T1=1/T2$ for two temperatures that are ascertained to be equal, when anyone else would write $T1=T2$.  And, for what he does write, the devil is often in the details that he tends to leave out.  Even at the start, when Callen introduces the concept of work, he fails to say whether he is talking about the work done on the system, or by the system, leaving the reader to work that out for himself from some irrelevant comments about the mechanical work term $-P dV$. 
 Callen's incorrect renditions of the Taylor expansion in an appendix seem to suggest, rather oddly, that he didn't understand the difference between $dx$ and $\Delta x$.  His book includes a 20-page postscript in which he makes claims about the role of symmetry in thermodynamics; but, as far as I can tell, this section says nothing useful at all.  I suspect that the reason this book is as frequently cited as it is said to be lies in its being used as the basis for a course by many lecturers who never learned the subject themselves, and hence don't realise that the book's approach is outdated.  If you really want to learn the subject, use the modern statistical approach, in which entropy is defined to relate to numbers of configurations.  As far as readability goes, Callen's writing tends to omit commas; but this can make his sentences tedious to read, since the reader ends up having to make two or three passes to decode what some sentences are saying.  (If you use few commas yourself, study a typical sentence in Callen's book: "the intermediate states of the gas are nonequilibrium states for which the enthalpy is not defined".  Callen is not singling out a special set of non-equilibrium states here; instead, enthalpy is not defined for any non-equilibrium state.  He should have included a single comma, by writing \"the intermediate states of the gas are non-equilibrium states, for which the enthalpy is not defined\".)
 
-R. Pathria: Statistical Mechanics.
-D. Forster: Hydrodynamic Fluctuations, Broken Symmetry, and Correlation Functions.
-H. Stanley: Introduction to Phase Transitions and Critical Phenomena.
-S.K. Ma: Modern Theory of Critical Phenomena.
-N. Goldenfeld: Lectures on Phase Transitions and the Renormalization Group.
-J. Sethna: Statistical Mechanics: Entropy, Order Parameters, and Complexity.
+\item R. Pathria: Statistical Mechanics.
+\item D. Forster: Hydrodynamic Fluctuations, Broken Symmetry, and Correlation Functions.
+\item H. Stanley: Introduction to Phase Transitions and Critical Phenomena.
+\item S.K. Ma: Modern Theory of Critical Phenomena.
+\item N. Goldenfeld: Lectures on Phase Transitions and the Renormalization Group.
+\item J. Sethna: Statistical Mechanics: Entropy, Order Parameters, and Complexity.
 Apparently Sethna's book is meant to be teaching statistical mechanics; but this is not an introductory book, and it provides no real insight into statistical mechanics and entropy.  (I don't know about its sections on order parameters and complexity.)  It is mostly a collection of exercises for the reader, aided by the author's comments.  Don't believe everything you read in it; for example, in his exercise 5.7, Sethna misinterprets the meaning of entropy to say, incorrectly, that the entropy of an isolated system remains constant in time.  He incorrectly describes our universe as photon dominated on page 160, when in fact it is matter dominated.  These and other instances give one the impression that Sethna is not always working in his zone of expertise.  His many exercises might have some content, but they can be tedious to read, since new paragraphs are not indented in them.
-
+\end{itemize}
 
 
 Condensed Matter
-Charles Kittel: Introduction to Solid State Physics (ISSP),
-introductory
-Ashcroft and Mermin: Solid State Physics,
-intermediate to advanced
-Charles Kittel: Quantum Theory of Solids.
-This is from before the days of his ISSP; it is a more advanced book.  At a similar level. . .
-Solid State Theory, by W. A. Harrison
-(a great bargain now that it's published by Dover)
-Theory of Solids, by Ziman.
-Fundamentals of the Theory of Metals, by Abrikosov
-Half of the book is on superconductivity.
-Many-Particle Physics, G. Mahan.
-Advanced.
 
+\begin{itemize}
+\item  Charles Kittel: Introduction to Solid State Physics (ISSP),
+introductory
+\item Ashcroft and Mermin: Solid State Physics,
+intermediate to advanced
+\item Charles Kittel: Quantum Theory of Solids.
+This is from before the days of his ISSP; it is a more advanced book.  At a similar level.
+\item Solid State Theory, by W. A. Harrison
+(a great bargain now that it's published by Dover)
+\item Theory of Solids, by Ziman.
+\item Fundamentals of the Theory of Metals, by Abrikosov
+Half of the book is on superconductivity.
+\item Many-Particle Physics, G. Mahan.
+Advanced.
+\end{itemize}
 
 
 Special Relativity
-Taylor and Wheeler: Spacetime Physics Still the best introduction out there.
-Relativity: Einstein's popular exposition.
-Wolfgang Rindler: Essential Relativity.  Springer 1977
-With a heavy bias towards astrophysics and therefore on a more moderate level formally.  Quite strong on intuition.
-A.P. French: Special Relativity
-A thorough introductory text.  Good discussion of the twin paradox, pole and the barn etc.  Plenty of diagrams illustrating Lorentz-transformed coordinates, giving both an algebraic and geometrical insight to SR.  (Seems to be out of print)
-Abraham Pais: Subtle is the Lord: The Science and Life of Albert Einstein
-The best technical biography of the life and work of Albert Einstein.
-Special Relativity and its Experimental Foundations Yuan Zhong Zhang
-Special relativity is so well established that its experimental foundation is often ignored.  This book fills the gap and will be of relevance to many discussions in sci.physics.relativity
 
+\begin{itemize}
+\item Taylor and Wheeler: Spacetime Physics Still the best introduction out there.
+\item Relativity: Einstein's popular exposition.
+\item Wolfgang Rindler: Essential Relativity.  Springer 1977
+With a heavy bias towards astrophysics and therefore on a more moderate level formally.  Quite strong on intuition.
+\item A.P. French: Special Relativity
+A thorough introductory text.  Good discussion of the twin paradox, pole and the barn etc.  Plenty of diagrams illustrating Lorentz-transformed coordinates, giving both an algebraic and geometrical insight to SR.  (Seems to be out of print)
+\item Abraham Pais: Subtle is the Lord: The Science and Life of Albert Einstein
+\item The best technical biography of the life and work of Albert Einstein.
+\item Special Relativity and its Experimental Foundations Yuan Zhong Zhang
+Special relativity is so well established that its experimental foundation is often ignored.  This book fills the gap and will be of relevance to many discussions in sci.physics.relativity
+\end{itemize}
 
 
 Particle Physics
+
+\begin{itemize}
+\item 
 Kerson Huang: Quarks, leptons \& gauge fields, World Scientific, 1982.
 Good on mathematical aspects of gauge theory and topology.
-L. B. Okun: Leptons and quarks, translated from Russian by V. I. Kisin, North-Holland, 1982.
-T. D. Lee: Particle physics and introduction to field theory.
-Itzykson: Particle Physics
-Bjorken \& Drell: Relativistic Quantum Mechanics
+\item L. B. Okun: Leptons and quarks, translated from Russian by V. \item I. Kisin, North-Holland, 1982.
+\item T. D. Lee: Particle physics and introduction to field theory.
+\item Itzykson: Particle Physics
+\item Bjorken \& Drell: Relativistic Quantum Mechanics
 One of the more terse books.  The first volume on relativistic quantum mechanics covers the subject in a blinding 300 pages.  Very good if you really want to know the subject.
-Francis Halzen \& Alan D. Martin: Quarks \& Leptons,
+\item Francis Halzen \& Alan D. Martin: Quarks \& Leptons,
 Beginner to intermediate, this is a standard textbook for graduate level courses.  Good knowledge of quantum mechanics and special relativity is assumed.  A very good introduction to the concepts of particle physics.  Good examples, but not a lot of Feynman diagram calculation.  For this, see Bjorken \& Drell.
-Donald H. Perkins: Introduction to high energy physics
+
+\item Donald H. Perkins: Introduction to high energy physics
 Regarded by many people in the field as the best introductory text at the undergraduate level.  Covers basically everything with almost no mathematics.
-Close, Marten, and Sutton: The Particle Explosion
+
+\item Close, Marten, and Sutton: The Particle Explosion
 A popular exposition of the history of particle physics with terrific photography.
-Christine Sutton: Spaceship Neutrino
+\item Christine Sutton: Spaceship Neutrino
 A good, historical, largely intuitive introduction to particle physics, seen from the neutrino viewpoint.
-Mandl, Shaw: Quantum Field Theory
+\item Mandl, Shaw: Quantum Field Theory
 Introductory textbook, concise and practically orientated.  Used at many graduate departments as a textbook for the first course in QFT and a bare minimum for experimentalists in high energy physics.  Chapters on Feynman diagrams and cross-section calculations particularly well written and useful.
-F.Gross: Relativistic Quantum Mechanics and Field Theory
+\item F.Gross: Relativistic Quantum Mechanics and Field Theory
 I am familiar with first part only (rel. QM) which I warmly recommend in conjunction with Mandl, since Klein-Gordon and Dirac Equation are explained in greater detail than in Mandl.  One of my professors likes a lot the rest of the book too, but I haven't spent much time on it and can't comment.  Published in 1993.
 S. Weinberg: The Quantum Theory of Fields, Vol I,II, 1995
 The usual Weinberg stuff: refreshing, illuminating viewpoints on every page.  Perhaps most suitable for graduate students who already know some basics of QFT. 
-M.B. Green, J.H. Schwarz, E. Witten: Superstring Theory (2 vols)
+\item M.B. Green, J.H. Schwarz, E. Witten: Superstring Theory (2 vols)
 Although these two volumes do not touch the important new developments in string theories, they are still the best texts for the basics.  To keep up with this fast developing subject, it is necessary to download the papers and reviews as hep-th e-prints.
-M. Kaku: Strings, Conformal Fields and Topology
+\item M. Kaku: Strings, Conformal Fields and Topology
 Just a little more up-to-date than GSW.
-Superstrings: A Theory of Everything, ed. P.C.W. Davies
-Through transcripts of interviews with Schwarz, Witten, Green, Gross, Ellis, Salam, Glashow, Feynman, and Weinberg, we learn about string theory, and how different physicists feel about its prospects as a theory of everything.  This also predates the new developments that revolutionised string theory after 1993.
+\item Superstrings: A Theory of Everything, ed. P.C.W. Davies
+Through transcripts of interviews with Schwarz, Witten, Green, \item Gross, Ellis, Salam, Glashow, Feynman, and Weinberg, we learn about string theory, and how different physicists feel about its prospects as a theory of everything.  This also predates the new developments that revolutionised string theory after 1993.
 A Pais: Inward Bound
 This can be regarded as a companion volume to his biography of Einstein (see special relativity section).  It covers the history of particle physics through the twentieth century, but is best for the earlier half.
-R.P. Crease, C.C. Mann: The Second Creation 1996
+\item R.P. Crease, C.C. Mann: The Second Creation 1996
 Another history of particle physics in the twentieth century.  This one is especially good on the development of the standard model.  Full of personal stories taken from numerous interviews, it is difficult to put down.
-L. Lederman, D. Teresi: The God Particle: If the Universe Is the Answer, What Is the Question? 2006
+\item L. Lederman, D. Teresi: The God Particle: If the Universe Is the Answer, What Is the Question? 2006
 This book describes the search for the Higgs Boson at Fermilab.  It describes what the Higgs is and gives some background to the subject of particle physics.  It also gives an account of some more general physics history.
-
+\end{itemize}
 
 
 General Relativity
+\begin{itemize}
+\item 
 Meisner, Thorne and Wheeler: Gravitation W.H. Freeman \& Co., San Francisco 1973
 Usually referred to as "MTW".  It has two tracks for different levels.  A famous work in the subject whose main strength is probably its various asides, historical and otherwise.  While it has much interesting reading, it is not a book to learn relativity from: its approach is all over the place, and it pushes gawdy notation which no one actually uses to do anything useful.
 Robert M. Wald: Space, Time, and Gravity: the Theory of the Big Bang and Black Holes.
 A good non-technical introduction, with a nice mix of mathematical rigor and comprehensible physics.
-B. Schutz: A First Course in General Relativity.
+\item B. Schutz: A First Course in General Relativity.
 A readable and useful book, to a point.  The 1988 edition, at least, unfortunately has a tangled approach to its Lambda index notation that is wrong in places.  Schutz goes to great lengths to convince the reader of the usefulness of one-forms, but is clearly unaware that everything he does with them can be done far more simply using vectors alone.  Beware the show-stopping typos in the Riemann components for the Schwarzschild metric on page 315.  The discussion about Riemann tensor signs on page 171 is also wrong, and will give you wrong results if you apply it.  Indeed, that discussion is indicative of a general naïveté in the book's early mathematics as a whole.
-Weinberg: Gravitation and Cosmology
+\item Weinberg: Gravitation and Cosmology
 A good book that takes a somewhat different approach to the subject.
-Hans Ohanian: Gravitation \& Spacetime (recently back in print)
+\item Hans Ohanian: Gravitation \& Spacetime (recently back in print)
 For someone who actually wants to learn to work problems, ideal for self-teaching, and math is introduced as needed, rather than in a colossal blast.
-Robert Wald: General Relativity
+\item Robert Wald: General Relativity
 A more advanced textbook than Wald's earlier book, appropriate for an introductory graduate course in GR.  It strikes just the right balance, in my opinion, between mathematical rigor and physical intuition.  It has great mathematics appendices for those who care about proving theorems carefully, and a good introduction to the problems behind quantum gravity (although not to their solutions).  I think it's MUCH better than either MTW or Weinberg.
 Clifford Will: Was Einstein Right? Putting General Relativity to the Test
-Non-technical account of the experimental support for GR, including the "classic three tests", but going well beyond them.
-Kip Thorne: Black Holes and Time Warps: Einstein's Outrageous Legacy
+\item Non-technical account of the experimental support for GR, including the "classic three tests", but going well beyond them.
+\item Kip Thorne: Black Holes and Time Warps: Einstein's Outrageous Legacy
 An award-winning popular account of black holes and related objects with many historical anecdotes from the author's personal experiences.  The book is famous for the final sections about time travel through wormholes.
 Ignore Dirac's small book on lectures in GR, unless you like reading books that have almost no discussion of their mathematical content (and almost no discussion of anything else, either).  It's a sure bet that this book was only published because Dirac wrote it.
-
+\end{itemize}
 
 
 Mathematical Methods
+\begin{itemize}
+\item 
 Morse and Feshbach: Methods of Theoretical Physics.  This book used to be hard to find, but can now be bought at feshbachpublishing.com.
-Mathews and Walker: Mathematical Methods of Physics.  An absolute joy for those who love math, and very informative even for those who don't.  [This has been severely disputed!—ed]
-Arfken: Mathematical Methods for Physicists Academic Press
-Good introduction at graduate level.  Not comprehensive in any area, but covers many areas widely.  Arfken is to math methods what numerical recipes is to numerical methods — good intro, but not the last word.
-Zwillinger: Handbook of Differential Equations. Academic Press
-Kind of like CRC tables but for ODEs and PDEs.  Good reference book when you've got a differential equation and want to find a solution.
-Gradshteyn and Ryzhik: Table of Integrals, Series, and Products Academic
-THE book of integrals.  Huge, but useful when you need an integral.
-F.W. Byron and R. Fuller: Mathematics of Classical and Quantum Physics (2 vols)
-is a really terrific text for self-study; it is like a baby version of Morse \& Feshbach.
+\item Mathews and Walker: Mathematical Methods of Physics.  An absolute joy for those who love math, and very informative even for those who don't.  [This has been severely disputed!—ed]
 
+\item Arfken: Mathematical Methods for Physicists Academic Press
+Good introduction at graduate level.  Not comprehensive in any area, but covers many areas widely.  Arfken is to math methods what numerical recipes is to numerical methods — good intro, but not the last word.
+\item Zwillinger: Handbook of Differential Equations. Academic Press
+Kind of like CRC tables but for ODEs and PDEs.  Good reference book when you've got a differential equation and want to find a solution.
+\item Gradshteyn and Ryzhik: Table of Integrals, Series, and Products Academic
+THE book of integrals.  Huge, but useful when you need an integral.
+\item F.W. Byron and R. Fuller: Mathematics of Classical and Quantum Physics (2 vols)
+is a really terrific text for self-study; it is like a baby version of Morse \& Feshbach.
+\end{itemize}
 
 
 Nuclear Physics
-Preston and Bhaduri: Structure of the Nucleus
-Blatt and Weisskopf: Theoretical Nuclear Physics
-DeShalit and Feshbach: Theoretical Nuclear Physics
+\begin{itemize}
+\item Preston and Bhaduri: Structure of the Nucleus
+\item Blatt and Weisskopf: Theoretical Nuclear Physics
+\item DeShalit and Feshbach: Theoretical Nuclear Physics
 This is serious stuff.  Also quite expensive even in paper.  I think the hard cover is out of print.  This is volume I (structure).  Volume II (scattering) is also available.
-Satchler: Direct Nuclear Reactions
-Walecka: Theoretical Nuclear and Subnuclear Physics (1995)
+\item Satchler: Direct Nuclear Reactions
+\item Walecka: Theoretical Nuclear and Subnuclear Physics (1995)
 Covers advanced topics in theoretical nuclear physics from a modern perspective and includes results of past 20 years in a field which makes it unique.  Not an easy material to read but invaluable for people seeking an updated review of the present status in the field.
-Krane: Introductory nuclear physics
+\item Krane: Introductory nuclear physics
 Introductory-to-intermediate level textbook in basic nuclear physics for senior undergraduates.  Good, clear and relatively comprehensive exposition of "standard" material: nuclear models, alfa, beta, gamma radioactivity, nuclear reactions. . .  Last edition issued in 1988.
-
+\end{itemize}
 
 
 Cosmology
-J. V. Narlikar: Introduction to Cosmology.1983 Jones \& Bartlett Publ.
-For people with a solid background in physics and higher math, THE introductory text, IMHO, because it hits the balance between mathematical accuracy (tensor calculus and stuff) and intuitive clarity/geometrical models very well for grad student level.  Of course, it has flaws but only noticeable by the Real Experts (TM). . .
-Hawking: A Brief History of Time
+\begin{itemize}
+\item J. V. Narlikar: Introduction to Cosmology.1983 Jones \& Bartlett Publ.
+For people with a solid background in physics and higher math, THE introductory text, IMHO, because it hits the balance between mathematical accuracy (tensor calculus and stuff) and intuitive clarity/geometrical models very well for grad student level.  Of course, it has flaws but only noticeable by the Real Experts (TM). .
+\item Hawking: A Brief History of Time
 The ghost-written book that made Popular Science popular, but an odd mixture of easy physics and very advanced physics.
 Weinberg: First Three Minutes
 A very good book.  It's pretty old, but most of the information in it is still correct.
-Timothy Ferris: Coming of Age in the Milky Way and The Whole Shebang
+\item Timothy Ferris: Coming of Age in the Milky Way and The Whole Shebang
+
 More Popular Science, and very readable.
-Kolb and Turner: The Early Universe.
+
+\item Kolb and Turner: The Early Universe.
 At a more advanced level, a standard reference.  As the title implies, K\&T cover mostly the strange physics of very early times: it's heavy on the particle physics, and skimps on the astrophysics.  There's a primer on large-scale structure, which is the most active area of cosmological research, but it's really not all that good.
-Peebles: Principles of Physical Cosmology. Comprehensive, and on the whole it's quite a good book, but it's rather poorly organized.  I find myself jumping back and forth through the book whenever I want to find anything.
-Black Holes and Warped Spacetime, by William J. Kaufmann III.
+\item Peebles: Principles of Physical Cosmology. Comprehensive, and on the whole it's quite a good book, but it's rather poorly organized.  I find myself jumping back and forth through the book whenever I want to find anything.
+\item Black Holes and Warped Spacetime, by William J. Kaufmann III.
 This is a great, fairly thorough, though non-mathematical description of black holes and spacetime as it relates to cosmology.  I was impressed by how few mistakes Kaufmann makes in simplifying, while most such books tend to sacrifice accuracy for simplicity.
-M.V. Berry: Principles of Cosmology and Gravitation
+\item M.V. Berry: Principles of Cosmology and Gravitation
 This is very well written, and useful as an undergrad text.
-Dennis Overbye: Lonely Hearts of the Cosmos The unfinished history of converge on Hubble's constant is presented, from the perspective of competing astrophysics rival teams and institute, along with a lot of background on cosmology (a lot on inflation, for instance).  A good insight into the scientific process.
-Joseph Silk: The Big Bang
+\item Dennis Overbye: Lonely Hearts of the Cosmos The unfinished history of converge on Hubble's constant is presented, from the perspective of competing astrophysics rival teams and institute, along with a lot of background on cosmology (a lot on inflation, for instance).  A good insight into the scientific process.
+\item Joseph Silk: The Big Bang
 I consider Silk's book an absolute must for those who want a quick run at the current state of big bang cosmology and some of the recent (1988) issues which have given so many of us lots of problems to solve.  [of course that's eons out of date now—ed.]
 Bubbles, voids, and bumps in time: the new cosmology edited by James Cornell.
 This is quite a nice and relatively short read for some of the pressing issues (as of 1987-88) in astrophysical cosmology.
-T. Padmanabhan: Structure formation in the universe
+\item T. Padmanabhan: Structure formation in the universe
 A no-nonsense book for those who want to calculate some problems strictly related to the formation of structure in the universe.  The book even comes complete with problems at the end of each chapter.  A bad thing about this book is that there isn't any coverage on clusters of galaxies and the one really big thing that annoys the hell outta me is that the bibliography for each chapter is all combined in one big bibliography towards the end of the book which makes for lots of page flipping.
-P.J.E. Peebles: The large-scale structure of the universe
+\item P.J.E. Peebles: The large-scale structure of the universe
 This is a definitive book for anyone who desires an understanding of the mathematics required to develop the theory for models of large scale structure.  The essential techniques in the description of how mass is able to cluster under gravity from a smooth early universe are discussed.  While I find it dry in some places, there are noteworthy sections (e.g. statistical tests, n-point correlation functions, etc.).
-Andrzej Krasinski: Inhomogeneous Cosmological Models
+\item Andrzej Krasinski: Inhomogeneous Cosmological Models
 If you are blinded by the dogma of the cosmological principle, this book is a real eye opener.  A technical, historical and bibliographical survey of possible inhomogeous universes from solutions of general relativity.
-Alan Lightman and Roberta Brawer: Origins: The lives and worlds of modern cosmologists, 1990
+\item Alan Lightman and Roberta Brawer: Origins: The lives and worlds of modern cosmologists, 1990
 Transcripts of interview with 27 of the most influential cosmologists from the past few decades.  This book provides a unique record of how their cosmological theories have been formed.
-
+\end{itemize}
 
 
 Astronomy
-Hannu Karttunen et al. (eds.): Fundamental Astronomy.
+\begin{itemize}
+\item Hannu Karttunen et al. (eds.): Fundamental Astronomy.
 The very good book covering all of astronomy (also for absolute beginners) AND still going into a lot of detail for special work for people more involved AND presenting excellent graphics and pictures.
-Pasachoff: Contemporary Astronomy
+\item Pasachoff: Contemporary Astronomy
 Good introductory textbook for the nontechnical reader.  It gives a pretty good overview of the important topics, and it has good pictures.
-Frank Shu: The physical universe: an introduction to astronomy
-This is a really grand book, which covers a huge sweep of physics in its 600-odd pages.  Not only does it describe the field of astronomy in great detail, but it also covers in detail the laws of classical and quantum mechanics, atrophysics and stellar evolution, cosmology, special and general relativity; and last but not least, the biochemical basis of life.  In fact the last few chapters would make a great addition to a biochemist's library!
-Kenneth R. Lang: Astrophysical formulae: a compendium for the physicist and astrophysicist
+\item Frank Shu: The physical universe: an introduction to astronomy
+This is a really grand book, which covers a huge sweep of physics in its 600-odd pages.  Not only does it describe the field of astronomy in great detail, but it also covers in detail the laws of classical and quantum mechanics, astrophysics and stellar evolution, cosmology, special and general relativity; and last but not least, the biochemical basis of life.  In fact the last few chapters would make a great addition to a biochemist's library!
+\item Kenneth R. Lang: Astrophysical formulae: a compendium for the physicist and astrophysicist
 Here is everything you wanted to know (and more!) about astrophysical formulae on a one-line/one-paragraph/one-shot deal.  Of course, the formulae come complete with references (a tad old, mind you) but it's a must for everyone who's working in astronomy and astrophysics.  You learn something new every time you flip through the pages!
-
+\end{itemize}
 
 
 Plasma Physics
-(See Robert Heeter's sci.physics.fusion FAQ for details)
-
+\begin{itemize}
+\item (See Robert Heeter's sci.physics.fusion FAQ for details)
+\end{itemize}
 
 
 
 Numerical Methods/Simulations
-Johnson and Rees: Numerical Analysis Addison Wesley
+\begin{itemize}
+\item Johnson and Rees: Numerical Analysis Addison Wesley
 Undergraduate level broad intro.
-Numerical Recipes in X (X = C, Fortran, Pascal, etc.) Tueklosky and Press
-Young and Gregory: A survey of Numerical Mathematics Dover 2 volumes.
+\item Numerical Recipes in X (X = C, Fortran, Pascal, etc.) Tueklosky and Press
+\item Young and Gregory: A survey of Numerical Mathematics Dover 2 volumes.
 Excellent overview at grad. level.  Emphasis toward solution of elliptic PDEs, but good description of methods to get there including linear algebra, matrix techniques, ODE-solving methods, and interpolation theory.  Biggest strength is it provides a coherent framework and structure to attach most commonly used numerical methods.  This helps understanding about why to use one method or another.  2 volumes.
-Hockney and Eastwood: Computer Simulation Using Particles Adam Hilger
+\item Hockney and Eastwood: Computer Simulation Using Particles Adam Hilger
 Good exposition of particle-in-cell (PIC) method and extensions.  Applications to plasmas, astronomy, and solid state are discussed.  Emphasis is on description of algorithms.  Some results shown.
-Birdsall and Langdon: Plasma Physics via Computer Simulations
+\item Birdsall and Langdon: Plasma Physics via Computer Simulations
 PIC simulation applied to plasmas.  Source codes shown.  First part is almost a tutorial on how to do PIC.  Second part is like a series of review articles on different PIC methods.
-Tajima: Computational Plasma Physics: With Applications to Fusion and Astrophysics Addison Wesley Frontiers in physics Series.
+\item Tajima: Computational Plasma Physics: With Applications to Fusion and Astrophysics Addison Wesley Frontiers in physics Series.
 Algorithms described.  Emphasis on physics that can be simulated.  Applications limited to plasmas, but subject areas very broad, fusion, cosmology, solar astrophysics, magnetospheric physics, plasma turbulence, general astrophysics.
-
+\end{itemize}
 
 
 Fluid Dynamics
-D.J. Tritton: Physical Fluid Dynamics
-G.K. Batchelor: Introduction to Fluid Dynamics
-S. Chandrasekhar: Hydrodynamics and Hydromagnetic Stability
-Segel: Mathematics Applied to Continuum Mechanics Dover.
-
+\begin{itemize}
+\item D.J. Tritton: Physical Fluid Dynamics
+\item G.K. Batchelor: Introduction to Fluid Dynamics
+\item S. Chandrasekhar: Hydrodynamics and Hydromagnetic Stability
+\item Segel: Mathematics Applied to Continuum Mechanics Dover.
+\end{itemize}
 
 
 Nonlinear Dynamics, Complexity, and Chaos
-There is a FAQ posted regularly to sci.nonlinear.
-Prigogine: Exploring Complexity
-Or any other Prigogine book.  If you've read one, you read most of of them (A Poincaré recurrence maybe?).
-Guckenheimer and Holmes: Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields Springer
-Borderline phys./math.  Advanced level.  A nuts-and-bolts "how to" textbook.  They let the topic provide all the razzmatazz, which is plenty if you pay attention and remember the physics that it applies to.
-Lichtenberg, A. J. and M. A. Lieberman (1982): Regular and Stochastic Motion.  New York, Springer-Verlag.
-Ioos and Joseph: Elementary Stability and Bifurcation Theory.  New York, Springer.
-Heinz Pagels: The Dreams Of Reason
-He is a very clear and interesting, captivating writer, and presents the concepts in a very intuitive way.  The level is popular science, but it is still useful for physicists who know little of complexity.
-M. Mitchell Waldrop: Complexity
-A popular intro to the subject of spontaneous orders, complexity and so on.  Covers implications for economics, biology etc and not just physics.
 
+There is a FAQ posted regularly to sci.nonlinear.
+\begin{itemize}
+\item Prigogine: Exploring Complexity
+Or any other Prigogine book.  If you've read one, you read most of of them (A Poincaré recurrence maybe?).
+\item Guckenheimer and Holmes: Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields Springer
+Borderline phys./math.  Advanced level.  A nuts-and-bolts "how to" textbook.  They let the topic provide all the razzmatazz, which is plenty if you pay attention and remember the physics that it applies to.
+\item Lichtenberg, A. J. and M. A. Lieberman (1982): Regular and Stochastic Motion.  New York, Springer-Verlag.
+\item Ioos and Joseph: Elementary Stability and Bifurcation Theory.  New York, Springer.
+\item Heinz Pagels: The Dreams Of Reason
+He is a very clear and interesting, captivating writer, and presents the concepts in a very intuitive way.  The level is popular science, but it is still useful for physicists who know little of complexity.
+\item M. Mitchell Waldrop: Complexity
+A popular intro to the subject of spontaneous orders, complexity and so on.  Covers implications for economics, biology etc and not just physics.
+\end{itemize}
 
 
 Optics (Classical and Quantum), Lasers
-Max Born and Emil Wolf: Principles of Optics: Electromagnetic Theory of Propagation
+
+\begin{itemize}
+\item Max Born and Emil Wolf: Principles of Optics: Electromagnetic Theory of Propagation
+
 Standard reference.
-Sommerfeld:
-For the more classically minded.
-Allen and Eberly: Optical Resonance and Two-Level Atoms.
+
+\item Sommerfeld: For the more classically minded.
+\item Allen and Eberly: Optical Resonance and Two-Level Atoms.
 For quantum optics, the most readable but most limited.
-Goodman: Introduction to Fourier Optics.
+\item Goodman: Introduction to Fourier Optics.
 If it isn't in this book, it isn't Fourier optics.
 Quantum Optics and Electronics (Les Houches Summer School 1963 or 1964, but someone has claimed that Gordon and Breach, NY, are going to republish it in 1995), edited by DeWitt, Blandin, and Cohen- Tannoudji, is noteworthy primarily for Glauber's lectures, that form the basis of quantum optics as it is known today.
-Sargent, Scully, \& Lamb: Laser Physics
-Yariv: Quantum Electronics
-Siegman: Lasers
-Shen: The Principles of Nonlinear Optics
-Meystre \& Sargent: Elements of Quantum Optics
-Cohen-Tannoudji, Dupont-Roc, \& Grynberg: Photons, Atoms and Atom-Photon Interactions.
-Hecht: Optics
-A very good introductory optics book.
-Practical Holography by Graham Saxby, Prentice Hall: New York; 1988.
-This is a very clear and detailed book that is an excellent introduction to holography for interested undergraduate physics people, as well as advanced readers, especially those who are interested in the practical details of making holograms and the theory behind them.
+\item Sargent, Scully, \& Lamb: Laser Physics
+\item Yariv: Quantum Electronics
+\item Siegman: Lasers
+\item Shen: The Principles of Nonlinear Optics
+\item Meystre \& Sargent: Elements of Quantum Optics
+\item Cohen-Tannoudji, Dupont-Roc, \& Grynberg: Photons, Atoms and Atom-Photon Interactions.
+\item Hecht: Optics
 
+A very good introductory optics book.
+
+\item Practical Holography by Graham Saxby, Prentice Hall: New York; 1988.
+This is a very clear and detailed book that is an excellent introduction to holography for interested undergraduate physics people, as well as advanced readers, especially those who are interested in the practical details of making holograms and the theory behind them.
+\end{itemize}
 
 
 Mathematical Physics
+\begin{itemize}
+\item 
 Lie Algebra, Topology, Knot Theory, Tensors, etc.
 
 These are books that are sort of talky and fun to read (but still substantial—some harder than others).  These include things mathematicians can read about physics as well as vice versa.  These books are different than the "bibles" one must have on hand at all times to do mathematical physics.
 
-Yvonne Choquet-Bruhat, Cecile DeWitt-Morette, and Margaret Dillard-Bleick: Analysis, manifolds, and physics (2 volumes)
+\item Yvonne Choquet-Bruhat, Cecile DeWitt-Morette, and Margaret Dillard-Bleick: Analysis, manifolds, and physics (2 volumes)
 Something every mathematical physicist should have at his bedside until he knows it inside and out—but some people say it's not especially easy to read.
-Jean Dieudonne: A panorama of pure mathematics, as seen by N. Bourbaki, translated by I.G. Macdonald.
-Gives the big picture in mathematics.
-Robert Hermann: Lie groups for physicists, Benjamin-Cummings, 1966.
-George Mackey: Quantum mechanics from the point of view of the theory of group representations, Mathematical Sciences Research Institute, 1984.
-George Mackey: Unitary group representations in physics, probability, and number theory.
-Charles Nash and S. Sen: Topology and geometry for physicists.
-B. Booss and D.D. Bleecker: Topology and analysis: the Atiyah-Singer index formula and gauge-theoretic physics.
-Bamberg and S. Sternberg: A Course of Mathematics for Students of Physics
-Bishop \& Goldberg: Tensor Analysis on Manifolds.
-Dodson \& Poston: Tensor Geometry.
-Abraham, Marsden \& Ratiu: Manifolds, Tensor Analysis and Applications.
-M. Nakahara: Topology, Geometry and Physics.
-Morandi: The Role of Topology in Classical and Quantum Physics
-Singer, Thorpe: Lecture Notes on Elementary Topology and Geometry
-L. Kauffman: Knots and Physics, World Scientific, Singapore, 1991.
-C. Yang and M. Ge: Braid group, Knot Theory \& Statistical Mechanics.
-D. Kastler: C-algebras and their applications to Statistical Mechanics and Quantum Field Theory.
-Courant and Hilbert: Methods of Mathematical Physics Wiley
-Really a mathematics book in disguise.  Emphasis on ODEs and PDEs.  Proves existence, etc.  Very comprehensive.  2 volumes.
-Cecille Dewitt is publishing a book on manifolds that should be out soon (maybe already is).  Very high level, but supposedly of great importance for anyone needing to set the Feynman path integral in a firm foundation.
-Howard Georgi: Lie Groups for Particle Phyiscs Addison Wesley Frontiers in Physics Series.
-Synge and Schild.
+\item Jean Dieudonne: A panorama of pure mathematics, as seen by N. Bourbaki, translated by I.G. Macdonald.
 
+Gives the big picture in mathematics.
+
+\item Robert Hermann: Lie groups for physicists, Benjamin-Cummings, 1966.
+\item George Mackey: Quantum mechanics from the point of view of the theory of group representations, Mathematical Sciences Research Institute, 1984.
+\item George Mackey: Unitary group representations in physics, probability, and number theory.
+\item Charles Nash and S. Sen: Topology and geometry for physicists.
+\item B. Booss and D.D. Bleecker: Topology and analysis: the Atiyah-Singer index formula and gauge-theoretic physics.
+\item Bamberg and S. Sternberg: A Course of Mathematics for Students of Physics
+\item Bishop \& Goldberg: Tensor Analysis on Manifolds.
+\item Dodson \& Poston: Tensor Geometry.
+\item Abraham, Marsden \& Ratiu: Manifolds, Tensor Analysis and Applications.
+\item M. Nakahara: Topology, Geometry and Physics.
+\item Morandi: The Role of Topology in Classical and Quantum Physics
+\item Singer, Thorpe: Lecture Notes on Elementary Topology and Geometry
+\item L. Kauffman: Knots and Physics, World Scientific, Singapore, 1991.
+\item C. Yang and M. Ge: Braid group, Knot Theory \& Statistical Mechanics.
+\item D. Kastler: C-algebras and their applications to Statistical Mechanics and Quantum Field Theory.
+\item Courant and Hilbert: Methods of Mathematical Physics Wiley
+Really a mathematics book in disguise.  Emphasis on ODEs and PDEs.  Proves existence, etc.  Very comprehensive.  2 volumes.
+\item Cecille Dewitt is publishing a book on manifolds that should be out soon (maybe already is).  Very high level, but supposedly of great importance for anyone needing to set the Feynman path integral in a firm foundation.
+\item Howard Georgi: Lie Groups for Particle Phyiscs Addison Wesley Frontiers in Physics Series.
+\item Synge and Schild.
+\end{itemize}
 
 
 Atomic Physics
+\begin{itemize}
+\item 
 Max Born: Atomic Physics
 A classic, though a little old.
-Gerhard Herzberg: Atomic spectra and atomic structure, Translated with the co-operation of the author by J. W. T.Spinks. — New York, Dover publications, 1944
+\item Gerhard Herzberg: Atomic spectra and atomic structure, Translated with the co-operation of the author by J. W. T.Spinks. — New York, Dover publications, 1944
 Old but good.
-E. U. Condon and G. H. Shortley: The theory of atomic spectra, CUP 1951
-G. K. Woodgate: Elementary atomic structure, 2d ed. Oxford: New York: Clarendon Press, Oxford University Press, 1983, c 1980
-Introductory level.
-Alan Corney: Atomic and laser spectroscopy, Oxford, New York: Clarendon Press, 1977
+\item E. U. Condon and G. H. Shortley: The theory of atomic spectra, CUP 1951
+\item G. K. Woodgate: Elementary atomic structure, 2d ed. Oxford: \item New York: Clarendon Press, Oxford University Press, 1983, c 1980. Introductory level.
+\item Alan Corney: Atomic and laser spectroscopy, Oxford, New York: Clarendon Press, 1977
 Excellent,fairly advanced, large experimental bent, but good development of background.  Good stuff on lasers (gas, dye)
-
+\end{itemize}
 
 
 Low Temperature Physics, Superconductivity
-The Theory of Quantum Liquids, by D. Pines and P. Nozieres
+\begin{itemize}
+\item  The Theory of Quantum Liquids, by D. Pines and P. Nozieres
 Superconductivity of Metals and Alloys, P. G. DeGennes A classic introduction.
-Theory of Superconductivity, J. R. Schrieffer
-Superconductivity, M. Tinkham
-Experimental techniques in low-temperature physics, by Guy K. White.
+\item Theory of Superconductivity, J. R. Schrieffer
+\item Superconductivity, M. Tinkham
+\item Experimental techniques in low-temperature physics, by Guy K. White.
 This is considered by many as a "bible" for those working in experimental low-temperature physics.
-
+\end{itemize}
 
 
 
