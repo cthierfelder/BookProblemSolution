@@ -36,6 +36,8 @@
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
+\usepackage[outline]{contour} % glow around text
+
 \usetikzlibrary{shapes}
 \usetikzlibrary{plotmarks}
 \usetikzlibrary{decorations.markings}
@@ -1664,6 +1666,76 @@ The fundamental representation of SU(2) is given by $2\times2$ matrices $U$ (wit
 U=e^{\frac{i}{2}\theta_i\sigma_i}.
 \end{align}
 
+\section{Clifford Algebras}
+Cliff($1,d-1$) is defined as set of $d$ matrices of shape $n\times n$
+\begin{align}
+\{(\gamma^\mu)^A_{\;B}\}_{\mu\in\{0,1,...,d-1\}}\qquad A,B=1,...,n
+\end{align}
+which obey
+\begin{align}
+\left\{\gamma^\mu,\gamma^\nu\right\}\equiv\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu&=2\eta^{\mu\nu}\mathbf{1}_{n\times n}\\
+(\gamma^\mu)^A_{\;B}(\gamma^\nu)^B_{\;C}+(\gamma^\nu)^A_{\;B}(\gamma^\mu)^B_{\;C}&=2\eta^{\mu\nu}(\mathbf{1}_{n\times n})^A_{\;C}
+\end{align}
+with spinor indices $A, B$ and space-time indices $\mu, \nu$.
+
+Some properties of Clifford algebras
+\begin{itemize}
+\item With $\text{diag}\,\eta^{\mu\nu}=(1,-1,-1,-1)$
+\begin{align}
+(\gamma^0)^2=\mathbf{1}_{n\times n}\qquad(\gamma^i)^2=-\mathbf{1}_{n\times n}
+\end{align}
+\item The irreducible representations of Cliff($1,d-1$) have dimensions
+\begin{itemize}
+\item $d$ even: $n=2^{d/2}$
+\item $d$ odd: $n=2^{(d-1)/2}$
+\end{itemize}
+
+\begin{center}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$d$ & 1            & 2            & 3            & 4            & 5, 6, 7, 8\\ \hline\hline
+algebra    & Cliff($1,0$) & Cliff($1,1$) & Cliff($1,2$) &   Cliff($1,3$) & Cliff($1,d-1$)\\ \hline
+$n$ & 1            & 2            & 2            & 4            & 
+4, 8, 8, 16\\ \hline
+\end{tabular}
+\caption{•}
+\end{table}
+\end{center}
+
+\item The $d$ matrices $\{\gamma^\mu\}$ of the Clifford algebra Cliff($1,d-1$) induce $d(d-1)/2$ matrices $S^{\rho\sigma}$  
+\begin{align}
+(S^{\rho\sigma})^A_{\;B}=\frac{i}{4}[\gamma^\rho,\gamma^\sigma]^A_{\;B}
+\end{align}
+which form a representation of the Lie algebra (of the Lorentz group) $\mathfrak{so}(1,d-1)$.
+
+\item For $d=4$ we have Cliff(1,3) which contains $1+(d-1)=4$ matrices of shape $4\times4$
+\begin{align}
+\gamma^0, \gamma^1, \gamma^2, \gamma^3
+\end{align}
+which induces 6 matrices $S^{01}, S^{12}, S^{23}, S^{02}, S^{03}, S^{13}$ which are the generators of $\mathfrak{so}(1,3)$.
+
+\item Chiral/Dirac representation of Cliff(1,3)
+\begin{align}
+\gamma^0=\left(\begin{matrix}
+0 & \mathbf{1}_{2\times2}\\
+\mathbf{1}_{2\times2} & 0
+\end{matrix}\right),\qquad
+\gamma^i=\left(\begin{matrix}
+0 & \sigma^i\\
+-\sigma^i & 0
+\end{matrix}\right)
+\end{align}
+The $\gamma$'s act on a complex vector space - the space of Dirac spinors $(\gamma^\mu)^A_{\;B}\psi^B$. A Lorentz trafo look like
+\begin{align}
+\psi^A(x)&\rightarrow\left[e^{-i\omega_{\rho\sigma}S^{\rho\sigma}}\right]^A_{\;B}\psi^B(x)\\
+&=\left[e^{-i(\omega_{01}S^{01}+...+\omega_{23}S^{23})}\right]^A_{\;B}\psi^B(x)\\
+&=\left[e^{\frac{1}{4}(\omega_{01}[\gamma^0,\gamma^1]+...+\omega_{23}[\gamma^2,\gamma^3])}\right]^A_{\;B}\psi^B(x)
+\end{align}
+
+\end{itemize}
+
 \section{Spinors}
 3D vector ($x,y,z\in\mathbb{R}$) can be written as a Pauli vector (via the Pauli matrices) which can be written as a product of Pauli spinors ($\xi_1,\xi_2\in\mathbb{C}$) 
 \begin{align}
@@ -2484,12 +2556,123 @@ and have dimension $(2\mu+1)(2\nu+1)$
  rep & dim & j & example \\ [0.5ex] 
  \hline\hline
  $(\frac{1}{2},0)\oplus(0,\frac{1}{2})$& - & - & Dirac bispinor $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
- $(\frac{1}{2},\frac{1}{2})\otimes\left[(\frac{1}{2},0)\oplus(0,\frac{1}{2})\right]$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
-  $(0,1)\oplus(0,1)$& - & - & Parity invariant field of 2-forms\\ \hline \\ [0.5ex]
+ $(\frac{1}{2},\frac{1}{2})\otimes\left[(\frac{1}{2},0)\oplus(0,\frac{1}{2})\right]=(1,\frac{1}{2})\otimes(\frac{1}{2},1)$& - & - & Rarita-Schwinger field $\psi^\alpha\quad \alpha\in\{1,2,3,4\}$ \\  [0.5ex]
+  $(1,0)\oplus(0,1)$& - & - & Parity invariant field of 2-forms\\  [0.5ex]
+  $(\frac{3}{2},0)\oplus(0,\frac{3}{2})$& - & - & Gravitino \\ \hline \\ [0.5ex]
 \end{tabular}
 \end{center}
 
+% LORENTZ GROUP (DOUBLE COVER) REPRESENTATIONS
+% Inspired by https://arxiv.org/abs/1705.02227 (V.V. Varlamov)
+% https://en.wikiversity.org/wiki/Representation_theory_of_the_Lorentz_group#Common_representations
+\begin{tikzpicture}[x=1.8cm,y=1.2cm]
+\usetikzlibrary{arrows.meta} % to control arrow size
+\contourlength{1.2pt}
+\newcommand\LP{{\color{mydarkblue}P}} %\Lambda_\mathrm{P}
+\newcommand\LT{{\color{mydarkred}T}} %\Lambda_\mathrm{T}
+\colorlet{myred}{red!60!black}
+\colorlet{myblue}{blue!60!black}
+\colorlet{mygreen}{green!60!black}
+\colorlet{mydarkblue}{blue!40!black}
+\colorlet{mydarkred}{red!40!black}
+\colorlet{mydarkgreen}{green!40!black}
+\colorlet{mydarkpurple}{blue!50!red!50!black}
+\tikzstyle{myarr}=[-{Latex[length=4,width=3]}]
 
+
+  \def\N{4}      % number of spin states
+  \def\r{0.07cm} % radius otimes
+  \def\repr#1{   % format simple fraction
+    \pgfmathsetmacro{\double}{int(2*#1)}
+    \pgfmathsetmacro{\sign}{ifthenelse(#1<0,"-","")}
+    \pgfmathparse{int(mod(\double,2))}
+    \ifnum0=\pgfmathresult\relax % even
+      \pgfmathprintnumber{#1}
+    \else % odd
+      \sign % sign
+      \pgfmathparse{abs(int(\double))}
+      \frac{\pgfmathprintnumber{\pgfmathresult}}{2}
+    \fi
+    \phantom{\sign} % for centered alignment
+  }
+  
+  % AXIS
+  \begin{scope}[shift={(0,-0.2)}]
+    \draw[->,thick] (-\N/2-0.3,0) -- (\N/2+0.4,0); %node[right=-1] {$S$};
+    \foreach \j [evaluate={\x=\j/2; \m=\j/2;}] in {-\N,...,\N}{ % ticks
+      \draw[thick] (\x,0.09) --++ (0,-0.18)
+        node[below=-1] {\strut$\repr{\m}$}; 
+    }
+  \end{scope}
+  
+  % LABELS Dirac spinor
+  \draw[dashed,opacity=0.6] (-1.1*\N/2,1.1*\N) -- (0,0) -- (1.1*\N/2,1.1*\N);
+  \draw[mydarkgreen,fill=mygreen,fill opacity=0.05,rounded corners=2]
+    (-0.9,0.7) rectangle (0.9,1.75)
+    node[mydarkgreen,below right,align=left,opacity=1,scale=0.75] {Weyl\\spinors};
+  \node[mydarkgreen,scale=0.8,below right] at (0.95,1.2)
+    {$\left(\frac{1}{2},0\right)\oplus\left(0,\frac{1}{2}\right)
+       = \!\! \begin{array}{l}
+           \text{Dirac spinor}\\[-0.5mm]
+           \text{(bispinor)}
+         \end{array}$};
+  %\node[mydarkgreen,scale=0.8,below,align=center] at (1.55,0.68)
+  %  {Dirac spinor\\[-3](bispinor)};
+  %\node[mydarkgreen,scale=0.8,below,align=center] at (2.58,0.68)
+  %  {four-\\[-3]vector};
+  %\node[mydarkgreen,scale=0.8,below right] at (1.5,2.2)
+  %  {$(1,0)\oplus(0,1) = \text{adjoint}$}; % parity-invariant 2-form field
+  
+  % LABELS four-vector
+  \draw[mydarkred,fill=myred,fill opacity=0.05,rounded corners=2]
+    (-0.3,1.79) rectangle (0.3,2.93);
+  \node[mydarkred,scale=0.8,right] at (1.2,2.05)
+    {$\left(\frac{1}{2},\frac{1}{2}\right) = %\cong
+      \left(\frac{1}{2},0\right)\otimes\left(0,\frac{1}{2}\right)$};
+  
+  % DOTS
+  \foreach \j [evaluate={\y=\j;}] in {0,...,\N}{
+    \draw (-\j/2,\y) --++ (\j,0);
+    \foreach \i [evaluate={
+      \m=\i-\j/2;
+      \L=\i/2; % left representation
+      \R=\j/2-\i/2; % right representation
+      \x=\m; % x position
+      \myshift=((\i==0||\i==\j)?-2.5*\x:0);
+    }] in {0,...,\j}{
+      \fill[mydarkblue] (\x,\y) circle (0.06cm);
+      \node[mydarkblue,right=\myshift,above]
+        %,fill=white,text opacity=1,fill opacity=0.5,inner sep=0.5,outer sep=3
+        (P\j-\i) at (\x,\y) {$\left(\repr{\L},\repr{\R}\right)$};
+    }
+  }
+  
+  % ARROWS & OTIMES
+  \draw[thick,mydarkred,line cap=round]
+    (-0.23,1.42) -- (0,1.62) coordinate (A) -- (0.23,1.42);
+  \draw[myarr,thick,mydarkred,line cap=round]
+    (A) -- (0,1.94);
+  \draw[mydarkred,line width=0.4,fill=mygreen!5] % circle
+    (A) circle(\r);
+  \draw[mydarkred,line width=0.4] % cross
+    (A)++(45:\r) --++ (-135:2*\r)
+    (A)++(135:\r) --++ (-45:2*\r);
+  
+  % LABELS
+  \node[mydarkgreen,scale=0.7,above=6]
+    at (P1-0) {\strut\contour{mygreen!5}{right spinor}};
+  \node[mydarkgreen,scale=0.7,right=2,above=6]
+    at (P1-1) {\strut\contour{mygreen!5}{left spinor}};
+  \node[mydarkblue,scale=0.7,above=8,align=center]
+    at (P2-0) {self-dual\\[-3]two-form};
+  \node[mydarkblue,scale=0.7,above=8,align=center]
+    at (P2-1) {four-\\[-3]vector};
+  \node[mydarkblue,scale=0.7,left=2,above=8,align=center]
+    at (P2-2) {anti-self-dual\\[-3]two-form};
+  \node[mydarkblue,scale=0.7,right=1,above=8,align=center]
+    at (P4-2) {traceless\\[-3]symmetric tensor};
+  
+\end{tikzpicture}
 
 \newpage
 \chapter{Mathematical}
@@ -2505,6 +2688,34 @@ Lets cut the chase
 &=\frac{(n+1)}{6}(n+2)(2(n+1)+1)\\
 &=\frac{(n+1)(n+2)(2(n+1)+1)}{6}\\
 \end{align}
+
+\section{{\sc Morris} - Georgi - Lie Algebras in Particle Physics 2nd ed.}
+\subsection{Problem 1.A}
+We call the elements $a, b, e$ - as we know a unique neutral element must exist 
+\begin{align}
+\begin{array}{c|ccc}
+\circ & e & a   & b\\ \hline
+e     & e & a   & b\\
+a     & a & a^2 & b\circ a \\
+b     & b & a\circ b & b^2
+\end{array}
+\end{align}
+We have 4 fields to fill
+\begin{itemize}
+\item $a$ needs an inverse - only element left is $b$ meaning $b=a^{-1}$ and therefore $a\circ b=b\circ a=e$ 
+\item $a^2$ can't be $e$ (because $e^2=e$), $a^2$ can't be $a$ (because $a\circ e = a)$ therefore $a^2=b$
+\end{itemize}
+
+\begin{align}
+\begin{array}{c|ccc}
+\circ & e & a   & b\\ \hline
+e     & e & a   & b\\
+a     & a & b & e \\
+b     & b & e & a
+\end{array}
+\end{align}
+
+
 
 \section{{\sc Morris} - Topology without tears}
 \subsection{Problem 1.1.7}
@@ -4238,7 +4449,8 @@ the last (surface) term vanished and we have
 
 \section{{\sc Muenster} - Von der Quantenfeldtheorie zum Standardmodell} 
 \subsection{Problem 2.1 - 1}
-The Klein-Gordon equations is given by
+\begin{enumerate}[(a)]
+\item The Klein-Gordon equations is given by
 \begin{align}
     \left(\partial_\mu\partial^\mu+\frac{m^2c^2}{\hbar^2}\right)\varphi&=0\\
     \left(c^2\partial_{tt}-\triangle+\frac{m^2c^2}{\hbar^2}\right)\varphi&=0
@@ -4299,17 +4511,18 @@ i\hbar\partial_t\begin{pmatrix}
 \phi_2  
 \end{pmatrix}
 \end{align}
-Diagonalization gives
+\item Diagonalization gives
 \begin{align}
     i\hbar\partial_t\phi&=\hat{H}\phi\\
     \rightarrow i\hbar\partial_tS^{-1}\phi&=\underbrace{S^{-1}\hat{H}S}_{=h}S^{-1}\phi\\
-    \lambda_\pm&=\sqrt{2}mc^2\sqrt{1-\frac{\hbar^2}{m^2c^2}\triangle}
+    \lambda_\pm&=\pm\sqrt{2}c\hbar\sqrt{\Delta-\frac{m^2c^2}{\hbar^2}}\\
+    &=\mp\sqrt{2}mc^2\sqrt{1-\frac{\hbar^2}{m^2c^2}\triangle}
 \end{align}
 A semi-canonical choice for the parameter $\alpha$ is to make the $\triangle$ look like a momentum operator
 \begin{align}
-    \i\hbar\alpha c^2=-\frac{\hbar^2}{2m}\quad\rightarrow\quad\alpha=\frac{i\hbar}{2mc^2}
+    i\hbar\alpha c^2=-\frac{\hbar^2}{2m}\quad\rightarrow\quad\alpha=\frac{i\hbar}{2mc^2}
 \end{align}
-
+\end{enumerate}
 
 \section{{\sc Peskin, Schroeder} - An Introduction to Quantum Field Theory}
 \subsection{Problem 2.1 - Maxwell equations}
@@ -4424,8 +4637,200 @@ H&=\int d^3x[\pi\dot\phi+\pi^*\dot\phi^*-\mathcal{L}]\\
 &=\int d^3x[\pi\pi^*+\pi^*\pi-(\underbrace{\dot\phi^*\dot\phi}_{=\pi\pi^*}-\nabla\phi^*\cdot\nabla\phi)+m^2\phi^*\phi]\\
 &=\int d^3x[\pi^*\pi+\nabla\phi^*\cdot\nabla\phi+m^2\phi^*\phi]
 \end{align}
-
+Let's rewrite the Lagrangian with $\phi=\frac{1}{\sqrt{2}}(\phi_1+i\phi_2)$
+\begin{align}
+\mathcal{L}&=\partial_\mu\phi^*\partial^\mu\phi-m^2\phi^*\phi\\
+&=\frac{1}{2}\partial_\mu(\phi_1-i\phi_2)\partial^\mu(\phi_1+i\phi_2)-\frac{1}{2}m^2(\phi_1-i\phi_2)(\phi_1+i\phi_2)\\
+&=\frac{1}{2}(\partial_\mu\phi_1\partial^\mu\phi_1-m^2\phi_1^2)+i\frac{1}{2}(\partial_\mu\phi_2\partial^\mu\phi_2-m^2\phi_2^2)
+\end{align}
+So we use the results for the scalar field
+\begin{align}
+\phi_1(\mathbf{x})&=\int\frac{d^3p}{(2\pi)^3\sqrt{2\omega_\mathbf{p}}}\left(a_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}}+a^\dagger_\mathbf{p}e^{-i\mathbf{p}\cdot\mathbf{x}}\right)\\
+\pi_1(\mathbf{x})&=-i\int\frac{d^3p}{(2\pi)^3\sqrt{2}}\sqrt{\omega_\mathbf{p}}\left(a_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}}+a^\dagger_\mathbf{p}e^{-i\mathbf{p}\cdot\mathbf{x}}\right)\\
+\phi_2(\mathbf{x})&=\int\frac{d^3p}{(2\pi)^3\sqrt{2\omega_\mathbf{p}}}\left(b_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}}+b^\dagger_\mathbf{p}e^{-i\mathbf{p}\cdot\mathbf{x}}\right)\\
+\pi_2(\mathbf{x})&=-i\int\frac{d^3p}{(2\pi)^3\sqrt{2}}\sqrt{\omega_\mathbf{p}}\left(b_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}}+b^\dagger_\mathbf{p}e^{-i\mathbf{p}\cdot\mathbf{x}}\right)\\
+[a_\mathbf{p},a^\dagger_\mathbf{q}]&=(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})\\
+[b_\mathbf{p},b^\dagger_\mathbf{q}]&=(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})
+\end{align}
+then
+\begin{align}
+\phi(\mathbf{x})&=\frac{1}{\sqrt{2}}\int\frac{d^3p}{(2\pi)^3\sqrt{2\omega_\mathbf{p}}}\left((a_\mathbf{p}+ib_\mathbf{p})e^{i\mathbf{p}\cdot\mathbf{x}}+(a^\dagger_\mathbf{p}+ib^\dagger_\mathbf{p})e^{-i\mathbf{p}\cdot\mathbf{x}}\right)\\
+&\equiv\int\frac{d^3p}{(2\pi)^3\sqrt{2\omega_\mathbf{p}}}\left(\alpha_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}}+\beta^\dagger_\mathbf{p} e^{-i\mathbf{p}\cdot\mathbf{x}}\right)\\
+\phi^\dagger(\mathbf{x})&=\frac{1}{\sqrt{2}\int\frac{d^3p}{(2\pi)^3}\sqrt{2\omega_\mathbf{p}}}\left((a^\dagger_\mathbf{p}-ib^\dagger_\mathbf{p})e^{-i\mathbf{p}\cdot\mathbf{x}}+(a_\mathbf{p}-ib_\mathbf{p})e^{i\mathbf{p}\cdot\mathbf{x}}\right)\\
+&\equiv\int\frac{d^3p}{(2\pi)^3\sqrt{2\omega_\mathbf{p}}}\left(\alpha^\dagger_\mathbf{p}e^{-i\mathbf{p}\cdot\mathbf{x}}+\beta_\mathbf{p}e^{i\mathbf{p}\cdot\mathbf{x}}\right)
+\end{align}
+With the new defines creation/annihilation operators
+\begin{align}
+\alpha_\mathbf{p}&=\frac{1}{\sqrt{2}}(a_\mathbf{p}+ib_\mathbf{p})\quad\rightarrow\quad \alpha^\dagger_\mathbf{p}=\frac{1}{\sqrt{2}}(a^\dagger_\mathbf{p}-ib^\dagger_\mathbf{p})\\
+\beta_\mathbf{p}&=\frac{1}{\sqrt{2}}(a_\mathbf{p}-ib_\mathbf{p})\quad\rightarrow\quad \beta^\dagger_\mathbf{p}=\frac{1}{\sqrt{2}}(a^\dagger_\mathbf{p}+ib^\dagger_\mathbf{p})
+\end{align}
+we can calculate their commutation relations ({\bf assuming all the cross commutators between $a,a^\dagger$ and $b, b^\dagger$ are zero})
+\begin{align}
+[\alpha_\mathbf{p},\alpha_\mathbf{q}]
+&=\frac{1}{2}[a_\mathbf{p}+ib_\mathbf{p},a_\mathbf{q}+ib_\mathbf{q}]\\
+&=\frac{1}{2}([a_\mathbf{p},a_\mathbf{q}]+i[b_\mathbf{p},a_\mathbf{q}]+i[a_\mathbf{p},b_\mathbf{q}]-[b_\mathbf{p},b_\mathbf{q}])\\
+&=\frac{1}{2}i([b_\mathbf{p},a_\mathbf{q}]+[a_\mathbf{p},b_\mathbf{q}])\\
+&=0
+\end{align}
+\begin{align}
+[\alpha^\dagger_\mathbf{p},\alpha^\dagger_\mathbf{q}]
+&=\frac{1}{2}([a^\dagger_\mathbf{p}-ib^\dagger_\mathbf{p},a^\dagger_\mathbf{q}-ib^\dagger_\mathbf{q}])\\
+&=\frac{1}{2}([a^\dagger_\mathbf{p},a^\dagger_\mathbf{q}]-i[b^\dagger_\mathbf{p},a^\dagger_\mathbf{q}]-i[a^\dagger_\mathbf{p},b^\dagger_\mathbf{q}]-[b^\dagger_\mathbf{p},b^\dagger_\mathbf{q}])\\
+&=\frac{1}{2}(-i[b^\dagger_\mathbf{p},a^\dagger_\mathbf{q}]-i[a^\dagger_\mathbf{p},b^\dagger_\mathbf{q}])\\
+&=0
+\end{align}
+\begin{align}
+[\alpha_\mathbf{p},\alpha^\dagger_\mathbf{q}]
+&=\frac{1}{2}[a_\mathbf{p}+ib_\mathbf{p},a^\dagger_\mathbf{q}-ib^\dagger_\mathbf{q}]\\
+&=\frac{1}{2}([a_\mathbf{p},a^\dagger_\mathbf{q}]+i[b_\mathbf{p},a^\dagger_\mathbf{q}]-i[a_\mathbf{p},b^\dagger_\mathbf{q}]+[b_\mathbf{p},b^\dagger_\mathbf{q}])\\
+&=(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})+i[b_\mathbf{p},a^\dagger_\mathbf{q}]-i[a_\mathbf{p},b^\dagger_\mathbf{q}]\\
+&=(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})
+\end{align}
+\begin{align}
+[\beta_\mathbf{p},\beta^\dagger_\mathbf{q}]
+&=\frac{1}{2}[a_\mathbf{p}-ib_\mathbf{p},a^\dagger_\mathbf{q}+ib^\dagger_\mathbf{q}]\\
+&=\frac{1}{2}([a_\mathbf{p},a^\dagger_\mathbf{q}]-i[b_\mathbf{p},a^\dagger_\mathbf{q}]+i[a_\mathbf{p},b^\dagger_\mathbf{q}]+[b_\mathbf{p},b^\dagger_\mathbf{q}])\\
+&=(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})
+\end{align}
+\begin{align}
+[\alpha_\mathbf{p},\beta_\mathbf{q}]
+&=\frac{1}{2}[a_\mathbf{p}+ib_\mathbf{p},a_\mathbf{q}-ib_\mathbf{q}]\\
+&=\frac{1}{2}([a_\mathbf{p},a_\mathbf{q}]+i[a_\mathbf{p},b_\mathbf{q}]+i[b_\mathbf{p},a_\mathbf{q}]-[b_\mathbf{p},b_\mathbf{q}])\\
+&=0
+\end{align}
+\begin{align}
+[\alpha_\mathbf{p},\beta^\dagger_\mathbf{q}]
+&=\frac{1}{2}[a_\mathbf{p}+ib_\mathbf{p},a^\dagger_\mathbf{q}-ib^\dagger_\mathbf{q}]\\
+&=\frac{1}{2}([a_\mathbf{p},a^\dagger_\mathbf{q}]+i[a_\mathbf{p},b^\dagger_\mathbf{q}]+i[b_\mathbf{p},a^\dagger_\mathbf{q}]-[b_\mathbf{p},b^\dagger_\mathbf{q}])\\
+&=(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})-(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})\\
+&=0\\
+[\alpha^\dagger_\mathbf{p},\beta^\dagger_\mathbf{q}]&=0
+\end{align}
+As the $\phi{\mathbf{x}}$ is in the Schroedinger picture there is not time dependency and we can not calculate $\pi(\mathbf{x})$ - therefore we need to transform to the Heisenberg picture. To make it simple we do this first for $\phi_1$ and $\phi_2$ using $p\cdot x=E_pt-\mathbf{p}\cdot\mathbf{x}$ and $p^2=E_\mathbf{p}^2-\mathbf{p}^2=m^2$ (meaning $p^0\equiv E_\mathbf{p}=\sqrt{\mathbf{p}^2+m^2}$
+\begin{align}
+\phi_1(x)
+&=e^{iHt}\phi(\mathbf{x})e^{-iHt}\\
+&=...\\
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{p}}}(a_\mathbf{p}e^{-ipx}+a^\dagger_\mathbf{p}e^{ipx})\\
+\phi_2(x)
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{p}}}(b_\mathbf{p}e^{-ipx}+b^\dagger_\mathbf{p}e^{ipx})\\
+\end{align}
+{\it Here we cheated a bit - we used the result from the scalar Lagrangian - meaning using the scalar Hamiltonian.}
+Then
+\begin{align}
+\phi(x)
+&=\int\frac{d^3p}{(2\pi)^3\sqrt{2E_\mathbf{p}}}\left(\alpha_\mathbf{p}e^{-ipx}+\beta^\dagger_\mathbf{p} e^{ipx}\right)\\
+\phi^\dagger(x)
+&=\int\frac{d^3p}{(2\pi)^3\sqrt{2E_\mathbf{p}}}\left(\alpha^\dagger_\mathbf{p}e^{ipx}+\beta_\mathbf{p}e^{-ipx}\right)
+\end{align}
+and
+\begin{align}
+\rightarrow\quad\pi^*(x)=\dot{\phi}(x)
+&=i\int\frac{d^3p}{(2\pi)^3\sqrt{2}}\sqrt{E_\mathbf{p}}\left(-\alpha_\mathbf{p}e^{-ipx}+\beta^\dagger_\mathbf{p} e^{ipx}\right)\\
+\rightarrow\quad\pi(x)=\dot{\phi}^\dagger(x)
+&=i\int\frac{d^3p}{(2\pi)^3\sqrt{2}}\sqrt{E_\mathbf{p}}\left(\alpha^\dagger_\mathbf{p}e^{ipx}-\beta_\mathbf{p} e^{-ipx}\right)
+\end{align}
+The only non-vanishing commutator relations for field and momentum operators are
+\begin{align}
+[\phi(\mathbf{x},t),\pi(\mathbf{y},t)]&=i\int\frac{d^3p}{(2\pi)^3\sqrt{2E_\mathbf{p}}}\int\frac{d^3q}{(2\pi)^3\sqrt{2}}\sqrt{E_\mathbf{q}}[\alpha_\mathbf{p}e^{-ipx}+\beta^\dagger_\mathbf{p} e^{ipx},\alpha^\dagger_\mathbf{q}e^{iqy}-\beta_\mathbf{q} e^{-iqy}]\\
+&=i\int\frac{d^3p\;d^3q}{(2\pi)^6}\frac{1}{2}\sqrt{\frac{E_\mathbf{q}}{E_\mathbf{p}}}([\alpha_\mathbf{p},\alpha^\dagger_\mathbf{q}]e^{-ipx+iqy}-[\beta^\dagger_\mathbf{p},\beta_\mathbf{q}]e^{ipx-iqy})\\
+&=i\int\frac{d^3p\;d^3q}{(2\pi)^6}\frac{1}{2}\sqrt{\frac{E_\mathbf{q}}{E_\mathbf{p}}}(e^{-ipx+iqy}+e^{ipx-iqy})(2\pi)^3\delta^{(3)}(\mathbf{p}-\mathbf{q})\\
+&=i\int\frac{d^3p}{(2\pi)^3}\frac{1}{2}(e^{-ip(x-y)}+e^{ip(x-y)})\\
+&=i\delta^{(3)}(\mathbf{x}-\mathbf{y})\\
+[\phi^\dagger(\mathbf{x},t),\pi^\dagger(\mathbf{y},t)]
+&=i\delta^{(3)}(\mathbf{x}-\mathbf{y})
+\end{align}
+To calculate the Heisenberg equations of motion we start with
+\begin{align}
+\nabla\phi(x)
+&=i\int\frac{d^3p}{(2\pi)^3\sqrt{2E_\mathbf{p}}}\mathbf{p}\left(\alpha_\mathbf{p}e^{-ipx}-\beta^\dagger_\mathbf{p} e^{ipx}\right)\\
+\nabla\phi^\dagger(x)
+&=i\int\frac{d^3p}{(2\pi)^3\sqrt{2E_\mathbf{p}}}\mathbf{p}\left(-\alpha^\dagger_\mathbf{p}e^{ipx}+\beta_\mathbf{p}e^{-ipx}\right)
+\end{align}
+and then
+\begin{align}
+i\dot{\phi}(x)=[\phi(x),H]
+&=\left[\phi(x),\int d^3y(\pi^\dagger\pi+\nabla\phi^\dagger\cdot\nabla\phi+m^2\phi^\dagger\phi)\right]\\
+&=\int d^3y\pi^\dagger(y)[\phi(x),\pi(y)]\\
+&=i\pi^\dagger(x)\\
+i\dot{\phi}^\dagger(x)=[\phi^\dagger(x),H]
+&=\left[\phi(x),\int d^3y(\pi^\dagger\pi+\nabla\phi^\dagger\cdot\nabla\phi+m^2\phi^\dagger\phi)\right]\\
+&=\int d^3y[\phi^\dagger(x),\pi^\dagger(y)]\pi(y)\\
+&=i\pi(x)
+\end{align}
+and 
+\begin{align}
+i\dot{\pi}(x)=[\pi(x),H]
+&=\left[\pi(x),\int d^3y(\pi^\dagger\pi+\nabla\phi^\dagger\cdot\nabla\phi+m^2\phi^\dagger\phi)\right]\\
+&=\left[\pi(x),\int d^3y(\pi^\dagger\pi-\triangle\phi^\dagger\cdot\phi+m^2\phi^\dagger\phi)\right]\\
+&=\int d^3y(-\triangle\phi^\dagger+m^2\phi^\dagger)[\pi(x),\phi(y)]\\
+&=i(\triangle_x-m^2)\phi^\dagger(x)\\
+i\dot{\pi}^\dagger(x)=[\pi^\dagger(x),H]
+&=\left[\pi^\dagger(x),\int d^3y(\pi^\dagger\pi+\nabla\phi^\dagger\cdot\nabla\phi+m^2\phi^\dagger\phi)\right]\\
+&=\left[\pi^\dagger(x),\int d^3y(\pi^\dagger\pi-\phi^\dagger\cdot\triangle\phi+m^2\phi^\dagger\phi)\right]\\
+&=\int d^3y[\pi^\dagger(x),\phi^\dagger(y)](-\triangle\phi+m^2\phi)\\
+&=i(\triangle_x-m^2)\phi(x)
+\end{align}
+resulting in
+\begin{align}
+i\dot\pi(x)\quad&\rightarrow\quad\ddot\phi^\dagger=(\triangle-m^2)\phi^\dagger\\
+&\rightarrow\quad(\Box+m^2)\phi^\dagger=0\\
+i\dot\pi^\dagger(x)\quad&\rightarrow\quad\ddot\phi=(\triangle-m^2)\phi\\
+&\rightarrow\quad(\Box+m^2)\phi=0
+\end{align}
+\item
+\item
+\item
 \end{enumerate}
+
+\subsection{Problem 2.3 - Calculating $D(x-y)$}
+As we are calculation the vacuum expectation value we need to get the $a^\dagger$'s to the right and the $a$'s to the left
+\begin{align}
+\phi(x)\phi(y)
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{p}}}(a_\mathbf{p}e^{-ipx}+a^\dagger_\mathbf{p}e^{ipx})\int\frac{d^3q}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{q}}}(a_\mathbf{q}e^{-iqy}+a^\dagger_\mathbf{q}e^{iqy})\\
+&=\iint\frac{d^3p}{(2\pi)^3}\frac{d^3q}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{q}}}\frac{1}{\sqrt{2E_\mathbf{p}}}(a_\mathbf{p}e^{-ipx}+a^\dagger_\mathbf{p}e^{ipx})(a_\mathbf{q}e^{-iqy}+a^\dagger_\mathbf{q}e^{iqy})\\
+&=\iint\frac{d^3p}{(2\pi)^3}\frac{d^3q}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{q}}}\frac{1}{\sqrt{2E_\mathbf{p}}}(a_\mathbf{p}a_\mathbf{q}e^{-ipx-iqy}+a^\dagger_\mathbf{p}a_\mathbf{q}e^{ipx-iqy}+a_\mathbf{p}a^\dagger_\mathbf{q}e^{-ipx+iqy}+a^\dagger_\mathbf{p}a^\dagger_\mathbf{q}e^{ipx+iqy})\\
+&=\iint\frac{d^3p\,d^3q}{(2\pi)^6}\frac{1}{\sqrt{4E_\mathbf{q}E_\mathbf{p}}}(a_\mathbf{p}a_\mathbf{q}e^{-ipx-iqy}+(a_\mathbf{q}a^\dagger_\mathbf{p}-(2\pi)^3\delta(\mathbf{q}-\mathbf{p}))e^{ipx-iqy}+a_\mathbf{p}a^\dagger_\mathbf{q}e^{-ipx+iqy}+a^\dagger_\mathbf{p}a^\dagger_\mathbf{q}e^{ipx+iqy})
+\end{align}
+then with $a^\dagger|0\rangle=0$ and $\langle0|a=0$
+\begin{align}
+\langle0|\phi(x)\phi(y)|\rangle
+&=\iint\frac{d^3p\,d^3q}{(2\pi)^6}\frac{1}{\sqrt{4E_\mathbf{q}E_\mathbf{p}}}((\langle0|a_\mathbf{q}a^\dagger_\mathbf{p}|0\rangle-\langle0|0\rangle(2\pi)^3\delta(\mathbf{q}-\mathbf{p}))e^{ipx-iqy}+\langle0|a_\mathbf{p}a^\dagger_\mathbf{q}|0\rangle e^{-ipx+iqy})\\
+&=\iint\frac{d^3p\,d^3q}{(2\pi)^6}\frac{1}{\sqrt{4E_\mathbf{q}E_\mathbf{p}}}\left(\left(\frac{\langle\mathbf{q}|\mathbf{p}\rangle}{\sqrt{4E_\mathbf{p}E_\mathbf{q}}}-(2\pi)^3\delta(\mathbf{q}-\mathbf{p})\right)e^{ipx-iqy}+\frac{\langle\mathbf{p}|\mathbf{q}\rangle}{\sqrt{4E_\mathbf{p}E_\mathbf{q}}} e^{-ipx+iqy}\right)\\
+&=\iint\frac{d^3p\,d^3q}{(2\pi)^6}\frac{1}{\sqrt{4E_\mathbf{q}E_\mathbf{p}}}\left(\left(\frac{2E_\mathbf{p}(2\pi)^3\delta^{(3)}(\mathbf{q}-\mathbf{p})}{\sqrt{4E_\mathbf{p}E_\mathbf{q}}}-(2\pi)^3\delta(\mathbf{q}-\mathbf{p})\right)e^{ipx-iqy}+\frac{2E_\mathbf{p}(2\pi)^3\delta^{(3)}(\mathbf{q}-\mathbf{p})}{\sqrt{4E_\mathbf{p}E_\mathbf{q}}} e^{-ipx+iqy}\right)\\
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{4E^2_\mathbf{p}}}\left(
+\underbrace{\left(\frac{2E_\mathbf{p}}{\sqrt{4E^2_\mathbf{p}}}-1\right)}_{=0}e^{ipx-ipy}+\frac{2E_\mathbf{p}}{\sqrt{4E^2_\mathbf{p}}} e^{-ipx+ipy}\right)\\
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{2E_\mathbf{p}}e^{-ip(x-y)}
+\end{align}
+Now we can calculate with $x^0-y^0=0$ and $\mathbf{x}-\mathbf{y}=\mathbf{r}$
+\begin{align}
+D(x-y)
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{2E_\mathbf{p}}e^{-ip(x-y)}\\
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{2E_\mathbf{p}}e^{-i(E_p(x^0-y^0)-\mathbf{p}\cdot(\mathbf{x}-\mathbf{y}))}\\
+&=\int\frac{d^3p}{(2\pi)^3}\frac{1}{2E_\mathbf{p}}e^{i\mathbf{p}\cdot(\mathbf{x}-\mathbf{y})}
+\end{align}
+transforming to spherical coordinates
+\begin{align}
+D(x-y)
+&=2\pi\int_0^\infty\frac{p^2dp}{(2\pi)^3}\frac{1}{2\sqrt{p^2+m^2}}\int\sin\theta \,e^{ipr\cos\theta}d\theta\\
+&=2\pi\int_0^\infty\frac{p^2dp}{(2\pi)^3}\frac{1}{2\sqrt{p^2+m^2}}\left[\frac{1}{(-ipr)}e^{ipr\cos\theta}\right]_0^\pi\\
+&=2\pi\int_0^\infty\frac{p^2dp}{(2\pi)^3}\frac{1}{2\sqrt{p^2+m^2}}\frac{1}{(-ipr)}(e^{-ipr}-e^{ipr})\\
+&=\frac{i}{2(2\pi)^2r}\int_0^\infty\frac{p\,dp}{\sqrt{p^2+m^2}}(e^{-ipr}-e^{ipr})\\
+&=\frac{i}{2(2\pi)^2r}\left(\int_0^\infty\frac{p\,dp}{\sqrt{p^2+m^2}}e^{-ipr}-\int_0^\infty\frac{p\,dp}{\sqrt{p^2+m^2}}e^{ipr}\right)\\
+&=\frac{i}{2(2\pi)^2r}\left(\int_0^\infty\frac{p\,dp}{\sqrt{p^2+m^2}}e^{-ipr}-\int_0^{-\infty}\frac{(-p)\,(-dp)}{\sqrt{(-p)^2+m^2}}e^{i(-p)r}\right)\\
+&=\frac{i}{2(2\pi)^2r}\int_{-\infty}^\infty\frac{p\,dp}{\sqrt{p^2+m^2}}e^{-ipr}\\
+&=\frac{-i}{2(2\pi)^2r}\int_{-\infty}^\infty\frac{p\,dp}{\sqrt{p^2+m^2}}e^{ipr}\qquad (r\rightarrow-r)
+\end{align}
+Let's use contour integration (closing the contour above - $\lim_{p\rightarrow i\infty}e^{ipr}=e^{-\infty r}=0$ so the upper half circle integral vanishes). Furthermore we see that the square root becomes zero at $\pm im$. 
+
+
+\subsection{Problem 3.1 - Lorentz group}
+\begin{align}
+J_+^i=\frac{1}{2}\left(\frac{1}{2}\epsilon^{ijk}J^{jk}+iJ^{0i}\right)
+\end{align}
+
+
+
 
 \section{{\sc Schwartz} - Quantum Field Theory and the Standard Model}
 \subsection{Problem 2.2 Special relativity and colliders}
@@ -4767,13 +5172,15 @@ and therefore
     \frac{\partial\mathscr{L}}{\partial \phi}-\partial_\beta\frac{\partial\mathscr{L}}{\partial(\partial_\beta \phi)}+\partial_\mu\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}=0\\
     \rightarrow -\Box\phi+m^2\phi-\frac{\lambda}{3!}\phi^3=0
 \end{align}
-and the Hamiltonian
+and the Hamiltonian with $-\phi\Box\phi\sim(\partial_\mu\phi)(\partial^\mu\phi)=\eta^{\mu\nu}\partial_\mu\phi\partial_\nu\phi$
 \begin{align}
+\pi
+&=\frac{\partial\mathcal{L}}{\partial\dot\phi}\\
+&=\dot\phi\\
 \mathcal{H}
 &=\pi\dot\phi-\mathcal{L}\\
-&=\frac{\partial\mathcal{L}}{\partial\dot\phi}\dot\phi-\mathcal{L}\\
-&=-\mathcal{L}\\
-&=\frac{1}{2}\phi\Box\phi-\frac{1}{2}m^2\phi^2+\frac{\lambda}{4!}\phi^4
+&=(\dot\phi)^2-\mathcal{L}\\
+&=\frac{1}{2}\dot\phi^2+\frac{1}{2}(\nabla\phi)^2-\frac{1}{2}m^2\phi^2+\frac{\lambda}{4!}\phi^4
 \end{align}
 \begin{enumerate}[label=(\alph*)]
 \item 
@@ -11596,7 +12003,7 @@ i\frac{\partial}{\partial t}a=[a,H]=...=\omega a\quad\rightarrow\quad a(t)=a(0)e
 \end{align}
 then
 \begin{align}
-\phi_0(\vec{x})
+\phi_0(\vec{x},t)
 &=\int\frac{d^3p}{(2\pi)^3}\left(a_p(t)e^{i\vec{p}\vec{x}}+a_p^\dagger (t)e^{-i\vec{p}\vec{x}}\right)\\
 &=\int\frac{d^3p}{(2\pi)^3}\left(a_pe^{ipx}+a_p^* e^{-ipx}\right)
 \end{align}
@@ -11658,7 +12065,7 @@ i\partial_t\psi(x)
 \phi(\vec{x},t)
 &=\int\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2\omega_p}}\left(a_p(t)e^{ipx}+a_p^\dagger(t) e^{-ipx}\right)
 \end{align}
-and assume at any fixed time $t$ the interaction theory operators $a_p(t)$ and $a_p^\dagger(t)$ have the same commutation algebra as the free ones.This means at any given time $t_0$ they are identical $a_p(t_0)=a_p$ and $\phi(\vec{x},t_0)=\phi_0(\vec{x},t_0)$.
+and assume at any fixed time $t$ the interaction theory operators $a_p(t)$ and $a_p^\dagger(t)$ have the same commutation algebra as the free ones. This means at any given time $t_0$ they are identical $a_p(t_0)=a_p$ and $\phi(\vec{x},t_0)=\phi_0(\vec{x},t_0)$.
 
 
 
