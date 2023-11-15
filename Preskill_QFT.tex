@@ -5,24 +5,856 @@
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{bbold}
 
 
 
-
-\title{Preskill - QFT}
+\title{QFT}
 \author{ch.thierfelder }
 \date{March 2021}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \section{The free scalar field}
-%1.1
-To begin with, we will approach quantum field theory by starting with a (relativistic) classical theory, and then performing canonical quantization (canonical quantization is a procedure for formulating a quantum theory with a given classical limit). This may be a perverse choice of a place to begin if our real interest is in particles, but we will be able to justify it in retrospect.
 
-So to get started we need to specify some relativistically invariant (frame independent) classical dynamics for \textcolor{red}{a field on set of fields}, and we'll consider at first the simplest case, that of a single scalar field.
+%**************************** 1.1 *****************************
+To begin with, we will approach quantum field theory by starting with a (relativistic) classical theory, and then performing canonical quantization (canonical quantization is a procedure for formulating a quantum theory with a given classical limit). This may be a perverse choice of a place to begin if our real interest is in \underline{particles}, but we will be able to justify it in retrospect.
 
-Scalar refers to the transformation properties of the field under a Lorentz transformation.
+So to get started we need to specify some relativistically invariant (frame independent) classical dynamics for a field or set of fields, and we will consider at first the simplest case, that of a single \underline{scalar} field.
 
+\underline{Scalar} refers to the transformation properties of the field under a \underline{Lorentz transformation}.
+
+\subsection{Lorentz group}
+The Lorentz group is the group of linear transformations that preserve the spacetime interval $dt^2-d\mathbf{x}^2$.
+
+We will denote $x^\mu=(t,\mathbf{x})$ with $\mu=0, 1, 2, 3$ and $c=1$.
+\begin{align}
+x^2
+=(x^0)^2-(x^1)^2-(x^2)^2-(x^3)^2
+=x^\mu\eta_{\mu\nu}x^nu=x^\mu x_\mu
+\end{align}
+where $\eta_{\mu\nu}=\text{diag}(1,-1,-1,-1)$. 
+
+%**************************** 1.2 *****************************
+Let's now consider a Lorentz transformation $\Lambda$
+\begin{align}
+x^\mu&\rightarrow\Lambda^\mu_{\,\nu}x^\nu
+\end{align}
+which requires
+\begin{align}
+x^2&\rightarrow\eta_{\mu\nu}\Lambda^\mu_{\,\lambda}\Lambda^\nu_{\,\rho}x^\lambda x^\rho
+\end{align}
+and therefore results in
+\begin{align}
+\eta_{\mu\nu}\Lambda^\mu_{\,\lambda}\Lambda^\nu_{\,\rho}&=\eta_{\lambda\rho}
+\end{align}
+which is equivalent to $\Lambda^T\eta\Lambda=\eta$ in matrix notation.
+
+This group is actually $O(1,3)$. But by Lorentz group we normally mean its connected component $SO(1,3)$
+
+A field $\phi$is a real function of spacetime $\phi(x)$. A scalar field transforms under a Lorentz transformation $\Lambda$ like a scalar (tensor of rank zero)
+\begin{align}
+\phi(x)\rightarrow\phi(x')
+\end{align}
+where the new coordinate system is given by $x'=\Lambda x$.
+
+The classical dynamics of $\phi$ is Lorentz-invariant (frame independent) if the equation of motion is unchanged when $x$ is replace by $x'$ (or if the \underline{action} is left invariant by a Lorentz transformation).
+
+The action $S[\phi]$ is a functional of the field $\phi(t,\mathbf{x})$. As in particle mechanic, we demand that $S$ involves no higher time derivatives of $\phi$ than the first derivative which ensures that $\phi$ will have a well-formulated initial value problem. When $\phi(t_0,\mathbf{x})$ and its first time derivative $\dot{\phi}(t_0,\mathbf{x})$ are specified at an initial time $t_0$ (or some initial spacelike 3-surface), they are determined by the classical equations at all subsequent times. In a relativistic theory higher spacial derivativs than the first will also be forbidden.
+
+%**************************** 1.3 *****************************
+If we want a \underline{causal} theory, the action should be in spacetime; the should be no terms that couple $\phi(x)$ or its derivatives $\frac{\partial}{\partial x^\mu}\phi(x)=\partial_\mu\phi(x)$ at different spacetime points.
+
+With this conditions imposed, the action has the form
+\begin{align}
+S[\phi]=\int d^4\,x\mathcal{L}(\partial_\mu\phi(x),\phi(x))
+\end{align}
+Here I've also demanded translation invariance - homogeneity of space and time, so that $\mathcal{L}$ has no explicit dependence on $x$.
+
+Now we will consider an important special case, the \underline{free} scalar field theory. The free theory has a \underline{linear} equation on motion, and hence is exactly solvable - both classically and quantum mechanically. (Compare the harmonic oscillator in mechanics - the action is \underline{quadratic} in $\phi$.
+
+What are the possible quadratic terms in $\mathcal{L}$? Remember that we want $S$ to be Lorentz-invariant. Since the measure
+\begin{align}
+d^4x=dt\,d\mathbf{x}
+\end{align}
+is Lorentz-invariant, $\mathcal{L}$ must be Lorentz-invariant (only change by a total derivative under a Lorentz transformation) the only possible terms are
+\begin{align}
+\partial^\mu\partial_\mu\phi\qquad\text{and}\qquad\phi^2
+\end{align}
+%**************************** 1.4 *****************************
+We exclude $\phi\partial_\mu\phi$ because is it not Lorentz-invariant, $\int dy\,\phi(y)f(x-y)\phi(x)$ because it is not local $\phi(x)^3$ because it is not quadratic etc.
+
+So the most general possible action for the free scalar field theory is
+\begin{align}
+S[\phi]=\int d^4x\left[\frac{1}{2}\partial_\mu\phi(x)\partial^\mu\phi(x)-\frac{1}{2}m^2\phi(x)^2\right]
+\end{align}
+with $m^2>0$, for the energy bounden below. If the $(\partial\phi)^2$ term had some other coefficient, we could rescale $\phi$ to absorb it, as long as it was positive. Thus, the free scalar field theory has just one arbitrary parameter $m^2$. It obviously has the dimension of (length)$^{-2}$. In natural units ($\hbar=1=c$) this is the same as (mass)$^2$.
+
+We have now formulated a classical field theory, which we to quantize. How do we proceed? We should think of $\phi(t,\mathbf{x})$ as a set of dynamical variables indexed by $\mathbf{x}$ and proceed with canonical quantization.
+
+\subsection{Review of Canonical Quantization}
+Consider a classical theory with $N$ degrees of freedom
+\begin{align}
+S=\int_{t_1}^{t_2}dt\;L(q^a,\dot{q}^a),\qquad a=1,2,...,N
+\end{align}
+%**************************** 1.5 *****************************
+the classical equation of motion is found by extremizing $S$ (with fixed  $q^1$ and $q^N$ - meaning $\delta q^1=0=\delta q^N$)
+\begin{align}
+\delta S=0
+&=\int_{t_1}^{t_2}dt\left[\frac{\partial L}{\partial\dot{q}^a}\delta\dot{q}^a+\frac{\partial L}{\partial q^a}\delta q^a\right]\\
+&=\int_{t_1}^{t_2}dt\,\delta q^a\left[-\frac{d}{dt}\frac{\partial L}{\partial\dot{q}^a}+\frac{\partial L}{\partial q^a}\right]+\left.\delta q^a\frac{\partial L}{\partial q^a}\right|_{t_1}^{t_2}
+\end{align}
+which gives us the Euler-Lagrange equations for each degree of freedom
+\begin{align}
+-\frac{d}{dt}\frac{\partial L}{\partial\dot{q}^a}+\frac{\partial L}{\partial q^a}=0, \qquad a=1,..., N
+\end{align}
+To obtain the canonical formalism, eliminate the $\dot{q}_a$ in favour of $p_a$ (which is possible if the number of independent $\dot{q}^a$ and $p^a$ is the same)
+\begin{align}
+H(q^a,p_a)=\left.\left[p_a\dot{q}^a-L(q^a,\dot{q}^a)\right]\right|_{p_a=\frac{\partial L}{\partial \dot{q}^a}}.
+\end{align}
+Thus
+\begin{align}
+dH
+&=\dot{q}^a dp_a+p_a d\dot{q}^a-\frac{\partial L}{\partial q^a}dq^a-\frac{\partial L}{\partial \dot{q}_a} d\dot{q}^a\\
+&=\dot{q}^a dp_a-\frac{\partial L}{\partial q^a}dq^a\\
+&\equiv\frac{\partial H}{\partial p_a}dp_a+\frac{\partial H}{\partial q^a}dq^a
+\end{align}
+resulting in the Hamiltonian equations
+\begin{align}
+\frac{\partial H}{\partial p_a}&=\dot{q}^a\\
+\frac{\partial H}{\partial q^a}&=-\frac{\partial L}{\partial q^a}=\dot{p}_a
+\end{align}
+(if all $p_a$'s and $q^a$'s are independent).
+
+To quantize, we elevate $p$'s and $q$'s to the status of operators in a Hilbert space, obeying "canonical commutation relations", which are just canonical Poisson brackets - reinterpreted as operator commutators with a factor if $i\hbar$ inserted. We will use the \underline{Heisenberg picture}, in which operators are time depended, so canonical commutation relations are \underline{equal time} commutator relations ($\hbar=1$):
+%**************************** 1.6 *****************************
+\begin{align}
+[q^a(t),q^b(t)]&=0\\
+[p_a(t),p_b(t)]&=0\\
+[q^a(t),p_b(t)]&=i\delta^a_b
+\end{align}
+Time evolution is governed by the operator $H(p,q)$ - (the might be possible ordering ambiguity) - according to
+\begin{align}
+O(t)=e^{iHt}O(0)e^{-iHt}
+\end{align}
+or is $O$ has no \underline{explicit} time dependence
+\begin{align}
+\frac{dO}{dt}=-i[O,H].
+\end{align}
+Since the canonical commutation relations can be "represented" by
+\begin{align}
+q^a=i\frac{\partial}{\partial p_a}
+\end{align}
+or
+\begin{align}
+p_a=-i\frac{\partial}{\partial q^a}
+\end{align}
+we have
+\begin{align}
+\dot{q}^a&=-i[q^a,H]=-i(q^aH-Hq^a)=\left(\frac{\partial H}{\partial p_a}+H\frac{\partial}{\partial p_a}-H\frac{\partial}{\partial p_a}\right)\\
+&=\frac{\partial H}{\partial p_a}\\
+\dot{p}_a&=-i[p_a,H]=-i(p_aH-Hp_a)=-\left(\frac{\partial H}{\partial q^a}+H\frac{\partial}{\partial q^a}-H\frac{\partial}{\partial q^a}\right)\\
+&=-\frac{\partial H}{\partial q_a}
+\end{align}
+Thus the canonical equations of motions are satisfied as operator equations. In particular, they are satisfied as expectation value, so the classical limit of this quantum system is the classical system we began with (correspondence principle).
+
+\subsection{Generalization to Field Theory}
+The action of a scalar field theory is
+\begin{align}
+S=\int d^4x\;\mathcal{L}(\phi,\partial^\mu\phi)
+\end{align}
+We obtain the classical equations of motion (field equations) by extremizing $S$, with $\phi$ held fixed on the "boundary" of spacetime
+%*************************** 1.7 ****************************
+\begin{align}
+\delta S
+&=\int d^4x\left[\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial_\mu\delta\phi+\frac{\partial\mathcal{L}}{\partial\phi}\delta\phi\right]\\
+&=\int d^4x\,\delta\phi\left[-\frac{\partial_\mu\partial\mathcal{L}}{\partial(\partial_\mu\phi)}+\frac{\partial\mathcal{L}}{\partial\phi}\right]\\
+&\rightarrow \frac{\partial\mathcal{L}}{\partial\phi}-\frac{\partial_\mu\partial\mathcal{L}}{\partial(\partial_\mu\phi)}=0
+\end{align}
+In the case of the free scalar field
+\begin{align}
+\mathcal{L}=\frac{1}{2}\partial_\mu\phi\partial^\mu\phi-\frac{1}{2}m^2\phi^2
+\end{align}
+thus the equation of motion is
+\begin{align}
+\partial_\mu\partial^\mu\phi+m^2\phi=0
+\end{align}
+which is called the Klein-Gordon equation. It is a linear equation of motion that can be easily solved the Fourier transforming \textcolor{red}{(only the space dimensions)}
+\begin{align}
+\phi(t,\mathbf{x})=\int \frac{d^3k}{(2\pi)^{3/2}}e^{i\mathbf{k}\cdot\mathbf{x}}\tilde{\phi}(t,\mathbf{k})
+\end{align}
+then \textcolor{red}{(we obtain an equation - for each mode $\mathbf{k}$ - which looks like an harmonic oscillator)}
+\begin{align}
+\frac{\partial^2}{\partial t^2}\tilde{\phi}(t,\mathbf{k})=(-\mathbf{k}^2+m^2)\tilde{\phi}(t,\mathbf{k}).
+\end{align}
+This has the general solution ($\omega_k=\sqrt{\mathbf{k}^2+m^2}$)
+\begin{align}
+\tilde{\phi}(t,\mathbf{k})
+&=A(\mathbf{k})e^{-i\omega_k t}+B(\mathbf{k})e^{i\omega_k t}\\
+-\omega_k^2[A(\mathbf{k})e^{-i\omega_kt}+B(\mathbf{k})e^{i\omega_kt}]&=-(\mathbf{k}^2+m^2)[A(\mathbf{k})e^{-i\omega_kt}+B(\mathbf{k})e^{i\omega_kt}]
+\end{align}
+Furthermore, if we require $\phi(t,\mathbf{x})$ to be real the Fourier transform needs to fulfill
+\begin{align}
+\tilde{\phi}(\mathbf{k})=\tilde{\phi}(-\mathbf{k})^*.
+\end{align}
+Thus
+\begin{align}
+\tilde{\phi}(t,\mathbf{k})
+&=A(\mathbf{k})e^{-i\omega_k t}+A(-\mathbf{k})^*e^{i\omega_k t}
+\end{align}
+%*************************** 1.8 ****************************
+So the general solution is
+\begin{align}
+\phi(t,\mathbf{x})
+&=\int\frac{d^3k}{(2\pi)^{3/2}}\left[A(\mathbf{k})e^{-i\omega_k t}e^{i\mathbf{k}\mathbf{x}}+A(\mathbf{k})^*e^{i\omega_k t}e^{-i\mathbf{k}\mathbf{x}}\right]
+\end{align}
+where we changed variables $\mathbf{k}\rightarrow-\mathbf{k}$ in the second term.
+
+We will  sometimes write this as
+\begin{align}
+\phi(x)
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left[a(\mathbf{k})e^{-ikx}+a(\mathbf{k})^*e^{ikx}\right]
+\end{align}
+with the understanding $k_0=\omega_k$ in the exponent
+\begin{align}
+kx=k_0x^0-\mathbf{k}\mathbf{x}.
+\end{align}
+I have also by convention renormalised the coefficients
+\begin{align}
+A(\mathbf{k})=\frac{1}{\sqrt{2\omega_k}}a(\mathbf{k}).
+\end{align}
+The reason for this peculiar convention will become clear later.
+
+Proceeding with our review of the canonical formalism, we construct a Hamiltionian by
+\begin{align}
+H(\pi,\phi)=\underset{\dot{\phi}}{\text{Ext}}\int d^3x\left[\pi\dot{\phi}-\mathcal{L}(\phi,\partial_\mu\phi)\right]
+\end{align}
+The canonical momentum $L$
+\begin{align}
+\pi(x)=\frac{\delta L}{\delta \dot{\phi}(x)}=\frac{\partial \mathcal{L}}{\partial \dot{\phi}(x)}
+\end{align} 
+or the partial derivative of the Lagrangian density.
+%*************************** 1.9 ****************************
+All of Hamiltonian mechanics generalizes in this way, with partial derivatives replaced by
+\begin{align}
+\frac{\partial}{\partial q}\quad &\rightarrow\quad\frac{\delta}{\delta \phi(x)}\\
+\frac{\partial}{\partial p}\quad &\rightarrow\quad\frac{\delta}{\delta \pi(x)}
+\end{align}
+In the free scalar field theory
+\begin{align}
+H=\int d^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]
+\end{align}
+(we choose $m^2>0$ so $H$ is bound from below, $\phi=0$ is a stable solution).
+
+Quantization: equal time commutation relations become
+\begin{align}
+[\phi(\mathbf{x},t),\phi(\mathbf{y},t)]&=0\\
+[\pi(\mathbf{x},t),\pi(\mathbf{y},t)]&=0\\
+[\phi(\mathbf{x},t),\pi(\mathbf{y},t)]&=i\delta^{(3)}(\mathbf{x}-\mathbf{y})
+\end{align}
+Comments:
+\begin{itemize}
+\item Note the continuum normalization; the Dirac $\delta$-function in commutator indicates that the field s are singular distributions - this will be a source of infinities. To be mathematically well-defined, fields should be "smeared out". For example, smearing in space at fixed time results in
+\begin{align}
+\phi(f,t)&=\int d^3x\;\phi(\mathbf{x},t)f(\mathbf{x})\\
+\rightarrow [\phi(f,t),\pi(g,t)]
+&=\int d^3x\;\phi(\mathbf{x},t)f(\mathbf{x})\int d^3y\;\phi(\mathbf{y},t)g(\mathbf{y})-...\\
+&=\int d^3x\int d^3y\,[\phi(\mathbf{x},t)f(\mathbf{x}),\phi(\mathbf{y},t)g(\mathbf{y})]\\
+&=\int d^3x\int d^3y\,f(\mathbf{x})g(\mathbf{y})[\phi(\mathbf{x},t),\phi(\mathbf{y},t)]\\
+&=i\int d^3x\int d^3y\,f(\mathbf{x})g(\mathbf{y})\delta^3(\mathbf{x}-\mathbf{y})\\
+&=i\int d^3x\,f(\mathbf{x})g(\mathbf{x})
+\end{align}
+\item Treating fields as Heisenberg operators is natural. The fields depend on $\mathbf{x}$, so they ought to be permitted to depend on $t$ as well.
+%*************************** 1.10 ****************************
+\item However the quantization procedure obviously spoils Lorentz invariance, as it is frame dependent; equal time is frame-dependent (equal time is a relative concept). Further the Hamiltonian $H$ is one component of a 4-vector, but is given a special status as the generator of the evolution od the system. After the quantization procedure is carried out, we are obligated to check that the quantum theory does not really depend on the choice of frame that we used.
+\item Note the canonical quantization procedure may be generalized to a theory involving any number of of scalar fields.
+\end{itemize}
+
+Now, lets construct the Hamiltonian of the system starting with the Lagrangian
+\begin{align}
+\mathcal{L}(\phi,\partial_\mu\phi)
+&=\frac{1}{2}\partial_\mu\phi(x)\partial^\mu\phi(x)-\frac{1}{2}m^2\phi(x)^2\\
+&=\frac{1}{2}\eta^{\mu\nu}\partial_\mu\phi(x)\partial_\nu\phi(x)-\frac{1}{2}m^2\phi(x)^2\\
+&=\frac{1}{2}\left(\dot{\phi}^2-(\nabla\phi)^2\right)-\frac{1}{2}m^2\phi^2
+\end{align}
+then with
+\begin{align}
+\rightarrow\pi(x)&=\frac{\partial \mathcal{L}}{\partial \dot{\phi}(x)}=\dot{\phi}
+\end{align}
+we obtain
+\begin{align}
+\rightarrow H(\pi,\phi)&=\underset{\dot{\phi}}{\text{Ext}}\int d^3x\left[\pi\dot{\phi}-\mathcal{L}(\phi,\partial_\mu\phi)\right]\\
+&=\int d^3x\left[\frac{1}{2}\dot{\phi}^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]\\
+&=\int d^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]
+\end{align}
+It is conventional to make a change of variable - since
+\begin{align}
+\phi(x)
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left[a(\mathbf{k})e^{-ikx}+a(\mathbf{k})^*e^{ikx}\right]
+\end{align} 
+solves the classical equations of motion, we may expect that $a(\mathbf{k})$ is a time-independent operator (in the Heisenberg representation of the quantum theory) - assuming $\dot{a}=0$ and with $kx=k_0x^0-\mathbf{kx}=\omega_kt-\mathbf{kx}$ we get
+\begin{align}
+\dot{\phi}(x)
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left[(-ik_0)a(\mathbf{k})e^{-ikx}+(ik_0)a(\mathbf{k})^*e^{ikx}\right]\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}(i\omega_k)\left[-a(\mathbf{k})e^{-ikx}+a(\mathbf{k})^*e^{ikx}\right]\\
+\dot{\phi}(x)^2
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\int\frac{d^3k'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}(-\omega_k\omega_{k'})\left[a(\mathbf{k})a(\mathbf{k}')e^{-i(k+k')x}\right.\\
+&\quad \left.-a(\mathbf{k})a(\mathbf{k}')^*e^{-i(k-k')x}-a(\mathbf{k})^*a(\mathbf{k}')^*e^{i(k-k')x}+a(\mathbf{k})^*a(\mathbf{k}')^*e^{i(k+k')x}\right]
+\end{align}
+and
+\begin{align}
+\nabla{\phi}(x)
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}(i\mathbf{k})\left[a(\mathbf{k})e^{-ikx}-a(\mathbf{k})^*e^{ikx}\right]
+\nabla{\phi}(x)^2\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\int\frac{d^3k'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}(-\mathbf{k}\mathbf{k}')\left[a(\mathbf{k})a(\mathbf{k}')e^{-i(k+k')x}\right.\\
+&\quad \left.-a(\mathbf{k})a(\mathbf{k}')^*e^{-i(k-k')x}-a(\mathbf{k})^*a(\mathbf{k}')^*e^{i(k-k')x}+a(\mathbf{k})^*a(\mathbf{k}')^*e^{i(k+k')x}\right]
+\end{align}
+and therefore (promoting $a$'s and $a^*$ to operators)
+%*************************** 1.11 ****************************
+\begin{align}
+H&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\int\frac{d^3k'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}\int d^3x\\
+&\quad\left[a(\mathbf{k})a(\mathbf{k}')(-\omega_k\omega_{k'}-\mathbf{k}\mathbf{k}'+m^2)e^{-i(k+k')x}\right.\\
+&\quad +a(\mathbf{k})a(\mathbf{k}')^\dagger(\omega_k\omega_{k'}+\mathbf{k}\mathbf{k}'+m^2)e^{-i(k-k')x}\\
+&\quad +a(\mathbf{k})^\dagger a(\mathbf{k}')(\omega_k\omega_{k'}+\mathbf{k}\mathbf{k}'+m^2)e^{i(k-k')x}\\
+&\quad\left.+a(\mathbf{k})^\dagger a(\mathbf{k}')^\dagger(-\omega_k\omega_{k'}-\mathbf{k}\mathbf{k}'+m^2)e^{i(k+k')x}\right]
+\end{align}
+Now the $x$-integral gives $\delta$-functions
+\begin{align}
+H&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\int\frac{d^3k'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}\\
+&\quad\left[a(\mathbf{k})a(\mathbf{k}')(-\omega_k\omega_{k'}-\mathbf{k}\mathbf{k}'+m^2)\delta(k+k')\right.\\
+&\quad +a(\mathbf{k})a(\mathbf{k}')^\dagger(\omega_k\omega_{k'}+\mathbf{k}\mathbf{k}'+m^2)\delta(k-k')\\
+&\quad +a(\mathbf{k})^\dagger a(\mathbf{k}')(\omega_k\omega_{k'}+\mathbf{k}\mathbf{k}'+m^2)\delta(k-k')\\
+&\quad\left.+a(\mathbf{k})^\dagger a(\mathbf{k}')^\dagger(-\omega_k\omega_{k'}-\mathbf{k}\mathbf{k}'+m^2)\delta(k+k')\right]
+\end{align}
+and after the $\mathbf{k}'$-integration
+\begin{align}
+H
+&=\int\frac{d^3k}{(2\pi)^{3}2\omega_k}\\
+&\quad\left[a(\mathbf{k})a(-\mathbf{k})(-\omega_k^2+\mathbf{k}^2+m^2)\right.\\
+&\quad +a(\mathbf{k})a(\mathbf{k})^\dagger(\omega_k^2+\mathbf{k}^2+m^2)\\
+&\quad +a(\mathbf{k})^\dagger a(\mathbf{k})(\omega_k^2+\mathbf{k}^2+m^2)\\
+&\quad\left.+a(\mathbf{k})^\dagger a(-\mathbf{k})^\dagger(-\omega_k^2+\mathbf{k}^2+m^2)\right]\\
+&=\int\frac{d^3k}{(2\pi)^{3}2\omega_k}
+[a(\mathbf{k})a(\mathbf{k})^\dagger(\omega_k^2+\mathbf{k}^2+m^2)
+ +a(\mathbf{k})^\dagger a(\mathbf{k})(\omega_k^2+\mathbf{k}^2+m^2)]\\
+&=\int d^3k\frac{\omega_k}{2}[a(\mathbf{k})a(\mathbf{k})^\dagger+a(\mathbf{k})^\dagger a(\mathbf{k})^*]
+\end{align}
+Note that we have been careful about operator ordering. We are express $H$ in terms of $a$ an $a^\dagger$. Now we need to know commutator relation for the operators which can be obtained from the canonical relations. We have
+\begin{align}
+\dot{\phi}(x)-i\omega_{k'}\phi(x)
+&=-\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}(i\omega_k+i\omega_{k'})a(\mathbf{k})e^{-ikx}\\
+e^{ik'x}(\dot{\phi}(x)-i\omega_{k'}\phi(x))
+&=-i\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}(\omega_k+\omega_{k'})a(\mathbf{k})e^{-i(k-k')x}\\
+\int d^3x\,e^{ik'x}(\dot{\phi}(x)-i\omega_{k'}\phi(x))
+&=-i\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}(\omega_k+\omega_{k'})a(\mathbf{k})e^{-i(k_0-k_0')x^0}\int d^3x\,e^{+i(\mathbf{k}-\mathbf{k}')\mathbf{x}}\\
+&=-i\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}(\omega_k+\omega_{k'})a(\mathbf{k})e^{-i(\sqrt{\mathbf{k}^2+m^2}-k_0')x^0}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')\\
+&=-i(2\pi)^{3/2}\sqrt{2\omega_{k'}}a(\mathbf{k}')
+\end{align}
+and therefore
+\begin{align}
+\rightarrow a(\mathbf{k})
+&=i\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}(\dot{\phi}(x)-i\omega_k\phi(x))\\
+&=i\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}(\pi(x)-i\omega_k\phi(x))    \label{eqn:asForFreeTheory}  \\
+\rightarrow a(\mathbf{k})^\dagger
+&=i\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{-ikx}(-\dot{\phi}(x)-i\omega_k\phi(x))\\
+&=i\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{-ikx}(-\pi(x)-i\omega_k\phi(x))
+\end{align}
+Since $a$ and $a^\dagger$ are time-independent we may choose time to be equal in evaluating
+%*************************** 1.12 ****************************
+\begin{align}
+[a(\mathbf{k}),a(\mathbf{k}')]
+&=-\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}\int\frac{d^3x'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}e^{ik'x'}
+[\pi(x)-i\omega_k\phi(x),\pi(x')-i\omega_{k'}\phi(x')]\\
+&=-\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}\int\frac{d^3x'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}e^{ik'x'}
+\left((-i\omega_{k'})[\pi(x),\phi(x')]+(-i\omega_{k})[\phi(x),\pi(x')]\right)\\
+&=-\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}\int\frac{d^3x'}{(2\pi)^{3/2}\sqrt{2\omega_{k'}}}e^{ik'x'}
+\left(-\omega_{k'}\delta^{(3)}(\mathbf{x}-\mathbf{x}')+\omega_{k}\delta^{(3)}(\mathbf{x}-\mathbf{x}')\right)\\
+&=-\frac{1}{(2\pi)^{3}\sqrt{4\omega_k\omega_{k'}}}\left(-\omega_{k'}+\omega_{k}\right)e^{i(k_0+k_0')t}\int d^3x\,e^{-i(\mathbf{k}+\mathbf{k}')\mathbf{x}}\\
+&=-\frac{1}{(2\pi)^{3}\sqrt{4\omega_k\omega_{k'}}}\left(-\omega_{k'}+\omega_{k}\right)e^{i(k_0+k_0')t}(2\pi^3)\delta^{(3)}(\mathbf{k}-\mathbf{k}')\\
+&=0
+\end{align}
+Similarly
+\begin{align}
+[a(\mathbf{k})^\dagger,a(\mathbf{k}')^\dagger]=0
+\end{align}
+But
+\begin{align}
+[a(\mathbf{k}),a(\mathbf{k}')^\dagger]=\delta^{(3)}(\mathbf{k}-\mathbf{k}')
+\end{align}
+Thus the $a(\mathbf{k})$'s are just like the destruction operators for a set of uncoupled harmonic oscillators, but with continuum normalization. This free field theory is a set of oscillators, each oscillator corresponding to a model of vibrations of the field $\phi$.
+
+Returning to the expression for the Hamiltonian, we have
+\begin{align}
+H
+&=\int d^3k\frac{\omega_k}{2}[a(\mathbf{k})a(\mathbf{k})^\dagger+a(\mathbf{k})^\dagger a(\mathbf{k})^*]\\
+&=\int d^3k\left[\omega_k a(\mathbf{k})^\dagger a(\mathbf{k})+\frac{1}{2}\omega_k\delta(0)\right]
+\end{align}
+%*************************** 1.13 ****************************
+So $H$ contains an \underline{infinite} additive constant. How do we interpret this constant? 
+
+The ground state of all the oscillators (the vacuum) is the state such that
+\begin{align}
+a(\mathbf{k})|0\rangle=0
+\end{align}
+for all $\mathbf{k}$. This is an eigenstate of $H$, with
+\begin{align}
+H|0\rangle=\left(\int d^3k\;\delta(0)\frac{1}{2}\omega_k\right)|0\rangle=E_0|0\rangle
+\end{align}
+The infinite constant is the \underline{vacuum energy}.
+
+Not just the energy but the energy \underline{density} is infinite. Writing 
+\begin{align}
+\delta(0)=\int\frac{d^3x}{(2\pi)^3}
+\end{align}
+we have
+\begin{align}
+E_0=\int d^3x\int \frac{d^3k}{(2\pi)^3}\frac{1}{2}\omega_k=\sum_{\mathbf{k}}\frac{1}{2}\omega_k
+\end{align}
+Now $d^3k/(2\pi)^3$ is the density of states - and $E_0$ the sum of the zeropoint energies of all the oscillators.
+
+This is the first of various infinities that arise in quantum field theory. How should we deal with it?
+\begin{itemize}
+\item We can just subtract it away! It is just an additive constant in the energy and where we define the zero of energy is arbitrary.
+%*************************** 1.14 ****************************
+\item We can take the attitude that the infinity arises as a consequence of an ordering ambiguity. Classically, we have 
+\begin{align}
+H=\int d^3k\,\frac{1}{2}\omega_k[a(\mathbf{k})^\dagger a(\mathbf{k})+a(\mathbf{k})^\dagger a(\mathbf{k})]
+\end{align}
+but classically $a$ and $a^\dagger$ commute, so we can change the ordering before promoting $a$ and $a^\dagger$ to operators in Hilbert space. One way of resolving the ordering ambiguity is to adopt the convention that $a$ will always be on the right of $a^\dagger$ (normal ordering)
+\begin{align}
+:H:
+&=\int d^3x\,:\frac{1}{2}[\pi^2+(\nabla\phi)^2+m^2\phi^2]:\\
+&=\int d^3x\,\omega_k a(\mathbf{k})^\dagger a(\mathbf{k})
+\end{align}
+\item This infinity appears to be fairly innocuous but it is, in fact, the deepest of all infinities in field theory, in a certain sense. The one case in which we are not free to adjust the zero of energy is in a theory of \underline{gravity}. In the real world, 
+why doesn't the zero point energy of all oscillators \underline{gravitate}, curling spacetime in to a ball -- the cosmological constant problem.
+\end{itemize}
+
+One aspect of the above discussion maybe confusing; we assumed $a(\mathbf{k})$ to be time independent, but then found that $a$ does not commute with $H$. What is going on?
+%*************************** 1.15 ****************************
+To understand, suppose we have an oscillator with on degree of freedom the Hamiltonian reads
+\begin{align}
+H=\omega a^\dagger a\qquad\qquad\text[a,a^\dagger]=1
+\end{align}
+with the Heisenberg equations of motions
+\begin{align}
+\frac{da}{dt}
+&=-i[a,H]\\
+&=-i\omega[a,a^\dagger a]\\
+&=-i\omega(aa^\dagger a-a^\dagger a a)\\
+&=-i\omega((a^\dagger a+1)a-a^\dagger a a)\\
+&=-i\omega(a^\dagger a a+a-a^\dagger a a)\\
+&=-i\omega a
+\end{align}
+Now we define $a'=e^{i\omega t}a$ and then
+\begin{align}
+\frac{da'}{dt}
+&=-[a',H]+\frac{\partial a'}{\partial t}\\
+&=-i\omega a'+i\omega a'\\
+&=0
+\end{align}
+So $a'$ is time-independent because of its \underline{explicit} time-dependence. Our $a(\mathbf{k})$ is like $a'$ as we can verify from expression (\ref{eqn:asForFreeTheory}).
+
+Another way to derive the above results is to begin with the Hamiltonian
+\begin{align}
+H&=\int d^3x\,\frac{1}{2}[\pi(x)^2+(\nabla\phi(x))^2+m^2\phi(x)^2]
+\end{align}
+and then disginalize this quadratic form by going to momentum space - expanding in normal modes
+\begin{align}
+\label{eqn:phixtFourier}
+\phi(\mathbf{x},t)&=\int\frac{d^3k}{(2\pi)^{3/2}}e^{i\mathbf{kx}}\tilde\phi(\mathbf{k},t)
+\quad\leftrightarrow\quad
+\tilde\phi(\mathbf{k},t)=\int\frac{d^3x}{(2\pi)^{3/2}}e^{-i\mathbf{kx}}\phi(\mathbf{x},t)\\
+\pi(\mathbf{x},t)&=\int\frac{d^3k}{(2\pi)^{3/2}}e^{i\mathbf{kx}}\tilde\pi(\mathbf{k},t)
+\quad\leftrightarrow\quad
+\tilde\pi(\mathbf{k},t)=\int\frac{d^3x}{(2\pi)^{3/2}}e^{-i\mathbf{kx}}\pi(\mathbf{x},t)
+\end{align}
+Thus with
+\begin{align}
+\int d^3x\,\pi(x)^2
+&=\int d^3x\,\int\frac{d^3k}{(2\pi)^{3/2}}e^{i\mathbf{kx}}\tilde\pi(\mathbf{k},t)\int\frac{d^3k'}{(2\pi)^{3/2}}e^{i\mathbf{k'x}}\tilde\pi(\mathbf{k}',t)\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}}\int\frac{d^3k'}{(2\pi)^{3/2}}\tilde\pi(\mathbf{k},t)\tilde\pi(\mathbf{k}',t)\int d^3x\,e^{i\mathbf{(k+k')x}}\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}}\int\frac{d^3k'}{(2\pi)^{3/2}}\tilde\pi(\mathbf{k},t)\tilde\pi(\mathbf{k}',t)(2\pi)^3\delta^{(3)}(\mathbf{k+k'})\\
+&=\int d^3k\,\tilde\pi(\mathbf{k},t)\tilde\pi(-\mathbf{k},t)
+\end{align}
+we have
+\begin{align}
+H=\int d^3k\left[\frac{1}{2}\tilde{\pi}(\mathbf{k},t)\tilde{\pi}(-\mathbf{k},t)+\frac{1}{2}(\mathbf{k}^2+m^2)\tilde{\phi}(\mathbf{k},t)\tilde{\phi}(-\mathbf{k},t)\right]
+\end{align}
+as well as
+\begin{align}
+[\tilde\phi(\mathbf{k},t),\tilde\phi(\mathbf{k}',t)]
+&=\int\frac{d^3x}{(2\pi)^{3/2}}\int\frac{d^3x'}{(2\pi)^{3/2}}e^{-i\mathbf{kx}}e^{-i\mathbf{k'x'}}[\phi(\mathbf{x},t),\phi(\mathbf{x}',t)]\\
+&=0\\
+[\tilde\pi(\mathbf{k},t),\tilde\pi(\mathbf{k}',t)]
+&=0\\
+[\tilde\phi(\mathbf{k},t),\tilde\pi(\mathbf{k}',t)]
+&=\int\frac{d^3x}{(2\pi)^{3/2}}\int\frac{d^3x'}{(2\pi)^{3/2}}e^{-i\mathbf{kx}}e^{-i\mathbf{k'x'}}[\phi(\mathbf{x},t),\pi(\mathbf{x}',t)]\\
+&=i\int\frac{d^3x}{(2\pi)^{3/2}}\int\frac{d^3x'}{(2\pi)^{3/2}}e^{-i\mathbf{(kx+k'x)'}}\delta^{(3)}(\mathbf{x-x'})\\
+&=i\int\frac{d^3x}{(2\pi)^{3}}e^{-i\mathbf{(k+k')x}}\\
+&=i\delta^{(3)}(\mathbf{k+k'})
+\end{align}
+%*************************** 1.16 ****************************
+This is evidently a sum of uncoupled oscillators. Remembering  (\ref{eqn:asForFreeTheory})
+\begin{align}
+a(\mathbf{k})
+&=i\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}(\pi(x)-i\omega_k\phi(x))\\
+&=i\int\frac{d^3x}{(2\pi)^{3/2}}e^{ikx}\left(\frac{1}{\sqrt{2\omega_k}}\pi(x)-i\sqrt{\frac{\omega_k}{2}}\phi(x)\right) 
+\end{align}
+we can define for the real fields $\pi$ and $\phi$ (meaning $\phi(\mathbf{k},t)^\dagger=\phi(-\mathbf{k},t), \pi(\mathbf{k},t)^\dagger=\pi(-\mathbf{k},t)$)
+\begin{align}
+\label{eqn:akt}
+a(\mathbf{k},t)
+&=i\left(\frac{1}{\sqrt{2\omega_k}}\tilde\pi(\mathbf{k},t)-i\sqrt{\frac{\omega_k}{2}}\tilde\phi(\mathbf{k},t)\right)\\
+a^\dagger(\mathbf{k},t)
+&=-i\left(\frac{1}{\sqrt{2\omega_k}}\tilde\pi(\mathbf{k},t)^\dagger+i\sqrt{\frac{\omega_k}{2}}\tilde\phi(\mathbf{k},t)^\dagger\right)\\
+&=-i\left(\frac{1}{\sqrt{2\omega_k}}\tilde\pi(-\mathbf{k},t)+i\sqrt{\frac{\omega_k}{2}}\tilde\phi(-\mathbf{k},t)\right)\\
+&=i\left(-\frac{1}{\sqrt{2\omega_k}}\tilde\pi(-\mathbf{k},t)-i\sqrt{\frac{\omega_k}{2}}\tilde\phi(-\mathbf{k},t)\right) 
+\end{align}
+then we can calculate
+\begin{align}
+[a(\mathbf{k},t),a(\mathbf{k}',t)]
+&=-\left(\frac{1}{2\omega_k}[\tilde\pi(\mathbf{k},t),\tilde\pi(\mathbf{k}',t)]
+-\frac{i}{2}[\tilde\pi(\mathbf{k},t),\tilde\phi(\mathbf{k}',t)]\right.\\
+&\quad\left.-\frac{i}{2}[\tilde\phi(\mathbf{k},t),\tilde\pi(\mathbf{k}',t)]
+-\frac{\omega_k}{2}[\tilde\phi(\mathbf{k},t),\tilde\phi(\mathbf{k}',t)]\right)\\
+&=0\\
+[a^\dagger(\mathbf{k},t),a^\dagger(\mathbf{k}',t)]&=0
+\end{align}
+\begin{align}
+[a(\mathbf{k},t),a^\dagger(\mathbf{k}',t)]
+&=-\left(-\frac{1}{2\omega_k}[\tilde\pi(\mathbf{k},t),\tilde\pi(-\mathbf{k}',t)]
+-\frac{i}{2}[\tilde\pi(\mathbf{k},t),\tilde\phi(-\mathbf{k}',t)]\right.\\
+&\quad\left.+\frac{i}{2}[\tilde\phi(\mathbf{k},t),\tilde\pi(-\mathbf{k}',t)]
+-\frac{\omega_k}{2}[\tilde\phi(\mathbf{k},t),\tilde\phi(-\mathbf{k}',t)]\right)\\
+&=-\frac{i}{2}[\tilde\phi(\mathbf{k},t),\tilde\pi(-\mathbf{k}',t)]-\frac{i}{2}[\tilde\phi(-\mathbf{k},t),\tilde\pi(\mathbf{k}',t)]\\
+&=\frac{1}{2}\delta^{(3)}(\mathbf{k-k'})+\frac{1}{2}\delta^{(3)}(\mathbf{-k+k'})\\
+&=\frac{1}{2}\delta^{(3)}(\mathbf{k-k'})+\frac{1}{2}\delta^{(3)}(\mathbf{(-1)(k-k')})\\
+&=\delta^{(3)}(\mathbf{k-k'})
+\end{align}
+And then
+\begin{align*}
+\omega_k[&a(\mathbf{k},t)a(\mathbf{k},t)^\dagger+a(\mathbf{k},t)^\dagger a(\mathbf{k},t)]\\
+&=\omega_k[2a(\mathbf{k},t)a(\mathbf{k},t)^\dagger-\delta^{(3)}(\mathbf{k-k})] \\
+&=-\omega_k\left(
+-\frac{1}{\omega_k}\tilde\pi(\mathbf{k},t)\tilde\pi(-\mathbf{k},t)
+-i\tilde\pi(\mathbf{k},t)\tilde\phi(-\mathbf{k},t)
++i\tilde\phi(\mathbf{k},t)\tilde\pi(-\mathbf{k},t)
+-\omega_k\tilde\phi(\mathbf{k},t)\tilde\phi(-\mathbf{k},t)\right)-\delta^{(3)}(\mathbf{k-k})\\
+&=\tilde\pi(\mathbf{k},t)\tilde\pi(-\mathbf{k},t)
++i\textcolor{red}{\left(\tilde\phi(\mathbf{k},t)\tilde\pi(-\mathbf{k},t)
+-\tilde\pi(\mathbf{k},t)\tilde\phi(-\mathbf{k},t)\right)}
++\omega_k^2\tilde\phi(\mathbf{k},t)\tilde\phi(-\mathbf{k},t)-\delta^{(3)}(\mathbf{k-k})\\
+&=...\\
+&=\tilde\pi(\mathbf{k},t)\tilde\pi(-\mathbf{k},t)
++\omega_k^2\tilde\phi(\mathbf{k},t)\tilde\phi(-\mathbf{k},t)
+\end{align*}
+Now
+\begin{align}
+\dot{a}(\mathbf{k},t)
+&=-i[a(\mathbf{k},t),H]\\
+&=-i\omega_ka(\mathbf{k},t)\\
+\rightarrow a(\mathbf{k},t)&=e^{-i\omega_kt}a(\mathbf{k},0)
+\end{align}
+we may define 
+\begin{align}
+b(\mathbf{k})&=e^{i\omega_kt}a(\mathbf{k},t)=a(\mathbf{k},0)
+\end{align}
+as a time-independent operator.
+%*************************** 1.17 ****************************
+Now we add (\ref{eqn:akt}) and obtain
+\begin{align}
+a(\mathbf{k},t)
+&=i\left(\frac{1}{\sqrt{2\omega_k}}\tilde\pi(\mathbf{k},t)-i\sqrt{\frac{\omega_k}{2}}\tilde\phi(\mathbf{k},t)\right)\\
+a^\dagger(\mathbf{k},t)
+&=i\left(-\frac{1}{\sqrt{2\omega_k}}\tilde\pi(-\mathbf{k},t)-i\sqrt{\frac{\omega_k}{2}}\tilde\phi(-\mathbf{k},t)\right)\\
+\rightarrow\tilde\phi(\mathbf{k},t)
+&=\frac{1}{\sqrt{2\omega_k}}\left(a(\mathbf{k},t)+a(-\mathbf{k},t)^\dagger\right)\\
+&=\frac{1}{\sqrt{2\omega_k}}\left(e^{-i\omega_kt}b(\mathbf{k})+e^{i\omega_kt}b(-\mathbf{k})^\dagger\right)
+\end{align}
+and with (\ref{eqn:phixtFourier})
+\begin{align}
+\phi(\mathbf{x},t)
+&=\int\frac{d^3k}{(2\pi)^{3/2}}e^{i\mathbf{kx}}\tilde\phi(\mathbf{k},t)\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left(e^{i\mathbf{kx}}a(\mathbf{k},t)+e^{i\mathbf{kx}}a(\mathbf{-k},t)^\dagger\right)\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left(e^{i\mathbf{kx}}a(\mathbf{k},t)+e^{-i\mathbf{kx}}a(\mathbf{k},t)^\dagger\right)\\
+&=\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left(e^{i\mathbf{kx}}e^{-i\omega_kt}a(\mathbf{k},0)+e^{-i\mathbf{kx}}e^{i\omega_kt}a(\mathbf{k},0)^\dagger\right)\\
+&\overset{kx=\omega_kt-\mathbf{kx}}{=}\int\frac{d^3k}{(2\pi)^{3/2}\sqrt{2\omega_k}}\left(e^{-ikx}a(\mathbf{k})+e^{ikx}a(\mathbf{k})^\dagger\right)
+\end{align}
+
+%*************************** 1.18 ****************************
+\subsection{Free particles Fock Space}
+Since the Hamiltonian of the free scalar field
+\begin{align}
+H=\int d^3k\,\omega_k\, a(\mathbf{k})^\dagger a(\mathbf{k})
+\end{align}
+is just the sum of uncoupled oscillators it is trivial to diagonalize it.
+
+For this purpose, it may be conceptionally easier to imagine that the system is in a cubic box of size $L$, with the field $\phi$ obeying periodic boundary conditions: then the momenta take discrete  values
+\begin{align}
+\mathbf{k}=\frac{2\pi}{L}(n_x,n_y,n_z)
+\end{align}
+ - that is the mode expansion of the field $\phi$ has the form
+\begin{align}
+\phi(x)=\frac{1}{V}\sum_{\mathbf{k}}\frac{1}{\sqrt{2\omega_k}}\left(e^{-ikx}a_\mathbf{k}+e^{ikx}a_\mathbf{k}^\dagger\right)\qquad(V=L^3)
+\end{align}
+the if the $a$'s have the discrete normalization 
+\begin{align}
+[a_\mathbf{k},a_{\mathbf{k}'}^\dagger]=\delta_\mathbf{k,\mathbf{k}'}^\dagger
+\end{align}
+$\phi$ and $\dot{\phi}$ obey the canonical commutation relations, since
+\begin{align}
+\delta^{(3)}(\mathbf{x-x'})=\frac{1}{V}\sum e^{i\mathbf{k}(\mathbf{x-x'})}
+\end{align}
+In this representations the Hamiltonian is
+\begin{align}
+H=\sum_{\mathbf{k}}\omega_ka_\mathbf{k}^\dagger a_\mathbf{k}
+\end{align}
+%*************************** 1.19 ****************************
+The Hilbert space on which $H$ acts is evidently an $\infty$ direct product of oscillator spaces and the ground state is the product of all oscillator ground states.
+\begin{align}
+|0\rangle=\prod_{\mathbf{k}}|0\rangle_\mathbf{k}\qquad\text{where}\qquad a_\mathbf{k}|0\rangle_\mathbf{k}=0
+\end{align}
+In an arbitrary eigenstate of $H$, each oscillator may be excited
+\begin{align}
+|n\rangle_\mathbf{k}=\frac{1}{\sqrt{n!}}(a_\mathbf{k}^\dagger)^n|0\rangle_\mathbf{k}
+\end{align}
+the $1/\sqrt{n!}$ ensures that these states are properly normalized (if $|0\rangle$ is)
+\begin{align}
+{}_\mathbf{k}\langle n'|n\rangle_\mathbf{k}=\delta_{n,n'}
+\end{align}
+thus an arbitrary eigenstate can be specified by a function $n_\mathbf{k}$ that takes values in non-negative integers
+\begin{align}
+|n_\mathbf{k}\rangle=\prod_\mathbf{k}\frac{(a_\mathbf{k}^\dagger)^n}{\sqrt{n_\mathbf{k}!}}|0\rangle_\mathbf{k}.
+\end{align}
+The energy of this state is
+\begin{align}
+H|n_\mathbf{k}\rangle=\sum_\mathbf{k}n_\mathbf{k}\omega_\mathbf{k}.
+\end{align}
+Since the excitations of each oscillations are uniformly spread these states have an obvious interpretation: The oscillator excitations are \underline{non-interacting particles} - \underline{Quanta} of the field. 
+%*************************** 1.20 ****************************
+This free particle Hilbert space is called Fock space.
+
+We will typically be interested in states with a finite number of particles, $\sum_\mathbf{k}<\infty$ and we will usually find it convenient to denote such a state
+\begin{align}
+|\mathbf{k}_1,...,\mathbf{k}_n\rangle\sim a(\mathbf{k}_1)^\dagger ...  a(\mathbf{k}_n)^\dagger|0\rangle
+\end{align}
+(with appropriate factors of $1/\sqrt{n!}$ understood if momenta coincide). Returning to the continuum normalization, one particle states have the normalization
+\begin{align}
+\langle\mathbf{k}'|\mathbf{k}\rangle
+=\langle0|a(\mathbf{k}')a(\mathbf{k})^\dagger|0\rangle=\delta^{(3)}(\mathbf{k}'-\mathbf{k})
+\end{align}
+Furthermore, many particle states have the property of obeying what is known as "Bose statistics" - they are invariant under interchanges of momenta because the $a^\dagger$'s commute, e.g.
+\begin{align}
+|\mathbf{k}_1,\mathbf{k}_2\rangle=a(\mathbf{k}_1)^\dagger a(\mathbf{k}_2)^\dagger|0\rangle=|\mathbf{k}_2,\mathbf{k}_1\rangle
+\end{align} 
+The normalization of there states is
+\begin{align}
+\langle\mathbf{k}_1'\mathbf{k}_2'|\mathbf{k}_1\mathbf{k}_2\rangle
+&=\langle0|a(\mathbf{k}_1')a(\mathbf{k}_2')a(\mathbf{k}_1)^\dagger a(\mathbf{k}_2)^\dagger|0\rangle\\
+&=\delta^{(3)}(\mathbf{k}'_1-\mathbf{k}_1)\delta^{(3)}(\mathbf{k}'_2-\mathbf{k}_2)
++\delta^{(3)}(\mathbf{k}'_1-\mathbf{k}_2)\delta^{(3)}(\mathbf{k}'_2-\mathbf{k}_1)
+\end{align}
+consistent with Bose symmetry.
+
+({\it Technical point: The Fock space is actually a small (separable) subspace the Full (nonseparable) oscillator Hilbert space, but all observables that interest us can be defined in Fock space.})
+
+%*************************** 1.21 ****************************
+
+Remarks:
+\begin{itemize}
+\item We noted earlier that the canonical quantization procedure destroys covariance but we now see that the result of carrying out this procedure has a covariant description. Each particle of momentum $\mathbf{k}$ has energy
+\begin{align}
+E=\omega_k\qquad\text{or}\qquad E^2-\mathbf{k}^2=m^2.
+\end{align}
+Changing the frame boosts the momentum but this is a Lorentz invariant relation. We also see that the free parameter $m$ can be interpreted as mass of the free particle.
+
+\item The one particle states $|\mathbf{k}\rangle$ are plane wave states with continuum normalization. We can construct normlizable states as \underline{wave packets} (just as in particle mechanics). To see that states $|\mathbf{k}\rangle$ are not localized in space, we introduce a \underline{translation operator} $\exp[i\mathbf{Px}]$ such that
+\begin{align}
+e^{i\mathbf{Px}'}\phi(\mathbf{x},t)e^{-i\mathbf{Px}'}=\phi(\mathbf{x}+\mathbf{x}',t)
+\end{align}
+then
+\begin{align}
+a(\mathbf{k})
+&=i\int\frac{d^3x}{(2\pi)^{3/2}\sqrt{2\omega_k}}e^{ikx}(\dot{\phi}(x)-i\omega_k\phi(x))
+\end{align}
+transforms as
+\begin{align}
+e^{i\mathbf{Px}'}a(\mathbf{k})e^{-i\mathbf{Px}'}=e^{-i\mathbf{kx}'}a(\mathbf{k})
+\end{align}
+Now if the \underline{vacuum} is translation invariant (It \underline{must be}, by relativity, if it has zero energy $\rightarrow$ temporal translation invariance), then
+\begin{align}
+e^{i\mathbf{Px}}|\mathbf{k}\rangle=e^{i\mathbf{kx}}|\mathbf{k}\rangle
+\end{align}
+%*************************** 1.22 ****************************
+So $|\mathbf{k}\rangle$ is a plane-wave state but
+\begin{align}
+|f\rangle&=\int d^3k\,f(\mathbf{k})|\mathbf{k}\rangle
+\end{align}
+has norm
+\begin{align}
+\langle f|f\rangle
+&=\int d^3k\int d^3k'\,f(\mathbf{k})f(\mathbf{k})^*\langle\mathbf{k}'|\mathbf{k}\rangle\\
+&=\int d^3k\int d^3k'\,f(\mathbf{k})f(\mathbf{k})^*\delta^{(3)}(\mathbf{k}'-\mathbf{k})\\
+&=\int d^3k\,|f(\mathbf{k})|^2
+\end{align}
+so it is a normalizable plane wave sate if $f\in L^2$. 
+
+\item We noted earlier that $\phi$ ha the decomposition
+\begin{align}
+\phi=\phi^++\phi^-
+\end{align}
+into negative and positive frequency parts. We now understand better the physical interpretation of this decomposition - $\phi^-(x)$ destroys particles at $x$ while $\phi^+$ creates one.
+\end{itemize}
+
+\subsection{Representation of the Lorentz Group}
+
+We have constructed a relativistic quantum theory. Thus we expect the Fock space, our Hilbert space, to provide a representation of the Lorentz group. That is changing \underline{frame} is equivalent to changing basis in Hilbert space in terms of which we expect states to transform
+\begin{align}
+|\text{state}\rangle \rightarrow U(\Lambda)|\text{state}\rangle
+\end{align}
+and if we change frame twice, consistency demands
+\begin{align}
+U(\Lambda_1)U(\Lambda_2)|\text{state}\rangle=U(\Lambda_1 \Lambda_2)|\text{state}\rangle
+\end{align}
+So $U$ provides a representation acting in the Hilbert space. Further changing the frame should preserve the norm of the state, so $U(\Lambda)$ should be unitary. We will ??? $K$ and the form of this rep??? acting on the one-particles states explicitly since we will see that it is slightly subtle to get the normalization right.
+%*************************** 1.23 ****************************
+The obvious thing to do is to define
+\begin{align}
+U(\Lambda)|\mathbf{k}\rangle=|\Lambda\mathbf{k}\rangle.
+\end{align}
+A Lorentz transformation acting on a particle with 4-momentum 
+$k=(\omega_k,\mathbf{k})$ boosts momentum to $\Lambda k$. But this is not quite satisfactory because it is not \underline{unitary}.
+
+The states $|\mathbf{k}\rangle$ are normalized
+\begin{align}
+\langle\mathbf{k}'|\mathbf{k}\rangle=\delta^{(3)}(\mathbf{k}-\mathbf{k}')
+\end{align}
+and therefore we conclude completeness
+\begin{align}
+\mathbb{1}&=\int d^3k|\mathbf{k}\rangle\langle\mathbf{k}|
+\end{align}
+because
+\begin{align}
+|\mathbf{k}'\rangle
+&=\int d^3k|\mathbf{k}\rangle\langle\mathbf{k}|\mathbf{k}'\rangle\\
+&=\int d^3k|\mathbf{k}\rangle\delta^{(3)}(\mathbf{k}-\mathbf{k}')\\
+&=|\mathbf{k}'\rangle.
+\end{align}
+Now check $UU^\dagger=\mathbb{1}$
+\begin{align}
+U\,\mathbb{1}\,U^\dagger
+&=\int d^3k\,U(\Lambda)|\mathbf{k}\rangle\langle \mathbf{k}|U(\Lambda)^\dagger\\
+&=\int d^3k\,|\Lambda\mathbf{k}\rangle\langle \Lambda\mathbf{k}\\
+&=\int d^3(\Lambda^{-1}k)\,|\mathbf{k}\rangle\langle \mathbf{k}|
+\end{align}
+But the measure $d^3k$ is \underline{not} Lorentz invariant. The measure $d^4k$ \underline{is} Lorentz invariant so we can write Lorentz invariant integrals over 3-momentum in terms of
+\begin{align}
+d^4k\,\delta(k^2-m^2)\Theta(k^0)
+&=d^3k\,dk^0\,\delta\left((k^0)^2-\mathbf{k}-m^2\right)\Theta(k^0)\\
+&=d^3k\,dk^0\,\delta\left((k^0)^2-\omega_k^2\right)\Theta(k^0)\\
+&=d^3k\,dk^0\,\delta\left((k^0-\omega_k)(k^0+\omega_k)\right)\Theta(k^0)\\
+&=d^3k\,dk^0\,\frac{1}{2\omega_k}\left[\delta(k^0-\omega_k)+\delta(k^0+\omega_k)\right]\Theta(k^0)\\
+&=\frac{d^3k}{2\omega_k}
+\end{align}
+If we now introduce new states
+\begin{align}
+|k\rangle_\text{new}=(2\pi)^{3/2}\sqrt{2\omega_k}|\mathbf{k}\rangle_\text{old}
+\end{align}
+%*************************** 1.24 ****************************
+the new normalization (relativistic norm) is
+\begin{align}
+{}_\text{new}\langle k'|k\rangle_\text{new}
+=(2\pi)^3 2\omega_k\delta^{(3)}(\mathbf{k}'-\mathbf{k})
+\end{align}
+and now
+\begin{align}
+\mathbb{1}&=\int \frac{d^3k}{(2\pi)^32\omega_k}|k\rangle\langle k|.
+\end{align}
+and therefore if we define the action $U$ as 
+\begin{align}
+U(\Lambda)|k\rangle=|\Lambda k \rangle
+\end{align}
+then $U(\Lambda)$ is a \underline{unitary} representation.
+
+We can write a relativistically normalized state as
+\begin{align}
+|k\rangle=\alpha(k)^\dagger |0\rangle\qquad\text{with}\qquad\alpha(k)=(2\pi)^{3/2}\sqrt{2\omega_k}a(\mathbf{k})
+\end{align}
+then we can infer how $\alpha(k)$ transforms
+\begin{align}
+U(\Lambda)|k\rangle&=|\Lambda k\rangle=\alpha(\Lambda k)^\dagger|0\rangle\\
+U(\Lambda)|k\rangle
+&=U(\Lambda)\alpha(k)^\dagger|0\rangle\\
+&=U(\Lambda)\alpha(k)^\dagger U(\Lambda)^\dagger U(\Lambda)|0\rangle\qquad(U^\dagger U=\mathbb{1})\\
+&=U(\Lambda)\alpha(k)^\dagger U(\Lambda^{-1})U(\Lambda)|0\rangle\qquad (U(\Lambda)|0\rangle=|0\rangle)\\
+&=U(\Lambda)\alpha(k)^\dagger U(\Lambda^{-1})|0\rangle
+\end{align}
+meaning
+\begin{align}
+\alpha(\Lambda k)^\dagger
+&=U(\Lambda)\alpha(k)^\dagger U(\Lambda)^\dagger\\
+\rightarrow\alpha(\Lambda k)
+&=(U(\Lambda)\alpha(k)^\dagger U(\Lambda)^\dagger)^\dagger\\
+&=(\alpha(k)^\dagger U(\Lambda)^\dagger)^\dagger U(\Lambda)^\dagger\\
+&=U(\Lambda) \alpha(k) U(\Lambda)^\dagger
+\end{align}
+(Evidently true not just acting on $|0\rangle$, but on \underline{any} state.) 
+\begin{align}
+U(\Lambda)|k,k_1,...k_n\rangle
+&=|\Lambda k,\Lambda k_1,...,\Lambda k_n\rangle\\
+&=a(\Lambda k)^\dagger|\Lambda k_1,...,\Lambda k_n\rangle\\
+U(\Lambda)|k,k_1,...k_n\rangle
+&=U(\Lambda)a(k)^\dagger|k_1,...,k_n\rangle\\
+&=U(\Lambda)a(k)^\dagger U(\Lambda)^\dagger U(\Lambda)|k_1,...,k_n\rangle\\
+&=U(\Lambda)a(k)^\dagger U(\Lambda)^\dagger|\Lambda k_1,...,\Lambda k_n\rangle
+\end{align}
+And so we know how $\phi$ transforms
+\begin{align}
+\phi(x)&=\int\frac{d^3k}{(2\pi)^3\omega_k}\left[e^{-ikx}\alpha(k)+e^{ikx}\alpha(k)^\dagger\right]\\
+\rightarrow U(\Lambda)\phi(x)U(\Lambda)^\dagger
+&=\int\frac{d^3k}{(2\pi)^3\omega_k}\left[e^{-ikx}U(\Lambda)\alpha(k)U(\Lambda)^\dagger+e^{ikx}U(\Lambda)\alpha(k)^\dagger U(\Lambda)^\dagger\right]\\
+&=\int\frac{d^3k}{(2\pi)^3\omega_k}\left[e^{-ikx}\alpha(\Lambda k)+e^{ikx}\alpha(\Lambda k)^\dagger \right]\\
+&=\int\frac{d^3k}{(2\pi)^3\omega_k}\left[e^{-i(\Lambda^{-1} k)x}\alpha(k)+e^{i(\Lambda^{-1} k)x}\alpha(k)^\dagger \right]
+\end{align}
+since the measure is invariant. The Lorentz invariance of the inner product $\Lambda^{-1}k x=k\Lambda x$ then results in
+\begin{align}
+U(\Lambda)\phi(x)U(\Lambda)^\dagger=\phi(\Lambda x)
+\end{align}
+%*************************** 1.25 ****************************
+and we see that $\phi$ transforms as a scalar field under Lorentz transformations.
+
+Notice that all the steps in this argument are reversible. We used \underline{?????} with the transformation property $q$ $\phi(x)$, then infer how $\alpha$ and the relativistically normalized states transform. We thus final ??? quantization of scalar field spinless particles. (Spin zero means invariance under little group that leaves $p$ invariant)
+
+\subsection{Schroedinger Representation}
+%*************************** 1.26 ****************************
+%*************************** 1.27 ****************************
+%*************************** 1.28 ****************************
+\subsection{Causality (The algebra of observables}
+%*************************** 1.29 ****************************
+
+%*************************** 1.30 ****************************
+%*************************** 1.31 ****************************
+%*************************** 1.32 ****************************
+%*************************** 1.33 ****************************
+%*************************** 1.34 ****************************
+%*************************** 1.35 ****************************
+%*************************** 1.36 ****************************
+%*************************** 1.37 ****************************
+\subsection{Measurement of Quantum Fields (Uncertainty Relations)}
+%*************************** 1.38 ****************************
+%*************************** 1.39 ****************************
+%*************************** 1.40 ****************************
+
+%*************************** 1.41 ****************************
+%*************************** 1.42 ****************************
+%*************************** 1.43 ****************************
+\subsection{Fluctuations of $\phi(x)$}
+%*************************** 1.44 ****************************
+%*************************** 1.45 ****************************
+
+\section{The free scalar field}
 \end{document}

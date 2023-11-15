@@ -275,6 +275,7 @@ then
 \section{Delta distribution}
 \begin{align}
 x\delta(x)=0
+\delta(ax)=\frac{1}{|a|}\delta(x)
 \end{align}
 
 \begin{align}
@@ -377,7 +378,7 @@ Gauss and Stokes Theorem
 \oint_{\partial V}\mathbf{A}\cdot
 d\mathbf{S}&=\int_V\nabla\cdot\mathbf{A}\,dV\\
 \oint_{\partial S}\mathbf{A}\cdot
-d\mathbf{r}&=\int_V\nabla\times\mathbf{A}\,d\mathbf{S}
+d\mathbf{r}&=\int_S(\nabla\times\mathbf{A})\cdot d\mathbf{S}
 \end{align}
 Helmholtz-Hodge decomposition
 \begin{align}
@@ -1383,7 +1384,11 @@ Any  matrix $A$ is called diagonalizable if there exists an invertible matrix $S
 \begin{align}
     D_A=S^{-1}AS
 \end{align}
-is a diagonal matrix. The diagonalizability of $A$ is equivalent to the fact that the $\{\vec{v}_i\}$ are all linearly independent.
+is a diagonal matrix. The diagonalizability of $A$ is equivalent to the fact that the $\{\vec{v}_i\}$ are all linearly independent. Necessary condition
+\begin{itemize}
+\item $n$ distinct eigenvalues
+\item if there is eigenvalue with multiplicity $k$ then it must have $k$ linearly independent eigenvectors
+\end{itemize}
 
 To find $S$ and $D_A$ one has to find the eigensystem $\{\lambda_i,\vec{v}_i\}$ with $A\vec{v}_i=\lambda_i\vec{v}_i$. Then $D_AS$ and $S$ can be written as $S=(\vec{v}_1,...,\vec{v}_n)$ and $D_A=\text{diag}(\lambda_1,...,\lambda_n)$ because $AS=(A\vec{v}_1,...,A\vec{v}_n)=(\lambda_1\vec{v}_1,...,\lambda_n\vec{v}_n)=SD_A$.
 
@@ -1654,46 +1659,56 @@ F_{ab}F^{ab}&=-F_{ba}F^{ab}\qquad\rightarrow-\text{tr}(F F)
 
 
 \section{Tensorproduct}
-Given two Hilbert spaces $\mathcal{H}_1, \mathcal{H}_2$ with complete orthonormal basis $\{\phi_{i\in I}\}$ and $\{\eta_{k\in K}\}$. 
-Combining two basis vectors from each of the two Hilbert spaces 
-gives
+Given two Hilbert spaces $\mathcal{V}_1, \mathcal{V}_2$ with complete orthonormal basis $\{|u_{i\in I}\rangle\}$ and $\{|v_{k\in K}\rangle\}$. The tensor product of two states $|\psi\rangle\in\mathcal{V}_1, |\phi\rangle\in\mathcal{V}_2$
+is defined by
 \begin{align}
-\psi_l\equiv\phi_i\otimes\eta_k:=(\phi_i,\eta_k)
+|\psi\rangle_1 \otimes |\phi\rangle_2= |\phi\rangle_2 \otimes |\psi\rangle_1\in \mathcal{V}
 \end{align}
-with $l=(i,k)\in\Lambda=I\times K$ being an element of the cartesian product of the index sets $I$ and $K$. 
-The scalar product of the Hilbert space are defined by
+with linearity restrictions
 \begin{align}
-\langle\phi_{i_1},\phi_{i_2}\rangle_1&=\delta_{i_1,i_2}\\
-\langle\eta_{k_1},\eta_{k_2}\rangle_2&=\delta_{k_1,k_2}
+a(|\psi\rangle_1 \otimes |\phi\rangle_2)
+&=(a|\psi\rangle_1) \otimes |\phi\rangle_2
+=|\psi\rangle_1 \otimes (a|\phi\rangle_2)\\
+(|\psi_1\rangle_1 + |\psi_2\rangle_1)\otimes|\phi\rangle_2
+&=|\psi_1\rangle_1\otimes|\phi\rangle_2 + |\psi_2\rangle_1\otimes|\phi\rangle_2
 \end{align}
-The $\{\psi_{l\in\Lambda}\}$ build a basis of the Product Hilbert space $\mathcal{H}_1\otimes\mathcal{H}_2$
+Combining two basis vectors from each of the two Hilbert spaces gives as basis of $\mathcal{V}$
 \begin{align}
-\psi&=\sum_{l\in\Lambda}c_l\psi_l\\
-&=\sum_{i\in I}\sum_{k\in K}c_{(i,k)}\,\phi_i\otimes\eta_k
+\{|u_i\rangle_1\otimes|v_j\rangle_2\}
 \end{align}
-with the rules
+meaning that $\dim \mathcal{V}=\dim \mathcal{V}_1\cdot\dim \mathcal{V}_2$.
+Therefore each element of $\mathcal{V}$ can be represented by
 \begin{align}
-(\phi+\phi')\otimes\eta=\phi\otimes\eta+\phi'\otimes\eta\\
-\phi\otimes(\eta+\eta')=\phi\otimes\eta+\phi\otimes\eta'\\
-(c\phi)\otimes\eta=c(\phi\otimes\eta)=\phi\otimes(c\eta)
+|\chi\rangle=\sum_{ij}a_{ij}(|u_i\rangle_1\otimes|v_j\rangle_2)
 \end{align}
-The scalar product of the Product Hilbert space can be defined by
+while the tensor product of two states is
 \begin{align}
-\langle\phi\otimes\eta,\phi'\otimes\eta'\rangle\equiv
-\langle\phi,\phi'\rangle_1\langle\eta,\eta'\rangle_2
+|\psi\rangle_1 \otimes |\phi\rangle_2
+&=\left(\sum_ic_i|u_i\rangle\right)\otimes\left(\sum_id_i|v_i\rangle\right)\\
+&=\sum_{ij}c_id_j(|u_i\rangle_1\otimes|v_j\rangle_2)
 \end{align}
-resulting in
+{\bf Question:} Can every state in $\mathcal{V}$ be expressed as a tensor product of two states in $\mathcal{V}_1$ and $\mathcal{V}_2$? {\bf Answer:} No!  (simple counter example). States which can not be  written as a product are called \underline{entangled  states}.
+
+The scalar product of $\mathcal{V}$ space can be defined by
 \begin{align}
-\langle\phi_i\otimes\eta_k,\phi_{i'}\otimes\eta_{k'}\rangle\equiv
-\langle\phi_i,\phi_{i'}\rangle_1\langle\eta_k,\eta_{k'}\rangle_2=\delta_{ii'}\delta_{kk'}
+{}_1\langle\psi|\otimes{}_2\langle\phi|)
+(|\psi'\rangle_1\otimes|\phi'\rangle_2)=
+{}_1\langle\psi|\psi'\rangle_1\,{}_2\langle\phi|\phi'\rangle_2
 \end{align}
-and therefore
+With orthonormal basis $\{u\}\in\mathcal{V}_1$ and $\{v\}\in\mathcal{V}_2$
 \begin{align}
-\langle\psi,\psi'\rangle
-&=\sum_{i,i'\in I}\sum_{k,k'\in K}c_{(i,k)}c_{(i',k')}\,\langle\phi_i\otimes\eta_k,\phi_{i'}\otimes\eta_{k'}\rangle
-=\sum_{i\in I}\sum_{k\in K}c_{(i,k)}c_{(i,k)}
+\langle u_i|u_k\rangle&=\delta_{ik}\\
+\langle v_j|v_l\rangle&=\delta_{jl}
 \end{align}
-Operators $A$ and $B$ defined on Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ can be promoted to operators on $\mathcal{H}_1\otimes\mathcal{H}_2$ by
+then
+\begin{align}
+{}_1\langle u_i|\otimes{}_2\langle v_j|)
+(|u_k\rangle_1\otimes|v_l\rangle_2)=
+{}_1\langle u_i|u_k\rangle_1\,{}_2\langle v_j|v_l\rangle_2=\delta_{ik}\delta_{jl}
+\end{align}
+meaning the basis of $\mathcal{V}$ is also orthonormal.
+
+Operators $A$ and $B$ defined on Hilbert spaces $\mathcal{V}_1$ and $\mathcal{V}_2$ can be promoted to operators on $\mathcal{V}$ by
 \begin{align}
 A&\rightarrow A\otimes 1_B\\
 B&\rightarrow 1_A\otimes B\\
@@ -1701,8 +1716,16 @@ A+B&\equiv A\otimes 1_B + 1_A\otimes B
 \end{align}
 then
 \begin{align}
-(A \otimes B)(|\phi_A\rangle\otimes|\phi_B\rangle) 
-:=A |\phi_A\rangle\otimes B|\phi_B\rangle
+(A \otimes B)|\chi\rangle 
+&:=(A|\phi\rangle_1)\otimes (B|\phi\rangle_2)\\
+&=\sum_{ij}a_{ij}(A\otimes B) (|u_j\rangle_1)\otimes |v_j\rangle_2)\\
+&=\sum_{ij}a_{ij} (A|u_j\rangle_1)\otimes (B|v_j\rangle_2)
+\end{align}
+or
+\begin{align}
+(A \otimes B)(|\phi\rangle_1\otimes|\phi\rangle_2) 
+:=(A|\phi\rangle_1)\otimes (B|\phi\rangle_2)\\
+=\sum_{ij}c_id_j(A| u_j\rangle_1)\otimes (B|v_j\rangle_2)
 \end{align}
 with eigenvectors $A|\phi_a\rangle=a|\phi_a\rangle$ and $B|\phi_b\rangle=b|\phi_b\rangle$
 \begin{align}
@@ -3218,6 +3241,24 @@ b     & b & e & a
 \tau_{Y29}&=\{Y,\emptyset,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\}\}
 \end{align}
 
+\section{{\sc Barton} - Elements of Greens functions and propagation}
+\subsection{Problem 1.1 - Delta function}
+\begin{enumerate}[(i)]
+\item $\int_{-1}^2dx\delta(x)\cos(2x)=\cos(0)=1$
+\item $\int_{-1}^2dx\delta(2x)\cos(x)=\int_{-2}^4(dy/2)\delta(y)\cos(y/2)=\cos(0)/2=1/2$
+\item $\int_{-\infty}^\infty dx \delta'(x)\exp(ix)=0-i\int_{-\infty}^\infty \delta(x)\exp(ix)=-i$
+\item $\int_0^\infty dx \delta'(\sqrt{2}x-1)\tan^{-1}(x)=\int_0^\infty\frac{\delta(x-1/\sqrt{2})}{|\sqrt{2}|}\tan^{-1}(x)=\frac{\tan^{-1}(1/\sqrt{2})}{\sqrt{2}}$
+\end{enumerate}
+
+\subsection{Problem 1.3 - Delta function}
+\begin{align}
+\int_0^\infty dx\;\delta(\cos(x))e^{-x}
+&=\sum_{x_n\in\{\pi/2+n\pi\}}\int_0^\infty dx\;\frac{\delta(x-x_n)}{|\sin x_n|}e^{-x}\\
+&=e^{-\pi/2}\left(e^{-0\pi}+e^{-1\pi}+e^{-2\pi}+...\right)\\
+&=\frac{e^{-\pi/2}}{1-e^{-\pi}}\\
+&=\frac{1}{e^{\pi/2}-e^{-\pi/2}}\\
+\end{align}
+
 \section{{\sc Wyld} - Mathematical methods for physics}
 \subsection{Problem 10.2 - Bernoulli numbers}
 \begin{enumerate}[a)]
@@ -3732,7 +3773,51 @@ then
 a_1=\frac{a_0}{\sum_{k=1}\binom{n}{k}ka_0^{k-1}}=\frac{a_0}{n(1+a_0)^{n-1}}\quad\rightarrow\quad a_0=-\infty
 \end{align}
 
+\section{{\sc Arfken, Weber} - Mathematical Methods for physicists 7th ed}
+\subsection{6.5.19}
+\begin{enumerate}[(a)]
+\item Lets generalize the problem a bit ($k,m \rightarrow k_1, k_2, k_3, m_1, m_2$)
+\begin{align}
+L&=T-V\\
+&=
+\frac{m_1}{2}\dot{x}_1^2
++\frac{m_1}{2}\dot{x}_2^2
+-\frac{k_1}{2}(x_1-0-l_1)^2
+-\frac{k_2}{2}(x_2-x_1-l_2)^2
+-\frac{k_3}{2}(L-x_2-l_3)^2
+\end{align}
+Using the Euler-Lagrange equations for $x_1$ and $x_2$
+\begin{align}
+-k_1(x_1-l_1)+k_2(x_2-x_1-l_2)-m_1\ddot{x}_1&=0\\
+-k_2(x_2-x_1-l_2)+k_3(L-x_2-l_3)-m_2\ddot{x}_2&=0
+\end{align}
+and simplifying
+\begin{align}
+m_1\ddot{x}_1+(k_1+k_2)x_1-k_2x_2-k_1l_1+k_2l_2&=0\\
+m_2\ddot{x}_2-k_2x_1+(k_2+k_3)x_2-l_2l_2-k_3L+k_3l_3&=0
+\end{align}
+\item Finding the eigenvalues of the Hessian
+\begin{align}
+\left(\begin{array}{cc}
+(k_1+k_2)/m_1 & -k_2/m_1\\
+-k_2/m_2 & (k_2+k_3)/m_2
+\end{array}\right)
+\end{align}
+we get
+\begin{align}
+\omega_A^2&=\frac{k_2+k_3}{m_2}+\frac{k_1+k_2}{m_1}-\frac{1}{2}\sqrt{\frac{(k_2+k_3)^3}{m_2^2}-2\frac{(k_2(k_3-k_2)+k_1(k_2+k_2))}{m_1m_2}+\frac{(k_1+k_2)^2}{m_1^2}}\\
+&\rightarrow\frac{k}{m}\\
+\omega_B^2&=\frac{k_2+k_3}{m_2}+\frac{k_1+k_2}{m_1}+\frac{1}{2}\sqrt{\frac{(k_2+k_3)^3}{m_2^2}-2\frac{(k_2(k_3-k_2)+k_1(k_2+k_2))}{m_1m_2}+\frac{(k_1+k_2)^2}{m_1^2}}\\
+&\rightarrow3\frac{k}{m}
+\end{align}
 
+\item The associated eigenvectors are
+\begin{align}
+X_A&=(1,1)\\
+X_B&=(-1,1)
+\end{align}
+
+\end{enumerate}
 
 
 \section{{\sc Arnol'd} - Ordinary differential equations}
@@ -4134,6 +4219,8 @@ z_2...
 
 \section{{\sc O'Neill} - Semi-Riemannian Geometry - With Applications to Relativity}
 
+\section{{\sc Hubbert} - Vector Calculus, Linear Algebra, and Differential Forms}
+
 \section{{\sc Flanders} - Differential Forms with Applications to the Physical Sciences}
 
 \section{{\sc Morse, Feshbach} - Methods of mathematical physics}
@@ -4176,12 +4263,24 @@ The surface equations $\psi=\text{const}$ can be written in form of an ellipsoid
 \end{align}
 which degenerates to a flat pancake for $\psi=0,\pi$.
 
-\subsection{Problem 4.1}
+\subsection{Problem 4.1 - NOT DoNE yet}
 Standard trick
 \begin{align}
     x=\tan\vartheta/2\rightarrow d\theta =\frac{2dx}{1+x^2},\,\sin\vartheta=\frac{2x}{1+x^2},\,\cos\vartheta=\frac{1-x^2}{1+x^2}\\
     \int_0^{2\pi}\frac{\sin^2\vartheta d\vartheta}{a+b\cos\vartheta}=\int_?^{?}\frac{8x^3\cdot dx}{(1+x^2)^3(a+b\frac{1-x^2}{1+x^2})}
 \end{align}
+
+\subsection{Problem 6.3 - NOT DoNE yet}
+Fourier series of initial condition on the interval $[0,\pi]$
+\begin{align}
+\psi(t,0)=\psi_0(x)
+&=\frac{b_0}{2}+\sum_{k=1}^\infty(a_k\sin 2kx+b_k\cos 2kx)\\
+a_k
+&=\frac{2}{\pi}\int_{0}^\pi\psi_0(y)\sin 2ky\,dy\\
+b_k
+&=\frac{2}{\pi}\int_{0}^\pi\psi_0(y)\cos 2ky\,dy
+\end{align}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% WOIT %%%%%%%%%%%%%%%%%%%%%%%%
@@ -4661,6 +4760,53 @@ The Dulong-Petit rule says $k/2$ per harmonic degree of freedom which means in 3
 
 
 \chapter{Quantum Field Theory}
+\section{{\sc Schmueser} - Feynman-Graphen und Eichtheorie}
+\subsection{Problem 1.1}
+\begin{align}
+\mathbf{\sigma}\cdot\mathbf{a}&=
+\left(\begin{matrix}
+a_3 & a_1-ia_2\\
+a_1+ia_2 & -a_3\\
+\end{matrix}\right)\\
+(\mathbf{\sigma}\cdot\mathbf{a})(\mathbf{\sigma}\cdot\mathbf{b})&=
+\left(\begin{matrix}
+a_3 & a_1-ia_2\\
+a_1+ia_2 & -a_3\\
+\end{matrix}\right)\left(\begin{matrix}
+b_3 & b_1-ib_2\\
+b_1+ib_2 & -b_3\\
+\end{matrix}\right)\\
+&=\mathbf{a}\cdot\mathbf{b}\,1_2+i\mathbf{\sigma}\cdot(\mathbf{a}\times\mathbf{b})
+\end{align}
+
+\subsection{Problem 1.2}
+\begin{align}
+\mathbf{P}\times\mathbf{P}
+&=(-i\hbar)^2\underbrace{(\nabla\times\nabla)}_{=0}+e^2\underbrace{(\mathbf{A}\times\mathbf{A})}_{=0}-i\hbar e(\nabla\times\mathbf{A}+\mathbf{A}\times\nabla)\\
+&=-i\hbar e(\nabla\times\mathbf{A}+\mathbf{A}\times\nabla)\\
+&=-i\hbar e\left(\begin{matrix}
+\partial_yA_z-\partial_zA_y+A_y\partial_z-A_z\partial_y\\
+...\\
+...
+\end{matrix}\right)\\
+&=-i\hbar e\left(\begin{matrix}
+(\partial_yA_z+A_z\partial_y)-(\partial_zA_y+A_y\partial_z)+A_y\partial_z-A_z\partial_y\\
+...\\
+...
+\end{matrix}\right)\\
+&=-i\hbar e\left(\begin{matrix}
+\partial_yA_z-\partial_zA_y\\
+...\\
+...
+\end{matrix}\right)\\
+&=-i\hbar e\mathbf{B}
+\end{align}
+and therefore
+\begin{align}
+(\mathbf{\sigma}\cdot\mathbf{P})(\mathbf{\sigma}\cdot\mathbf{P})
+&=\mathbf{P}^2\,1_2+e\hbar\mathbf{\sigma}\cdot\mathbf{B}
+\end{align}
+
 \section{{\sc Lancaster, Blundell} - Quantum Field Theory for the gifted amateur}
 \subsection{Problem 1.1 - Snell's law via Fermat's principle}
 The light travels from point $A$ in medium 1 to point $B$ in medium 2. We assume a vertical medium boundary at $x_0$ and that the light travels within a medium in the straight line. This makes $y_0$ the free parameter and the the travel time is given by
@@ -6275,7 +6421,7 @@ and get
    
 \end{enumerate}
 
-\subsection{Problem 3.7 Perihelion shift of Mercury by dimensional analysis}
+\subsection{Problem 3.7 Perihelion shift of Mercury by dimensional analysis - NOT DONE YET}
 \begin{enumerate}[label=(\alph*)]
 \item Lets summarize the rules of dimensional analysis 
 
@@ -6362,7 +6508,18 @@ the virial theorem implies $E_\text{kin}\simeq E_\text{pot}$ and therefore
 \subsection{Problem 3.9 - Photon polarizations}
 
 \begin{enumerate}[label=(\alph*)]
-\item Then using the results from problem 3.6 and the corrected sign in the Lagranian we get
+\item Then using the results from problem 3.6 and the corrected sign in the Lagrangian we get
+\begin{align}
+-\frac{1}{4}(F_{\mu\nu})^2
+    &=-\frac{1}{4}(\partial_\mu A_\nu-\partial_\nu A_\mu)(\partial_\mu A_\nu-\partial_\nu A_\mu)\\
+    &=-\frac{1}{4}\left(\partial_\mu A_\nu \partial_\mu A_\nu-\partial_\mu A_\nu \partial_\nu A_\mu
+        -\partial_\nu A_\mu \partial_\mu A_\nu + \partial_\nu A_\mu\partial_\nu A_\mu\right)\\
+    &=-\frac{1}{2}\left(\partial_\mu A_\nu \partial_\mu A_\nu-\partial_\mu A_\nu \partial_\nu A_\mu\right)\\
+    &=-\frac{1}{2}\left(-A_\nu\partial_\mu\partial_\mu A_\nu+ A_\nu \partial_\nu \partial_\mu A_\mu\right)\\
+    &=\frac{1}{2}\left(A_\mu \Box A_\mu- A_\nu \partial_\nu \underbrace{\partial_\mu A_\mu}_{=0}\right)\\ 
+    &=\frac{1}{2}A_\mu \Box A_\mu
+\end{align}
+and therefore
 \begin{align}
 \mathcal{L}&=-\frac{1}{4}(F_{\mu\nu})^2-J_\mu A_\mu\\
 &=\frac{1}{2}A_\mu\Box A_\mu-J_\mu A_\mu\\
@@ -6385,19 +6542,41 @@ The equations of motion are $\Box A_\mu=J_\mu$ which can be written in momentum 
 \item
 \begin{align}
 \mathcal{L}&=\int d^4k e^{ikx}J_\mu(k)\frac{1}{k^2}J_\mu(k)\\
-&\simeq\frac{J_0^2-J_1^2-J_3^2-J_4^2}{\omega^2-\kappa^2}\\
-&\simeq\frac{J_0^2(1-\omega^2/\kappa^2)}{\omega^2-\kappa^2}-\frac{J_3^2+J_4^2}{\omega^2-\kappa^2}\\
-&\simeq-\frac{J_0^2}{\kappa^2}-\frac{J_3^2+J_4^2}{\omega^2-\kappa^2}\\
-&\simeq\triangle J_0^2-\Box(J_3^2+J_4^2)
+&\simeq\frac{J_0^2-J_1^2-J_2^2-J_3^2}{\omega^2-\kappa^2}\\
+&\simeq\frac{J_0^2(1-\omega^2/\kappa^2)}{\omega^2-\kappa^2}-\frac{J_2^2+J_3^2}{\omega^2-\kappa^2}\\
+&\simeq-\frac{J_0^2}{\kappa^2}-\frac{J_2^2+J_3^2}{\omega^2-\kappa^2}\\
+&\simeq\triangle J_0^2-\Box(J_2^2+J_3^2)
 \end{align} 
 
-\item
+\item A time derivative in the Lagrangian results in a time derivative in time derivative in the equations of motion which means a time-evolution equation. There are two causally propagating degrees of freedom $J_2$ and $J_3$.
+
+\item Hmmmm .... calculate the two point field correlation functions and see if they vanish outside of the light cone.
+
 \end{enumerate}
 
 
-\subsection{Problem 3.10 - Graviton polarizations}
+\subsection{Problem 3.10 - Graviton polarizations - NOT DONE YET}
 \begin{enumerate}[label=(\alph*)]
-\item
+\item With the higher order Euler-Lagrange equations from 3.1
+\begin{align}
+\frac{\partial \mathcal{L}}{\partial\phi}
+- \partial_\mu\frac{\partial \mathcal{L}}{\partial(\partial_\mu\phi)}
++\partial_\mu\partial_\nu\frac{\partial \mathcal{L}}{\partial(\partial_\nu\partial_\mu\phi)}-...=0
+\end{align}
+we obtain
+\begin{align}
+-\frac{1}{2}\Box h_{\mu\nu}+\frac{1}{M_\text{Pl}}T_{\mu\nu}-\frac{1}{2}\Box h_{\mu\nu}&=0\\
+\rightarrow \Box h_{\mu\nu}&=\frac{1}{M_\text{Pl}}T_{\mu\nu}\\
+\rightarrow h_{\mu\nu}&=\frac{1}{M_\text{Pl}}\frac{1}{\Box}T_{\mu\nu}
+\end{align}
+and
+\begin{align}
+\mathcal{L}
+&=-\frac{1}{2}h_{\mu\nu}\Box h_{\mu\nu}+\frac{1}{M_\text{Pl}}h_{\mu\nu}T_{\mu\nu}\\
+&=-\frac{1}{2}\frac{1}{M_\text{Pl}^2}(\frac{1}{\Box} T_{\mu\nu})T_{\mu\nu}+\frac{1}{M_\text{Pl}^2}(\frac{1}{\Box} T_{\mu\nu})T_{\mu\nu}\\
+&=\frac{1}{2}\frac{1}{M_\text{Pl}^2}T_{\mu\nu}\frac{1}{\Box} T_{\mu\nu}\\
+&\simeq\frac{1}{2}\frac{1}{M_\text{Pl}^2}T_{\mu\nu}\frac{1}{k^2} T_{\mu\nu}\\
+\end{align}
 \item
 \item
 \item
@@ -7443,7 +7622,42 @@ where we used exercise (7.1). Then
 &=i\theta(t-t')\int\widetilde{dk}\,e^{ik(x-x')}+i\theta(t'-t)\int\widetilde{dk}\,e^{-ik(x-x')}\\
 \end{align}
 
-
+\section{{\sc Coleman} - Lectures of Sidney Coleman on quantum field theory}
+\subsection{Problem 1.1 - Momentum space measure}
+Boost in $z$-direction
+\begin{align}
+p_\mu&=\Lambda^\nu_{\,\mu}p_\nu'\\ 
+\Lambda&=\left(\begin{array}{cccc}
+\gamma & 0 & 0 & -\gamma\beta\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+-\gamma\beta & 0 & 0 & \gamma
+\end{array}\right)
+\end{align}
+Combining everything using $dp_i\wedge\,dp_i=0$
+\begin{align}
+\rightarrow dp_x&=dp_x'\\
+\rightarrow dp_y&=dp_y'\\
+\rightarrow dp_z
+&=-\gamma\beta\,dp_0'+\gamma\,dp_z'\\
+&=-\gamma\beta\left(\frac{\partial p_0'}{\partial p_x'}dp_x'+\frac{\partial p_0'}{\partial p_y'}dp_y'+\frac{\partial p_0'}{\partial p_z'}dp_z'\right)+\gamma\,dp_z'\\
+&=-\gamma\beta\frac{1}{2\omega_p'}(2p_x'\,dp_x'+2p_y'\,dp_y'+2p_z'\,dp_z')+\gamma\,dp_z'\\
+&=-\gamma\beta\frac{p_x'\,dp_x'+p_y'\,dp_y'}{\omega_p'}+\gamma\left(1-\frac{\beta}{\omega_p'}p_z'\right)\,dp_z'
+\end{align}
+where we used $p_0'=\omega_p'=\sqrt{m^2-{p_x'}^2-{p_y'}^2-{p_z'}^2}$ and 
+\begin{align}
+\rightarrow \omega_p&=p_0\\
+&=\gamma p_0'-\gamma\beta\,p_z'\\
+&=\gamma(\omega_p'-\beta\,p_z')
+\end{align}
+then
+\begin{align}
+\frac{d^3p}{(2\pi)^3 2\omega_p}
+&=\frac{dp_x\,dp_y\,dp_z}{(2\pi)^3 2\omega_p}\\
+&=\frac{dp_x'\,dp_y'\gamma\left(1-\frac{\beta}{\omega_p'}p_z'\right)\,dp_z'}{(2\pi)^3 2\gamma(\omega_p'-\beta\,p_z')}\\
+&=\frac{dp_x'\,dp_y'\gamma\left(1-\frac{\beta}{\omega_p'}p_z'\right)\,dp_z'}{(2\pi)^3 2\omega_p'\gamma\left(1-\frac{\beta}{\omega_p'}\,p_z'\right)}\\
+&=\frac{dp_x'\,dp_y'\,dp_z'}{(2\pi)^3 2\omega_p'}
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Kachelriess %%%%%%%%%%%%%%%%%%%%%%%%
@@ -8849,6 +9063,52 @@ and obtain
 
 
 \chapter{Nuclear Physics}
+\section{{\sc Povh, Rith, Scholz, Zetsche, Rodejohann} - Particles and Nuclei - An Introduction to the Physical Concepts 7th ed}
+
+\subsection{Problem 14.2 - Muonic and hadronic atoms}
+
+\begin{align}
+\mu_x&=\frac{m_pm_x}{m_p+m_x}\\
+E_n^{(x)}&=-\frac{\mu_x c^2}{2}\alpha^2\frac{1}{n^2}\\
+r_B^{(x)}&=\frac{\hbar c}{\alpha\, \mu_x c^2}\\
+\frac{dP}{dt}&=\Gamma_{f\rightarrow i}=\frac{2\pi}{\hbar}|\langle f|H'|i\rangle|^2\rho(E_f)\\
+&\sim\frac{1}{\tau}
+\end{align}
+\begin{enumerate}[(a)]
+\item We have now with $m_p=938.272$MeV, $\alpha=1/137$ and $c=1$ 
+\begin{center}
+\begin{tabular}{lcccccc}
+$x$              & $m_x$       & $\mu_x$ & $r_B$ & $E_{1s}$ & $E_{2p}$ & $\Delta E_{2p/1s}$ \\ \hline
+$e^-$            & 511.0keV  & 510.7keV & $5.3\cdot10^{-11}$m &   13.6eV &   3.4eV &  10.2eV\\
+$\mu^-$          & 105.7MeV  &  95.0MeV & $2.8\cdot10^{-13}$m &  2,530eV &   632eV & 1,898eV\\
+$\pi^-$          & 139.6MeV  & 121.5MeV & $2.2\cdot10^{-13}$m &  3,237eV &   809eV & 2,428eV\\
+$\text{K}^-$     & 493.6MeV  & 299.3MeV & $9.0\cdot10^{-14}$m &  8,616eV & 2,154eV & 6,462eV\\
+$\bar{\text{p}}$ & 938.3MeV  & 469.1MeV & $5.8\cdot10^{-14}$m & 12,498eV & 3,123eV & 9,373eV\\
+$\Sigma^-$       & 1197.4MeV & 526.1MeV & $5.1\cdot10^{-14}$m & 14,019eV & 3,505eV & 10,510eV\\
+$\Xi^-$          & 1321.7MeV & 548.7MeV & $4.9\cdot10^{-14}$m & 14,618eV & 3,654eV & 10,963eV
+\end{tabular}
+\end{center}
+
+\item Different values for hydrogen can be found $\tau_H=1.76\cdot10^{-9}$s and $\Gamma(2p\rightarrow1s) =6.2\cdot10^8$s$^{-1}$.
+
+Full valuation of Fermis golden rule gives
+\begin{align}
+\tau&=\left(\frac{3}{2}\right)^8\frac{r_B}{c\alpha^4}\\
+\tau&\sim r_B\sim\frac{1}{\mu}\\
+\tau_{p\bar{p}}&=\frac{\mu_H}{\mu_{p\bar{p}}}\tau_H=1.73\cdot10^{-12}\text{s}
+\end{align}
+
+Rational: dipole matrix element scales with $r_B$ (smaller object means smaller dipole)
+\begin{align}
+\langle f|H'|i\rangle &\sim \langle f|\mathbf{x}|i\rangle\sim r_B\\
+|\langle f|H'|i\rangle|^2 &\sim r_B^2\\
+\rho&\sim \frac{1}{\Delta E_{s/p}}\sim\frac{1}{\mu}\sim r_B\\
+\Gamma&\sim r_B^3
+\end{align}
+Hmmmmm ....
+
+\end{enumerate}
+
 \section{{\sc Walecka} - Theoretical Nuclear And Subnuclear Physics, 2nd Edition (2004)}
 
 \section{{\sc Petrera} - Problems and Solutions in Nuclear and Particle Physics}
@@ -9087,6 +9347,32 @@ With $g_{\mu\nu}=\text{diag}(g_{11},g_{22},g_{33},g_{44})$ the inverse is given 
 &=\partial_\lambda \log \sqrt{|g_{\lambda\lambda}|}
 \end{align}
 
+\section{{\sc Ryder} - Introduction to General Relativity, 2009}
+\subsection{Problem 4.1 - Curvature scalar for 2d space - NOT DONE YET}
+\begin{align}
+ds^2&=ydx^2+xdy^2\\
+\Gamma^x_{xx}&=\frac{1}{2}g^{xa}(g_{xa,x}+g_{ax,x}-g_{xx,a})=\frac{1}{2}g^{xx}(g_{xx,x}+g_{xx,x}-g_{xx,x})=0\\
+\Gamma^x_{xy}&=\Gamma^x_{yx}=\frac{1}{2}g^{xa}(g_{xa,y}+g_{ay,x}-g_{xy,a})=\frac{1}{2}g^{xx}(g_{xx,y}+g_{xy,x}-g_{xy,x})=\frac{1}{2y}\\
+\Gamma^x_{yy}&=\frac{1}{2}g^{xa}(g_{ya,y}+g_{ay,y}-g_{yy,a})=\frac{1}{2}g^{xx}(g_{yx,y}+g_{xy,y}-g_{yy,x})=-\frac{1}{2y}\\
+\Gamma^y_{xx}&=\frac{1}{2}g^{yy}(-g_{yy,x})=-\frac{1}{2x}\\
+\Gamma^y_{xy}&=\Gamma^y_{yx}=\frac{1}{2}g^{yy}g_{yy,x}=\frac{1}{2x}\\
+\Gamma^y_{yy}&=0\\
+...&\\
+\end{align}
+Ricci Tensor and Scalar
+\begin{align}
+R_{xx}&=R^a_{xax}=R^x_{xxx}+R^y_{xyx}=\\
+R_{xy}&=R^a_{xay}=R^x_{xxy}+R^y_{xyy}=\\
+R_{yy}&=R^a_{yay}=R^x_{yxy}+R^y_{yyy}=\\
+R&=R^x_{\;x}+R^y_{\;y}=g^{xx}R_{xx}+g^{yy}R_{yy}=
+\end{align}
+
+
+
+\section{{\sc Rindler} - Relativity Special General and Cosmological, 2nd ed}
+
+\section{{\sc Stephani} - Relativity - An Introduction to Special and General Relativity 2004}
+
 \section{{\sc Poisson} - A relativists toolkit}
 \subsection{Problem 1.1 - Parallel transport on cone}
 \begin{enumerate}
@@ -9200,6 +9486,56 @@ X&=\xi_{(2)}=\cos\phi\partial_\theta-\sin\phi\cot\theta\partial_\phi\\
 we find (by construction) another Killing vector field - which translates into $\xi^\mu_{(3)}=(0,1)$ .
 
 \section{{\sc Wald} - General Relativity}
+\subsection{4.1 - Charge conservation}
+Using the symmetries
+\begin{align}
+\nabla^b\nabla^aF_{ab}
+&=\nabla^a\nabla^bF_{ab}\\
+&=-\nabla^a\nabla^bF_{ba}\\
+&=-\nabla^b\nabla^aF_{ab}\qquad (a\leftrightarrow b)\\
+&=0
+\end{align}
+then
+\begin{align}
+\nabla^aF_{ab}&=-4\pi j_b\\
+0=\nabla^b\nabla^aF_{ab}&=-4\pi \nabla^b j_b\\
+\rightarrow \nabla^b j_b=0
+\end{align}
+
+\subsection{4.8 - Quadrupole radiation of harmonic oszi}
+\begin{align}
+q_{\mu\nu}
+&=3\int T^{00}x^\mu x^\nu d^3x\\
+&=3M\int [\delta(x-A\sin\omega t)+\delta(x+A\sin\omega t)]\delta(y)\delta(z)x^\mu x^\nu d^3x\\
+&=\left(\begin{array}{ccc}
+6MA^2\sin^2\omega t & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}
+\right)\\
+Q_{\mu\nu}
+&=\left(\begin{array}{ccc}
+4MA^2\sin^2\omega t & 0 & 0\\
+0 & -2MA^2\sin^2\omega t & 0\\
+0 & 0 & -2MA^2\sin^2\omega t
+\end{array}
+\right)\\
+\sum_{\mu,\nu}\left(\frac{d^3Q}{dt^3}\right)^2&=1536 A^4M^2\omega^6\cos^2\omega t\sin^2\omega t\\
+P&=\frac{1}{45}\frac{\int_0^{2\pi/\omega}\sum_{\mu,\nu}\left(\frac{d^3Q}{dt^3}\right)^2dt}{\frac{2\pi}{\omega}}\\
+&=\frac{64}{15}A^4M^2\omega^6\\
+&=\frac{512}{15}\frac{A^4K^3}{M}
+\end{align}
+were $\omega=\sqrt{2K/M}$. Reason:
+\begin{align}
+L&=T-V\\
+&=2\frac{M\dot{x}^2}{2}-\frac{K(2x)^2}{2}\\
+&=M\dot{x}^2-2Kx^2\\
+&\rightarrow -4Kx-2M\ddot{x}=0\\
+&\rightarrow M\ddot{x}+2Kx=0
+\end{align}
+
+
+
 \subsection{5.1}
 Case $k=-1$
 \begin{align}
@@ -9663,13 +9999,20 @@ and therefore
 \begin{enumerate}[(a)]
 \item In esu (electrostatic units) $k_c=1$ and the mechanical units are cgs (cm, g, sec) which means force is measured in dyn=g$\cdot$m/s$^2$=$10^{-5}$N then via the Coulomb law we have
 \begin{align}
-F=k_c\frac{q_1q_2}{r^2}
+F
+&=\frac{1}{4\pi\epsilon_0}\frac{q^2}{r^2}\\
+\hat F&=k_c\frac{\hat q^2}{\hat r^2}
+\end{align}
+and
+\begin{align}
+\hat q
+&=\sqrt{\frac{1}{4\pi\epsilon_0\cdot k_c}\frac{\hat r^2}{r^2}10^5}\cdot q\\
+4.8\cdot10^{-10}\text{esu}&=1.602\cdot10^{-19}\text{C}
 \end{align}
 
 
-
-\item 
-\item 
+\item $\frac{1}{2}mv^2=\frac{3}{2}kT$
+\item $\alpha=\frac{1}{4\pi\epsilon_0}\frac{e^2}{\hbar c}\simeq\frac{1}{137}$
 \end{enumerate}
 
 
@@ -9701,6 +10044,29 @@ F=k_c\frac{q_1q_2}{r^2}
 
 \chapter{Astrophysics}
 \section{{\sc Carroll, Ostlie} - An Introduction to Modern Astrophysics}
+
+\subsection{Problem 4.3 - Binary star - NOT DONE YET}
+With $a=R_1+R_2$ and using the circular property of the system we find
+\begin{align}
+m_1\omega^2R_1&=G\frac{m_1m_2}{a^2}=m_2\omega^2R_2=m_2\omega^2(a-R_1)\\
+m_1R_1&=m_2(a-R_1)\\
+R_1&=\frac{m_2}{m_1+m_2}a\\
+R_2&=\frac{m_1}{m_1+m_2}a\\
+\rightarrow m_1R_1&=m_2R_2
+\end{align}
+and using the geometry
+\begin{align}
+\sin i
+&=\frac{r_2}{R_2}=\frac{r_2}{a}\frac{m_1+m_2}{m_1}\\
+&=\frac{r_1}{R_1}=\frac{r_1}{a}\frac{m_1+m_2}{m_2}\\
+\rightarrow m_1r_1&=m_2r_2
+\end{align}
+we see that the $\sin i$ still contains the mass ratio. One more look at the geometry reveals $\cos i=\frac{r_1+r_2}{a}$ which is the solution. But we lets just combine all results to if we can get some information about the masses 
+\begin{align}
+\cos i=\frac{r_1+r_2}{a}
+=\sqrt{1-\sin^2 i}=\sqrt{1-\frac{r_1^2}{a^2}\frac{(m_1+m_2)^2}{m_2^2}}=\frac{1}{a}
+\end{align}
+
 
 \section{{\sc Weinberg} - Lecture on Astrophysics}
 \subsection{Problem 1 - Hydrostatics of spherical star}
@@ -11247,7 +11613,7 @@ then
 &=-\frac{3\hbar^2\omega^2}{32mc^2}
 \end{align}
 
-\subsection{5.4 - Diatomic atomic rotor}
+\subsection{5.4 - Diatomic atomic rotor - NOT DONE YET}
 Hamiltonian of the problem is given by
 \begin{align}
 H=\frac{L^2}{2I}\quad\rightarrow\quad\hat{H}&=-\frac{\hbar^2}{2I}\frac{d^2}{d\varphi^2}
@@ -11388,13 +11754,46 @@ Q/r & r>R
 Treating this as a perturbation problem the energy shift can be calculated via the perturbation Hamiltonian (switching the electrostatic energy within the finite nucleus)
 \begin{align}
 H_1
-&=(q\phi_\text{finite}-q\phi_\text{point})\theta(R-a)\\
-&=-e\left(\phi_\text{finite}-\phi_\text{point}\right)\theta(R-a)\\
+&=(q\phi_\text{finite}-q\phi_\text{point})\theta(R-r)\\
+&=-e\left(\phi_\text{finite}-\phi_\text{point}\right)\theta(R-r)\\
 &=-\frac{e}{4\pi\epsilon_0}\left(\frac{Ze}{2R}
-\left[3-\frac{r^2}{R^2}\right]-\frac{Ze}{r}\right)\theta(R-a)\\
+\left[3-\frac{r^2}{R^2}\right]-\frac{Ze}{r}\right)\theta(R-r)\\
 &=-\frac{Ze^2}{4\pi\epsilon_0}\left(\frac{1}{2R}
-\left[3-\frac{r^2}{R^2}\right]-\frac{1}{r}\right)\theta(R-a)\\
+\left[3-\frac{r^2}{R^2}\right]-\frac{1}{r}\right)\theta(R-r)
 \end{align}
+with $R=r_0A^{1/3}$. With the radial wavefunction (in Mathematica notation)
+\begin{align}
+R_{nl}(r)=\frac{2}{n^2}\sqrt{\frac{(n-l-1)!Z^3}{(n+l)!a_B^3}}\left(\frac{2Zr}{na_B}\right)^le^{-Zr/na_B}L_{n-l-1}^{2l+1}(\frac{2Zr}{na_B})
+\end{align}
+we can do a series expansion at $r=0$ and use the first term (as nucleus is small)
+\begin{align}
+R_{10}^2&\simeq 4Z^3\\
+R_{20}^2&\simeq \frac{1}{2}Z^3\qquad R_{21}^2\simeq \frac{1}{24}Z^5r^2\\
+R_{30}^2&\simeq \frac{4}{27}Z^3\qquad R_{31}^2\simeq \frac{32}{2187}Z^5r^2\qquad R_{32}^2\simeq \frac{8}{98415}Z^7r^4\\
+R_{40}^2&\simeq \frac{1}{16}Z^3\qquad R_{41}^2\simeq \frac{5}{768}Z^5r^2\qquad R_{42}^2\simeq \frac{1}{20400}Z^7r^4\qquad R_{43}^2\simeq \frac{1}{20643840}Z^9r^6
+\end{align}
+then
+\begin{align}
+\Delta E_{nl}&=\int_0^Rr^2R_{nl}(r)^2H_1(r)\\
+\Delta E_{10}&=-\frac{2}{5}r_0^2A^{2/3}Z^4\\
+\Delta E_{20}&=-\frac{1}{20}r_0^2A^{2/3}Z^4\qquad
+\Delta E_{21}=-\frac{1}{1120}r_0^4A^{4/3}Z^6\\
+\Delta E_{30}&=-\frac{2}{135}r_0^2A^{2/3}Z^4\qquad
+\Delta E_{31}=-\frac{8}{25515}r_0^4A^{4/3}Z^6\qquad
+\Delta E_{32}=-\frac{4}{6200145}r_0^6A^{2}Z^8\\
+\Delta E_{40}&=-\frac{1}{160}r_0^2A^{2/3}Z^4\qquad
+\Delta E_{41}=-\frac{1}{7168}r_0^4A^{4/3}Z^6\qquad
+\Delta E_{42}=-\frac{1}{2580480}r_0^6A^{2}Z^8\qquad
+\Delta E_{43}=-\frac{1}{5449973760}r_0^8A^{8/3}Z^10
+\end{align}
+and
+\begin{align}
+\Delta E_{2p\rightarrow1s}&=\left(-\frac{1}{1120}r_0^4A^{4/3}Z^6\right)-\left(-\frac{2}{5}r_0^2A^{2/3}Z^4\right)\\
+\Delta E_{H:\,2p\rightarrow1s}&=2.05593\cdot10^{-10}=0.000045\text{cm}^{-1}\\
+\Delta E_{Pb:\,2p\rightarrow1s}&=0.003981=873.8\text{cm}^{-1}
+\end{align}
+
+
 
 
 \subsection{1.9 - Exponential potential}
@@ -11427,6 +11826,753 @@ r^2\partial_r \psi
 &=\left(J_{n-1}-J_{n+1}\right)\left[-\frac{a^2r_0}{2r}-\left(\frac{nr}{2r_0}-1\right)\frac{ar_0}{4r^2r_0}\right]e^{-\frac{r}{2r_0}}
 \end{align}
 
+\section{{\sc Gottfried, Tung} - Quantum Mechanics: Fundamentals, 2nd ed}
+
+\section{{\sc Merzbacher} - Quantum Mechanics, 3rd ed}
+
+\section{{\sc Jackson} - A Course in Quantum Mechanics}
+\subsection{1.1 Lorentzian wave package}
+\begin{enumerate}[(a)]
+\item
+\begin{align}
+\psi(x,0)
+&=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^\infty dp\,e^{ixp/\hbar}\sqrt{\frac{2}{\pi\hbar}}\frac{\alpha^{3/2}}{(p-p_0)^2+\alpha^2}\\
+&=\frac{\alpha}{\pi\hbar}\int_{-\infty}^\infty dp\,e^{ixp/\hbar}\frac{\alpha^{1/2}}{(p-p_0)^2+\alpha^2}\\
+&=\frac{\alpha^{3/2}}{\pi\hbar}e^{ixp_0/\hbar}\int_{-\infty}^\infty d\hat{p}\,e^{ix\hat{p}/\hbar}\frac{1}{\hat{p}^2+\alpha^2}\\
+&=\frac{\alpha^{3/2}}{\pi\hbar}\frac{i}{2\alpha}e^{ixp_0/\hbar}\int_{-\infty}^\infty d\hat{p}\,e^{ix\hat{p}/\hbar}\left(\frac{1}{\hat{p}+i\alpha}-\frac{1}{\hat{p}-i\alpha}\right)
+\end{align}
+Close loop above for $x>0$ (half loop integral vanishes) and below for $x<0$
+\begin{align}
+\psi(x>0,0)
+&=\frac{i\sqrt{\alpha}}{2\pi\hbar}e^{ixp_0/\hbar}\cdot 2\pi i\,\text{Res}(i\alpha,I_2)\\
+&=-\frac{\sqrt{\alpha}}{\hbar}e^{ixp_0/\hbar}\cdot\left(-e^{ix(i\alpha)/\hbar}\right)\\
+&=\frac{\sqrt{\alpha}}{\hbar}e^{-x\alpha/\hbar}\cdot e^{ixp_0/\hbar}\\
+\rightarrow\psi(x,0)
+&=\frac{\sqrt{\alpha}}{\hbar}e^{-|x|\alpha/\hbar}\cdot e^{ixp_0/\hbar}
+\end{align}
+$\alpha$ is the width of the package in momentum space. $1/\alpha$ is the package width in space.
+\item
+\begin{align}
+\int\phi^*\phi\,dp&=\frac{1}{\hbar}\\
+\int\phi^* p \phi\,dp&=\frac{p_0}{\hbar}\quad\rightarrow\quad\langle p\rangle=p_0\\
+\int\phi^* p^2 \phi\,dp&=\frac{p_0^2+\alpha^2}{\hbar}\quad\rightarrow\quad\langle p^2\rangle=p_0^2+\alpha^2
+\end{align}
+
+\begin{align}
+\int\psi^*\psi\,dp&=\frac{1}{\hbar}\\
+\int\psi^* x \psi\,dp&=0\quad\rightarrow\quad\langle x\rangle=0\\
+\int\psi^* x^2 \psi\,dp&=\frac{\hbar}{2\alpha^2}\quad\rightarrow\quad\langle x^2\rangle=\frac{\hbar^2}{2\alpha^2}
+\end{align}
+\item
+\begin{align}
+\Delta x=\sqrt{\langle x^2 \rangle-\langle x \rangle^2}=\frac{\hbar}{\sqrt{2}\alpha}\\
+\Delta p=\sqrt{\langle p^2 \rangle-\langle p \rangle^2}=\alpha\\
+\Delta x\cdot\Delta p=\frac{\hbar}{\sqrt{2}}>\hbar/2
+\end{align}
+\end{enumerate}
+
+\subsection{1.2 1D Box with vanishing walls}
+With
+\begin{align}
+\psi(x,t)&=\sqrt{\frac{2}{L}}\sin\left(\frac{\pi x}{L}\right)
+\,e^{-i\frac{\pi^2\hbar}{2mL^2}t}\\
+\phi(p)
+&=\frac{1}{\sqrt{2\pi\hbar}}\sqrt{\frac{2}{L}}\int_0^L dx\,\psi(x,0)\,e^{ipx/\hbar}\\
+&=\frac{1}{\sqrt{\pi\hbar L}}\int_0^L dx\,\sin\left(\frac{\pi x}{L}\right)\,e^{ipx/\hbar}
+\end{align}
+Two times integration by parted gives
+\begin{align}
+\phi(p)
+&=\frac{1}{\sqrt{\pi\hbar L}}\frac{\pi L\hbar^2\left(1+e^{ipL/\hbar}\right)}{\hbar^2\pi^2-p^2L^2}
+\end{align}
+Now we can use the Schroedinger equation with $\phi(p,t)=\phi(p)f(t)$
+\begin{align}
+i\hbar\partial_t\phi(p,t)&=\frac{p^2}{2m}\phi(p,t)\\
+&\rightarrow i\hbar\partial_t f(t)=\frac{p^2}{2m}f(t)\\
+&\rightarrow f(t)=c\,e^{-i\frac{p^2}{2\hbar m}t}\\
+&\rightarrow \phi(p,t)=\frac{1}{\sqrt{\pi\hbar L}}\frac{\pi L\hbar^2\left(1+e^{ipL/\hbar}\right)}{\hbar^2\pi^2-p^2L^2} \,e^{-i\frac{p^2}{2\hbar m}t}\\
+&\rightarrow \rho(p,t)=\phi^*\phi=\frac{2\hbar^4 L^2 \pi^2}{(p^2L^2+\hbar^2\pi^2)^2}\left(1+\cos\frac{pL}{\hbar}\right)
+\end{align}
+
+\subsection{1.3 Protonium}
+
+\begin{align}
+\mu_x&=\frac{m_pm_x}{m_p+m_x}\\
+E_n^{(x)}&=-\frac{\mu_x c^2}{2}\alpha^2\frac{1}{n^2}\\
+r_B^{(x)}&=\frac{\hbar c}{\alpha\, \mu_x c^2}\\
+\frac{dP}{dt}&=\Gamma_{f\rightarrow i}=\frac{2\pi}{\hbar}|\langle f|H'|i\rangle|^2\rho(E_f)\\
+&\sim\frac{1}{\tau}
+\end{align}
+\begin{enumerate}[(a)]
+\item We have now with $m_p=938.272$MeV, $\alpha=1/137$ and $c=1$ 
+\begin{center}
+\begin{tabular}{lcccccc}
+$x$              & $m_x$       & $\mu_x$ & $r_B$ & $E_{1s}$ & $E_{2p}$ & $\Delta E_{2p/1s}$ \\ \hline
+$e^-$            & 511.0keV  & 510.7keV & $5.3\cdot10^{-11}$m &   13.6eV &   3.4eV &  10.2eV\\
+$\mu^-$          & 105.7MeV  &  95.0MeV & $2.8\cdot10^{-13}$m &  2,530eV &   632eV & 1,898eV\\
+$\pi^-$          & 139.6MeV  & 121.5MeV & $2.2\cdot10^{-13}$m &  3,237eV &   809eV & 2,428eV\\
+$\text{K}^-$     & 493.6MeV  & 299.3MeV & $9.0\cdot10^{-14}$m &  8,616eV & 2,154eV & 6,462eV\\
+$\bar{\text{p}}$ & 938.3MeV  & 469.1MeV & $5.8\cdot10^{-14}$m & 12,498eV & 3,123eV & 9,373eV\\
+$\Sigma^-$       & 1197.4MeV & 526.1MeV & $5.1\cdot10^{-14}$m & 14,019eV & 3,505eV & 10,510eV\\
+$\Xi^-$          & 1321.7MeV & 548.7MeV & $4.9\cdot10^{-14}$m & 14,618eV & 3,654eV & 10,963eV
+\end{tabular}
+\end{center}
+
+\item Different values for hydrogen can be found $\tau_H=1.76\cdot10^{-9}$s and $\Gamma(2p\rightarrow1s) =6.2\cdot10^8$s$^{-1}$.
+
+Full valuation of Fermis golden rule gives
+\begin{align}
+\tau&=\left(\frac{3}{2}\right)^8\frac{r_B}{c\alpha^4}\\
+\tau&\sim r_B\sim\frac{1}{\mu}\\
+\tau_{p\bar{p}}&=\frac{\mu_H}{\mu_{p\bar{p}}}\tau_H=1.73\cdot10^{-12}\text{s}
+\end{align}
+
+Rational: dipole matrix element scales with $r_B$ (smaller object means smaller dipole)
+\begin{align}
+\langle f|H'|i\rangle &\sim \langle f|\mathbf{x}|i\rangle\sim r_B\\
+|\langle f|H'|i\rangle|^2 &\sim r_B^2\\
+\rho&\sim \frac{1}{\Delta E_{s/p}}\sim\frac{1}{\mu}\sim r_B\\
+\Gamma&\sim r_B^3
+\end{align}
+Hmmmmm ....
+
+\end{enumerate}
+
+\subsection{2.5 Unitary operators}
+Unitary: $U^\dagger=U^{-1}$ meaning $U^\dagger U=1$. We see $(U^n)^\dagger=(U...U)^\dagger=(U^\dagger ...U^\dagger)=(U^\dagger)^n$
+\begin{itemize}
+\item $U_1=e^{iK}$: Lets start with
+\begin{align}
+U_1^\dagger
+&=\left(e^{iK}\right)^\dagger
+=\left(\sum_n\frac{1}{n!}(iK)^n\right)^\dagger
+=\sum_n\frac{1}{n!}\left((iK)^n\right)^\dagger
+=\sum_n\frac{(-i)^n}{n!}(K^\dagger)^n
+=\sum_n\frac{1}{n!}(-iK^\dagger)^n\\
+&=e^{-iK^\dagger}\qquad \text{with}\;K=K^\dagger\\
+&=e^{-iK}
+\end{align}
+Now with $[K,K]=0$ (meaning we can Taylor-expand each exponential and flip term by term so $e^Xe^Y=e^{X+Y}$ if $[X,Y]=0$)
+\begin{align}
+U_1^\dagger U_1=e^{-iK}e^{iK}=e^{-iK+iK}=e^0=1
+\end{align}
+
+\item $U_2=(1+iK)(1-iK)^{-1}$
+\begin{align}
+U_2^\dagger&=\left((1+iK)(1-iK)^{-1}\right)^\dagger\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)^\dagger\qquad\text{with}\;K=K^\dagger\\
+&=\left((1-iK)^{-1}\right)^\dagger(1-iK)
+\end{align}
+then
+\begin{align}
+U_2^\dagger U_2
+&=\left((1-iK)^{-1}\right)^\dagger(1-iK)(1+iK)(1-iK)^{-1}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1-iK+iK+K^2)(1-iK)^{-1}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)(1-iK)(1-iK)^{-1}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)\qquad\text{with}\;B^\dagger A^\dagger=(AB)^\dagger\\
+&=\left((1+iK)^\dagger(1-iK)^{-1} \right)^\dagger\qquad\text{with}\;K=K^\dagger\\
+&=\left((1-iK)(1-iK)^{-1} \right)^\dagger\\
+&=1^\dagger=1
+\end{align}
+
+\item $U_2'=(1-iK)^{-1}(1+iK)$. Assume $U_2'=U_2$ then
+\begin{align}
+1&=(U_2')^{-1}U_2'\\
+&=U_2^{-1} U_2'\\
+&=U_2^\dagger U_2'\\
+&=\underbrace{\left((1-iK)^{-1}\right)^\dagger(1-iK)}_{U_2^\dagger}\underbrace{(1-iK)^{-1}(1+iK)}_{U_2'}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)\\
+&=\left((1+iK)^\dagger(1-iK)^{-1}\right)^\dagger\\
+&=\left((1-iK)(1-iK)^{-1}\right)^\dagger\\
+&=1^\dagger=1
+\end{align}
+\end{itemize}
+
+
+
+
+
+\chapter{Electrodynamics}
+\section{{\sc Grau} - Elektrodynamik Aufgabensammlung}
+\subsection{Exercise 8.1 - Hertzscher Dipol - NOT DONE YET}
+With $\vec{p}_0=q\vec{d}$ and $d\ll r$
+\begin{align}
+\rho(\vec{r},t)
+&=
+q\delta(\vec{r}-\frac{\vec{d}}{2} \cos(\omega t))+
+(-q)\delta(\vec{r}+\frac{\vec{d}}{2} \cos(\omega t))\\
+\rho(\vec{r},t_\text{ret})
+&=
+q\delta(\vec{r}-\frac{\vec{d}}{2} \cos(\omega (t-\frac{|\vec{r}-\vec{r}'|}{c})))+
+(-q)\delta(\vec{r}+\frac{\vec{d}}{2} \cos(\omega (t-\frac{|\vec{r}-\vec{r}'|}{c})))\\
+&\simeq
+q\delta(\vec{r}-\frac{\vec{d}}{2} \cos(\omega (t-\frac{r}{c})))+
+(-q)\delta(\vec{r}+\frac{\vec{d}}{2} \cos(\omega (t-\frac{r}{c})))\\
+\end{align}
+
+\begin{align}
+\phi(\vec{r},t)
+&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho(\vec{r}',t_\text{ret})}{|\vec{r}-\vec{r}'|}d^3\vec{r}'\\
+&=\frac{q}{4\pi\varepsilon_0}\int\frac{\delta(\vec{r}'-\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))-\delta(\vec{r}'+\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))}{\sqrt{r^2+r'^2-2\vec{r}\cdot\vec{r}'}}d^3\vec{r}'\\
+&=\frac{q}{4\pi\varepsilon_0}\int\frac{\delta(\vec{r}'-\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))-\delta(\vec{r}'+\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))}{r\sqrt{1+\frac{r'^2}{r^2}-2\frac{\vec{r}\cdot\vec{r}'}{r^2}}}d^3\vec{r}'\\
+&\simeq\frac{q}{4\pi\varepsilon_0}\int\frac{\delta(\vec{r}'-\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))-\delta(\vec{r}'+\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))}{r}\left(1+\frac{\vec{r}\cdot\vec{r}'}{r^2}+\frac{r'^2}{r^2}\right)d^3\vec{r}'\\
+&=\frac{q}{4\pi\varepsilon_0}\frac{1}{r}\left[\left(1+\frac{\vec{r}\cdot\left[\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))\right]}{r^2}\right)-\left(1-\frac{\vec{r}\cdot\left[\frac{\vec{d}}{2}\cos(\omega [t-\frac{r}{c}]))\right]}{r^2}\right)\right]\\
+&=\frac{q}{4\pi\varepsilon_0}\frac{1}{r} \frac{\vec{r}\cdot\vec{d}\cos(\omega [t-\frac{r}{c}]))}{r^2}\\
+\end{align}
+
+\section{{\sc Zangwill} - Classical Electrodynamics}
+\subsection{Exercise 10.1 In-Plane Field of a Current Strip}
+We start with the Biot-Savart law (10.15)
+\begin{align}
+\mathbf{B}(\mathbf{x})=\frac{\mu_0}{4\pi}\int d^3x'\frac{\mathbf{j}(\mathbf{x}')\times(\mathbf{x}-\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|^3}
+\end{align}
+with
+\begin{align}
+\mathbf{j}&=(0,0,K)\delta(x')\Theta(y')\Theta(y'-b)\\
+\mathbf{x}-\mathbf{x}'&=(0,a+y',z')^T\\
+\mathbf{j}(\mathbf{x}')\times(\mathbf{x}-\mathbf{x}')&=(a+y')K\delta(x')\Theta(y')\Theta(y'-b)
+\end{align}
+then
+\begin{align}
+\mathbf{B}(\mathbf{x})
+&=\frac{\mu_0K}{4\pi}\int_{-\infty}^\infty dx'\int_0^b dy'\int_{-\infty}^\infty dz'\frac{(a+y')}{\sqrt{(a+y)^2+z'^2}^3}\delta(x')\\
+&=\frac{\mu_0K}{4\pi}\int_0^b dy'\int_{-\infty}^\infty dz'\frac{(a+y')}{\sqrt{(a+y')^2+z'^2}^3}\\
+&=\frac{\mu_0K}{4\pi}\int_0^b dy'\frac{2}{a+y}\\
+&=\frac{\mu_0K}{2\pi}\log\frac{a+b}{a}\\
+&=\frac{\mu_0I}{2\pi b}\log\frac{a+b}{a}\\
+\end{align}
+
+\section{{\sc Jackson} - Classical Electrodynamics}
+
+\subsection{Exercise 1.3 Charge densities and the Dirac delta function}
+\begin{align}
+\rho_a=\frac{Q}{4\pi R^2}\delta(r-R)\quad\rightarrow\quad \int\rho_a d^3r&=4\pi\frac{Q}{4\pi R^2}\int_0^\infty\delta(r-R)r^2\,dr\\&=Q\\
+\rho_b=\frac{\lambda}{2\pi b}\delta(r-b)\quad\rightarrow\quad \int\rho_b d^3r&=\frac{\lambda}{2\pi b}2\pi\int_0^Ldz\int_0^\infty \delta(r-b)r\,dr\\&=\lambda L\\
+\rho_c=\frac{Q}{\pi R^2}\theta(R-r)\delta(z)\quad\rightarrow\quad \int\rho_c d^3r&=\frac{Q}{\pi R^2}2\pi\int dz\int_0^\infty\theta(r-R)r\;dr\\
+&=\frac{Q}{\pi R^2}2\pi\int dz\int_0^Rr\;dr\\
+&=\frac{Q}{\pi R^2}2\pi\frac{R^2}{2}=Q
+\end{align}
+Now we got curvilinear coordinates so we need an additional $1/r$ scaling
+\begin{align}
+\rho_d=\frac{Q}{\pi R^2r}\theta(R-r)\delta(\vartheta-\pi/2)\quad\rightarrow\quad \int\rho_d d^3r&=\frac{Q}{\pi R^2}2\pi\int_0^\infty \frac{r^2}{r}\theta(R-r)\int_0^\pi\delta(\vartheta-\pi/2)\sin\vartheta\;d\vartheta\\
+&=\frac{Q}{\pi R^2}2\pi\int_0^R r\int_0^\pi\delta(\vartheta-\pi/2)\sin\vartheta\;d\vartheta\\
+&=\frac{Q}{\pi R^2}2\pi \frac{R^2}{2}\sin\pi/2=Q
+\end{align}
+
+\subsection{Exercise 1.4 Charged spheres}
+We can utilize the Gauss theorem
+\begin{align}
+\oint_S\vec{E}\cdot\vec{n}dA&=\frac{1}{\epsilon_0}\int_V\rho(x)d^3x\\
+4\pi r^2E_r&=\frac{q_r}{\epsilon_0}\\
+E_r&=\frac{q_r}{4\pi\epsilon_0r^2}
+\end{align}
+assuming a radial electrical field.
+\begin{itemize}
+\item Conducting sphere
+\begin{align}
+\rho_\text{cond}&=Q\delta(r-a)\\
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+0 & r<a\\
+Q/r^2 & r>a
+\end{array}
+\right.
+\end{align}
+
+\item Uniform sphere
+\begin{align}
+\rho_\text{hom}&=Q\theta(a-r)\\
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Q/a^3\cdot r & r<a\\
+Q/r^2 & r>a
+\end{array}
+\right.
+\end{align}
+
+\item Nonuniform sphere
+\begin{align}
+\rho_\text{inhom}&=Q\frac{n+3}{a^{n+3}}r^n\quad(r<a)\\
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Qa^{n+3}r^{n+1} & r<a\\
+Q/r^2 & r>a
+\end{array}
+\right.
+\end{align}
+\end{itemize}
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+  \draw[->] (0, 0) -- (3, 0) node[right] {$r$};
+  \draw[->] (0, 0) -- (0, 2.2) node[above] {$E_r$};
+  \draw[thick, scale=1.0, domain=2:3, smooth, variable=\x, black] plot ({\x}, {4/(\x*\x)});
+  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, red] plot ({\x}, {0});
+  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, blue] plot ({\x}, {0.5*\x});
+  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, purple] plot ({\x}, {0.125*\x*\x*\x});
+  \draw[thick, scale=1.0, domain=1:2, smooth, variable=\x, purple] plot ({\x}, {2/(\x)});
+  \draw[dashed] (2,0) -- (2,2);
+\end{tikzpicture}
+\caption{Jackson problem (1.4)}
+\end{figure}
+
+
+
+\subsection{Exercise 1.5 Charge density of hydrogen atom}
+With the potential
+\begin{align}
+\Phi=\frac{q}{4\pi\epsilon_0}\frac{e^{-\alpha r}}{r}\left(1+\frac{\alpha r}{2}\right)
+\end{align}
+we calculate for $r>0$
+\begin{align}
+\rho_1
+&=-\epsilon_0\triangle\Phi\\
+&=-\epsilon_0\frac{1}{r^2}\partial_r(r^2\partial_r\Phi)\\
+&=-\frac{q}{4\pi}e^{-\alpha r}\frac{\alpha^3}{2}\\
+&=-\frac{q}{\pi a_0^3}e^{-2r/a_0}
+\end{align}
+For $r=0$ we have
+\begin{align}
+\Phi(r\rightarrow0)&=\frac{q}{4\pi\epsilon_0r}\\
+&\rightarrow\quad \rho_0=q\delta(r)
+\end{align}
+Therefore
+\begin{align}
+\rho&=\rho_0+\rho_1\\
+&=q\left(\delta^{(3)}(r)-\frac{1}{\pi a_0^3}e^{-2r/a_0}\right)
+\end{align}
+Calculating the total charge
+\begin{align}
+Q_0&=q\int d^3r\delta(r)=q\\
+Q_1
+&=4\pi\int_0^\infty r^2\rho_1 dr\\
+&=-\frac{4\pi q}{\pi a_0^3}\int_0^\infty r^2e^{-2r/a_0}dr\\
+&=-\frac{4\pi q}{\pi a_0^3}\frac{a_0^3}{8}\int_0^\infty z^2e^{-z}dz\\
+&=-\frac{4\pi q}{\pi a_0^3}\frac{a_0^3}{8}\Gamma(3)\\
+&=-q
+\end{align}
+
+\subsection{Exercise 1.6 Simple capacitors}
+(a) Assuming only front and back surfaces contribute
+\begin{align}
+2E_xA&=\frac{Q}{\epsilon_0}\\
+\rightarrow\quad E_x&=\frac{Q}{2\epsilon_0A}\\
+\rightarrow\quad \phi&=-\frac{Q}{2\epsilon_0A}x\\
+\rightarrow\quad \phi_\text{tot}(x)&=-\frac{Q}{2\epsilon_0A}x-\frac{-Q}{2\epsilon_0A}(d-x)\\
+&=-\frac{Q}{2\epsilon_0A}(x-(d-x))\\
+&=-\frac{Q}{2\epsilon_0A}(2x-d)\\
+\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{-\frac{Q}{2\epsilon_0A}(-d-d)}\\
+&=\epsilon_0\frac{A}{d}
+\end{align}
+(b) The outer sphere does not contribute to the total potential as it is field free
+\begin{align}
+4\pi r^2 E_r&=\frac{Q}{\epsilon_0}\\
+\rightarrow\quad E_r&=\frac{Q}{4\pi\epsilon_0 r^2}\\
+\rightarrow\quad \phi&=\frac{Q}{4\pi\epsilon_0 r}\\
+\rightarrow\quad \phi_\text{tot}&=\frac{Q}{4\pi\epsilon_0 r}\quad(a<r<b)\\
+\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{\frac{Q}{4\pi\epsilon_0 b}-\frac{Q}{4\pi\epsilon_0 a}}\\
+&=\epsilon_0\frac{4\pi ab}{b-a}
+\end{align}
+(c) 
+\begin{align}
+2\pi r L E_r=\frac{Q}{\epsilon_0}\\
+\rightarrow\quad E_r&=\frac{Q}{2\pi r L\epsilon_0}\\
+\rightarrow\quad \phi&=-\frac{Q}{2\pi L\epsilon_0}\log r\\
+\rightarrow\quad \phi_\text{tot}&=-\frac{Q}{2\pi L\epsilon_0}\log r\quad(a<r<b)\\
+\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{-\frac{Q}{2\pi L\epsilon_0}\log b+\frac{Q}{2\pi L\epsilon_0}\log a}\\
+&=\frac{2\pi L\epsilon_0}{\log a/b}
+\end{align}
+(d) ...
+
+\subsection{Exercise 1.7 Capacity of two parallel cylinders}Gauss law for one cylinder
+\begin{align}
+\oint_S\vec{E}\cdot\vec{n}dA&=\frac{1}{\epsilon_0}\int_V\rho(x)d^3x\\
+2\pi rLE_r&=\frac{\rho_{1} L}{\epsilon_0}\\
+E_r&=\frac{\rho}{2\pi\epsilon_0r}\\
+\phi&=-\frac{\rho}{2\pi\epsilon_0}\ln r
+\end{align}
+For $d\gg a_{1,2}$ the potential of one cylinder on the surface of the second cylinder is constant - which means that the potential can be approximated by the sum of the potential of both cylinders (no need to make it complicated)
+\begin{align}
+\phi(\vec{r})&=\phi_1+\phi_2\\
+&=-\frac{\rho_{1}}{2\pi\epsilon_0}\ln |\vec{r}|-\frac{\rho_{2}}{2\pi\epsilon_0}\ln |\vec{r}-\vec{d}|\\
+&=-\frac{\rho}{2\pi\epsilon_0}\ln |\vec{r}|+\frac{\rho}{2\pi\epsilon_0}\ln |\vec{r}-\vec{d}|\\
+&=-\frac{\rho}{2\pi\epsilon_0}\left(\ln |\vec{r}|-\ln |\vec{r}-\vec{d}|\right)\\
+&=-\frac{\rho}{2\pi\epsilon_0}\ln \frac{|\vec{r}|}{|\vec{r}-\vec{d}|}\\
+&=-\frac{\rho}{\pi\epsilon_0}\ln \sqrt{\frac{|\vec{r}|}{|\vec{r}-\vec{d}|}}
+\end{align}
+Then the potential difference between to surfaces is given by (with $\vec{n}=\vec{d}/d$ and $\rho=\rho_1=-\rho_2$)
+\begin{align}
+\Delta\phi&=\phi(a_1\vec{n})-\phi((d-a_2)\vec{n})\\
+&=-\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{a_1}{d-a_1}}-\ln \sqrt{\frac{d-a_2}{a_2}}\right)\\
+&=\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{d-a_1}{a_1}}+\ln \sqrt{\frac{d-a_2}{a_2}}\right)\\
+&\simeq\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{d}{a_1}}+\ln \sqrt{\frac{d}{a_2}}\right)\\
+&\simeq\frac{\rho}{\pi\epsilon_0}\ln \frac{d}{\sqrt{a_1a_2}}
+\end{align}
+With $C=Q/U$ we have
+\begin{align}
+C=\frac{\rho L}{\Delta\phi}&=\frac{\pi\epsilon_0L}{\ln \frac{d}{\sqrt{a_1a_2}}}
+\end{align}
+which is the desired result. The numbers are 0.49mm, 1.47mm and 4.92mm.
+
+
+\subsection{Exercise 1.8 Energy of capacitors}
+\begin{align}
+W
+=\frac{1}{2}\int\rho(x)\phi(x)d^3x
+=-\frac{\epsilon_0}{2}\int\phi\triangle\phi d^3x
+=\frac{\epsilon_0}{2}\int(\nabla\phi)^2 d^3x
+=\frac{\epsilon_0}{2}\int|\vec{E}|^2 d^3x
+\end{align}
+(a) With $\vec{E}_\text{tot}=-\nabla\phi_\text{tot}$ and $Q=C\cdot U$
+\begin{align}
+W_\text{plate}&=\frac{\epsilon_0}{2}\cdot\left(\frac{Q}{\epsilon_0A}\right)^2\cdot(Ad)=\frac{Q^2d}{2\epsilon_0A}\\
+&=\frac{U^2d}{2\epsilon_0A}\left(\frac{\epsilon_0A}{d}\right)^2=
+\frac{\epsilon_0AU^2}{2d}
+\end{align}
+\begin{align}
+W_\text{sphere}&=\frac{\epsilon_0}{2}4\pi\int_a^br^2\frac{Q^2}{16\pi^2\epsilon_0^2r^4}dr=\frac{Q^2}{8\pi\epsilon_0}\left(\frac{1}{b}-\frac{1}{a}\right)\\
+&=\frac{U^2}{8\pi\epsilon_0}\left(\frac{a-b}{ab}\right)\cdot\left(\epsilon_0\frac{4\pi ab}{b-a}\right)^2=2\pi\epsilon_0U^2\frac{ab}{b-a}
+\end{align}
+\begin{align}
+W_\text{cylinder}&=\frac{\epsilon_0}{2}2\pi L\int_a^b\left(\frac{Q}{2\pi\epsilon_0Lr}\right)^2r\;dr
+=\frac{Q^2}{4\pi\epsilon_0L}\log\frac{b}{a}\\
+&=\frac{U^2}{4\pi\epsilon_0L}\log\frac{b}{a}\left(\frac{2\pi\epsilon_0 L}{\log b/a}\right)^2=\frac{\pi\epsilon_0LU^2}{\log b/a}
+\end{align}
+(b) 
+\begin{align}
+w_\text{plate}&=\text{const}\\
+w_\text{sphere}&\sim r^{-4}\\
+w_\text{cylinder}&\sim r^{-2}
+\end{align}
+
+\subsection{Exercise 5.1 Biot–Savart law NOT DONE YET}
+With
+\begin{align}
+\nabla_{x'}\frac{1}{|\mathbf{x}-\mathbf{x'}|}
+=\frac{\mathbf{x}-\mathbf{x'}}{|\mathbf{x}-\mathbf{x'}|^3}
+\end{align}
+we consider a loop of radius $a$ in the $x-y$ plane
+\begin{align}
+d\mathbf{B}&=\frac{\mu_0I}{4\pi}d\mathbf{l}'\times\frac{\mathbf{x}-\mathbf{x'}}{|\mathbf{x}-\mathbf{x'}|^3}\\
+\mathbf{B}(\mathbf{x})
+&=\frac{\mu_0I}{4\pi}\oint_{C}d\mathbf{l}'\times\frac{\mathbf{x}-\mathbf{x'}}{|\mathbf{x}-\mathbf{x'}|^3}\\
+&=\frac{\mu_0I}{4\pi}\oint_{C}d\mathbf{l}'\times\left(\nabla_{x'}\frac{1}{|\mathbf{x}-\mathbf{x'}|}\right)
+\end{align}
+with $P$ in the $x-z$ plane
+\begin{align}
+(\mathbf{x}-\mathbf{x'})^2
+&=(r\cos\theta)^2+((r\sin\theta)^2+a^2-2ar\sin\theta\cos\phi')\\
+&=r^2+a^2-2ar\sin\theta\cos\phi'
+\end{align}
+
+\subsection{Exercise 12.1 Lagrangian of point charge}
+\begin{enumerate}
+\item With $U^\alpha=\frac{dx_\alpha}{ds}$
+\begin{align}
+	L&=-\frac{mU_\alpha U^\alpha}{2}-\frac{q}{c}U_\alpha A^\alpha\\
+	\frac{\partial L}{\partial x_\beta}&=-\frac{q}{c}U_\alpha\frac{\partial A^\alpha}{\partial x_\beta}\\
+	\frac{\partial L}{\partial U_\beta}&=-mU^\beta-\frac{q}{c}A^\beta
+\end{align}
+\begin{align}
+	-m\frac{d}{ds}\left(\frac{dU^\beta}{ds}\right)-\frac{q}{c}\frac{dA^\beta}{ds}+\frac{q}{c}U_\alpha\frac{\partial A^\alpha}{\partial x_\beta}=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{dA^\beta}{ds}-\frac{q}{c}\frac{dx_\alpha}{ds}\frac{\partial A^\alpha}{\partial x_\beta}=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\left(\frac{\partial A^\beta}{\partial x^\alpha}\frac{\partial x^\alpha}{\partial s}\right)-\frac{q}{c}\frac{dx_\alpha}{ds}\frac{\partial A^\alpha}{\partial x_\beta}=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{\partial x^\alpha}{\partial s}\left(\frac{\partial A^\beta}{\partial x^\alpha}-\frac{\partial A^\alpha}{\partial x_\beta}\right)=0\\
+	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{\partial x^\alpha}{\partial s}F^{\alpha\beta}=0
+\end{align}
+\item Bit of a odd sign convention for the canonical momentum
+\begin{align}
+P^\beta&=-\frac{\partial L}{\partial U_\beta}=mU^\beta+\frac{q}{c}A^\beta\quad\rightarrow\quad U^\beta=\frac{1}{m}\left(P^\beta-\frac{q}{c}A^\beta\right)\\
+H&=P^\alpha U_\alpha+L\\
+&=P^\alpha\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)-\frac{m}{2}\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)-\frac{q}{c}\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)A^\alpha\\
+&=\frac{1}{2m}\left(P^\alpha-\frac{q}{c}A^\alpha\right)\left(P_\alpha-\frac{q}{c}A_\alpha\right)
+\end{align}
+In space-time coordinates we can write
+\begin{align}
+H&=\frac{1}{2m}\left((p_0)^2-\vec{p}^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2q}{c}[\vec{p}\cdot\vec{A}-p^0\phi]\right)\\
+&=\frac{1}{2m}\left((\gamma m c)^2-(\gamma m\vec{v})^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2q}{c}[\gamma m\vec{v}\cdot\vec{A}-\gamma m c\phi]\right)\\
+&=\frac{\gamma^2mc^2}{2}\left(1-\frac{\vec{v}^2}{c^2}\right)+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]\\
+&=\frac{mc^2}{2}+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]
+\end{align}
+\end{enumerate}
+
+\section{{\sc Schwinger} - Classical Electrodynamics}
+\subsection{Exercise 9.1 Lagrangian of a particle in an electromagnetic field}
+\begin{align}
+L=\mathbf{p}\cdot\left(\frac{d\mathbf{r}}{dt}-\mathbf{v}\right)+\frac{1}{2}mv^2-e\phi+\frac{e}{c}\mathbf{v}\cdot\mathbf{A}
+\end{align}
+
+
+\subsection{Exercise 31.1 Potentials of moving point charge}
+\begin{align}
+    w=z-vt
+    \rightarrow
+    \frac{\partial}{\partial z}&=\frac{\partial w}{\partial z}\frac{\partial}{\partial w}\\
+    \rightarrow\frac{\partial^2}{\partial z^2}&=\frac{\partial^2 w}{\partial z^2}\frac{\partial}{\partial w}+\left(\frac{\partial w}{\partial z}\right)^2\frac{\partial^2}{\partial w^2}=\frac{\partial^2}{\partial w^2}\\
+    \rightarrow\frac{\partial^2}{\partial t^2}&=\frac{\partial^2 w}{\partial t^2}\frac{\partial}{\partial w}+\left(\frac{\partial w}{\partial t}\right)^2\frac{\partial^2}{\partial w^2}=v^2\frac{\partial^2}{\partial w^2}
+\end{align}
+then
+\begin{align}
+    \triangle-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}&=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial w^2}-\frac{v^2}{c^2}\frac{\partial^2}{\partial w^2}\\
+    &=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\left(1-\frac{v^2}{c^2}\right)\frac{\partial^2}{\partial w^2}\\
+    &=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}
+\end{align}
+with with $u=w/\sqrt{1-v^2/c^2}$. The wave equation can then be rewritten
+\begin{align}
+    -\Box\phi&=4\pi\rho\\
+    &=4\pi e\delta(x)\delta(y)\delta(z-vt)\\
+    -\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}\right)\phi&=4\pi e\delta(x)\delta(y)\delta\left(\sqrt{1-\frac{v^2}{c^2}}u\right)\\
+    &=\frac{4\pi}{\sqrt{1-\frac{v^2}{c^2}}} e\delta(x)\delta(y)\delta\left(u\right)
+\end{align}
+Using the Green function of the Coulomb equation (13.3) we obtain
+\begin{align}
+    \phi&=\frac{e}{\sqrt{1-\frac{v^2}{c^2}}\sqrt{u^2+x^2+y^2}}\\
+    &=\frac{e}{\sqrt{w^2+(1-\frac{v^2}{c^2})(x^2+y^2})}\\
+    &=\frac{e}{\sqrt{(z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2})}
+\end{align}
+For the vector potential we can calculate similarly
+\begin{align}
+    -\Box\vec{A}&=4\pi\frac{\vec{j}}{c}\\
+    -\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}\right)\vec{A}&=4\pi e\frac{\vec{v}}{c}\delta(x)\delta(y)\delta\left(\sqrt{1-\frac{v^2}{c^2}}u\right)\\
+    &=\frac{4\pi}{\sqrt{1-\frac{v^2}{c^2}}} e\frac{\vec{v}}{c}\delta(x)\delta(y)\delta\left(u\right)
+\end{align}
+which gives $\vec{A}=\vec{v}/c\phi$.
+
+\subsection{Exercise 31.2 Fields of moving point charge}
+\begin{align}
+	\vec{E}&=-\nabla\phi-\frac{1}{c}\frac{\partial\vec{A}}{\partial t}\\
+	&=\frac{e}{2}\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[(1-\frac{v^2}{c^2})2x,(1-\frac{v^2}{c^2})2y,2(z-vt)(1-\frac{v^2}{c^2})]\\
+	&=e(1-\frac{v^2}{c^2})\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[x,y,(z-vt)]\\
+	\vec{B}&=\nabla\times\vec{A}\\
+	&=-e\frac{v}{c}(1-\frac{v^2}{c^2})\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[y,x,0]
+\end{align}
+
+\subsection{Exercise 31.4 Wave equation for fields}
+With
+\begin{align}
+\nabla\times\vec{B}&=\frac{1}{c}\frac{\partial}{\partial t}\vec{E}+\frac{4\pi}{c}\vec{j}_e\\
+\nabla\cdot\vec{E}&=4\pi\rho_e\\
+-\nabla\times\vec{E}&=\frac{1}{c}\frac{\partial}{\partial t}\vec{B}+\frac{4\pi}{c}\vec{j}_m\\
+\nabla\cdot\vec{B}&=4\pi\rho_m
+\end{align}
+we obtain
+\begin{align}
+\nabla\times\nabla\times\vec{B}
+&=\nabla(\nabla\cdot\vec{B})-\triangle\vec{B}\\
+&=4\pi\nabla\rho_m-\triangle\vec{B}\\
+&=\frac{1}{c}\frac{\partial}{\partial t}\nabla\times\vec{E}+\frac{4\pi}{c}\nabla\times\vec{j}_e\\
+&=-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\vec{B}-\frac{4\pi}{c^2}\frac{\partial}{\partial t}\vec{j}_m+\frac{4\pi}{c}\nabla\times\vec{j}_e\\
+&\rightarrow-\Box\vec{B}=-4\pi\nabla\rho_m+\frac{4\pi}{c}(\nabla\times\vec{j}_e-\frac{1}{c}\frac{\partial}{\partial t}\vec{j}_m)
+\end{align}
+
+\begin{align}
+\nabla\times\nabla\times\vec{E}
+&=\nabla(\nabla\cdot\vec{E})-\triangle\vec{E}\\
+&=4\pi\nabla\rho_e-\triangle\vec{E}\\
+&=-\frac{1}{c}\frac{\partial}{\partial t}\nabla\times\vec{B}-\frac{4\pi}{c}\nabla\times\vec{j}_m\\
+&=-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\vec{E}-\frac{4\pi}{c^2}\frac{\partial}{\partial t}\vec{j}_e-\frac{4\pi}{c}\nabla\times\vec{j}_m\\
+&\rightarrow-\Box\vec{E}=-4\pi\nabla\rho_e+\frac{4\pi}{c}(\nabla\times\vec{j}_m-\frac{1}{c}\frac{\partial}{\partial t}\vec{j}_e)
+\end{align}
+
+\subsection{Exercise 31.5 Lienard-Wiechert potentials}
+\begin{align}
+\phi(\vec{r},t)&=\int d\vec{r}'dt'\frac{\delta(\frac{1}{c}|\vec{r}-\vec{r}'|-(t-t'))}{|\vec{r}-\vec{r}'|}\rho(\vec{r}',t')\\
+&=\int d\vec{r}'dt'\frac{\delta(t'-t+\frac{1}{c}|\vec{r}-\vec{r}'|)}{|\vec{r}-\vec{r}'|}e\delta(\vec{r}'-\vec{r}_B(t'))\\
+&=e\int d\vec{r}'\frac{1}{|\vec{r}-\vec{r}'|}\delta(\vec{r}'-\vec{r}_B(t-\frac{1}{c}|\vec{r}-\vec{r}'|))
+\end{align}
+\begin{align}
+\delta(\vec{r}'-\vec{r}_B(t-\frac{1}{c}|\vec{r}-\vec{r}'|))&=\delta(f(\vec{r}'))\\
+&=\sum\frac{\delta(\vec{r}')}{|f'(\vec{r}')|}
+\end{align}
+
+\begin{align}
+&=e\int d\vec{r}'\frac{1}{|\vec{r}-\vec{r}'|}\sum\frac{}{}
+%\vec{A}(\vec{r},t)&=\int d\vec{r}'dt'\frac{\delta(\frac{1}{c}|\vec{r}-\vec{r}'|-(t-t'))}{|\vec{r}-\vec{r}'|}\frac{1}{c}\vec{j}(\vec{r}',t')
+\end{align}
+
+
+\subsection{Exercise 38.1 Total radiated power}
+We observe
+\begin{align}
+\frac{\lambda}{(1+\lambda\beta)^4}=-\frac{1}{\beta(1+\lambda\beta)^4}+\frac{1}{\beta(1+\lambda\beta)^3}.    
+\end{align}
+Then
+\begin{align}
+    f(\lambda)&=\frac{2}{(1+\lambda\beta)^3}\left(-\frac{\beta^2}{2}+\frac{\lambda\beta}{8}\frac{\beta^2-1}{1+\lambda\beta}\right)\\
+    &=-\beta^2\frac{1}{(1+\lambda\beta)^3}+\frac{\beta(\beta^2-1)}{4}\frac{\lambda}{(1+\lambda\beta)^4}\\
+    &=\left(-\beta^2+\frac{\beta^2-1}{4}\right)\frac{1}{(1+\lambda\beta)^3}-\frac{(\beta^2-1)}{4}\frac{1}{(1+\lambda\beta)^4}\\
+    \int_{-1}^1f(\lambda)d\lambda&=-\frac{1+3\lambda^2}{4}
+\end{align}
+
+\section{{\sc Wald} - Advanced Classical Electrodynamics}
+
+\subsection{Problem 2.3 The proton and the hydrogen atom}
+\begin{enumerate}[(a)]
+\item Using Gauss law with spherical symmetry inside the nucleus
+\begin{align}
+4\pi r^2 E_r(r)&=\frac{1}{\varepsilon_0}\frac{4}{3}\pi r^3\rho\\
+4\pi R^2 E_r(r)&=\frac{1}{\varepsilon_0}\frac{4}{3}\pi R^3\rho=\frac{Q}{\varepsilon_0}\quad\rightarrow\quad\rho=\frac{Q}{\frac{4}{3}\pi R^3}\\
+E_r(r)&=\frac{1}{\varepsilon_0}\frac{Qr}{4\pi R^3}
+\end{align}
+and outside
+\begin{align}
+E_r(r)&=\frac{1}{\varepsilon_0}\frac{Q}{4\pi r^2}
+\end{align}
+Then the field energy is
+\begin{align}
+\mathscr{E}
+&=\frac{\varepsilon_0}{2}4\pi\left[\left(\frac{Q}{4\pi\varepsilon_0 R^3}\right)^2\int_0^Rr^2r^2\;dr+\left(\frac{Q}{4\pi\varepsilon_0}\right)^2\int_0^Rr^2\frac{1}{r^4}\;dr\right]\\
+&=\frac{3Q^2}{20\pi\varepsilon_0 R}\\
+&=1.4\cdot 10^{-13}\text{J}\\
+&=0.87\text{MeV}
+\end{align}
+while $mc^2=939$MeV.
+\item
+
+\end{enumerate}
+
+
+
+
+\subsection{Problem 2.4 Potential from charge distribution}
+We need to calculate
+\begin{align}
+\phi(\vec{r})=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho(r')}{|\vec{r}-\vec{r}'|}d^3\vec{r}'
+\end{align}
+trying to avoid the brute force calculation we see that we can expand the charge distribution in a finite series of Legendre polynomials
+\begin{align}
+(1-\cos\theta)^2=\frac{4}{3}P_0(\cos\theta)-2P_1(\cos\theta)+\frac{2}{3}P_2(\cos\theta)
+\end{align}
+where we used the orthogonality of the Legendre polynomials to project out the coefficients 
+\begin{align}
+\int_{-1}^{+1}P_n(x)P_m(x)dx&=\frac{2}{2n+1}\delta_{mn}\\
+\int_{0}^{\pi}P_n(\cos\theta)P_m(\cos\theta)\sin\theta\,d\theta&=\frac{2}{2n+1}\delta_{mn}
+\end{align}
+with the multipole expansion 
+\begin{align}
+\frac{1}{|\vec{r}-\vec{r}'|}
+&=\frac{1}{\sqrt{r^2+r'^2-2rr'\cos\theta}}\\
+&=\frac{1}{r\sqrt{1+\frac{r'^2}{r^2}-2\frac{r'}{r}\cos\theta}}\\
+&=\frac{1}{r}\sum_lP_l(\cos\theta)\frac{r'^l}{r^l}
+\end{align}
+we can insert all into the Coulomb integral and utilize the orthogonality of the Legendre polynomials again
+\begin{align}
+\phi(\vec{r})
+&=\frac{2\pi\alpha}{4\pi\varepsilon_0r}\int_0^R dr'r'^2(R-r')\sum_l\frac{r'^l}{r^l}\int d\theta P_l(\cos\theta)\left(\frac{4}{3}P_0(\cos\theta)-2P_1(\cos\theta)+\frac{2}{3}P_2(\cos\theta)\right)\sin\theta\\
+&=\frac{\alpha}{2\varepsilon_0r}\int_0^R dr'r'^2\frac{r'^l}{r^l}(R-r')\left[\frac{4}{3}\frac{2}{2\cdot0+1}-2\frac{2}{2\cdot1+1}\frac{r'}{r}+\frac{2}{3}\frac{2}{2\cdot2+1}\frac{r'^2}{r^2}\right]\\
+&=...\\
+&=\frac{\alpha R^4}{9r\varepsilon_0}\left(1-\frac{3R}{10r}+\frac{R^2}{25r^2}\right)
+\end{align}
+
+
+\section{{\sc Smythe} - Static and Dynamic Electricity}
+\subsection{Exercise 1.1 Two coaxial rings and a point charge}
+Total charge of an axial ringlike charge distribution
+\begin{align}
+    Q&=\int \rho_0(\varphi')\delta(z'-0)\delta(r'-a) d\varphi' dz' dr'\\
+    &=2\pi a\rho_0
+\end{align}
+which means that the 1-dimensional charge density is $\rho_0=Q/2\pi a$.
+The axial potential of a single ring is then
+\begin{align}
+    \phi(z)&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho_0\delta(z'-0)\delta(r'-a)}{\sqrt{a^2+z^2}}r d\varphi' dz' dr'\\
+    &=\frac{1}{4\pi\varepsilon_0}2\pi a \rho_0\frac{1}{\sqrt{a^2+z^2}}\\
+    &=\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+z^2}}
+\end{align}
+therefore we get for the energies
+\begin{align}
+    W_1&=\frac{qQ_1}{4\pi\varepsilon_0}\frac{1}{a}+\frac{qQ_2}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+b^2}}\\
+    W_2&=\frac{qQ_1}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+b^2}}+\frac{qQ_2}{4\pi\varepsilon_0}\frac{1}{a}
+\end{align}
+solving the linear system for the charges $Q_{1,2}$ we obtain
+\begin{align}
+    Q_1&=\frac{4\pi\varepsilon_0}{qb^2}\sqrt{a^2+b^2}\left(\sqrt{a^2+b^2}W_1-aW_2\right)\\
+    Q_2&=\frac{4\pi\varepsilon_0}{qb^2}\sqrt{a^2+b^2}\left(-aW_1+\sqrt{a^2+b^2}W_2\right).
+\end{align}
+
+\subsection{Exercise 1.3 Flux of two point charges through circle}
+For the flux we have
+\begin{align}
+    N&\equiv\int\vec{E}\cdot d\vec{A}\\
+    &=\int E \cos(\vec{E},\vec{n})\ dA\\
+    &=2\pi\int\frac{q}{4\pi\varepsilon_0(a^2+r^2)}\frac{a}{\sqrt{a^2+r^2}}rdr-2\pi\int\frac{Q}{4\pi\varepsilon_0(a^2+r^2)}\frac{a}{\sqrt{a^2+r^2}}rdr\\
+    &=\frac{2\pi a}{4\pi\varepsilon_0}(q-Q)\int_0^a\frac{1}{(a^2+r^2)^{3/2}}rdr\\
+    &=\frac{1}{4\varepsilon_0}(q-Q)\left(2-\sqrt{2}\right)
+\end{align}
+therefore
+\begin{align}
+    Q=q-\frac{4N\varepsilon_0}{2-\sqrt{2}}.
+\end{align}
+
+\subsection{Exercise 1.4 Concentric charged rings}
+The axial potential of a single ring is with radius $a$ and charge $Q=2\pi a\rho_0$ is
+\begin{align}
+    \phi(x)&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho_0\delta(z'-0)\delta(r'-a)}{\sqrt{a^2+x^2}}r d\varphi' dz' dr'\\
+    &=\frac{1}{4\pi\varepsilon_0}2\pi a \rho_0\frac{1}{\sqrt{a^2+x^2}}\\
+    &=\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+x^2}}
+\end{align}
+The total potential and the resulting electrical field is therefore
+\begin{align}
+    \phi(x)&=-\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a_1^2+x^2}}+\frac{\sqrt{27}Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a_2^2+x^2}}\\
+    E_x&=-\frac{\partial\phi}{\partial x}\\
+    &=\frac{Qx}{4\pi\varepsilon_0}\left(-\frac{1}{(a_2^2+x^2)^{3/2}}+\frac{\sqrt{27}}{(a_2^2+x^2)^{3/2}}\right)
+\end{align}
+which only vanishes for
+\begin{align}
+    x=0,\pm\sqrt{\frac{-3a_1^2+a2^2}{2}}.
+\end{align}
+Due to the radial symmetry the other field components at this points vanish too.
+
+\subsection{Exercise 12.1 Linear quadrupole}
+\begin{align}
+    \beta&=\omega\sqrt{\mu\epsilon}\\
+    q_{zz}^{(2)}&=a^2q\sin\omega t\\
+    8\pi\epsilon\vec{Z}_{zz}&=a^2q\sin\omega t\left(\frac{\beta}{r}-\frac{j}{r^2}\right)(\vec{r}_1\cos\theta-\vec{\theta}\sin\theta)\cos\theta e^{-j\beta r}\\
+    %E_r&=...\\
+    %E_\theta&=...\\
+    %B_\phi&=...
+\end{align}
+
+\chapter{Thermodynamics and Statistical Physics}
+
+\section{{\sc Callen} - Thermodynamics and an Introduction to Thermostatistics 2nd}
+
+\section{{\sc Kardar} - Statistical Physics of Particles}
+\subsection{Problem 1.1 - Surface Tension}
+\begin{enumerate}[(a)]
+\item Rewriting the differentials
+\begin{align}
+A&=4\pi R^2\quad\rightarrow\quad dA=8\pi R dR\\
+V&=\frac{4}{3}\pi R^3\quad\rightarrow\quad dV=4\pi R^2 dR
+\end{align}
+Using energy conservation (using handwaving arguments about the signs)
+\begin{align}
+-p_\text{in}dV-p_\text{out}(-dV)+\mathcal{S}\,dA=0\\
+\rightarrow p_\text{in}-p_\text{out}=\frac{\mathcal{S}\,dA}{dV}=\frac{2\mathcal{S}}{R}
+\end{align}\
+then
+\begin{align}
+p_\text{in}=p_\text{out}+\frac{2\mathcal{S}}{R}
+\end{align}
+\item Assume the droplet has the shape of a capped sphere
+\begin{align}
+A_\text{drop}
+&=2\pi R^2\int_0^\theta\ d\theta'\,\sin\theta'\\
+&=2\pi R^2(1-\cos\theta)\\
+A_\text{lid}
+&=\pi a^2
+\end{align}
+
+
+
+
+\item
+\item
+\end{enumerate}
+
+\section{{\sc Kardar} - Statistical Physics of Fields}
+
+\section{{\sc Pathria, Beale} - Statistical Mechanics 4th ed}
 
 \chapter{Landau Lifschitz}
 \section{{\sc Landau Lifschitz} - Vol 2 - Classical Theory of fields 3rd ed}
@@ -11486,7 +12632,6 @@ then (assuming a positively charged ($q=ze$) particle scattered at a atomic nucl
 \cot\frac{\chi}{2}&=\frac{4\pi\epsilon_0mv^2b}{zZe^2}\\
 b&=\frac{zZe^2}{4\pi\epsilon_0mv^2}
 \end{align}
-
 
 \chapter{General Physics}
 
@@ -12028,7 +13173,7 @@ M=\tan\alpha'/\tan\alpha=F/f.
 \subsection{Problem Set 1b  15-1 - 1962 March 6 (19.35)}
 We start with
 \begin{align}
-\ddot{x}+\omega_0^2x+\alpha\dddot{x}&=qE\cos\omega t\\
+m\ddot{x}+kx+\alpha\dddot{x}&=qE_0\cos\omega t\\
 \end{align}
 the are only interested in the stationary part of the solution (after initial conditions are damped away). So we assume
 \begin{align}
@@ -12036,14 +13181,14 @@ x(t)=A\cos(\omega t+\delta)
 \end{align}
 Substituting gives
 \begin{align}
-(A(\omega_0^2-\omega^2)\cos\delta+A\alpha\omega^3\sin\delta-qE)\cos\omega t+A((\omega^2-\omega_0^2)\sin\delta+\alpha\omega^3\cos\delta)\sin\omega t=0
+(A(k-m\omega^2)\cos\delta+A\alpha\omega^3\sin\delta-qE_0)\cos\omega t+A((m\omega^2-k)\sin\delta+\alpha\omega^3\cos\delta)\sin\omega t=0
 \end{align}
-which means
+which requires
 \begin{align}
-(\omega^2-\omega_0^2)\sin\delta+\alpha\omega^3\cos\delta&=0\\
-A(\omega_0^2-\omega^2)\cos\delta+A\alpha\omega^3\sin\delta-qE&=0\\
-\rightarrow \tan\delta&=\frac{\alpha\omega^3}{\omega_0^2-\omega^2}\\
-\rightarrow A&=\frac{qE}{(\omega_0^2-\omega^2)\cos\delta+\alpha\omega^3\sin\delta}\\
+(m\omega^2-k)\sin\delta+\alpha\omega^3\cos\delta)&=0\\
+A(k-m\omega^2)\cos\delta+A\alpha\omega^3\sin\delta-qE_0&=0\\
+\rightarrow \tan\delta&=\frac{\alpha\omega^3}{k-m\omega^2}\\
+\rightarrow A&=\frac{qE_0}{\sqrt{(k-m\omega^2)^2+\alpha^2\omega^6}}
 \end{align}
 
 
@@ -12097,419 +13242,37 @@ A/B=1\quad&\rightarrow\quad \omega=\omega_0\\
 A/B=-m_2/m_1\quad&\rightarrow\quad \omega=\sqrt{\omega_0+\frac{k}{m_1}+\frac{k}{m_2}}
 \end{align} 
 
-
-
-
-\section{{\sc Jackson} - Classical Electrodynamics}
-
-\subsection{Exercise 1.3 Charge densities and the Dirac delta function}
+\section{{\sc Gershenfeld} - The Nature of Mathematical Modelling}
+\subsection{Problem 2.1}
+\begin{enumerate}[(a)]
+\item 
 \begin{align}
-\rho_a=\frac{Q}{4\pi R^2}\delta(r-R)\quad\rightarrow\quad \int\rho_a d^3r&=4\pi\frac{Q}{4\pi R^2}\int_0^\infty\delta(r-R)r^2\,dr\\&=Q\\
-\rho_b=\frac{\lambda}{2\pi b}\delta(r-b)\quad\rightarrow\quad \int\rho_b d^3r&=\frac{\lambda}{2\pi b}2\pi\int_0^Ldz\int_0^\infty \delta(r-b)r\,dr\\&=\lambda L\\
-\rho_c=\frac{Q}{\pi R^2}\theta(R-r)\delta(z)\quad\rightarrow\quad \int\rho_c d^3r&=\frac{Q}{\pi R^2}2\pi\int dz\int_0^\infty\theta(r-R)r\;dr\\
-&=\frac{Q}{\pi R^2}2\pi\int dz\int_0^Rr\;dr\\
-&=\frac{Q}{\pi R^2}2\pi\frac{R^2}{2}=Q
+V(x)&=V_0+V_1x+V_2x^2+...\\
+&\rightarrow V_1=0\\
+&\rightarrow F=-\nabla V=2V_2x=kx
 \end{align}
-Now we got curvilinear coordinates so we need an additional $1/r$ scaling
+\item $x(t)=e^{ft}$
 \begin{align}
-\rho_d=\frac{Q}{\pi R^2r}\theta(R-r)\delta(\vartheta-\pi/2)\quad\rightarrow\quad \int\rho_d d^3r&=\frac{Q}{\pi R^2}2\pi\int_0^\infty \frac{r^2}{r}\theta(R-r)\int_0^\pi\delta(\vartheta-\pi/2)\sin\vartheta\;d\vartheta\\
-&=\frac{Q}{\pi R^2}2\pi\int_0^R r\int_0^\pi\delta(\vartheta-\pi/2)\sin\vartheta\;d\vartheta\\
-&=\frac{Q}{\pi R^2}2\pi \frac{R^2}{2}\sin\pi/2=Q
+(mf^2+\gamma f+k)e^{ft}=0\\
+f=-\frac{\gamma}{2m}\pm\sqrt{\frac{\gamma^2}{4m^2}-\frac{k}{m}}
 \end{align}
-
-\subsection{Exercise 1.4 Charged spheres}
-We can utilize the Gauss theorem
-\begin{align}
-\oint_S\vec{E}\cdot\vec{n}dA&=\frac{1}{\epsilon_0}\int_V\rho(x)d^3x\\
-4\pi r^2E_r&=\frac{q_r}{\epsilon_0}\\
-E_r&=\frac{q_r}{4\pi\epsilon_0r^2}
-\end{align}
-assuming a radial electrical field.
-\begin{itemize}
-\item Conducting sphere
-\begin{align}
-\rho_\text{cond}&=Q\delta(r-a)\\
-E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
-\begin{array}{ll}
-0 & r<a\\
-Q/r^2 & r>a
-\end{array}
-\right.
-\end{align}
-
-\item Uniform sphere
-\begin{align}
-\rho_\text{hom}&=Q\theta(a-r)\\
-E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
-\begin{array}{ll}
-Q/a^3\cdot r & r<a\\
-Q/r^2 & r>a
-\end{array}
-\right.
-\end{align}
-
-\item Nonuniform sphere
-\begin{align}
-\rho_\text{inhom}&=Q\frac{n+3}{a^{n+3}}r^n\quad(r<a)\\
-E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
-\begin{array}{ll}
-Qa^{n+3}r^{n+1} & r<a\\
-Q/r^2 & r>a
-\end{array}
-\right.
-\end{align}
-\end{itemize}
-\begin{figure}[!h]
-\centering
-\begin{tikzpicture}
-  \draw[->] (0, 0) -- (3, 0) node[right] {$r$};
-  \draw[->] (0, 0) -- (0, 2.2) node[above] {$E_r$};
-  \draw[thick, scale=1.0, domain=2:3, smooth, variable=\x, black] plot ({\x}, {4/(\x*\x)});
-  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, red] plot ({\x}, {0});
-  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, blue] plot ({\x}, {0.5*\x});
-  \draw[thick, scale=1.0, domain=0:2, smooth, variable=\x, purple] plot ({\x}, {0.125*\x*\x*\x});
-  \draw[thick, scale=1.0, domain=1:2, smooth, variable=\x, purple] plot ({\x}, {2/(\x)});
-  \draw[dashed] (2,0) -- (2,2);
-\end{tikzpicture}
-\caption{Jackson problem (1.4)}
-\end{figure}
-
-
-
-\subsection{Exercise 1.5 Charge density of hydrogen atom}
-With the potential
-\begin{align}
-\Phi=\frac{q}{4\pi\epsilon_0}\frac{e^{-\alpha r}}{r}\left(1+\frac{\alpha r}{2}\right)
-\end{align}
-we calculate for $r>0$
-\begin{align}
-\rho_1
-&=-\epsilon_0\triangle\Phi\\
-&=-\epsilon_0\frac{1}{r^2}\partial_r(r^2\partial_r\Phi)\\
-&=-\frac{q}{4\pi}e^{-\alpha r}\frac{\alpha^3}{2}\\
-&=-\frac{q}{\pi a_0^3}e^{-2r/a_0}
-\end{align}
-For $r=0$ we have
-\begin{align}
-\Phi(r\rightarrow0)&=\frac{q}{4\pi\epsilon_0r}\\
-&\rightarrow\quad \rho_0=q\delta(r)
-\end{align}
-Therefore
-\begin{align}
-\rho&=\rho_0+\rho_1\\
-&=q\left(\delta^{(3)}(r)-\frac{1}{\pi a_0^3}e^{-2r/a_0}\right)
-\end{align}
-Calculating the total charge
-\begin{align}
-Q_0&=q\int d^3r\delta(r)=q\\
-Q_1
-&=4\pi\int_0^\infty r^2\rho_1 dr\\
-&=-\frac{4\pi q}{\pi a_0^3}\int_0^\infty r^2e^{-2r/a_0}dr\\
-&=-\frac{4\pi q}{\pi a_0^3}\frac{a_0^3}{8}\int_0^\infty z^2e^{-z}dz\\
-&=-\frac{4\pi q}{\pi a_0^3}\frac{a_0^3}{8}\Gamma(3)\\
-&=-q
-\end{align}
-
-\subsection{Exercise 1.6 Simple capacitors}
-(a) Assuming only front and back surfaces contribute
-\begin{align}
-2E_xA&=\frac{Q}{\epsilon_0}\\
-\rightarrow\quad E_x&=\frac{Q}{2\epsilon_0A}\\
-\rightarrow\quad \phi&=-\frac{Q}{2\epsilon_0A}x\\
-\rightarrow\quad \phi_\text{tot}(x)&=-\frac{Q}{2\epsilon_0A}x-\frac{-Q}{2\epsilon_0A}(d-x)\\
-&=-\frac{Q}{2\epsilon_0A}(x-(d-x))\\
-&=-\frac{Q}{2\epsilon_0A}(2x-d)\\
-\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{-\frac{Q}{2\epsilon_0A}(-d-d)}\\
-&=\epsilon_0\frac{A}{d}
-\end{align}
-(b) The outer sphere does not contribute to the total potential as it is field free
-\begin{align}
-4\pi r^2 E_r&=\frac{Q}{\epsilon_0}\\
-\rightarrow\quad E_r&=\frac{Q}{4\pi\epsilon_0 r^2}\\
-\rightarrow\quad \phi&=\frac{Q}{4\pi\epsilon_0 r}\\
-\rightarrow\quad \phi_\text{tot}&=\frac{Q}{4\pi\epsilon_0 r}\quad(a<r<b)\\
-\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{\frac{Q}{4\pi\epsilon_0 b}-\frac{Q}{4\pi\epsilon_0 a}}\\
-&=\epsilon_0\frac{4\pi ab}{b-a}
-\end{align}
-(c) 
-\begin{align}
-2\pi r L E_r=\frac{Q}{\epsilon_0}\\
-\rightarrow\quad E_r&=\frac{Q}{2\pi r L\epsilon_0}\\
-\rightarrow\quad \phi&=-\frac{Q}{2\pi L\epsilon_0}\log r\\
-\rightarrow\quad \phi_\text{tot}&=-\frac{Q}{2\pi L\epsilon_0}\log r\quad(a<r<b)\\
-\rightarrow\quad C&=\frac{Q}{\Delta\phi}=\frac{Q}{-\frac{Q}{2\pi L\epsilon_0}\log b+\frac{Q}{2\pi L\epsilon_0}\log a}\\
-&=\frac{2\pi L\epsilon_0}{\log a/b}
-\end{align}
-(d) ...
-
-\subsection{Exercise 1.7 Capacity of two parallel cylinders}Gauss law for one cylinder
-\begin{align}
-\oint_S\vec{E}\cdot\vec{n}dA&=\frac{1}{\epsilon_0}\int_V\rho(x)d^3x\\
-2\pi rLE_r&=\frac{\rho_{1} L}{\epsilon_0}\\
-E_r&=\frac{\rho}{2\pi\epsilon_0r}\\
-\phi&=-\frac{\rho}{2\pi\epsilon_0}\ln r
-\end{align}
-For $d\gg a_{1,2}$ the potential of one cylinder on the surface of the second cylinder is constant - which means that the potential can be approximated by the sum of the potential of both cylinders (no need to make it complicated)
-\begin{align}
-\phi(\vec{r})&=\phi_1+\phi_2\\
-&=-\frac{\rho_{1}}{2\pi\epsilon_0}\ln |\vec{r}|-\frac{\rho_{2}}{2\pi\epsilon_0}\ln |\vec{r}-\vec{d}|\\
-&=-\frac{\rho}{2\pi\epsilon_0}\ln |\vec{r}|+\frac{\rho}{2\pi\epsilon_0}\ln |\vec{r}-\vec{d}|\\
-&=-\frac{\rho}{2\pi\epsilon_0}\left(\ln |\vec{r}|-\ln |\vec{r}-\vec{d}|\right)\\
-&=-\frac{\rho}{2\pi\epsilon_0}\ln \frac{|\vec{r}|}{|\vec{r}-\vec{d}|}\\
-&=-\frac{\rho}{\pi\epsilon_0}\ln \sqrt{\frac{|\vec{r}|}{|\vec{r}-\vec{d}|}}
-\end{align}
-Then the potential difference between to surfaces is given by (with $\vec{n}=\vec{d}/d$ and $\rho=\rho_1=-\rho_2$)
-\begin{align}
-\Delta\phi&=\phi(a_1\vec{n})-\phi((d-a_2)\vec{n})\\
-&=-\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{a_1}{d-a_1}}-\ln \sqrt{\frac{d-a_2}{a_2}}\right)\\
-&=\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{d-a_1}{a_1}}+\ln \sqrt{\frac{d-a_2}{a_2}}\right)\\
-&\simeq\frac{\rho}{\pi\epsilon_0}\left(\ln \sqrt{\frac{d}{a_1}}+\ln \sqrt{\frac{d}{a_2}}\right)\\
-&\simeq\frac{\rho}{\pi\epsilon_0}\ln \frac{d}{\sqrt{a_1a_2}}
-\end{align}
-With $C=Q/U$ we have
-\begin{align}
-C=\frac{\rho L}{\Delta\phi}&=\frac{\pi\epsilon_0L}{\ln \frac{d}{\sqrt{a_1a_2}}}
-\end{align}
-which is the desired result. The numbers are 0.49mm, 1.47mm and 4.92mm.
-
-
-\subsection{Exercise 1.8 Energy of capacitors}
-\begin{align}
-W
-=\frac{1}{2}\int\rho(x)\phi(x)d^3x
-=-\frac{\epsilon_0}{2}\int\phi\triangle\phi d^3x
-=\frac{\epsilon_0}{2}\int(\nabla\phi)^2 d^3x
-=\frac{\epsilon_0}{2}\int|\vec{E}|^2 d^3x
-\end{align}
-(a) With $\vec{E}_\text{tot}=-\nabla\phi_\text{tot}$ and $Q=C\cdot U$
-\begin{align}
-W_\text{plate}&=\frac{\epsilon_0}{2}\cdot\left(\frac{Q}{\epsilon_0A}\right)^2\cdot(Ad)=\frac{Q^2d}{2\epsilon_0A}\\
-&=\frac{U^2d}{2\epsilon_0A}\left(\frac{\epsilon_0A}{d}\right)^2=
-\frac{\epsilon_0AU^2}{2d}
-\end{align}
-\begin{align}
-W_\text{sphere}&=\frac{\epsilon_0}{2}4\pi\int_a^br^2\frac{Q^2}{16\pi^2\epsilon_0^2r^4}dr=\frac{Q^2}{8\pi\epsilon_0}\left(\frac{1}{b}-\frac{1}{a}\right)\\
-&=\frac{U^2}{8\pi\epsilon_0}\left(\frac{a-b}{ab}\right)\cdot\left(\epsilon_0\frac{4\pi ab}{b-a}\right)^2=2\pi\epsilon_0U^2\frac{ab}{b-a}
-\end{align}
-\begin{align}
-W_\text{cylinder}&=\frac{\epsilon_0}{2}2\pi L\int_a^b\left(\frac{Q}{2\pi\epsilon_0Lr}\right)^2r\;dr
-=\frac{Q^2}{4\pi\epsilon_0L}\log\frac{b}{a}\\
-&=\frac{U^2}{4\pi\epsilon_0L}\log\frac{b}{a}\left(\frac{2\pi\epsilon_0 L}{\log b/a}\right)^2=\frac{\pi\epsilon_0LU^2}{\log b/a}
-\end{align}
-(b) 
-\begin{align}
-w_\text{plate}&=\text{const}\\
-w_\text{sphere}&\sim r^{-4}\\
-w_\text{cylinder}&\sim r^{-2}
-\end{align}
-
-\subsection{Exercise 12.1 Lagrangian of point charge}
-\begin{enumerate}
-\item With $U^\alpha=\frac{dx_\alpha}{ds}$
-\begin{align}
-	L&=-\frac{mU_\alpha U^\alpha}{2}-\frac{q}{c}U_\alpha A^\alpha\\
-	\frac{\partial L}{\partial x_\beta}&=-\frac{q}{c}U_\alpha\frac{\partial A^\alpha}{\partial x_\beta}\\
-	\frac{\partial L}{\partial U_\beta}&=-mU^\beta-\frac{q}{c}A^\beta
-\end{align}
-\begin{align}
-	-m\frac{d}{ds}\left(\frac{dU^\beta}{ds}\right)-\frac{q}{c}\frac{dA^\beta}{ds}+\frac{q}{c}U_\alpha\frac{\partial A^\alpha}{\partial x_\beta}=0\\
-	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{dA^\beta}{ds}-\frac{q}{c}\frac{dx_\alpha}{ds}\frac{\partial A^\alpha}{\partial x_\beta}=0\\
-	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\left(\frac{\partial A^\beta}{\partial x^\alpha}\frac{\partial x^\alpha}{\partial s}\right)-\frac{q}{c}\frac{dx_\alpha}{ds}\frac{\partial A^\alpha}{\partial x_\beta}=0\\
-	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{\partial x^\alpha}{\partial s}\left(\frac{\partial A^\beta}{\partial x^\alpha}-\frac{\partial A^\alpha}{\partial x_\beta}\right)=0\\
-	m\frac{d^2x^\beta}{ds^2}+\frac{q}{c}\frac{\partial x^\alpha}{\partial s}F^{\alpha\beta}=0
-\end{align}
-\item Bit of a odd sign convention for the canonical momentum
-\begin{align}
-P^\beta&=-\frac{\partial L}{\partial U_\beta}=mU^\beta+\frac{q}{c}A^\beta\quad\rightarrow\quad U^\beta=\frac{1}{m}\left(P^\beta-\frac{q}{c}A^\beta\right)\\
-H&=P^\alpha U_\alpha+L\\
-&=P^\alpha\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)-\frac{m}{2}\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)-\frac{q}{c}\frac{1}{m}\left(P_\alpha-\frac{q}{c}A_\alpha\right)A^\alpha\\
-&=\frac{1}{2m}\left(P^\alpha-\frac{q}{c}A^\alpha\right)\left(P_\alpha-\frac{q}{c}A_\alpha\right)
-\end{align}
-In space-time coordinates we can write
-\begin{align}
-H&=\frac{1}{2m}\left((p_0)^2-\vec{p}^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2q}{c}[\vec{p}\cdot\vec{A}-p^0\phi]\right)\\
-&=\frac{1}{2m}\left((\gamma m c)^2-(\gamma m\vec{v})^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2q}{c}[\gamma m\vec{v}\cdot\vec{A}-\gamma m c\phi]\right)\\
-&=\frac{\gamma^2mc^2}{2}\left(1-\frac{\vec{v}^2}{c^2}\right)+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]\\
-&=\frac{mc^2}{2}+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]
-\end{align}
+\item ???
 \end{enumerate}
 
-\section{{\sc Schwinger} - Classical Electrodynamics}
-\subsection{Exercise 9.1 Lagrangian of a particle in an electromagnetic field}
+
+
+\section{{\sc Gershenfeld} - The Physics of Information Technology}
+\subsection{Problem 2.1}
+(a) $10^{-24}\cdot6.6\cdot10^{23}\simeq1$\\
+(b) $10^{-9}\cdot100\cdot365\cdot24\cdot60\cdot60\,\text{sec}\simeq3.15\,\text{sec}$
+\subsection{Problem 2.2}
+With $1\,\text{TB}=10^9\,\text{MB}$
 \begin{align}
-L=\mathbf{p}\cdot\left(\frac{d\mathbf{r}}{dt}-\mathbf{v}\right)+\frac{1}{2}mv^2-e\phi+\frac{e}{c}\mathbf{v}\cdot\mathbf{A}
+\frac{10^{9}\,\text{MB}}{\frac{1\,\text{MB}}{3\,\text{mm}}}
+=10^{9}\cdot0.003\,\text{m}=3000\,\text{m}
 \end{align}
 
 
-\subsection{Exercise 31.1 Potentials of moving point charge}
-\begin{align}
-    w=z-vt
-    \rightarrow
-    \frac{\partial}{\partial z}&=\frac{\partial w}{\partial z}\frac{\partial}{\partial w}\\
-    \rightarrow\frac{\partial^2}{\partial z^2}&=\frac{\partial^2 w}{\partial z^2}\frac{\partial}{\partial w}+\left(\frac{\partial w}{\partial z}\right)^2\frac{\partial^2}{\partial w^2}=\frac{\partial^2}{\partial w^2}\\
-    \rightarrow\frac{\partial^2}{\partial t^2}&=\frac{\partial^2 w}{\partial t^2}\frac{\partial}{\partial w}+\left(\frac{\partial w}{\partial t}\right)^2\frac{\partial^2}{\partial w^2}=v^2\frac{\partial^2}{\partial w^2}
-\end{align}
-then
-\begin{align}
-    \triangle-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}&=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial w^2}-\frac{v^2}{c^2}\frac{\partial^2}{\partial w^2}\\
-    &=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\left(1-\frac{v^2}{c^2}\right)\frac{\partial^2}{\partial w^2}\\
-    &=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}
-\end{align}
-with with $u=w/\sqrt{1-v^2/c^2}$. The wave equation can then be rewritten
-\begin{align}
-    -\Box\phi&=4\pi\rho\\
-    &=4\pi e\delta(x)\delta(y)\delta(z-vt)\\
-    -\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}\right)\phi&=4\pi e\delta(x)\delta(y)\delta\left(\sqrt{1-\frac{v^2}{c^2}}u\right)\\
-    &=\frac{4\pi}{\sqrt{1-\frac{v^2}{c^2}}} e\delta(x)\delta(y)\delta\left(u\right)
-\end{align}
-Using the Green function of the Coulomb equation (13.3) we obtain
-\begin{align}
-    \phi&=\frac{e}{\sqrt{1-\frac{v^2}{c^2}}\sqrt{u^2+x^2+y^2}}\\
-    &=\frac{e}{\sqrt{w^2+(1-\frac{v^2}{c^2})(x^2+y^2})}\\
-    &=\frac{e}{\sqrt{(z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2})}
-\end{align}
-For the vector potential we can calculate similarly
-\begin{align}
-    -\Box\vec{A}&=4\pi\frac{\vec{j}}{c}\\
-    -\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial u^2}\right)\vec{A}&=4\pi e\frac{\vec{v}}{c}\delta(x)\delta(y)\delta\left(\sqrt{1-\frac{v^2}{c^2}}u\right)\\
-    &=\frac{4\pi}{\sqrt{1-\frac{v^2}{c^2}}} e\frac{\vec{v}}{c}\delta(x)\delta(y)\delta\left(u\right)
-\end{align}
-which gives $\vec{A}=\vec{v}/c\phi$.
-
-\subsection{Exercise 31.2 Fields of moving point charge}
-\begin{align}
-	\vec{E}&=-\nabla\phi-\frac{1}{c}\frac{\partial\vec{A}}{\partial t}\\
-	&=\frac{e}{2}\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[(1-\frac{v^2}{c^2})2x,(1-\frac{v^2}{c^2})2y,2(z-vt)(1-\frac{v^2}{c^2})]\\
-	&=e(1-\frac{v^2}{c^2})\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[x,y,(z-vt)]\\
-	\vec{B}&=\nabla\times\vec{A}\\
-	&=-e\frac{v}{c}(1-\frac{v^2}{c^2})\left((z-vt)^2+(1-\frac{v^2}{c^2})(x^2+y^2)\right)^{-3/2}[y,x,0]
-\end{align}
-
-\subsection{Exercise 31.4 Wave equation for fields}
-With
-\begin{align}
-\nabla\times\vec{B}&=\frac{1}{c}\frac{\partial}{\partial t}\vec{E}+\frac{4\pi}{c}\vec{j}_e\\
-\nabla\cdot\vec{E}&=4\pi\rho_e\\
--\nabla\times\vec{E}&=\frac{1}{c}\frac{\partial}{\partial t}\vec{B}+\frac{4\pi}{c}\vec{j}_m\\
-\nabla\cdot\vec{B}&=4\pi\rho_m
-\end{align}
-we obtain
-\begin{align}
-\nabla\times\nabla\times\vec{B}
-&=\nabla(\nabla\cdot\vec{B})-\triangle\vec{B}\\
-&=4\pi\nabla\rho_m-\triangle\vec{B}\\
-&=\frac{1}{c}\frac{\partial}{\partial t}\nabla\times\vec{E}+\frac{4\pi}{c}\nabla\times\vec{j}_e\\
-&=-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\vec{B}-\frac{4\pi}{c^2}\frac{\partial}{\partial t}\vec{j}_m+\frac{4\pi}{c}\nabla\times\vec{j}_e\\
-&\rightarrow-\Box\vec{B}=-4\pi\nabla\rho_m+\frac{4\pi}{c}(\nabla\times\vec{j}_e-\frac{1}{c}\frac{\partial}{\partial t}\vec{j}_m)
-\end{align}
-
-\begin{align}
-\nabla\times\nabla\times\vec{E}
-&=\nabla(\nabla\cdot\vec{E})-\triangle\vec{E}\\
-&=4\pi\nabla\rho_e-\triangle\vec{E}\\
-&=-\frac{1}{c}\frac{\partial}{\partial t}\nabla\times\vec{B}-\frac{4\pi}{c}\nabla\times\vec{j}_m\\
-&=-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\vec{E}-\frac{4\pi}{c^2}\frac{\partial}{\partial t}\vec{j}_e-\frac{4\pi}{c}\nabla\times\vec{j}_m\\
-&\rightarrow-\Box\vec{E}=-4\pi\nabla\rho_e+\frac{4\pi}{c}(\nabla\times\vec{j}_m-\frac{1}{c}\frac{\partial}{\partial t}\vec{j}_e)
-\end{align}
-
-\subsection{Exercise 31.5 Lienard-Wiechert potentials}
-\begin{align}
-\phi(\vec{r},t)&=\int d\vec{r}'dt'\frac{\delta(\frac{1}{c}|\vec{r}-\vec{r}'|-(t-t'))}{|\vec{r}-\vec{r}'|}\rho(\vec{r}',t')\\
-&=\int d\vec{r}'dt'\frac{\delta(t'-t+\frac{1}{c}|\vec{r}-\vec{r}'|)}{|\vec{r}-\vec{r}'|}e\delta(\vec{r}'-\vec{r}_B(t'))\\
-&=e\int d\vec{r}'\frac{1}{|\vec{r}-\vec{r}'|}\delta(\vec{r}'-\vec{r}_B(t-\frac{1}{c}|\vec{r}-\vec{r}'|))
-\end{align}
-\begin{align}
-\delta(\vec{r}'-\vec{r}_B(t-\frac{1}{c}|\vec{r}-\vec{r}'|))&=\delta(f(\vec{r}'))\\
-&=\sum\frac{\delta(\vec{r}')}{|f'(\vec{r}')|}
-\end{align}
-
-\begin{align}
-&=e\int d\vec{r}'\frac{1}{|\vec{r}-\vec{r}'|}\sum\frac{}{}
-%\vec{A}(\vec{r},t)&=\int d\vec{r}'dt'\frac{\delta(\frac{1}{c}|\vec{r}-\vec{r}'|-(t-t'))}{|\vec{r}-\vec{r}'|}\frac{1}{c}\vec{j}(\vec{r}',t')
-\end{align}
-
-
-\subsection{Exercise 38.1 Total radiated power}
-We observe
-\begin{align}
-\frac{\lambda}{(1+\lambda\beta)^4}=-\frac{1}{\beta(1+\lambda\beta)^4}+\frac{1}{\beta(1+\lambda\beta)^3}.    
-\end{align}
-Then
-\begin{align}
-    f(\lambda)&=\frac{2}{(1+\lambda\beta)^3}\left(-\frac{\beta^2}{2}+\frac{\lambda\beta}{8}\frac{\beta^2-1}{1+\lambda\beta}\right)\\
-    &=-\beta^2\frac{1}{(1+\lambda\beta)^3}+\frac{\beta(\beta^2-1)}{4}\frac{\lambda}{(1+\lambda\beta)^4}\\
-    &=\left(-\beta^2+\frac{\beta^2-1}{4}\right)\frac{1}{(1+\lambda\beta)^3}-\frac{(\beta^2-1)}{4}\frac{1}{(1+\lambda\beta)^4}\\
-    \int_{-1}^1f(\lambda)d\lambda&=-\frac{1+3\lambda^2}{4}
-\end{align}
-
-
-\section{{\sc Smythe} - Static and Dynamic Electricity}
-\subsection{Exercise 1.1 Two coaxial rings and a point charge}
-Total charge of an axial ringlike charge distribution
-\begin{align}
-    Q&=\int \rho_0(\varphi')\delta(z'-0)\delta(r'-a) d\varphi' dz' dr'\\
-    &=2\pi a\rho_0
-\end{align}
-which means that the 1-dimensional charge density is $\rho_0=Q/2\pi a$.
-The axial potential of a single ring is then
-\begin{align}
-    \phi(z)&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho_0\delta(z'-0)\delta(r'-a)}{\sqrt{a^2+z^2}}r d\varphi' dz' dr'\\
-    &=\frac{1}{4\pi\varepsilon_0}2\pi a \rho_0\frac{1}{\sqrt{a^2+z^2}}\\
-    &=\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+z^2}}
-\end{align}
-therefore we get for the energies
-\begin{align}
-    W_1&=\frac{qQ_1}{4\pi\varepsilon_0}\frac{1}{a}+\frac{qQ_2}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+b^2}}\\
-    W_2&=\frac{qQ_1}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+b^2}}+\frac{qQ_2}{4\pi\varepsilon_0}\frac{1}{a}
-\end{align}
-solving the linear system for the charges $Q_{1,2}$ we obtain
-\begin{align}
-    Q_1&=\frac{4\pi\varepsilon_0}{qb^2}\sqrt{a^2+b^2}\left(\sqrt{a^2+b^2}W_1-aW_2\right)\\
-    Q_2&=\frac{4\pi\varepsilon_0}{qb^2}\sqrt{a^2+b^2}\left(-aW_1+\sqrt{a^2+b^2}W_2\right).
-\end{align}
-
-\subsection{Exercise 1.3 Flux of two point charges through circle}
-For the flux we have
-\begin{align}
-    N&\equiv\int\vec{E}\cdot d\vec{A}\\
-    &=\int E \cos(\vec{E},\vec{n})\ dA\\
-    &=2\pi\int\frac{q}{4\pi\varepsilon_0(a^2+r^2)}\frac{a}{\sqrt{a^2+r^2}}rdr-2\pi\int\frac{Q}{4\pi\varepsilon_0(a^2+r^2)}\frac{a}{\sqrt{a^2+r^2}}rdr\\
-    &=\frac{2\pi a}{4\pi\varepsilon_0}(q-Q)\int_0^a\frac{1}{(a^2+r^2)^{3/2}}rdr\\
-    &=\frac{1}{4\varepsilon_0}(q-Q)\left(2-\sqrt{2}\right)
-\end{align}
-therefore
-\begin{align}
-    Q=q-\frac{4N\varepsilon_0}{2-\sqrt{2}}.
-\end{align}
-
-\subsection{Exercise 1.4 Concentric charged rings}
-The axial potential of a single ring is with radius $a$ and charge $Q=2\pi a\rho_0$ is
-\begin{align}
-    \phi(x)&=\frac{1}{4\pi\varepsilon_0}\int\frac{\rho_0\delta(z'-0)\delta(r'-a)}{\sqrt{a^2+x^2}}r d\varphi' dz' dr'\\
-    &=\frac{1}{4\pi\varepsilon_0}2\pi a \rho_0\frac{1}{\sqrt{a^2+x^2}}\\
-    &=\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a^2+x^2}}
-\end{align}
-The total potential and the resulting electrical field is therefore
-\begin{align}
-    \phi(x)&=-\frac{Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a_1^2+x^2}}+\frac{\sqrt{27}Q}{4\pi\varepsilon_0}\frac{1}{\sqrt{a_2^2+x^2}}\\
-    E_x&=-\frac{\partial\phi}{\partial x}\\
-    &=\frac{Qx}{4\pi\varepsilon_0}\left(-\frac{1}{(a_2^2+x^2)^{3/2}}+\frac{\sqrt{27}}{(a_2^2+x^2)^{3/2}}\right)
-\end{align}
-which only vanishes for
-\begin{align}
-    x=0,\pm\sqrt{\frac{-3a_1^2+a2^2}{2}}.
-\end{align}
-Due to the radial symmetry the other field components at this points vanish too.
-
-\subsection{Exercise 12.1 Linear quadrupole}
-\begin{align}
-    \beta&=\omega\sqrt{\mu\epsilon}\\
-    q_{zz}^{(2)}&=a^2q\sin\omega t\\
-    8\pi\epsilon\vec{Z}_{zz}&=a^2q\sin\omega t\left(\frac{\beta}{r}-\frac{j}{r^2}\right)(\vec{r}_1\cos\theta-\vec{\theta}\sin\theta)\cos\theta e^{-j\beta r}\\
-    %E_r&=...\\
-    %E_\theta&=...\\
-    %B_\phi&=...
-\end{align}
 
 \section{{\sc Weinberg} - Foundation of Modern Physics}
 
@@ -12530,6 +13293,9 @@ m_{O_2}
 &=\frac{I\cdot\Delta t}{4e}M_{O_2}\cdot u\\
 \Delta t&=\frac{4em_{O_2}}{IM_{O_2}u}=3,000\,\text{s}
 \end{align}
+
+
+
 
 
 \section{{\sc Thorne, Blandford} - Modern Classical Physics}
@@ -13243,7 +14009,7 @@ With this the Bernoulli equation turns into
 \begin{align}
     \frac{1}{2}\left(\frac{A_\text{bucket}}{A_\text{hole}}\right)^2\left(\frac{dh}{dt}\right)^2&=gh+\frac{1}{2}\left(\frac{dh}{dt}\right)^2\\
     \left(\frac{dh}{dt}\right)^2&=\frac{2g}{\left(\frac{A_\text{bucket}}{A_\text{hole}}\right)^2-1}h\\
-    &=\frac{2A_\text{hole}^2g}{A_\text{bucket}^2-A_\text{hole}^2}h\\
+    &=\frac{2A_\text{hole}^2g}{A_\text{bucket}^2-A_\text{hole}^2}h
 \end{align}
 which can be solved by
 \begin{align}
@@ -13260,7 +14026,7 @@ in the case of small holes or buckets with thick walls $D$ the Hagen-Poiseulle s
 
 
 
-\subsection{Exercise 13.11 Example: Collapse of a Bubble}
+\subsection{Exercise 13.11 Example: Collapse of a Bubble  - NOT DONE YET}
 \begin{enumerate}[(a)]
 \item In sperical coordinates we have with $\mathbf{v}=v\mathbf{e}_r$
 \begin{align}
@@ -13275,14 +14041,12 @@ The bubble shrinking is given by
 \frac{d}{dt}V(t)
 =\frac{d}{dt}\left(\frac{4}{3}\pi R(t)^3\right)
 =4\pi R^2\dot{R}
-&=-\int_{V_R} \frac{\mathbf{j}}{\rho}\cdot d\mathbf{A}\\
-&=-\int_{V_R} \mathbf{v}\cdot d\mathbf{A}\\
-&=-v\cdot 4\pi R(t)^2\\
-\dot{R}&=-\frac{w(t)}{R^2}\\
-w&=-R^2\dot{R}\\
-\ddot{R}&=-\frac{\dot{w}R^2-2R\dot{R}w}{R^4}=-\frac{\dot{w}}{R^2}+2\frac{w\dot{R}}{R^3}\\
-&=-\frac{\dot{w}}{R^2}-2\frac{\dot{R}^2}{R}\\
-\dot{w}&=-R^2\ddot{R}-2\dot{R}^2R
+&=\int_{V_R} \frac{\mathbf{j}}{\rho}\cdot d\mathbf{A}\\
+&=\int_{V_R} \mathbf{v}\cdot d\mathbf{A}\\
+&=v\cdot 4\pi R(t)^2\\
+\dot{R}&=\frac{w(t)}{R^2}\\
+w&=R^2\dot{R}\\
+\dot{w}&=R^2\ddot{R}+2\dot{R}^2R
 \end{align}
 Then with
 \begin{align}
@@ -13301,10 +14065,28 @@ we obtain
 using the result from above $\dot{R}^2=w^2/R^4$
 \begin{align}
 \frac{\dot{w}}{R}-\frac{\dot{R}^2}{2}+\frac{p_0}{\rho}&=0\\
--R\ddot{R}-\frac{5}{2}\dot{R}^2+\frac{p_0}{\rho}&=0\\
-(\dot{R})^{\cdot}+\frac{5}{2R}\dot{R}^2-\frac{p_0}{\rho}\frac{1}{R}&=0
+R\ddot{R}+\frac{3}{2}\dot{R}^2+\frac{p_0}{\rho}&=0
+\end{align}
+This autonomous ODE can be simplified by substituting
+\begin{align}
+\dot{R}&=u(R)\\
+\ddot{R}&=\frac{du}{dR}\frac{dR}{dt}=u'(R)\dot{R}=u'(R)u(R)\\
+&\rightarrow Ruu'+\frac{3}{2}u^2+\frac{p_0}{\rho}=0\\
+&\rightarrow R\frac{1}{2}(u^2)'+\frac{3}{2}u^2+\frac{p_0}{\rho}=0
+\end{align}
+and with $z=u^2$
+\begin{align}
+\frac{R}{2}z'+\frac{3}{2}z+\frac{p_0}{\rho}=0
+\end{align}
+we can finally solve 
+\begin{align}
+\log z_\text{hom}&=-3\log R+c=\log R^{-3}+C\\
+z_\text{hom}&=\frac{c}{R^3}\\
+z_\text{inhom}&=\frac{c(R)}{R^3}=\frac{2p_0}{3\rho}\left(\frac{R_0^3}{R^3}-1\right)\\
+\dot{R}=u&=\pm\sqrt{\frac{2p_0}{3\rho}}\sqrt{\frac{R_0^3}{R^3}-1}
 \end{align}
 
+\item
 \end{enumerate}
 
 
@@ -14074,9 +14856,103 @@ Important general principles
     \end{enumerate}
 \end{itemize}
 
+\newpage
+\chapter{Doodling IV} %Dominik Stoeckinger
+\section{Momentum and translation}
+\begin{itemize}
+\item $g_{\mu\nu}=g^{\mu\nu}=\text{diag}(1,-1,-1,-1)$
+\item Translations represented by a linear operator $U(\Lambda,a)$ where $\Lambda$ is a LT and $a^\mu$ is a spacetime translation
+\item Physics must be translation invariant therefore $U(1,a)$ must be unitary
+\begin{align}
+&|i'\rangle=U(1,a)|i\rangle,\quad
+|f'\rangle=U(1,a)|f\rangle\\
+&\rightarrow\langle i'|f'\rangle=\langle i|U^\dagger(1,a)U(1,a)|f\rangle\overset{!}{=}\langle i|f\rangle\\
+&\rightarrow U^\dagger(1,a)U(1,a)=1
+\end{align}
+\item Taylor expansion in $a$ introduces a coefficient $P_\mu$ which is also an operator - and must be hermitean 
+\begin{align}
+U(1,a)&=U(1,0)+ia^\mu P_\mu+\mathcal{O}(a^2)=1+ia^\mu P_\mu+\mathcal{O}(a^2)\\
+\rightarrow U^\dagger(1,a)&=1+(-i)a^\mu P_\mu^\dagger+\mathcal{O}(a^2)\\
+&\rightarrow 1\overset{!}{=}U^\dagger(1,a)U(1,a)=1+ia^\mu(-P_\mu^\dagger+P_\mu)+\mathcal{O}(a^2)\\
+&\rightarrow P_\mu=P_\mu^\dagger
+\end{align}
+\item As the translations commute the $P_\mu$ must commute and we identify the $P_\mu$ as the 4-momentum operator and $P^0$ is the energy/Hamiltonian
+\begin{align}
+U(1,a)=e^{ia_\mu P^\mu}
+\end{align}
+\item 1-particle states of particles of type $A$ with spin 0 and 4-momentum $p$ (momentum eigenstates)
+\begin{align}
+|A,p\rangle\quad
+&\rightarrow\quad P^\mu |A,p\rangle=p^\mu|A,p\rangle\\
+&\rightarrow\quad U(1,a) |A,p\rangle=e^{ia^\mu P_\mu}|A,p\rangle=...=e^{ia^\mu p_\mu}|A,p\rangle\\
+\end{align}
+\item Action of the Casimir operator of the Poincare group (commutes with all translations and LT's)
+\begin{align}
+\rightarrow\quad P^\mu P_\mu |A,p\rangle=\underbrace{p^2}_{=m_A^2}|A,p\rangle\\
+\end{align}
+where $m_A$ is the invariant rest mass of the $A$
+
+
+
+
+\section{...}
+
+\end{itemize}
+
+\chapter{Doodling V} %K. Zarembo
+\section{Second Quantization and phonons}
+\begin{itemize}
+\item A field $\varphi_i(t,\mathbf{x})$ is something defined everywhere in space and at each point in time
+\item When applying rules of quantum mechanics the field becomes n operator
+\item Quantum field describes: waves, particles and forces
+\end{itemize}
+\subsection{Particles: second quantization}
+\begin{itemize}
+\item Hamiltonian for particles interacting via pair interaction
+\begin{align}
+H=\sum_i\frac{p_i^2}{2m^2}+\sum_{i<j}U(x_j-x_j)
+\end{align}
+\item Analog to grand canonical ensemble lets consider a variable particle number
+\item For free (non-interacting) particles the solution is plane waves
+\begin{align}
+|\mathbf{p}_1...\mathbf{p}_N\rangle\rightarrow\psi(\mathbf{x}_1,...,\mathbf{x}_N)=\frac{1}{\sqrt{N!}}\sum_\sigma(\pm1)^{\text{sig}\sigma}e^{\frac{i\mathbf{p}_1\mathbf{x}_{\text{sig}(1)}}{\pi}+...+\frac{i\mathbf{p}_N\mathbf{x}_{\text{sig}(N)}}{\pi}}
+\end{align}
+\item Now lets try to write it for interacting particles ...
+\item Lets enlarge the Hilbert space to the Fock space - which is the linear envelope of the collection of all states with arbitrary number of particles $|0\rangle, |\mathbf{p}\rangle, |\mathbf{p}_1\mathbf{p}_2\rangle,...$
+\item Now the number of particles in conserved (Hamiltonian will act horizontally in the Fock space - will not mix states with different number of particles )
+\item Yet it is convenient to introduce operators so we can jump between the different levels in Fock space (change number of particles). We start with the creation operator
+\begin{align}
+a^\dagger_\mathbf{p}|\mathbf{p}_2...\mathbf{p}_N\rangle=|\mathbf{p}\,\mathbf{p}_2...\mathbf{p}_N\rangle
+\end{align}
+\item The Fock space can be constructed by starting with the vacuum state
+\begin{align}
+a^\dagger_{\mathbf{p}_1}...a^\dagger_{\mathbf{p}_N}|0\rangle=|\mathbf{p}_1...\mathbf{p}_N\rangle
+\end{align}
+\item Notation suggests that there are conjugated operators $a_\mathbf{p}$
+\begin{align}
+a_{\mathbf{p}_1}|\mathbf{p}_1...\mathbf{p}...\mathbf{p}_N\rangle
+=(2\pi\hbar)^3\sum_{k=1}^N\delta(\mathbf{p}-\mathbf{p}_k)(\pm1)^{k+1}|\mathbf{p}_1...\mathbf{p}_N\rangle
+\end{align}
+
+
+
+
+\end{itemize}
+
+
+
+
+\section{Klein-Gordon field}
+\section{Dirac field and spinors}
+\section{Electromagnetic field}
+\section{Feynman diagrams}
+\section{S-matrix, amplitudes, cross-sections}
+\section{Elementary processes in QED}
+
+
 
 \newpage
-\chapter{Doodling IV}
+\chapter{Doodling VI}
 For a source $J$ we write
 \begin{align}
 Z[J]&=e^{iW[J]}=\sum_n\frac{i^n}{n!}\int d^4x_1...d^4x_n\mathcal{G}_n(x_1,..,x_n)J(x_1)...J(x_n)\\
@@ -14790,6 +15666,11 @@ D(a_5)=\left(\begin{array}{cc}
 
 \chapter{Resources}
 \begin{itemize}
+
+
+\item \href{https://ocw.mit.edu/courses/8-333-statistical-mechanics-i-statistical-mechanics-of-particles-fall-2013/video_galleries/video-lectures/}{Kardar - Statistical mechanics of particles}
+\item \href{https://ocw.mit.edu/courses/8-334-statistical-mechanics-ii-statistical-physics-of-fields-spring-2014/video_galleries/video-lectures/}{Kardar - Statistical mechanics of fields}
+
 \item \href{https://www.youtube.com/watch?v=seabT438nr0}{Nicolai - QFT}
 \item \href{https://www.youtube.com/watch?v=EzfFklLqDjA&t=791s}{Luty - QFT}
 \item \href{https://www.tpi.uni-jena.de/~floerchinger/qft1/Lecture01/}{Wetterich/Floechinger - QFT1}
@@ -14802,6 +15683,8 @@ D(a_5)=\left(\begin{array}{cc}
 \item \href{https://www.youtube.com/watch?v=Q3cHDiZIG44}{Bilal - Introduction to anomalies in QFT}
 \item \href{https://www.youtube.com/@qftdominikstoeckinger1285/playlists}{Stoeckinger - QFT I/II/III}
 
+\item \href{https://www.youtube.com/playlist?list=PLAMDKMENB2xBOucbrZWja2Rs-SdqH7KIX}{Caltech Lectures on Geometric Methods in Physics}
+\item \href{}{}
 
 \item \href{https://www.youtube.com/watch?v=5IDHkKwXK4Y&list=PLaNkJORnlhZlAeFDKvWuoyqBBLPZ0F-3X}{Sorkin - Advanced course in GR (PI)}
 \item \href{https://www.youtube.com/watch?v=IPxnAw91bMM&list=PLaNkJORnlhZkrH4w1AXqx4c4KNjJgh2rB}{Mukhanov - Advanded course in Cosmology (PI)}
@@ -15781,18 +16664,20 @@ University of Chicago Press, 1997.
 In print, ISBN 0-226-10104-5; list price 45.00 (paperback).
 \end{itemize}
 
-General Physics (so even mathematicians can understand it!)
+\subsection{Physics}
+\subsubsection{General Physics (so even mathematicians can understand it!)}
 
 \begin{itemize}
 \item M.S. Longair: Theoretical concepts in physics, 1986.
 An alternative view of theoretical reasoning in physics for final-year undergrads.
 \item Arnold Sommerfeld: Lectures on Theoretical Physics
 Sommerfeld is God for mathematical physics.
+
 \item Richard Feynman: The Feynman lectures on Physics (3 vols)
 Highly recommended texts compiled from the undergraduate lecture course given by Feynman.
 
 \item Jearle Walker: The Flying Circus of Physics
-There is the entire Landau and Lifshitz series.  They have volumes on classical mechanics, classical field theory, E\&M, QM, QFT, statistical physics, and more.  Very good series that spans the entire graduate-level curriculum.
+There is the entire Landau and Lifshitz series.  They have volumes on classical mechanics, classical field theory, EM, QM, QFT, statistical physics, and more.  Very good series that spans the entire graduate-level curriculum.
 
 \item The New Physics edited by Paul Davies.
 This is one big book, and it takes time to look through topics as diverse as general relativity, astrophysics, particle theory, quantum mechanics, chaos and nonlinearity, low-temperature physics, and phase transitions.  Nevertheless, this is an excellent book of recent (1989) physics articles, written by several physicists/astrophysicists.
@@ -15808,7 +16693,7 @@ This is a history book, covering the birth of quaternions and related concepts t
 \end{itemize}
 
 
-Classical Mechanics
+\subsubsection{Classical Mechanics}
 
 \begin{itemize}
 \item Herbert Goldstein: Classical Mechanics, 2nd ed, 1980.
@@ -15841,7 +16726,7 @@ Spivak is a well-known author of calculus and differential geometry textbooks.  
 \end{itemize}
 
 
-Classical Electromagnetism
+\subsubsection{Classical Electromagnetism}
 
 \begin{itemize}
 \item Jackson: Classical Electrodynamics, 2nd ed., 1975
@@ -15864,7 +16749,7 @@ For the extreme masochists.  \textcolor{red}{Some of the most hair-raising EM pr
 \end{itemize}
 
 
-Quantum Mechanics
+\subsubsection{Quantum Mechanics}
 
 \begin{itemize}
 \item QED: The strange theory of light and matter Richard Feynman.
@@ -15927,8 +16812,7 @@ Short entries, arranged alphabetically, emphasis on stuff relevant to quantum ch
 Intermediate level, based on lectures given by the author at Princeton.  \textcolor{red}{Very lucid exposition of the standard material with outstanding selection of mostly original problems at the end of each chapter.}
 \end{itemize}
 
-
-Statistical Mechanics and Entropy
+\subsubsection{Statistical Mechanics and Entropy}
 
 \begin{itemize}
 \item David Chandler: Introduction to Modern Statistical Mechanics, 1987
@@ -15962,7 +16846,7 @@ Apparently Sethna's book is meant to be teaching statistical mechanics; but this
 \end{itemize}
 
 
-Condensed Matter
+\subsubsection{Condensed Matter}
 
 \begin{itemize}
 \item  Charles Kittel: Introduction to Solid State Physics (ISSP),
@@ -15981,7 +16865,7 @@ Advanced.
 \end{itemize}
 
 
-Special Relativity
+\subsubsection{Special Relativity}
 
 \begin{itemize}
 \item Taylor and Wheeler: Spacetime Physics Still the best introduction out there.
@@ -15997,7 +16881,7 @@ Special relativity is so well established that its experimental foundation is of
 \end{itemize}
 
 
-Particle Physics
+\subsubsection{Particle Physics}
 
 \begin{itemize}
 \item 
@@ -16039,7 +16923,7 @@ This book describes the search for the Higgs Boson at Fermilab.  It describes wh
 \end{itemize}
 
 
-General Relativity
+\subsubsection{General Relativity}
 \begin{itemize}
 \item 
 Meisner, Thorne and Wheeler: Gravitation W.H. Freeman \& Co., San Francisco 1973
@@ -16062,7 +16946,7 @@ Ignore Dirac's small book on lectures in GR, unless you like reading books that 
 \end{itemize}
 
 
-Mathematical Methods
+\subsubsection{Mathematical Methods}
 \begin{itemize}
 \item 
 Morse and Feshbach: Methods of Theoretical Physics.  This book used to be hard to find, but can now be bought at feshbachpublishing.com.
@@ -16079,7 +16963,7 @@ is a really terrific text for self-study; it is like a baby version of Morse \& 
 \end{itemize}
 
 
-Nuclear Physics
+\subsubsection{Nuclear Physics}
 \begin{itemize}
 \item Preston and Bhaduri: Structure of the Nucleus
 \item Blatt and Weisskopf: Theoretical Nuclear Physics
@@ -16093,7 +16977,7 @@ Introductory-to-intermediate level textbook in basic nuclear physics for senior 
 \end{itemize}
 
 
-Cosmology
+\subsubsection{Cosmology}
 \begin{itemize}
 \item J. V. Narlikar: Introduction to Cosmology.1983 Jones \& Bartlett Publ.
 For people with a solid background in physics and higher math, THE introductory text, IMHO, because it hits the balance between mathematical accuracy (tensor calculus and stuff) and intuitive clarity/geometrical models very well for grad student level.  Of course, it has flaws but only noticeable by the Real Experts (TM). .
@@ -16103,7 +16987,7 @@ Weinberg: First Three Minutes
 A very good book.  It's pretty old, but most of the information in it is still correct.
 \item Timothy Ferris: Coming of Age in the Milky Way and The Whole Shebang
 
-More Popular Science, and very readable.
+\subsubsection{More Popular Science, and very readable.}
 
 \item Kolb and Turner: The Early Universe.
 At a more advanced level, a standard reference.  As the title implies, K\&T cover mostly the strange physics of very early times: it's heavy on the particle physics, and skimps on the astrophysics.  There's a primer on large-scale structure, which is the most active area of cosmological research, but it's really not all that good.
@@ -16128,7 +17012,7 @@ Transcripts of interview with 27 of the most influential cosmologists from the p
 \end{itemize}
 
 
-Astronomy
+\subsubsection{Astronomy}
 \begin{itemize}
 \item Hannu Karttunen et al. (eds.): Fundamental Astronomy.
 The very good book covering all of astronomy (also for absolute beginners) AND still going into a lot of detail for special work for people more involved AND presenting excellent graphics and pictures.
@@ -16141,14 +17025,14 @@ Here is everything you wanted to know (and more!) about astrophysical formulae o
 \end{itemize}
 
 
-Plasma Physics
+\subsubsection{Plasma Physics}
 \begin{itemize}
 \item (See Robert Heeter's sci.physics.fusion FAQ for details)
 \end{itemize}
 
 
 
-Numerical Methods/Simulations
+\subsubsection{Numerical Methods/Simulations}
 \begin{itemize}
 \item Johnson and Rees: Numerical Analysis Addison Wesley
 Undergraduate level broad intro.
@@ -16164,7 +17048,7 @@ Algorithms described.  Emphasis on physics that can be simulated.  Applications 
 \end{itemize}
 
 
-Fluid Dynamics
+\subsubsection{Fluid Dynamics}
 \begin{itemize}
 \item D.J. Tritton: Physical Fluid Dynamics
 \item G.K. Batchelor: Introduction to Fluid Dynamics
@@ -16173,10 +17057,10 @@ Fluid Dynamics
 \end{itemize}
 
 
-Nonlinear Dynamics, Complexity, and Chaos
+\subsubsection{Nonlinear Dynamics, Complexity, and Chaos}
 
-There is a FAQ posted regularly to sci.nonlinear.
 \begin{itemize}
+\item Strogatz: Nonlinear Dynamics and Chaos - With Applications to Physics, Biology, Chemistry, and Engineering
 \item Prigogine: Exploring Complexity
 Or any other Prigogine book.  If you've read one, you read most of of them (A Poincaré recurrence maybe?).
 \item Guckenheimer and Holmes: Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields Springer
@@ -16190,7 +17074,7 @@ A popular intro to the subject of spontaneous orders, complexity and so on.  Cov
 \end{itemize}
 
 
-Optics (Classical and Quantum), Lasers
+\subsubsection{Optics (Classical and Quantum), Lasers}
 
 \begin{itemize}
 \item Max Born and Emil Wolf: Principles of Optics: Electromagnetic Theory of Propagation
@@ -16218,7 +17102,7 @@ This is a very clear and detailed book that is an excellent introduction to holo
 \end{itemize}
 
 
-Mathematical Physics
+\subsubsection{Mathematical Physics}
 \begin{itemize}
 \item 
 Lie Algebra, Topology, Knot Theory, Tensors, etc.
@@ -16253,8 +17137,80 @@ Really a mathematics book in disguise.  Emphasis on ODEs and PDEs.  Proves exist
 \item Synge and Schild.
 \end{itemize}
 
+\subsubsection{Mathematical Physics II - Geometry}
+Topics
+\begin{enumerate}
+\item Basic Topology: General Topology, CW spaces, Homotopy, Homology.
+\item Smooth Manifolds: Calculus on Manifolds, De Rham theory, Fiber Bundles, Connection and Curvature.
+\item Basic Riemannian Geometry: Parallel Transport, Levi-Civita Connection, Riemann Tensor.
+\item Characteristic Classes, Index Theorems, Some Notions of K-theory.
+\item Complex Geometry: Calculus on Complex Manifolds, Sheaf Theory,  Holomorphic Vector Bundles, Kahler Manifolds.
+\end{enumerate}
+Learning Order
+\begin{enumerate}
+\item Basic Topology, Vector Bundles, Characteristic Classes:
+Besides \textcolor{blue}{\bf Nakahara}, the most useful books are
+\textcolor{blue}{\bf Massey} and \textcolor{blue}{\bf Vassiliev} as well as \textcolor{blue}{\bf Frankel} and \textcolor{blue}{\bf Morita}. 
 
-Atomic Physics
+\item Smooth Manifolds, Basic Riemannian Geometry:
+A detailed outline of the term can be found here. \textcolor{blue}{\bf Nakahara} contains almost all the material,
+but those wishing for a more pedagogical exposition may want to consult \textcolor{blue}{\bf Warner} and \textcolor{blue}{Hatcher}.  In fact, during the first half
+of this term I will follow Warner pretty closely. Warner does not cover Riemannian geometry,  the theory of
+connections on vector bundles, or symplectic geometry. For the first two topics, one may consult \textcolor{blue}{\bf Bishop and
+Crittenden} (it can also serve as an alternative to Warner), or, if one wants an exposition geared towards
+physics applications, \textcolor{blue}{\bf Curtis and Miller}. These topics are also discussed in detail in a classic monograph by
+\textcolor{blue}{\bf Kobayashi and Nomizu}.  As for symplectic geometry, I recommend \textcolor{blue}{\bf Arnold}, \textcolor{blue}{\bf Guillemin and Sternberg}, or
+\textcolor{blue}{\bf Cannas da Silva and Weinstein}. I particularly like the last of these: it is up-to-date, and contains lots of
+fascinating mathematics  which could be relevant for string theory. 
+
+\item Index Theorems, Complex Geometry: Discussing characteristic classes of vector bundles, index theorems for elliptic operators, and their
+applications to physics - then complex manifolds (discuss calculus on complex manifolds, Dolbeault cohomology, holomorphic vector bundles, coherent
+sheaves and sheaf cohomology, Riemann surfaces, Kahler manifolds, and in particular Calabi-Yau
+manifolds).   A useful summary of characteristic classes and index theorems can be found in
+a review by \textcolor{blue}{\bf Eguchi, Gilkey, and Hanson}, Physics Reports 66, p. 213.  The original papers by Atiyah, Singer,
+and collaborators are also quite readable. A good textbook on complex manifolds is \textcolor{blue}{\bf Wells}.  Chapter 0 of
+\textcolor{blue}{\bf Griffiths and Harris} is a compressed account of the first few chapters of Wells.  A good new book on
+complex manifolds is \textcolor{blue}{\bf Zheng}.  For Riemann surfaces, you may consult a book by \textcolor{blue}{\bf Miranda}, or a review
+by \textcolor{blue}{\bf Shokurov}.  A good textbook on complex algebraic geometry 
+is \textcolor{blue}{\bf Shafarevich}.  There is also an excellent review of modern algebraic geometry by \textcolor{blue}{\bf Danilov}. 
+\end{enumerate}
+Books
+\begin{itemize}
+\item M. Nakahara  "Geometry, Topology, and Physics," Adam Hilger (1990)
+\item C. Nash and S. Sen. "Topology and Geometry for Physicists". 
+\item Theodore Frankel, "The Geometry of Physics" (2nd edition).
+\item Shigeyuki Morita, "Geometry of Differential Forms." 
+\item Allen Hatcher, "Algebraic Topology" it is more thorough and provides more motivation than Massey's book.
+\item T. Eguchi, P. Gilkey, A. Hanson, Gravitation, Gauge Theories, and Differential Geometry, Phys. Rept. 66 (1980), p. 213.
+\item    B.A. Dubrovin, A.T. Fomenko, S.P. Novikov, "Modern Geometry - Methods and Applications," Parts 1 and 2, Springer-Verlag (1984/85). An accessible introduction to topology, differential geometry, Lie groups and algebras, with illustrations from mechanics, relativity, electromagnetism, and Yang-Mills theory. Mathematical pre-requisites are kept to a minimum, which makes it suitable for physics students.
+\item    V.G. Boltyanskii and V.A. Efremovich, "Intuitive Combinatorial Topology," Springer (2001). If you have had no prior exposure to topology, this is a good place to start.  The topics include graphs, classical surfaces, map-coloring problems, knots, the fundamental group, some notions of homology, and fiber bundles. The level of discussion is elementary.The style is very informal and intuitive, rather than rigorous,  with lots of pictures.
+\item    J.L. Kelley, "General Topology," Springer-Verlag (1975). A nice book on general topology with many stimulating problems. We will only need some material from Chapters 1, 3, and 5.
+\item    V.A. Vassiliev, "Introduction to Topology," American Mathematical Society (2001). A concise introduction to basic algebraic topology. Good resource for first part.
+\item    W.S. Massey, "A basic course in algebraic topology," Springer-Verlag (1991). An introduction to  fundamental groups, covering spaces, homology and other basic algebraic topology. Some familiarity with general topology is assumed.
+\item    J.J. Rotman, "An Introduction to Algebraic Topology," Springer-Verlag (1998). Covers the same topics as Massey's book, plus some homotopy theory. The level of exposition is slightly more advanced than in Massey, but the author makes every effort to motivate formal developments, and overall I found it very readable.
+\item    R. Bott and L.W. Tu, "Differential Forms in Algebraic Topology," Springer-Verlag (1982). A classic. An introduction to algebraic topology using de Rham theory as a starting point. Covers more advanced topics such as spectral sequences, the Postnikov approximation, basics of rational homotopy theory, etc. The last chapter is a very nice introduction to characteristic classes. Not an easy reading, but a diligent student will be rewarded by a substantial illumination into a very beautiful field of mathematics.
+\item    J.W. Milnor and J. Stasheff, "Characteristic Classes," Princeton University Press (1974). A beautiful exposition of the theory of characteristic classes from an axiomatic point of view. A gem of a book.
+\item    F.W. Warner, "Foundations of Differentiable Manifolds and Lie Groups,"  Springer-Verlag (1983). A very clear and concise exposition of calculus on manifolds and much more.  Includes such topics as Frobenius theorem, the relation between Lie groups and Lie algebras, de Rham theory, foundations of sheaf theory, elliptic operators and the Hodge theorem. \textcolor{red}{\bf Highly recommended.}
+ \item   M. Postnikov, "Smooth manifolds," Mir (1989). An in-depth introduction to manifolds, differential forms, and Cech-de Rham theory, including spectral sequences. Roughly covers the same ground as Warner's chapters 1,2,4, and 5, but the style is less formal (i.e. more motivation is provided). Also includes classic differential geometry of curves and surfaces, basics of general topology, and such classic results as Brouwer's fixed-point theorem, Sard's theorem, and Whitney's embedding theorem.
+\item    R. L. Bishop and R. J. Crittenden, "Geometry of Manifolds" (2nd edition), American Mathematical Society (2001). An excellent introduction to differential geometry, including Riemannian geometry and the theory of connections on principal and vector bundles. \textcolor{red}{\bf  Highly recommended.}
+\item    W. D. Curtis and F. R. Miller, "Differential Manifolds and Theoretical Physics,"  Academic Press (1985). This is an introduction to differential geometry and Lie groups aimed at physicists. Besides the standard mathematical material, various topics of interest to physics students are covered, such as special relativity, Hamiltonian mechanics, Marsden-Weinstein reduction, Yang-Mills theory, and a brief discussion of geometric quantization.
+\item    S. Kobayashi and K. Nomizu, "Foundations of Differential Geometry," vol. I, Wiley (1996). A classic exposition of differential geometry. This book is substantially more advanced than the course.
+\item    V. I. Arnold, "Mathematical Methods of Classical Mechanics" (2nd edition), Springer (1989). An excellent blend of physics (classical mechanics) and mathematics (differential and especially symplectic geometry). \textcolor{red}{\bf Highly recommended.}
+\item    V. Guillemin and S. Sternberg, "Symplectic Techniques in Physics" (2nd edition), Cambridge University Press (1990).  Chapter I explains the role of symplectic geometry in various physics problems. Chapter II is devoted to Hamiltonian actions of Lie groups and the geometry of the moment map. Chapter III discusses the interaction of particles with Yang-Mills fields from the point of view of symplectic geometry. Chapters IV and V cover completely integrable systems and symplectic homogeneous spaces, respectively.
+\item    A. Cannas da Silva and A. Weinstein, "Geometric Models for Noncommutative Algebras," American Mathematical Society (1999). This unique monograph, a first of its kind, describes inter-relations between noncommutative geometry and more classical topics, such as symplectic and Poisson geometry. The authors managed to squeeze an amazing quantity of material into a slim volume, without sacrificing the clarity of exposition. \textcolor{red}{\bf Highly recommended.}
+\item    R.O. Wells, "Differential Analysis on Complex Manifolds" (2nd edition), Springer-Verlag (1980). A good introduction to complex and Kahler manifolds. Covers sheaf theory, holomorphic vector bundles and their characteristic classes,  elliptic operators and Hodge theory on Kahler manifolds, and Kodaira's vanishing and embedding theorems. Concise, but clear.
+\item    I. R. Shafarevich, "Basic Algebraic Geometry," Springer-Verlag (1994). \textcolor{red}{\bf Probably the best introduction to algebraic geometry available.}
+\item    P. Griffiths and J. Harris, "Principles of Algebraic Geometry," Wiley (1994). Another classic. An introduction to algebraic geometry from the point of view of complex analysis. This book is a must for anyone who wants to really learn what algebraic geometry is about.
+\item    F. Zheng, "Complex Differential Geometry,"  American Mathematical Society (2002).
+\item    R. Miranda, "Algebraic curves and Riemann surfaces,"  American Mathematical Society (1995).
+\item    V. V. Shokurov, "Riemann surfaces and algebraic curves," in: Algebraic Geometry I,  Encyclopaedia of Mathematical Sciences, vol. 23. This is a review, not a textbook.
+\item    V. I.  Danilov, "Algebraic varieties and schemes,"  in: Algebraic Geometry I, and "Cohomology of algebraic varieties," in: Algebraic Geometry II,  Encyclopaedia of Mathematical Sciences, vols. 23 and 35. This is a excellent review of the methods and results of modern algebraic geometry.
+\item John Roe, "Elliptic operators, topology, and asymptotic methods", Atiyah-Singer theorem is thoroughly covered in this book.
+
+\end{itemize}
+
+
+\subsubsection{Atomic Physics}
 \begin{itemize}
 \item 
 Max Born: Atomic Physics
@@ -16262,13 +17218,13 @@ A classic, though a little old.
 \item Gerhard Herzberg: Atomic spectra and atomic structure, Translated with the co-operation of the author by J. W. T.Spinks. — New York, Dover publications, 1944
 Old but good.
 \item E. U. Condon and G. H. Shortley: The theory of atomic spectra, CUP 1951
-\item G. K. Woodgate: Elementary atomic structure, 2d ed. Oxford: \item New York: Clarendon Press, Oxford University Press, 1983, c 1980. Introductory level.
+\item G. K. Woodgate: Elementary atomic structure, 2d ed. Oxford: New York: Clarendon Press, Oxford University Press, 1983, c 1980. Introductory level.
 \item Alan Corney: Atomic and laser spectroscopy, Oxford, New York: Clarendon Press, 1977
 Excellent,fairly advanced, large experimental bent, but good development of background.  Good stuff on lasers (gas, dye)
 \end{itemize}
 
 
-Low Temperature Physics, Superconductivity
+\subsubsection{Low Temperature Physics, Superconductivity}
 \begin{itemize}
 \item  The Theory of Quantum Liquids, by D. Pines and P. Nozieres
 Superconductivity of Metals and Alloys, P. G. DeGennes A classic introduction.
@@ -16289,6 +17245,11 @@ This is considered by many as a "bible" for those working in experimental low-te
     \item {\sc Paul Gordan} (1837-1912) - Clebsch-Gordan decomposition
     \item {\sc Walter Gordon} (1893-1939) - Klein-Gordon equation
     \end{itemize}
+\item Lenz vs Lenz
+    \begin{itemize}
+    \item {\sc Wilhem Lenz} (1888-1957) - Runge-Lenz vector
+    \item {\sc Emil Lenz} (1804-1865) - Lenzsche Regel 
+    \end{itemize}
 \item Lorentz vs Lorenz
     \begin{itemize}
     \item {\sc Hendrik Lorentz} (1853-1928) - Lorentz transformation, Lorentz force
@@ -16297,7 +17258,7 @@ This is considered by many as a "bible" for those working in experimental low-te
 \item Hertz vs Hertz
     \begin{itemize}
     \item {\sc Heinrich Hertz} (1857-1894) - Hertzian dipole antenna
-    \item {\sc Gustav Hertz} (1887-1975) - Franck-Hertz experiment
+    \item {\sc Gustav Hertz (nephew)} (1887-1975) - Franck-Hertz experiment
     \end{itemize}
 \item Bragg vs Bragg
     \begin{itemize}
