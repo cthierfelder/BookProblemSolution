@@ -1,0 +1,56 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Zwiebach} - A First Course in String Theory }
+
+\subsection{Problem 2.1 - Exercise with units}
+\begin{enumerate}[(a)]
+\item In esu (electrostatic units) $k_c=1$ and the mechanical units are cgs (cm, g, sec) which means force is measured in dyn=g$\cdot$m/s$^2$=$10^{-5}$N then via the Coulomb law we have
+\begin{align}
+F
+&=\frac{1}{4\pi\epsilon_0}\frac{q^2}{r^2}\\
+\hat F&=k_c\frac{\hat q^2}{\hat r^2}
+\end{align}
+and
+\begin{align}
+\hat q
+&=\sqrt{\frac{1}{4\pi\epsilon_0\cdot k_c}\frac{\hat r^2}{r^2}10^5}\cdot q\\
+4.8\cdot10^{-10}\text{esu}&=1.602\cdot10^{-19}\text{C}
+\end{align}
+
+
+\item $\frac{1}{2}mv^2=\frac{3}{2}kT$
+\item $\alpha=\frac{1}{4\pi\epsilon_0}\frac{e^2}{\hbar c}\simeq\frac{1}{137}$
+\end{enumerate}
+
+
+\section{{\sc Becker, Becker, Schwarz} - String Theory and M-Theroy }
+
+\section{{\sc Polchinski} - String Theory Volumes 1 and 2 }
+\subsection{Problem 1.1 - Non-relativistic action limits}
+\begin{enumerate}[(a)]
+    \item We start with (1.2.2) and use $dt=\gamma d\tau$ and $u^\mu=\gamma(c,\vec{v})$ as well as $v\ll c$
+    \begin{align}
+        S_\text{pp}&=-mc\int d\tau\sqrt{-\dot X^\mu\dot X_\mu}\\
+        &=-mc\int d\tau\sqrt{(c^2-v^2)\gamma^2}\\
+        &=-\int mc^2\cdot dt\sqrt{1-\frac{v^2}{c^2}}\\
+        &\approx-\int dt\cdot mc^2\left(1-\frac{1}{2}\frac{v^2}{c^2}\right)\\
+        &=-\int dt\left(mc^2-\frac{1}{2}mv^2\right)
+    \end{align}
+    
+    \item We start with (1.2.9) and $X^\mu=X^\mu(\tau,\sigma)$
+    \begin{align}
+        S_\text{NG}
+        &=\int_Md\tau d\sigma \mathcal{L}_\text{NG}\\
+        &=-\frac{1}{2\pi\alpha'}\int_Md\tau d\sigma \sqrt{-\det h_{ab}}\\
+        &=-\frac{1}{2\pi\alpha'}\int_Md\tau d\sigma \sqrt{-\det \partial_aX^\mu\partial_bX_\mu}\\
+    \end{align}
+    
+\end{enumerate}
+
+\textcolor{red}{Not done yet}
+
+\end{document}

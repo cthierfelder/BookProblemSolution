@@ -1,0 +1,1635 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Andrews} - Number theory}
+\subsection{Problem 1.1}
+Lets cut the chase
+\begin{align}
+\frac{n(n+1)(2n+1)}{6}+(n+1)^2
+&=(n+1)\frac{n(2n+1)+6(n+1)}{6}\\
+&=\frac{(n+1)}{6}(2n^2+7n+6)\\
+&=\frac{(n+1)}{6}(n+2)(2n+3)\\
+&=\frac{(n+1)}{6}(n+2)(2(n+1)+1)\\
+&=\frac{(n+1)(n+2)(2(n+1)+1)}{6}\\
+\end{align}
+
+\section{{\sc Morris} - Georgi - Lie Algebras in Particle Physics 2nd ed.}
+\subsection{Problem 1.A}
+We call the elements $a, b, e$ - as we know a unique neutral element must exist 
+\begin{align}
+\begin{array}{c|ccc}
+\circ & e & a   & b\\ \hline
+e     & e & a   & b\\
+a     & a & a^2 & b\circ a \\
+b     & b & a\circ b & b^2
+\end{array}
+\end{align}
+We have 4 fields to fill
+\begin{itemize}
+\item $a$ needs an inverse - only element left is $b$ meaning $b=a^{-1}$ and therefore $a\circ b=b\circ a=e$ 
+\item $a^2$ can't be $e$ (because $e^2=e$), $a^2$ can't be $a$ (because $a\circ e = a)$ therefore $a^2=b$
+\end{itemize}
+
+\begin{align}
+\begin{array}{c|ccc}
+\circ & e & a   & b\\ \hline
+e     & e & a   & b\\
+a     & a & b & e \\
+b     & b & e & a
+\end{array}
+\end{align}
+
+
+
+\section{{\sc Morris} - Topology without tears}
+\subsection{Problem 1.1.7}
+(a) 
+\begin{align}
+\tau_{X1}&=\{X,\emptyset\}\\
+\tau_{X2}&=\{X,\emptyset,\{a\}\}\\
+\tau_{X3}&=\{X,\emptyset,\{b\}\}\\
+\tau_{X4}&=\{X,\emptyset,\{a\},\{b\}\}
+\end{align}
+(b) 
+\begin{align}
+\tau_{Y1}&=\{Y,\emptyset\},\\
+%
+\tau_{Y2}&=\{Y,\emptyset,\{a\}\},\tau_{Y3}=\{Y,\emptyset,\{b\}\},\tau_{Y4}=\{Y,\emptyset,\{c\}\},\\
+%
+\tau_{Y5}&=\{Y,\emptyset,\{a,b\}\},\tau_{Y6}=\{Y,\emptyset,\{b,c\}\},\tau_{Y7}=\{Y,\emptyset,\{a,c\}\},\\
+%
+\tau_{Y8}&=\{Y,\emptyset,\{a\},\{b\},\{a,b\}\},
+\tau_{Y9}=\{Y,\emptyset,\{a\},\{c\},\{a,c\}\},
+\tau_{Y10}=\{Y,\emptyset,\{b\},\{c\},\{b,c\}\},\\
+%
+\tau_{Y11}&=\{Y,\emptyset,\{a\},\{b,c\}\},
+\tau_{Y12}=\{Y,\emptyset,\{b\},\{a,c\}\},
+\tau_{Y13}=\{Y,\emptyset,\{c\},\{a,b\}\},\\
+%
+\tau_{Y14}&=\{Y,\emptyset,\{a\},\{a,b\}\},
+\tau_{Y15}=\{Y,\emptyset,\{b\},\{a,b\}\},
+\tau_{Y16}=\{Y,\emptyset,\{a\},\{a,c\}\},\\
+%
+\tau_{Y17}&=\{Y,\emptyset,\{c\},\{a,c\}\},
+\tau_{Y18}=\{Y,\emptyset,\{b\},\{b,c\}\},
+\tau_{Y19}=\{Y,\emptyset,\{c\},\{b,c\}\},\\
+%
+\tau_{Y20}&=\{Y,\emptyset,\{a\},\{a,c\},\{a,b\}\},
+\tau_{Y21}=\{Y,\emptyset,\{b\},\{a,b\},\{b,c\}\},
+\tau_{Y22}=\{Y,\emptyset,\{c\},\{b,c\},\{a,c\}\},\\
+%
+\tau_{Y23}&=\{Y,\emptyset,\{a\},\{b\},\{a,c\},\{a,b\}\},
+\tau_{Y24}=\{Y,\emptyset,\{a\},\{c\},\{a,c\},\{a,b\}\},\\
+%
+\tau_{Y25}&=\{Y,\emptyset,\{a\},\{b\},\{b,c\},\{a,b\}\},
+\tau_{Y26}=\{Y,\emptyset,\{b\},\{c\},\{b,c\},\{a,b\}\}\\
+%
+\tau_{Y27}&=\{Y,\emptyset,\{a\},\{c\},\{a,c\},\{a,b\}\},
+\tau_{Y28}=\{Y,\emptyset,\{a\},\{b\},\{a,c\},\{a,b\}\},\\
+%
+\tau_{Y29}&=\{Y,\emptyset,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\}\}
+\end{align}
+
+\section{{\sc Barton} - Elements of Greens functions and propagation}
+\subsection{Problem 1.1 - Delta function}
+\begin{enumerate}[(i)]
+\item $\int_{-1}^2dx\delta(x)\cos(2x)=\cos(0)=1$
+\item $\int_{-1}^2dx\delta(2x)\cos(x)=\int_{-2}^4(dy/2)\delta(y)\cos(y/2)=\cos(0)/2=1/2$
+\item $\int_{-\infty}^\infty dx \delta'(x)\exp(ix)=0-i\int_{-\infty}^\infty \delta(x)\exp(ix)=-i$
+\item $\int_0^\infty dx \delta'(\sqrt{2}x-1)\tan^{-1}(x)=\int_0^\infty\frac{\delta(x-1/\sqrt{2})}{|\sqrt{2}|}\tan^{-1}(x)=\frac{\tan^{-1}(1/\sqrt{2})}{\sqrt{2}}$
+\end{enumerate}
+
+\subsection{Problem 1.3 - Delta function}
+\begin{align}
+\int_0^\infty dx\;\delta(\cos(x))e^{-x}
+&=\sum_{x_n\in\{\pi/2+n\pi\}}\int_0^\infty dx\;\frac{\delta(x-x_n)}{|\sin x_n|}e^{-x}\\
+&=e^{-\pi/2}\left(e^{-0\pi}+e^{-1\pi}+e^{-2\pi}+...\right)\\
+&=\frac{e^{-\pi/2}}{1-e^{-\pi}}\\
+&=\frac{1}{e^{\pi/2}-e^{-\pi/2}}\\
+\end{align}
+
+\section{{\sc Wyld} - Mathematical methods for physics}
+\subsection{Problem 10.2 - Bernoulli numbers}
+\begin{enumerate}[a)]
+\item Rewriting
+\begin{align}
+\frac{z}{e^z-1}
+&=\frac{z}{z+\frac{z^2}{2!}+\frac{z^3}{3!}+\frac{z^4}{4!}+...}\\
+&=\frac{1}{1+\frac{z}{2!}+\frac{z^2}{3!}+\frac{z^3}{4!}+...}\\
+&=B_0+\frac{B_1z}{1!}+\frac{B_2z^2}{2!}+\frac{B_3z^3}{3!}+\frac{B_4z^4}{4!}...
+\end{align}
+then
+\begin{align}
+1=\left(B_0+\frac{B_1z}{1!}+\frac{B_2z^2}{2!}+\frac{B_3z^3}{3!}+\frac{B_4z^4}{4!}+...\right)\left(1+\frac{z}{2!}+\frac{z^2}{3!}+\frac{z^3}{4!}+...\right)
+\end{align}
+and we compare the polynomial coefficients in LHS and RHS for each order
+\begin{align}
+z^0:&\qquad 1=B_0\cdot1\quad\rightarrow\quad B_0=1\\
+z^1:&\qquad 0=B_0\frac{1}{2!}+B_1\quad\rightarrow\quad B_1=-\frac{1}{2}\\
+z^2:&\qquad 0=B_0\frac{1}{3!}+B_1\frac{1}{2!}+\frac{1}{2!}B_2\quad\rightarrow\quad B_2=2\left(-\frac{1}{3!}+\frac{1}{4}\right)=\frac{1}{6}\\
+z^3:&\qquad 0=B_0\frac{1}{4!}+B_1\frac{1}{3!}+\frac{1}{2!2!}B_2+\frac{1}{4!}B_3\quad\rightarrow\quad B_3=0\\
+z^4:&\qquad 0=B_0\frac{1}{5!}+B_1\frac{1}{4!}+\frac{1}{3!2!}B_2+\frac{1}{2!3!}B_3+\frac{1}{4!}B_4\quad\rightarrow\quad B_4=\frac{1}{30}\\
+\end{align}
+\item Rewriting
+\begin{align}
+\frac{z}{e^z-1}+\frac{z}{2}
+&=z\frac{2+(e^z-1)}{2(e^z-1)}\\
+&=z\frac{2+e^{z/2}(e^{z/2}-e^{-z/2})}{2e^{z/2}(e^{z/2}-e^{-z/2})}\\
+&=z\frac{2e^{-z/2}+(e^{z/2}-e^{-z/2})}{2(e^{z/2}-e^{-z/2})}\\
+&=\frac{z}{2}\frac{e^{z/2}+e^{-z/2}}{e^{z/2}-e^{-z/2}}
+\end{align}
+and now it is obvious. For c) we can rewrite this as via $z\rightarrow2iz$
+\begin{align}
+\frac{2iz}{e^{2iz}-1}+\frac{2iz}{2}&=iz\frac{e^{iz}+e^{-iz}}{e^{iz}-e^{-iz}}
+\end{align} 
+  
+\item
+\begin{align}
+\cot z&=\frac{\cos z}{\sin z}=\frac{e^{iz}+e^{-iz}}{2}\frac{2i}{e^{iz}-e^{-iz}}=i\frac{e^{iz}+e^{-iz}}{e^{iz}-e^{-iz}}\\
+z\cot z
+&=(iz)\frac{e^{iz}+e^{-iz}}{e^{iz}-e^{-iz}}\\
+&=\frac{2iz}{e^{2iz}-1}+iz\\
+&=iz+\left(1+B_1(2iz)+\frac{B_2}{2!}(2iz)^2+\frac{B_4}{4!}(2iz)^4+...\right)\\
+&=1-\frac{1}{3}z^2+\underbrace{\frac{16i^4}{24\cdot(-30)}}_{=-2/90}z^4-...
+\end{align}
+
+\end{enumerate}
+
+\subsection{Problem 11.1 - Integral $\int_0^\infty dx \frac{x^2}{(x^2+a^2)^2}$}
+The zero of $\frac{x^2}{(x^2+a^2)^2}$ are $\pm ia$ (lets assume $a$ is positive) so we can decompose into the common partial fractions
+\begin{align}
+\frac{x^2}{(x^2+a^2)^2}
+=\left(\frac{x}{(x-ia)(x+ia)}\right)^2
+=\frac{1}{4}\left(\frac{1}{x-ia}+\frac{1}{x+ia}\right)^2.
+\end{align}
+Using the residual theorem (closing the loop above as $f(x)\sim z^{-2}$) gives
+\begin{align}
+\int_0^\infty\frac{x^2}{(x^2+a^2)^2}
+&=\frac{1}{2}\int_{-\infty}^\infty\frac{x^2}{(x^2+a^2)^2}
+=\frac{1}{2}\left[2\pi i\,\text{Res}(f(ia))-\int_\text{C above} f(x)dx\right]\\
+&=i\pi \text{Res}(f(ia))
+\end{align}
+There are two methods to calculate the residum
+\begin{enumerate}
+\item Direct: As $ia$ is a second order pole we have
+\begin{align}
+\text{Res}(f(ia))
+=\frac{1}{(2-1)!}\left.\frac{d^{2-1}}{dx^{2-1}}(x-ia)^2\frac{x^2}{(x+ia)^2(x-ia)^2}\right|_{x=ia}
+=\frac{2x(x+ia)^2-x^2 2(x+ia)}{(x+ia)^4}=\frac{1}{4ia}
+\end{align}
+\item Laurent series at $ai$:
+\begin{align}
+\frac{x^2}{(x^2+a^2)^2}
+&=\left(\frac{x}{(x-ia)(x+ia)}\right)^2
+=\frac{1}{4}\left(\frac{1}{x-ia}+\frac{1}{x+ia}\right)^2\\
+&=\frac{1}{4}\left(\frac{1}{x-ia}+\frac{1}{2ia}\frac{1}{1-\frac{x-ia}{-2ia}}\right)^2\qquad\text{(using geometric series trick)}\\
+&=\frac{1}{4}\left(\frac{1}{x-ia}+\frac{1}{2ia}\left[1+\frac{x-ia}{-2ia}+\left(\frac{x-ia}{-2ia}\right)^2+\left(\frac{x-ia}{-2ia}\right)^3+...\right]\right)^2\\
+&=-\frac{1}{16a^2}\left(\frac{2ia}{x-ia}+1+\frac{x-ia}{-2ia}+\left(\frac{x-ia}{-2ia}\right)^2+\left(\frac{x-ia}{-2ia}\right)^3+...\right)^2\\
+&=-\frac{1}{16a^2}\left(\frac{(2ia)^2}{(x-ia)^2}+2\frac{2ia}{x-ia}+\left(1+2\frac{x-ia}{-2ia}\frac{2ia}{x-ia}+\right)+...\right)
+\end{align}
+then 
+\begin{align}
+\text{Res}(f(ia))=-\frac{1}{16a^2}4ia=\frac{1}{4ai}
+\end{align}
+and finally
+\begin{align}
+\int_0^\infty\frac{x^2}{(x^2+a^2)^2}=\frac{\pi}{4a}
+\end{align}
+\end{enumerate}
+
+\subsection{Problem 11.2 - Integral $\int_0^\infty dx \frac{1}{x^4+5x^2+6}$}
+Rewriting and utilizing the residual theorem
+\begin{align}
+\int_0^\infty dx\frac{1}{x^4+5x^2+6}
+&=\frac{1}{2}\int_{-\infty}^\infty dx\frac{1}{x^4+5x^2+6}\\
+&=\frac{1}{2}\int_{-\infty}^\infty dx\frac{1}{(x-i\sqrt{3})(x+i\sqrt{3})(x-i\sqrt{2})(x+i\sqrt{2})}\\
+&=\frac{1}{2}\left(2\pi i\sum_{a_i=\{i\sqrt{2},i\sqrt{3}\}}\text{Res}(f(a_i))-\int_\text{C above}\right)
+\end{align}
+then
+\begin{align}
+\text{Res}(f(i\sqrt{2}))
+&=\lim_{x\rightarrow i\sqrt{2}}(x-i\sqrt{2})\frac{1}{(x-i\sqrt{3})(x+i\sqrt{3})(x-i\sqrt{2})(x+i\sqrt{2})}\\
+&=\lim_{x\rightarrow i\sqrt{2}}\frac{1}{(x-i\sqrt{3})(x+i\sqrt{3})(x+i\sqrt{2})}\\
+&=-\frac{i}{2\sqrt{2}}\\
+\text{Res}(f(i\sqrt{3}))
+&=\frac{i}{2\sqrt{3}}
+\end{align}
+and
+\begin{align}
+\int_0^\infty dx\frac{1}{x^4+5x^2+6}=\frac{\pi}{12}(3\sqrt{2}-2\sqrt{3})
+\end{align}
+
+\subsection{Problem 11.3 - Integral $\int_0^\infty dx \frac{1}{x^4+1}$}
+Same idea as above -residue theorem, closing the half circle above (integral vanishes because $f(x)~x^{-4}$), 
+\begin{align}
+\int_0^\infty dx \frac{1}{x^4+1}
+&=\frac{1}{2}\int_{-\infty}^\infty dx \frac{1}{(x-e^{i\pi/4})(x-e^{i3\pi/4})(x-e^{-i\pi/4})(x-e^{-i3\pi/4})}\\
+&=\frac{1}{2}2\pi i\left[\text{Res}(f(e^{i\pi/4}))+\text{Res}(f(e^{i3\pi/4}))\right]\\
+&=\frac{1}{2}2\pi i\left[\frac{1}{4}e^{-3i\pi/4}+\frac{1}{4}e^{-i\pi/4}\right]\\
+&=\frac{\pi}{2\sqrt{2}}
+\end{align}
+
+\subsection{Problem 11.4 - Integral $\int d^3k \frac{e^{i\vec{k}\cdot\vec{r}}}{k^2+a^2}$}
+\begin{align}
+\int d^3k \frac{e^{i\vec{k}\cdot\vec{r}}}{k^2+a^2}
+&=2\pi\int k^2dk \frac{e^{ikr\cos\theta}}{k^2+a^2}\sin\theta\;d\theta\\
+&=-\frac{2\pi}{ir}\int \frac{k^2}{k}dk \frac{e^{-ikr}-e^{ikr}}{k^2+a^2}\\
+&=-\frac{2\pi}{2ir}\int_0^\infty dk \left(\frac{1}{k-ia}+\frac{1}{k+ia}\right)\left(e^{-ikr}-e^{ikr}\right)\\
+&=-\frac{\pi}{2ir}\int_{-\infty}^\infty dk \left(\frac{1}{k-ia}+\frac{1}{k+ia}\right)\left(e^{-ikr}-e^{ikr}\right)
+\end{align}
+Using the residue theorem - for $e^{ikr}$ we close the loop above and for $e^{-ikr}$ below (the way the integral along the loops vanish)
+\begin{align}
+\int d^3k \frac{e^{i\vec{k}\cdot\vec{r}}}{k^2+a^2}
+&=-\frac{\pi}{2ir}\int_{-\infty}^\infty dk \left(\frac{e^{-ikr}}{k-ia}+\frac{-e^{ikr}}{k-ia}+\frac{e^{-ikr}}{k+ia}+\frac{-e^{ikr}}{k+ia}\right)\\
+&=-\frac{\pi}{2ir}\int_{-\infty}^\infty dk \left(0+\frac{-e^{ikr}}{k-ia}+\frac{e^{-ikr}}{k+ia}+0\right)\\
+&=-\frac{\pi}{2ir}2\pi i\left(-e^{ik(ia)}+(-1)e^{-ik(-ia)}\right)\qquad\text{(Curve below and negative winding)}\\
+&=\frac{2\pi^2}{r}e^{-ka}
+\end{align}
+
+
+\subsection{Problem 11.5 - Integral $\int d^3k \frac{e^{i\vec{k}\cdot\vec{r}}}{k^2-a^2-i\varepsilon}$}
+Same as in 11.4
+\begin{align}
+\int d^3k \frac{e^{i\vec{k}\cdot\vec{r}}}{k^2-a^2-i\varepsilon}
+&=-\frac{2\pi}{ir}\int_0^\infty \frac{k^2}{k}dk \frac{e^{-ikr}-e^{ikr}}{k^2-a^2-i\varepsilon}\\
+&=-\frac{2\pi}{4ir}\int_{-\infty}^\infty dk \left(\frac{1}{k+(a+i\frac{\varepsilon}{2a})}+\frac{1}{k-(a+i\frac{\varepsilon}{2a})}\right)(e^{-ikr}-e^{ikr})\\
+&=-\frac{2\pi}{4ir}\int dk \left(\frac{e^{-ikr}}{k+(a+i\frac{\varepsilon}{2a})}+\frac{-e^{ikr}}{k-(a+i\frac{\varepsilon}{2a})}\right)\\
+&=-\frac{2\pi}{4ir}2\pi i\left(-e^{-i(-1)(a+i\frac{\varepsilon}{2a})r}-e^{i(a+i\frac{\varepsilon}{2a})r}\right)\\
+&=\frac{2\pi^2}{2r}\left(e^{i(a+i\frac{\varepsilon}{2a})r}+e^{i(a+i\frac{\varepsilon}{2a})r}\right)\\
+&=\frac{2\pi^2}{r}e^{i(a+i\frac{\varepsilon}{2a})r}\\
+&=\frac{2\pi^2}{r}e^{iar}
+\end{align}
+
+
+\section{{\sc Stone, Goldbart} - Mathematics for physics: A guided tour for graduate students (2009)}
+\subsection{Problem 1.1}
+\begin{align}
+\frac{\partial L}{\partial \dot{x}}
+&=\frac{\dot{x}}{\sqrt{\dot{x}^2+\dot{y}^2}}\\
+\frac{d}{dt}\frac{\partial L}{\partial \dot{x}}&=\frac{\ddot{x}\sqrt{\dot{x}^2+\dot{y}^2}-\dot{x}\frac{\dot{x}\ddot{x}+\dot{y}\ddot{y}}{\sqrt{\dot{x}^2+\dot{y}^2}}}{\dot{x}^2+\dot{y}^2}=0\\
+&\rightarrow \ddot{x}(\dot{x}^2+\dot{y}^2)-\dot{x}(\dot{x}\ddot{x}+\dot{y}\ddot{y})=0\\
+&\rightarrow \ddot{x}\dot{y}^2-\dot{x}\dot{y}\ddot{y}=0\\
+&\rightarrow \dot{y}(\ddot{x}\dot{y}-\dot{x}\ddot{y})=0\\
+\end{align}
+
+
+
+\section{{\sc Bender, Orszag} - Advanced Mathematical Methods for Scientists and Engineers}
+\subsection{Problem 1.1}
+\begin{enumerate}
+    \item $y'=e^{x+y}$
+    \begin{align}
+        \int\frac{dy}{e^y}&=\int e^xdx\\
+        -e^{-y}&=e^x+c\\
+        y&=-\log\left(-e^x+c\right)
+    \end{align}
+    \item $y'=xy+x+y+1$
+    \begin{align}
+        \frac{dy}{y+1}&=x+1\\
+        \log y+1&=\frac{x^2}{2}+x+c\\
+        y&=c'e^{x/2(x+2)}-1
+    \end{align}
+\end{enumerate}
+
+\subsection{Problem 1.2}
+$y''=yy'/x$
+\begin{enumerate}
+    \item Equidimensional-in-$s$ equation
+    \begin{align}
+        x&=e^t\\
+        \frac{d}{dx}&=\frac{dt}{dx}\frac{d}{dt}\\
+        &=\frac{1}{x}\frac{d}{dt}\\
+        \frac{d^2}{dx^2}&=\frac{dt}{dx}\frac{d}{dt}\left(\frac{1}{x}\frac{d}{dt}\right)\\
+        &=\frac{1}{x}\left(-\frac{1}{x^2}x\frac{d}{dt}+\frac{1}{x}\frac{d^2}{dx^2}\right)\\
+        &=\frac{1}{x^2}\left(-\frac{d}{dt}+\frac{d^2}{dt^2}\right)
+    \end{align}
+    now with $y=y(t)$
+    \begin{align}
+        -y'+y''=yy'
+    \end{align}
+    \item Autonomous equation
+    \begin{align}
+        y'&\equiv u(y)\\
+        y''&=\frac{du}{dy}\frac{dy}{dt}=\dot u y'
+    \end{align}
+    now with $u=u(y)$
+    \begin{align}
+        -u+\dot u u&=y u\\
+        \dot u&=y+1
+    \end{align}
+    \item integration
+    \begin{align}
+        u=\frac{y^2}{2}+y+c_0
+    \end{align}
+    \item resubstitution I (with $\tan z = i\frac{e^{-iz}-e^{iz}}{e^{-iz}+e^{iz}}$)
+    \begin{align}
+        y'&=\frac{y^2}{2}+y+c_0\\
+        t+c_3&=\int\frac{dy}{y^2/2+y+c_0}\\
+        &=2\frac{1}{2\sqrt{1-2c_0}}\int dy\left(-\frac{1}{y+1+\sqrt{1-2c_0}}+\frac{1}{y+1-\sqrt{1-2c_0}}\right)\\
+        &=\frac{1}{\sqrt{1-2c_0}}\left(-\log\left[y+1+\sqrt{1-2c_0}\right]+\log\left[y+1-\sqrt{1-2c_0}\right]\right)\\
+        &=\frac{1}{\sqrt{1-2c_0}}\log\frac{y+1-\sqrt{1-2c_0}}{y+1+\sqrt{1-2c_0}}\\
+        &=\frac{1}{\sqrt{1-2c_0}}\log\frac{-i\sqrt{1-2c_0}\left(-i+\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}{i\sqrt{1-2c_0}\left(-i-\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}\\
+        &=\frac{1}{\sqrt{1-2c_0}}\log\frac{-\left(-i+\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}{\left(-i-\frac{i(y+1)}{\sqrt{1-2c_0}}\right)}\\
+        &=\frac{2}{\sqrt{1-2c_0}}\log\sqrt{-\frac{-i+\frac{i(y+1)}{\sqrt{1-2c_0}}}{-i-\frac{i(y+1)}{\sqrt{1-2c_0}}}}\\
+        &=\frac{2}{i\sqrt{1-2c_0}}\arctan\left(-\frac{i(y+1)}{\sqrt{1-2c_0}}\right)
+    \end{align}
+    \item resubstitution II
+    \begin{align}
+        \log x+c_3&=\frac{2}{i\sqrt{1-2c_0}}\arctan \frac{y+1}{i\sqrt{1-2c_0}}\\
+        \tan\left[\frac{\sqrt{2c_0-1}}{2}(\log x+c_3)\right]&=\frac{y+1}{\sqrt{2c_0-1}}\\
+        y&=\sqrt{2c_0-1}\tan\left[\frac{\sqrt{2c_0-1}}{2}(\log x+c_3)\right]-1\\
+        y&=2c_1\tan\left[c_1\log x+c_2\right]-1
+    \end{align}
+
+\end{enumerate}
+This solution has poles at
+\begin{align}
+    \log x_P =\frac{\pi/2+k\pi-c_2}{c_1}
+\end{align}
+while the special solution $-2/(c_4+\log x)-1$ has a pole at
+\begin{align}
+    \log x_P=-c_4
+\end{align}
+???
+
+\subsection{Problem 1.10}
+With $y=e^{rx}$ the equation $y'''-3y''+3y'-y=0$ becomes
+\begin{align}
+    r^3-3r^2+3r-1&=0\\
+    (r-1)^3&=0
+\end{align}
+then $y=c_1e^x+c_2xe^x+c_3x^2e^x$.
+
+\subsection{Problem 1.11}
+We guess $y_1=e^{-x}$ and have another guess  $y_2=e^{-x}u(x)$ we see
+\begin{align}
+    r^{-x}\left(u''+xu'\right)&=0\\
+    v'+xv&=0\\
+    v&=c_0e^{-x^2/2}\\
+    u&=c_1\text{erf}\left(\frac{x}{\sqrt{2}}\right)+c_2
+\end{align}
+and therefore $y=c_3e^{-x}+c_4e^{-x}\left[\text{erf}\left(\frac{x}{\sqrt{2}}\right)+c_5\right]$
+
+\subsection{Problem 1.23}
+Calculating the gradient
+\begin{align}
+\nabla z&=e^{-(x^4+4y^2)}(-4x^3,-8y)\\
+&=-4e^{-(x^4+4y^2)}(x^3,2y)
+\end{align}
+Equation of motions $\ddot{\vec{x}}=-\nabla V$ are
+\begin{align}
+\ddot x&=4e^{-(x^4+4y^2)}x^3\\
+\ddot y&=4e^{-(x^4+4y^2)}2y
+\end{align}
+with the initial conditions $x_0=0=y_0$. To make this simpler to solve we rescale ($\tilde t=\alpha t$) the time variable
+\begin{align}
+\frac{\partial}{\partial t}
+&=\frac{\partial\tilde{t}}{\partial t}\frac{\partial}{\partial \tilde{t}}\\
+&=\alpha\frac{\partial}{\partial \tilde{t}}\\
+\frac{\partial^2}{\partial t^2}
+&=\frac{\partial^2\tilde{t}}{\partial t^2}\frac{\partial}{\partial \tilde{t}}+\left(\frac{\partial\tilde{t}}{\partial t}\right)^2\frac{\partial^2}{\partial {\tilde t}^2}\\
+&=\alpha^2\frac{\partial^2}{\partial {\tilde t}^2}.
+\end{align}
+
+
+
+\subsection{Problem 1.31}
+(a) Multiply by $y$ and observe $yy'\sim(y^2)'$ and substitute $z=y^2$
+\begin{align}
+y'&=\frac{y}{x}+\frac{1}{y}\\
+yy'-\frac{1}{x}y^2-1&=0\\
+\frac{1}{2}(y^2)'-\frac{1}{x}y^2-1&=0\\
+\frac{1}{2}z'-\frac{1}{x}z-1&=0\qquad(z=y^2)\\
+z'-\frac{2}{x}z-2&=0
+\end{align}
+General solution of the homogeneous equation
+\begin{align}
+\frac{z'}{z}=\frac{2}{x}\quad\rightarrow\quad z_H=cx^2
+\end{align}
+For special solution of the inhomogeneous equation - varying constants
+\begin{align}
+z_I&=C(x)x^2\\
+&\rightarrow C'x^2+2xC-\frac{2}{x}Cx^2-2=0\\
+&\rightarrow C'=\frac{2}{x^2}\\
+&\rightarrow C=-\frac{2}{x}
+\end{align}
+therefore
+\begin{align}
+z&=z_H+z_I\\
+&=x(cx-2)\\
+y&=\pm\sqrt{x(cx-2)}
+\end{align}
+(b) Nothing obvious pops into the eye so we make a desperate try $z=y/x$
+\begin{align}
+z'=\frac{y'x-y}{x^2}\rightarrow y'=z'x+z
+\end{align}
+then
+\begin{align}
+y'&=\frac{xy}{x^2+y^2}\\
+z'x+z
+&=\frac{zx^2}{x^2+z^2x^2}\\
+&=\frac{z}{1+z^2}'\\
+z'x&=\frac{z-z(1+z^2)}{1+z^2}\\
+&=\frac{-z^3}{1+z^2}
+\end{align}
+Now we can separate and integrate on both sides
+\begin{align}
+\frac{1+z^2}{z^3}dz&=-\frac{dx}{x}\\
+\int\left(\frac{1}{z^2}+\frac{1}{z}\right)dz&=\int\frac{dx}{x}\\
+-\frac{1}{z}+\log z&=\log{x}+c\\
+-\frac{x}{y}+\log\frac{y}{x}&=\log{x}+c\\
+-\frac{x}{y}+\log y&=2\log{x}+c
+\end{align}
+(c) Try the obvious $z=x+y$
+\begin{align}
+y'&=x^2+2xy+y^2\\
+y'&=(x+y)^2\\
+\rightarrow z'-1&=z^2
+\end{align}
+Now separate and integrate (subs $z=\tan t$)
+\begin{align}
+\frac{dz}{z^2+1}&=dx\\
+\arctan z&=x+c\\
+y&=\tan(x+c)-x
+\end{align}
+(d) Rewriting the ODE we see similarities to the quotient rule
+\begin{align}
+\frac{yy''}{(y')^2}=2
+\end{align}
+Let's guess
+\begin{align}
+\left(\frac{y}{y'}\right)'=\frac{y'y'-yy''}{(y')^2}=1-\frac{yy''}{(y')^2}
+\end{align}
+so we can rewrite the ODE
+\begin{align}
+\frac{yy''}{(y')^2}=1-\left(\frac{y}{y'}\right)'=2
+\end{align}
+then we can solve
+\begin{align}
+\left(\frac{y}{y'}\right)'&=-1\\
+\frac{y}{y'}&=-x+c_1\\
+\frac{y'}{y}&=\frac{1}{-x+c_1}\\
+\log y&=-\log(-x+c_1)+c_2\\
+y&=\frac{c_3}{c_1-x}
+\end{align}
+(e)
+\begin{align}
+\frac{y'}{y^2}&=\frac{1}{x^2}+\frac{1}{x}\\
+-\frac{1}{y}&=-\frac{1}{x}+\log x+c\\
+y&=\frac{1}{\frac{1}{x}-\log x+c}=\frac{1}{1-x\log x+xc}
+\end{align}
+(f) With $f=xy$
+\begin{align}
+x^2y'+xy+y^2&=0\\
+xy'+y+\frac{y^2}{x}&=0\\
+f'+\frac{f^2}{x^3}&=0\\
+\frac{f'}{f^2}+\frac{1}{x^3}&=0
+\quad\rightarrow\quad-\frac{1}{f}-\frac{1}{2}x^{-2}+c=0\\
+xy=f&=-\frac{1}{\frac{1}{2x^2}+c}\\
+y&=-\frac{1}{\frac{1}{2x}+xc}=-\frac{2x}{1+2x^2c}
+\end{align}
+(g)
+\begin{align}
+xy'&=y(1-\log x+\log y)\\
+\frac{xy'}{y}&=(1-\log\frac{y}{x})
+\end{align}
+(n) Observe $\left(\frac{y}{x}\right)'=\frac{xy'-y}{x^2}$ then
+\begin{align}
+xy'-y&=xe^{y/x}\\
+x^2\left(\frac{y}{x}\right)'&=xe^{y/x}\\
+\frac{f'}{e^{-f}}&=\frac{1}{x}\quad\rightarrow\quad -e^{-f}=\log x+c\\
+-f&=\log(-\log x-c)\\
+y&=-x\log(-\log x-c)\\
+\end{align}
+(o) Lets try $(x^my^n)'=mx^{m-1}y^n+nx^my^{n-1}$ and rewrite
+\begin{align}
+y'&=\frac{x^4-3x^2y^2-y^3}{2x^3y+3y^2x}\\
+2x^3yy'+3y^2xy'&=x^4-3x^2y^2-y^3
+\end{align}
+then with
+\begin{align}
+(x^3y^2)'&=2x^3yy'+3x^2y^2\quad\rightarrow\quad2x^3yy'=(x^3y^2)'-3x^2y^2\\
+(xy^3)'&=3xy^2y'+y^3\quad\rightarrow\quad3xy^2y'=(xy^3)'-y^3
+\end{align}
+we can rewrite the LHS
+\begin{align}
+2x^3yy'+3y^2xy'&=(x^3y^2)'+(xy^3)'-3x^2y^2-y^3\\
+&=(x^3y^2+xy^3)'-3x^2y^2-y^3
+\end{align}
+putting it back into the ODE
+\begin{align}
+(x^3y^2+xy^3)'-3x^2y^2-y^3&=x^4-3x^2y^2-y^3\\
+(x^3y^2+xy^3)'&=x^4\\
+\rightarrow x^3y^2+xy^3&=\frac{1}{5}x^5+c\\
+\rightarrow xy^2(x^2+y)&=\frac{1}{5}x^5+c
+\end{align}
+(t) Observe $-\left(\frac{x}{y}\right)'=\frac{xy'-y}{y^2}$ then
+\begin{align}
+xy'&=y+\sqrt{xy}\\
+\frac{xy'}{y^2}&=\frac{y}{y^2}+\frac{\sqrt{xy}}{y^2}\\
+-\left(\frac{x}{y}\right)'&=\frac{\sqrt{xy}}{y^2}=\frac{x}{x}\frac{\sqrt{xy}}{y^2}=\frac{1}{x}\sqrt{\frac{x^3}{y^3}}\\
+-f'&=\frac{1}{x}f^{3/2}\quad\rightarrow\quad-2f^{-1/2}=\log x+c\\
+y&=\frac{x}{4}(\log x+c)
+\end{align}
+(x) First the homog. equations
+\begin{align}
+\frac{y'}{y}+\frac{1}{(x-1)(x-2)}&=0\\
+\frac{y'}{y}-\left(\frac{1}{x-1}-\frac{1}{x-2}\right)&=0\\
+\log y_h-\log\frac{x-1}{x-2}&=C\\
+y_h&=C\frac{x-1}{x-2}
+\end{align}
+Now variations of constants and resubstitude
+\begin{align}
+y&=C(x)\frac{x-1}{x-2}\\
+\rightarrow&(x-1)^2C'(x)=2\\
+\rightarrow&C(x)=-\frac{2}{x-1}+c\\
+\rightarrow&y=\left(-\frac{2}{x-1}+c\right)\frac{x-1}{x-2}\\
+\rightarrow&y=\frac{-2}{x-2}
+\end{align}
+(y) Playing around a bit we see $(xe^{-y})'=e^{-y}-xy'e^{-y}$ and then
+\begin{align}
+y'&=\frac{1}{x+e^y}\\
+xy'+y'e^y&=1\\
+xy'e^{-y}-e^{-y}+y'&=0\\
+-(xe^{-y})'+y'&=0\\
+-xe^{-y}+y&=c\\
+ye^y&=ce^y+x
+\end{align}
+and we recognize the productlog (Lambert W function).
+
+(z) With substitution $f=xy$
+\begin{align}
+xy'+y&=y^2x^4\\
+(xy)'&=(xy)^2x^2\\
+f'&=f^2x^2\\
+\rightarrow\frac{f'}{f^2}&=x^2\quad\rightarrow\quad-f^{-1}=\frac{x^3}{3}+c\\
+\rightarrow y&=-\frac{1}{x}\frac{3}{x^3+\tilde{c}}
+\end{align}
+
+\subsection{Problem 7.1}
+Inserting the series expansion into the equation and sorting by powers of $\epsilon$
+\begin{enumerate}[(a)]
+\item 
+\begin{align}
+a_0+a_0^2&=0\\
+6+a_1(1+2a_0)&=0\\
+a_1^2+a_2(1+2a_0)&=0
+\end{align}
+then coefficients upto second order (for both zeros) are
+\begin{align}
+a_0&=-1\quad\rightarrow\quad a_1=6\quad\rightarrow\quad a_2=36\\
+&\rightarrow x_{-}=-1+6\epsilon+36\epsilon^2\\
+a_0&=0\quad\rightarrow\quad a_1=-6\quad\rightarrow\quad a_2=-36\\
+&\rightarrow x_{+}=-6\epsilon-36\epsilon^2
+\end{align}
+which is consistent with the series expansion of the analytical roots
+\begin{align}
+x_{\pm}
+&=-\frac{1}{2}\pm\sqrt{\frac{1}{4}-6\epsilon}\\
+&=-\frac{1}{2}\pm\frac{1}{2}\sqrt{1-24\epsilon}
+\end{align}
+
+\item 
+\begin{align}
+1 + a_0^3&=0\\
+-a_0 + 3a_0^2 a_1&=0\\
+-a_1 + 3a_0 a_1^2 + 3 a_0^2 a_2&=0
+\end{align}
+then
+\begin{align}
+a_0&=1\quad\rightarrow\quad a_1=1/3\quad\rightarrow\quad a_2=0\\
+&\rightarrow x_0=1+\frac{1}{3}\epsilon+0\epsilon^2\\
+%
+a_0&=e^{-2\pi i/3}\quad\rightarrow\quad a_1=\frac{1}{3}e^{2\pi i/3}\quad\rightarrow\quad a_2=\frac{i}{3\sqrt{3}}\\
+&\rightarrow x_1
+=e^{-2\pi i/3}+\frac{1}{3}e^{2\pi i/3}\epsilon+\frac{i}{3\sqrt{3}}\epsilon^2\\
+%
+a_0&=e^{-2\pi i/3}\quad\rightarrow\quad a_1=\frac{1}{3}e^{2\pi i/3}\quad\rightarrow\quad a_2=-\frac{i}{3\sqrt{3}}\\
+&\rightarrow x_2
+=e^{2\pi i/3}+\frac{1}{3}e^{-2\pi i/3}\epsilon-\frac{i}{3\sqrt{3}}\epsilon^2
+\end{align}
+\item
+\end{enumerate}
+
+\subsection{Problem 7.3}
+With
+\begin{align}
+x&=a_0+a_1\epsilon+a_2\epsilon^2+...\\
+x^k&=a_0^k+ka_0^{k-1}a_1\epsilon+\left[\binom{k}{2}a_0^{k-2}a_1^2+ka_0^{k-1}a_2\right]\epsilon^2+...\\
+(x+1)^n
+&=\sum_k\binom{n}{k}x^k\\
+&=1+nx+\frac{n(n-1)}{2}x^2+...
+\end{align}
+we obtain for each power of $\epsilon$
+\begin{align}
+\sum_{k=0}\binom{n}{k}a_0^k&=0\\
+\sum_{k=1}\binom{n}{k}ka_0^{k-1}a_1&=a_0\\
+\sum_{k=2}\binom{n}{k}\left[\binom{k}{2}a_0^{k-2}a_1^2+ka_0^{k-1}a_2\right]&=a_1
+\end{align}
+which we can solve
+\begin{align*}
+0=\sum_{k=0}\binom{n}{k}a_0^k&=(a_0+1)^n\quad\rightarrow\quad a_0=-1
+\end{align*}
+then
+\begin{align}
+a_1=\frac{a_0}{\sum_{k=1}\binom{n}{k}ka_0^{k-1}}=\frac{a_0}{n(1+a_0)^{n-1}}\quad\rightarrow\quad a_0=-\infty
+\end{align}
+
+\section{{\sc Arfken, Weber} - Mathematical Methods for physicists 7th ed}
+\subsection{6.5.19}
+\begin{enumerate}[(a)]
+\item Lets generalize the problem a bit ($k,m \rightarrow k_1, k_2, k_3, m_1, m_2$)
+\begin{align}
+L&=T-V\\
+&=
+\frac{m_1}{2}\dot{x}_1^2
++\frac{m_1}{2}\dot{x}_2^2
+-\frac{k_1}{2}(x_1-0-l_1)^2
+-\frac{k_2}{2}(x_2-x_1-l_2)^2
+-\frac{k_3}{2}(L-x_2-l_3)^2
+\end{align}
+Using the Euler-Lagrange equations for $x_1$ and $x_2$
+\begin{align}
+-k_1(x_1-l_1)+k_2(x_2-x_1-l_2)-m_1\ddot{x}_1&=0\\
+-k_2(x_2-x_1-l_2)+k_3(L-x_2-l_3)-m_2\ddot{x}_2&=0
+\end{align}
+and simplifying
+\begin{align}
+m_1\ddot{x}_1+(k_1+k_2)x_1-k_2x_2-k_1l_1+k_2l_2&=0\\
+m_2\ddot{x}_2-k_2x_1+(k_2+k_3)x_2-l_2l_2-k_3L+k_3l_3&=0
+\end{align}
+\item Finding the eigenvalues of the Hessian
+\begin{align}
+\left(\begin{array}{cc}
+(k_1+k_2)/m_1 & -k_2/m_1\\
+-k_2/m_2 & (k_2+k_3)/m_2
+\end{array}\right)
+\end{align}
+we get
+\begin{align}
+\omega_A^2&=\frac{k_2+k_3}{m_2}+\frac{k_1+k_2}{m_1}-\frac{1}{2}\sqrt{\frac{(k_2+k_3)^3}{m_2^2}-2\frac{(k_2(k_3-k_2)+k_1(k_2+k_2))}{m_1m_2}+\frac{(k_1+k_2)^2}{m_1^2}}\\
+&\rightarrow\frac{k}{m}\\
+\omega_B^2&=\frac{k_2+k_3}{m_2}+\frac{k_1+k_2}{m_1}+\frac{1}{2}\sqrt{\frac{(k_2+k_3)^3}{m_2^2}-2\frac{(k_2(k_3-k_2)+k_1(k_2+k_2))}{m_1m_2}+\frac{(k_1+k_2)^2}{m_1^2}}\\
+&\rightarrow3\frac{k}{m}
+\end{align}
+
+\item The associated eigenvectors are
+\begin{align}
+X_A&=(1,1)\\
+X_B&=(-1,1)
+\end{align}
+
+\end{enumerate}
+
+
+\section{{\sc Arnol'd} - Ordinary differential equations}
+\subsection{Sample Examination Problem 2}
+\begin{align}
+\ddot x=1+2\sin x\quad\rightarrow
+\begin{array}{l}
+\dot x=y\\
+\dot y=1+2\sin x
+\end{array}
+\end{align}
+
+\section{{\sc Arnol'd} - A mathematical trivium}
+\subsection{Problem 4}
+\textcolor{red}{Calculate the 100th derivative of the function $\frac{x^2+1}{x^3-x}$.}
+
+Rewrite the function as
+\begin{align}
+    \frac{x^2+1}{x^3-x}&=\frac{x^2+1}{x(x+1)(x-1)}\\
+    &=-\frac{1}{x}+\frac{1}{x+1}+\frac{1}{x-1}
+\end{align}
+\begin{align}
+    \frac{d}{dx}(x+a)^{-1}&=-(x+a)^{-2}\\
+    \frac{d^{100}}{dx^{100}}(x+a)^{-1}&=100!(x+a)^{-101}\\
+\end{align}
+Then
+\begin{align}
+    \frac{d^{100}}{dx^{100}}\left(\frac{x^2+1}{x^3-x}\right)&=100!\left(-\frac{1}{x^{101}}+\frac{1}{(x+1)^{101}}+\frac{1}{(x-1)^{101}}\right)
+\end{align}
+
+\subsection{Problem 13}
+\textcolor{red}{Calculate with $5\%$ relative error $\int_1^{10} x^x dx$.}
+
+Analytic integration seems not possible 
+\begin{align}
+    \int_1^{10} x^x dx&<\int_1^{10} 10^x dx=\int_1^{10} e^{x\log10} dx=\frac{1}{\log 10}e^{x\log10}|_1^{10}=\frac{1}{\log 10}10^x|_1^{10}\approx4.35\cdot10^{9}
+\end{align}
+
+\subsection{Problem 20}
+\begin{align}
+    \ddot{x}=x+A\dot{x}^2\quad\quad x(0)=1, \dot{x}(0)=0
+\end{align}
+Using the standard perturbation theory approach we assume $x(t)=x_0(t)+Ax_1(t)+A^2x_2(t)+...$. Inserting into the ODE gives 
+\begin{align}
+    \ddot{x}_0+A\ddot{x}_1+A^2\ddot{x}_2+...=x_0+Ax_1+A^2x_2+...+A\left(\dot{x}_0+A\dot{x}_1+A^2\dot{x}_2+...\right)^2.
+\end{align}
+Sorting by powers of $A$ we obtain a set of ODEs
+\begin{align}
+    A^0:\quad\quad\ddot{x}_0&=x_0\\
+    A^1:\quad\quad\ddot{x}_1&=x_1+\dot{x}_0^2\\
+    A^2:\quad\quad\ddot{x}_2&=x_2+2\dot{x}_0\dot{x}_1.
+\end{align}
+The first ODE can be solved directly
+\begin{align}
+    x_0=c_1e^t+c_2e^{-t}.
+\end{align}
+The second ODE then transforms into
+\begin{align}
+    \ddot{x}_1&=x_1+c_1^2e^{2t}+c2^2e^{-2t}-2c_1c_2
+\end{align}
+with the homogeneous solution
+\begin{align}
+    x_{1H}=c_3e^t+c_4e^{-t}.
+\end{align}
+For the particular solution we try the ansatz (inspired by the inhomogeneity) 
+\begin{align}
+    x_{1S}&=\alpha+\beta e^{2t}+\gamma e^{-2t}\\
+    &=2c_1c_2+\frac{c_1^2}{3}e^{2t}+\frac{c_2^2}{3}e^{-2t}
+\end{align}
+then
+\begin{align}
+x_1&=x_{1H}+x_{1S}\\
+&=c_3e^t+c_4e^{-t}+2c_1c_2+\frac{c_1^2}{3}e^{2t}+\frac{c_2^2}{3}e^{-2t}
+\end{align}
+Imposing initial conditions on $x_0$ gives
+\begin{align}
+    c_1&=c_2=\frac{1}{2}\quad\rightarrow\quad x_0=\cosh t\\
+    c_3&=c_4=-\frac{1}{3}\quad\rightarrow\quad x_1=-\frac{2}{3}\cosh t+\frac{1}{2}+\frac{1}{6}\cosh 2t
+\end{align}
+and therefore
+\begin{align}
+    \left.\frac{dx(t)}{dA}\right|_{A=0}=\frac{1}{2}-\frac{2}{3}\cosh t+\frac{1}{6}\cosh 2t
+\end{align}
+
+\subsection{Problem 23}
+\textcolor{red}{Solve the quasi-homogeneous equation $y'=x+\frac{x^3}{y}$.}
+
+Sharp look
+\begin{align}
+\left(\frac{y}{x}\right)'
+&=\frac{y'x-y}{x^2}\\
+&=\frac{y'}{x}-\frac{y}{x^2}
+\end{align}
+then
+\begin{align}
+y'&=x+\frac{x^3}{y}\\
+\frac{y'}{x}&=1+\frac{x^2}{y}
+\end{align}
+
+\subsection{Problem 50}
+Assume real and $k>0$. Using the residual theorem we obtain
+\begin{align}
+\int_{-\infty}^\infty\frac{e^{ikx}}{1+x^2}
+&=\int_{-\infty}^\infty\frac{e^{ikx}}{(x+i)(x-i)}\\
+&=\frac{1}{-2i}\int_{-\infty}^\infty\left(\frac{1}{x+i}-\frac{1}{x-i}\right)e^{ikx}\\
+&=-\frac{1}{-2i}\int_{-\infty}^\infty\frac{e^{ikx}}{x-i}\\
+&=-\frac{1}{-2i}(2\pi i) e^{iki}\\
+&=\pi e^{-k}
+\end{align}
+
+
+\subsection{Problem 85}
+In three dimensions we have
+\begin{align}
+    x^2+y^2+z^2+xy+yz+zx=1
+\end{align}
+which can be written as
+\begin{align}
+\vec{x}^TA\vec{x}&=1\\
+\begin{pmatrix}
+x & y & z
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1/2 & 1/2\\
+1/2 & 1 & 1/2\\
+1/2 & 1/2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}&=1
+\end{align}
+With an orthorgonal matrix $S$ ($S^{-1}=S^T$) we can rotate the ellipsoid to line it up with the coordinate axes (choose $S$ such that $D_A=S^{-1}AS$ is diagonal)
+\begin{align}
+1&=\vec{x}^TA\vec{x}\\
+&=\vec{x}^T(SS^{-1})A(SS^{-1}\vec{x}\\
+&=(\vec{x}^TS)S^{-1}AS(S^{-1}\vec{x})\\
+&=(\vec{x}^TS)S^{-1}AS(S^T\vec{x})\\
+&=(S^T\vec{x})^TS^{-1}AS(S^T\vec{x})\\
+&=(S^T\vec{x})^TD_A(S^T\vec{x})
+\end{align}
+For this we need to find the eigensystem $\{\vec{v}_i,\lambda_i\}$ of A. The characteristic polynomial is given by
+\begin{align}
+    \lambda^3-3\lambda^2+\frac{9}{4}\lambda-\frac{1}{2}=0.
+\end{align}
+Then
+\begin{align}
+S=\begin{pmatrix}
+1 & -1&-1\\
+1 & 0 & 1\\
+1 & 1 & 0
+\end{pmatrix}
+\end{align}
+\begin{align}
+D_A=\begin{pmatrix}
+2 & 0   & 0\\
+0 & 1/2 & 0\\
+0 & 0   & 1/2
+\end{pmatrix}
+\end{align}
+the length of the principal axes are therefore 4, 1 and 1.
+
+\newpage
+\section{{\sc Needham} - Visual Complex Analysis}
+\subsection{Exercise 1.7}
+\begin{align}
+|z-a|&=|z-b|\\
+(z-a)(z-a)^*&=(z-b)(z-b)^*\\
+zz^*-az^*-za^*-aa^*&=zz^*-bz^*-zb^*-bb^*\\
+(-a+b)z^*+(-a^*+b^*)z&=aa^*-bb^*\\
+(-a+b-a^*+b^*)x+(a-b-a^*+b^*)iy&=aa^*-bb^*\\
+2\Re(b-a)x+2\Im(b-a)yi&=aa^*-bb^*
+\end{align}
+Looking at it from a vector space perspective - set of all points which have same distance from $a$ and $b$. So its the perpendicular bisector (Mittelsenkrechte).
+
+
+\subsection{Exercise 1.33}
+\begin{enumerate}
+\item It is a polynomial of ninth order 
+$(z-1)^{10}=z^{10}\rightarrow -10z^9+45z^8+...+1=0$.
+We can rewrite it as $(z-1)^{10}=(z-0)^{10}$
+\item 
+\begin{align}
+w^{10}=1\quad
+&\rightarrow\quad w_k=e^{2\pi ik/10}\qquad k\in\{0,...,9\}\\
+&\rightarrow\quad z_k=\frac{1}{1-z_k}=\frac{1}{1-e^{2\pi ik/10}}
+\end{align}
+
+\item 
+\begin{align}
+z_k&=\frac{1}{1-e^{\pi ik/5}}
+=\frac{1}{e^{\pi ik/10}(e^{-\pi ik/10}-e^{\pi ik/10})}
+=\frac{e^{-\pi ik/10}}{-2i\sin(\pi k/10)}\\
+&=\frac{\cos(-\pi k/10)+i\sin(-\pi k/10)}{-2i\sin(\pi k/10)}
+=\frac{i}{2}\tan[\pi k/10]+\frac{1}{2}
+\end{align}
+
+\end{enumerate}
+
+\subsection{Exercise 9.1}
+Recognizing the Law of Cosine - we can rewrite
+\begin{align}
+\int_0^{2\pi}\frac{dt}{1+a^2-2a\cos t}
+&=\int_0^{2\pi}\frac{dt}{|1-ae^{it}|^2}\\
+&=\int_0^{2\pi}\frac{dt}{(1-ae^{it})(1-ae^{-it})}\qquad\qquad\frac{dz}{dt}=ie^{it}=iz\\
+&=\oint_C\frac{dz}{iz(1-az)(1-a\bar{z})}\\
+&=\oint_C\frac{-idz}{(1-az)(z-az\bar{z})}\\
+&=\oint_C\frac{-idz}{(1-az)(z-a)}\\
+&=\oint_C\frac{idz}{(az-1)(z-a)}
+\end{align}
+then using the residuum theorem we get
+\begin{align}
+\oint_C\frac{idz}{(az-1)(z-a)}
+&=\frac{i}{1-a^2}\oint_C\frac{1}{z-1/a}-\frac{1}{z-a}dz\\
+&=\frac{i}{1-a^2}\left(\oint_C\frac{dz}{z-1/a}-\oint_C\frac{dz}{z-a}dz\right)\\
+&=\frac{i}{1-a^2}\left(0-2\pi i\right)\\
+&=\frac{2\pi}{1-a^2}
+\end{align}
+
+
+
+
+\section{{\sc Tall, Steward} - Complex Analysis 2018}
+\subsection{Problem 11.1 - Laurent expansion}
+\begin{enumerate}[(i)]
+\item Using the common geometric series trick ($|z/3|<1$)
+\begin{align}
+\frac{1}{z-3}=-\frac{1}{3}\frac{1}{1-z/3}
+\overset{\text{GS}}{=}-\frac{1}{3}\left(1+\frac{z}{3}+\frac{z^2}{9}+\frac{z^3}{27}...\right)
+=-\frac{1}{3}\sum_{k=0}^\infty\frac{z^k}{3^k}
+=-\sum_{k=0}^\infty\frac{z^k}{3^{k+1}}
+\end{align}
+
+\item
+\begin{align}
+\frac{1}{(z-a)^k}
+&=\frac{1}{(-a)^k}\frac{1}{(1-z/a)^k}
+=\frac{1}{(-a)^k}\left(1+\frac{z}{a}+\frac{z^2}{a^2}+\frac{z^3}{a^3}+...\right)^k\\
+&=\frac{1}{(-a)^k}\left(
+1+k\frac{z}{a}
++\left[\binom{k}{2}+k\right]\frac{z^2}{a^2}
++\left[\binom{k}{3}+\binom{k}{2}(k-2)+k\right]\frac{z^3}{a^3}\right.\\
+&\quad\left.
++\left[\binom{k}{4}+\binom{k}{3}(k-2)+k(k-1)+k\right]\frac{z^4}{a^4}
++...\right)
+\end{align}
+\end{enumerate}
+
+\section{{\sc Ahlfors} - Complex Calculus}
+\subsection{Chap 1.1}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item\begin{align}
+(1+2i)^3
+&=1+3(2i)^2+3\cdot2i+(2i)^3\\
+&=1-12+6i-8i\\
+&=-11-2i
+\end{align}
+
+\item\begin{align}
+\frac{5}{-3+4i}
+&=\frac{5(-3-4i)}{(-3+4i)(-3-4i)}\\
+&=\frac{-15-20i}{25}\\
+&=-\frac{3}{5}-\frac{4}{5}i
+\end{align}
+
+\item\begin{align}
+\left(\frac{2+i}{3-2i}\right)^2
+&=\frac{3+4i}{5-12i}\\
+&=\frac{(3+4i)(5+12i)}{169}\\
+&=\frac{15-48+20i+36i}{169}\\
+&=-\frac{33}{169}+\frac{56}{169}i
+\end{align}
+
+\item\begin{align}
+(1+i)^n+(1-i)^n
+&=\sqrt{2}^n\left(e^{i\pi n/4}+e^{-i\pi n/4}\right)\\
+&=2^{(n+1)/2}\cos\frac{n\pi}{4}
+\end{align}
+\end{enumerate}
+
+\item
+\begin{enumerate}
+\item
+\begin{align}
+z^4
+&=(x+iy)^4\\
+&=x^4+4x^3(iy)+6x^2(iy)^2+4x(iy)^3+(iy)^4\\
+&=x^4-6x^2y^2+y^4+(4x^3y-4xy^3)i
+\end{align}
+
+\item\begin{align}
+1/z
+&=\frac{x-iy}{x^2+y^2}
+\end{align}
+
+\item\begin{align}
+\frac{z-1}{z+1}
+&=\frac{(x-1)+iy}{(x+1)+iy}\\
+&=\frac{x^2+y^2-1+2xyi}{(x+1)^2+y^2}
+\end{align}
+
+\item\begin{align}
+1/z^2&=\frac{1}{x^2-y^2+2xyi}\\
+&=\frac{x^2-y^2-2xyi}{(x^2-y^2+2xyi)(x^2-y^2-2xyi)}\\
+&=\frac{x^2-y^2-2xyi}{(x^2+y^2)^2}
+\end{align}
+\end{enumerate}
+\item\begin{enumerate}
+\item With $\alpha=\pm1$
+\begin{align}
+(-1+i\alpha\sqrt{3})^2
+&=1-3\alpha^2-i2\sqrt{3}\alpha\\
+(-1+i\alpha\sqrt{3})^3
+&=-1+9\alpha^2+3\sqrt{3}\alpha(1-\alpha^2)i
+\end{align}
+then we see $(-1+i\alpha\sqrt{3})^3=9$ for $\alpha=\pm1$.
+
+\item With $\alpha,\beta=\pm1$
+\begin{align}
+(-\beta+i\alpha\sqrt{3})^6&=(-\beta+i\alpha\sqrt{3})^{3\cdot2}\\
+&=\beta^{3\cdot2}\left(\underbrace{\left(-1+i\frac{\alpha}{\beta}\sqrt{3}\right)^3}_{=1\quad\text{see (a)}}\right)^2\\
+&=\beta^6\cdot 1^{6}\\
+&=1
+\end{align}
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Chap 1.2}
+\begin{enumerate}
+\item \begin{enumerate}
+\item
+\begin{align}
+i&=(x+iy)^2\\
+&=x^2-y^2+2xyi
+\end{align}
+then
+\begin{align}
+x^2-y^2&=0\qquad 2xy=1\quad\rightarrow\quad\frac{1}{4y^2}-y^2=0\\
+z_1&=\frac{1+i}{\sqrt{2}}\\
+z_2&=\frac{-1-i}{\sqrt{2}}
+\end{align}
+
+\item
+\begin{align}
+-i&=(x+iy)^2\\
+&=x^2-y^2+2xyi
+\end{align}
+then
+\begin{align}
+x^2-y^2&=0\qquad 2xy=-1\quad\rightarrow\quad\frac{1}{4y^2}-y^2=0\\
+z_1&=\frac{-1+i}{\sqrt{2}}\\
+z_2&=-\frac{1-i}{\sqrt{2}}
+\end{align}
+
+\item
+\begin{align}
+1+i&=(x+iy)^2\\
+&=x^2-y^2+2xyi
+\end{align}
+then
+\begin{align}
+x^2-y^2&=1\qquad 2xy=1\quad\rightarrow\quad\frac{1}{4y^2}-y^2=1\\
+z_1&=\frac{1}{2\sqrt{\frac{1}{\sqrt{2}}-\frac{1}{2}}}+\sqrt{\frac{1}{\sqrt{2}}-\frac{1}{2}}i\\
+z_2&=-\frac{1}{2\sqrt{\frac{1}{\sqrt{2}}-\frac{1}{2}}}-\sqrt{\frac{1}{\sqrt{2}}-\frac{1}{2}}i
+\end{align}
+
+\item
+\begin{align}
+\sqrt{\frac{1-i\sqrt{3}}{2}}&=(x+iy)^2\\
+&=x^2-y^2+2xyi
+\end{align}
+then
+\begin{align}
+x^2-y^2&=\frac{1}{2}\qquad 2xy=-\frac{\sqrt{3}}{2}\quad\rightarrow\quad\frac{1}{4y^2}-y^2=\frac{1}{2}\\
+z_1...\\
+z_2...
+\end{align}
+
+\end{enumerate}
+\end{enumerate}
+
+\section{{\sc Stein, Shakarchi} - Princeton Lectures in Analysis - Vol 1 Fourier-Analysis}
+\subsection{Problem 1.1}
+\begin{align}
+u(x,y)&=v(x)w(y)\\
+\triangle u&=v_{xx}w+vw_{xx}=0
+\end{align}
+Using a separation constant $c^2$ gives
+\begin{align}
+v_{xx}+c^2v&=0\qquad\rightarrow\qquad v_c(x)=C\sin cx+D\cos cx\\
+w_{yy}-c^2w&=0\qquad\rightarrow\qquad w_c(x)=E\sinh cy+F\cosh cy
+\end{align}
+then the general solution is (setting $F=1$)
+\begin{align}
+u_c(x,y)=(C\sin cx+D\cos cx)(E\sinh cy+\cosh cy)
+\end{align}
+Now we can look at the boundary conditions
+\begin{align}
+u_c(x,0)&=(C\sin cx+D\cos cx)\overset{!}{=}A_k\sin kx\\
+u_c(x,1)&=(C\sin cx+D\cos cx)(E\sinh c+\cosh c)\overset{!}{=}B_k\sin kx\\
+u_c(0,y)&=D(E\sinh cy+\cosh cy)\overset{!}{=}0\\
+u_c(\pi,y)&=(C\sin c\pi+D\cos c\pi)(E\sinh cy+\cosh cy)\overset{!}{=}0
+\end{align}
+then we see (using $\sin,\cos$ being a complete orth. system)
+\begin{align}
+&\rightarrow c=k, D=0, C=A_k\\
+&\rightarrow B_k=C(E\sinh c+\cosh c)\\
+&\rightarrow E=\left(\frac{B_k}{A_k}-\cosh k\right)\frac{1}{\sinh k}
+\end{align}
+And  therefore
+\begin{align}
+u(x,y)
+&=\sum_c u_c\\
+&=\sum_k u_k\\
+&=\sum_k A_k\sin kx \left[\left(\frac{B_k}{A_k}-\cosh k\right)\frac{1}{\sinh k} \sinh ky+\cosh ky\right]\\
+&=\sum_k \sin kx \left[\left(B_k-A_k\cosh k\right)\frac{1}{\sinh k} \sinh ky+A_k\cosh ky\right]\\
+&=\sum_k \sin kx \left[\left(B_k\sinh ky-A_k\cosh k\sinh ky\right)\frac{1}{\sinh k} +A_k\cosh ky\sinh k\frac{1}{\sinh k}\right]\\
+&=\sum_k \sin kx \left[B_k\frac{\sinh ky}{\sinh k}+A_k\frac{-\cosh k\sinh ky+\cosh ky\sinh k}{\sinh k} \right]\\
+&=\sum_k \sin kx \left[B_k\frac{\sinh ky}{\sinh k}+A_k\frac{\cosh k\sinh(-ky)+\cosh(-ky)\sinh k}{\sinh k} \right]\\
+&=\sum_k \sin kx \left[B_k\frac{\sinh ky}{\sinh k}+A_k\frac{\sinh k(1-y)}{\sinh k} \right]
+\end{align}
+
+\section{{\sc Spivak} - Calculus on Manifolds}
+
+\section{{\sc O'Neill} - Elementary Differential Geometry}
+\subsection{Problem 1.1 - 1}
+\begin{enumerate}[(a)]
+\item $x^2 y^3 \sin[z]^2$
+\item $x^2 y \sin[z] + 2 x y^2 \sin[z]$
+\item $2 x^2 y \cos[z]$
+\item $x^2 \cos[x^2 y]$
+\end{enumerate}
+
+\subsection{Problem 1.1 - 2}
+\begin{enumerate}[(a)]
+\item $0$
+\item $-19/2$
+\item $a^2+a-1$
+\item $t^4-t^7$
+\end{enumerate}
+
+\subsection{Problem 1.1 - 3}
+\begin{enumerate}[(a)]
+\item $xy \cos[x y] + \sin[x y] - y z \sin[x z]$
+\item $ x e^{x^2 + y^2 + z^2} \cos(e^{x^2 + y^2 + z^2})$
+\end{enumerate}
+
+\subsection{Problem 1.1 - 4}
+\begin{enumerate}[(a)]
+\item $-y^2 + 2 (x + y)$
+\item $-2 e^{2 x + y}$
+\item $4x$
+\end{enumerate}
+
+
+\section{{\sc Boothby} - An Introduction to Differential Mannifolds and Riemannian Geometry}
+
+\section{{\sc Burke} - Applied Differential Geometry}
+
+\section{{\sc O'Neill} - Semi-Riemannian Geometry - With Applications to Relativity}
+
+\section{{\sc Hubbert} - Vector Calculus, Linear Algebra, and Differential Forms}
+
+\section{{\sc Flanders} - Differential Forms with Applications to the Physical Sciences}
+
+\section{{\sc Morse, Feshbach} - Methods of mathematical physics}
+\subsection{Problem 1.1}
+With
+\begin{align}
+    \cot^2\psi=\frac{\cos^2\psi}{\sin^2\psi}=\frac{\cos^2\psi}{1-\cos^2\psi}
+\end{align}
+we can obtain a quadratic equation
+\begin{align}
+    (x^2+y^2)\cos^2\psi(1-\cos^2\psi)+z^2\cos^2\psi=a^2(1-\cos^2\psi)\\
+    \cos^4\psi-\frac{x^2+y^2+z^2+a^2}{x^2+y^2}\cos^2\psi+\frac{a^2}{x^2+y^2}=0
+\end{align}
+with the solution
+\begin{align}
+    \cos^2\psi
+    &=\frac{x^2+y^2+z^2+a^2}{2(x^2+y^2)}\pm\sqrt{ \frac{(x^2+y^2+z^2+a^2)^2}{4(x^2+y^2)^2}-\frac{4a^2(x^2+y^2)}{4(x^2+y^2)^2}  }\\
+    &=\frac{x^2+y^2+z^2+a^2\pm\sqrt{ (x^2+y^2+z^2+a^2)^2-4a^2(x^2+y^2)}}{2(x^2+y^2)}
+\end{align}
+To obtain the gradient we differentiate the surface equation implicitly with respect to $x,y$ and z
+\begin{align}
+    2x\cos^2\psi-2(x^2+y^2)\cos\psi\sin\psi\frac{\partial\psi}{\partial x}-2z^2\cot\psi\csc^2\psi\frac{\partial\psi}{\partial x}=0\\
+    \rightarrow\frac{\partial\psi}{\partial x}=\psi_x=\frac{x\cos^2\psi}{z^2\cot\psi\csc^2\psi+(x^2+y^2)\sin\psi\cos\psi}\\
+    2y\cos^2\psi-2(x^2+y^2)\cos\psi\sin\psi\frac{\partial\psi}{\partial x}-2z^2\cot\psi\csc^2\psi\frac{\partial\psi}{\partial x}=0\\
+    \rightarrow\frac{\partial\psi}{\partial y}=\psi_y=\frac{y\cos^2\psi}{z^2\cot\psi\csc^2\psi+(x^2+y^2)\sin\psi\cos\psi}\\
+    -2(x^2+y^2)\cos\psi\sin\psi\frac{\partial\psi}{\partial z}+2z\cot^2\psi-2z^2\cot\psi\csc^2\psi\frac{\partial\psi}{\partial z}=0\\
+     \rightarrow\frac{\partial\psi}{\partial z}=\psi_z=\frac{z\cot^2\psi}{z^2\cot\psi\csc^2\psi + (x^2+y^2)\cos\psi\sin\psi}
+\end{align}
+The direction cosines are then given by
+\begin{align}
+    \cos\alpha&=\frac{\psi_x}{\sqrt{\psi_x^2+\psi_y^2+\psi_z^2}}=\frac{2\sqrt{2}x\sin^2\psi}{\sqrt{8z^2+(x^2+y^2)(3-4\cos2\psi+\cos4\psi)}}\\
+    \cos\beta&=\frac{\psi_y}{\sqrt{\psi_x^2+\psi_y^2+\psi_z^2}}=\frac{2\sqrt{2}y\sin^2\psi}{\sqrt{8z^2+(x^2+y^2)(3-4\cos2\psi+\cos4\psi)}}\\
+    \cos\gamma&=\frac{\psi_z}{\sqrt{\psi_x^2+\psi_y^2+\psi_z^2}}=\frac{2\sqrt{2}z}{\sqrt{8z^2+(x^2+y^2)(3-4\cos2\psi+\cos4\psi)}}.
+\end{align}
+The second derivatives (for the Laplacian) can again be calculated via (lengthy) implicit differentiation and substituting the first derivatives from above. Adding them up gives zero which implies $\triangle\psi=0$.
+
+The surface equations $\psi=\text{const}$ can be written in form of an ellipsoid
+\begin{align}
+    \frac{x^2}{a^2\sec^2\psi}+\frac{y^2}{a^2\sec^2\psi}+\frac{z^2}{a^2\tan^2\psi}=1
+\end{align}
+which degenerates to a flat pancake for $\psi=0,\pi$.
+
+\subsection{Problem 4.1 - NOT DoNE yet}
+Standard trick
+\begin{align}
+    x=\tan\vartheta/2\rightarrow d\theta =\frac{2dx}{1+x^2},\,\sin\vartheta=\frac{2x}{1+x^2},\,\cos\vartheta=\frac{1-x^2}{1+x^2}\\
+    \int_0^{2\pi}\frac{\sin^2\vartheta d\vartheta}{a+b\cos\vartheta}=\int_?^{?}\frac{8x^3\cdot dx}{(1+x^2)^3(a+b\frac{1-x^2}{1+x^2})}
+\end{align}
+
+\subsection{Problem 6.3 - NOT DoNE yet}
+Fourier series of initial condition on the interval $[0,\pi]$
+\begin{align}
+\psi(t,0)=\psi_0(x)
+&=\frac{b_0}{2}+\sum_{k=1}^\infty(a_k\sin 2kx+b_k\cos 2kx)\\
+a_k
+&=\frac{2}{\pi}\int_{0}^\pi\psi_0(y)\sin 2ky\,dy\\
+b_k
+&=\frac{2}{\pi}\int_{0}^\pi\psi_0(y)\cos 2ky\,dy
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% WOIT %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{{\sc Woit} - Quantum Theory, Groups and Representations}
+
+\subsection{Problem B.1-3}
+Rotations of the 2D-plane
+\begin{align}
+D^2_\phi&=\left(
+\begin{array}{cc}
+\cos\phi& -\sin\phi  \\
+\sin\phi & \cos\phi  \\
+\end{array}
+\right)\\
+D^2_\phi D^2_\theta&= \left(
+\begin{array}{cc}
+ \cos\theta \cos\phi-\sin\theta \sin\phi  & -\cos\phi \sin\theta-\cos\theta\sin\phi \\
+ \cos\phi\sin\theta+\cos\theta \sin\phi & \cos\theta \cos\phi
+   -\sin\theta \sin\phi \\
+\end{array}
+\right)\\
+&=\left(
+\begin{array}{cc}
+\cos(\phi+\theta)& -\sin(\phi+\theta)  \\
+\sin(\phi+\theta) & \cos(\phi+\theta)  \\
+\end{array}
+\right)\\
+&=D^2_{\phi+\theta}
+\end{align}
+can also be represented by
+\begin{align}
+D^1_\phi&=e^{i\phi}\\
+D^1_\phi D^1_\theta&=e^{i\phi}e^{i\theta}=e^{i(\phi+\theta)}\\
+&=D^1_{\phi+\theta}.
+\end{align}
+Furthermore there is also the trivial representation
+\begin{align}
+D^{1'}_\phi&=1\\
+D^{1'}_\phi D^1_\theta&=1\cdot1=1\\
+&=D^{1'}_{\phi+\theta}
+\end{align}
+
+
+\subsection{Problem B.1-4}
+The time evolution is given by
+\begin{align}
+    |\Psi(t)\rangle&=e^{-iHt}|\Psi(0)\rangle\\
+    &=\left(\sum_{k=0}^\infty\frac{(-iHt)^k}{k!}\right)|\Psi(0)\rangle
+\end{align}
+We see
+\begin{align}
+H=\left(
+\begin{array}{ccc}
+ 0 & 1 & 0 \\
+ 1 & 0 & 0 \\
+ 0 & 0 & 2 \\
+\end{array}
+\right)\qquad
+H^2=\left(
+\begin{array}{ccc}
+ 1 & 0 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 4 \\
+\end{array}
+\right)
+\qquad
+H^3=\left(
+\begin{array}{ccc}
+ 0 & 1 & 0 \\
+ 1 & 0 & 0 \\
+ 0 & 0 & 8 \\
+\end{array}
+\right)
+\end{align}
+and calculate
+\begin{align}
+    \sum_{k=0}^\infty\frac{(-it)^{2k}}{(2k)!}&=\sum_{k=0}^\infty(-1)^k \frac{t^{2k}}{(2k)!}=\cos(t)\\
+    \sum_{k=0}^\infty\frac{(-it)^{2k+1}}{(2k+1)!}&=(-i)\sum_{k=0}^\infty(-1)^{k}\frac{t^{2k+1}}{(2k+1)!}=-i\sin(t)\\
+    \sum_{k=0}^\infty\frac{(-i2t)^k}{k!}&=\cos(2t)-i\sin(2t)=e^{-i2t}
+\end{align}
+which gives
+\begin{align}
+    e^{-iHt}=\left(
+\begin{array}{ccc}
+ \cos (t) & -i \sin (t) & 0 \\
+ -i \sin (t) & \cos (t) & 0 \\
+ 0 & 0 & e^{-2 i t} \\
+\end{array}
+\right)
+\end{align}
+and therefore
+\begin{align}
+|\Psi(t)\rangle=\left(
+\begin{array}{ccc}
+ \psi_1\cos (t)  -\psi_2i \sin (t) \\
+ -\psi_1i \sin (t) + \psi_2\cos (t) \\
+ \psi_3e^{-2 i t} \\
+\end{array}
+\right)
+\end{align}.
+To check the result one can calculate both sides of $i\partial_t|\Psi(t)\rangle=H|\Psi(t)\rangle$.
+
+\subsection{Problem B.2-1}
+\begin{enumerate}
+\item
+With $M=PDP^{-1}$ we have $M^2=PDP^{-1}PDP^{-1}=PDDP^{-1}$ and see
+\begin{align}
+    e^{tM}&=\sum_{k=0}^\infty \frac{(tM)^k}{k!}=\sum_{k=0}^\infty \frac{(tPDP^{-1})^k}{k!}=\sum_{k=0}^\infty \frac{P(tD)^kP^{-1}}{k!}\\
+    &=P\left(\sum_{k=0}^\infty \frac{(tD)^k}{k!}\right)P^{-1}=Pe^{tD}P^{-1}.
+\end{align}
+The eigenvalues of $M$ are given by
+\begin{align}
+    -\lambda^3-(-\lambda)(-\pi^2)=0\quad\rightarrow\quad\lambda_1=i\pi,\;\lambda_2=-i\pi,\;\lambda_3= 0
+\end{align}
+with the eigenvectors
+\begin{align}
+    \vec{v}_1&=(-i,1,0)\\
+    \vec{v}_2&=(i,1,0)\\
+    \vec{v}_3&=(0,0,1)
+\end{align}
+we obtain
+\begin{align}
+M&=PDP^{-1}\\
+&=\left(
+\begin{array}{ccc}
+-i& i & 0 \\
+1 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{array}
+\right)
+\left(
+\begin{array}{ccc}
+ i\pi & 0 & 0 \\
+ 0 & -i\pi & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)
+\left(
+\begin{array}{ccc}
+  i/2 & 1/2 & 0 \\
+ -i/2 & 1/2 & 0 \\
+ 0    & 0   & 1
+\end{array}
+\right)
+\end{align}
+With
+\begin{align}
+\sum_{k=0}^\infty \frac{(i\pi)^k}{k!}=e^{i\pi}\\
+\sum_{k=0}^\infty \frac{(-i\pi)^k}{k!}=e^{-i\pi}
+\end{align}
+we see
+\begin{align}
+ tD^k=\left(
+\begin{array}{ccc}
+(i\pi t)^k & 0 & 0 \\
+0 & (-i\pi t)^k & 0 \\
+0 & 0 & 0
+\end{array}
+\right)\\
+e^{tD}=\sum_{k=0}^\infty \frac{(tD)^k}{k!}=\left(
+\begin{array}{ccc}
+ e^{i\pi t} & 0 & 0\\
+ 0 & e^{-i\pi t} & 0\\
+ 0 & 0 & 1
+\end{array}
+\right)
+\end{align}
+and therefore
+\begin{align}
+e^{tM}&=Pe^{tD}P^{-1}\\
+&=\left(
+\begin{array}{ccc}
+ \frac{1}{2}(e^{-i\pi  t}+e^{i\pi t}) & -\frac{1}{2}i(e^{i\pi t}-e^{-i\pi t}) & 0 \\
+ -\frac{1}{2}i(e^{-i\pi  t}- e^{i\pi  t}) & \frac{1}{2}(e^{-i\pi t}+e^{i\pi t}) & 0 \\
+ 0 & 0 & 1 \\
+\end{array}
+\right)\\
+&=\left(
+\begin{array}{ccc}
+ \cos(\pi t) & \sin(\pi t) & 0 \\
+ -\sin(\pi t) & \cos(\pi t) & 0 \\
+ 0 & 0 & 1 \\
+\end{array}
+\right)
+\end{align}
+
+\item Brute force calculation of the matrix powers reveals
+\begin{align}
+(tM)^2=\left(
+\begin{array}{ccc}
+ -(t\pi)^2 & 0 & 0 \\
+ 0 & -(t\pi)^2 & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)\quad
+(tM)^3=\left(
+\begin{array}{ccc}
+ 0 & -(t\pi)^3 & 0 \\
+ (t\pi)^3 & 0 & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)
+\end{align}
+\begin{align}
+(tM)^4&=\left(
+\begin{array}{ccc}
+(t\pi)^4 & 0 & 0 \\
+ 0 & (t\pi)^4 & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)\quad
+(tM)^5\left(
+\begin{array}{ccc}
+ 0 & (t\pi)^5 & 0 \\
+ -(t\pi)^5 & 0 & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)
+\end{align}
+With
+\begin{align}
+    1-\frac{1}{2!}(\pi t)^2+\frac{1}{4!}(\pi t)^4+...&=\cos(\pi t)\\
+    \pi t - \frac{1}{3!}(\pi t)^3+ \frac{1}{5!}(\pi t)^5+...&=\sin(\pi t)\\
+    -\pi t + \frac{1}{3!}(\pi t)^3- \frac{1}{5!}(\pi t)^5+...&=(-\pi t) + \frac{1}{3!}(-\pi t)^3- \frac{1}{5!}(-\pi t)^5+...\\
+    &=\sin(-\pi t)\\
+    &=-\sin(\pi t)
+\end{align}
+\end{enumerate}
+we obtain
+\begin{align}
+e^{tM}&=\left(
+\begin{array}{ccc}
+ \cos(\pi t) & \sin(\pi t) & 0 \\
+ -\sin(\pi t) & \cos(\pi t) & 0 \\
+ 0 & 0 & 1 \\
+\end{array}
+\right)
+\end{align}
+
+\subsubsection{Problem B.2-2}
+For the Hamiltonian
+\begin{align}
+H = -B_x\sigma_1=\left(
+\begin{array}{cc}
+ 0 & -B_x  \\
+ -B_x & 0  \\
+\end{array}
+\right)
+\end{align}
+we find the eigensystem
+\begin{align}
+E_1 &= -B_x\quad |\psi_1\rangle=\left(
+\begin{array}{c}
+ 1 \\
+ 1 \\
+\end{array}
+\right)\\
+E_2 &= +B_x\quad |\psi_2\rangle=\left(
+\begin{array}{c}
+-1 \\
+ 1 \\
+\end{array}
+\right).
+\end{align}
+The Hamiltonian (with full units) is given by
+\begin{align}
+H = -g\frac{q\hbar}{2m}\frac{\sigma_1}{2}B_x
+\end{align}
+which translates into energies of
+\begin{align}
+E_1 &= -g\frac{q\hbar}{4m}B_x\\
+E_2 &= g\frac{q\hbar}{4m}B_x.
+\end{align}
+The time evolution is them given by
+\begin{align}
+|\psi(t)\rangle&=e^{-\frac{i}{\hbar}Ht}|\psi(0)\rangle\\
+&=e^{-i\frac{gq}{4m}\sigma_1t}|\psi(0)\rangle\\
+&=\left[\cos\left(\frac{gq}{4m}\sigma_1t\right)-i\sin\left(\frac{gq}{4m}\sigma_1t\right)\right]|\psi(0)\rangle\\
+&=\left[\cos\left(\frac{gq}{4m}t\right)\mathbb{I}_2-i\sin\left(\frac{gq}{4m}t\right)\sigma_1\right]|\psi(0)\rangle\\
+&=\left(
+\begin{array}{cc}
+ \cos \left(\frac{g q t}{4 m}\right) & -i \sin \left(\frac{g q t}{4 m}\right) \\
+ -i \sin \left(\frac{g q t}{4 m}\right) & \cos \left(\frac{g q t}{4 m}\right) \\
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+ 1 \\
+ 0 \\
+\end{array}
+\right)\\
+&=\left(
+\begin{array}{c}
+ \cos \left(\frac{g q t}{4 m}\right) \\
+ -i\sin \left(\frac{g q t}{4 m}\right) \\
+\end{array}
+\right)
+\end{align}
+where we used $\sigma_1^{2n}=\mathbb{I}^n=\mathbb{I}$.
+
+
+\section{{\sc Baez, Muniain} - Gauge Fields, Knots and Gravity}
+\subsection{Problem I.1 - Plane waves in vacuum}
+With
+\begin{align}
+    \vec{\mathcal{E}}=\vec{E}e^{-i(\omega t -\vec{k}\vec{x})}
+\end{align}
+we calculate in cartesian coordinates 
+\begin{enumerate}
+    \item $\nabla\cdot\vec{\mathcal{E}}=0$
+\begin{align}
+    \nabla\cdot\vec{\mathcal{E}}&=\partial_a\mathcal{E}_a\\
+    &=\partial_a(e^{-i(\omega t -\vec{k}\vec{x})})E_a\vec{e}^a\\
+    &=\delta_{ab}ik_bE_a e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
+    &=ik_bE_b e^{-i(\omega t -\vec{k}\vec{x})}\vec{e}^a\\
+    &=0
+\end{align}
+where we assumed $E_a=\text{const}$ and used
+\begin{align}
+    0&=\vec{k}\cdot\vec{E}\\
+    &=k_a\vec{e}^aE_a\vec{e}^a\\
+    &=k_aE_a
+\end{align}
+
+\item $\nabla\times\vec{\mathcal{E}}=i\frac{\partial\vec{\mathcal{E}}}{\partial t}$
+\begin{align}
+    \nabla\times\vec{\mathcal{E}}&=\epsilon_{abc}\partial_b\mathcal{E}_c\vec{e}_a \\
+    &=\epsilon_{abc}E_c\vec{e}_a\partial_b(e^{-i(\omega t -\vec{k}\vec{x})}) \\
+    &=\epsilon_{abc}E_c\vec{e}_a\delta_{bd}ik_de^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i(\epsilon_{abc}k_bE_c\vec{e}_a)e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i(-i\omega E_a\vec{e}^a)e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i(E_a\vec{e}^a)(-i\omega) e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i\vec{E}\frac{\partial}{\partial t} e^{-i(\omega t -\vec{k}\vec{x})} \\
+    &=i\frac{\partial\vec{\mathcal{E}}}{\partial t}
+\end{align}
+where we used (typo in the book!)
+\begin{align}
+    -i\omega\vec{E}&=\vec{k}\times\vec{E}\\
+    &=\epsilon_{abc}k_bE_c\vec{e}_a
+\end{align}
+\end{enumerate}
+
+\subsection{Problem I.7 - Adding and multiplying vector fields}
+\begin{enumerate}
+    \item With $(v+w)f\equiv(f)+w(f)$
+    \begin{enumerate}
+        \item $(v+w)(f+g)=v(f+g)+w(f+g)=vf+vg+wf+wg=(v+w)f+(v+w)g$
+        \item $(v+w)(\alpha f)=v(\alpha f)+w(\alpha f)=\alpha v f+\alpha w f=\alpha(v+w)f$
+        \item $(v+w)(fg)=v(fg)+w(fg)=v(f)g+fv(g)+w(f)g+fw(g)=[(v+w)f]g+f[(v+w)g]$
+    \end{enumerate}
+    \item With $(gv)(f)\equiv gv(f)$
+    \begin{enumerate}
+        \item $(gv)(f+h)=gv(f+h)=gv(f)+gv(h)=g(v(f)+v(h))=gv(f)+gv(h)$
+        \item $gv(\alpha f)=gv(\alpha f)=g\alpha v(f)=\alpha gv(f)$
+        \item $(gv)(fh)=gv(fh)=g(v(f)h+fv(h))=(gv)(f)h+f(gv)(h)$
+    \end{enumerate}
+\end{enumerate}
+
+\section{{\sc Kreyszig} - Introduction to functional analysis}
+\subsection{Problem 1.1 Problem 1}
+Real line: $x\in\mathbb{R}$ with $d(x,y)=|x-y|$
+\begin{enumerate}[M1]
+\item $d$ is real finite, nonnegative: obvious
+\item $d(x,y)=0$ iff $x=y$: obvious
+\item $d(x,y)=d(y,x)$: obvious
+\item 
+$x<z<y:\;d(x,y)=d(x,z)+d(z,y)$
+\end{enumerate}
+
+\subsection{Problem 11.3 Problem 3}
+Physicist: Ground state of the harmonic osci. - time-independent Schroedinger equation for harmonic oscillator
+\begin{align}
+\psi_0'&=-se^{-s^2/2}\\
+&=-s\psi_0\\
+\psi_0''&=-e^{-s^2/2}+s^2e^{-s^2/2}\\
+&=-\psi_0+s^2\psi_0\\
+&=-(1-s^2)\psi_0\\
+&\rightarrow \psi_0''+(1-s^2)\psi_0=0
+\end{align}
+
+\section{{\sc Garrity} et al. - Algebraic Geometry: A Problem Solving Approach}
+
+\section{{\sc Garrity, Neumann-Chun} - Electricity and magnetism for mathematicians - A guided path from Maxwell's equations to Yang-Mills}
+
+\section{{\sc Guidry} - Symmetry, Broken Symmetry, and Topology in Modern Physics}
+
+\subsection{Problem 15.1 - Poincaré transformation I}
+\begin{align}
+g(b,\Lambda)\qquad\rightarrow\qquad x'&=\Lambda x+b\\
+g(b',\Lambda')\circ g(b,\Lambda)\qquad\rightarrow\qquad x''&=\Lambda'x'+b'\\
+&=\Lambda'(\Lambda x+b)+b'\\
+&=\Lambda'\Lambda x+\Lambda'b+b'\qquad\rightarrow\qquad g(\Lambda'b+b',\Lambda'\Lambda)
+\end{align}
+
+\subsection{Problem 15.2 - Poincaré transformation II}
+\begin{align}
+g(b',I')\circ g(0,\Lambda)= g(b',\Lambda)\\
+\Lambda x + b&=T(b)\circ\Lambda x
+\end{align}
+
+\subsection{Problem 15.3 - Poincaré transformation III}
+
+\section{{\sc Boltyanskii, Efremovich} - Intuitive Combinatorial Topology}
+
+\section{{\sc Nakahara} - Geometry, Topology and Physics}
+
+\section{{\sc Frankel} - The Geometry of Physics}
+
+\section{{\sc Sexl, Urbantke} - Relativity, Groups, Particles}
+
+\section{{\sc Scherer} - Symmetrien und Gruppen in der Teilchenphysik}
+\subsection{Problem 3.11 - Taylor series}
+\begin{align}
+e^{tC}&e^{tD}e^{-tC}e^{-tD}\\
+&\simeq\left(1+tC+\frac{t^2}{2}C^2+...\right)\left(1+tD+\frac{t^2}{2}D^2+...\right)\left(1-tC+\frac{t^2}{2}C^2+...\right)\left(1-tD+\frac{t^2}{2}D^2+...\right)\\
+&=1+t(C+D-C-D)+\frac{t^2}{2}(C^2+D^2+C^2+D^2)+t^2(CD-C^2-CD)\\
+&\;+t^2(-DC-D^2)+t^2(CD)+\mathcal{O}(t^3)\\
+&=1+t\cdot 0+t^2(C^2+D^2)+t^2(-C^2-DC-D^2+CD)+\mathcal{O}(t^3)\\
+&=1+t^2[C,D]+\mathcal{O}(t^3)\\
+\end{align}
+
+
+\end{document}

@@ -1,0 +1,112 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Peskin} - Concepts of Elementary Particle Physics}
+\subsection{Problem 2.1 - Heavy particle decays into two}
+\begin{enumerate}[(a)]
+\item Using four-momentum conservation
+\begin{align}
+(M,0,0,0)&=(E_1,0,0,p)+(E_2,0,0,-p)\\
+(M,0,0,0)&=(\sqrt{m_1^2+p^2},0,0,p)+(\sqrt{m_2^2+p^2},0,0,-p)
+\end{align}
+calculating time component
+\begin{align}
+M^2=(\sqrt{m_1^2+p^2}+\sqrt{m_2^2+p^2})^2\\
+M^2=m_1^2+m_2^2+2p^2+2\sqrt{m_1^2+p^2}\sqrt{m_2^2+p^2}\\
+(M^2-(m_1^2+m_2^2)-2p^2)^2=4(p^4+p^2(m_1^2+m_2^2)+m_1^2m_2^2)\\
+M^4+(m_1^2+m_2^2)^2+4p^4-2M^2(m_1^2+m_2^2)-4M^2p^2+4p^2&(m_1^2+m_2^2)=4p^4+4p^2(m_1^2+m_2^2)+4m_1^2m_2^2\\
+M^4+(m_1^2+m_2^2)^2-2M^2(m_1^2+m_2^2)-4M^2p^2=4m_1^2m_2^2\\
+4M^2p^2=M^4+(m_1^2-m_2^2)^2-2M^2(m_1^2+m_2^2)\\
+p=\frac{\sqrt{M^4+(m_1^2-m_2^2)^2-2M^2(m_1^2+m_2^2)}}{2M}
+\end{align}
+\item
+\begin{align}
+p_{m_2\rightarrow0}
+&=\frac{\sqrt{M^4+m_1^4-2M^2m_1^2}}{2M}\\
+&=\frac{M^2-m_1^2}{2M}\\
+\end{align}
+\item
+\begin{align}
+E_1^2&=m_1^2+p^2\\
+&=m_1^2+\frac{M^4+(m_1^2-m_2^2)^2-2M^2(m_1^2+m_2^2)}{4M^2}
+&=\frac{4M^2m_1^2}{4M^2}+\frac{M^4+(m_1^2-m_2^2)^2-2M^2m_1^2-2M^2m_2^2}{4M^2}\\
+&=\frac{M^4+(m_1^2-m_2^2)^2+2M^2m_1^2-2M^2m_2^2}{4M^2}\\
+&=\frac{M^4+(m_1^2-m_2^2)^2+2M^2(m_1^2-m_2^2)}{4M^2}\\
+&=\frac{(M^2+(m_1^2-m_2^2))^2}{4M^2}\\
+E_1&=\frac{M^2+(m_1^2-m_2^2)}{2M}=\frac{1}{2}\left(M+\frac{m_1^2-m_2^2}{M}\right)\\
+E_2&=\frac{M^2-(m_1^2-m_2^2)}{2M}=\frac{1}{2}\left(M+\frac{m_2^2-m_1^2}{M}\right)
+\end{align}
+\end{enumerate}
+
+
+\subsection{Problem 2.2 - Natural units}
+\begin{enumerate}[(a)]
+\item Assuming Yukawa style fields $B_\text{dipol}(r)\simeq e^{rm_\text{ph}}/r^2$. Then with 
+$R_J=70,000\text{km}=3.5\cdot10^{-20}\text{MeV}^{-1}$
+\begin{align}
+rm_\text{ph}&\ll  1\\
+m_\text{ph}&\ll \frac{1}{nR_J}\\
+m_\text{ph}&\ll \frac{2.81\cdot 10^{-21}}{n}\text{MeV}
+\end{align}
+
+\item If use the reduced Compton wavelength $\lambda=\hbar/mc$ instead of $h/mc$ we have 
+\begin{align}
+\frac{1}{\text{MeV}}&=\frac{1}{0.001\text{GeV}}=\frac{1000}{\text{GeV}}=1.97\cdot 10^{-13}\text{m}\\
+\frac{1}{\text{GeV}}&=1.97\cdot 10^{-16}\text{m}\\
+\lambda_W&=\frac{\hbar}{m_Wc}=\frac{1}{m_W}=\frac{1}{80.4}\text{GeV}^{-1}=0.0124\text{GeV}^{-1}\\
+&=2.45\cdot10^{-18}\text{m}
+\end{align}
+\item s dfsd
+\end{enumerate}
+
+
+
+\section{{\sc Iliopoulos, Tomaras} - Elementary Particle Physics -The Standard Theory}
+
+\section{{\sc Nagashima} - Elementary Particle Physics Volume 1: Quantum Field Theory and Particles}
+\subsection{Problem 2.1}
+\begin{enumerate}
+\item Simple calculation
+\begin{align}
+\alpha=\frac{e^2}{4\pi\epsilon_0\hbar c}&=\frac{1.6^2\cdot 10^{-38}}{12\cdot 9\cdot 10^{-12}\cdot 10^{-34}\cdot3\cdot10^8}\\
+&=\frac{1}{108}10^{-38+34}\frac{1}{10^{-12+8}}\\
+&\approx\frac{1}{137}
+\end{align}
+\begin{align}
+\alpha_G=G_N\frac{m_em_p}{\hbar c}&=7\cdot10^{-11}\frac{10^{-30}\cdot2\cdot10^{-27}}{10^{-34}\cdot3\cdot10^8}\\
+&=4\cdot10^{-11-30-27}\frac{1}{10^{-34+8}}\\
+&=4\cdot10^{-42}
+\end{align}
+\item Another simple one
+\begin{align}
+1=G\frac{m_P^2}{\hbar c}\quad\rightarrow\quad m_P&=\sqrt{\frac{\hbar c}{G}}=2\cdot10^{-8}\text{kg}\\
+E_P&=m_Pc^2=\sqrt{\frac{\hbar c^5}{G}}=2\cdot10^9\text{J}=1.2\cdot10^{19}\text{eV}
+\end{align}
+
+\subsection{Problem 2.3}
+Basic approximation with $\Delta m = m$
+\begin{align}
+\Delta E\cdot\Delta t&\approx\frac{\hbar}{2}\\
+\Delta t&\approx\frac{\hbar}{2\Delta m\cdot c^2}\\
+\Delta x&=c\cdot\Delta t\approx\frac{\hbar}{2\Delta m\cdot c}\\
+\end{align}
+Forgetting the factor 2 and knowing $1\text{GeV}^{-1}= 0.197\cdot10^{-15}\text{s}$
+\begin{align}
+\Delta x_W&=\frac{1}{80}\frac{1}{\text{GeV}}=2.4\cdot10^{-18}\\
+\Delta x_Z&=\frac{1}{91}\frac{1}{\text{GeV}}=2.16\cdot10^{-18}
+\end{align}
+\end{enumerate}
+
+\subsection{Problem 2.4}
+\begin{align}
+\Delta m &= \frac{\hbar}{\Delta x c}\\
+\Delta E &= \Delta m c^2=\frac{\hbar c}{\Delta x}\\
+\Delta E_\text{crab}&=2\cdot10^{-25}\text{eV}\\
+\Delta E_\text{galactic}&=2\cdot10^{-29}\text{eV}
+\end{align}
+
+
+\end{document}

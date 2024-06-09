@@ -1,0 +1,1269 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Feynman, Hibbs} - Quantum mechanics and path integrals 2ed}
+\subsection{2.1}
+With $\dot x=0$ and $\dot x=$const we see
+\begin{align}
+    S&=\int_{t_a}^{t_b}L dt\\
+    &=\frac{m}{2}\int_{t_a}^{t_b}\dot x^2 dt\\
+    &=\frac{m}{2}\left[\left.\dot x x\right|_{t_a}^{t_b}-\int_{t_a}^{t_b} x\ddot xdt\right]\\
+    &=\frac{m}{2}\frac{x_b-x_a}{t_b-t_b}(x_b-x_a)\\
+     &=\frac{m}{2}\frac{(x_b-x_a)^2}{t_b-t_b}
+\end{align}
+
+\subsection{2.2}
+With the solution of the equation of motion 
+\begin{align}
+    \ddot x+\omega^2x=0 &\quad\rightarrow\quad x=x_0\sin(\omega t+\varphi_0)=(x_0\cos\varphi_0)\sin \omega t+(x_0\sin\varphi_0)\cos\omega t\\
+    &\quad\rightarrow\quad \dot x=(x_0\omega\cos\varphi_0)\cos \omega t-(x_0\omega\sin\varphi_0)\sin\omega t
+\end{align}
+then with ($x_a,x_b,t_a,t_b$) we can solve for $x_0$ and $\varphi_0$
+\begin{align}
+    x_0\cos\varphi_0
+    &=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\cos\omega t_b\sin\omega t_a-\cos\omega t_a\sin\omega t_b}\\
+    &=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\sin\omega(t_a-t_b)}\\
+    x_0\sin\varphi_0&=-\frac{x_a\frac{\sin\omega t_b}{\sin\omega t_a}-x_b\tan\omega t_a}{-\sin\omega t_b+\cos\omega t_b\tan\omega t_a}\\
+    &=\frac{x_b\sin\omega t_a-x_a\sin\omega t_b}{\sin\omega(t_a-t_b)}
+\end{align}
+and therefore
+\begin{align}
+    v_a&=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\sin\omega(t_a-t_b)}\sin\omega t_a+\frac{x_b\sin\omega t_a-x_a\sin\omega t_b}{\sin\omega(t_a-t_b)}\sin\omega t_a\\
+    &=-\frac{1}{\sin\omega T}\left[(x_a\cos\omega t_b-x_b\cos\omega t_a)\sin\omega t_a+(x_b\sin\omega t_a-x_a\sin\omega t_b)\sin\omega t_a\right]\\
+    &=-\frac{1}{\sin\omega T}\left[x_a(\cos\omega t_b\sin\omega t_a-\sin\omega t_a\sin\omega t_b)+x_b(\sin^2\omega t_a-\cos\omega t_a\sin\omega t_a)\right]\\
+    v_b&=\frac{x_a\cos\omega t_b-x_b\cos\omega t_a}{\sin\omega(t_a-t_b)}\sin\omega t_b+\frac{x_b\sin\omega t_a-x_a\sin\omega t_b}{\sin\omega(t_a-t_b)}\sin\omega t_b\\
+    &=-\frac{1}{\sin\omega T}\left[x_a(\cos\omega t_b\sin\omega t_b-\sin^2\omega t_b)+x_b(\sin\omega t_a\sin\omega t_b-\cos\omega t_a\sin\omega t_b)\right]
+\end{align}
+Now we can write
+\begin{align}
+    S&=\int_{t_a}^{t_b}L dt\\
+    &=\frac{m}{2}\int_{t_a}^{t_b}(\dot x^2-\omega^2x^2) dt\\
+    &=\frac{m}{2}x_0^2\omega^2\int_{t_a}^{t_b}dt\left(\cos^2(\omega t+\varphi)-\sin^2(\omega t+\varphi)\right)\\
+    &=\frac{m}{2}x_0^2\omega^2\int_{t_a}^{t_b}dt\cos(2[\omega t+\varphi])\\
+    &=\frac{m}{4}x_0^2\omega\sin(2[\omega t+\varphi])|_{t_a}^{t_b}\\
+    &=\frac{m}{2}x_0^2\omega\sin(\omega t+\varphi)\cos(\omega t+\varphi)|_{t_a}^{t_b}\\
+    &=\frac{m}{2} x \dot x|_{t_a}^{t_b}\\
+    &=\frac{m}{2}(x_bv_b-x_av_a)\\
+    &=\frac{m\omega}{2\sin\omega T}\left[(x_a^2+x_b^2)\cos\omega T-2x_ax_b\right]
+\end{align}
+
+\subsection{2.3}
+\begin{align}
+m\ddot{x}+f=0\qquad\rightarrow\qquad x(t)=-\frac{f}{2m}t^2+v_at+x_a
+\end{align}
+then
+\begin{align}
+S
+&=\int_{t_a}^{t_b}\frac{m}{2}\left(-\frac{f}{m}t\right)^2-\frac{f^2}{2m}t^2-fv_at+fx_a \, dt\\
+&=\int_{t_a}^{t_b}-\frac{f^2}{m}t^2-fv_at+fx_a \, dt\\
+&=-\frac{f^2}{3m}(t_b^3-t_a^3)-\frac{fv_a}{2}(t_b^2-t_a^2)+fx_a(t_b-t_a)\\
+&=-\frac{f^2}{3m}(t_b^3-t_a^3)
+-v_am( x_b-v_at_b-x_a- x_a+v_at_a+x_a)
++fx_a(t_b-t_a)\\
+&=-\frac{f^2}{3m}(t_b^3-t_a^3)
+-v_am( x_b-x_a)+v_a^2m (t_b-t_a)
++fx_a(t_b-t_a)\\
+\end{align}
+
+
+\section{{\sc Straumann} - Quantenmechanik 2ed}
+\subsection{2.1 - Spectral oscillator density}
+The vanishing electrical field in the surface requires for each standing wave
+\begin{align}
+    k_i=\frac{\pi}{L}n_i. 
+\end{align}
+and
+\begin{align}
+    k^2&=k_x^2+k_y^2+k_z^2\\
+    \Delta V&=\frac{\pi^3}{L^3}.
+\end{align}
+With $k=2\pi/\lambda = \omega/c$ we have $dk=\frac{d\omega}{c}$ and the volume of a sphere in $k$-space is given by
+\begin{align}
+    V(k)&=\frac{4}{3}\pi k^3\\
+    dV&=4\pi k^2 dk=4\pi \frac{\omega^2}{c^2} \frac{d\omega}{c} 
+    =4\pi (2\pi)^3\frac{\nu^2}{c^3} d\nu 
+\end{align}
+The number of oscillator are then given by the number of points in the positive quadrant (all $k_i$ positive) time two (polarization)
+\begin{align}
+    dN(\nu)=2\frac{V(\nu)/8}{\Delta V}=L^3 \frac{8\pi}{c^3}\nu^2d\nu
+\end{align}
+
+\subsection{2.2 - Energy variance of the harmonic oscillator}
+First we obtain an expression for $T$
+\begin{align}
+    E=\frac{h\nu}{e^{h\nu/kT}-1}\quad\rightarrow\quad\frac{h\nu}{kT}=\ln\left(\frac{h\nu}{E}+1\right)
+\end{align}
+which we can use in
+\begin{align}
+    \frac{dS}{dE}=\frac{1}{T}=\frac{k}{h\nu}\ln\left(\frac{h\nu}{E}+1\right)
+\end{align}
+and take one more derivative
+\begin{align}
+    \frac{d^2S}{dE^2}&=-\frac{k}{h\nu}\frac{\frac{h\nu}{E^2}}{\frac{h\nu}{E}+1}\\
+    &=-k\frac{1}{ h\nu E+E^2}.
+\end{align}
+Now we see
+\begin{align}
+    \langle(\Delta E)^2\rangle=E^2+E h \nu.
+\end{align}
+
+\subsection{3.6 - 1D molecular potential}
+With the given coordinate transformation we get for the single terms
+\begin{align}
+    e^{-\alpha x}&=\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\\
+    e^{-2\alpha x}&=\frac{(\alpha\hbar\xi)^2}{8mA}\\
+    \frac{\partial}{\partial x}&=\frac{\partial\xi}{\partial x}\frac{\partial}{\partial\xi}\\
+    &=-\alpha\xi\frac{\partial}{\partial\xi}\\
+    \frac{\partial^2}{\partial x^2}&=\frac{\partial^2\xi}{\partial x^2}\frac{\partial}{\partial\xi}+\left(\frac{\partial\xi}{\partial x}\right)^2\frac{\partial^2}{\partial\xi^2}\\
+    &=\alpha^2\xi\frac{\partial}{\partial\xi}+(\alpha\xi)^2\frac{\partial^2}{\partial\xi^2}
+\end{align}
+and combined
+\begin{align}
+    -\frac{\hbar^2}{2m}\partial_{xx}\psi+A(e^{-2\alpha x}-2e^{-\alpha x})\psi=E\psi\\
+    -\frac{\hbar^2}{2m}\left(\alpha^2\xi\frac{\partial}{\partial\xi}+(\alpha\xi)^2\frac{\partial^2}{\partial\xi^2}\right)\psi+A\left(\frac{(\alpha\hbar\xi)^2}{8mA}-2\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\right)\psi=E\psi\\
+    \left(\alpha^2\xi\frac{\partial}{\partial\xi}+(\alpha\xi)^2\frac{\partial^2}{\partial\xi^2}\right)\psi-\frac{2mA}{\hbar^2}\left(\frac{(\alpha\hbar\xi)^2}{8mA}-2\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\right)\psi=-\frac{2mE}{\hbar^2}\psi\\
+    \left(\frac{1}{\xi}\frac{\partial}{\partial\xi}+\frac{\partial^2}{\partial\xi^2}\right)\psi-\frac{2mA}{\alpha^2\xi^2\hbar^2}\left(\frac{(\alpha\hbar\xi)^2}{8mA}-2\frac{\alpha\hbar\xi}{2\sqrt{2mA}}\right)\psi=-\frac{2mE}{\hbar^2\alpha^2\xi^2}\psi\\
+    \left(\frac{1}{\xi}\frac{\partial}{\partial\xi}+\frac{\partial^2}{\partial\xi^2}\right)\psi+\left(-\frac{1}{4}+\frac{\sqrt{2mA}}{\alpha\hbar\xi}\right)\psi=-\frac{2mE}{\hbar^2\alpha^2\xi^2}\psi\\
+    \left(\frac{1}{\xi}\frac{\partial}{\partial\xi}+\frac{\partial^2}{\partial\xi^2}\right)\psi+\left(-\frac{1}{4}+\frac{n+s+\frac{1}{2}}{\xi}\right)\psi=\frac{s^2}{\xi^2}\psi\\
+    \left(\frac{\partial^2}{\partial\xi^2}+\frac{1}{\xi}\frac{\partial}{\partial\xi}\right)\psi+\left(-\frac{1}{4}+\frac{n+s+\frac{1}{2}}{\xi}-\frac{s^2}{\xi^2}\right)\psi=0.
+\end{align}
+The units of $\xi$ is $\sqrt{\text{kg}\cdot \text{J}}/\text{m}^{-1}\text{Js}=1$ so $\xi$ in dimensionless.
+\begin{enumerate}
+    \item Case $\xi\gg 1$ ($x\rightarrow-\infty$)
+    Dropping all $1/\xi$ terms
+    \begin{align}
+        \psi''-\frac{1}{4}\psi=0\quad\rightarrow\quad\psi=c_1 e^{\xi/2}+c_2 e^{-\xi/2}
+    \end{align}
+    \item Case $0<\xi\ll 1$ ($x\rightarrow+\infty$)
+    Ansatz $\psi\sim\xi^m$
+    \begin{align}
+        m(m-1)\xi^{m-2}+m\xi^{m-2}-\frac{1}{4}\xi^m+\left(n+s+\frac{1}{2}\right)\xi^{m-1}-s^2\xi^{m-2}=0\\
+        \left[(m^2-s^2)-\frac{1}{4}\xi^2+\left(n+s+\frac{1}{2}\right)\xi\right]\xi^{m-2}=0
+    \end{align}
+    which for small $\xi$ becomes
+    \begin{align}
+        (m^2-s^2)\xi^{m-2}=0 \quad\rightarrow\quad\psi=\xi^{\pm s}
+    \end{align}
+\end{enumerate}
+With the two asymptotics we can make a physically sensible ansatz for a full solutions $\psi=\xi^s e^{-\xi/2}u(\xi)$ which leads to
+\begin{align}
+    \xi u''+(2s+1-\xi)u'+n u=0
+\end{align}
+To solve this equation we use the Sommerfeld polynomial method
+\begin{align}
+    u=\sum_ka_k\xi^k\quad\rightarrow\quad
+    &\sum_kk(k-1)a_k\xi^{k-1}+(2s+1)ka_k\xi^{k-1}-ka_k\xi^k+na_k\xi^k=0\\
+    &\sum_k(k+1)ka_{k+1}\xi^{k}+(2s+1)(k+1)a_{k+1}\xi^{k}-ka_k\xi^k+na_k\xi^k=0\\
+    &a_{k+1}=\frac{k-n}{(k+1)(2s+1+k)}a_k.
+\end{align}
+The requirement for the series to cut off (making $u$ a finite order polynomial) is $n_k=k$. The energies of the bound states are therefore
+\begin{align}
+    E_k&=-\frac{\alpha^2\hbar^2}{2m}s_k^2\\
+    &=-\frac{\alpha^2\hbar^2}{2m}\left[\frac{\sqrt{2mA}}{\alpha\hbar}-(k+1/2)\right]^2\\
+    &=-A\left[1-\frac{\alpha\hbar}{\sqrt{2mA}}(k+1/2)\right]^2
+\end{align}
+where the only valid $k$ are the ones where $E_k$ is in $[-A,0]$.
+
+
+\section{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
+\subsection{2.1}
+Observe
+\begin{align}
+    \int_{-\infty}^\infty\left(\theta(x+a)+\theta(a-x)\right)e^{ikx}dx
+    &=\int_{-a}^ae^{ikx}dx\\
+    &=\frac{1}{ik}\left(e^{ika}-e^{-ika}\right)\\
+    &=2a \frac{\sin ka}{ka}
+\end{align} 
+
+\begin{align}
+    \lim_{P\rightarrow\infty}\int_{-\infty}^\infty\frac{d\chi}{\pi}\frac{\sin\chi}{\chi}e^{ik\left(q'+\frac{\chi}{P}\right)}=\frac{1}{\pi}e^{ikq'}\lim_{P\rightarrow\infty}\int_{-\infty}^\infty d\chi\frac{\sin\chi}{\chi}e^{i\frac{k}{P}\chi}
+\end{align} 
+
+
+
+\section{{\sc Weinberg} - Quantum Mechanics 2nd edition}
+\subsection{1.1}
+\begin{itemize}
+\item The solution of for a free particle in the interval $-a<x<a$ is given by
+\begin{align}
+    \left[-\frac{\hbar^2}{2M}\frac{d^2}{dx^2}-E\right]\phi&=0\\
+    \left[\frac{d^2}{dx^2}+\frac{2ME}{\hbar^2}\right]\phi&=0\\
+    \rightarrow\phi&=A\sin\left(\frac{\sqrt{2ME}}{\hbar}x\right)+B\cos\left(\frac{\sqrt{2ME}}{\hbar}x\right)
+\end{align}    
+with the two boundary conditions
+\begin{align} 
+A\sin\left(\frac{\sqrt{2ME}}{\hbar}(-a)\right)+B\cos\left(\frac{\sqrt{2ME}}{\hbar}(-a)\right)=0\\
+A\sin\left(\frac{\sqrt{2ME}}{\hbar}a\right)+B\cos\left(\frac{\sqrt{2ME}}{\hbar}a\right)=0.
+\end{align}
+The possible energy eigenvalues are therefore
+\begin{align}
+    A=0,\quad\frac{\sqrt{2ME_{2n+1}}}{\hbar}a=(2n+1)\frac{\pi}{2}
+    &\quad\rightarrow\quad E_{2n+1}=\frac{\pi^2\hbar^2}{8Ma^2}(2n+1)^2\\
+    &\quad\rightarrow\quad
+    \phi=\frac{1}{\sqrt{a}}\cos\left(x\frac{\pi}{2a}(2n+1)\right)
+\end{align}   
+    
+\begin{align}    
+    B=0,\quad\frac{\sqrt{2ME_{2n}}}{\hbar}a=2n\frac{\pi}{2}
+    &\quad\rightarrow\quad E_{2n}=\frac{\pi^2\hbar^2}{8Ma^2}(2n)^2\\
+    &\quad\rightarrow\quad
+    \phi=\frac{1}{\sqrt{a}}\sin\left(x\frac{\pi}{2a}(2n)\right)
+\end{align}
+where we calculated the normalization via
+\begin{align}
+    \int_{-a}^a\sin^2(kx)dx
+    &=\int_{-a}^a(1-\cos^2(kx))dx\\
+    &=2a-\int_{-a}^a\cos^2(kx)dx\quad\rightarrow\int_{-a}^a\sin^2(kx)dx=a.
+\end{align}
+
+\item Lets first calculate the normalization
+\begin{align}
+    \int_{-a}^a(a^2-x^2)^2dx
+    &=\left.a^4x-2a^2\frac{x^3}{3}+\frac{x^5}{5}\right|_{-a}^a\\
+    &=a^4(2a)-\frac{2}{3}a^2(16a^3)+\frac{1}{5}(64a^5)\\
+    &=\left(2-\frac{4}{3}+\frac{2}{5}\right)a^5=\frac{16}{15}a^5
+\end{align}
+and then obtain
+\begin{align}
+    \int_{-a}^a \frac{1}{\sqrt{\frac{16a^5}{15}}} \left(a^2-x^2\right)\frac{1}{\sqrt{a}} \cos \left(\frac{\pi  x}{2 a}\right)dx=\frac{8\sqrt{15}}{\pi^3}
+\end{align}
+\end{itemize}
+
+\subsection{1.2}
+\begin{itemize}
+\item We can write the Hamiltonian as
+\begin{align}
+    H&=\frac{\vec{P}^2}{2M}+\frac{M\omega_0^2}{2}\vec{X}^2\\
+    &=\sum_{k=1}^3\frac{p_k^2}{2M}+\frac{M\omega_0^2}{2}x_k^2
+\end{align}
+the energy is therefore given by
+\begin{align}
+    E_{n_1,n_2,n_3}&=\hbar\omega_0\left(n_1+n_2+n_3+\frac{3}{2}\right)\\
+    N_{n=n_1+n_2+n_3}&=\sum_{k=0}^{n}(k+1)\\
+    &=\frac{n(n+1)}{2}+n+1\\
+    &=\frac{(n+1)(n+2)}{2}
+\end{align}
+
+\item With (1.4.5), (1.4.15) and $\omega_{01}=\omega_0$ we have
+\begin{align}
+    \vec{x}]_{01}&=e^{i\omega_0 t}\sqrt{\frac{\hbar}{2M\omega_0}}\\
+    A_{n=1}^{n=0}&=\frac{4e^2\omega_0^3}{3c^3\hbar}\left|[\vec{x}]_{01}\right|^2\\
+    &=\frac{2e^2\omega_0^2}{3c^3M}
+\end{align}
+where with (1.4.15).
+\end{itemize}
+
+\section{{\sc Hannabuss} - An Introduction to Quantum Theory}
+\subsection{Problem 12.2 - Harmonic oscillator with $x^4$ perturbation}
+With
+\begin{align}
+[a,a^\dagger]&=aa^\dagger-a^\dagger a=1\\
+[a,x]&=\sqrt{\frac{\hbar}{2m\omega}}[a,a+a^\dagger]=\sqrt{\frac{\hbar}{2m\omega}}\left([a,a]+[a,a^\dagger]\right)=\sqrt{\frac{\hbar}{2m\omega}}[a,a^\dagger]=\sqrt{\frac{\hbar}{2m\omega}}\\
+[a^n,x]&=...=\sqrt{\frac{\hbar}{2m\omega}}[a^n,a^\dagger]
+=\sqrt{\frac{\hbar}{2m\omega}}(a^na^\dagger-a^\dagger a^n)
+=\sqrt{\frac{\hbar}{2m\omega}}(a^na^\dagger-(a^\dagger a) a^{n-1})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}(a^na^\dagger-(aa^\dagger-1) a^{n-1})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}(a^na^\dagger+a^{n-1}-aa^\dagger a^{n-1})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}(a^na^\dagger+a^{n-1}-a(aa^\dagger-1) a^{n-2})\\
+&=...=\sqrt{\frac{\hbar}{2m\omega}}na^{n-1}
+\end{align}
+the first order energy perturbation can be written as
+\begin{align}
+\Delta E^{(1)}_n
+&=\langle\psi^{(0)}_n|H_1|\psi^{(0)}_n\rangle\\
+&=\frac{1}{n!}\langle0|a^nx^4(a^\dagger)^n|0\rangle\\
+&=\frac{1}{n!}\langle0|\left(xa^n+\sqrt{\frac{\hbar}{2m\omega}}na^{n-1}\right)x^3(a^\dagger)^n|0\rangle\\
+&=\frac{1}{n!}\langle0|xa^nx^3(a^\dagger)^n|0\rangle+\frac{n}{n!}\sqrt{\frac{\hbar}{2m\omega}}\langle0|a^{n-1}x^3(a^\dagger)^n|0\rangle\\
+&=\frac{1}{n!}\langle0|x\left(xa^n+\sqrt{\frac{\hbar}{2m\omega}}na^{n-1}\right)x^2(a^\dagger)^n|0\rangle+\frac{n}{n!}\sqrt{\frac{\hbar}{2m\omega}}\langle0|\left(xa^{n-1}+\sqrt{\frac{\hbar}{2m\omega}}(n-1)a^{n-2}\right)x^2(a^\dagger)^n|0\rangle\\
+&=\frac{1}{n!}\langle0|x^2a^nx^2(a^\dagger)^n|0\rangle+
+2\frac{n}{n!}\sqrt{\frac{\hbar}{2m\omega}}\langle0|xa^{n-1}x^2(a^\dagger)^n|0\rangle+\frac{n(n-1)}{n!}\sqrt{\frac{\hbar}{2m\omega}}^2\langle0|a^{n-2}x^2(a^\dagger)^n|0\rangle\\
+\end{align}
+\begin{align}
+&=\frac{1}{n!}\langle0|x^3a^nx(a^\dagger)^n|0\rangle+
+3\frac{n}{n!}\sqrt{\frac{\hbar}{2m\omega}}\langle0|x^2a^{n-1}x(a^\dagger)^n|0\rangle+3\frac{n(n-1)}{n!}\sqrt{\frac{\hbar}{2m\omega}}^2\langle0|xa^{n-2}x(a^\dagger)^n|0\rangle\\
+&\qquad+\frac{n(n-1)(n-2)}{n!}\sqrt{\frac{\hbar}{2m\omega}}^3\langle0|a^{n-3}x(a^\dagger)^n|0\rangle\\
+&=\frac{1}{n!}\langle0|x^4a^n(a^\dagger)^n|0\rangle+
+4\frac{n}{n!}\sqrt{\frac{\hbar}{2m\omega}}\langle0|x^3a^{n-1}(a^\dagger)^n|0\rangle+6\frac{n(n-1)}{n!}\sqrt{\frac{\hbar}{2m\omega}}^2\langle0|x^2a^{n-2}(a^\dagger)^n|0\rangle\\
+&\qquad+4\frac{n(n-1)(n-2)}{n!}\sqrt{\frac{\hbar}{2m\omega}}^3\langle0|xa^{n-3}(a^\dagger)^n|0\rangle+\frac{n(n-1)(n-2)(n-3)}{n!}\sqrt{\frac{\hbar}{2m\omega}}^4\langle0|a^{n-4}(a^\dagger)^n|0\rangle\\
+&=\langle0|x^4|0\rangle+\frac{4n}{\sqrt{1!}}\sqrt{\frac{\hbar}{2m\omega}}\langle0|x^3|1\rangle+\frac{6n(n-1)}{\sqrt{2!}}\sqrt{\frac{\hbar}{2m\omega}}^2\langle0|x^2|2\rangle\\
+&\quad+\frac{4n(n-1)(n-2)}{\sqrt{3!}}\sqrt{\frac{\hbar}{2m\omega}}^3\langle0|x|3\rangle+\frac{n(n-1)(n-2)(n-3)}{\sqrt{4!}}\sqrt{\frac{\hbar}{2m\omega}}^4\langle0|4\rangle
+\end{align}
+where we used $\frac{1}{\sqrt{n!}}(a^\dagger)^n|0\rangle=|n\rangle$ and $\frac{\sqrt{k!}}{\sqrt{n!}}a^{n-k}|n\rangle=|k\rangle$.
+Using additionally information about the unperturbed solution
+\begin{align}
+H_0(y)&=1\\
+H_1(y)&=2y\\
+H_2(y)&=4y^2-2\\
+\psi_n(x)&=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\frac{1}{\sqrt{2^n n!}}H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)e^{-m\omega x^2/2\hbar}
+\end{align}
+we can rewrite
+\begin{align}
+x^2|0\rangle
+&\simeq \sqrt{\frac{\hbar}{m\omega}}^2\left(\sqrt{\frac{m\omega}{\hbar}}^2x^2\right)\frac{1}{\sqrt{2^0 0!}}H_0(\sqrt{\frac{m\omega}{\hbar}}x)\\
+&=\sqrt{\frac{\hbar}{m\omega}}^2\left(\frac{1}{4}H_2(\sqrt{\frac{m\omega}{\hbar}}x)+\frac{1}{2}H_0(\sqrt{\frac{m\omega}{\hbar}}x)\right)\underbrace{\frac{1}{\sqrt{2^0 0!}}H_0(\sqrt{\frac{m\omega}{\hbar}}x)}_{=1}\\
+&=\sqrt{\frac{\hbar}{m\omega}}^2\left[\frac{\sqrt{2^2 2!}}{4}\frac{1}{\sqrt{2^2 2!}}H_2(\sqrt{\frac{m\omega}{\hbar}}x)+\frac{1}{2}\frac{1}{\sqrt{2^0 0!}}H_0(\sqrt{\frac{m\omega}{\hbar}}x)\right]\\
+&=\sqrt{\frac{\hbar}{m\omega}}^2\left[\frac{\sqrt{2}}{2}|2\rangle+\frac{1}{2}|0\rangle\right]
+\end{align}
+and
+\begin{align}
+x|1\rangle
+&\simeq \sqrt{\frac{\hbar}{m\omega}}\left(\sqrt{\frac{m\omega}{\hbar}}x\right)\frac{1}{\sqrt{2^1 1!}}H_1(\sqrt{\frac{m\omega}{\hbar}}x)\\
+&=\sqrt{\frac{\hbar}{m\omega}}\frac{1}{\sqrt{2^1 1!}}\left(\frac{1}{2}H_2(\sqrt{\frac{m\omega}{\hbar}}x)+H_0(\sqrt{\frac{m\omega}{\hbar}}x)\right)\\
+&=\sqrt{\frac{\hbar}{m\omega}}\left(\frac{1}{2\sqrt{2}}\sqrt{2^2 2!}\frac{1}{\sqrt{2^2 2!}}H_2(\sqrt{\frac{m\omega}{\hbar}}x)+\frac{1}{\sqrt{2}}\frac{1}{\sqrt{2^0 0!}}H_0(\sqrt{\frac{m\omega}{\hbar}}x)\right)\\
+&=\sqrt{\frac{\hbar}{m\omega}}\left(|2\rangle+\frac{1}{\sqrt{2}}|0\rangle\right)
+\end{align}
+then with $\langle m|n\rangle=\delta_{mn}$
+\begin{align}
+\langle0|x^4|0\rangle
+&=\langle0|x^2\cdot x^2|0\rangle
+=\sqrt{\frac{\hbar}{m\omega}}^4\left(\frac{2}{4}+\frac{1}{4}\right)
+=\frac{3}{4}\frac{\hbar^2}{m^2\omega^2}\\
+\langle0|x^3|1\rangle
+&=\langle0|x^2\cdot x|1\rangle
+=\sqrt{\frac{\hbar}{m\omega}}^3\left(\frac{\sqrt{2}}{2}+\frac{1}{2\sqrt{2}}\right)
+=\frac{3}{2\sqrt{2}}\frac{\hbar}{m\omega}\sqrt{\frac{\hbar}{m\omega}}\\
+\langle0|x^2|2\rangle
+&=\langle0|x^2\cdot 1|2\rangle
+=\sqrt{\frac{\hbar}{m\omega}}^2\frac{\sqrt{2}}{2}=\frac{\sqrt{2}}{2}\frac{\hbar}{m\omega}\\
+\langle0|x|3\rangle
+&=0\\
+\langle0|4\rangle
+&=0
+\end{align}
+we obtain
+\begin{align}
+\Delta E^{(1)}_n
+&=\frac{3}{4}\frac{\hbar^2}{m^2\omega^2}+4n\sqrt{\frac{\hbar}{2m\omega}}\frac{3}{2\sqrt{2}}\frac{\hbar}{m\omega}\sqrt{\frac{\hbar}{m\omega}}+\frac{6n(n-1)}{\sqrt{2!}}\sqrt{\frac{\hbar}{2m\omega}}^2\frac{\sqrt{2}}{2}\frac{\hbar}{m\omega}+0+0\\
+&=\frac{3\hbar^2}{4m^2\omega^2}\left(1+2n+2n^2\right)
+\end{align}
+
+\subsection{Problem 12.3 - Harmonic oscillator with other perturbations}
+\begin{enumerate}[(i)]
+\item Calculating the first order energy correction using $x=\sqrt{\hbar/2m\omega}(a+a^\dagger)$
+\begin{align}
+\Delta E^{(1)}_n
+&=\langle\psi_n^{(0)}|x|\psi_n^{(0)}\rangle\\
+&=\sqrt{\hbar/2m\omega}\langle\psi_n^{(0)}|a+a^\dagger|\psi_n^{(0)}\rangle\\
+&=\sqrt{\hbar/2m\omega}\langle n|a+a^\dagger|n\rangle\\
+&=\sqrt{\hbar/2m\omega}\left(\sqrt{n}\langle n-1|n\rangle+\sqrt{n+1}\langle n|n+1\rangle\right)\\
+&=0
+\end{align}
+Calculating the second order energy correction
+\begin{align}
+\Delta E^{(2)}_n
+&=\sum_{k\neq n}\frac{|\langle k^{(0)}|x|n^{(0)}\rangle|^2}{E^{(0)}_n-E^{(0)}_k} \\
+&=\sqrt{\hbar/2m\omega}\sum_{k\neq n}\frac{|\langle k^{(0)}|a+a^\dagger|n^{(0)}\rangle|^2}{(n-k)\hbar\omega} \\
+&=\sqrt{\hbar/2m\omega}\sum_{k\neq n}\frac{|\sqrt{k}\langle (k-1)^{(0)}|n^{(0)}\rangle+\sqrt{n+1}\langle k^{(0)}|(n+1)^{(0)}\rangle|^2}{(n-k)\hbar\omega} \\
+&=\sqrt{\hbar/2m\omega}\sum_{k\neq n}\frac{|\sqrt{k}\delta_{k-1,n}+\sqrt{n+1}\delta_{k,n+1}|^2}{(n-k)\hbar\omega} \\
+&=\sqrt{\hbar/2m\omega}\sum_{k\neq n}\frac{k\delta_{k-1,n}+2\sqrt{k(n+1)}\delta_{k-1,n}\delta_{k,n+1}+(n+1)\delta_{k,n+1}}{(n-k)\hbar\omega} \\
+&=\sqrt{\frac{\hbar}{2m\omega}}\left(
+\frac{n+1}{[n-(n+1)]\hbar\omega}
++\frac{2\sqrt{(n+1)(n+1)}}{[n-(n+1)]\hbar\omega}
++\frac{n+1}{[n-(n+1)]\hbar\omega}
+\right)\\
+&=\sqrt{\frac{1}{2m\hbar\omega^3}}\left(
+-(n+1)
+-2(n+1)
+-(n+1)
+\right)\\
+&=-4(n+1)\sqrt{\frac{1}{2m\hbar\omega^3}}
+\end{align}
+\item
+\end{enumerate}
+
+
+\section{{\sc Schwabl} - Quantum Mechanics 4th ed}
+\subsection{Problem 17.1 - 3d Harmonic oscillator}
+\begin{enumerate}[(a)]
+\item Represent the 3d oscillator by three 1d oscillators
+\begin{align}
+H&=\frac{\mathbf{p}^2}{2m}+\frac{m\omega^2}{2}\mathbf{x}^2\\
+&=\frac{p_x^2+p_y^2+p_z^2}{2m}+\frac{m\omega^2}{2}(x^2+y^2+z^2)\\
+&=\sum_k^3\frac{p_k^2}{2m}+\frac{m\omega^2}{2}x_k^2\\
+&=\hbar\omega\sum_k^3\left(a_k^\dagger a_k+\frac{1}{2}\right)\\
+&=\hbar\omega\sum_k^3\left(n_k+\frac{1}{2}\right)\\
+\rightarrow E&=\hbar\omega\left(n_x+n_y+n_y+\frac{3}{2}\right)
+\end{align}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+level & 1 & 2 & 3 & 4 &... & $N$ \\ 
+\hline\hline
+energy & 3/2 & 5/2 & 7/2 & 9/2 &... & $3/2+N$ \\ 
+\hline 
+multi & 1 & 3 & 6 & 10 &... & $N(N+1)/2$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+The eigenfunctions are then
+\begin{align}
+\psi(\mathbf{x})=\psi_{n_x}(x)\psi_{n_y}(y)\psi_{n_z}(z)
+\end{align}
+
+\item
+\begin{align}
+\left(\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{l(l+1)}{r^2}-\frac{2m[V(r)-E]}{\hbar^2}\right)R(r)=0\\
+\left(\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{l(l+1)}{r^2}+\frac{2mE}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}r^2\right)R(r)=0
+\end{align}
+For the asymptotics $r\rightarrow0$ we set $R(r)=u(r)/r$ and obtain
+\begin{align}
+\left(\frac{d^2}{dr^2}-\frac{l(l+1)}{r^2}\right)u(r)=0
+\end{align}
+assuming $E-V(r)$ is small compared to the $1/r^2$. This gives 
+\begin{align}
+u(r)&=Ar^{l+1}+Br^{-l}\\
+\rightarrow u(r)&=Ar^{l+1}
+\end{align}
+
+We therefore guess the solution as $R(r)\sim r^le^{-\alpha r^2}(a_0+a_1 r+a_2 r^2+...)= r^le^{-\alpha r^2}f(r)$ and substitute into the ODE obtaining a system of algebraic equations for the $a_i$ and $E$. For the lowed energy levels we obtain
+\begin{align}
+l=0\quad
+R(r)&=e^{-\frac{m\omega}{2\hbar}r^2}\quad\rightarrow\quad E=\frac{3}{2}\hbar\omega\\
+R(r)&=e^{-\frac{m\omega}{2\hbar}r^2}\left(1-\frac{2m\omega r^2}{3\hbar}\right)\quad\rightarrow\quad E=\frac{7}{2}\hbar\omega\\
+l=1\quad
+R(r)&=e^{-\frac{m\omega}{2\hbar}r^2}r\quad\rightarrow\quad E=\frac{5}{2}\hbar\omega\\
+l=2\quad
+R(r)&=e^{-\frac{m\omega}{2\hbar}r^2}r^2\quad\rightarrow\quad E=\frac{7}{2}\hbar\omega
+\end{align}
+Making the calculation more robust we insert a full series expansion $f(r)=\sum_ka_kr^k$ into the radial equation
+\begin{align*}
+\left(\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{l(l+1)}{r^2}+\frac{2mE}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}r^2\right)R(r)&=0\\
+rf''+2(1+l-2\alpha r^2)f'-r\left(-\frac{2mE}{\hbar^2}+\alpha(3+2l-2\alpha r^2)+\frac{m^2\omega^2}{\hbar^2}\right)f&=0\\
+f''+2\frac{1+l-2\alpha r^2}{r}f'-\left(-\frac{2mE}{\hbar^2}+\alpha(3+2l-2\alpha r^2)+\frac{m^2\omega^2}{\hbar^2}\right)f&=0\\
+\sum_k\left[k(k-1)a_k+2(1+l-2\alpha r^2)ka_k-\left(-\frac{2mE}{\hbar^2}+\alpha(3+2l-2\alpha r^2)+\frac{m^2\omega^2}{\hbar^2}\right)a_kr^2\right]r^{k-2}&=0\\
+\sum_k\left[k(k-1)a_k+2(1+l)ka_k-2\alpha (k-2)a_{k-2}-\frac{m(m\omega^2-2E)}{\hbar^2}a_{k-2}+\alpha(3+2l)a_{k-2}-2\alpha^2 r^2a_kr^2\right]r^{k-2}&=0\\
+\end{align*}
+
+
+\end{enumerate}
+
+\subsection{Problem 17.2 - Delta-shell potential}
+With
+\begin{align}
+y&=r/a\\
+\frac{d}{dr}&=\frac{\partial y}{\partial r}\frac{d}{dy}=\frac{1}{a}\frac{d}{dy}\\
+\frac{d^2}{dr^2}&=\frac{d}{dr}\left(\frac{1}{a}\frac{d}{dy}\right)=\frac{1}{a^2}\frac{d}{dy}
+\end{align}
+we can rewrite
+\begin{align}
+\left(\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{l(l+1)}{r^2}-\frac{2m[V(r)-E]}{\hbar^2}\right)R(r)=0\\
+\left(\frac{1}{a^2}\frac{d^2}{dy^2}+\frac{2}{ya}\frac{1}{a}\frac{d}{dy}-\frac{l(l+1)}{y^2a^2}-\frac{2m}{\hbar^2}\left[-\lambda\frac{\hbar^2}{2m}\delta(r-a)\right]+\frac{2mE}{\hbar^2}\right)R(r)=0\\
+\left(\frac{1}{a^2}\frac{d^2}{dy^2}+\frac{2}{ya}\frac{1}{a}\frac{d}{dy}-\frac{l(l+1)}{y^2a^2}+\lambda\delta(r-a)+\frac{2mE}{\hbar^2}\right)R(r)=0\\
+\left(\frac{d^2}{dy^2}+\frac{2}{y}\frac{d}{dy}-\frac{l(l+1)}{y^2}+ga\delta(r-a)+\frac{2ma^2E}{\hbar^2}\right)R(r)=0
+\end{align}
+and see
+\begin{align}
+y\neq1&\quad \left(\frac{d^2}{dy^2}+\frac{2}{y}\frac{d}{dy}-\frac{l(l+1)}{y^2}+ak^2\right)R(y)=0\\
+k^2&=g+\frac{2maE}{\hbar^2}
+\end{align}
+Independent solutions
+\begin{align}
+R(y)
+&=Aj_l(y\sqrt{ka})+By_l(y\sqrt{ka})\
+\end{align}
+Here the requirements for the wavefunction
+\begin{itemize}
+\item regular at the origin with $R(r)\sim r^l$
+\item continuous (not differentiable) at $r=a$ (or $y=1$)
+\item jump of the first derivative of $ga$
+\item exponential decay outside to ensure normalizability
+\end{itemize}
+and here a quick overview of the two functions and a special linear combination
+\begin{alignat*}{3}
+j_l(x)&=(-x)^l\left(\frac{1}{x}\frac{d}{dx}\right)^l\frac{\sin x}{x} & \qquad y_l(x)&=-(-x)^l\left(\frac{1}{x}\frac{d}{dx}\right)^l\frac{\cos x}{x} &\qquad  h^{(1)}_0(x)&=j_l(ix)+iy_l(ix)\\
+j_0(x)&=\frac{\sin x}{x}                                             & y_0(x)&=-\frac{\cos x}{x}                    & h^{(1)}_0(x)&=-\frac{e^{-x}}{x}\\
+j_1(x)&=\frac{\sin x}{x^2}-\frac{\cos x}{x}                          & y_1(x)&=-\frac{\cos x}{x}-\frac{\sin x}{x}   & h^{(1)}_1(x)&=i(1+x)\frac{e^{-x}}{x^2}\\
+J_2(x)&=...                                                          & y_l(x)&=...                                  & h^{(1)}_2(x)&=(x^2+3x+3)\frac{e^{-x}}{x^3} 
+\end{alignat*} 
+We see that $j_l$ is suitable for the inside and $h^{(1)}_l$ for the outside.
+\begin{align}
+R(\rho)=\left\{\begin{matrix}
+Aj_l(\rho) & r<a\\
+Ch^{(1)}_l(\rho) & r>a
+\end{matrix}\right.
+\end{align}
+
+
+\section{{\sc Shankar} - Modern Quantum Mechanics 3rd ed}
+\subsection{13.3.1 Pion rest energy}
+Remebering Yukawa potential and fixing units in the exponential
+\begin{align}
+V(r)\sim\frac{e^{-mr}}{r}=\frac{e^{-\frac{mcr}{\hbar}}}{r}
+\end{align}
+Range is given by
+\begin{align}
+\frac{m_\pi c d_\pi}{\hbar}~\sim1\\
+\rightarrow m_\pi=\frac{\hbar}{cd_\pi}=200\text{MeV}
+\end{align}
+
+\subsection{13.3.2 de Broglie wavelength}
+With $E=\frac{p^2}{2m}=qU$ we have
+\begin{align}
+\lambda
+=\frac{h}{p}
+=\frac{h}{\sqrt{2mqU}}
+=0.86\text{\AA}
+\end{align}
+
+\subsection{13.3.3 Balmer and Lyman lines in sun spectrum}
+\begin{align}
+E_2-E_1
+&=\frac{1}{2}mc^2\alpha^2\left(\frac{1}{1^2}-\frac{1}{2^2}\right)\\
+&=\frac{3}{8}mc^2\alpha^2\\
+&=10.2\text{eV}\\
+\frac{E_2-E_1}{kT_{6,000K}}&=\frac{10.2}{20\frac{1}{40}}=20.4\qquad\rightarrow\frac{P(n=2)}{P(n=1)}=5.5\cdot10^{-9}\\
+\frac{E_2-E_1}{kT_{100,000K}}&=\frac{10.2}{333\frac{1}{40}}=1.2\qquad\rightarrow\frac{P(n=2)}{P(n=1)}=1.2
+\end{align}
+
+\subsection{13.3.4 Energy levels of multi-electron atoms - NOT DONE YET}
+We always remember
+\begin{align}
+E_n=\frac{1}{2}mc^2\frac{(\alpha Z)^2}{n^2}
+\end{align}
+Justification - Virial theorem $E_{kin}\sim E_{pot}$
+\begin{align}
+E_n
+=\langle n|H|n\rangle
+\sim\langle n|V_C|n\rangle
+\sim\langle n|\frac{Ze^2}{r}|n\rangle
+\end{align}
+
+\section{{\sc Zettili} - Quantum Mechanics - Concepts and Applications 2nd ed}
+
+\section{{\sc Banks} - Quantum Mechanics}
+\subsection{Exercise 13.1 - Cubic and Quartic perturbed harmonic oscillator}
+We split the Hamiltonian and see
+\begin{align}
+H&=H_0+a\left(X^3+\frac{b}{a}X^4\right)\\
+E_n^{(0)}&=\hbar\omega\left(n+\frac{1}{2}\right)\\
+|n^{(0)}\rangle&=\frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega x^2}{2\hbar}}H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)
+\end{align}
+then
+\begin{align}
+E_n=E_n^{(0)}
++a\langle n^{(0)}|X^3+\frac{b}{a}X^4|n^{(0)}\rangle
++a^2\sum_{k\neq n}\frac{|\langle k^{(0)}|X^3+\frac{b}{a}X^4|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}
+\end{align}
+we can use the identities for the Hermite polynomials
+\begin{align}
+xH_n(x)&=n H_{n-1}(x)+\frac{1}{2}H_{n+1}(x)\\
+x^2H_n(x)&=n(n-1)H_{n-2}(x)+\frac{2n+1}{2} H_{n}(x)+\frac{1}{4}H_{n+2}(x)\\
+x^3H_n(x)&=
+n(n-1)(n-2)H_{n-3}(x)
++\left(\frac{n(n-1)}{2}+\frac{(2n+1)n}{2}\right)H_{n-1}
++\left(\frac{2n+1}{4}+\frac{n+2}{4}\right)H_{n+1}(x)+\frac{1}{8}H_{n+3}(x)\\
+&=
+n(n-1)(n-2)H_{n-3}(x)
++\frac{3n^2}{2}H_{n-1}(x)
++3\frac{n+1}{4}H_{n+1}(x)+\frac{1}{8}H_{n+3}(x)\\
+x^4H_{n}(x)
+&=n(n-1)(n-2)(n-3)H_{n-4}(x)
++(2n^2-3n+1)nH_{n-2}(x)
++\frac{3}{4}(2n^2+2n+1)H_{n}(x)\\
+&\qquad+\frac{1}{4}(2n+3)H_{n+2}(x)
++\frac{1}{16}H_{n+4}(x)
+\end{align}
+and see
+\begin{align}
+x^3|n^{(0)}\rangle
+&=x^3\frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega x^2}{2\hbar}}H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)\\
+&=\left(\sqrt{\frac{\hbar}{m\omega}}x\right)^3 \frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega x^2}{2\hbar}}\left(\sqrt{\frac{m\omega}{\hbar}}x\right)^3H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right)\\
+&=\left(\sqrt{\frac{\hbar}{m\omega}}\right)^3 \frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega x^2}{2\hbar}}\left[n(n-1)(n-2)H_{n-3}(\sqrt{\frac{m\omega}{\hbar}}x)
+\right.\\
+&\qquad\left.
++\frac{3n^2}{2}H_{n-1}(\sqrt{\frac{m\omega}{\hbar}}x)+3\frac{n+1}{4}H_{n+1}(\sqrt{\frac{m\omega}{\hbar}}x)+\frac{1}{8}H_{n+3}(\sqrt{\frac{m\omega}{\hbar}}x)\right]\\
+&=\left(\sqrt{\frac{\hbar}{m\omega}}\right)^3\left[
+n(n-1)(n-2)\frac{\sqrt{2^{n-3}(n-3)!}}{\sqrt{2^n n!}}|(n-3)^{(0)}\rangle+
+\frac{3n^2}{2}\frac{\sqrt{2^{n-1}(n-1)!}}{\sqrt{2^n n!}}|(n-1)^{(0)}\rangle\right.\\
+&\qquad+\left.
+\frac{3n+1}{4}\frac{\sqrt{2^{n+1}(n+1)!}}{\sqrt{2^n n!}}|(n-1)^{(0)}\rangle+
+\frac{1}{8}\frac{\sqrt{2^{n+1}(n+1)!}}{\sqrt{2^n n!}}|(n+1)^{(0)}\rangle
+\right]
+\end{align}
+\begin{align}
+x^4|n^{(0)}\rangle
+&=\frac{\hbar^2}{m^2\omega^2}\left[
+n(n-1)(n-2)(n-3)\frac{\sqrt{2^{n-4}(n-4)!}}{\sqrt{2^n n!}}|(n-4)^{(0)}\rangle+
+(2n^2-3n+1)n\frac{\sqrt{2^{n-2}(n-2)!}}{\sqrt{2^n n!}}|(n-2)^{(0)}\rangle\right.\\
+&\qquad+\left.
+\frac{3}{4}(2n^2+2n+1)\|n^{(0)}\rangle+
+\frac{1}{4}(2n+3)\frac{\sqrt{2^{n+2}(n+2)!}}{\sqrt{2^n n!}}|(n+2)^{(0)}\rangle+
+\frac{1}{16}\frac{\sqrt{2^{n+4}(n+4)!}}{\sqrt{2^n n!}}|(n+4)^{(0)}\rangle
+\right]
+\end{align}
+Then
+\begin{align}
+\langle n^{(0)}|X^3|n^{(0)}\rangle&=0\\
+\langle n^{(0)}|X^4|n^{(0)}\rangle&=\frac{3}{4}[2n(n+1)+1]\frac{\hbar^2}{m^2\omega^2}
+\end{align}
+and the first order corrections are given by
+\begin{align}
+a\langle n^{(0)}|X^3+\frac{b}{a}X^4|n^{(0)}\rangle
+&=a\langle n^{(0)}|X^3|n^{(0)}\rangle
++a\langle n^{(0)}|\frac{b}{a}X^4|n^{(0)}\rangle\\
+&=\frac{3}{4}[2n(n+1)+1]\frac{\hbar^2}{m^2\omega^2}b
+\end{align}
+Also
+\begin{align}
+\langle n^{(0)}|X^3|(n-3)^{(0)}\rangle
+&=n(n-1)(n-2)\frac{\sqrt{2^{n-3}(n-3)!}}{\sqrt{2^nn!}}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+&=\frac{\sqrt{n(n-1)(n-2)}}{\sqrt{8}}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+\langle n^{(0)}|X^3|(n-1)^{(0)}\rangle
+&=\frac{3n^2}{2}\frac{\sqrt{2^{n-1}(n-1)!}}{\sqrt{2^nn!}}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+&=\frac{3n^{3/2}}{\sqrt{8}}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+\langle n^{(0)}|X^3|(n+1)^{(0)}\rangle
+&=\frac{3}{4}(n+1)\frac{\sqrt{2^{n+1}(n+1)!}}{\sqrt{2^nn!}}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+&=\frac{3}{\sqrt{8}}(n+1)^{3/2}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+\langle n^{(0)}|X^3|(n+3)^{(0)}\rangle
+&=\frac{1}{8}\frac{\sqrt{2^{n+3}(n+3)!}}{\sqrt{2^nn!}}\left(\frac{\hbar}{m\omega}\right)^{3/2}\\
+&=\frac{1}{\sqrt{8}}\sqrt{(n+1)(n+2)(n+3)}\left(\frac{\hbar}{m\omega}\right)^{3/2}
+\end{align}
+
+\begin{align}
+\langle n^{(0)}|X^4|(n-4)^{(0)}\rangle
+&=n(n-1)(n-2)(n-3)\frac{\sqrt{2^{n-4}(n-4)!}}{\sqrt{2^n n!}}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+&=\frac{1}{4}\sqrt{n(n-1)(n-2)(n-3)}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+\langle n^{(0)}|X^4|(n-2)^{(0)}\rangle
+&=(2n^2-3n+1)n\frac{\sqrt{2^{n-2}(n-2)!}}{\sqrt{2^n n!}}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+&=\frac{1}{2}(2n-1)\sqrt{n(n-1)}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+\langle n^{(0)}|X^4|(n)^{(0)}\rangle
+&=\frac{3}{4}(2n^2+2n+1)\left(\frac{\hbar}{m\omega}\right)^{2}\\
+\langle n^{(0)}|X^4|(n+2)^{(0)}\rangle
+&=\frac{1}{4}(2n+3)\frac{\sqrt{2^{n+2}(n+2)!}}{\sqrt{2^n n!}}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+&=\frac{1}{2}(2n+3)\sqrt{(n+1)(n+2)}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+\langle n^{(0)}|X^4|(n+4)^{(0)}\rangle
+&=\frac{1}{16}\frac{\sqrt{2^{n+4}(n+4)!}}{\sqrt{2^n n!}}\left(\frac{\hbar}{m\omega}\right)^{2}\\
+&=\frac{1}{4}\sqrt{(n+1)(n+2)(n+3)(n+4)}\left(\frac{\hbar}{m\omega}\right)^{2}
+\end{align}
+and the second order corrections are given by
+\begin{align}
+a^2\sum_{k\neq n}\frac{|\langle k^{(0)}|X^3+\frac{b}{a}X^4|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}
+&=a^2\sum_{k\neq n}\frac{|\langle n^{(0)}|X^3+\frac{b}{a}X^4|k^{(0)}\rangle|^2}{(n-k)\hbar\omega}\\
+&=a^2\sum_{k\neq n}\frac{|\langle n^{(0)}|X^3|k^{(0)}\rangle+\frac{b}{a}\langle n^{(0)}|X^4|k^{(0)}\rangle|^2}{(n-k)\hbar\omega}
+\end{align}
+because $X^3$ and $X^4$ terms do not mix AND terms like $n-4$ vanish for $n=1,2,3$ we can write 
+\begin{align}
+E^{(2)}_n&=\sum_{k\in\{n-4,...,n+4\}}\frac{a^2|\langle n^{(0)}|X^3|k^{(0)}\rangle|^2+b^2|\langle n^{(0)}|X^4|k^{(0)}\rangle|^2}{(n-k)\hbar\omega}\\
+&=-a^2\frac{1}{8}\frac{\hbar^2}{m^3\omega^4}(30n^2+30n+11)
+-b^2\frac{1}{16}\frac{\hbar^3}{m^4\omega^5}(68n^3+102n^2+118n+42)
+\end{align}
+
+\subsection{Exercise 13.2 - Quartic perturbed harmonic oscillator}
+Substituting all into the Schroedinger equation
+\begin{align}
+-\frac{\hbar^2}{2m}\psi''-\frac{m\omega^2}{2}x^2\psi+bx^4\psi=E\psi
+\end{align}
+\begin{align}
+\sum_{k=0}b^k\left(-\frac{\hbar^2}{2m}\left[P_k''(x)-\frac{2m\omega}{\hbar}xP_k'(x)+\frac{m^2\omega^2}{\hbar^2}x^2P_k(x)-\frac{m\omega}{\hbar}P_k(x)\right]+\frac{m\omega^2}{2}x^2P_k(x)+bx^4P_k(x)\right)e^{-\frac{m\omega}{2\hbar}x^2}\\
+=\sum_{k=0}b^kE_k\cdot\sum_{l=0}b^lP_l(x)e^{-\frac{m\omega}{2\hbar}x^2}
+\end{align}
+with $E_0=\frac{1}{2}\hbar\omega$ (the book value of $\hbar\omega$ seems wrong). Now we can sort by powers of $b$
+
+Zeroth order - using $E_0=\hbar\omega/2$
+\begin{align}
+b^0:\quad &-\frac{\hbar^2}{2m}\left[P_0''(x)-\frac{2m\omega}{\hbar}xP_0'(x)+\frac{m^2\omega^2}{\hbar^2}x^2P_0(x)-\frac{m\omega}{\hbar}P_0(x)\right]+\frac{m\omega^2}{2}x^2P_0(x)=E_0P_0(x)\\
+&P_0''(x)-\frac{2m\omega}{\hbar}xP_0'(x)-\frac{m}{\hbar}\left(\omega-\frac{2E_0}{\hbar}\right)P_0(x)=0\\
+&\rightarrow P_0(x)=1
+\end{align}
+First order - using $E_0=\hbar\omega/2$ and $P_0(x)=1$
+\begin{align}
+b^1:\quad &-\frac{\hbar^2}{2m}\left[P_1''(x)-\frac{2m\omega}{\hbar}xP_1'(x)+\frac{m^2\omega^2}{\hbar^2}x^2P_1(x)-\frac{m\omega}{\hbar}P_1(x)\right]+\frac{m\omega^2}{2}x^2P_1(x)+x^4P_0(x)\\
+&\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad=E_0P_1(x)+E_1P_0(x)\\
+&P_1''(x)-\frac{2m\omega}{\hbar}xP_1'(x)-\frac{2m}{\hbar^2}x^4+\frac{m\omega}{\hbar}P_1(x)+\frac{2mE_1}{\hbar^2}=0\\
+&\rightarrow P_1(x)=-\frac{1}{4\hbar\omega}x^4-\frac{3}{4m\omega^2}x^2+c_1\\
+&\rightarrow E_1(x)=\frac{3\hbar^2}{4m^2\omega^2}
+\end{align}
+Second order - using $E_0=\hbar\omega/2$, $E_1(x)=\frac{3\hbar^2}{4m^2\omega^2}$ and $P_0(x)=1$, $P_1(x)=-\frac{1}{4\hbar\omega}x^4-\frac{3}{4m\omega^2}x^2+c_1$
+\begin{align}
+b^2:\quad &-\frac{\hbar^2}{2m}\left[P_2''(x)-\frac{2m\omega}{\hbar}xP_2'(x)+\frac{m^2\omega^2}{\hbar^2}x^2P_2(x)-\frac{m\omega}{\hbar}P_2(x)\right]+\frac{m\omega^2}{2}x^2P_2(x)+x^4P_1(x)\\
+&\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad=E_0P_2(x)+E_1P_1(x)+E_2P_0(x)\\
+&P_2''(x)-\frac{2m\omega}{\hbar}xP_2'(x)-\frac{2m}{\hbar^2}x^4P_1(x)+\frac{m\omega}{\hbar}P_1(x)+\frac{2mE_1}{\hbar^2}=0\\
+&\rightarrow P_2(x)=\frac{1}{32\hbar^2\omega^2}x^8+\frac{13}{48m\omega^3\hbar}x^6+\frac{31\hbar-8m^2\omega^3c_0}{32m^2\omega^4\hbar}x^4+\frac{3(7\hbar-2m^2\omega^3c_0)}{8m^3\omega^5}x^2+c_2\\
+&\rightarrow E_2(x)=-\frac{21\hbar^3}{8m^4\omega^5}
+\end{align}
+Then
+\begin{align}
+E=\frac{1}{2}\hbar\omega+ \frac{3\hbar^2}{4m^2\omega^2}b-\frac{21\hbar^3}{8m^4\omega^5}b^2+...
+\end{align}
+
+\subsection{Exercise 13.3 - Normal matrix}
+A normal matrix $A$ has the property $A^\dagger A=AA^\dagger$
+
+
+
+\section{{\sc Sakurai, Napolitano} - Modern Quantum Mechanics 3rd ed}
+\subsection{5.1 - Harmonic oscillator with linear perturbation}
+The Hamiltonians are given by
+\begin{align}
+\hat{H}_0&=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}m\omega_o^2x^2\\
+\hat{H}_1&=bx
+\end{align}
+We remember
+\begin{align}
+\phi_0(x)&=\left(\frac{m\omega_0}{\pi\hbar}\right)^{1/4}e^{-m\omega_0x^2/2\hbar}\\
+E_0&=\frac{1}{2}\hbar\omega_0\\
+\phi_n(x)&=\frac{1}{\sqrt{2^n n!}}\left(\frac{m\omega_0}{\pi\hbar}\right)^{1/4}e^{-m\omega_0x^2/2\hbar}H_n\left(\sqrt{\frac{m\omega_0}{\hbar}}x\right)\\
+E_n&=\hbar\omega_0\left(n+\frac{1}{2}\right)
+\end{align}
+\begin{enumerate}
+\item Time independent perturbation theory gives
+\begin{align}
+\Delta E_n^{(1)}&=\langle n^{(0)}|\hat{H}_1|n^{(0)}\rangle\\
+\Delta E_0^{(1)}&=\langle 0^{(0)}|\hat{H}_1|0^{(0)}\rangle =0
+\end{align}
+The first order energy shift vanishes because of the wave function is even and $H_1$ is odd.
+For the first order perturbation of the wave function we observe
+\begin{align}
+H_1(x)&=2xH_0(x)\quad\rightarrow\quad\hat{H}_1|0^{(0)}\rangle=\frac{b}{2}\sqrt{2}\sqrt{\frac{\hbar}{m\omega_0}}|1^{(0)}\rangle\\
+\langle m^{(0)}|n^{(0)}\rangle&=\delta_{nm}
+\end{align}
+Now we can calculate  
+\begin{align}
+|n^{(1)}\rangle&=\sum_{k\neq n}\frac{\langle k^{(0)}|\hat{H}_1|n^{(0)}\rangle}{E_n^{(0)}-E_k^{(0)}}|k^{(0)}\rangle\\
+|0^{(1)}\rangle&=\frac{\langle 0^{(0)}|\hat{H}_1|1^{(0)}\rangle}{E_0^{(0)}-E_1^{(0)}}|1^{(0)}\rangle\\
+&=-\frac{1}{\hbar\omega_0}b\sqrt{\frac{\hbar}{2m\omega_0}}|1^{(0)}\rangle\\
+&=-b\sqrt{\frac{1}{2m\hbar\omega_0^3}}|1^{(0)}\rangle
+\end{align}
+Second order enegy perturbation
+\begin{align}
+\Delta E_n^{(2)}&=\langle n^{(0)}|\hat{H}_1|n^{(1)}\rangle=\sum_{k\neq n}\frac{|\langle k^{(0)}|\hat{H}_1|n^{(0)}\rangle|^2}{E_n^{(0)}-E_k^{(0)}}\\
+\Delta E_0^{(2)}&=\langle 0^{(0)}|\hat{H}_1|0^{(1)}\rangle\\
+&=b\sqrt{\frac{\hbar}{2m\omega_0}}\langle 1^{(0)}|0^{(1)}\rangle\\
+&=b\sqrt{\frac{\hbar}{2m\omega_0}}\langle 1^{(0)}|\left(-b\sqrt{\frac{1}{2m\hbar\omega_0^3}}\right)|1^{(0)}\rangle\\
+&=-b^2\frac{1}{2m\omega_0^2}
+\end{align}
+\item The linear perturbation does not change the shape of the potential - only shifts the minimum 
+\begin{align}
+ V(x)&=\frac{m\omega_0^2}{2}x^2+bx=\frac{m\omega_0^2}{2}\left(x+\frac{b}{m\omega_0^2}\right)^2-\frac{b^2}{2m\omega_0^2}\\
+\Delta E^{(\infty)}&=-\frac{b^2}{2m\omega_0^2} 
+\end{align}
+\end{enumerate}
+So the second order gives the exact result - interesting to see if higher orders would all  vanish or give oscillating contributions.  
+
+\subsection{5.2 - Potential well with linear slope}
+We will treat the slope as a perturbation with
+\begin{align}
+\hat{H}_1=\frac{V}{L}x
+\end{align} 
+Therefore the unperturbed wave functions are given by
+\begin{align}
+\phi_n=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L}\qquad
+E_n=\frac{\pi^2\hbar^2}{2mL^2}n^2
+\end{align}
+Then
+\begin{align}
+\Delta E_n^{(1)}
+&=\langle n^{(0)}|\hat{H}_1|n^{(0)}\rangle\\
+&=\frac{V}{L}\frac{2}{L}\int_0^L x\sin^2\frac{n\pi x}{L}dx\\
+&=\frac{2V}{L^2}\int_0^L x\sin^2\frac{n\pi x}{L}dx\\
+&=\frac{2V}{L^2}\int_0^L x\left(1-\cos^2\frac{n\pi x}{L}\right)dx\\
+&=\frac{2V}{L^2}\frac{L^2}{2}-\Delta E_n^{(1)}
+\end{align}
+meaning $\Delta E_n^{(1)}=V/2$.
+
+\subsection{5.3 - Relativistic perturbation}
+We can approximate the kinetic energy by
+\begin{align}
+E&=\sqrt{m^2c^4+p^2c^2}\\
+&\approx mc^2+\frac{p^2}{2m}-\frac{p^4}{8m^3c^2}+\frac{p^6}{16m^5c^4}+\cdots\\
+&=mc^2+\frac{mc^2}{2}\frac{p^2}{m^2c^2}-\frac{mc^2}{8}\frac{p^4}{m^4c^4}+\cdots\\
+&=mc^2\left(1+\frac{1}{2}\beta^2-\frac{1}{8}\beta^4+\cdots\right)
+\end{align}
+so
+\begin{align}
+\hat{H}_0&=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}m\omega^2x^2\\
+\hat{H}_1&=-\frac{1}{8m^3c^2}p^4=-\frac{\hbar^4}{8m^3c^2}\frac{d^4}{dx^4}
+\end{align}
+and we remember
+\begin{align}
+\phi_0(x)&=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-m\omega x^2/2\hbar}\\
+E_0&=\frac{1}{2}\hbar\omega_0
+\end{align}
+then
+\begin{align}
+\Delta E_0^{(1)}&=\langle 0^{(0)}|\hat{H}_1|0^{(0)}\rangle\\
+&=-\frac{\hbar^4}{8m^3c^2}\int_{-\infty}^\infty\phi_0(x)^*\frac{d^4}{d^4x}\phi_0(x)dx\\
+&=-\frac{3\hbar^2\omega^2}{32mc^2}
+\end{align}
+
+\subsection{5.4 - Diatomic atomic rotor - NOT DONE YET}
+Hamiltonian of the problem is given by
+\begin{align}
+H=\frac{L^2}{2I}\quad\rightarrow\quad\hat{H}&=-\frac{\hbar^2}{2I}\frac{d^2}{d\varphi^2}
+\end{align}
+with the unperturbed solutions
+\begin{align}
+\phi_n^{(0)}&=C e^{in\phi}\qquad E_n^{(0)}=\frac{\hbar^2n^2}{2I}
+\end{align}
+where only $E_0$  is non-degenerate (all other are double degenerated). 
+For the perturbation we use the Hamiltonian
+\begin{align}
+\hat{H}_1&=Ed\cos\varphi
+\end{align}
+Hmmm....
+
+
+\subsection{5.6 - Two dimensional potential well}
+As the problem separates 
+\begin{align}
+\left(\hat{H}_x+\hat{H}_y\right)\phi_x\phi_y=(E_x+E_y)\phi_x\phi_y\\
+\phi_y\hat{H}_x\phi_x+\phi_x\hat{H}_y\phi_y=(E_x+E_y)\phi_x\phi_y\\
+\frac{\hat{H}_x\phi_x}{\phi_x}+\frac{\hat{H}_y\phi_y}{\phi_y}=(E_x+E_y)
+\end{align}
+the wave function can be written as a product of the 1-dimensional wave functions
+\begin{align}
+\phi_{n_x,n_y}&=\sqrt{\frac{2}{L}}\sqrt{\frac{2}{L}}\sin\left(\frac{n_x\pi}{L}x\right)\sin\left(\frac{n_y\pi}{L}y\right)\\
+E_{n_x,n_y}&=\frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2)
+\end{align}
+So 
+\begin{align}
+\phi_{1,1}\quad\rightarrow\quad E_{1,1}&=2\frac{\pi^2\hbar^2}{2mL^2}\\
+\phi_{2,1},\phi_{1,2}\quad\rightarrow\quad E_{2,1}&=5\frac{\pi^2\hbar^2}{2mL^2}\\
+\phi_{2,2}\quad\rightarrow\quad E_{1,1}&=8\frac{\pi^2\hbar^2}{2mL^2}
+\end{align}
+for the non-degenerated levels $E_{1,1}$ and $E_{2,2}$ we get
+\begin{align}
+\Delta E_{1,1}^{(1)}&=\langle 1,1^{(0)}|\hat{H}_1|1,1^{(0)}\rangle\\
+&=\frac{1}{4}\lambda L^2\\
+\Delta E_{2,2}^{(1)}&=\langle 2,2^{(0)}|\hat{H}_1|2,2^{(0)}\rangle\\
+&=\frac{1}{4}\lambda L^2
+\end{align}
+and for the degenerated levels $E_{1,2}/E_{2,1}$ we get
+\begin{align}
+H=
+\begin{pmatrix}
+\langle 1,2^{(0)}|\hat{H}_1|1,2^{(0)}\rangle & \langle 1,2^{(0)}|\hat{H}_1|2,1^{(0)}\rangle\\
+\langle 2,1^{(0)}|\hat{H}_1|1,2^{(0)}\rangle & \langle 2,1^{(0)}|\hat{H}_1|2,1^{(0)}\rangle
+\end{pmatrix}
+\end{align}
+with
+\begin{align}
+H_{aa}&=\langle 1,2^{(0)}|\hat{H}_1|1,2^{(0)}\rangle=\frac{\lambda L^2}{4}\\
+H_{ab}&=\langle 1,2^{(0)}|\hat{H}_1|2,1^{(0)}\rangle=\frac{256\lambda L^2}{81\pi^4}\\
+H_{bb}&=\langle 2,1^{(0)}|\hat{H}_1|2,1^{(0)}\rangle=\frac{\lambda L^2}{4}
+\end{align}
+and $\hat{H}_1=\lambda x y$ Diagonalising the matrix $H$ gives the perturbation
+\begin{align}
+\Delta E_{12,21}^{(1)}=\frac{\lambda L^2}{4}-\frac{256\lambda L^2}{81\pi^4}\\
+\Delta E_{12,21}^{(1)}=\frac{\lambda L^2}{4}+\frac{256\lambda L^2}{81\pi^4}\\
+\end{align}
+
+
+\subsection{5.8 - Quadratically perturbed harmonic oscillator}
+\begin{align}
+\hat{H}_1=\epsilon\frac{1}{2}m\omega^2x^2
+\end{align}
+
+\begin{align}
+H_0(x)&=1\\
+H_2(x)&=4x^2-2\quad\rightarrow\quad x^2=\frac{H_2}{4}+\frac{1}{2}
+\end{align}
+
+\subsection{5.13 - Two-dimensional infinite square well - NOT DONE YET}\begin{enumerate}[a.]
+\item  Separation ansatz
+\begin{align}
+\left[-\frac{\hbar^2}{2m}(\partial_{xx}+\partial_{yy})-E_{kl}\right]\psi_k(x)\psi_l(y)=0\\
+\frac{1}{\psi_k(x)}\left(-\frac{\hbar^2}{2m}\partial_{xx}\right)\psi_k(x)=E_{kl}=\frac{1}{\psi_l(y)}\left(-\frac{\hbar^2}{2m}\partial_{yy}\right)\psi_l(y)
+\end{align}
+giving with boundary condition $\psi=0$
+\begin{align}
+\psi_{kl}(x,y)&=\sqrt{\frac{2}{a}}\sqrt{\frac{2}{a}}\sin(\frac{k\pi}{a}x)\sin(\frac{k\pi}{a}y)\\
+E_{kl}&=\frac{\pi^2\hbar^2}{2ma^2}(k^2+l^2)
+\end{align}
+Then the three lowest energy eigenstates are
+\begin{align}
+E_{11}&=2\cdot\frac{\pi^2\hbar^2}{2ma^2}\\
+E_{21}&=5\cdot\frac{\pi^2\hbar^2}{2ma^2}\\
+E_{12}&=5\cdot\frac{\pi^2\hbar^2}{2ma^2}
+\end{align}
+\item
+\begin{align}
+E_{11}^{(1)}
+&=\lambda\langle 1,1|xy|1,1\rangle=\lambda \frac{a^2}{4}\\
+E_{11}^{(2)}
+&=\lambda^2
+\end{align}
+\end{enumerate}
+
+
+\subsection{5.42 - Triton beta decay - NOT DONE YET}
+\begin{enumerate}[a.]
+\item With the generic $1s$ wave function
+\begin{align}
+\psi_{10}&=\frac{1}{\sqrt{4\pi}}\sqrt{\frac{1}{2}\left(\frac{2Z}{a_\mu}\right)^3}e^{-Zr/a_\mu}\\
+a_\mu&=\frac{1}{\mu}a_0\\
+\mu&=\frac{mM}{m+M}
+\end{align}
+we get with the initial state ($Z=1$, $M=3m 1837$) and the final state ($Z=2$, $M=3m 1837$) then
+\begin{align}
+\left(i|f\right)=4\pi\int_0^\infty r^2\psi_i\psi_f=\frac{16\sqrt{2}}{27}
+\end{align}
+so the probability is 512/729.
+\item
+\end{enumerate}
+
+
+
+\subsection{8.1 - Natural units}
+\begin{enumerate}
+\item Proton Mass
+\begin{align}
+      E_p=m_pc^2/e=0.937\text{GeV}
+\end{align}
+\item With $\Delta p\cdot\Delta x\ge\hbar/2$ and $E=\sqrt{m^2c^4+p^2c^2}\approx pc$
+\begin{align}
+	E=\Delta p c/e=98.6\text{MeV}
+\end{align}
+Alternatively we have $E=\frac{\hbar c}{e\cdot dx}$ meaning $1\text{fm}=\frac{1}{197.3\text{MeV}}$ and therefore
+\begin{align}
+	E=\frac{\hbar}{2\cdot\Delta x}c=197.3/2\text{MeV}
+\end{align}
+\item Solving for $\alpha,\beta,\gamma$
+\begin{align}
+	M_P
+	&=G^\alpha c^\beta \hbar^\gamma\\
+	&=\left(\frac{\text{Nm}^2}{\text{kg}^2}\right)^\alpha\left(\frac{\text{m}}{\text{s}}\right)^\beta\left(\text{Js}\right)^\gamma\\
+	&=\sqrt{\frac{\hbar c}{G}}\\
+	E_P&=\sqrt{\frac{\hbar c}{G}}c^2\frac{1}{e}=1.22\cdot10^{19}\text{GeV}
+\end{align}
+\end{enumerate}
+\subsection{8.2 - Minkowski Metric}
+The definition implies that $\eta_{\lambda\nu}$ is the inverse of $\eta^{\lambda\nu}$ - simple calculation shows that they are identical. Now we can calculate
+\begin{align}
+\eta^{\mu\lambda}\eta^{\nu\sigma}\eta_{\lambda\sigma}
+&=\eta^{\nu\sigma}\delta^\mu_\sigma\\
+&=\eta^{\nu\mu}
+\end{align}
+and
+\begin{align}
+a^\mu b_\mu=a_\alpha\eta^{\alpha\mu}b^\beta\eta_{\beta\mu}=a_\alpha b^\beta\delta^\alpha_\beta=a_\alpha b^\alpha
+\end{align}
+
+
+\section{{\sc Bethe, Jackiw} - Intermediate Quantum Mechanics}
+\subsection{1.1 - Atomic units}
+Set $\hbar=e=m_e=1$ and $a_B=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}=1$ then $4\pi\varepsilon_0=1$ and therefore $\alpha=\frac{e^2}{4\pi\varepsilon_0\hbar c}=1/c$
+\begin{enumerate}
+\item energy: $E_{1s}=\frac{1}{2}m_ec^2\alpha^2$ therefore 1 a.u. = $2\times13.6$eV
+\item momentum: $p=m_e c$ therefore 1 a.u. = $2\cdot 10^{-31}\text{kg}\times 3\cdot 10^8\text{m/s}^2=2.73\cdot10^{-22}$J
+\item angular momentum: $L=\hbar$ therefore 1 a.u. = $1.04\cdot10^{-34}$Js 
+\end{enumerate}
+
+\subsection{1.7 - Hydrogen atom with finite nucleus}
+The field of a uniform sphere of charge $Q$ can be found by Gauss law
+\begin{align}
+E_r&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Q/a^3\cdot r & r<R\\
+Q/r^2 & r>R
+\end{array}
+\right.
+\end{align}
+The potential is then given by
+\begin{align}
+\phi&=\frac{1}{4\pi\epsilon_0}\cdot\left\{
+\begin{array}{ll}
+Q/2R\left(3-\frac{r^2}{R^2}\right) & r<R\\
+Q/r & r>R
+\end{array}
+\right.
+\end{align}
+Treating this as a perturbation problem the energy shift can be calculated via the perturbation Hamiltonian (switching the electrostatic energy within the finite nucleus)
+\begin{align}
+H_1
+&=(q\phi_\text{finite}-q\phi_\text{point})\theta(R-r)\\
+&=-e\left(\phi_\text{finite}-\phi_\text{point}\right)\theta(R-r)\\
+&=-\frac{e}{4\pi\epsilon_0}\left(\frac{Ze}{2R}
+\left[3-\frac{r^2}{R^2}\right]-\frac{Ze}{r}\right)\theta(R-r)\\
+&=-\frac{Ze^2}{4\pi\epsilon_0}\left(\frac{1}{2R}
+\left[3-\frac{r^2}{R^2}\right]-\frac{1}{r}\right)\theta(R-r)
+\end{align}
+with $R=r_0A^{1/3}$. With the radial wavefunction (in Mathematica notation)
+\begin{align}
+R_{nl}(r)=\frac{2}{n^2}\sqrt{\frac{(n-l-1)!Z^3}{(n+l)!a_B^3}}\left(\frac{2Zr}{na_B}\right)^le^{-Zr/na_B}L_{n-l-1}^{2l+1}(\frac{2Zr}{na_B})
+\end{align}
+we can do a series expansion at $r=0$ and use the first term (as nucleus is small)
+\begin{align}
+R_{10}^2&\simeq 4Z^3\\
+R_{20}^2&\simeq \frac{1}{2}Z^3\qquad R_{21}^2\simeq \frac{1}{24}Z^5r^2\\
+R_{30}^2&\simeq \frac{4}{27}Z^3\qquad R_{31}^2\simeq \frac{32}{2187}Z^5r^2\qquad R_{32}^2\simeq \frac{8}{98415}Z^7r^4\\
+R_{40}^2&\simeq \frac{1}{16}Z^3\qquad R_{41}^2\simeq \frac{5}{768}Z^5r^2\qquad R_{42}^2\simeq \frac{1}{20400}Z^7r^4\qquad R_{43}^2\simeq \frac{1}{20643840}Z^9r^6
+\end{align}
+then
+\begin{align}
+\Delta E_{nl}&=\int_0^Rr^2R_{nl}(r)^2H_1(r)\\
+\Delta E_{10}&=-\frac{2}{5}r_0^2A^{2/3}Z^4\\
+\Delta E_{20}&=-\frac{1}{20}r_0^2A^{2/3}Z^4\qquad
+\Delta E_{21}=-\frac{1}{1120}r_0^4A^{4/3}Z^6\\
+\Delta E_{30}&=-\frac{2}{135}r_0^2A^{2/3}Z^4\qquad
+\Delta E_{31}=-\frac{8}{25515}r_0^4A^{4/3}Z^6\qquad
+\Delta E_{32}=-\frac{4}{6200145}r_0^6A^{2}Z^8\\
+\Delta E_{40}&=-\frac{1}{160}r_0^2A^{2/3}Z^4\qquad
+\Delta E_{41}=-\frac{1}{7168}r_0^4A^{4/3}Z^6\qquad
+\Delta E_{42}=-\frac{1}{2580480}r_0^6A^{2}Z^8\qquad
+\Delta E_{43}=-\frac{1}{5449973760}r_0^8A^{8/3}Z^10
+\end{align}
+and
+\begin{align}
+\Delta E_{2p\rightarrow1s}&=\left(-\frac{1}{1120}r_0^4A^{4/3}Z^6\right)-\left(-\frac{2}{5}r_0^2A^{2/3}Z^4\right)\\
+\Delta E_{H:\,2p\rightarrow1s}&=2.05593\cdot10^{-10}=0.000045\text{cm}^{-1}\\
+\Delta E_{Pb:\,2p\rightarrow1s}&=0.003981=873.8\text{cm}^{-1}
+\end{align}
+
+
+
+
+\subsection{1.9 - Exponential potential}
+The Schroedinger equation is given by
+\begin{align}
+-\frac{1}{2}\triangle_r\psi+V\psi&=E\psi\\
+-\frac{1}{2r^2}\partial_r(r^2\partial_r \psi)-\frac{a^2}{8}e^{-r/2r_0}\psi&=E\psi\\
+-\frac{1}{2}\left(\frac{2}{r}\psi'+\psi''\right)-\frac{a^2}{8}e^{-r/2r_0}\psi&=E\psi
+\end{align}
+Ansatz $\psi(r)=u(r)/r$
+\begin{align}
+-\frac{1}{2}\left(\frac{2}{r}\frac{u'r-u}{r^2}+\frac{(u''r+u'-u')r^2-2r(u'r-u)}{r^4}\right)-\frac{a^2}{8}e^{-r/2r_0}\frac{u}{r}&=E\frac{u}{r}\\
+-\frac{u'}{r^2}+\frac{u}{r^3}-\frac{u''}{2r}+\frac{2u'}{r^2}-\frac{u}{r^3}-\frac{a^2}{8}e^{-r/2r_0}\frac{u}{r}&=E\frac{u}{r}\\
+-\frac{u''}{2r}+\frac{u'}{r^2}-\frac{a^2}{8}e^{-r/2r_0}\frac{u}{r}&=E\frac{u}{r}\\
+\end{align}
+Stepwise calculation for the verification of the solution
+\begin{align}
+r^2\partial_r \psi
+&=u'r-u\\
+&=\frac{1}{2}\left[J_{n-1}(.)-J_{n+1}(.)\right]ar_0e^{-\frac{r}{2r_0}}\frac{-1}{2r_0}r-J_n(.)\\
+&=-\frac{1}{4}\left[J_{n-1}(.)-J_{n+1}(.)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+&=-\frac{1}{4}\left[J_{n-1}(.)-\left(\frac{2n}{ar_0e^{-r/2r_0}}J_n(.)-J_{n-1}(.)\right)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+&=-\frac{1}{4}\left[2J_{n-1}(.)-\frac{2n}{ar_0e^{-r/2r_0}}J_n(.)\right]are^{-\frac{r}{2r_0}}-J_n(.)\\
+&=-\frac{1}{2}J_{n-1}(.)are^{-\frac{r}{2r_0}}+\left(\frac{nr}{2r_0}-1\right)J_n(.)
+\end{align}
+\begin{align}
+\frac{1}{r^2}\partial_r(r^2\partial_r \psi)
+&=-\frac{1}{2}\left(J_{n-1}-J_{n+1}\right)a^2\frac{r_0}{r}-\frac{1}{2}J_{n-1}(.)\frac{a}{r^2}e^{-\frac{r}{2r_0}}-\frac{1}{2}J_{n-1}(.)\frac{-a}{2rr_0}e^{-\frac{r}{2r_0}}\\
+&\quad+\frac{n}{2r_0r^2}J_n(.)+\left(\frac{nr}{2r_0}-1\right)\frac{1}{2r^2}(J_{n-1}(.)-J_{n+1}(.))ar_0e^{-\frac{r}{2r_0}}\frac{-1}{2r_0}\\
+&=\left(J_{n-1}-J_{n+1}\right)\left[-\frac{a^2r_0}{2r}-\left(\frac{nr}{2r_0}-1\right)\frac{ar_0}{4r^2r_0}\right]e^{-\frac{r}{2r_0}}
+\end{align}
+
+\section{{\sc Gottfried, Tung} - Quantum Mechanics: Fundamentals, 2nd ed}
+
+\section{{\sc Merzbacher} - Quantum Mechanics, 3rd ed}
+
+\section{{\sc Jackson} - A Course in Quantum Mechanics}
+\subsection{1.1 Lorentzian wave package}
+\begin{enumerate}[(a)]
+\item
+\begin{align}
+\psi(x,0)
+&=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^\infty dp\,e^{ixp/\hbar}\sqrt{\frac{2}{\pi\hbar}}\frac{\alpha^{3/2}}{(p-p_0)^2+\alpha^2}\\
+&=\frac{\alpha}{\pi\hbar}\int_{-\infty}^\infty dp\,e^{ixp/\hbar}\frac{\alpha^{1/2}}{(p-p_0)^2+\alpha^2}\\
+&=\frac{\alpha^{3/2}}{\pi\hbar}e^{ixp_0/\hbar}\int_{-\infty}^\infty d\hat{p}\,e^{ix\hat{p}/\hbar}\frac{1}{\hat{p}^2+\alpha^2}\\
+&=\frac{\alpha^{3/2}}{\pi\hbar}\frac{i}{2\alpha}e^{ixp_0/\hbar}\int_{-\infty}^\infty d\hat{p}\,e^{ix\hat{p}/\hbar}\left(\frac{1}{\hat{p}+i\alpha}-\frac{1}{\hat{p}-i\alpha}\right)
+\end{align}
+Close loop above for $x>0$ (half loop integral vanishes) and below for $x<0$
+\begin{align}
+\psi(x>0,0)
+&=\frac{i\sqrt{\alpha}}{2\pi\hbar}e^{ixp_0/\hbar}\cdot 2\pi i\,\text{Res}(i\alpha,I_2)\\
+&=-\frac{\sqrt{\alpha}}{\hbar}e^{ixp_0/\hbar}\cdot\left(-e^{ix(i\alpha)/\hbar}\right)\\
+&=\frac{\sqrt{\alpha}}{\hbar}e^{-x\alpha/\hbar}\cdot e^{ixp_0/\hbar}\\
+\rightarrow\psi(x,0)
+&=\frac{\sqrt{\alpha}}{\hbar}e^{-|x|\alpha/\hbar}\cdot e^{ixp_0/\hbar}
+\end{align}
+$\alpha$ is the width of the package in momentum space. $1/\alpha$ is the package width in space.
+\item
+\begin{align}
+\int\phi^*\phi\,dp&=\frac{1}{\hbar}\\
+\int\phi^* p \phi\,dp&=\frac{p_0}{\hbar}\quad\rightarrow\quad\langle p\rangle=p_0\\
+\int\phi^* p^2 \phi\,dp&=\frac{p_0^2+\alpha^2}{\hbar}\quad\rightarrow\quad\langle p^2\rangle=p_0^2+\alpha^2
+\end{align}
+
+\begin{align}
+\int\psi^*\psi\,dp&=\frac{1}{\hbar}\\
+\int\psi^* x \psi\,dp&=0\quad\rightarrow\quad\langle x\rangle=0\\
+\int\psi^* x^2 \psi\,dp&=\frac{\hbar}{2\alpha^2}\quad\rightarrow\quad\langle x^2\rangle=\frac{\hbar^2}{2\alpha^2}
+\end{align}
+\item
+\begin{align}
+\Delta x=\sqrt{\langle x^2 \rangle-\langle x \rangle^2}=\frac{\hbar}{\sqrt{2}\alpha}\\
+\Delta p=\sqrt{\langle p^2 \rangle-\langle p \rangle^2}=\alpha\\
+\Delta x\cdot\Delta p=\frac{\hbar}{\sqrt{2}}>\hbar/2
+\end{align}
+\end{enumerate}
+
+\subsection{1.2 1D Box with vanishing walls}
+With
+\begin{align}
+\psi(x,t)&=\sqrt{\frac{2}{L}}\sin\left(\frac{\pi x}{L}\right)
+\,e^{-i\frac{\pi^2\hbar}{2mL^2}t}\\
+\phi(p)
+&=\frac{1}{\sqrt{2\pi\hbar}}\sqrt{\frac{2}{L}}\int_0^L dx\,\psi(x,0)\,e^{ipx/\hbar}\\
+&=\frac{1}{\sqrt{\pi\hbar L}}\int_0^L dx\,\sin\left(\frac{\pi x}{L}\right)\,e^{ipx/\hbar}
+\end{align}
+Two times integration by parted gives
+\begin{align}
+\phi(p)
+&=\frac{1}{\sqrt{\pi\hbar L}}\frac{\pi L\hbar^2\left(1+e^{ipL/\hbar}\right)}{\hbar^2\pi^2-p^2L^2}
+\end{align}
+Now we can use the Schroedinger equation with $\phi(p,t)=\phi(p)f(t)$
+\begin{align}
+i\hbar\partial_t\phi(p,t)&=\frac{p^2}{2m}\phi(p,t)\\
+&\rightarrow i\hbar\partial_t f(t)=\frac{p^2}{2m}f(t)\\
+&\rightarrow f(t)=c\,e^{-i\frac{p^2}{2\hbar m}t}\\
+&\rightarrow \phi(p,t)=\frac{1}{\sqrt{\pi\hbar L}}\frac{\pi L\hbar^2\left(1+e^{ipL/\hbar}\right)}{\hbar^2\pi^2-p^2L^2} \,e^{-i\frac{p^2}{2\hbar m}t}\\
+&\rightarrow \rho(p,t)=\phi^*\phi=\frac{2\hbar^4 L^2 \pi^2}{(p^2L^2+\hbar^2\pi^2)^2}\left(1+\cos\frac{pL}{\hbar}\right)
+\end{align}
+
+\subsection{1.3 Protonium}
+
+\begin{align}
+\mu_x&=\frac{m_pm_x}{m_p+m_x}\\
+E_n^{(x)}&=-\frac{\mu_x c^2}{2}\alpha^2\frac{1}{n^2}\\
+r_B^{(x)}&=\frac{\hbar c}{\alpha\, \mu_x c^2}\\
+\frac{dP}{dt}&=\Gamma_{f\rightarrow i}=\frac{2\pi}{\hbar}|\langle f|H'|i\rangle|^2\rho(E_f)\\
+&\sim\frac{1}{\tau}
+\end{align}
+\begin{enumerate}[(a)]
+\item We have now with $m_p=938.272$MeV, $\alpha=1/137$ and $c=1$ 
+\begin{center}
+\begin{tabular}{lcccccc}
+$x$              & $m_x$       & $\mu_x$ & $r_B$ & $E_{1s}$ & $E_{2p}$ & $\Delta E_{2p/1s}$ \\ \hline
+$e^-$            & 511.0keV  & 510.7keV & $5.3\cdot10^{-11}$m &   13.6eV &   3.4eV &  10.2eV\\
+$\mu^-$          & 105.7MeV  &  95.0MeV & $2.8\cdot10^{-13}$m &  2,530eV &   632eV & 1,898eV\\
+$\pi^-$          & 139.6MeV  & 121.5MeV & $2.2\cdot10^{-13}$m &  3,237eV &   809eV & 2,428eV\\
+$\text{K}^-$     & 493.6MeV  & 299.3MeV & $9.0\cdot10^{-14}$m &  8,616eV & 2,154eV & 6,462eV\\
+$\bar{\text{p}}$ & 938.3MeV  & 469.1MeV & $5.8\cdot10^{-14}$m & 12,498eV & 3,123eV & 9,373eV\\
+$\Sigma^-$       & 1197.4MeV & 526.1MeV & $5.1\cdot10^{-14}$m & 14,019eV & 3,505eV & 10,510eV\\
+$\Xi^-$          & 1321.7MeV & 548.7MeV & $4.9\cdot10^{-14}$m & 14,618eV & 3,654eV & 10,963eV
+\end{tabular}
+\end{center}
+
+\item Different values for hydrogen can be found $\tau_H=1.76\cdot10^{-9}$s and $\Gamma(2p\rightarrow1s) =6.2\cdot10^8$s$^{-1}$.
+
+Full valuation of Fermis golden rule gives
+\begin{align}
+\tau&=\left(\frac{3}{2}\right)^8\frac{r_B}{c\alpha^4}\\
+\tau&\sim r_B\sim\frac{1}{\mu}\\
+\tau_{p\bar{p}}&=\frac{\mu_H}{\mu_{p\bar{p}}}\tau_H=1.73\cdot10^{-12}\text{s}
+\end{align}
+
+Rational: dipole matrix element scales with $r_B$ (smaller object means smaller dipole)
+\begin{align}
+\langle f|H'|i\rangle &\sim \langle f|\mathbf{x}|i\rangle\sim r_B\\
+|\langle f|H'|i\rangle|^2 &\sim r_B^2\\
+\rho&\sim \frac{1}{\Delta E_{s/p}}\sim\frac{1}{\mu}\sim r_B\\
+\Gamma&\sim r_B^3
+\end{align}
+Hmmmmm ....
+
+\end{enumerate}
+
+\subsection{2.5 Unitary operators}
+Unitary: $U^\dagger=U^{-1}$ meaning $U^\dagger U=1$. We see $(U^n)^\dagger=(U...U)^\dagger=(U^\dagger ...U^\dagger)=(U^\dagger)^n$
+\begin{itemize}
+\item $U_1=e^{iK}$: Lets start with
+\begin{align}
+U_1^\dagger
+&=\left(e^{iK}\right)^\dagger
+=\left(\sum_n\frac{1}{n!}(iK)^n\right)^\dagger
+=\sum_n\frac{1}{n!}\left((iK)^n\right)^\dagger
+=\sum_n\frac{(-i)^n}{n!}(K^\dagger)^n
+=\sum_n\frac{1}{n!}(-iK^\dagger)^n\\
+&=e^{-iK^\dagger}\qquad \text{with}\;K=K^\dagger\\
+&=e^{-iK}
+\end{align}
+Now with $[K,K]=0$ (meaning we can Taylor-expand each exponential and flip term by term so $e^Xe^Y=e^{X+Y}$ if $[X,Y]=0$)
+\begin{align}
+U_1^\dagger U_1=e^{-iK}e^{iK}=e^{-iK+iK}=e^0=1
+\end{align}
+
+\item $U_2=(1+iK)(1-iK)^{-1}$
+\begin{align}
+U_2^\dagger&=\left((1+iK)(1-iK)^{-1}\right)^\dagger\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)^\dagger\qquad\text{with}\;K=K^\dagger\\
+&=\left((1-iK)^{-1}\right)^\dagger(1-iK)
+\end{align}
+then
+\begin{align}
+U_2^\dagger U_2
+&=\left((1-iK)^{-1}\right)^\dagger(1-iK)(1+iK)(1-iK)^{-1}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1-iK+iK+K^2)(1-iK)^{-1}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)(1-iK)(1-iK)^{-1}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)\qquad\text{with}\;B^\dagger A^\dagger=(AB)^\dagger\\
+&=\left((1+iK)^\dagger(1-iK)^{-1} \right)^\dagger\qquad\text{with}\;K=K^\dagger\\
+&=\left((1-iK)(1-iK)^{-1} \right)^\dagger\\
+&=1^\dagger=1
+\end{align}
+
+\item $U_2'=(1-iK)^{-1}(1+iK)$. Assume $U_2'=U_2$ then
+\begin{align}
+1&=(U_2')^{-1}U_2'\\
+&=U_2^{-1} U_2'\\
+&=U_2^\dagger U_2'\\
+&=\underbrace{\left((1-iK)^{-1}\right)^\dagger(1-iK)}_{U_2^\dagger}\underbrace{(1-iK)^{-1}(1+iK)}_{U_2'}\\
+&=\left((1-iK)^{-1}\right)^\dagger(1+iK)\\
+&=\left((1+iK)^\dagger(1-iK)^{-1}\right)^\dagger\\
+&=\left((1-iK)(1-iK)^{-1}\right)^\dagger\\
+&=1^\dagger=1
+\end{align}
+\end{itemize}
+
+\section{{\sc Basdevant} - The Quantum machanics solver 3rd ed.}
+\subsection{Exercise 8.1 - Neutrino Oscillations in Vacuum - NOT DONE YET}
+\begin{enumerate}
+\item
+\begin{align}
+\Delta
+&=E_2-E_1\\
+&=\sqrt{p^2c^2+m_2^2c^4}-\sqrt{p^2c^2+m_1^2c^4}\\
+&=pc\sqrt{1+\frac{m_2^2c^4}{p^2c^2}}-pc\sqrt{1+\frac{m_1^2c^4}{p^2c^2}}\\
+&\simeq pc\left(1+\frac{m_2^2c^4}{2p^2c^2}-1-\frac{m_1^2c^4}{2p^2c^2}\right)\\
+&=\frac{c^3}{2p}(m_2^2-m_1^2)
+\end{align}
+
+\item 
+\begin{align}
+\Delta(2\times10^5\text{eV}/c)=2\times10^{-10}\text{eV}\\
+\Delta(8\times10^6\text{eV}/c)=5\times10^{-12}\text{eV}
+\end{align}
+\item
+\begin{enumerate}[(a)]
+\item 
+\begin{align}
+|\nu_e(t)\rangle
+&=\cos\theta\;e^{-iE_1t/\hbar}|\nu_1\rangle+\sin\theta\;e^{-iE_2t/\hbar}|\nu_2\rangle\\
+&=\cos\theta\;e^{-iE_1t/\hbar}|\nu_1\rangle+\sin\theta\;e^{-i(E_1+\Delta)t/\hbar}|\nu_2\rangle\\
+&=e^{-iE_1t/\hbar}\left(\cos\theta|\nu_1\rangle+\sin\theta\;e^{-i\Delta t/\hbar}|\nu_2\rangle\right)\\
+\end{align}
+
+\item 
+\begin{align}
+\langle\nu_e|\nu_e(t)\rangle
+&=(\langle\nu_1|\cos\theta+\langle\nu_2|\sin\theta)e^{-iE_1t/\hbar}\left(\cos\theta|\nu_1\rangle+\sin\theta\;e^{-i\Delta t/\hbar}|\nu_2\rangle\right)\\
+&=e^{-iE_1t/\hbar}(\cos^2\theta+\sin^2\theta\,e^{-i\Delta t/\hbar})\\
+|\langle\nu_e|\nu_e(t)\rangle|^2
+&=|\cos^2\theta+\sin^2\theta\,e^{-i\Delta t/\hbar}|^2\\
+&=(\cos^2\theta+\sin^2\theta\,e^{-i\Delta t/\hbar})(\cos^2\theta+\sin^2\theta\,e^{+i\Delta t/\hbar})\\
+&=\cos^4\theta+\sin^4\theta+2\sin^2\theta\cos^2\theta\cos\Delta t/\hbar
+\end{align}
+
+\end{enumerate}
+\item
+\begin{enumerate}[(a)]
+\item We check
+\begin{align}
+\langle\nu_e|\nu_e(0)\rangle
+=\cos^4\theta+\sin^4\theta+2\sin^2\theta\cos^2\theta
+=(\cos^2\theta+\sin^2\theta)^2
+=1
+\end{align}
+then
+\begin{align}
+\frac{\Delta\cdot t}{\hbar}&=\Delta\frac{d_{ES}}{\hbar c}=1.52\cdot10^8\\
+N&=\frac{\Delta\cdot t}{2\pi \hbar}=2.42\cdot 10^7
+\end{align}
+\item
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

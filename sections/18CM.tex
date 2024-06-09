@@ -1,0 +1,49 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+\section{{\sc Goldstein, Poole, Safko} - Classical Mechanics 3rd ed}
+\subsection{Exercise 9.1 - Canonical Coordinates}
+Try the generalized transformation where ($\alpha=1=\beta$) is the original trafo
+\begin{align}
+Q&=\alpha(q+ip)\qquad q=\frac{1}{2\alpha}Q+\frac{1}{2\beta}P\\
+P&=\beta(q-ip)\qquad p=\frac{1}{2i\alpha}Q-\frac{1}{2i\beta}P
+\end{align}
+then
+\begin{align}
+\dot{Q}&=\frac{\partial Q}{\partial p}\frac{\partial p}{\partial t}+\frac{\partial Q}{\partial q}\frac{\partial q}{\partial t}=-i\alpha\frac{\partial H}{\partial q}+\alpha\frac{\partial H}{\partial p}\\
+\dot{P}&=\frac{\partial P}{\partial p}\frac{\partial p}{\partial t}+\frac{\partial P}{\partial q}\frac{\partial q}{\partial t}=+i\beta\frac{\partial H}{\partial q}+\beta\frac{\partial H}{\partial p}
+\end{align}
+and also
+\begin{align}
+\frac{\partial H(q(Q,P),p(q,P))}{\partial Q}&=\frac{\partial H}{\partial q}\frac{\partial q}{\partial Q}+\frac{\partial H}{\partial p}\frac{\partial p}{\partial Q}\\
+&=\frac{\partial H}{\partial q}\frac{1}{2\alpha}+\frac{\partial H}{\partial p}\frac{1}{2i\alpha}\\
+\frac{\partial H(q(Q,P),p(q,P))}{\partial P}&=\frac{\partial H}{\partial q}\frac{\partial q}{\partial P}+\frac{\partial H}{\partial p}\frac{\partial p}{\partial P}\\
+&=\frac{\partial H}{\partial q}\frac{1}{2\beta}+\frac{\partial H}{\partial p}\frac{i}{2\beta}
+\end{align}
+which implies
+\begin{align}
+\frac{\partial H}{\partial q}&=\alpha\frac{\partial H}{\partial Q}+\beta\frac{\partial H}{\partial P}\\
+\frac{\partial H}{\partial p}&=\frac{1}{i}\left(\beta\frac{\partial H}{\partial P}-\alpha\frac{\partial H}{\partial Q}\right)
+\end{align}
+which finally results in 
+\begin{align}
+\dot{Q}&=-i\alpha\left(\alpha\frac{\partial H}{\partial Q}+\beta\frac{\partial H}{\partial P}\right)+\alpha\frac{1}{i}\left(\beta\frac{\partial H}{\partial P}-\alpha\frac{\partial H}{\partial Q}\right)\\
+&=-2i\alpha\beta\frac{\partial H}{\partial P}\\
+\dot{P}&=2i\alpha\beta\frac{\partial H}{\partial Q}
+\end{align}
+So we see
+\begin{itemize}
+\item for $\alpha=1\beta$ the equations are not canonical
+\item for $\alpha=\frac{i}{2}$  and $\beta=1$ the equations are  canonical
+\end{itemize}
+
+
+\subsection{Exercise 12.5 - Anharmonic oscillator - NOT DONE YET}
+
+\begin{align}
+L=\frac{1}{2}m\dot{x}^2-2\cdot\frac{1}{2}k[\sqrt{a^2+x^2}-b]^2
+\end{align}
+
+\end{document}

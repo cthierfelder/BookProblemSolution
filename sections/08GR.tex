@@ -1,0 +1,351 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Coleman} - Sidney Coleman’s Lectures On Relativity}
+\subsection{Problem 1.1}
+Lets simplify
+\begin{align}
+\tau(b)-\tau(a)&=\int_a^b\sqrt{c^2dt^2-dx^2-dy^2-dz^2}\\
+&=\int_a^bcdt\sqrt{1-\frac{v^2}{c^2}}
+\end{align}
+If we LT into the inertial system of Alice her proper time is simply (because $v=0$)
+\begin{align}
+\Delta\tau_A&=\int_a^bcdt=ct
+\end{align}
+For Bob we obtain
+\begin{align}
+\Delta\tau_B&=\int_a^bcdt\sqrt{1-\frac{v(t)^2}{c^2}}
+\end{align}
+where the square root is smaller than one as soon the the observer is moving. Therefore it clear that $\Delta\tau_A<\Delta\tau_B$.
+
+
+\section{{\sc Carroll} - Spacetime an Geometry}
+\subsection{Problem 1.7}
+\begin{enumerate}
+\item Because the metric is symmetric
+\begin{align}
+ X^\mu_{\;\;\nu}&=\eta_{\nu\alpha}X^{\mu\alpha}=X^{\mu\alpha}\eta_{\alpha\nu}\equiv X\eta\\
+ &=\begin{pmatrix}
+-2 & 0 & 1 & -1\\
+1 & 0 & 3 &  2\\
+1 & 1 & 0 & 0\\
+2 & 1 & 1 & -2
+\end{pmatrix}
+\end{align}
+
+\item
+\begin{align}
+ X_\mu^{\;\;\nu}&=\eta_{\nu\alpha}X^{\alpha\nu}\equiv\eta X\\
+ &=\begin{pmatrix}
+-2 & 0 & -1 & 1\\
+-1 & 0 & 3 &  2\\
+-1 & 1 & 0 & 0\\
+-2 & 1 & 1 & -2
+\end{pmatrix}
+\end{align}
+
+\item 
+\begin{align}
+X^{(\mu\nu)}&=\frac{1}{2}(X^{\mu\nu}+X^{\nu\mu})\\
+&=\begin{pmatrix}
+2     & -1/2 & 0.  & -3/2\\
+-1/2 & 0    & 2   &  3/2\\
+0     & 2    & 0   & 1/2\\
+-3/2 & 3/2 & 1/2 & -2
+\end{pmatrix}
+\end{align}
+
+\item 
+\begin{align}
+X_{\mu\nu}&=\eta_{\mu\alpha}\eta_{\nu\beta}X^{\alpha\beta}\equiv\eta X\eta\\
+&=\begin{pmatrix}
+2 & 0 & -1 & 1\\
+1 & 0 & 3 &  2\\
+1 & 1 & 0 & 0\\
+2 & 1 & 1 & -2
+\end{pmatrix}\\
+X_{[\mu\nu]}&=\frac{1}{2}(X_{\mu\nu}-X_{\nu\mu})\\
+&=\begin{pmatrix}
+0    & -1/2 & -1  & -1/2\\
+1/2 & 0    & 1  &  1/2\\
+1    & -1    & 0   & -1/2\\
+1/2 & -1/2 & 1/2 & 0
+\end{pmatrix}
+\end{align}
+
+\item 
+\begin{align}
+ X^\lambda_{\;\;\lambda}&=\eta_{\lambda\alpha}X^{\lambda\alpha}=X^{\lambda_\alpha}\eta_{\alpha\lambda}\equiv  \text{Tr}(X\eta)=-4\\
+\end{align}
+
+\item 
+\begin{align}
+V^\mu V_\mu = V^\mu \eta_{\mu\nu}V^\nu=7
+\end{align}
+
+\item 
+\begin{align}
+V_\mu X^{\mu\nu} = V^\alpha\eta_{\alpha\mu} X^{\mu\nu}\equiv V\eta X=(4,-2,5,7)
+\end{align}
+\end{enumerate}
+
+
+\subsection{Problem 3.3 - Christoffel symbols for diagonal metric}
+With $g_{\mu\nu}=\text{diag}(g_{11},g_{22},g_{33},g_{44})$ the inverse is given by $g^{\mu\nu}=\text{diag}(1/g_{11},1/g_{22},1/g_{33},1/g_{44})$. Now for $\mu\neq\mu\neq\lambda$ we obtain
+\begin{align}
+\Gamma^\lambda_{\mu\nu}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\mu \underbrace{g_{\nu\lambda}}_{=0}+\partial_\nu \underbrace{g_{\mu\lambda}}_{=0}-\partial_\lambda \underbrace{g_{\mu\nu}}_{=0})\\
+&=0
+\end{align}
+
+\begin{align}
+\Gamma^\lambda_{\mu\mu}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\mu\sigma}+\partial_\mu g_{\mu\sigma}-\partial_\sigma g_{\mu\mu})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\mu g_{\mu\lambda}+\partial_\mu g_{\mu\lambda}-\partial_\lambda g_{\mu\mu})\\
+&=-\frac{1}{2}\frac{1}{g_{\lambda\lambda}}\partial_\lambda g_{\mu\mu}
+\end{align}
+
+\begin{align}
+\Gamma^\lambda_{\mu\lambda}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\lambda g_{\mu\sigma}+\partial_\mu g_{\lambda\sigma}-\partial_\sigma g_{\lambda\mu})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\lambda g_{\mu\lambda}+\partial_\mu g_{\lambda\lambda}-\partial_\lambda g_{\lambda\mu})\\
+&=\frac{1}{2}\frac{1}{g^{\lambda\lambda}}\partial_\mu g_{\lambda\lambda}\\
+&=\frac{1}{2}\frac{1}{\text{sgn}\cdot|g^{\lambda\lambda}|}\partial_\mu (\text{sgn}\cdot|g_{\lambda\lambda}|)\\
+&=\frac{1}{2}\frac{1}{|g^{\lambda\lambda}|}\partial_\mu (|g_{\lambda\lambda}|)\\
+&=\frac{1}{2}\partial_\mu \log|g_{\lambda\lambda}|\\
+&=\partial_\mu \log\sqrt{|g_{\lambda\lambda}|}
+\end{align}
+
+\begin{align}
+\Gamma^\lambda_{\lambda\lambda}
+&=\frac{1}{2}g^{\lambda\sigma}(\partial_\lambda g_{\lambda\sigma}+\partial_\lambda g_{\lambda\sigma}-\partial_\sigma g_{\lambda\lambda})\\
+&=\frac{1}{2}g^{\lambda\lambda}(\partial_\lambda g_{\lambda\lambda}+\partial_\lambda g_{\lambda\lambda}-\partial_\lambda g_{\lambda\lambda})\\
+%&=\frac{1}{2}g^{\lambda\lambda}\partial_\lambda g_{\lambda\lambda}\\
+&=\frac{1}{2}\frac{\partial_\lambda g_{\lambda\lambda}}{g_{\lambda\lambda}}\\
+&=\partial_\lambda \log \sqrt{|g_{\lambda\lambda}|}
+\end{align}
+
+\section{{\sc Ryder} - Introduction to General Relativity, 2009}
+\subsection{Problem 4.1 - Curvature scalar for 2d space - NOT DONE YET}
+\begin{align}
+ds^2&=ydx^2+xdy^2\\
+\Gamma^x_{xx}&=\frac{1}{2}g^{xa}(g_{xa,x}+g_{ax,x}-g_{xx,a})=\frac{1}{2}g^{xx}(g_{xx,x}+g_{xx,x}-g_{xx,x})=0\\
+\Gamma^x_{xy}&=\Gamma^x_{yx}=\frac{1}{2}g^{xa}(g_{xa,y}+g_{ay,x}-g_{xy,a})=\frac{1}{2}g^{xx}(g_{xx,y}+g_{xy,x}-g_{xy,x})=\frac{1}{2y}\\
+\Gamma^x_{yy}&=\frac{1}{2}g^{xa}(g_{ya,y}+g_{ay,y}-g_{yy,a})=\frac{1}{2}g^{xx}(g_{yx,y}+g_{xy,y}-g_{yy,x})=-\frac{1}{2y}\\
+\Gamma^y_{xx}&=\frac{1}{2}g^{yy}(-g_{yy,x})=-\frac{1}{2x}\\
+\Gamma^y_{xy}&=\Gamma^y_{yx}=\frac{1}{2}g^{yy}g_{yy,x}=\frac{1}{2x}\\
+\Gamma^y_{yy}&=0\\
+...&\\
+\end{align}
+Ricci Tensor and Scalar
+\begin{align}
+R_{xx}&=R^a_{xax}=R^x_{xxx}+R^y_{xyx}=\\
+R_{xy}&=R^a_{xay}=R^x_{xxy}+R^y_{xyy}=\\
+R_{yy}&=R^a_{yay}=R^x_{yxy}+R^y_{yyy}=\\
+R&=R^x_{\;x}+R^y_{\;y}=g^{xx}R_{xx}+g^{yy}R_{yy}=
+\end{align}
+
+
+
+\section{{\sc Rindler} - Relativity Special General and Cosmological, 2nd ed}
+
+\section{{\sc Stephani} - Relativity - An Introduction to Special and General Relativity 2004}
+
+\section{{\sc Poisson} - A relativists toolkit}
+\subsection{Problem 1.1 - Parallel transport on cone}
+\begin{enumerate}
+\item We find the metric by using elementary geometry
+\begin{align}
+ds^2 = dr^2+(r\sin\alpha)^2d\phi^2
+\end{align}
+
+\item Trying around a bit - we find
+\begin{align}
+x&=r\cos(\phi \sin\alpha)\\
+y&=r\sin(\phi \sin\alpha)
+\end{align}
+\begin{align}
+x=f(r,\phi)\quad\rightarrow\quad dx&=\frac{\partial f}{\partial r}dr+\frac{\partial f}{\partial \phi}d\phi\\
+dx&=\cos(\phi\sin\alpha)dr-r\sin(\phi\sin\alpha)\sin\alpha\;d\phi\\
+y=g(r,\phi)\quad\rightarrow\quad dy&=\frac{\partial g}{\partial r}dr+\frac{\partial g}{\partial \phi}d\phi\\
+dy&=\sin(\phi\sin\alpha)dr+r\cos(\phi\sin\alpha)\sin\alpha\;d\phi
+\end{align}
+We can then simply check $ds^2=dx^2+dy^2$
+
+\item The parallel transport equation for a vector $A^\lambda$ along curve $x^\mu(s)$ is given by
+\begin{align}
+\dot x^\mu\nabla_\mu A^\lambda=0\\
+\frac{dx^\mu}{ds}\partial_\mu A^\lambda+\Gamma^\lambda_{\mu\nu}\dot x^{\mu}A^\nu=0\\
+\frac{\partial A^\lambda}{\partial s}+\Gamma^\lambda_{\mu\nu}\dot x^{\mu}A^\nu=0
+\end{align}
+We are moving the vector $\vec{A}=(A_r,A_\phi)$ along $\vec{x}(s)=(r,s)$ with $s\in[0,2\pi]$ and $\dot{\vec{x}}(s)=(0,1)$. Calculating the Christoffel symbols gives 
+\begin{align}
+\Gamma^\lambda_{\mu\nu}&=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu})\\
+\Gamma^r_{\phi\phi}&=-r\sin^2\alpha\\
+\Gamma^\phi_{r\phi}&=1/r\\
+\Gamma^\phi_{\phi r}&=1/r
+\end{align}
+and the parallel transport equations simplify to
+\begin{align}
+\dot{A}_r+\Gamma^r_{\phi\phi}\dot{x}_\phi A_\phi=0&\quad\rightarrow\quad \dot{A}_r-r\sin^2\alpha A_\phi=0\\
+\dot{A}_\phi+\Gamma^\phi_{\phi r}\dot{x}_\phi A_r=0&\quad\rightarrow\quad \dot{A}_\phi+\frac{1}{r}A_r=0.
+\end{align}
+which can be solved by Mathematica. To obtain the angle $\beta$ we calculate first the norm of the vector at a given $t$
+\begin{align}
+	|\vec{A}(t)|&=g_{\mu\nu}A^\mu(t) A^\nu(t)\\
+	&=A_r(0)^2+A_\phi(0)^2r^2\sin^2\alpha.
+\end{align}
+Now we can calculate the inner product
+\begin{align}
+	\vec{A}(t=2\pi)\cdot\vec{A}(0)&=g_{\mu\nu}A^\mu(t) A^\nu(0)\\
+	&=(A_r(0)^2+A_\phi(0)^2r^2\sin^2\alpha)\cos(2\pi\sin\alpha)
+\end{align}
+so $\cos\beta=\cos(2\pi\sin\alpha)$.
+
+\end{enumerate}
+
+\subsection{Problem 1.5 - Killing vectors of a spherical surface}
+Definition of the Lie derivative
+\begin{align}
+\mathcal{L}_\mathbf{a}T^\mu&=T^\mu_{\;,\alpha}a^\alpha-T^\alpha a^\mu_{\;,\alpha}\\
+\mathcal{L}_\mathbf{a}T_\mu&=T_{\mu,\alpha}a^\alpha+T_\alpha a^\alpha_{\;,\mu}\\
+\mathcal{L}_\mathbf{a}T_{\mu\nu}&=T_{\mu\nu,\alpha}a^\alpha+T_{\alpha\nu} a^\alpha_{\;,\mu}+T_{\mu\alpha} a^\alpha_{\;,\nu}
+\end{align}
+Definition Killing vectors
+\begin{align}
+\mathcal{L}_\xi g_{\mu\nu}&=0\\
+\rightarrow &\quad g_{\mu\nu,\alpha}\xi^\alpha+g_{\alpha\nu} \xi^\alpha_{\;,\mu}+g_{\mu\alpha} \xi^\alpha_{\;,\nu}=0
+\end{align}
+Using coordinates $x=(\theta,\phi)$ the metric is given by
+\begin{align}
+ds^2=d\theta^2+\sin^2\theta d\phi^2
+\end{align}
+and we can write down the three Killing equations
+\begin{align}
+\mu=\nu=1\qquad &g_{11,1}\xi^1+g_{11}\xi^1_{\;,1}+g_{11}\xi^1_{\;,1}=0\\
+&\rightarrow\quad\xi^1_{\;,1}=0\\
+\mu=1, \nu=2\qquad &g_{22}\xi^2_{\;,1}+g_{11}\xi^1_{\;,2}=0\\
+&\rightarrow\quad\xi^2_{\;,1}\sin^2\theta+\xi^1_{\;,2}=0\\
+\mu=\nu=2\qquad &g_{22,1}\xi^1+g_{22}\xi^2_{\;,2}+g_{22}\xi^2_{\;,2}=0\\
+&\rightarrow\quad\xi^1\cos\theta+\xi^2_{\;,2}\sin\theta=0
+\end{align}
+then we see immediately $\xi^1=f(\phi)$ and set/try $\xi^2=g(\phi,\theta)=u(\theta)v(\phi)$
+\begin{align}
+vu_{,\theta}\sin^2\theta+f_{,\phi}&=0\\
+f\cos\theta+uv_{,\phi}\sin\theta&=0
+\end{align}
+then we can separate
+\begin{align}
+u_{,\theta}\sin^2\theta&=-\frac{f_{,\phi}}{v}=A\\
+\frac{f}{v_{,\phi}}&=-u\tan\theta=B
+\end{align}
+and see $u=-\frac{B}{\tan\theta}$ and simplify
+\begin{align}
+Bv_{,\phi\phi}&=f_{,\phi}=-Av\\
+&\rightarrow v_{,\phi\phi}=\frac{A}{B}v\\
+&\rightarrow v=\sin(\sqrt{A/B}\phi+c)\\
+&\rightarrow f=Bv_{,\phi}=\sqrt{AB}\cos(\sqrt{A/B}\phi+c)
+\end{align}
+Now we find two vectors
+\begin{align}
+c=-\pi/2, A=1, B=1\quad \xi^\mu_{(1)}&=(\sin\phi,\cos\phi\cot\theta)\\
+c=0, A=1, B=1\quad \xi^\mu_{(2)}&=(\cos\phi,-\sin\phi\cot\theta)
+\end{align}
+but there is a third vector which we did not find as it was not caught by the separation ansatz
+\begin{align}
+\xi^\mu_{(3)}&=(0,1).
+\end{align}
+We could have found it also by calculating the Lie bracket of two Killing vectors we already found
+\begin{align}
+Y&=\xi_{(1)}=\sin\phi\partial_\theta+\cos\phi\cot\theta\partial_\phi\\
+X&=\xi_{(2)}=\cos\phi\partial_\theta-\sin\phi\cot\theta\partial_\phi\\
+\rightarrow[X,Y]&=XY-YX=\partial_\phi
+\end{align}
+we find (by construction) another Killing vector field - which translates into $\xi^\mu_{(3)}=(0,1)$ .
+
+\section{{\sc Wald} - General Relativity}
+\subsection{4.1 - Charge conservation}
+Using the symmetries
+\begin{align}
+\nabla^b\nabla^aF_{ab}
+&=\nabla^a\nabla^bF_{ab}\\
+&=-\nabla^a\nabla^bF_{ba}\\
+&=-\nabla^b\nabla^aF_{ab}\qquad (a\leftrightarrow b)\\
+&=0
+\end{align}
+then
+\begin{align}
+\nabla^aF_{ab}&=-4\pi j_b\\
+0=\nabla^b\nabla^aF_{ab}&=-4\pi \nabla^b j_b\\
+\rightarrow \nabla^b j_b=0
+\end{align}
+
+\subsection{4.8 - Quadrupole radiation of harmonic oszi}
+\begin{align}
+q_{\mu\nu}
+&=3\int T^{00}x^\mu x^\nu d^3x\\
+&=3M\int [\delta(x-A\sin\omega t)+\delta(x+A\sin\omega t)]\delta(y)\delta(z)x^\mu x^\nu d^3x\\
+&=\left(\begin{array}{ccc}
+6MA^2\sin^2\omega t & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}
+\right)\\
+Q_{\mu\nu}
+&=\left(\begin{array}{ccc}
+4MA^2\sin^2\omega t & 0 & 0\\
+0 & -2MA^2\sin^2\omega t & 0\\
+0 & 0 & -2MA^2\sin^2\omega t
+\end{array}
+\right)\\
+\sum_{\mu,\nu}\left(\frac{d^3Q}{dt^3}\right)^2&=1536 A^4M^2\omega^6\cos^2\omega t\sin^2\omega t\\
+P&=\frac{1}{45}\frac{\int_0^{2\pi/\omega}\sum_{\mu,\nu}\left(\frac{d^3Q}{dt^3}\right)^2dt}{\frac{2\pi}{\omega}}\\
+&=\frac{64}{15}A^4M^2\omega^6\\
+&=\frac{512}{15}\frac{A^4K^3}{M}
+\end{align}
+were $\omega=\sqrt{2K/M}$. Reason:
+\begin{align}
+L&=T-V\\
+&=2\frac{M\dot{x}^2}{2}-\frac{K(2x)^2}{2}\\
+&=M\dot{x}^2-2Kx^2\\
+&\rightarrow -4Kx-2M\ddot{x}=0\\
+&\rightarrow M\ddot{x}+2Kx=0
+\end{align}
+
+
+
+\subsection{5.1}
+Case $k=-1$
+\begin{align}
+ds_{k=0}^2&=-d\tau^2+a^2(\tau)\left[dx^2+dy^2+dz^2\right]\\
+ &=-d\tau^2+a^2(\tau)\left[dr^2+r^2(d\theta^2+\sin^2\theta d\phi^2)\right]
+\end{align}
+Case $k=0$
+\begin{align}
+r&=\sinh\psi\\
+&\rightarrow\quad\frac{dr}{d\psi}=\cosh\psi\\
+&\rightarrow\quad d\psi=\frac{dr}{\cosh\psi}=\frac{dr}{\sqrt{1+\sinh^2\psi}}=\frac{dr}{\sqrt{1+r^2}}\\
+d_{k=-1}s^2&=-d\tau^2+a^2(\tau)\left[d\psi^2+\sinh^2\psi(d\theta^2+\sin^2\theta d\phi^2)\right]\\
+&=-d\tau^2+a^2(\tau)\left[\frac{dr^2}{1+r^2}+r^2(d\theta^2+\sin^2\theta d\phi)^2\right]
+\end{align}
+Case $k=1$
+\begin{align}
+r&=\sin\psi\\
+&\rightarrow\quad\frac{dr}{d\psi}=\cos\psi\\
+&\rightarrow\quad d\psi=\frac{dr}{\cos\psi}=\frac{dr}{\sqrt{1-\sin^2\psi}}=\frac{dr}{\sqrt{1-r^2}}\\
+ds_{k=1}^2&=-d\tau^2+a^2(\tau)\left[d\psi^2+\sin^2\psi(d\theta^2+\sin^2\theta d\phi)^2\right]\\
+&=-d\tau^2+a^2(\tau)\left[\frac{dr^2}{1-r^2}+r^2(d\theta^2+\sin^2\theta d\phi)^2\right]
+\end{align}
+where $\psi\in(0,\pi)$, $\theta\in(0,\pi)$ and $\phi\in(0,2\pi)$. The 3-volume is given by
+\begin{align}
+V&=\int \sqrt{\gamma}\;d\psi d\theta d\phi\\
+&=a^3\int \sin\theta\sin^2\psi\; d\psi d\theta d\phi\\
+&=2\pi^2 a^3
+\end{align}
+
+
+\end{document}

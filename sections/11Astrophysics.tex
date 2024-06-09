@@ -1,0 +1,179 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Carroll, Ostlie} - An Introduction to Modern Astrophysics}
+
+\subsection{Problem 7.3 - Binary star}
+\begin{enumerate}[(a)]
+\item With $a=R_1+R_2$ and using the circular property of the system we find
+\begin{align}
+m_1\omega^2R_1&=G\frac{m_1m_2}{a^2}=m_2\omega^2R_2=m_2\omega^2(a-R_1)\\
+m_1R_1&=m_2(a-R_1)\\
+R_1&=\frac{m_2}{m_1+m_2}a\\
+R_2&=\frac{m_1}{m_1+m_2}a\\
+\rightarrow m_1R_1&=m_2R_2
+\end{align}
+and using the geometry
+\begin{align}
+\cos i
+&=\frac{r_2}{R_2}=\frac{r_2}{a}\frac{m_1+m_2}{m_1}\\
+&=\frac{r_1}{R_1}=\frac{r_1}{a}\frac{m_1+m_2}{m_2}\\
+\rightarrow m_1r_1&=m_2r_2
+\end{align}
+we see that the $\sin i$ still contains the mass ratio. One more look at the geometry reveals $\cos i=\frac{r_1+r_2}{a}$ which is the solution. But we lets just combine all results to if we can get some information about the masses 
+\begin{align}
+\cos i=\frac{r_1+r_2}{a}
+\end{align}
+
+\item
+\begin{align}
+\cos i =\frac{11 R_s}{2 \text{AU}}=\frac{7,700,000 \text{km}}{150,000,000\text{km}}\quad\rightarrow\quad i=88.5^o
+\end{align}
+
+\end{enumerate}
+
+\section{{\sc Binney, Tremaine} - Galactic Dynamics (2008)}
+
+
+\section{{\sc Weinberg} - Lecture on Astrophysics}
+\subsection{Problem 1 - Hydrostatics of spherical star}
+Gravitational force on a mass element must be balanced by the top and bottom pressure (buoyancy)
+\begin{align}
+    F_p^\text{top}-F_p^\text{bottom}&=F_g\\
+    dA\cdot p\left(r+\frac{dr}{2}\right)-dA\cdot p\left(r-\frac{dr}{2}\right)&=-g(r)\rho(r)\cdot dA\cdot dr\\
+    \frac{dp}{dr} &=-g(r)\rho(r)\\
+    &=-G\frac{\mathcal{M}(r)}{r^2}\rho(r)
+\end{align}
+and therefore
+\begin{align}
+   \rho(r)\mathcal{M}(r)=-\frac{dp}{dr}\frac{r^2}{G}
+\end{align}
+where
+\begin{align}
+    g(r)=G\frac{\mathcal{M}(r)}{r^2}=\frac{G}{r^2}\int_0^r4\pi\rho(r')r'^2dr'.
+\end{align}
+The gravitational binding energy $\Omega$ is given by
+\begin{align}
+    d\Omega&=-G\frac{m_\text{shell}\mathcal{M}}{r}\\
+    \Omega&=-G\int_0^R\frac{4\pi\rho(r)\mathcal{M}(r)}{r}r^2dr\\
+    &=-4\pi G\int_0^Rr\rho(r)\mathcal{M}(r)dr\\
+    &=4\pi\int_0^R\frac{dp}{dr}r^3dr\\
+    &=4\pi p r^3|_0^R - 3\cdot4\pi\int_0^Rp(r)r^2dr\\
+    &=4\pi p_0 R^3 - 3\left(4\pi\int_0^Rp(r)r^2dr\right)\\
+    &=4\pi p_0 R^3 - 3\int_{K_R}p(\vec{r})d^3r.
+\end{align}
+\subsection{Problem 2 - CNO cycle}
+\begin{align}
+    \Gamma(ii)&=\Gamma(iii)=\Gamma(iv)=\Gamma(v)=\Gamma(i)\\
+    \Gamma(vi)&=P\cdot\Gamma(i)\\
+    \Gamma(vii)&=\Gamma(viii)=\Gamma(ix)=\Gamma(x)=(1-P)\cdot\Gamma(i)
+\end{align}
+\textcolor{red}{\bf Check result!}
+
+\subsection{Problem 3}
+\textcolor{red}{Not done yet}
+
+\subsection{Problem 4}
+\textcolor{red}{Not done yet}
+
+\subsection{Problem 5 - Radial density expansion for a polytrope}
+For the polytrope equation 
+\begin{align}
+    p=K\rho^\Gamma
+\end{align}
+we obtain
+\begin{align}
+    \frac{dp}{d\rho}&=K\Gamma\rho^{\Gamma-1}\\
+    &=\Gamma\frac{p}{\rho}
+\end{align}
+With equations (1.1.4/5)
+\begin{align}
+    \frac{dp}{dr}   &= -\frac{G\mathcal{M}(r)\rho(r)}{r^2}\quad\rightarrow\quad\mathcal{M}(r)=-\frac{p'r^2}{G\rho}\\
+    \frac{d\mathcal{M}(r)}{dr} &= 4\pi r^2\rho(r)
+\end{align}
+we can obtain a second order ODE by differentiating the first one and substituting $\mathcal{M}'$
+\begin{align}
+    \mathcal{M}'=-\frac{1}{G}\frac{d}{dr}\left(\frac{r^2}{\rho}\frac{d}{dr}p\right)\\
+    \frac{d}{dr}\left(\frac{r^2}{\rho}\frac{d}{dr}p\right)+G\mathcal{M}'=0\\
+    \frac{d}{dr}\left(\frac{r^2}{\rho}\frac{d}{dr}p\right)+4\pi Gr^2\rho=0
+\end{align}
+now we can substitute the $p=K\rho^\Gamma$ and obtain
+\begin{align}
+    \frac{d}{dr}\left(\frac{r^2}{\rho}\frac{d}{dr}\rho^\Gamma\right)+\frac{4\pi G}{K}r^2\rho=0.
+\end{align}
+The Taylor expansion 
+\begin{align}
+    \rho(r)&=\rho(0)\left[1+ar^2+br^4+...\right]\\
+    \rho(r)^\Gamma&=\rho(0)^\Gamma\left[1+ar^2+br^4+...\right]^\Gamma\\
+    &=\rho(0)^\Gamma\left[1+a\Gamma r^2+\left(b\Gamma+\frac{1}{2}a^2\Gamma(\Gamma-1)\right)r^4+...\right]\\
+    \frac{1}{\rho}&=\frac{1}{\rho(0)}\left[1-a r^2+(a^2-b)r^4+...\right]
+\end{align}
+can be substituted into the ODE
+\begin{align}
+    \rho(0)^{\Gamma-1}\frac{d}{dr}\left(r^2\left[1-a r^2+(a^2-b)r^4+...\right]\left[a\Gamma 2r+\left(b\Gamma+\frac{1}{2}a^2\Gamma(\Gamma-1)\right)4r^3+...\right]\right)\\
+    \quad+\frac{4\pi G}{K}\rho(0)\left[r^2+ar^4+br^6+...\right]=0.
+\end{align}
+and sort by powers of $r$
+\begin{align}
+    \rho(0)^{\Gamma-1}\frac{d}{dr}\left(2\Gamma ar^3+\left[-2\Gamma a^2+4\left(b\Gamma+\frac{1}{2}a^2\Gamma(\Gamma-1)\right)\right]r^5+...\right)+\frac{4\pi G}{K}\rho(0)\left[r^2+ar^4+br^6+...\right]=0.
+\end{align}
+In second order of $r$ we obtain
+\begin{align}
+    \rho(0)^{\Gamma-1}2\Gamma a3+\frac{4\pi G}{K}\rho(0)=0
+\end{align}
+which results in
+\begin{align}
+     a=-\frac{2\pi G}{3\Gamma K\rho(0)^{\Gamma-2}}
+\end{align}
+
+\subsection{Problem 6}
+\textcolor{red}{Not done yet}
+
+\subsection{Problem 7}
+\textcolor{red}{Not done yet}
+\subsection{Problem 8}
+\textcolor{red}{Not done yet}
+\subsection{Problem 9}
+\textcolor{red}{Not done yet}
+\subsection{Problem 10}
+\textcolor{red}{Not done yet}
+\subsection{Problem 11 - Modified Newtonian gravity}
+The modified Poisson equation is given by
+\begin{align}
+    \left(\triangle+\mathcal{R}^{-2}\right)\phi=4\pi G\rho
+\end{align}
+with the Greens function
+\begin{align}
+    \left(\triangle+\mathcal{R}^{-2}\right)G(\vec{r})=-\delta^3(\vec{r}).
+\end{align}
+The Fourier transform of the Greens function
+\begin{align}
+    G(\vec{k}) = \int d^3\vec{r}\;G(\vec{r})e^{-i\vec{k}\vec{r}}
+\end{align}
+and the field equations are given by
+\begin{align}
+    \left[k^2+\mathcal{R}^{-2}\right]G(\vec{k})&=-1\\
+    G(\vec{k})&=\frac{1}{k^2+\mathcal{R}^{-2}}\\
+    G(\vec{x})&=\frac{1}{(2\pi)^3}\int d^3\vec{k} \frac{e^{i\vec{k}\vec{r}}}{k^2+\mathcal{R}^{-2}}\\
+    &=\frac{1}{(2\pi)^3}2\pi\int_0^\infty \int_{0}^{\pi} \frac{e^{ik_r\cdot r\cos\theta}}{k_r^2+\mathcal{R}^{-2}}k_r^2\sin\theta\;d\theta dk_r\\
+    &=\frac{1}{(2\pi)^3}2\pi\int_0^\infty \left[-\frac{e^{ik_r r \cos\theta}}{ik_r r}\right]_0^\pi \frac{1}{k_r^2+\mathcal{R}^{-2}}k_r^2 dk_r\\
+    &=\frac{1}{2\pi^2r}\int_0^\infty  \frac{k_r \sin(k_r r)}{k_r^2+\mathcal{R}^{-2}} dk_r\\
+\end{align}
+The integral can be can be calculated using the residual theorem
+\begin{align}
+        \int_0^\infty \frac{k_r \sin(k_r r)}{k_r^2+\mathcal{R}^{-2}} dk_r&=\frac{1}{2}\int_{-\infty}^\infty \frac{k_r \sin(k_r r)}{k_r^2+\mathcal{R}^{-2}} dk_r\\
+        &=\frac{1}{2}\int_{-\infty}^\infty \frac{k_r \sin(k_r r)}{(k_r+i\mathcal{R}^{-1})(k_r-i\mathcal{R}^{-1})} dk_r\\
+        &=\frac{1}{2}\int_{-\infty}^\infty \frac{k_r \sin(k_r r)}{2k_r}\left(\frac{1}{k_r+i\mathcal{R}^{-1}}+\frac{1}{k_r-i\mathcal{R}^{-1}}\right) dk_r\\
+        &=\frac{1}{4}\int_{-\infty}^\infty \frac{\sin(k_r r)}{k_r+i\mathcal{R}^{-1}}dk_r + \frac{1}{4}\int_{-\infty}^\infty \frac{\sin(k_r r)}{k_r-i\mathcal{R}^{-1}}dk_r
+\end{align}
+
+
+\textcolor{red}{Not done yet}
+\subsection{Problem 12}
+\textcolor{red}{Not done yet}
+
+
+\end{document}

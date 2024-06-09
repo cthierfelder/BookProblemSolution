@@ -1,0 +1,65 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{{\sc Landau Lifschitz} - Vol 2 - Classical Theory of fields 3rd ed}
+\subsection{39.1 - Charge in repulsive Coulomb field}
+As usual we assume angular momentum conservation (movement in a plane and $M=r\cdot p_\varphi$) 
+\begin{align}
+\mathcal{E}
+&=c\sqrt{p^2+m^2c^2}+\frac{\alpha}{r}\\
+&=c\sqrt{p_r^2+p_\varphi^2+m^2c^2}+\frac{\alpha}{r}\\
+&=c\sqrt{p_r^2+\frac{M^2}{r^2}+m^2c^2}+\frac{\alpha}{r}\\
+&\rightarrow v=c\sqrt{1-\frac{m^2c^4}{\mathcal{E}^2}}\\
+&\rightarrow \mathcal{E}=\gamma mc^2\\
+&\rightarrow r_\text{min}=\frac{\alpha\gamma+\sqrt{\alpha^2+M^2c^2(\gamma^2-1)}}{mc^2(\gamma^2-1)}
+\end{align}
+then with $(\gamma mc,\gamma m\vec{v})=(\mathcal{E}/c,\vec{p})$ we get two equations for $\dot\varphi$ and $\dot r$
+\begin{align}
+p_r^2&=\gamma^2m^2v_r^2=\gamma^2m^2\dot{r}^2=\frac{1}{c^2}\left(\mathcal{E}-\frac{\alpha}{r}\right)^2-\frac{M^2}{r^2}-m^2c^2\\
+p_\varphi&=\gamma m v_\varphi=\gamma m r\dot{\varphi}=\frac{M}{r}
+\end{align}
+dividing them gives us $\varphi(r)$ by integration
+\begin{align}
+\frac{\dot\varphi}{\dot{r}}
+&=\frac{d\varphi}{dr}
+=\frac{M}{r^2}\frac{1}{\sqrt{\frac{1}{c^2}\left(\mathcal{E}-\frac{\alpha}{r}\right)^2-\frac{M^2}{r^2}-m^2c^2}}
+\end{align}
+\begin{align}
+\varphi_0
+&=\int^\infty_{r_\text{min}} dr\frac{M}{r\sqrt{\frac{1}{c^2}\left(\gamma m c^2r-\alpha\right)^2-M^2-m^2c^2r^2}}\\
+&=\left.-\frac{2 c M}{\sqrt{c^2 M^2-\alpha ^2}} \arctan\left(\frac{c\sqrt{m^2c^2r^2 \left(\gamma ^2-1\right)}-c
+   \sqrt{m^2c^2r^2 \left(\gamma ^2-1\right) +\frac{\alpha ^2}{c^2}-2 \alpha  \gamma  mr-M^2}}{\sqrt{c^2 M^2-\alpha ^2}}\right)\right|_{r_\text{min}}^\infty\\
+&=-\frac{2 c M}{\sqrt{c^2 M^2-\alpha ^2}} \arctan\left(\frac{\alpha  \gamma + \sqrt{\alpha
++\left(\gamma ^2-1\right) M^2c^2}}{\sqrt{ \left(\gamma ^2-1\right)} \sqrt{c^2 M^2-\alpha ^2}}\right)
+\end{align}
+Then with $2\arctan x =\arctan\frac{2x}{1-x^2}$ and $\arctan(-x)=-\arctan x$
+\begin{align}
+\chi&=\pi-2\varphi_0\\
+&=\pi-(-1)\frac{2\cdot2 c M}{\sqrt{c^2 M^2-\alpha ^2}} \arctan\left(\frac{\alpha  \gamma + \sqrt{\alpha
++\left(\gamma ^2-1\right) M^2c^2}}{\sqrt{ \left(\gamma^2-1\right)} \sqrt{c^2 M^2-\alpha ^2}}\right)\\
+&=\pi-(-1)\frac{2 c M}{\sqrt{c^2 M^2-\alpha ^2}} \arctan\left(-\frac{\sqrt{M^2c^2-\alpha^2}\sqrt{-1+\gamma^2}}{\alpha\gamma}\right)\\
+&=\pi-\frac{2 c M}{\sqrt{c^2 M^2-\alpha ^2}} \arctan\left(\frac{v\sqrt{M^2c^2-\alpha^2}}{\alpha c}\right)
+\end{align}
+where we used $\gamma/\sqrt{-1+\gamma^2}=c/v$.
+
+Now we recover the classical relation between impact parameter $b$ and the deflection angle $\chi$. First we express the conserved angular momentum at $r\rightarrow\infty$
+\begin{align}
+M=p_r^\infty r \sin\alpha=p_r^\infty r\frac{b}{r}=\gamma m vb\simeq mvb
+\end{align}
+Calculating the non-relativistic approximation
+\begin{align}
+\chi
+&=\pi-\frac{2Mc}{Mc\left(1-\frac{\alpha^2}{2M^2c^2}+...\right)}\arctan\frac{vMc\left(1-\frac{\alpha^2}{2M^2c^2}+...\right)}{\alpha c}\\
+&\simeq\pi-2\arctan\frac{vM}{\alpha}
+\end{align}
+then (assuming a positively charged ($q=ze$) particle scattered at a atomic nucleus ($Q=Ze$) which means ($\alpha=zZe^2/4\pi\epsilon_0$) and $\cot\left(\pi/2-\arctan x\right)=x$
+\begin{align}
+\frac{\chi}{2}&=\frac{\pi}{2}-\arctan \frac{4\pi\epsilon_0}{zZe^2}mv^2b\\
+\cot\frac{\chi}{2}&=\frac{4\pi\epsilon_0mv^2b}{zZe^2}\\
+b&=\frac{zZe^2}{4\pi\epsilon_0mv^2}
+\end{align}
+
+\end{document}

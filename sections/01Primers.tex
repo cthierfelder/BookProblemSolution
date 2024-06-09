@@ -1,0 +1,994 @@
+\documentclass[../main.tex]{subfiles}
+
+%\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\section{RH}
+\begin{itemize}
+\item  \href{https://arxiv.org/pdf/1312.5160.pdf}{Numbers as Functions - Yuri Manin}
+\begin{itemize}
+\item Many different way to think about numbers as functions
+\item Certain numbers called periods appear in number  theory and QFT $\{\sqrt[3]{5},\pi,\frac{\pi^2}{6},\Gamma\left(\frac{3}{7}\right)^7\}$
+\end{itemize}
+
+\item Using the imaginary parts of the non-trivial zeros of the Zeta function
+\begin{align}
+f(x)=-\sum_{k}\cos(\text{Im}(\zeta_k)\log x)
+\end{align}
+we see peaks at the prices and smaller peaks at their powers ${2,2^2,2^3,...,3,3^2,3^3,...,5,5^2,...}$
+
+\item \href{https://tinyurl.com/conrey90}{Riemann's Hypothesis - Brian Conrey}
+
+\item \href{https://sagecell.sagemath.org/}{SageMathCell}
+\end{itemize}
+
+\section{Linear algebra}
+\setcounter{subsection}{-1}
+\subsection{Basic Concepts}
+\subsubsection{How to write up mathematics}
+\begin{itemize}
+\item[] {\sc Definition}: \underline{Set}
+
+\item[] {\sc Definition}: \underline{Structure on $\mathbb{Q}$}
+
+\item[] {\sc Definition}: \underline{Group}
+
+\item[] {\sc Definition}: \underline{Field}
+\end{itemize}
+
+\subsubsection{The Complex Numbers}
+\begin{itemize}
+\item[] {\sc Definition}: \underline{Complex numbers}
+\item[] {\sc Remark}: $i^2=-1$
+\item[] {\sc Fact 1}: 
+\begin{enumerate}[(i)]
+\item $\mathbb{C}$ with operations $+/\cdot$ is a field
+\item $\mathbb{R}\rightarrow\mathbb{C}$
+\end{enumerate}
+\item[] {\sc Remark}: Fundamental theorem of algebra: Every polynom of order $n$: $P(z)=\sum_k^na_kz^k$ has exactly $n$ zeros
+\item[] {\sc Definition}: \underline{Complex conjugation}
+
+
+\end{itemize}
+
+\subsection{Vector Spaces}
+\subsubsection{Vector Space}
+
+\section{Classical Mechanics}
+
+\subsection{Lagrangian Mechanics}
+\begin{align}
+L=T-V,\qquad S=\int L(q,\dot{q},t) dt
+\end{align}
+Integration by parts - neglecting boundary terms
+\begin{align}
+\delta S&=\int \delta L dt=0\\
+\delta L&=\frac{\partial L}{\partial q}\delta q+\frac{\partial L}{\partial \dot{q}}\delta \dot{q}\\
+&=\left[\frac{\partial L}{\partial q}-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}}\right)\right]\delta q
+\end{align}
+Canonical momentum
+\begin{align}
+p=\frac{\partial L}{\partial \dot{q}}
+\end{align}
+Cyclic coordinates
+\begin{align}
+\frac{\partial L}{\partial q}=0\quad\rightarrow\quad\frac{\partial L}{\partial \dot{q}}=p=\text{const}
+\end{align}
+
+\section{Classical Field Theory}
+The physics - to derive the equations of motion 
+\begin{align}
+S&=\int L dt=\int\mathcal{L}(\psi,\partial_\mu\psi)\, d^4x\\
+0=\delta S&=\int d^4x \delta \mathcal{L}
+\end{align}
+Adding a four-divergence to the Lagrangian $\mathcal{L}'=\mathcal{L}+\partial_\mu K^\mu(\psi)$ results in 
+\begin{align}
+\int d^4x\,\partial_\mu K^\mu=\int dA\,n_\mu K^\mu
+\end{align}
+which should vanish for well behaved fields and therefore should not change anything.
+\begin{align}
+\delta\mathcal{L}
+&=\sum_a\frac{\partial\mathcal{L}}{\partial\psi_a}\delta\psi_a+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi_a)}\overbrace{\delta(\partial_\mu\psi_a)}^{=\partial_\mu(\delta\psi_a)}\\
+&=\sum_a\underbrace{\left[\frac{\partial\mathcal{L}}{\partial\psi_a}-\partial_\mu\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi_a)}\right]}_{\text{equations of motion}}\delta\psi_a+\underbrace{\partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi_a)}\delta\psi_a\right)}_{=\partial_\mu K^\mu}
+\end{align}
+Internal symmetry: $\psi_a\rightarrow\psi'_a=\psi_a+\delta\psi_a$ if $\delta\mathcal{L}=0$
+\begin{align}
+&\rightarrow j^\mu=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi_a)}\delta\psi_a-K^\mu\qquad\partial_\mu j^\mu=0\\
+&\rightarrow Q=\int d^3x\,j_0\qquad \frac{d}{dt}Q=\int d^3x \frac{\partial j_0}{\partial t}=\int d^3x \nabla\vec{j}=\int d\vec{A}\cdot\vec{j}=0
+\end{align}
+Consider spacetime translation: $x^\nu\rightarrow x'^\nu=x^\nu-\epsilon^\nu$ implying $\psi(x)\rightarrow\psi(x')=\psi(x)+\epsilon^\nu\partial_\nu\psi(x)$ and $\mathcal{L}\rightarrow\mathcal{L}'=\mathcal{L}+\epsilon^\nu\partial_\nu\mathcal{L}=\mathcal{L}+\epsilon^\nu\partial_\mu(\delta^\mu_\nu\mathcal{L})$ results in four Noether currents $\nu=0,1,2,3$
+\begin{align}
+&\rightarrow T^\mu_{\;\nu}\equiv(j^\mu)_\nu=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi)}\partial_\nu\psi-\delta^\mu_\nu\mathcal{L}\\
+&\rightarrow T^{\mu\nu}=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\psi)}\partial^\nu\psi-\eta^{\mu\nu}\mathcal{L}\\
+&\rightarrow \Theta^{\mu\nu}=-\frac{2}{\sqrt{-g}}\left.\frac{\partial(\sqrt{-g}\mathcal{L})}{\partial g_{\mu\nu}}\right|_{g_{\mu\nu}=\eta_{\mu\nu}}
+\end{align}
+Also
+\begin{align}
+\pi_a&=\frac{\partial\mathcal{L}}{\partial(\partial_0\psi_a)}\\
+\mathcal{H}&=\sum_a\pi_a\partial_o\psi_a-\mathcal{L}
+\end{align}
+
+\subsection{Lagrangian Lookup Table}
+
+\begin{center}
+
+\begin{tabular}{|l|c|c|c|}
+\hline 
+Real scalar field & 
+x & 
+x & 
+• \\ 
+\hline 
+$\mathcal{L}[\phi]=\frac{1}{2}\eta^{\mu\nu}(\partial_\mu\phi)(\partial_\nu\phi)-\frac{1}{2}m^2\phi^2-\frac{\lambda}{n!}\phi^n$ & • & • & • \\ 
+\hline 
+$(\Box+m^2)\phi+\frac{\lambda}{(n-1)!}\phi^{n-1}=0$ & • & • & • \\ 
+\hline 
+• & • & • & • \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{itemize}
+\item Real scalar field $\mathcal{L}=\frac{1}{2}\eta^{\mu\nu}(\partial_\mu\phi)(\partial_\nu\phi)-\frac{1}{2}m^2\phi^2-\frac{\lambda}{n!}\phi^n$
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial\phi}&=-m^2\phi-\frac{\lambda}{(n-1)!}\phi^{n-1}\\
+\frac{\partial\mathcal{L}}{\partial(\partial_\alpha\phi)}&=\eta^{\mu\nu}(\partial_\mu\phi)\delta^\alpha_\nu=\partial^\alpha\phi\\
+&\rightarrow (\Box+m^2)\phi+\frac{\lambda}{(n-1)!}\phi^{n-1}=0
+\end{align}
+Hamiltonian
+\begin{align}
+\pi&=\frac{\partial\mathcal{L}}{\partial(\partial_0\phi)}=\partial^0\phi\\
+\mathcal{H}&=\pi\dot\phi-\mathcal{L}\\
+&=\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2+\frac{\lambda}{n!}\phi^n\\
+H&=\frac{1}{2}\int d^3y\left(\pi^2+(\nabla\phi)^2+m^2\phi^2+\frac{2\lambda}{n!}\phi^n\right)
+\end{align}
+Heisenberg equations with $[\phi(\vec{x},t),\pi(\vec{y},t)]=i\delta^3(\vec{x}-\vec{y})$
+\begin{align}
+\int d^3y[\pi(y)^2,\phi(x)]
+&=\int d^3y\left(\pi(y)^2\phi(x)-\phi(x)\pi(y)^2\right)\\
+&=\int d^3y\left(\pi(y)^2\phi(x)-\pi(y)\phi(x)\pi(y)-i\pi(y)\delta^3(\vec{x}-\vec{y})\right)\\
+&=\int d^3y\left(\pi(y)^2\phi(x)-\pi(y)^2\phi(x)-2i\pi(y)\delta^3(\vec{x}-\vec{y})\right)\\
+&=-2i\pi(x)\\
+&\rightarrow \dot\phi=i[H,\phi]=\pi(x)
+\end{align}
+\begin{align}
+\int d^3y[(\nabla_y\phi(y))^2,\pi(x)]
+&=\int d^3y\left((\nabla_y\phi(y))^2\pi(x)-\pi(x)(\nabla_y\phi(y))^2\right)\\
+&=\int d^3y\left(\nabla_y\phi(y)(\nabla_y\phi(y)\pi(x))-(\pi(x)\nabla_y\phi(y))\nabla_y\phi(y)\right)\\
+&=\int d^3y\left(\nabla_y\phi(y)\nabla_y[\phi(y),\pi(x)]\nabla_y\phi(y)\right)\\
+&=i\int d^3y\left(\nabla_y\phi(y)\right)^2\nabla_y\delta^{(3)}(\vec{x}-\vec{y})\\
+&=-2i\int d^3y\left(\nabla^2_y\phi(y)\right)\delta^{(3)}(\vec{x}-\vec{y})\\
+&=-2i\nabla^2_x\phi(x)\\
+&\rightarrow \dot\pi=i[H,\pi]=\nabla^2\pi(x)-m^2\phi-\frac{\lambda}{(n-1)!}\phi^{n-1}
+\end{align}
+
+\item Maxwell field $\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+j^\mu A_\mu=-\frac{1}{4}(\partial_\mu A_\nu-\partial_\nu A_\nu)\eta^{\mu\sigma}\eta^{\nu\rho}(\partial_\sigma A_\rho-\partial_\rho A_\sigma)+j^\mu A_\mu$
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial A_\alpha}&=j^\mu\delta^\alpha_\mu=j^\alpha\\
+\frac{\partial\mathcal{L}}{\partial(\partial_\beta A_\alpha)}&=-\frac{2}{4}(\delta^\beta_\mu\delta^\alpha_\nu-\delta^\beta_\nu\delta^\alpha_\mu)F^{\mu\nu}=-F^{\alpha\beta}\\
+&\rightarrow\partial_\beta F^{\alpha\beta}+j^\alpha=0\\
+&\rightarrow T^{\mu\nu}_\text{free}=-F^{\alpha\mu}\partial^\nu A_\alpha+\frac{1}{4}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\\
+&\rightarrow T^{\mu\nu}_\text{free,sym}=T^{\mu\nu}_\text{free}+F^{\alpha\mu}\partial_\alpha A^\nu=-F^{\alpha\mu}F^\nu_{\;\alpha}+\frac{1}{4}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}
+\end{align}
+\item Dirac field $\mathcal{L}=\overline{\psi}(i\gamma^\mu\partial_\mu-m)\psi$
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial \overline\psi}&=(i\gamma^\mu\partial_\mu-m)\psi\\
+\frac{\partial\mathcal{L}}{\partial \psi}&=-m\overline\psi\\
+\frac{\partial\mathcal{L}}{\partial(\partial_\alpha \overline\psi)}&=0\\
+\frac{\partial\mathcal{L}}{\partial(\partial_\alpha \psi)}&=\overline\psi i\gamma^\mu\delta^\alpha_\mu=i\overline\psi \gamma^\alpha\\
+&\rightarrow (i\gamma^\mu\partial_\mu-m)\psi=0\\
+&\rightarrow \partial_\alpha(i\overline\psi\gamma^\alpha)+m\overline\psi=0
+\end{align}
+\item Massive vector field $\mathcal{L}=-\frac{1}{4}G_{\mu\nu}G^{\mu\nu}+\frac{1}{2}m^2B_\mu B^\mu$
+\begin{align}
+\frac{\partial\mathcal{L}}{\partial B_\alpha}&=m^2B^\alpha\\
+\frac{\partial\mathcal{L}}{\partial(\partial_\beta B_\alpha)}&=-\frac{2}{4}(\delta^\beta_\mu\delta^\alpha_\nu-\delta^\beta_\nu\delta^\alpha_\mu)G^{\mu\nu}=G^{\alpha\beta}\\
+&\rightarrow\partial_\beta G^{\alpha\beta}-m^2B^\alpha=0
+\end{align}
+
+\end{itemize}
+
+
+\section{Classical Electrodynamics}
+\subsubsection{Notation}
+\begin{align}
+\eta_{ab}&=\eta^{ab}=\text{diag}(1,-1,-1,-1)\\
+\mathbf{A}&\rightarrow A^i=\begin{pmatrix}
+A^0\\
+\vec{A}
+\end{pmatrix}\qquad A_i=\begin{pmatrix}
+A^0\\
+-\vec{A}
+\end{pmatrix}
+\end{align}
+\begin{align}
+\mathbf{E}&=-\nabla A^0-\partial_t\mathbf{A}\\
+\mathbf{B}&=\nabla\times\mathbf{A}\\
+F_{\mu\nu}&=\partial_\mu A_\nu-\partial_\nu A_\mu\\
+F_{10}&=\partial_xA_0-\partial_tA_x=\partial_xA^0+\partial_tA^x=-E_x\\
+F_{21}&=\partial_yA_x-\partial_xA_y=-\partial_yA^x+\partial_xA^y=B_z\\
+F_{31}&=\partial_zA_x-\partial_xA_z=-\partial_zA^x+\partial_xA^z=-B_y
+\end{align}
+\begin{align}
+F_{\mu\nu}&=F_{\downarrow\downarrow}=\begin{pmatrix}
+0    &  E_x & E_y  & E_z\\
+-E_x &  0   & -B_z & B_y\\
+-E_y &  B_z & 0    & -B_x\\
+-E_z & -B_y & B_x  & 0
+\end{pmatrix}
+\qquad
+F^{\mu\nu}=F_{\uparrow\uparrow}=\eta F_{\downarrow\downarrow}\eta^T=\begin{pmatrix}
+0    &  -E_x & -E_y  & -E_z\\
+E_x &  0   & -B_z & B_y\\
+E_y &  B_z & 0    & -B_x\\
+E_z & -B_y & B_x  & 0
+\end{pmatrix}\\
+F_{\mu\nu}F^{\mu\nu}&=-\text{tr}(F_{\downarrow\downarrow}.F_{\uparrow\uparrow})=2(\mathbf{B}^2-\mathbf{E}^2)
+\qquad
+F^{\mu\lambda}F_{\lambda\nu}=...
+\end{align}
+
+\subsection{Multipole expansion}
+\subsubsection{Spherical Harmonics}
+\begin{align}
+Y_{00}&=\frac{1}{2\sqrt{\pi}}\\
+Y_{11}&=-\sqrt{\frac{3}{8\pi}}\sin\vartheta\,e^{i\varphi}=-\sqrt{\frac{3}{8\pi}}\frac{x+iy}{r}\\
+Y_{10}&=\sqrt{\frac{3}{4\pi}}\cos\vartheta=\sqrt{\frac{3}{4\pi}}\frac{z}{r}\\
+Y_{1,-1}&=\sqrt{\frac{3}{8\pi}}\sin\vartheta\,e^{-i\varphi}=\sqrt{\frac{3}{8\pi}}\frac{x-iy}{r}
+\end{align}
+\begin{align}
+Y_{22}&=\sqrt{\frac{15}{32\pi}}\sin^2\vartheta\,e^{2i\varphi}
+=\sqrt{\frac{15}{32\pi}}\frac{(x+iy)^2}{r^2}\\
+Y_{21}&=-\sqrt{\frac{15}{8\pi}}\sin\vartheta\cos\vartheta\,e^{i\varphi}
+=-\sqrt{\frac{15}{32\pi}}\frac{(x+iy)z}{r^2}\\
+Y_{20}&=\sqrt{\frac{5}{16\pi}}(3\cos^2\vartheta-1)
+=\sqrt{\frac{5}{16\pi}}\frac{3z^2-r^2}{r^2}\\
+Y_{2,-1}&=\sqrt{\frac{15}{8\pi}}\sin\vartheta\cos\vartheta\,e^{-i\varphi}
+=\sqrt{\frac{15}{32\pi}}\frac{(x-iy)z}{r^2}\\
+Y_{2,-2}&=\sqrt{\frac{15}{32\pi}}\sin^2\vartheta\,e^{-2i\varphi}
+=\sqrt{\frac{15}{32\pi}}\frac{(x-iy)^2}{r^2}
+\end{align}
+
+\subsubsection{Cartesian}
+With $|\mathbf{x}|\gg|\mathbf{x}'|$
+\begin{align}
+\frac{1}{|\mathbf{x}-\mathbf{x}'|}
+&=\frac{1}{\sqrt{|\mathbf{x}|^2-2\mathbf{x}\cdot\mathbf{x}'+|\mathbf{x}'|^2}}\\
+&=\frac{1}{|\mathbf{x}|}\frac{1}{\sqrt{1-2\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^2}+\frac{|\mathbf{x}'|^2}{|\mathbf{x}^2|}}}\\
+&=\frac{1}{|\mathbf{x}|}\frac{1}{\sqrt{1-\underbrace{\left(2\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^2}-\frac{|\mathbf{x}'|^2}{|\mathbf{x}^2|}\right)}}_{=y}}\\
+&=\frac{1}{|\mathbf{x}|}\left(1+\frac{1}{2}y+\frac{3}{8}y^2+\frac{5}{16}y^3+... \right)\\
+&=\frac{1}{|\mathbf{x}|}\left(1+\frac{1}{2}\left(2\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^2}-\frac{|\mathbf{x}'|^2}{|\mathbf{x}^2|}\right)+\frac{3}{8}\left(2\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^2}-\frac{|\mathbf{x}'|^2}{|\mathbf{x}^2|}\right)^2+\frac{5}{16}\left(2\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^2}-\frac{|\mathbf{x}'|^2}{|\mathbf{x}^2|}\right)^3+... \right)\\
+&=\frac{1}{|\mathbf{x}|}
++\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^3}
++\frac{1}{2}\underbrace{\frac{3(\mathbf{x}\cdot\mathbf{x}')^2-|\mathbf{x}|^2|\mathbf{x}'|^2}{|\mathbf{x}|^5}}_{=\frac{[3x'^ix'^j-\delta_{ij}(x'^jx'^j)]x^ix^j}{|\mathbf{x}|^5}}
++\frac{1}{2}\frac{5(\mathbf{x}\cdot\mathbf{x}')^3-3(\mathbf{x}\cdot\mathbf{x}')|\mathbf{x}|^2|\mathbf{x}'|^2}{|\mathbf{x}|^7}+...
+\end{align}
+Then
+\begin{align}
+4\pi\epsilon_0\Phi(\mathbf{x})
+&=\int d^3x'\frac{\rho(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}\\
+&=\frac{1}{|\mathbf{x}|}\int d^3x'\rho(\mathbf{x}')
++\frac{1}{|\mathbf{x}|^3}\mathbf{x}\cdot\int d^3x'\,\mathbf{x}'\rho(\mathbf{x}')
++\frac{1}{2|\mathbf{x}|^5}x^ix^j\int d^3x'\,(3x'_ix'_j-\delta_{ij}|\mathbf{x}'|^2)\rho(\mathbf{x}')+...\\
+&=\frac{q}{|\mathbf{x}|}+\frac{\mathbf{x}\cdot\mathbf{p}}{|\mathbf{x}|^3}+\frac{(\mathbf{x},\mathbf{Q}\mathbf{x})}{2|\mathbf{x}|^5}+...
+\end{align}
+
+\subsubsection{Spherical}
+\begin{align}
+\frac{1}{|\mathbf{x}-\mathbf{x}'|}
+&=\frac{1}{|\mathbf{x}|}
++\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^3}
++\frac{1}{2}\frac{[3x'^ix'^j-\delta_{ij}(x'^jx'^j)]x^ix^j}{|\mathbf{x}|^5}
++\frac{1}{2}\frac{5(\mathbf{x}\cdot\mathbf{x}')^3-3(\mathbf{x}\cdot\mathbf{x}')|\mathbf{x}|^2|\mathbf{x}'|^2}{|\mathbf{x}|^7}+...\\
+\frac{1}{|\mathbf{r}-\mathbf{r}'|}
+&=\frac{1}{r}\sum_{l=0}\frac{4\pi}{2l+1}\sum_{m=-l}^l\left(\frac{r'}{r}\right)^lY_{lm}(\vartheta,\varphi)Y^*_{lm}(\vartheta',\varphi')
+\end{align}
+Then
+\begin{align}
+4\pi\epsilon_0\Phi(\mathbf{x})
+&=\int d^3x'\frac{\rho(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}\\
+&=\sum_{l,m}\frac{4\pi}{2l+1}\frac{q_{lm}}{r^{l+1}}Y_{lm}(\vartheta,\varphi)\\
+&=4\pi\frac{q_{00}}{r}Y_{00}+\frac{4\pi}{3}\frac{q_{11}Y_{11}+q_{10}Y_{10}+q_{1,-1}Y_{1,-1}}{r^2}\\
+&=\frac{q}{r}+\frac{4\pi}{3}\frac{-\sqrt{\frac{3}{8\pi}}(-p_x+ip_y)\sqrt{\frac{3}{8\pi}}\frac{x+iy}{r}+\sqrt{\frac{3}{4\pi}}p_z\sqrt{\frac{3}{4\pi}}\frac{z}{r}
++\sqrt{\frac{3}{8\pi}}(p_x+ip_y)\sqrt{\frac{3}{8\pi}}\frac{x-iy}{r}}{r^2}+...\\
+&=\frac{q}{r}+\frac{1}{2}\frac{(p_x x+p_y y+i(p_xy-p_yx))+2p_z z
++(p_x x+p_y y-i(p_xy-p_yx))}{r^3}+...
+\end{align}
+with
+\begin{align}
+q_{lm}&=\int d^3r'\,{r'}^lY^*_{lm}(\vartheta',\varphi')\rho(\mathbf{r}')\\
+q_{00}&=\frac{1}{2\sqrt{\pi}}\int d^3r'\,\rho(\mathbf{r}')r'^2\sin\vartheta'=\frac{q}{2\sqrt{\pi}}\\
+q_{11}&=-\frac{1}{2}\sqrt{\frac{3}{2\pi}}\int d^3r'\,r'\rho(\mathbf{r}')(\sin\vartheta'\,e^{-i\varphi'})r'^2\sin\vartheta'\\
+&=-\frac{1}{2}\sqrt{\frac{3}{2\pi}}\int d^3r'\,\rho(\mathbf{r}')(r'\sin\vartheta'[\cos\varphi'-i\sin\varphi'])r'^2\sin\vartheta'\\
+&=-\frac{1}{2}\sqrt{\frac{3}{2\pi}}\int d^3r'\,\rho(\mathbf{r}')(x'-iy')r'^2\sin\vartheta'\\
+&=\sqrt{\frac{3}{8\pi}}(-p_x+ip_y)\\
+q_{10}&=\sqrt{\frac{3}{4\pi}}p_z\\
+q_{1,-1}&=\sqrt{\frac{3}{8\pi}}(p_x+ip_y)
+\end{align}
+\subsection{Radiation}
+Starting with
+\begin{align}
+\nabla\cdot\mathbf{D}&=\rho\qquad\nabla\times\mathbf{H}=\mathbf{J}+\frac{\partial\mathbf{D}}{\partial t}\\
+\nabla\cdot\mathbf{B}&=0\qquad\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}
+\end{align}
+then
+\begin{align}
+\mathbf{B}&=\nabla\times\mathbf{A}\\
+&\rightarrow\nabla\times\left(\mathbf{E}+\frac{\partial\mathbf{A}}{\partial t}\right)=0=\nabla\times(-\nabla\phi)\\
+&\rightarrow\mathbf{E}=-\nabla\phi-\frac{\partial\mathbf{A}}{\partial t}
+\end{align}
+in vacuum we find
+\begin{align}
+\nabla\cdot\mathbf{E}\quad&\rightarrow\quad\nabla^2\phi+\frac{\partial}{\partial t}(\nabla\cdot\mathbf{A})=-\frac{\rho}{\epsilon_0}\\
+\nabla\times\mathbf{H}\quad&\rightarrow\quad\nabla^2\mathbf{A}-\frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2}-\nabla\left(\nabla\cdot\mathbf{A}+\frac{1}{c^2}\frac{\partial\phi}{\partial t}\right)=-\mu_0\mathbf{J}
+\end{align}
+using the Lorenz condition
+\begin{align}
+\nabla\cdot\mathbf{A}+\frac{1}{c^2}\frac{\partial\phi}{\partial t}=0
+\end{align}
+we get
+\begin{align}
+\nabla^2\phi-\frac{\partial^2\phi}{\partial t^2}&=-\frac{\rho}{\epsilon_0}\\
+\nabla^2\mathbf{A}-\frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2}&=-\mu_0\mathbf{J}
+\end{align}
+with the solution
+\begin{align}
+\phi(\mathbf{x},t)&=\frac{1}{4\pi\epsilon_0}\int dt'\int d^3\mathbf{x}'\frac{\rho(\mathbf{x}',t')}{|\mathbf{x}-\mathbf{x}'|}\delta\left(t'+\frac{|\mathbf{x}-\mathbf{x}'|}{c}-t\right)\\
+\mathbf{A}(\mathbf{x},t)&=\frac{\mu_0}{4\pi}\int dt'\int d^3\mathbf{x}'\frac{\mathbf{J}(\mathbf{x}',t')}{|\mathbf{x}-\mathbf{x}'|}\delta\left(t'+\frac{|\mathbf{x}-\mathbf{x}'|}{c}-t\right)
+\end{align}
+with $\rho(\mathbf{x},t)=\rho(\mathbf{x})e^{-i\omega t}$ and $\mathbf{J}(\mathbf{x},t)=\mathbf{J}(\mathbf{x})e^{-i\omega t}$
+\begin{align}
+\mathbf{A}(\mathbf{x},t)&=\frac{\mu_0}{4\pi}e^{-i\omega t}\int d^3\mathbf{x}'\,\mathbf{J}(\mathbf{x}')\frac{e^{ik|\mathbf{x}-\mathbf{x}'|}}{|\mathbf{x}-\mathbf{x}'|}\\
+&=\mathbf{A}(\mathbf{x})e^{-i\omega t}
+\end{align}
+where $k=\omega/c$ then the fields are given by
+\begin{align}
+\mathbf{H}
+&=\frac{1}{\mu_0}\nabla\times\mathbf{A}\\
+&=e^{-i\omega t}\frac{1}{\mu_0}\nabla\times\mathbf{A}(\mathbf{x})
+\end{align}
+and outside the source
+\begin{align}
+\frac{\partial}{\partial t}\mathbf{D}
+=\epsilon_0\frac{\partial}{\partial t}\mathbf{E}
+&=\nabla\times\mathbf{H}=e^{-i\omega t}\nabla\times\mathbf{H}(\mathbf{x})\\
+\rightarrow\mathbf{E}
+&=\frac{1}{-i\omega}\frac{1}{\epsilon_0}e^{-i\omega t}\nabla\times\mathbf{H}(\mathbf{x})\\
+&=\frac{i}{k}\frac{1}{\epsilon_0c}\nabla\times\mathbf{H}\\
+&=\frac{i}{k}\frac{\sqrt{\mu_0\epsilon_0}}{\epsilon_0}\nabla\times\mathbf{H}\\
+&=\frac{i}{k}\sqrt{\frac{\mu_0}{\epsilon_0}}\nabla\times\mathbf{H}
+\end{align}
+Expressing this directly via the vector potential gives
+\begin{align}
+\mathbf{E}
+&=\frac{i}{k}\frac{1}{\epsilon_0c}\nabla\times\mathbf{H}\\
+&=\frac{i}{k}\frac{1}{\epsilon_0\mu_0c}\nabla\times(\nabla\times\mathbf{A})\\
+&=\frac{ic}{k}[\nabla(\nabla\cdot\mathbf{A})-\nabla^2\mathbf{A}]\\
+&=\frac{ic}{k}[\nabla(-
+\frac{1}{c^2}\frac{\partial\phi}{\partial t})-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\mathbf{A}]\\
+&=-\frac{i}{kc}\frac{\partial}{\partial t}[\nabla\phi+\frac{\partial}{\partial t}\mathbf{A}]\\
+&=-\frac{i}{kc}(-i\omega)[\nabla\phi+\frac{\partial}{\partial t}\mathbf{A}]\\
+&=-[\nabla\phi+\frac{\partial}{\partial t}\mathbf{A}]
+\end{align}
+
+\subsection{Multipole Radiation}
+\begin{align}
+\mathbf{A}(\mathbf{x},t)
+&=\frac{\mu_0}{4\pi}\int dt'\int d^3\mathbf{x}'\frac{\mathbf{J}(\mathbf{x}',t')}{|\mathbf{x}-\mathbf{x}'|}\delta\left(c(t'-t)+|\mathbf{x}-\mathbf{x}'|\right)\\
+&=\frac{\mu_0}{4\pi}\int dt'\int d^3\mathbf{x}'\left(\frac{1}{|\mathbf{x}|}
++\frac{\mathbf{x}\cdot\mathbf{x}'}{|\mathbf{x}|^3}
++...\right)\mathbf{J}(\mathbf{x}',t')\delta\left(c(t'-t)+|\mathbf{x}|-\mathbf{n}\cdot\mathbf{x}'+...\right)\\
+&=\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\left(1
++\mathbf{n}\cdot\frac{\mathbf{x}'}{|\mathbf{x}|}
++...\right)\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|+\frac{1}{c}\mathbf{n}\cdot\mathbf{x}'+...)\\
+&=\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\left(1
++\mathbf{n}\cdot\frac{\mathbf{x}'}{|\mathbf{x}|}
++...\right)\left[\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)+\frac{1}{c}(\mathbf{n}\cdot\mathbf{x}')\partial_t\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|+..)\right]\\
+&=\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\left[\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)+\frac{1}{c}(\mathbf{n}\cdot\mathbf{x}')\partial_t\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)+..\right]+\mathbf{n}\cdot\frac{\mathbf{x}'}{|\mathbf{x}|}\left[...\right]+...\\
+&=\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\,\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)
++\frac{\mu_0}{4\pi cr}\int d^3\mathbf{x}'(\mathbf{n}\cdot\mathbf{x}')\partial_t\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x})|+...\\
+&=\mathbf{A}_\text{ED}(\mathbf{x},t)+\mathbf{A}_\text{MD/EQ}(\mathbf{x},t)
+\end{align}
+Treating each dimension individually we can integrate by parts
+\begin{align}
+\mathbf{A}_\text{ED}(\mathbf{x},t)
+&=\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\,\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)\\
+&=-\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\,\mathbf{x}'\nabla\cdot\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)\\
+&=-\frac{\mu_0}{4\pi r}\int d^3\mathbf{x}'\,\mathbf{x}'\dot{\rho}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)\\
+&=-\frac{\mu_0}{4\pi r}\dot{\mathbf{p}}( t-\frac{1}{c}|\mathbf{x}|)
+\end{align}
+with
+\begin{align}
+\mathbf{J}(\mathbf{x},t)
+&=\mathbf{J}(\mathbf{x})e^{-i\omega t}\\
+\mathbf{J}(\mathbf{x},t-\frac{1}{c}|\mathbf{x}-\mathbf{x}'|)
+&=\mathbf{J}(\mathbf{x})e^{-i\omega t}e^{ik|\mathbf{x}-\mathbf{x}'|}
+\end{align}
+
+
+\begin{align}
+\mathbf{A}_\text{MD/EQ}(\mathbf{x},t)
+&=\frac{\mu_0}{4\pi cr}\int d^3\mathbf{x}'(\mathbf{n}\cdot\mathbf{x}')\partial_t\mathbf{J}(\mathbf{x}',t-\frac{1}{c}|\mathbf{x}|)
+\end{align}
+
+\section{Light Scattering}
+
+\begin{enumerate}
+\item Thomson
+\item Rayleigh 
+\item Rayleigh-Gans
+\item Anomalous diffraction approximation of van de Hulst
+\item Mie scattering
+\item Compton
+\end{enumerate}
+
+\section{Quantum Mechanics}
+\subsection{Pictures}
+Prelims - at $t=t_0$
+\begin{align}
+|\psi_H\rangle=|\psi(t_0)\rangle
+\end{align}
+and obviously
+\begin{align}
+U(t,t_0)&=U^{-1}(t_0,t)\\
+U^\dagger(t,t_0)U(t,t_0)&=1\qquad\text{(probability conservation)}
+\end{align}
+
+\begin{enumerate}
+\item Schroedinger - time dependency in the states
+\begin{align}
+i\partial_t|\psi(t)\rangle&=H|\psi(t)\rangle\\
+|\psi(t)\rangle&=U(t,t_0)|\psi(t_0)\rangle\\
+i\partial_t U(t,t_0)&=HU(t,t_0)\\
+&\frac{\partial H}{\partial t}=0\quad\rightarrow\quad U(t,t_0)=e^{-iH(t-t_0)}
+\end{align}
+Time evolution with $i\partial_t |\psi\rangle=H|\psi\rangle$
+\begin{align}
+|\psi(t)\rangle
+&=U(t,t_0)|\psi(t_0)\rangle\\
+&\simeq(1-i(t-t_0)H)|\psi(t_0)\rangle\\
+&\simeq(1-i(t-t_0)i\partial_t)|\psi(t_0)\rangle\\
+&\simeq|\psi(t_0)\rangle+\frac{\partial |\psi(t_0)\rangle}{\partial t}(t-t_0)
+\end{align}
+Time evolution with $H|E_k\rangle=E_k|E_k\rangle$
+\begin{align}
+|\psi(t)\rangle
+&=U(t,t_0)|\psi(t_0)\rangle\\
+&=U(t,t_0)\sum_k |E_k\rangle\langle E_k|\psi(t_0)\rangle\\
+&=\sum_k e^{-iH(t-t_0)}|E_k\rangle\langle E_k|\psi(t_0)\rangle\\
+&=\sum_k e^{-iE_k(t-t_0)}|E_k\rangle\langle E_k|\psi(t_0)\rangle
+\end{align}
+
+Measurement
+\begin{align}
+\langle A(t)\rangle&=\langle\psi(t)|A_S|\psi(t)\rangle
+\end{align}
+
+\item Heisenberg - time dependency in the operators
+\begin{align}
+\langle A(t)\rangle
+&=\langle\psi(t)|A_S|\psi(t)\rangle\\
+&=\langle\psi(t_0)|U^\dagger(t,t_0)A_SU(t,t_0)|\psi(t_0)\rangle\\
+&=\langle\psi(t_0)|A_H(t)|\psi(t_0)\rangle\\
+\rightarrow A_H(t)&=U^\dagger(t,t_0)A_SU(t,t_0)
+\end{align}
+Time derivative
+\begin{align}
+\frac{d}{dt}A_H(t)
+&=\left(\frac{d}{dt}U^\dagger(t,t_0)\right) A_SU(t,t_0)
++U^\dagger(t,t_0) \left(\frac{d}{dt}A_S\right)U(t,t_0)
++U^\dagger(t,t_0) A_S\left(\frac{d}{dt}U(t,t_0)\right)\\
+&=U^\dagger(t,t_0)i(HA_S-A_SH)U(t,t_0)+U^\dagger(t,t_0)\frac{\partial A_S}{\partial t}U(t,t_0)\\
+&=i[H,A_H]+\underbrace{U^\dagger(t,t_0)\frac{\partial A_S}{\partial t}U(t,t_0)}_{\equiv\frac{\partial A_H}{\partial t}}\\
+&=i[H,A_H]+\frac{\partial A_H}{\partial t}
+\end{align}
+
+\item Dirac - $H=H_0+H_\text{int}$
+\begin{align}
+|\psi(t)\rangle_D&=e^{iH_0t}|\psi(t)\rangle_S\\
+A_D(t)&=e^{iH_0t}A_Se^{-iH_0t}
+\end{align}
+then
+\begin{align}
+\langle A(t)\rangle
+&=\langle\psi(t)|A_S|\psi(t)\rangle\\
+&=\langle\psi(t_0)|U^\dagger(t,t_0)A_SU(t,t_0)|\psi(t_0)\rangle\\
+&=\langle\psi(t_0)|U^\dagger(t,t_0)\underbrace{U_0(t,t_0)U_0^\dagger(t,t_0)}_{=1}A_S\underbrace{U_0(t,t_0)U_0^\dagger(t,t_0)}_{=1}U(t,t_0)|\psi(t_0)\rangle\\
+&\rightarrow A_D=U_0^\dagger(t,t_0)A_SU_0(t,t_0)\\
+&\rightarrow |\psi_D(t)\rangle= U_0^\dagger(t,t_0)U(t,t_0)|\psi(t_0)\rangle=U_0^\dagger(t,t_0)|\psi(t)\rangle
+\end{align}
+Now calc evolution between the TWO Dirac states $|\psi_D(t_1)\rangle$ and $|\psi_D(t_2)\rangle$
+\begin{align}
+|\psi_D(t_1)\rangle&= U_0^\dagger(t_1,t_0)U(t_1,t_0)|\psi(t_0)\rangle\\
+|\psi_D(t_2)\rangle&= U_0^\dagger(t_2,t_0)U(t_2,t_0)|\psi(t_0)\rangle\\
+&= U_0^\dagger(t_2,t_0)U(t_2,t_0)\left(U_0^\dagger(t_1,t_0)U(t_1,t_0)\right)^{-1}|\psi_D(t_1)\rangle\\
+&= U_0^\dagger(t_2,t_0)U(t_2,t_0)U^{-1}(t_1,t_0)\left(U_0^\dagger(t_1,t_0)\right)^{-1}|\psi_D(t_1)\rangle\\
+&= U_0^\dagger(t_2,t_0)U(t_2,t_0)U(t_0,t_1)U_0^\dagger(t_1,t_0)|\psi_D(t_1)\rangle\\
+&= U_0^\dagger(t_2,t_0)U(t_2,t_1)U_0^\dagger(t_1,t_0)|\psi_D(t_1)\rangle
+\end{align}
+with $t_0=0$ and $H_0$ time-independent
+\begin{align}
+U_D(t_2,t_1)
+&= U_0^\dagger(t_2,0)U(t_2,t_1)U_0^\dagger(t_1,0)|\psi_D(t_1)\rangle\\
+&= e^{iH_0t_2}U(t_2,t_1)e^{iH_0t_1}
+\end{align}
+\end{enumerate}
+\begin{table}[h!]
+\begin{tabular}{|l|c|c|c|}
+\hline
+picture & equation & state & operator \\ \hline\hline
+Schroedinger 
+& $i\partial_t|\psi(t)\rangle_S=H_0|\psi(t)\rangle_S$ 
+& $|\psi(t)\rangle_S=e^{-iH_0(t-t_0)}|\psi(t_0)\rangle_S$
+& $A_S(t)=A_S$\\ \hline
+Heisenberg
+& $\frac{d}{dt}A_H=\partial_tA_H+i[H_0,A_H]$
+& $|\psi(t)\rangle_H=|\psi(t_0)\rangle_S$
+& $A_H(t)=e^{iH_0(t-t_0)}A_H(t_0)e^{-iH_0(t-t_0)}$\\ \hline
+Dirac
+& $i\partial_t|\psi(t)\rangle_D=H_I|\psi(t)\rangle_D$ 
+& $|\psi(t)\rangle_D=e^{+iH_0(t-t_0)}|\psi(t_0)\rangle_D$
+& $A_D(t)=e^{iH_0(t-t_0)}A_Se^{-iH_0(t-t_0)}$\\ \hline
+\end{tabular}
+\end{table}
+where
+\begin{align}
+|\psi(t_0)\rangle_S&=|\psi\rangle_H=|\psi(t_0)\rangle_D\\
+A_S&=A_H(t_0)=A_D(t_0)\\
+H&=H_0+H_\text{int}\qquad H_I=(H_\text{int})_D=e^{iH_0(t-t_0)}H_\text{int}e^{-iH_0(t-t_0)}
+\end{align}
+
+\subsection{3D Spherical well}
+\begin{align}
+\left\{-\frac{\hbar^2}{2m}\triangle+V(r)\right\}\psi=E\psi\\
+\left\{-\frac{\hbar^2}{2m}\left[\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}+\frac{1}{r^2}\triangle_{\phi\theta}\right]+V(r)\right\}\psi=E\psi\\
+\left\{\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}+\frac{1}{r^2}\triangle_{\phi\theta}-\frac{2m[V(r)-E]}{\hbar^2}\right\}\psi=0
+\end{align}
+Separation $\psi=R(r)Y(\phi,\theta)$
+\begin{align}
+\frac{r^2\left\{\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{2m[V(r)-E]}{\hbar^2}\right\}R(r)}{R(r)}=l(l+1)=-\frac{\triangle_{\phi,\theta} Y(\phi,\theta)}{Y(\phi,\theta)}\\
+\left(\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{l(l+1)}{r^2}-\frac{2m[V(r)-E]}{\hbar^2}\right)R(r)=0
+\end{align}
+With the definition of the well potential
+\begin{align}
+V(r)=\left\{\begin{matrix}
+-V_0 & r<a\\
+0 & r>a
+\end{matrix}\right.
+\end{align}
+With $-V_0<E<0$
+\begin{align}
+k&=\frac{\sqrt{2m[E+V_0]}}{\hbar}\\
+\kappa&=\frac{\sqrt{2m(-E)}}{\hbar}
+\end{align}
+be have with $\rho=kr$ and $\rho=i\kappa r$
+\begin{align}
+\left[\frac{d^2}{dr^2}+\frac{2}{r}\frac{d}{dr}-\frac{l(l+1)}{r^2}+
+\left(\begin{matrix}
+k^2\\
+-\kappa^2
+\end{matrix}\right)
+\right]R(r)=0\\
+\left[\frac{d^2}{d\rho^2}+\frac{2}{\rho}\frac{d}{d\rho}-\frac{l(l+1)}{\rho^2}+1\right]R(\rho)=0\\
+\left[\rho^2\frac{d^2}{d\rho^2}+2\rho\frac{d}{d\rho}+\rho^2-l(l+1)\right]R(\rho)=0
+\end{align}
+Independent solutions
+\begin{align}
+R(\rho)
+&=Aj_l(\rho)+By_l(\rho)\\
+&=A\sqrt{\frac{\pi}{2\rho}}J_{l+1/2}(\rho)+B\sqrt{\frac{\pi}{2\rho}}Y_{l+1/2}(\rho)
+\end{align}
+Here the requirements
+\begin{itemize}
+\item regular at the origin with $R(r)\sim r^l$
+\item continous and differentiable at $r=a$
+\item exponential decay outside to ensure normalizability
+\end{itemize}
+and here a quick overview of the two functions and a special linear combination
+\begin{alignat*}{3}
+j_l(x)&=(-x)^l\left(\frac{1}{x}\frac{d}{dx}\right)^l\frac{\sin x}{x} & \qquad y_l(x)&=-(-x)^l\left(\frac{1}{x}\frac{d}{dx}\right)^l\frac{\cos x}{x} &\qquad  h^{(1)}_0(x)&=j_l(ix)+iy_l(ix)\\
+j_0(x)&=\frac{\sin x}{x}                                             & y_0(x)&=-\frac{\cos x}{x}                    & h^{(1)}_0(x)&=-\frac{e^{-x}}{x}\\
+j_1(x)&=\frac{\sin x}{x^2}-\frac{\cos x}{x}                          & y_1(x)&=-\frac{\cos x}{x}-\frac{\sin x}{x}   & h^{(1)}_1(x)&=i(1+x)\frac{e^{-x}}{x^2}\\
+J_2(x)&=...                                                          & y_l(x)&=...                                  & h^{(1)}_2(x)&=(x^2+3x+3)\frac{e^{-x}}{x^3} 
+\end{alignat*} 
+We see that $j_l$ is suitable for the inside and $h^{(1)}_l$ for the outside.
+\begin{align}
+R(\rho)=\left\{\begin{matrix}
+Aj_l(\rho) & r<a\\
+Ch^{(1)}_l(\rho) & r>a
+\end{matrix}\right.
+\end{align}
+Now $l=0$
+\begin{align}
+Aj_0(\rho=ka)&=Ch^{(1)}_0(\rho=\kappa a)\quad\rightarrow\quad A\frac{\sin ka}{ka}=-C\frac{e^{-\kappa a}}{\kappa a}\\
+A\partial_r j_0(\rho=ka)&=C\partial_r h^{(1)}_0(\rho=\kappa a)\quad\rightarrow\quad 
+%
+A\frac{\sin ak}{a}\left(\cot ka-\frac{1}{ka}\right)=C\frac{e^{-\kappa a}}{a}\left(1+\frac{1}{\kappa a}\right)
+\end{align}
+By substituting first into the second equation we kick out $A$ and $C$ and obtain
+\begin{align}
+\cot ka&=-\frac{\kappa}{k}\\
+\cot\sqrt{\frac{2ma^2}{\hbar^2}[E+V_0]}&=-\sqrt{\frac{-E}{E+V_0}}
+\end{align}
+Now $l=1$
+\begin{align}
+Aj_1(\rho=ka)&=Ch^{(1)}_1(\rho=\kappa a)\quad\rightarrow\quad A\left(-\frac{\cos ka}{ka}+\frac{\sin ka}{k^2a^2}\right)=iC\frac{e^{-\kappa a}}{\kappa^2 a^2}(1+\kappa a)\\
+A\partial_r j_1(\rho=ka)&=C\partial_r h^{(1)}_1(\rho=\kappa a)\quad\rightarrow\quad A\left(2\frac{\cos ka}{ka^2}+\frac{\sin ka}{k^2a^3}(a^2k^2-2)\right)=-iC\frac{e^{-\kappa a}}{\kappa^2 a^3}(\kappa^2 a^2+2\kappa a +2)
+\end{align}
+Then
+\begin{align}
+\cot ka=\frac{k^2+ak^2\kappa+\kappa^2}{ak\kappa^2}
+\end{align}
+
+
+
+
+\section{Quantum statistics}
+Quick thermodynamics review
+\begin{align}
+\text{1st law}\quad dU&=\delta Q+\delta W\\
+\text{2nd law}\quad dS&=dS_i+\frac{\delta Q}{T}, \qquad dS_i>0\\
+\text{Gibbs Fund.Form}&\rightarrow dS=\frac{1}{T}dU-\frac{1}{T}\delta W=\frac{1}{T}dU+\frac{1}{T}\sum_i y_idX_i\\
+&\rightarrow \left.\frac{dS}{dU}\right|_{X_i}=\frac{1}{T}\qquad\rightarrow\qquad U=U(T,X_i)\\
+&\rightarrow \left.\frac{dS}{dX_i}\right|_{U,X_j}=\frac{y_i}{T}\qquad\rightarrow\qquad y_i=y_i(T,X_j)
+\end{align}
+
+\subsection{Microcanonical ensemble}
+Macroscopic equilibrium state is defined by $E,N,V$:
+\begin{eqnarray}
+\text{Sirling Formula}  & n!\simeq(n/e)^n\sqrt{2\pi n}\\
+                        & \ln n!\simeq(n+\frac{1}{2})\ln n-n+\frac{1}{2}\ln(2\pi)\\
+\text{phasespace element} &D\Gamma=\frac{1}{h^{3N}}\prod_\alpha dp_\alpha dq_\alpha\\
+\text{phasespace element (identical part)} &D\Gamma=\frac{1}{N!h^{3N}}\prod_\alpha dp_\alpha dq_\alpha\\
+\text{phasespace volume}  &\Gamma(E,V,N)=\int_{H(q_\alpha,q_\alpha)\le E}D\Gamma\\
+\text{micro states in} [E,E+\Delta E]  &\Omega=\left(\frac{\partial\Gamma}{\partial E}\right)_{N,V}\Delta E\\
+\text{phasespace, prob. density} &\Omega^{-1}=\rho=\frac{\delta(H(q_\alpha,p_\alpha)-E)}{\int D\Gamma \delta(H(q_\alpha,p_\alpha)-E)}\\
+\text{entropy of the system} & S=k\ln\Omega=-k\overline{\ln\rho}=-k\int D\Gamma \rho\ln\rho\\
+\text{inner Energy} & U=E\\
+\text{temperature} & \frac{1}{T}=\left(\frac{\partial S}{\partial E}\right)_{E,N}\\
+\text{pressure} & \frac{p}{T}=\left(\frac{\partial S}{\partial V}\right)_{E,N}\\
+\text{chemical potential} & -\frac{\mu}{T}=\left(\frac{\partial S}{\partial N}\right)_{E,N}\\
+\end{eqnarray}
+
+\subsection{Canonical ensemble}
+Macroscopic equilibrium state is defined by $T,N,V$ (system can exchange energy with external reservoir - but system + reservoir is microcanonical ensemble):
+\begin{eqnarray}
+\text{State integral}            &Z=\int D\Gamma \exp[-\frac{H}{kT}]\\
+\text{phasespace, prob. density} &\rho=\frac{1}{Z}\exp[-\frac{H}{kT}]\\
+\text{discrete} & Z=\sum_i\exp[-\frac{E_i}{kt}],\quad p_i=\frac{1}{Z}\sum_i\exp[-\frac{E_i}{kt}]\\
+\text{entropy} & S=-k\int D\Gamma \rho\ln\rho=-k\int D\Gamma \rho(-\frac{H}{kT}-\ln Z)=\frac{1}{T}\bar{H}+k\ln Z\\
+\text{free energy} &F=U-TS=-kT\ln Z
+\end{eqnarray}
+
+\subsection{Great canonical ensemble}
+\begin{eqnarray}
+\text{...} & \mathcal{Z}=\sum_N\int D\Gamma\exp[-\frac{H_N-\mu N}{kT}]\\
+\text{...} & \rho_N=\frac{1}{\mathcal{Z}}\int D\Gamma\exp[-\frac{H_N-\mu N}{kT}]\\
+\text{discrete} & \mathcal{Z}=\sum_N\sum_i\exp[-\frac{E_i-\mu N}{kT}],\quad p_{N,i}=\frac{1}{\mathcal{Z}}\exp[-\frac{E_i-\mu N}{kT}]\\
+\text{entropy} & S=-k\overline{\ln\rho_N}=-k\sum_N\int D\Gamma\rho_N\ln\rho_N\\
+\text{great canonical potential} & \mathcal{F}=U-TS-\mu\overline{N}=-kT\ln\mathcal{Z}
+\end{eqnarray}
+
+\subsection{Density matrix - statistical operator}
+Using the principle of equal probability
+\begin{align}
+\hat{\varrho}&=\sum_k p_k|\Psi_k\rangle\langle\Psi_k|\\
+&=\frac{1}{\Omega}\sum_k |\Psi_k\rangle\langle\Psi_k|\\
+\text{Tr}\hat\varrho&=1
+\end{align}
+
+\begin{align}
+S
+&=-k\langle\hat\varrho\rangle\\
+&=-k\text{Tr}(\hat\varrho\log\hat\varrho)\\
+\end{align}
+
+\subsection{Canonical ensemble}
+Represents all states of a system in thermodynamic equilibrium. Meaning the temperature $T$ and therefore the mean energy $\bar{E}=U$ is fixed but the total energy can fluctuate
+\begin{align}
+Z&=\text{Tr}\left[\exp\left(-\frac{\hat{H}}{kT}\right)\right]\\
+\hat{\varrho}&=\frac{1}{Z(T)}\exp\left(-\frac{\hat{H}}{kT}\right)=\frac{1}{Z(T)}\sum_k|\Psi_k\rangle\exp\left(-\frac{E_k}{kT}\right)\langle\Psi_k|\\
+F&=-kT\log Z\\
+\frac{\partial F}{\partial T}&=-S\\
+U&=F+TS
+\end{align}
+
+\subsection{Great Canonical ensemble}
+Represents all states of a system in thermodynamic equilibrium. Meaning the temperature $T$ and therefore the mean energy $\bar{E}=U$ is fixed but the total energy can fluctuate
+\begin{align}
+\mathcal{Z}&=\text{Tr}\left[\exp\left(-\frac{\hat{H}-\mu\hat{N}}{kT}\right)\right]\\
+\hat{\varrho}&=\frac{1}{\mathcal{Z}(T)}\exp\left(-\frac{\hat{H}-\mu\hat{N}}{kT}\right)\\
+\mathcal{F}&=-kT\log \mathcal{Z}\\
+\left(\frac{\partial \mathcal{F}}{\partial T}\right)_\mu&=-S
+\qquad
+\left(\frac{\partial \mathcal{F}}{\partial\mu}\right)_T=-\bar{N}=-\langle\hat{N}\rangle
+\end{align}
+
+
+
+
+\section{Special relativity}
+Definition of line element
+\begin{align}
+    ds^2 &= dx^\mu dx_\nu = \eta_{\mu\nu}dx^\mu dx^\nu\\
+        &= dx^T\eta dx
+\end{align}
+Definition of Lorentz transformation
+\begin{align}
+    dx^\mu = \Lambda^\mu_{\;\nu}dx^\nu
+\end{align}
+By postulate the line element $ds$ is invariant under Lorentz transformation
+\begin{align}
+    ds^2 &= \eta_{\mu\nu}dx^\mu dx^\nu\\
+    &\stackrel{!}{=} \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu}dx^\mu \Lambda^\beta_{\;\nu}dx^\nu\quad\rightarrow\quad \eta_{\mu\nu} = \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}
+\end{align}
+or analog
+\begin{align}
+    ds^2 &= dx^T\eta dx\\
+    &\stackrel{!}{=} (\Lambda dx)^T\eta (\Lambda dx)\\
+    &= dx^T\Lambda^T\eta \Lambda dx\quad\rightarrow\quad \eta = \Lambda^T\eta\Lambda
+\end{align}
+Observation with the eigentime $d\tau=ds/c$ and 3-velocity $dx^i = v^i dt$
+\begin{align}
+    \frac{ds^2}{d\tau^2}=c^2&=c^2\frac{dt^2}{d\tau^2}-\frac{dx^i}{dt}\frac{dx_i}{dt}\left(\frac{dt}{d\tau}\right)^2\\
+    1&=\frac{dt^2}{d\tau^2}\left(1-\frac{v^iv_i}{c^2}\right)\quad\rightarrow\quad\frac{dt}{d\tau}\equiv\gamma=\left(\sqrt{1-\frac{v^2}{c^2}}\right)^{-1}
+\end{align}
+
+\subsection{Definition 4-velocity}
+with 3-velocity $d\vec{x} = \vec{v} dt$
+\begin{align}
+    u^\mu\equiv\frac{dx^\mu}{d\tau}&=\frac{dx^\mu}{dt}\frac{dt}{d\tau}=\quad\rightarrow\quad u^\mu u_\mu=\eta_{\mu\nu}\frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau}=\frac{ds^2}{d\tau^2}=c^2\\
+    &=(c,\vec{v})\gamma
+\end{align}
+Object moving in $x$ direction with $v$ meaning $dx=v\cdot dt$ compared to
+rest frame $dx'=0$
+\begin{align}
+    c^2dt'^2=ds^2 &= c^2dt^2- v^2 dt^2\\
+    &=c^2dt^2\left(1-\frac{v^2}{c^2}\right)\\
+    dt'=\frac{ds}{c}\equiv d\tau&=dt\sqrt{1-\frac{v^2}{c^2}}=\frac{dt}{\gamma}
+\end{align}
+
+\subsection{Definition 4-momentum}
+using the 3-momentum $\vec{p}=\gamma m\vec{v}$
+\begin{align}
+    p^\mu \equiv mu^\mu=(\gamma mc,\gamma m\vec{v})=\left(\frac{E_p}{c},\vec{p}\right)\quad&\rightarrow\quad p^\mu p _\mu=m^2u^\mu u_\mu=m^2c^2\\
+    &\rightarrow\quad (p^0)^2-p^ip_i=m^2c^2\\
+    &\rightarrow\quad p^0=\sqrt{m^2c^2+\vec{p}^2}\\
+    &\rightarrow\quad E_p=\sqrt{m^2c^4+\vec{p}^2c^2}\\
+    &\qquad\qquad=\frac{mc^2}{\sqrt{1-\frac{\vec{v}^2}{c^2}}}
+\end{align}
+
+\subsection{Definition 4-acceleration}
+First observe
+\begin{align}
+u^\mu u_\mu&=c^2\\
+\frac{d}{d\tau}(u^\mu u_\mu)&=0\\
+\rightarrow \alpha^\mu u_\mu&=0
+\end{align}
+meaning
+\begin{align}
+\alpha^0 u_0-\vec{\alpha}\cdot\vec{u}&=0\\
+\gamma(\alpha^0 c-\vec{\alpha}\cdot\vec{v})&=0\\
+\rightarrow \alpha^0&=\frac{\vec{\alpha}\cdot\vec{v}}{c}
+\end{align}
+\begin{align}
+\frac{d^2x^\mu}{d\tau^2}
+&=\frac{d}{d\tau}\frac{dx^\mu}{d\tau}\\
+&=\frac{d}{d\tau}\left(\frac{dx^\mu}{dt}\frac{dt}{d\tau}\right)\\
+\vec{\alpha}=
+\frac{d^2x^k}{d\tau^2}&=\frac{d^2x^k}{dt^2}\left(\frac{dt}{d\tau}\right)^2+\frac{dx^k}{dt}\frac{d^2t}{d\tau^2}\\
+&\equiv a^k\gamma^2+v^k\frac{d\gamma}{d\tau}\\
+&=a^k\gamma^2+v^k\frac{d\gamma}{dt}\frac{dt}{d\tau}\\
+&=a^k\gamma^2+v^k\left(-\frac{1}{2}\right)\gamma^3\frac{-2v^\alpha\frac{dv^\alpha}{dt}}{c^2} \frac{dt}{d\tau}\\
+&=a^k\gamma^2+v^k\gamma^4(\vec{v}\cdot\vec{a})\frac{1}{c^2}\\
+\alpha^0=
+\frac{d^2x^0}{d\tau^2}
+&=\frac{d^2x^0}{dt^2}\left(\frac{dt}{d\tau}\right)^2+\frac{dx^0}{dt}\frac{d^2t}{d\tau^2}\\
+&=0\cdot\gamma^2+c\gamma^4(\vec{v}\cdot\vec{a})\frac{1}{c^2}\\
+&=\gamma^4(\vec{v}\cdot\vec{a})\frac{1}{c}
+\end{align}
+we see after a short calculation (in the initial restframe) $\alpha^\mu\alpha_\mu=-\vec{a}^2\equiv a^2_0$ ($a_0$ proper acceleration in the restframe)  where
+\begin{align}
+\text{4-velocity}\quad u^\mu&=\frac{dx^\mu}{d\tau}=\frac{dx^\mu}{dt}\frac{dt}{d\tau}\\
+\text{3-velocity}\quad v^k&=\frac{dx^k}{dt}\\
+\text{4-acceleration}\quad \alpha^\mu&=\frac{d^2x^\mu}{d\tau^2}=\frac{du^\mu}{d\tau}=\frac{du^\mu}{dt}\frac{dt}{d\tau}\\
+\text{3-acceleration}\quad a^k&=\frac{d^2x^k}{dt}=\frac{dv^k}{dt}
+\end{align}
+First we observe
+\begin{align}
+    \eta_{\mu\nu} &= \eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}\\
+    \det(\eta)&=\det(\Lambda)^2\det(\eta)\\
+    1&=\det(\Lambda)^2.
+\end{align}
+Now we see
+\begin{align}
+    \Lambda_\gamma^{\;\nu}\Lambda^\gamma_{\;\mu}&=\eta_{\alpha\gamma}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta} \Lambda^\gamma_{\;\mu}\\
+    &=\eta^{\nu\beta}(\eta_{\alpha\gamma}\Lambda^\alpha_{\;\beta} \Lambda^\gamma_{\;\mu})\\
+    &=\eta^{\nu\beta}\eta_{\beta\mu}\\
+    &=\delta^\nu_{\;\mu}
+\end{align}
+which means in matrix notation $\Lambda_\gamma^{\;\nu}=(\Lambda^{-1})^\nu_{\;\gamma}$.
+General transformation laws for tensors of first order
+\begin{align}
+    V'^\alpha&=\Lambda^\alpha_{\;\beta}V^\beta\\
+    \eta_{\alpha\mu}V'^\alpha&=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}V^\beta=\eta_{\alpha\mu}\Lambda^\alpha_{\;\beta}(\eta^{\nu\beta}V_\nu)\\
+    V'_\mu&=\Lambda_\mu^{\;\nu}V_\nu\\
+    &\rightarrow\quad \Lambda_\mu^{\;\nu} = \eta_{\alpha\mu}\eta^{\nu\beta}\Lambda^\alpha_{\;\beta}
+\end{align}
+and second order
+\begin{align}
+    T'^{\alpha\beta}&=\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}\\
+    \eta_{\alpha\delta}\eta_{\beta\gamma}T'^{\alpha\beta}&=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}T^{\mu\nu}=\eta_{\alpha\delta}\eta_{\beta\gamma}\Lambda^\alpha_{\;\mu}\Lambda^\beta_{\;\nu}(\eta^{\mu\rho}\eta^{\nu\sigma} T_{\rho\sigma})\\
+    T'_{\delta\gamma}&=\Lambda_\delta^{\;\rho}\Lambda_\gamma^{\;\sigma}T_{\rho\sigma}.
+\end{align}
+The general transformation is therefore given by
+\begin{align}
+    {T'_{\mu_1\mu_2...}}^{\nu_1\nu_2...}={\Lambda_{\mu_1}}^{\rho_1}{\Lambda_{\mu_2}}^{\rho_2}... {\Lambda^{\nu_1}}_{\sigma_1}{\Lambda^{\nu_2}}_{\sigma_2}... {T'_{\rho_1\rho_2...}}^{\sigma_1\sigma_2...}
+\end{align}
+There exist two invariant tensors
+\begin{align}
+    \eta'_{\mu\nu} 
+    &=\eta_{\alpha\beta}\Lambda^\alpha_{\;\mu} \Lambda^\beta_{\;\nu}
+    =\Lambda_{\beta\mu} \Lambda^\beta_{\;\nu}
+    =\eta_{\mu\sigma}\Lambda_{\beta}^{\;\sigma} \Lambda^\beta_{\;\nu}
+    =\eta_{\mu\sigma}\delta^\sigma_{\;\nu}
+    =\eta_{\mu\nu}\\
+    {\epsilon'}^{\mu\nu\rho\sigma}
+    &=\Lambda^\mu_{\;\alpha}\Lambda^\nu_{\;\beta}\Lambda^\rho_{\;\gamma}\Lambda^\sigma_{\;\delta}{\epsilon'}^{\alpha\beta\gamma\delta}\equiv \epsilon^{\mu\nu\rho\sigma} \det(\Lambda)=\pm \epsilon^{\mu\nu\rho\sigma}
+\end{align}
+Due to the possibility of the minus sign the Levi-Civita symbol $\epsilon$ is sometimes called pseudo-tensor.
+
+\section{Hydrodynamics}
+With $\rho=m/V$ we use mass conservation
+\begin{align}
+\frac{\partial}{\partial t}m_V
+=\frac{\partial}{\partial t}\int_V \rho\,dV
+&=-\oint_{\partial V} \mathbf{j}\cdot d\mathbf{A}\\
+&=-\oint_{\partial V} \rho\mathbf{u}\cdot d\mathbf{A}\\
+&=-\int_V \nabla\cdot(\rho\mathbf{u})\cdot dV\\
+&\rightarrow\frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\mathbf{u})=0\\
+&\rightarrow\frac{\partial\rho}{\partial t}+\mathbf{u}\cdot\nabla\rho+\rho\nabla\cdot\mathbf{u}=0\\
+&\overset{\rho=\text{const}}{\rightarrow}\nabla\cdot\mathbf{u}=0
+\end{align}
+We use Newtons 3. law
+\begin{align}
+\frac{d\mathbf{p}}{dt}&=\mathbf{F}\\
+m\frac{d\mathbf{u}}{dt}+\mathbf{u}\frac{dm}{dt}&=-\oint p\,d\mathbf{A}\\
+m\left(\frac{\partial\mathbf{u}}{\partial t}+\frac{\partial x^i}{\partial t}\frac{\partial\mathbf{u}}{\partial x^i}\right)+\mathbf{u}\frac{dm}{dt}&=-\int \nabla p\,dV\\
+m\left(\frac{\partial\mathbf{u}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{u}\right)+\mathbf{u}\frac{dm}{dt}&=-\nabla p\,V\\
+\rho\left(\frac{\partial\mathbf{u}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{u}\right)+\frac{1}{V}\mathbf{u}\frac{dm}{dt}&=-\nabla p
+\end{align}
+
+\section{Nonrelativistiv Magnetohydrodynamics}
+Ingredience
+\begin{itemize}
+\item Maxwell equations
+\begin{align}
+\nabla\cdot\mathbf{E}&=\frac{\rho}{\varepsilon_0}\\
+\nabla\cdot\mathbf{B}&=0\\
+\nabla\times\mathbf{E}&=-\frac{\partial\mathbf{B}}{\partial t}\\
+\nabla\times\mathbf{B}&=\mu_0\mathbf{j}+\frac{1}{c^2}\frac{\partial\mathbf{E}}{\partial t}
+\end{align}
+\item Ohms law in fluid local rest (usually accelerated) frame 
+\begin{align}
+\mathbf{j}'=\kappa\mathbf{E}'
+\end{align}
+\item Lorentz transformation with $\mathbf{\hat{v}}=\mathbf{v}/v$
+\begin{align}
+\mathbf{E}'&=\gamma\left(\mathbf{E}+\mathbf{v}\times\mathbf{B}\right)-(\gamma-1)(\mathbf{E}\cdot\mathbf{\hat{v}})\mathbf{\hat{v}}\\
+\mathbf{B}'&=\gamma\left(\mathbf{B}-\frac{1}{c^2}\mathbf{v}\times\mathbf{E}\right)-(\gamma-1)(\mathbf{B}\cdot\mathbf{\hat{v}})\mathbf{\hat{v}}\\
+\mathbf{j}'&=\mathbf{j}-\gamma\rho\mathbf{v}+(\gamma-1)(\mathbf{j}\cdot\mathbf{\hat{v}})\mathbf{\hat{v}}\\
+\rho'&=\gamma\left(\rho-\frac{1}{c^2}\mathbf{j}\cdot\mathbf{v}\right)
+\end{align}
+\item Assumptions $v/c\ll 1$ meaning $\gamma=1$ and $\kappa$ is high
+\end{itemize}
+Conclusion using $v/c\ll1$
+\begin{align}
+\mathbf{E}'&=\mathbf{E}+\mathbf{v}\times\mathbf{B}\\
+\mathbf{B}'&=\mathbf{B}-\frac{1}{c^2}\mathbf{v}\times\mathbf{E}\\
+\mathbf{j}'&=\mathbf{j}-\rho\mathbf{v}\\
+\rho'&=\rho-\frac{1}{c^2}\mathbf{j}\cdot\mathbf{v}
+\end{align}
+High $\kappa$ implies $E'\ll E$ and therefore
+\begin{align}
+\mathbf{E}+\mathbf{v}\times\mathbf{B}\simeq0\quad\rightarrow\quad E\sim vB\\
+\mathbf{B}'\simeq\mathbf{B}-\frac{1}{c^2}\mathbf{v}\times\mathbf{E}\overset{E\sim vB}{=}\mathbf{B}-\mathcal{O}(v^2/c^2)
+\end{align}
+as well as $\rho'\ll \rho$.
+
+From Amprere Law
+\begin{align}
+\nabla\times\mathbf{B}-\mu_0\mathbf{j}&=\frac{1}{c^2}\frac{\partial\mathbf{E}}{\partial t}\sim\frac{1}{c^2}\frac{E}{T}\sim\frac{1}{c^2}E\frac{v}{L}\overset{E\sim vB}{\sim}\frac{1}{c^2}vB\frac{v}{L}\sim\mathcal{O}(v^2/c^2)\\
+&=0\\
+\nabla\times\mathbf{B}=\mu_0\mathbf{j}\\
+\frac{B}{L}&\sim\mu_0j
+\end{align}
+then
+\begin{align}
+\rho
+\overset{\text{Gauss}}{\simeq}\epsilon_0\frac{E}{L}
+\overset{E\sim vB}{\simeq}\epsilon_0\frac{vB}{L}
+\overset{\text{Ampere}}{\simeq}\epsilon_0\mu_0 vj
+\simeq\frac{v}{c^2}j
+\end{align}
+therefore
+\begin{align}
+\mathbf{j}'&=\mathbf{j}-\rho\mathbf{v}
+\overset{\rho\sim jv/c^2}{\simeq}\mathbf{j}-\mathcal{O}(v^2/c^2)
+\end{align}
+and with
+\begin{align}
+\mathbf{j}'
+&=\kappa\mathbf{E}'\\
+&=\kappa(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+\end{align}
+we have
+\begin{align}
+\mathbf{j}&=\kappa(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+\end{align}
+And
+\begin{align}
+\nabla\times\mathbf{B}&=\mu_0\mathbf{j}=\mu_0\kappa(\mathbf{E}+\mathbf{v}\times\mathbf{B})\\
+\rightarrow\mathbf{E}&=\frac{1}{\mu_o\kappa}\nabla\times\mathbf{B}-\mathbf{v}\times\mathbf{B}\\
+\frac{\rho}{\epsilon_0}=\nabla\cdot\mathbf{E}&=-\nabla\cdot(\mathbf{v}\times\mathbf{B})\\
+\rightarrow\rho&=-\epsilon_0\nabla\cdot(\mathbf{v}\times\mathbf{B})\\
+\end{align}
+Now
+\begin{align}
+\frac{\partial\mathbf{B}}{\partial t}
+&=-\nabla\times\mathbf{E}\\
+&=-\nabla\times\left(\frac{1}{\mu_o\kappa}\nabla\times\mathbf{B}-\mathbf{v}\times\mathbf{B}\right)\\
+&=-\frac{1}{\mu_o\kappa}\nabla\times\nabla\times\mathbf{B}+\nabla\times(\mathbf{v}\times\mathbf{B})\\
+&=\frac{1}{\mu_o\kappa}\triangle\mathbf{B}+\nabla\times(\mathbf{v}\times\mathbf{B})
+\end{align}
+
+\section{Perturbation theory}
+
+\begin{enumerate}
+\item Find a hard problem
+\item Introduce an $\epsilon$
+\item Assume the solution can be expressed as a power series $x_s=\sum_k a_k\epsilon^k$
+\item Find all $a_k$ and sum them up
+\item Set $\epsilon=1$
+\end{enumerate}
+Now consider solving $x^5+x=1$
+\begin{align}
+x^5+\epsilon x&=1\\
+&\rightarrow x=1-\frac{1}{5}\epsilon-\frac{1}{25}\epsilon^2-\frac{1}{125}\epsilon^3+0\epsilon^4+\frac{21}{15625}\epsilon^5+...
+\end{align}
+or
+\begin{align}
+\epsilon x^5+x&=1\\
+&\rightarrow x=1-\epsilon+5\epsilon^2-35\epsilon^3+285\epsilon^4-2530\epsilon^5+...
+\end{align}
+Method of dominant balance
+
+\begin{itemize}
+\item Asymptotics $f(x)~g(x)$ for $x\rightarrow x_0$ 
+\begin{align}
+\lim_{x\rightarrow x_0}\frac{f(x)}{g(x)}=1
+\end{align}
+\item Neglectable $f(x)\ll g(x)$ for $x\rightarrow x_0$ 
+\begin{align}
+\lim_{x\rightarrow x_0}\frac{f(x)}{g(x)}=0
+\end{align}
+\end{itemize}
+\subsection{Series summation}
+\begin{align}
+\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}&=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\frac{1}{9}-...=\frac{\pi}{4}\\
+\sum_{k=1}^\infty\frac{(-1)^k}{k}&=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-...=\log 2\\
+\sum_{k=1}^\infty\frac{1}{k^2}&=1+\frac{1}{2^2}+\frac{1}{3^2}+\frac{1}{4^2}+\frac{1}{5^2}-...=\frac{\pi^2}{6}
+\end{align}
+\begin{itemize}
+\item Consider converging series, meaning
+\begin{align}
+A_n=\sum_{m=0}^na_m, \qquad A=\sum_{m=0}^{\infty}a_m,
+\end{align}
+\item Shanks summation 
+\begin{align}
+S(A_n)=\frac{A_{n+1}A_{n-1}-A_n^2}{A_{n+1}-2A_n+A_{n-1}}
+\end{align}
+usually $S(A_n)$ converges faster than $A_n$. Further speed-up $S(S(...(A_n))$
+\end{itemize}
+\end{document}
