@@ -50,12 +50,12 @@ then
 &=\frac{\mu_0K}{4\pi}\int_0^b dy'\int_{-\infty}^\infty dz'\frac{(a+y')}{\sqrt{(a+y')^2+z'^2}^3}\\
 &=\frac{\mu_0K}{4\pi}\int_0^b dy'\frac{2}{a+y}\\
 &=\frac{\mu_0K}{2\pi}\log\frac{a+b}{a}\\
-&=\frac{\mu_0I}{2\pi b}\log\frac{a+b}{a}\\
+&=\frac{\mu_0I}{2\pi b}\log\frac{a+b}{a}
 \end{align}
 
 
 \section{{\sc Stratton} - Electrodynamgnetic Theory}
-\subsection{Problem III.1 Coodinate transform}
+\subsection{Problem III.1 Coordinate transform}
 
 \begin{enumerate}[a.]
 \item Starting
@@ -401,6 +401,7 @@ Y_{2,-1}=\sqrt{\frac{15}{8\pi}}\sin\theta\cos\theta\,e^{-i\phi}
 -q\delta\left(x-\frac{a}{\sqrt{2}}\sin\omega t\right)\delta\left(y+\frac{a}{\sqrt{2}}\cos\omega t\right)\delta(z)\\
 \end{align}
 
+
 \subsection{Exercise 12.1 Lagrangian of point charge}
 \begin{enumerate}
 \item With $U^\alpha=\frac{dx_\alpha}{ds}$
@@ -431,6 +432,29 @@ H&=\frac{1}{2m}\left((p_0)^2-\vec{p}^2+\frac{q^2}{c^2}[\phi^2-\vec{A}^2]+\frac{2
 &=\frac{mc^2}{2}+\frac{q^2}{2mc^2}[\phi^2-\vec{A}^2]+q\gamma[\frac{1}{c}\vec{v}\cdot\vec{A}- \phi]
 \end{align}
 \end{enumerate}
+
+\subsection{Exercise 14.1 Lienard-Wiechert fields for particle with constant velocity - NOT DONE YET}
+With
+\begin{align}
+A^\alpha(x)&=\frac{4\pi}{c}\int d^4x'\,D_r(x-x')J^\alpha(x')\\
+J^\alpha(x')&=ec\int d\tau\, V^\alpha(\tau)\delta^{(4)}(x'-r(\tau))\\
+D_r(x-x')&=\frac{\theta(t-t')}{4\pi R}\delta(t-t'-R)\\
+&=\frac{1}{2\pi}\theta(t-t')\delta[(t-t'-R)(t-t'+R)]\\
+&=\frac{1}{2\pi}\theta(t-t')\delta[(t-t')^2-(\vec{x}-\vec{x}')^2]\qquad (a-b)(a+b)=a^2-b^2\\
+&=\frac{1}{2\pi}\theta(t-t')\delta[(x-x')^2]\\
+R&=|\vec{x}-\vec{x}'|\\
+A^\alpha(x)&=4\pi e\int d\tau\int d^4x'\,\frac{\theta(t-t')}{4\pi R}\delta(t-t'-R)V^\alpha(\tau)\delta^{(4)}(x'-r(\tau))
+\end{align}
+Constant velocity means 
+\begin{align}
+V^\alpha(\tau)&=\frac{dr}{d\tau}=\frac{dr}{dt}\frac{dt}{d\tau}=\gamma\cdot(c,\vec{v})\\
+r^\alpha(\tau)&=\gamma\cdot(c\tau,\vec{v}\tau)\\
+\rightarrow J^\alpha(x')&=ec\gamma\cdot(c,\vec{v})
+\end{align}
+then
+\begin{align}
+A^\alpha(x)&=\frac{4\pi}{c}\int d^4x'\,\frac{\theta(t-t')}{4\pi R}\delta(t-t'-R)J^\alpha(x')
+\end{align}
 
 \section{{\sc Schwinger} - Classical Electrodynamics}
 \subsection{Exercise 9.1 Lagrangian of a particle in an electromagnetic field}

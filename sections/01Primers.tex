@@ -424,6 +424,50 @@ with
 \end{enumerate}
 
 \section{Quantum Mechanics}
+\subsection{Mathematical}
+Linear algebra
+\begin{align}
+\langle x,y\rangle
+&\equiv \bar{x}^Ty
+\equiv(\bar{x}_1,...,\bar{x}_n)
+\left(
+\begin{array}{c}
+y_1\\
+..\\
+y_n
+\end{array}
+\right)
+\equiv \bar{x}_1y_1+...+\bar{x}_ny_n\\
+\langle Ax,y\rangle
+&=(\overline{Ax})^Ty
+=(\overline{A_{11}x_1+...+A_{1n}x_n})y_1
++...+(\overline{A_{n1}x_1+...+A_{nn}x_n})y_n\\
+&=\bar{A}_{11}\bar{x}_1y_1+\bar{A}_{12}\bar{x}_2y_1+...\\
+\langle x,Ay\rangle
+&=\bar{x}^T(Ay)
+=\bar{x}_1(A_{11}y_1+...+A_{1n}y_n)+...+\bar{x}_n(A_{n1}y_1+...+A_{nn}y_n)\\
+&=A_{11}\bar{x}_1y_1+A_{21}\bar{x}_2y_1+...
+\end{align}
+then with adjoint matrix $A^T$ (transpose + complex conjugated matrix of $A$)
+\begin{align}
+\langle Ax,y\rangle=\langle x,A^Ty\rangle
+\end{align}
+If $A=A^T$ we call the matrix (complex)-symmetric, hermitean or selfadjoint.
+
+Unbounded (has no finite operator norm) Operators $A:D(A) \subseteq \mathcal{H}\rightarrow\mathcal{H}$
+\begin{itemize}
+\item symmetric, hermitean
+\begin{align}
+\langle Ax,y\rangle=\langle x,A^Ty\rangle\qquad\forall x,y\in\mathcal{H}
+\end{align}
+\item selfadjoint is a stronger requirement because
+\begin{align}
+A=A^T\qquad\rightarrow\qquad D(A)=D(A^T)
+\end{align}
+\end{itemize}
+
+
+
 \subsection{Pictures}
 Prelims - at $t=t_0$
 \begin{align}

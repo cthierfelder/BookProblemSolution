@@ -3,6 +3,31 @@
 %\graphicspath{{\subfix{../images/}}}
 
 \begin{document}
+\section{{\sc Straumann} -  Mechanik 2015}
+
+\subsection{Exercise 1.2 - Free vertical fall with friction - NOT DONE YET}
+Equation of motion
+\begin{align}
+m\ddot{y}+mg-\alpha\dot{y}^2&=0\\
+\ddot{y}+g-\beta\dot{y}^2&=0
+\end{align}
+Now we can substitude $v=\dot{y}$ and obtain
+\begin{align}
+\dot{v}+g-\beta v^2&=0\\
+\int\frac{dv}{v^2-g/\beta}&=\beta (t+c)\\
+\int\frac{dv}{v-\sqrt{g/\beta}}-\int\frac{dv}{v+\sqrt{g/\beta}}&=2\sqrt{\frac{g}{\beta}}\beta (t+c)\\
+\log\left(v-\sqrt{g/\beta}\right)-\log\left(v+\sqrt{g/\beta}\right)
+&=2\sqrt{g\beta} (t+c)\\
+\frac{1}{2}\log\frac{v+\sqrt{g/\beta}}{v-\sqrt{g/\beta}}&=-\sqrt{g\beta}(t+c)\\
+\frac{1}{2}\log\frac{\sqrt{\beta/g} v+1}{\sqrt{\beta/g}v-1}&=-\sqrt{g\beta}(t+c)\\
+\text{arctanh}\sqrt{\frac{\beta}{g}}v+\frac{1}{2}\log(-1)&=-\sqrt{g\beta}(t+c)
+\end{align}
+
+Limit velocity ($\ddot{y}=0$)
+\begin{align}
+v_\infty=\sqrt{\frac{mg}{\alpha}}
+\end{align}
+
 \section{{\sc Goldstein, Poole, Safko} - Classical Mechanics 3rd ed}
 \subsection{Exercise 9.1 - Canonical Coordinates}
 Try the generalized transformation where ($\alpha=1=\beta$) is the original trafo

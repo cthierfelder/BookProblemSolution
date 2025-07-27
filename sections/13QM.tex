@@ -167,6 +167,77 @@ The requirement for the series to cut off (making $u$ a finite order polynomial)
 \end{align}
 where the only valid $k$ are the ones where $E_k$ is in $[-A,0]$.
 
+\section{{\sc Straumann} - Relativistische Quantenmechanik }
+
+\section{{\sc Schwabl} - Advanced Quantum Mechanics}
+
+\subsection{Exercise 3.1 Heisenberg model and Holstein-Primakoff transformation - NOT DONE YET}
+
+\begin{enumerate}[a)]
+
+\item \begin{align}
+\varphi\simeq1
+-\frac{1}{2}\left(\frac{\hat{a}_i^\dagger \hat{a}_i}{2S}\right)
+-\frac{1}{8}\left(\frac{\hat{a}_i^\dagger \hat{a}_i}{2S}\right)^2
+-\frac{1}{16}\left(\frac{\hat{a}_i^\dagger \hat{a}_i}{2S}\right)^3
+-\frac{5}{128}\left(\frac{\hat{a}_i^\dagger \hat{a}_i}{2S}\right)^4...
+\end{align}
+
+\begin{align}
+[\hat{n}_i,\hat{a}_i]
+&=[\hat{a}_i^\dagger \hat{a}_i,\hat{a}_i]
+=-\hat{a}_i\\
+[\hat{n}_i,\hat{a}_i^\dagger]
+&=[\hat{a}_i^\dagger \hat{a}_i,\hat{a}_i^\dagger]
+=\hat{a}_i^\dagger
+\end{align}
+
+\begin{align}
+S_i^x&=\sqrt{2S}(\varphi a_i+a_i^\dagger\varphi)\\
+S_i^y&=\sqrt{2S}(\varphi a_i-a_i^\dagger\varphi)\\
+S_i^z&=S-\hat{a}_i^\dagger\hat{a}_i
+\end{align}
+1$^\text{th}$-order
+\begin{align}
+[S^x_i,S^y_i]
+&=2S\left[
+a_i-\frac{1}{2\cdot2S}n_ia_i+a_i^\dagger-\frac{1}{2\cdot2S}a^\dagger_in_i
+,
+a_i-\frac{1}{2\cdot2S}n_ia_i-a_i^\dagger+\frac{1}{2\cdot2S}a^\dagger_in_i
+\right]\\
+&=2S\left[
+(a_i+a_i^\dagger)-\frac{1}{2\cdot2S}(n_ia_i+a^\dagger_in_i)
+,
+(a_i-a_i^\dagger)-\frac{1}{2\cdot2S}(n_ia_i-a^\dagger_in_i)
+\right]\\
+&=2S([a_i^\dagger,a_i]-[a_i,a_i^\dagger])
+-\frac{2S}{4S}([(a_i+a_i^\dagger),(n_ia_i+a_i^\dagger n_i)]+[(a_i-a_i^\dagger),(n_ia_i-a_i^\dagger n_i)])\\
+&=2S([a_i^\dagger,a_i]-[a_i,a_i^\dagger])
+-\frac{2S}{4S}([(a_i+a_i^\dagger),(a_i+a_i^\dagger) n_i-a_i]+[(a_i-a_i^\dagger),(a_i-a_i^\dagger) n_i-a_i])\\
+&=-4S
+-\frac{2S}{4S}([(a_i+a_i^\dagger),(a_i+a_i^\dagger) n_i]-[(a_i+a_i^\dagger),a_i]+[(a_i-a_i^\dagger),(a_i-a_i^\dagger) n_i]-[(a_i-a_i^\dagger),a_i])\\
+&=-4S
+-\frac{2S}{4S}([(a_i+a_i^\dagger),(a_i+a_i^\dagger) n_i]+[(a_i-a_i^\dagger),(a_i-a_i^\dagger) n_i])\\
+&=-4S
+-\frac{2S}{4S}(-(a_i+a_i^\dagger)[(a_i+a_i^\dagger), n_i]-(a_i-a_i^\dagger)[(a_i-a_i^\dagger), n_i])\\
+&=-4S
+-\frac{2S}{4S}((a_i+a_i^\dagger)[n_i,(a_i+a_i^\dagger)]+(a_i-a_i^\dagger)[n_i,(a_i-a_i^\dagger)])\\
+&=-4S
+-\frac{2S}{4S}((a_i+a_i^\dagger)(-a_i+a_i^\dagger)+(a_i-a_i^\dagger)(-a_i-a_i^\dagger))\\
+&=-4S
+-\frac{2S}{4S}((a_i+a_i^\dagger)(-a_i+a_i^\dagger)-(a_i-a_i^\dagger)(a_i+a_i^\dagger))\\
+&=-4S
++\frac{4S}{4S}(a_i+a_i^\dagger)(a_i-a_i^\dagger)\\
+&=-4S
++\frac{4S}{4S}(a_ia_i+a_i^\dagger a_i-a_i^\dagger a_i-a_i^\dagger a_i^\dagger)\\
+&=-4S
++\frac{4S}{4S}(a_ia_i-a_i^\dagger a_i^\dagger-1)\\
+\end{align}
+
+\item
+\item
+
+\end{enumerate}
 
 \section{{\sc Schwinger} - Quantum Mechanics Symbolism of Atomic Measurements}
 \subsection{2.1}

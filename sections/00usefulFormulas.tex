@@ -1500,7 +1500,6 @@ f(a+h)
         \end{itemize}
 \end{enumerate}
 
-
 \section{Tensors}
 \begin{itemize}
 \item For a vector $\mathbf{A}$ the expression $\mathbf{A}^2$ is the squared distance between tip and tail.
@@ -1579,8 +1578,179 @@ F^{ad}&=\eta^{db}\eta^{ac}F_{cb}=\eta^{ac}F_{cb}\eta^{bd}\qquad\rightarrow \eta 
 F_{ab}F^{ab}&=-F_{ba}F^{ab}\qquad\rightarrow-\text{tr}(F F)
 \end{align}
 
+\section{Direct Sum and Tensor Products}
+Two vector spaces $V, W$ with $\dim V=n$, $\dim W=m$ and with bases
+\begin{align}
+\vec{e}_1=\left(\begin{array}{c}
+1\\
+0
+\end{array}\right),\qquad
+\vec{e}_2=\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)\qquad\in V
+\end{align}
+\begin{align}
+\vec{f}_1=\left(\begin{array}{c}
+1\\
+0\\
+0
+\end{array}\right),\qquad
+\vec{f}_2=\left(\begin{array}{c}
+0\\
+1\\
+0
+\end{array}\right)\qquad
+\vec{f}_3=\left(\begin{array}{c}
+0\\
+0\\
+1
+\end{array}\right)\qquad\in W
+\end{align}
+\subsection{Direct sum}
+Then
+\begin{align}
+\vec{v}\oplus\vec{w}
+=\left(\begin{array}{c}
+\vec{v}\\
+\vec{w}
+\end{array}\right)
+\end{align}
+and therefore (counting basis vectors) $\dim{V\oplus W}=n+m$. Linear maps (via matrices) can be written as
+\begin{align}
+(\textcolor{blue}{A}\oplus \textcolor{red}{B})
+(\textcolor{blue}{\vec{v}}\oplus\textcolor{red}{\vec{w}})=
+\left(\begin{array}{cc}
+\textcolor{blue}{A} & 0_{n\times m}\\
+0_{n\times m} & \textcolor{red}{B}\\
+\end{array}\right)
+\left(\begin{array}{c}
+\textcolor{blue}{\vec{v}}\\
+\textcolor{red}{\vec{w}}
+\end{array}\right)
+=(A\vec{v})\oplus(B\vec{w})
+\end{align}
+and also
+\begin{align}
+\det(A\oplus B)&=(\det A)(\det B)\\
+\text{tr}(A\oplus B)&=(\text{tr} A)+(\text{tr} B)
+\end{align}
+\subsection{Tensor product}
+Then
+\begin{align}
+\vec{v}\otimes\vec{w}
+&=(\sum_i v^i\vec{e}_i)\otimes(\sum_j w^j\vec{f}_j)\\
+&=\sum_{i,j} v^iw^j (\vec{e}_i\otimes\vec{f}_j)
+\end{align}
+and therefore (counting basis vectors $\vec{e}_i\otimes\vec{f}_j$) $\dim{V\otimes W}=n\cdot m$. The basis vectors can be written explicitly (stacking $n$ zero vectors $\vec{0}_m$ on top of each other)
+\begin{align}
+\vec{b}_k
+&=\vec{e}_i\otimes\vec{f}_j\\
+&=\left(\begin{array}{l}
+\vec{0}_m\\ \hline
+...\\ \hline
+0\\
+...\\
+1 \quad(i^\text{th} \text{ slot } j^\text{th} \text{position})\\ 
+...\\
+0\\ \hline
+...\\ \hline
+\vec{0}_m
+\end{array}\right)
+\qquad\rightarrow\qquad
+\vec{v}\otimes\vec{w}
+=\left(\begin{array}{l}
+v^1w^1\\
+v^1w^2\\
+v^1w^3\\ \hline
+v^2w^1\\
+v^2w^2\\
+v^2w^3\\
+\end{array}\right)
+\end{align}
+Alternatively visualise it as
+\begin{align}
+\vec{v}\otimes\vec{w}
+=\vec{v}\vec{w}^\dagger
+=\left(\begin{matrix}
+v^1\\v^2
+\end{matrix}\right)
+(w^1\,w^2\,w^3)
+=\left(\begin{matrix}
+v^1w^1 & v^1w^2 & v^1w^3 \\
+v^2w^1 & v^2w^2 & v^2w^3
+\end{matrix}\right)
+\end{align}
+Linear maps (via matrices) can be written as
+\begin{align}
+\textcolor{red}{(A\otimes B)}
+\textcolor{blue}{(\vec{v}\otimes\vec{w})}=
+\textcolor{red}{
+\left(\begin{array}{ccc}
+a_{11} B & ... & a_{1n}B\\
+...      & ... & ...\\
+a_{n1} B & ... & a_{nn}B\\
+\end{array}\right)}
+\textcolor{blue}{
+\left(\begin{array}{c}
+v_1\vec{w}\\
+...\\
+v_n \vec{w}
+\end{array}\right)}
+=(A\vec{v})\otimes(B\vec{w})
+\end{align}
+Be careful with sloppy notation for addition of operators - $A+B$ is not defined on $V$ or $W$ but CAN be defined on $V\otimes W$ via
+\begin{align}
+A+B\equiv A\otimes I_{m\times m} + I_{n\times n}\otimes B
+\end{align}
+and also
+\begin{align}
+\det(A\otimes B)&=(\det A)^m(\det B)^n\\
+\text{tr}(A\otimes B)&=(\text{tr} A)\cdot(\text{tr} B)
+\end{align}
 
-\section{Tensorproduct}
+
+\section{Clebsch-Gordon decomposition in QM}
+Falling from the sky
+\begin{align}
+\mathcal{H}_{j_1}\otimes\mathcal{H}_{j_2}
+=\mathcal{H}_{|j_1-j_2|}\oplus...\oplus\mathcal{H}_{j_1+j_2}
+\end{align}
+Using the notation 
+\begin{center}
+\begin{tabular}{cccc}
+$\mathcal{H}_{j_1}$ & $\dim{\mathcal{H}_{j_1}}$ & $\mathbf{2j_1+1}$ & Multiplett\\ \hline
+$\mathcal{H}_{0}$ & $0$ & $\mathbf{0}$ & Singlet\\
+$\mathcal{H}_{1/2}$ & $2$ & $\mathbf{2}$ & Doublet\\
+$\mathcal{H}_{1}$ & $3$ & $\mathbf{3}$ & Triplett\\
+$\mathcal{H}_{3/2}$ & $4$ & $\mathbf{4}$ & Quartett
+\end{tabular}
+\end{center}
+Examples
+\begin{align}
+j_1=\frac{1}{2}, j_2=\frac{1}{2}\quad&\rightarrow\quad\mathbf{2}\otimes\mathbf{2}=\mathbf{1}\oplus\mathbf{3}
+\quad\rightarrow\quad \text{1 singlet, 1 triplett}\\
+j_1=1, j_2=1\quad&\rightarrow\quad\mathbf{3}\otimes\mathbf{3}=\mathbf{1}\oplus\mathbf{3}\oplus\mathbf{5}
+\quad\rightarrow\quad \text{1 singlet, 1 triplett, 1 quintett}
+\end{align}
+Extension to three angular momentum
+\begin{align}
+\mathcal{H}_{j_1}\otimes\mathcal{H}_{j_2}\otimes\mathcal{H}_{j_3}
+=(\mathcal{H}_{j_1}\otimes\mathcal{H}_{j_2})\otimes\mathcal{H}_{j_3}
+=(\mathcal{H}_{|j_1-j_2|}\otimes\mathcal{H}_{j_3})\oplus...\oplus(\mathcal{H}_{j_1+j_2}\otimes\mathcal{H}_{j_3})
+\end{align}
+then
+\begin{align}
+j_1=1, j_2=1, j_3=1\quad
+&\rightarrow(\mathcal{H}_1\otimes\mathcal{H}_1)\otimes\mathcal{H}_1=(\mathcal{H}_0\oplus\mathcal{H}_1\oplus\mathcal{H}_2)\otimes\mathcal{H}_1\\
+&\qquad\qquad\qquad\qquad\quad=(\mathcal{H}_0\otimes\mathcal{H}_1)\oplus(\mathcal{H}_1\otimes\mathcal{H}_1)\oplus(\mathcal{H}_2\otimes\mathcal{H}_1)\\
+&\qquad\qquad\qquad\qquad\quad=(\mathcal{H}_1)\oplus(\mathcal{H}_0\oplus\mathcal{H}_1\oplus\mathcal{H}_2)\oplus(\mathcal{H}_1\oplus\mathcal{H}_2\oplus\mathcal{H}_3)\\
+&\rightarrow\mathbf{3}\otimes\mathbf{3}\otimes\mathbf{3}=\mathbf{1}\oplus\mathbf{3}\oplus\mathbf{3}\oplus\mathbf{3}\oplus\mathbf{5}\oplus\mathbf{5}\oplus\mathbf{7}
+\quad\rightarrow\quad  ...
+\end{align}
+
+
+\section{Tensorproduct in QM}
 Given two Hilbert spaces $\mathcal{V}_1, \mathcal{V}_2$ with complete orthonormal basis $\{|u_{i\in I}\rangle\}$ and $\{|v_{k\in K}\rangle\}$. The tensor product of two states $|\psi\rangle\in\mathcal{V}_1, |\phi\rangle\in\mathcal{V}_2$
 is defined by
 \begin{align}

@@ -273,6 +273,53 @@ with $m_B=5m_A$ we have
 \end{align}
 \end{enumerate}
 
+\subsection{Book (2.13)}
+The resulting force is
+\begin{align}
+F_r=(\sqrt{2}-1)\cdot 50N
+\end{align}
+pointing 45 degrees (direction North-East).
+
+To hold the system in place all the sum of the torques must also vanish. We assume that the distance of the point to $O$ is $x$ then the torques regarding $O$ are
+\begin{align}
+M_O&=0\\
+M_P&=0\\
+M_Q&=0.1\text{m}\cdot50\text{N}=5\text{N}\\
+M_r&=x\cdot\frac{F_r}{\sqrt{2}}=x\frac{\sqrt{2}-1}{\sqrt{2}}50\text{N}\\
+&\rightarrow x=\frac{1}{10}\frac{\sqrt{2}}{\sqrt{2}-1}=0.3414\text{m}
+\end{align}
+
+
+\subsection{Book (2.14)}
+Energy conservation gives
+\begin{align}
+W_1D\sin\theta-W_2D\sin\theta&=\frac{1}{2}\frac{W_1}{g}v^2+\frac{1}{2}\frac{W_2}{g}v^2\\
+(W_1-W_2)D\sin\theta&=\frac{W_1+W_2}{2g}v^2\\
+&\rightarrow v=\sqrt{\frac{2gD\sin\theta(W_1-W_2)}{W_1+W_2}}
+\end{align}
+
+\subsection{Book (2.15)}
+Energy conservation gives
+\begin{align}
+WD\sin\phi-WD\sin\theta&=2\frac{1}{2}\frac{W}{g}v^2\\
+WD(\sin\phi-\sin\theta)&=\frac{W}{g}v^2\\
+&\rightarrow v=\sqrt{gD(\sin\theta-\sin\theta)}
+\end{align}
+
+\subsection{Book (2.17)}
+Net torque must vanish 
+\begin{align}
+\left(WL+w\frac{L}{2}\right)\sin\theta=M=Fx
+\end{align}
+Then split $F$ into $T$ and a force along $x$
+\begin{align}
+\frac{F}{T}&=\cos\theta\\
+T&=\frac{F}{\cos\theta}=\frac{\left(WL+w\frac{L}{2}\right)\sin\theta}{x \cos\theta}=\frac{L}{x}\left(W+\frac{w}{2}\right)\tan\theta
+\end{align}
+
+
+
+
 \subsection{Book (2.22)}
 The center of the spheres build a tetrahedron
 \begin{figure}[!h]
@@ -314,6 +361,42 @@ including the safety margin we obtain
 \begin{align}
 \widetilde{T}=3T=\frac{mg}{\sqrt{6}}=2\text{ton-wt}
 \end{align}
+
+\subsection{Book (14.7)}
+\begin{align}
+dV&=2\pi \rho dA\\
+&=2\pi (R+r\cos\phi) dA\\
+\rightarrow V&=2\pi\int_0^\pi\int_0^R(R+r\cos\phi)r\,dr\,d\phi\\
+&=2\pi^2R^3
+\end{align}
+
+\subsection{Book (14.8)}
+CM is at $R/3$ so $\frac{2}{3}R\cdot M=\frac{1}{3}R\cdot 2M$ then
+\begin{align}
+J&=J_1+J_2\\
+&=M\left(\frac{2}{3}R\right)^2+2M\left(\frac{1}{3}R\right)^2\\
+&=\frac{4+2}{9}MR^2=\frac{2}{3}MR^2
+\end{align}
+and
+\begin{align}
+T=\frac{1}{2}J\omega^2=\frac{1}{3}MR^2\omega^2
+\end{align}
+
+\subsection{Book (14.10)}
+Consider two discs - the big one and the small one (the hole - with negative area mass density) - the combination/superposition makes up the disc with the hole
+\begin{align}
+m_1&=\rho_A\pi R^2\\
+m_2&=-\rho_A\pi (R/2)^2
+\end{align}
+then the CM
+\begin{align}
+m_1x&=(R/2-x)m_2\\
+\rightarrow x
+&=\frac{m_2R/2}{m_1+m_2}
+=\frac{-(R/2)^3}{R^2-(R/2)^2}
+=-\frac{\frac{R^3}{8}}{\frac{3}{4}R^2}=-\frac{1}{6}R\approx 1.66\text{cm}
+\end{align}
+
 
 
 \subsection{Problem Set 3-4 - 1961 Nov 03 (?.??)}
@@ -612,6 +695,44 @@ without lenses the angle would have been
 Then
 \begin{align}
 M=\tan\alpha'/\tan\alpha=F/f.
+\end{align}
+
+\subsection{Book (20.19)}
+First lens
+\begin{align}
+\frac{1}{f_1}&=\frac{1}{g}+\frac{1}{b}\\
+&\rightarrow b=\frac{gf_1}{g-f_1}=\frac{30,000}{970}\text{cm}=30.93\text{cm}
+\end{align}
+so real picture of first lens would be
+\begin{align}
+30.93\text{cm}-27.50\text{cm}=3.43\text{cm}
+\end{align}
+right of second lens. 
+
+\subsection{Book (20.20) - NOT DONE YET}
+The geometry of the system is
+\begin{align}
+x^2+y^2&=l^2\\
+x&=l\cos\alpha\\
+y&=l\sin\alpha.
+\end{align}
+The vertical heights of the endpoints are then
+\begin{align}
+h_\text{left}
+&=x\sin 60=\frac{\sqrt{3}}{2}x=\frac{\sqrt{3}}{2}l\cos\alpha\\
+h_\text{right}&=y\sin 30=\frac{1}{2}y=\frac{1}{2}l\sin\alpha.
+\end{align}
+Height of the center of gravity
+\begin{align}
+h_S
+&=\frac{h_\text{left}+h_\text{right}}{2}\\
+&=\frac{\sqrt{3}\cos\alpha+1\sqrt{1-\cos^2\alpha}}{4}l\\
+&=\frac{\epsilon\cos\alpha+1\sqrt{1-\epsilon^2}}{4}l
+\end{align}
+Stability condition: center of gravity in lowest position. So
+\begin{align}
+\frac{d}{d\epsilon}h_s(\epsilon)=0\quad&\rightarrow\quad\epsilon=\sqrt{3}/2\\
+&\rightarrow\quad\alpha=30^o
 \end{align}
 
 \subsection{Problem Set 1b  15-1 - 1962 March 6 (19.35)}
@@ -1093,15 +1214,15 @@ The condition for the spread limitation is
 
 \subsection{Exercise 7.4 Example: Energy Density and Flux, and Adiabatic Invariant, or a Dispersionless Wave}
 \begin{enumerate}[label=(\alph*)]
-\item For a generic Lagrangian density $\mathcal{L}$ we find
+\item For a generic Lagrangian density $\mathcal{L}$ we find $x^\mu=(t,x^i)$
 \begin{align}
     \delta\mathcal{L}
-    &=\frac{\partial \mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\delta\left(\frac{\partial \psi}{\partial x_i}\right)\\
-    &=\frac{\partial \mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\frac{\partial}{\partial x_i}\left(\delta\psi\right)\\
+    &=\frac{\partial \mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x^\mu}\right)}\delta\left(\frac{\partial \psi}{\partial x^\mu}\right)\\
+    &=\frac{\partial \mathcal{L}}{\partial\psi}\delta\psi+\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x^\mu}\right)}\frac{\partial}{\partial x^\mu}\left(\delta\psi\right)\\
     \rightarrow\delta\int\mathcal{L}d^4x
     &=\int\delta\mathcal{L}d^4x\\
-    &=\int\left[\frac{\partial \mathcal{L}}{\partial\psi}-\frac{\partial}{\partial x_i}\left(\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\right)\right]\delta\psi\\
-    \rightarrow 0&=\frac{\partial \mathcal{L}}{\partial\psi}-\frac{\partial}{\partial x_i}\left(\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x_i}\right)}\right)
+    &=\int\left[\frac{\partial \mathcal{L}}{\partial\psi}-\frac{\partial}{\partial x^\mu}\left(\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x^\mu}\right)}\right)\right]\delta\psi\\
+    \rightarrow 0&=\frac{\partial \mathcal{L}}{\partial\psi}-\frac{\partial}{\partial x^\mu}\left(\frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x^\mu}\right)}\right)
 \end{align}
 the general Euler-Lagrange equation. For the given density we can calculate the derivatives
 \begin{align}
@@ -1141,12 +1262,12 @@ and therefore
 \item The momentum density is given by
 \begin{align}
     \pi
-    &=\frac{\partial\mathcal{L}}{\partial\frac{\partial\phi}{\partial t}}=W\frac{\partial\phi}{\partial t}\\
-    \Pi&=\int\pi d^3x=\int W\frac{\partial\phi}{\partial t}d^3x
+    &=\frac{\partial\mathcal{L}}{\partial\frac{\partial\psi}{\partial t}}=W\frac{\partial\psi}{\partial t}\\
+    \Pi&=\int\pi d^3x=\int W\frac{\partial\psi}{\partial t}d^3x
 \end{align}
 \begin{align}
-    J&=\int_0^{\omega/2\pi}L dt=\int_0^{\omega/2\pi}\int\mathcal{L} d^3xdt\\
-    &=
+    J&=\int_0^{2\pi/\omega}\Pi dt=\int_0^{2\pi/\omega}\int W\frac{\partial\psi}{\partial t} d^3x\,dt\\
+    &=\int \int_0^{2\pi/\omega}W \frac{\partial\psi}{\partial t} dt\,d^3x\\
 \end{align}
 \end{enumerate}
 
@@ -1158,8 +1279,10 @@ and therefore
     &=\int_{-\infty}^\infty e^{-\frac{x^2}{2\sigma^2}}e^{-ikx}dx\\
     &=e^{-\frac{k^2\sigma^2}{2}}\int_{-\infty}^\infty e^{-\left(\frac{x}{\sqrt{2}\sigma}+\frac{ik\sigma}{\sqrt{2}}\right)^2}dx\\
     &=e^{-\frac{k^2\sigma^2}{2}} \sqrt{2\sigma^2} \int_{-\infty}^\infty e^{-y^2}dy\\
-    &=\sqrt{2\pi\sigma^2}e^{-\frac{\sigma^2k^2}{2}}\\
-    F_2(k)&=\int_{-\infty}^\infty f_2(x)e^{-ikx}dx\\
+    &=\sqrt{2\pi\sigma^2}e^{-\frac{\sigma^2k^2}{2}}
+\end{align}
+\begin{align}
+   F_2(k)&=\int_{-\infty}^\infty f_2(x)e^{-ikx}dx\\
     &=\int_{0}^\infty e^{-\frac{x}{h}}e^{-ikx}dx\\
     &=-\frac{1}{h}\left.e^{-\frac{x}{h}}e^{-ikx}\right|_0^\infty -\int_{0}^\infty \left(-\frac{1}{h}\right)e^{-\frac{x}{h}}\frac{1}{(-ik)}e^{-ikx}dx\\
     &=\frac{1}{h} -\frac{1}{ihk}\int_{0}^\infty e^{-\frac{x}{h}}e^{-ikx}dx\\
@@ -1701,6 +1824,19 @@ h(0,t)=\frac{h_0}{1+\exp{\alpha x}}
 \textcolor{red}{How to fix the constant C?}
 Additional material \cite{Whitham1999}.
 
+\section{{\sc Kittel} - Introduction to solid state physics 8th ed}
+\subsection{Problem 1.1. Tetrahedral angles}
+Look at fig. 10 - cosine law
+\begin{align}
+(2\sqrt{2}a)^2&=(\sqrt{3}a)^2+(\sqrt{3}a)^2-2(\sqrt{3}a)(\sqrt{3}a)\cos\alpha_T\\
+8&=6-6\cos\alpha\\
+\rightarrow\cos\alpha &= -\frac{1}{3}\\
+\rightarrow\alpha &= 109.47^o
+\end{align}
+
+\subsection{Problem 1.3. Hcp structure}
+Look at fig. 21 - $c$ is equal to ...
+
 
 \section{{\sc Davidson} - Introduction to Magnetohydrodynamics 2nd ed}
 
@@ -1905,6 +2041,30 @@ c) internal efficiency
 \end{align}
 
 \section{{\sc Strogatz} - Nonlinear Dynamics and Chaos}
+
+\subsection{Exercise 2.1 - A Geometric Way of Thinking}
+\begin{enumerate}[1.]
+\item $\dot{x}=0\rightarrow x_{0,k}=k\pi$
+\item $\dot{x}_\text{max}=1\rightarrow x_{\text{max},k}=2k\pi+\frac{\pi}{2}$
+\item
+\begin{enumerate}[a)]
+\item $\ddot{x}=\cos(x)\dot{x}=\sin(x)\cos(x)=\frac{1}{2}\sin(2x)$
+\item $k\pi+\frac{\pi}{4}$
+\end{enumerate}
+
+\item
+\begin{enumerate}[a)]
+\item
+\begin{align}
+t-t_0=\int_{0}^{x(t)}\frac{dx'}{\sin x'}
+\end{align}
+\item
+\end{enumerate}
+
+
+\end{enumerate}
+
+
 
 \section{{\sc Witten} - Physics 539}
 \subsection{Problem Set 1 - Due September 21 - 3}
