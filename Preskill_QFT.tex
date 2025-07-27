@@ -635,10 +635,13 @@ The energy of this state is
 H|n_\mathbf{k}\rangle=\sum_\mathbf{k}n_\mathbf{k}\omega_\mathbf{k}.
 \end{align}
 Since the excitations of each oscillations are uniformly spread these states have an obvious interpretation: The oscillator excitations are \underline{non-interacting particles} - \underline{Quanta} of the field. 
-%*************************** 1.20 ****************************
+
+\textcolor{red}{-----1.20-----------------------------}
+\newline
+
 This free particle Hilbert space is called Fock space.
 
-We will typically be interested in states with a finite number of particles, $\sum_\mathbf{k}<\infty$ and we will usually find it convenient to denote such a state
+We will typically be interested in states with a finite number of particles, $\sum n_\mathbf{k}<\infty$ and we will usually find it convenient to denote such a state
 \begin{align}
 |\mathbf{k}_1,...,\mathbf{k}_n\rangle\sim a(\mathbf{k}_1)^\dagger ...  a(\mathbf{k}_n)^\dagger|0\rangle
 \end{align}
@@ -662,7 +665,8 @@ consistent with Bose symmetry.
 
 ({\it Technical point: The Fock space is actually a small (separable) subspace the Full (nonseparable) oscillator Hilbert space, but all observables that interest us can be defined in Fock space.})
 
-%*************************** 1.21 ****************************
+\textcolor{red}{-----1.21-----------------------------}
+\newline
 
 Remarks:
 \begin{itemize}
@@ -689,7 +693,10 @@ Now if the \underline{vacuum} is translation invariant (It \underline{must be}, 
 \begin{align}
 e^{i\mathbf{Px}}|\mathbf{k}\rangle=e^{i\mathbf{kx}}|\mathbf{k}\rangle
 \end{align}
-%*************************** 1.22 ****************************
+
+\textcolor{red}{-----1.22-----------------------------}
+\newline
+
 So $|\mathbf{k}\rangle$ is a plane-wave state but
 \begin{align}
 |f\rangle&=\int d^3k\,f(\mathbf{k})|\mathbf{k}\rangle
@@ -721,7 +728,10 @@ and if we change frame twice, consistency demands
 U(\Lambda_1)U(\Lambda_2)|\text{state}\rangle=U(\Lambda_1 \Lambda_2)|\text{state}\rangle
 \end{align}
 So $U$ provides a representation acting in the Hilbert space. Further changing the frame should preserve the norm of the state, so $U(\Lambda)$ should be unitary. We will ??? $K$ and the form of this rep??? acting on the one-particles states explicitly since we will see that it is slightly subtle to get the normalization right.
-%*************************** 1.23 ****************************
+
+\textcolor{red}{-----1.23-----------------------------}
+\newline
+
 The obvious thing to do is to define
 \begin{align}
 U(\Lambda)|\mathbf{k}\rangle=|\Lambda\mathbf{k}\rangle.
@@ -748,7 +758,7 @@ Now check $UU^\dagger=\mathbb{1}$
 \begin{align}
 U\,\mathbb{1}\,U^\dagger
 &=\int d^3k\,U(\Lambda)|\mathbf{k}\rangle\langle \mathbf{k}|U(\Lambda)^\dagger\\
-&=\int d^3k\,|\Lambda\mathbf{k}\rangle\langle \Lambda\mathbf{k}\\
+&=\int d^3k\,|\Lambda\mathbf{k}\rangle\langle \Lambda\mathbf{k}|\\
 &=\int d^3(\Lambda^{-1}k)\,|\mathbf{k}\rangle\langle \mathbf{k}|
 \end{align}
 But the measure $d^3k$ is \underline{not} Lorentz invariant. The measure $d^4k$ \underline{is} Lorentz invariant so we can write Lorentz invariant integrals over 3-momentum in terms of
@@ -764,7 +774,10 @@ If we now introduce new states
 \begin{align}
 |k\rangle_\text{new}=(2\pi)^{3/2}\sqrt{2\omega_k}|\mathbf{k}\rangle_\text{old}
 \end{align}
-%*************************** 1.24 ****************************
+
+\textcolor{red}{-----1.24-----------------------------}
+\newline
+
 the new normalization (relativistic norm) is
 \begin{align}
 {}_\text{new}\langle k'|k\rangle_\text{new}
@@ -824,18 +837,88 @@ since the measure is invariant. The Lorentz invariance of the inner product $\La
 \begin{align}
 U(\Lambda)\phi(x)U(\Lambda)^\dagger=\phi(\Lambda x)
 \end{align}
-%*************************** 1.25 ****************************
-and we see that $\phi$ transforms as a scalar field under Lorentz transformations.
 
-Notice that all the steps in this argument are reversible. We used \underline{?????} with the transformation property $q$ $\phi(x)$, then infer how $\alpha$ and the relativistically normalized states transform. We thus final ??? quantization of scalar field spinless particles. (Spin zero means invariance under little group that leaves $p$ invariant)
+\textcolor{red}{-----1.25-----------------------------}
+\newline
 
+and we see that $\phi$ transforms as a scalar field should under Lorentz transformations.
 
+Notice that all the steps in this argument are reversible. We started with the transformation property of $\phi(x)$, then infer how $\alpha$ and the relativistically normalized states transform. We thus final ??? quantization of scalar field yields spinless particles. (Spin zero means invariance under little group that leaves $\mathbf{p}$ invariant under a rotation in the zero momentum frame or rotations about the $\vec{p}$ axis for a massless particle)
 
 \subsection{Schroedinger Representation}
-%*************************** 1.26 ****************************
-%*************************** 1.27 ****************************
-%*************************** 1.28 ****************************
+
+For most applications of quantum field theory, it is convenient to use the Heisenberg representation, as noted previously.
+But it is of conceptual value to note that the Schroedinger picture con be used if desired. Then time evolution prescribed how states vary in time, states that can be described by wave functionals.
+For example the energy eigenstates in this picture are solutions to a functional Schroedinger equation.
+
+Consider again the form of the Hamiltonian of the free scalar field in momentum space
+\begin{align}
+H=\int d^3k \frac{1}{2}\left[\tilde{\pi}(\mathbf{k}, t) \tilde{\pi}(-\mathbf{k}, t)+\frac{1}{2}\left(\mathbf{k}^{2}+m^{2}\right) \tilde{\phi}(\mathbf{k}, t) \tilde{\phi}(-\mathbf{k}, t)\right] \\
+[\tilde{\phi}(\mathbf{k}, t), \tilde{\pi}(\mathbf{k}', t)]=i \delta\left(\mathbf{k}+\mathbf{k}'\right)
+\end{align}
+
+\textcolor{red}{-----1.26-----------------------------}
+\newline
+
+When we write down the Schroedinger equation 
+\begin{align}
+\left[-\frac{1}{2m}\triangle + V(\mathbf{q})\right]\psi(\mathbf{q})=E\psi(\mathbf{q})
+\end{align}
+we have chosen to represent the Hilbert space in which $\mathbf{q}$ and $\mathbf{p}$ act as
+\begin{align}
+\mathcal{H}=\left\{L_2: \text{(square integrable) functions of } \mathbf{q}\right\}
+\end{align}
+and the commutator relation $[q_i,p_j]=\delta_{ij}$ is properly represented by
+\begin{align}
+\mathbf{p}=-i\nabla\qquad\text(Schroedinger Rep.)
+\end{align}
+To write down a functional Schroedinger equation in a field theory, we choose
+\begin{align}
+\mathcal{H}=\left\{\text{(square integrable) functions of } \phi(\mathbf{k})\right\}
+\end{align}
+and represent the commutation relation by
+\begin{align}
+\tilde{\pi}(\mathbf{k}\equiv\pi(\mathbf{k})=-i\frac{\delta}{\delta\phi(-\mathbf{k})}\qquad\text{(Operatos have no time dependence in this picture)}
+\end{align}
+The Hamiltonian is thus represented by
+\begin{align}
+H=\int d^3k\left[-\frac{1}{2}\frac{\delta}{\delta\phi(\mathbf{k})}\frac{\delta}{\delta\phi(\mathbf{-k})}+\frac{1}{2}\omega_k^2\phi(\mathbf{k}\phi(-\mathbf{k}))\right]
+\end{align}
+and the Schroedinger equation can be written as
+\begin{align}
+H\psi[\phi(\mathbf{k})]=E\psi[\phi(\mathbf{k})]
+\end{align}
+By the same manipulation as before we may write
+\begin{align}
+H=\int d^3k[\omega_k a(\mathbf{k})^\dagger a(\mathbf{k})+\text{const}]
+\end{align}
+
+(i.e. $\Pi_\mathbf{k}e^{-\frac{1}{2}\omega_k\phi(\mathbf{k})\phi(\mathbf{-k})}$ product of ground state wavefunction for each oscillator)
+
+\textcolor{red}{-----1.27-----------------------------}
+\newline
+
+where
+\begin{align}
+a(\mathbf{k})=\frac{1}{\sqrt{2\omega_k}}\frac{\delta}{\delta\phi(-\mathbf{k})}+\sqrt{\frac{\omega_k}{2}}\phi(\mathbf{k})
+\end{align}
+E.q. the ground state wave functional satisfies the first order equation
+\begin{align}
+a(\mathbf{k})\psi=0\qquad(\text{for all }\mathbf{k})
+\end{align}
+and is therefore, up to normalization
+\begin{align}
+\psi[\phi(\mathbf{k})]=\exp[-\frac{1}{2}\int d^3k \;\omega_k\phi(\mathbf{k})\phi(\mathbf{-k})]
+\end{align}
+
+\textcolor{red}{-----1.28-----------------------------}
+\newline
+
 \subsection{Causality (The algebra of observables}
+We have constructed the Hamiltonian of the free scalar field
+
+
+
 %*************************** 1.29 ****************************
 
 %*************************** 1.30 ****************************
